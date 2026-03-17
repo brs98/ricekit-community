@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Ricekit",
+  "version": "1.0.0",
+  "description": "Live browser theming powered by Ricekit",
+  "permissions": [
+    "theme",
+    "nativeMessaging"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "ricekit-theme@ricekit.dev",
+      "strict_min_version": "91.0"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "experiment_apis": {
+    "stylesheet": {
+      "schema": "schema.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["stylesheet"]],
+        "script": "api.js"
+      }
+    }
+  }
+}

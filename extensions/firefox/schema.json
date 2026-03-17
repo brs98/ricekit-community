@@ -1,0 +1,17 @@
+[
+  {
+    "namespace": "stylesheet",
+    "description": "Reload userChrome.css at runtime via windowUtils",
+    "functions": [
+      {
+        "name": "reload",
+        "type": "function",
+        "description": "Remove and re-load a stylesheet by file URI on all browser windows",
+        "async": true,
+        "parameters": [
+          { "name": "fileUri", "type": "string" }
+        ]
+      }
+    ]
+  }
+]
