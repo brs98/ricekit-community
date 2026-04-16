@@ -4,14 +4,18 @@
 //
 // LESS operators we handle (others pass through untouched):
 //   fade(c, p%)        → rgb(from c r g b / p/100)
-//   lighten(c, p%)     → hsl(from c h s calc(l + p%))
-//   darken(c, p%)      → hsl(from c h s calc(l - p%))
-//   saturate(c, p%)    → hsl(from c h calc(s + p%) l)
-//   desaturate(c, p%)  → hsl(from c h calc(s - p%) l)
+//   lighten(c, p%)     → hsl(from c h s calc(l + p))
+//   darken(c, p%)      → hsl(from c h s calc(l - p))
+//   saturate(c, p%)    → hsl(from c h calc(s + p) l)
+//   desaturate(c, p%)  → hsl(from c h calc(s - p) l)
 //   spin(c, d)         → hsl(from c calc(h + d) s l)
 //   shade(c, p%)       → color-mix(in srgb, black p%, c)
 //   mix(a, b)          → color-mix(in srgb, a 50%, b)
 //   mix(a, b, p%)      → color-mix(in srgb, a p%, b)
+// Note: the hsl channel keywords (h/s/l) resolve to `<number>` in relative-
+// color form, so we strip `%` and `deg` units off scalar args before adding
+// them inside calc(). color-mix keeps the `%` since its weights are proper
+// percentages, not channel adjustments.
 //
 // The single LESS argument that matters is the color argument — if it resolves
 // to a recognized Catppuccin palette variable, we substitute `var(--ctp-<name>)`.
@@ -179,6 +183,12 @@ function numericArg(nodes: Node[]): string {
   return stringifyArgRaw(nodes);
 }
 
+// Drop a trailing `%` or `deg` unit so the numeric value can be combined
+// with `<number>`-typed relative-color channel keywords in a calc().
+function stripUnit(s: string): string {
+  return s.replace(/(?:%|deg)$/, "");
+}
+
 // Rewrite a value-parser node in place. If `inUnknown` is true we're inside
 // a non-color LESS function like `#lib.rgbify(...)` or `#hslify(...)` that
 // needs to see real LESS hex colors for its own evaluation — so we skip all
@@ -236,27 +246,36 @@ function tryBuildOp(op: string, args: Node[][]): string | null {
       const alpha = (parseFloat(pct) / 100).toString();
       return `rgb(from ${color} r g b / ${alpha})`;
     }
+    // In CSS relative-color form, `h`/`s`/`l` resolve to plain `<number>`
+    // values — not `<percentage>` or `<angle>`. Mixing `l` (a number) with
+    // `5%` (a percentage) inside calc() is type-ambiguous and some Firefox
+    // versions silently reject it, dropping the whole declaration and
+    // leaving the target background transparent (seen on GitHub's primary
+    // button hover). Emit bare numbers instead: `calc(l + 5)` is two numbers
+    // summed, and hsl's lightness slot accepts a number as the 0–100
+    // percent value unambiguously.
     case "lighten":
       return args.length === 2
-        ? `hsl(from ${color} h s calc(l + ${numericArg(args[1])}))`
+        ? `hsl(from ${color} h s calc(l + ${stripUnit(numericArg(args[1]))}))`
         : null;
     case "darken":
       return args.length === 2
-        ? `hsl(from ${color} h s calc(l - ${numericArg(args[1])}))`
+        ? `hsl(from ${color} h s calc(l - ${stripUnit(numericArg(args[1]))}))`
         : null;
     case "saturate":
       return args.length === 2
-        ? `hsl(from ${color} h calc(s + ${numericArg(args[1])}) l)`
+        ? `hsl(from ${color} h calc(s + ${stripUnit(numericArg(args[1]))}) l)`
         : null;
     case "desaturate":
       return args.length === 2
-        ? `hsl(from ${color} h calc(s - ${numericArg(args[1])}) l)`
+        ? `hsl(from ${color} h calc(s - ${stripUnit(numericArg(args[1]))}) l)`
         : null;
     case "spin": {
       if (args.length !== 2) return null;
-      const deg = numericArg(args[1]);
-      const degWithUnit = /[a-z]/i.test(deg) ? deg : `${deg}deg`;
-      return `hsl(from ${color} calc(h + ${degWithUnit}) s l)`;
+      // `h` resolves to a number of degrees, so add a bare number — mixing
+      // an angle like `180deg` with the number `h` is the same type error.
+      const deg = stripUnit(numericArg(args[1]));
+      return `hsl(from ${color} calc(h + ${deg}) s l)`;
     }
     case "shade":
       return args.length === 2

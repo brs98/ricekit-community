@@ -17,21 +17,24 @@ Deno.test("fade() on palette var becomes rgb(from … alpha)", () => {
   );
 });
 
-Deno.test("lighten()/darken() use hsl relative lightness", () => {
+Deno.test("lighten()/darken() use hsl relative lightness with bare numbers", () => {
+  // `l` resolves to a <number> in relative-color form, so we add a bare
+  // number — mixing `l + 10%` in calc() is type-ambiguous and some Firefox
+  // versions silently drop the whole declaration.
   assertEquals(
     rewriteValue("lighten(@surface0, 10%)"),
-    `~"hsl(from var(--ctp-surface0) h s calc(l + 10%))"`,
+    `~"hsl(from var(--ctp-surface0) h s calc(l + 10))"`,
   );
   assertEquals(
     rewriteValue("darken(@blue, 5%)"),
-    `~"hsl(from var(--ctp-blue) h s calc(l - 5%))"`,
+    `~"hsl(from var(--ctp-blue) h s calc(l - 5))"`,
   );
 });
 
-Deno.test("saturate()/desaturate() use hsl relative saturation", () => {
+Deno.test("saturate()/desaturate() use hsl relative saturation with bare numbers", () => {
   assertEquals(
     rewriteValue("saturate(@red, 20%)"),
-    `~"hsl(from var(--ctp-red) h calc(s + 20%) l)"`,
+    `~"hsl(from var(--ctp-red) h calc(s + 20) l)"`,
   );
 });
 
@@ -56,7 +59,7 @@ Deno.test("nested color ops compose via a single flat relative-color expr", () =
   // double-quoted strings (which it can't parse).
   assertEquals(
     rewriteValue("lighten(fade(@base, 50%), 10%)"),
-    `~"hsl(from rgb(from var(--ctp-base) r g b / 0.5) h s calc(l + 10%))"`,
+    `~"hsl(from rgb(from var(--ctp-base) r g b / 0.5) h s calc(l + 10))"`,
   );
 });
 
@@ -73,6 +76,16 @@ Deno.test("mixed declaration with multiple values", () => {
   assertEquals(
     rewriteValue("1px solid fade(@accent, 40%)"),
     `1px solid ~"rgb(from var(--ctp-accent) r g b / 0.4)"`,
+  );
+});
+
+Deno.test("spin() uses bare-number degrees", () => {
+  // `h` is a <number> of degrees in relative-color form, so don't add a
+  // `deg` unit to the second arg — mixing number + angle is the same type
+  // mismatch that breaks lightness/saturation calcs.
+  assertEquals(
+    rewriteValue("spin(@accent, 180)"),
+    `~"hsl(from var(--ctp-accent) calc(h + 180) s l)"`,
   );
 });
 
