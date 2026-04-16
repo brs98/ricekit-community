@@ -9,6 +9,7 @@ This repo is the public home for all community-contributable Ricekit content. Th
 | Directory | Status | What it is |
 | --- | --- | --- |
 | `extensions/firefox/` | Migrated | Firefox / Zen Browser extension source |
+| `userstyles/` | Migrated | Live-reloading Catppuccin-based web theming (Firefox addon + native messaging host) |
 | `themes/` | Upcoming | Bundled theme definitions (TOML + optional wallpapers) |
 | `templates/` | Upcoming | Config templates (terminal emulators, editors, status bars, etc.) |
 | `playground/` | Upcoming | Vite-built WASM web playground for previewing themes |

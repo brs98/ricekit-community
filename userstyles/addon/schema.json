@@ -1,0 +1,17 @@
+[
+  {
+    "namespace": "sheet",
+    "description": "Register a single user-origin stylesheet globally, hot-swappable.",
+    "functions": [
+      {
+        "name": "apply",
+        "type": "function",
+        "description": "Replace the currently-registered user sheet with the given CSS text. Repaints every open document.",
+        "async": true,
+        "parameters": [
+          { "name": "css", "type": "string" }
+        ]
+      }
+    ]
+  }
+]

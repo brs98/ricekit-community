@@ -1,0 +1,3 @@
+[submodule "userstyles/upstream/catppuccin"]
+	path = userstyles/upstream/catppuccin
+	url = https://github.com/catppuccin/userstyles
