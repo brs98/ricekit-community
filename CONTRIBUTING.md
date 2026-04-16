@@ -29,7 +29,7 @@ The `userstyles/` tree has two distinct surfaces — pick the right one:
 1. Fork this repo and create a branch
 2. Make your change inside `userstyles/src/` or `userstyles/addon/`
 3. Run `cd userstyles && deno task test && deno task build`
-4. The build should still report 134/134 compiled
+4. The build should still report every upstream userstyle compiling (the count is visible on the `userstyles-stats` badge in `userstyles/README.md`)
 5. Open a PR
 
 **Do not commit changes under `userstyles/upstream/catppuccin/`.** That directory is a git submodule tracking [catppuccin/userstyles](https://github.com/catppuccin/userstyles); upstream patches belong there, and a daily GitHub Action bumps the pin automatically.

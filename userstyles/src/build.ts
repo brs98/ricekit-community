@@ -1,6 +1,6 @@
-// Compile every Catppuccin userstyle to .user.css under ricekit/build/dist.
+// Compile every Catppuccin userstyle to .user.css under userstyles/build/dist.
 // Reports failures per-site but keeps going — one broken userstyle shouldn't
-// block the other 133.
+// block the others.
 import { join } from "jsr:@std/path@^1.0.8";
 import { compileUserLess } from "./compile.ts";
 

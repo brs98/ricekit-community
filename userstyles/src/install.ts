@@ -158,7 +158,7 @@ console.log("     - open  about:debugging#/runtime/this-firefox");
 console.log("     - click 'Load Temporary Add-on'");
 console.log(`     - select  ${addonManifest}`);
 console.log("");
-console.log("  2. Bulk-install the 134 userstyles in Stylus:");
+console.log("  2. Bulk-install the userstyles in Stylus:");
 console.log("     - Stylus → Manage → 'Backup' (↕) → 'Import'");
 console.log(`     - select  ${projectRoot}build/import.json`);
 console.log("");

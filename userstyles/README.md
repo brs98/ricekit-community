@@ -1,5 +1,8 @@
 # ricekit-community/userstyles
 
+![upstream compiling](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrs98%2Fricekit-community%2Fmain%2F.github%2Fbadges%2Fuserstyles-upstream.json)
+![custom userstyles](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrs98%2Fricekit-community%2Fmain%2F.github%2Fbadges%2Fuserstyles-custom.json)
+
 Live-reloading web-page theming for Ricekit. The moment you run `ricekit apply <theme>`, every open tab re-colours with the new palette — no refresh, no manual step.
 
 ## How it works
@@ -12,8 +15,8 @@ ricekit apply <theme>
 │  Native messaging host   (src/host.ts, compiled binary)  │
 │  - Deno.watchFs on ~/.config/ricekit/state.toml          │
 │  - shells out to `ricekit theme show`                    │
-│  - maps ricekit palette → 26 Catppuccin tokens           │
 │  - emits a fresh :root { --rk-* } CSS blob               │
+│    (ricekit ANSI + OKLCH-derived Catppuccin slots)       │
 └──────────────────────────────┬───────────────────────────┘
                                │ stdio (4-byte LE length + JSON)
                                ▼
@@ -25,7 +28,7 @@ ricekit apply <theme>
 └──────────────────────────────────────────────────────────┘
                                │
                                ▼  cascades into every page
-                     134 transformed Catppuccin userstyles
+                     transformed Catppuccin userstyles
                      (each references var(--rk-*) via Stylus)
 ```
 
@@ -105,6 +108,6 @@ Drop `styles/<site-slug>/ricekit.user.less` (or `.user.css`). The build loop pic
 
 ## Status
 
-**Build**: 134/134 Catppuccin userstyles compile cleanly.
+Compile and custom-userstyle counts are surfaced by the badges at the top of this README. The `userstyles-stats` workflow refreshes them on every push to main that touches `userstyles/`.
 
 **Platform**: Firefox (tested) and Zen Browser (manifest registered, untested). Chromium has no equivalent to `nsIStyleSheetService`; support would need a different architecture.

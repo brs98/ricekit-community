@@ -72,7 +72,7 @@ jobs:
             echo ""
             echo "### Build result"
             echo ""
-            echo "\`deno task build\` ran in the previous step. If the job is green, all 134 userstyles still compile."
+            echo "\`deno task build\` ran in the previous step. If the job is green, every upstream userstyle still compiles."
             echo "BODY_EOF"
           } >> "$GITHUB_OUTPUT"
 
