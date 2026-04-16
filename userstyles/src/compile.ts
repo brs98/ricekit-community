@@ -183,13 +183,38 @@ function restoreLessMixins(serialized: string, original: string): string {
   return out;
 }
 
+// Drop LESS single-line `// ...` comments before postcss-less sees them.
+// postcss-less round-trips `//` as a block comment on serialize, which breaks
+// when the comment body happens to contain `*/` (seen in the wild on lastfm:
+// `// TODO: https://www.last.fm/user/*/listening-report/week`). LESS strips
+// `//` comments during compilation anyway, so we lose nothing by dropping
+// them up front. The lookbehind rejects `//` when preceded by `:` (protocol
+// URLs like `https://`) or quotes (protocol-relative URLs in strings like
+// `url("//assets.jisho.org/...")`).
+const LESS_LINE_COMMENT_RE = /(?<![:"'])\/\/[^\n]*/g;
+
+// Turn standalone `.mixin;` / `#mixin;` (a class/id mixin call without parens)
+// into `.mixin();` / `#mixin();`. Modern LESS parses the unparenthesized form
+// as a namespace-lookup expression and errors with "Missing '[...]' lookup in
+// variable call" (seen on canvas-lms line 1939 — one stray `.flush-button;`
+// where every sibling is `.flush-button();`). Line-scoped so we don't touch
+// declarations or selectors.
+const BARE_MIXIN_CALL_RE = /^([ \t]*)([.#][A-Za-z_][\w-]*)\s*;[ \t]*$/gm;
+
+function sanitizeForPostcssLess(source: string): string {
+  return source
+    .replace(LESS_LINE_COMMENT_RE, "")
+    .replace(BARE_MIXIN_CALL_RE, "$1$2();");
+}
+
 function rewriteLessSource(source: string): string {
-  const root = postcssLess.parse(source);
+  const sanitized = sanitizeForPostcssLess(source);
+  const root = postcssLess.parse(sanitized);
   root.walkDecls((decl) => {
     const next = rewriteValue(decl.value);
     if (next !== decl.value) decl.value = next;
   });
-  return restoreLessMixins(root.toString(), source);
+  return restoreLessMixins(root.toString(), sanitized);
 }
 
 export type CompileResult = {

@@ -42,6 +42,15 @@ Deno.test("mix() becomes color-mix with weight", () => {
   );
 });
 
+Deno.test("2-arg mix() defaults weight to 50%", () => {
+  // LESS mix(a, b) without explicit weight uses 50/50 — matches CSS color-mix
+  // default when we supply `50%` explicitly.
+  assertEquals(
+    rewriteValue("mix(@red, @yellow)"),
+    `~"color-mix(in srgb, var(--ctp-red) 50%, var(--ctp-yellow))"`,
+  );
+});
+
 Deno.test("nested color ops compose via a single flat relative-color expr", () => {
   // Nested ops produce one flat `~"..."` wrap so LESS doesn't see nested
   // double-quoted strings (which it can't parse).

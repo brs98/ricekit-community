@@ -10,6 +10,7 @@
 //   desaturate(c, p%)  → hsl(from c h calc(s - p%) l)
 //   spin(c, d)         → hsl(from c calc(h + d) s l)
 //   shade(c, p%)       → color-mix(in srgb, black p%, c)
+//   mix(a, b)          → color-mix(in srgb, a 50%, b)
 //   mix(a, b, p%)      → color-mix(in srgb, a p%, b)
 //
 // The single LESS argument that matters is the color argument — if it resolves
@@ -161,9 +162,12 @@ function tryBuildOp(op: string, args: Node[][]): string | null {
         ? `color-mix(in srgb, black ${numericArg(args[1])}, ${color})`
         : null;
     case "mix": {
-      if (args.length !== 3) return null;
+      // LESS mix(a, b) defaults weight to 50%; 3-arg form takes an explicit
+      // percent. Either way we emit CSS color-mix() with the same semantics.
+      if (args.length !== 2 && args.length !== 3) return null;
       const colorB = stringifyArgRaw(args[1]);
-      return `color-mix(in srgb, ${color} ${numericArg(args[2])}, ${colorB})`;
+      const weight = args.length === 3 ? numericArg(args[2]) : "50%";
+      return `color-mix(in srgb, ${color} ${weight}, ${colorB})`;
     }
     default:
       return null;
