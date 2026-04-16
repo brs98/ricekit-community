@@ -1,5 +1,5 @@
 // Compile a Catppuccin userstyle (.user.less) → .user.css with:
-//   - Every palette-var use rewritten to var(--ctp-*)
+//   - Every palette-var use rewritten to var(--rk-*)
 //   - Every LESS color-math op on palette vars rewritten to CSS relative colors
 //   - The remote @import swapped for an inlined stub of #lib.* mixins
 //   - @lightFlavor/@darkFlavor/@accentColor defaulted so stray LESS expressions
@@ -30,7 +30,7 @@ const PALETTE_TOKENS = [
 ];
 
 // Read the real lib.less but strip out the `#lib` block — we replace it with
-// our own that defers colors to var(--ctp-*) refs. The `@catppuccin` and
+// our own that defers colors to var(--rk-*) refs. The `@catppuccin` and
 // `@catppuccin-filters` maps at the top of the file are preserved so that
 // userstyles referencing `@catppuccin[@@flavor][@@X]` still resolve (to the
 // Mocha/whatever defaults — they compile to hex literals that survive in the
@@ -67,9 +67,9 @@ ${PALETTE_TOKENS.map(([k, v]) => `    @${k}: ${v}; @${k}-filter: none;`).join("\
   }
   .defaults() {
     color-scheme: dark;
-    ::selection { background-color: rgb(from var(--ctp-accent) r g b / 0.3); }
+    ::selection { background-color: rgb(from var(--rk-accent) r g b / 0.3); }
     input, textarea {
-      &::placeholder { color: var(--ctp-subtext0) !important; }
+      &::placeholder { color: var(--rk-white) !important; }
     }
   }
   .rgbify(@color) {

@@ -13,7 +13,7 @@ ricekit apply <theme>
 │  - Deno.watchFs on ~/.config/ricekit/state.toml          │
 │  - shells out to `ricekit theme show`                    │
 │  - maps ricekit palette → 26 Catppuccin tokens           │
-│  - emits a fresh :root { --ctp-* } CSS blob              │
+│  - emits a fresh :root { --rk-* } CSS blob               │
 └──────────────────────────────┬───────────────────────────┘
                                │ stdio (4-byte LE length + JSON)
                                ▼
@@ -26,15 +26,30 @@ ricekit apply <theme>
                                │
                                ▼  cascades into every page
                      134 transformed Catppuccin userstyles
-                     (each references var(--ctp-*) via Stylus)
+                     (each references var(--rk-*) via Stylus)
 ```
 
 Every Catppuccin userstyle has been transformed at build time:
-- LESS palette vars (`@mauve`, `@text`) → `var(--ctp-mauve)`, `var(--ctp-text)`
-- LESS color math (`fade(@accent, 30%)`, `lighten(@surface0, 5%)`) → CSS relative colors (`rgb(from var(--ctp-accent) r g b / 0.3)`, `hsl(from var(--ctp-surface0) h s calc(l + 5%))`)
+- LESS palette vars (`@text`, `@red`, `@mauve`) → `var(--rk-foreground)`, `var(--rk-red)`, `var(--rk-accent)` (full table below)
+- LESS color math (`fade(@accent, 30%)`, `lighten(@surface0, 5%)`) → CSS relative colors (`rgb(from var(--rk-accent) r g b / 0.3)`, `hsl(from var(--rk-surface0) h s calc(l + 5))`)
 - Stylus `@preprocessor less` directive stripped so Stylus treats the payload as plain CSS
 
-The addon only ever *sets* the 26 `:root` variables; the userstyles do the rest via the cascade.
+The addon installs a `:root` block with 22 ricekit ANSI + semantic tokens as `--rk-*`, plus 13 OKLCH-derived Catppuccin-named slots (`--rk-surface0`, `--rk-peach`, `--rk-lavender`, etc.) that track whatever the base ricekit theme is. Everything downstream is pure CSS — change the ricekit theme, every derivation re-evaluates at browser paint time.
+
+### Catppuccin → ricekit mapping
+
+ANSI-direct (from Catppuccin's style guide, `docs/style-guide.md §ANSI Color Generation`):
+
+| Catppuccin | `--rk-*` | | Catppuccin | `--rk-*` |
+|---|---|---|---|---|
+| `@red`, `@green`, `@yellow`, `@blue` | same name | | `@surface1` | `--rk-black` |
+| `@pink` | `--rk-magenta` | | `@surface2` | `--rk-bright-black` |
+| `@teal` | `--rk-cyan` | | `@subtext0` | `--rk-white` |
+| | | | `@subtext1` | `--rk-bright-white` |
+
+Semantic direct: `@text` → `--rk-foreground`, `@base` → `--rk-background`, `@accent` / `@mauve` → `--rk-accent`.
+
+OKLCH-derived at `:root` (so the result tracks the theme): `@surface0`, `@mantle`, `@crust`, `@overlay0/1/2`, `@maroon`, `@flamingo`, `@rosewater`, `@peach`, `@sapphire`, `@sky`, `@lavender`.
 
 ## Layout
 
@@ -86,7 +101,7 @@ git commit -m "chore(userstyles): bump upstream catppuccin"
 
 ## Adding a ricekit-native userstyle
 
-Drop `styles/<site-slug>/ricekit.user.less` (or `.user.css`). The build loop picks it up automatically and includes it in `build/import.json`. These aren't transformed the way Catppuccin userstyles are — write them directly against `var(--ctp-*)` variables.
+Drop `styles/<site-slug>/ricekit.user.less` (or `.user.css`). The build loop picks it up automatically and includes it in `build/import.json`. These aren't transformed the way Catppuccin userstyles are — write them directly against the `--rk-*` variables the addon installs at `:root`.
 
 ## Status
 

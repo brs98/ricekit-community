@@ -1,6 +1,6 @@
 // Rewrite LESS color-math calls on Catppuccin palette variables into escaped
 // CSS relative-color expressions, so that the compiled output references
-// `var(--ctp-*)` and is controllable at runtime by setting those variables.
+// `var(--rk-*)` and is controllable at runtime by setting those variables.
 //
 // LESS operators we handle (others pass through untouched):
 //   fade(c, p%)        → rgb(from c r g b / p/100)
@@ -18,19 +18,56 @@
 // percentages, not channel adjustments.
 //
 // The single LESS argument that matters is the color argument — if it resolves
-// to a recognized Catppuccin palette variable, we substitute `var(--ctp-<name>)`.
+// to a recognized Catppuccin palette variable, we substitute the
+// corresponding `var(--rk-*)` ricekit custom property (see PALETTE_MAP).
 // Nested calls like `lighten(fade(@base, 50%), 10%)` rewrite inside-out and
 // compose as nested CSS relative-color expressions.
 
 import valueParser, { type Node } from "npm:postcss-value-parser@4.2.0";
 
-export const PALETTE_NAMES = new Set([
-  "rosewater", "flamingo", "pink", "mauve", "red", "maroon",
-  "peach", "yellow", "green", "teal", "sky", "sapphire",
-  "blue", "lavender", "text", "subtext1", "subtext0",
-  "overlay2", "overlay1", "overlay0", "surface2", "surface1",
-  "surface0", "base", "mantle", "crust", "accent",
-]);
+// Map Catppuccin's 26 palette tokens + the `accent` alias to the ricekit
+// CSS custom properties installed on :root at runtime.
+//
+// Direct rows follow the Catppuccin style guide's ANSI mapping
+// (docs/style-guide.md §ANSI Color Generation): the 10 tokens that Catppuccin
+// explicitly assigns to ANSI slots (red, green, yellow, blue, pink, teal,
+// subtext0/1, surface1/2) go to the matching ricekit ANSI var. Semantic rows
+// (text, base, accent, mauve) go to ricekit's semantic slots. Everything
+// else points at a Catppuccin-named --rk-* var that host.ts defines as an
+// OKLCH derivation from the ricekit base, so Catppuccin's non-ANSI tokens
+// stay visually close to their upstream design while still tracking ricekit.
+export const PALETTE_MAP: Record<string, string> = {
+  // style-guide ANSI (10)
+  red: "var(--rk-red)",
+  green: "var(--rk-green)",
+  yellow: "var(--rk-yellow)",
+  blue: "var(--rk-blue)",
+  pink: "var(--rk-magenta)",
+  teal: "var(--rk-cyan)",
+  subtext0: "var(--rk-white)",
+  subtext1: "var(--rk-bright-white)",
+  surface1: "var(--rk-black)",
+  surface2: "var(--rk-bright-black)",
+  // semantic direct (4)
+  text: "var(--rk-foreground)",
+  base: "var(--rk-background)",
+  accent: "var(--rk-accent)",
+  mauve: "var(--rk-accent)",
+  // oklch-derived — host.ts emits these as :root vars (13)
+  surface0: "var(--rk-surface0)",
+  mantle: "var(--rk-mantle)",
+  crust: "var(--rk-crust)",
+  overlay0: "var(--rk-overlay0)",
+  overlay1: "var(--rk-overlay1)",
+  overlay2: "var(--rk-overlay2)",
+  maroon: "var(--rk-maroon)",
+  flamingo: "var(--rk-flamingo)",
+  rosewater: "var(--rk-rosewater)",
+  peach: "var(--rk-peach)",
+  sapphire: "var(--rk-sapphire)",
+  sky: "var(--rk-sky)",
+  lavender: "var(--rk-lavender)",
+};
 
 function stripFilterSuffix(name: string): string {
   return name.endsWith("-filter") ? name.slice(0, -"-filter".length) : name;
@@ -39,19 +76,19 @@ function stripFilterSuffix(name: string): string {
 function isPaletteVarToken(token: string): boolean {
   if (!token.startsWith("@")) return false;
   const name = stripFilterSuffix(token.slice(1));
-  return PALETTE_NAMES.has(name);
+  return name in PALETTE_MAP;
 }
 
 function paletteVarCssRef(token: string): string {
   // Filter variants are not colors (they're SVG filter strings), so they pass
-  // through unchanged — but callers only invoke this after isPaletteVarToken
-  // returned true, so we just need the base name.
+  // through unchanged — callers only invoke this after isPaletteVarToken
+  // returned true, so we know the base name is in PALETTE_MAP.
   const raw = token.slice(1);
   if (raw.endsWith("-filter")) {
     // Keep filter vars as-is; they're not colors we control via :root CSS vars.
     return token;
   }
-  return `var(--ctp-${raw})`;
+  return PALETTE_MAP[raw];
 }
 
 // Split a function's child nodes into argument groups (separated by commas).
@@ -193,7 +230,7 @@ function stripUnit(s: string): string {
 // a non-color LESS function like `#lib.rgbify(...)` or `#hslify(...)` that
 // needs to see real LESS hex colors for its own evaluation — so we skip all
 // palette-var substitution and color-op rewrites in that subtree. Otherwise
-// palette vars become `var(--ctp-*)` and known ops become `~"<CSS expr>"`
+// palette vars become `var(--rk-*)` and known ops become `~"<CSS expr>"`
 // (the `~"..."` is LESS's escape-string syntax, which passes the inner text
 // through to the compiled CSS without LESS trying to parse it).
 function rewriteNode(node: Node, inUnknown: boolean): boolean {

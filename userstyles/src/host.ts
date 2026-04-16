@@ -11,11 +11,7 @@
 // stderr is allowed and lands in Firefox's Browser Console tagged with the
 // host name. stdout is reserved for the native-messaging protocol.
 
-import {
-  CATPPUCCIN_TOKENS,
-  mapRicekitToCatppuccin,
-  parseRicekitThemeShow,
-} from "./palette.ts";
+import { generateRootCss, parseRicekitThemeShow } from "./palette.ts";
 
 const HOME = Deno.env.get("HOME") ?? "";
 const STATE_FILE = `${HOME}/.config/ricekit/state.toml`;
@@ -121,21 +117,8 @@ async function generateCss(): Promise<string> {
       `ricekit theme show failed (${code}): ${new TextDecoder().decode(stderr)}`,
     );
   }
-  const ricekit = parseRicekitThemeShow(new TextDecoder().decode(stdout));
-  const ctp = mapRicekitToCatppuccin(ricekit);
-
-  const lines = [
-    `/* generated from ricekit theme "${theme}" */`,
-    `:root {`,
-  ];
-  for (const t of CATPPUCCIN_TOKENS) {
-    lines.push(`  --ctp-${t}: ${ctp[t]};`);
-  }
-  // ricekit's semantic accent gets its own slot, overriding the Catppuccin
-  // mauve default that the userstyles resolve `@accent` to.
-  lines.push(`  --ctp-accent: ${ricekit.accent};`);
-  lines.push(`}`);
-  return lines.join("\n");
+  const p = parseRicekitThemeShow(new TextDecoder().decode(stdout));
+  return generateRootCss(p, `/* generated from ricekit theme "${theme}" */`);
 }
 
 async function pushVars(): Promise<void> {

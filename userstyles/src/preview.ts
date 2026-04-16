@@ -1,7 +1,7 @@
-// Standalone: run `ricekit theme show <name>` and print the 26-token mapping.
+// Standalone: run `ricekit theme show <name>` and print the 22 ricekit tokens.
 // Usage: deno run -A src/preview.ts <theme-name>
 
-import { mapRicekitToCatppuccin, parseRicekitThemeShow, CATPPUCCIN_TOKENS } from "./palette.ts";
+import { parseRicekitThemeShow, type RicekitPalette } from "./palette.ts";
 
 const themeName = Deno.args[0];
 if (!themeName) {
@@ -22,10 +22,9 @@ if (code !== 0) {
   Deno.exit(code);
 }
 
-const ricekit = parseRicekitThemeShow(new TextDecoder().decode(stdout));
-const ctp = mapRicekitToCatppuccin(ricekit);
+const palette = parseRicekitThemeShow(new TextDecoder().decode(stdout));
 
-console.log(`ricekit palette → Catppuccin 26 tokens (theme: ${themeName})\n`);
-for (const t of CATPPUCCIN_TOKENS) {
-  console.log(`  ${t.padEnd(10)} ${ctp[t]}`);
+console.log(`ricekit palette (theme: ${themeName})\n`);
+for (const [k, v] of Object.entries(palette) as [keyof RicekitPalette, string][]) {
+  console.log(`  ${k.padEnd(16)} ${v}`);
 }
