@@ -72,6 +72,107 @@ function stringifyArgRaw(nodes: Node[]): string {
   return valueParser.stringify(nodes as never).trim();
 }
 
+// Split a string by top-level commas, respecting parens and quoted strings.
+function splitTopLevelCommas(s: string): string[] {
+  const parts: string[] = [];
+  let buf = "";
+  let depth = 0;
+  let inString: string | null = null;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (inString) {
+      buf += c;
+      if (c === inString && s[i - 1] !== "\\") inString = null;
+    } else if (c === '"' || c === "'") {
+      buf += c;
+      inString = c;
+    } else if (c === "(") {
+      buf += c;
+      depth++;
+    } else if (c === ")") {
+      buf += c;
+      depth--;
+    } else if (c === "," && depth === 0) {
+      parts.push(buf);
+      buf = "";
+    } else {
+      buf += c;
+    }
+  }
+  if (buf.length > 0) parts.push(buf);
+  return parts;
+}
+
+// compile.ts seeds lightFlavor = darkFlavor = "mocha" as LESS globals, so
+// @flavor (the parameter passed to every `#catppuccin(@flavor)` mixin call)
+// is always "mocha" in our pipeline. That lets us evaluate LESS conditionals
+// like `if(@flavor = "latte", A, B)` at build time without running LESS.
+const STATIC_FLAVOR = "mocha";
+
+// Replace `if(@flavor = "X", A, B)` (and the unquoted `@flavor = X` variant)
+// with A or B depending on whether X matches STATIC_FLAVOR. Recurses so that
+// nested if() calls in either branch are also resolved. Anything that isn't
+// a flavor-conditional `if()` passes through unchanged.
+function resolveFlavorConditionals(s: string): string {
+  let out = "";
+  let i = 0;
+  while (i < s.length) {
+    const idx = s.indexOf("if(", i);
+    if (idx === -1) {
+      out += s.slice(i);
+      break;
+    }
+    // Bail if this is part of a larger identifier like `elif(` — only match
+    // `if` as a standalone identifier.
+    const prev = idx > 0 ? s[idx - 1] : "";
+    if (/[A-Za-z0-9_$-]/.test(prev)) {
+      out += s.slice(i, idx + 3);
+      i = idx + 3;
+      continue;
+    }
+    // Scan from after `if(` to the matching `)`, respecting nested parens
+    // and string literals.
+    let depth = 1;
+    let j = idx + 3;
+    let inString: string | null = null;
+    for (; j < s.length && depth > 0; j++) {
+      const c = s[j];
+      if (inString) {
+        if (c === inString && s[j - 1] !== "\\") inString = null;
+      } else if (c === '"' || c === "'") {
+        inString = c;
+      } else if (c === "(") {
+        depth++;
+      } else if (c === ")") {
+        depth--;
+        if (depth === 0) break;
+      }
+    }
+    if (depth !== 0) {
+      out += s.slice(i);
+      break;
+    }
+    const inner = s.slice(idx + 3, j);
+    const args = splitTopLevelCommas(inner);
+    const cond = args.length === 3 ? args[0].trim() : null;
+    const m = cond?.match(/^@flavor\s*=\s*"?(\w+)"?$/);
+    if (m) {
+      const chosen = m[1] === STATIC_FLAVOR ? args[1].trim() : args[2].trim();
+      out += s.slice(i, idx);
+      out += resolveFlavorConditionals(chosen);
+      i = j + 1;
+    } else {
+      // Not a flavor conditional — emit the if(...) call unchanged but
+      // still recurse into its body in case a branch-arg is one.
+      out += s.slice(i, idx + 3);
+      out += resolveFlavorConditionals(inner);
+      out += ")";
+      i = j + 1;
+    }
+  }
+  return out;
+}
+
 // Extract a numeric percent value (e.g. "30%" → 30) or a plain number from an
 // argument group. Returns the canonical string form for CSS consumption.
 function numericArg(nodes: Node[]): string {
@@ -193,8 +294,12 @@ function wrapRewrittenWords(nodes: Node[]): void {
 
 /** Rewrite a declaration value string. Safe to call on any LESS declaration. */
 export function rewriteValue(value: string): string {
-  const parsed = valueParser(value);
-  let changed = false;
+  // Resolve LESS flavor conditionals first so nested if() calls inside a
+  // known color op don't end up inside a `~"..."` escape (which LESS doesn't
+  // evaluate) and don't collide with the escape's own double quotes.
+  const resolved = resolveFlavorConditionals(value);
+  const parsed = valueParser(resolved);
+  let changed = resolved !== value;
   for (const node of parsed.nodes) {
     if (rewriteNode(node, false)) changed = true;
   }

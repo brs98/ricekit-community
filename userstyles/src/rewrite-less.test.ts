@@ -103,3 +103,40 @@ Deno.test("color op inside an unknown function is NOT rewritten", () => {
     "#hslify(lighten(@accent, 5%))",
   );
 });
+
+Deno.test("if(@flavor=...) inside known op resolves to mocha branch", () => {
+  // ichi.moe: `fade(if(@flavor = "latte", @surface0, @surface1), 50%)`.
+  // Our @flavor is always "mocha", so the conditional picks @surface1.
+  // Without resolution, ~"rgb(from if(@flavor = "latte",...))" would collide
+  // with its own nested double quotes and break Stylus's validator.
+  assertEquals(
+    rewriteValue(`fade(if(@flavor = "latte", @surface0, @surface1), 50%)`),
+    `~"rgb(from var(--ctp-surface1) r g b / 0.5)"`,
+  );
+});
+
+Deno.test("if(@flavor=mocha, ...) picks first branch", () => {
+  assertEquals(
+    rewriteValue(`fade(if(@flavor = "mocha", @surface0, @surface1), 50%)`),
+    `~"rgb(from var(--ctp-surface0) r g b / 0.5)"`,
+  );
+});
+
+Deno.test("if(@flavor=...) with unquoted flavor literal resolves too", () => {
+  // twitter-style: `if(@flavor = latte, A, B)` — no quotes around literal.
+  assertEquals(
+    rewriteValue(`fade(if(@flavor = latte, @red, @blue), 30%)`),
+    `~"rgb(from var(--ctp-blue) r g b / 0.3)"`,
+  );
+});
+
+Deno.test("top-level if(@flavor=...) also resolves (equivalent to LESS eval)", () => {
+  // Pre-resolving at any level produces the same result LESS would reach at
+  // compile time since @flavor is statically "mocha" in our pipeline. Top-
+  // level resolution bypasses LESS, which is fine because LESS would have
+  // picked the same branch.
+  assertEquals(
+    rewriteValue(`if(@flavor = "latte", #fff, @crust)`),
+    `var(--ctp-crust)`,
+  );
+});
