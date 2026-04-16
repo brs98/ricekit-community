@@ -25,7 +25,7 @@ ricekit apply <theme>
 └──────────────────────────────────────────────────────────┘
                                │
                                ▼  cascades into every page
-                     131 transformed Catppuccin userstyles
+                     134 transformed Catppuccin userstyles
                      (each references var(--ctp-*) via Stylus)
 ```
 
@@ -90,6 +90,6 @@ Drop `styles/<site-slug>/ricekit.user.less` (or `.user.css`). The build loop pic
 
 ## Status
 
-**Build**: 131 of 134 Catppuccin userstyles compile cleanly. Three failures (`canvas-lms`, `lastfm`, `npm`) hit LESS edge cases the transformer doesn't cover yet — they ship as-is and fall through to Catppuccin's hard-coded Mocha defaults.
+**Build**: 134/134 Catppuccin userstyles compile cleanly.
 
 **Platform**: Firefox (tested) and Zen Browser (manifest registered, untested). Chromium has no equivalent to `nsIStyleSheetService`; support would need a different architecture.
