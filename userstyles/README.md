@@ -18,7 +18,7 @@ ricekit apply <theme>
                                │ stdio (4-byte LE length + JSON)
                                ▼
 ┌──────────────────────────────────────────────────────────┐
-│  Firefox addon   (addon/)                                │
+│  Firefox addon   (../extensions/firefox/)                │
 │  - WebExtension experiment API: sheet.apply(css)         │
 │  - nsIStyleSheetService.loadAndRegisterSheet(USER_SHEET) │
 │  - global user-origin stylesheet → all docs, all windows │
@@ -50,11 +50,6 @@ userstyles/
 │   ├── host.ts               native messaging host (pushes CSS to addon)
 │   ├── install.ts            compile host binary + register native-messaging manifest
 │   └── ...                   dev helpers (try-compile, pinpoint, dump-rewritten)
-├── addon/                    Firefox WebExtension + experiment API
-│   ├── manifest.json
-│   ├── api.js                nsIStyleSheetService wrapper (parent scope)
-│   ├── schema.json           experiment API surface
-│   └── background.js         native-host bridge
 ├── styles/                   ricekit-native userstyles (non-catppuccin)
 ├── build/                    (gitignored) compiled .user.css + import.json
 └── deno.json                 tasks: build, install, preview, test
@@ -67,8 +62,9 @@ userstyles/
 deno task install
 deno task build
 
-# Load the addon:
-#   about:debugging → This Firefox → Load Temporary Add-on → addon/manifest.json
+# Load the addon (unified — lives in the sibling extensions/firefox/ dir):
+#   about:debugging → This Firefox → Load Temporary Add-on →
+#   ../extensions/firefox/manifest.json
 #
 # Bulk-install the userstyles in Stylus:
 #   Stylus → Manage → Backup (↕) → Import → build/import.json

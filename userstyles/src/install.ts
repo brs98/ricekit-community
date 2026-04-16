@@ -9,7 +9,12 @@
 //   - Stylus → Import build/import.json (one-click bulk install of userstyles)
 
 const HOST_NAME = "ricekit_userstyles";
-const ADDON_ID = "ricekit-userstyles@ricekit.dev";
+// Single unified Firefox addon lives at ../extensions/firefox/ in the
+// ricekit-community repo. That addon registers two experiment APIs (chrome
+// `stylesheet` + content `sheet`) and connects to two native hosts — the
+// main `ricekit` host (registered by the closed-source Ricekit app) and the
+// `ricekit_userstyles` host installed by this script.
+const ADDON_ID = "ricekit-theme@ricekit.dev";
 
 const HOME = Deno.env.get("HOME");
 if (!HOME) throw new Error("HOME not set");
@@ -17,7 +22,9 @@ if (!HOME) throw new Error("HOME not set");
 const here = new URL(".", import.meta.url).pathname; // .../userstyles/src/
 const projectRoot = new URL("..", import.meta.url).pathname; // .../userstyles/
 const hostScript = `${here}host.ts`;
-const addonManifest = `${projectRoot}addon/manifest.json`;
+// ricekit-community/userstyles/ → ricekit-community/extensions/firefox/
+const addonManifest =
+  new URL("../../extensions/firefox/manifest.json", import.meta.url).pathname;
 
 // Host lives entirely under ~/.config/ricekit-userstyles/ — a single compiled
 // binary plus its log. macOS TCC (13+) silently blocks Firefox from executing

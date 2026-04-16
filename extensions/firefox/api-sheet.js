@@ -3,6 +3,11 @@
 // (including newly-opened tabs / windows). Calling apply() again replaces the
 // previously-registered sheet, triggering a full repaint with new values —
 // no page refresh required.
+//
+// This API drives the web-page side of Ricekit theming (used by the
+// ricekit-community/userstyles pipeline). The sibling `stylesheet` API
+// handles chrome/userChrome.css reloads — different scopes, different
+// underlying XPCOM calls.
 
 "use strict";
 
