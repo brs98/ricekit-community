@@ -83,6 +83,16 @@ jobs:
           echo "Tarball: $(du -h "$TAR" | cut -f1)"
           echo "SHA256: $(cat "$TAR.sha256")"
 
+      - name: Build Firefox XPI and checksum
+        working-directory: extensions/firefox
+        run: |
+          set -euo pipefail
+          make xpi
+          XPI=$(ls dist/ricekit-theme-*.xpi)
+          sha256sum "$XPI" | awk '{print $1}' > "$XPI.sha256"
+          echo "XPI: $(du -h "$XPI" | cut -f1)"
+          echo "SHA256: $(cat "$XPI.sha256")"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -95,3 +105,5 @@ jobs:
             ricekit-content-v*.tar.gz
             ricekit-content-v*.tar.gz.sha256
             manifest.json
+            extensions/firefox/dist/ricekit-theme-*.xpi
+            extensions/firefox/dist/ricekit-theme-*.xpi.sha256
