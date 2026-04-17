@@ -1,102 +1,78 @@
 // Ricekit — live browser + web-page theming via native messaging.
 //
-// Two independent native hosts, two independent reconnect loops:
+// Single native host (`ricekit`, registered by ricekit main), three message
+// types:
 //
-//   `ricekit`            (registered by main Ricekit app)
-//     - theme_update      → browser.theme.update() for standard Firefox chrome
-//     - stylesheet_update → browser.stylesheet.reload() for Zen userChrome.css
+//   theme_update              → browser.theme.update()              (Firefox chrome)
+//   stylesheet_update         → browser.stylesheet.reload(fileUri)  (Zen userChrome.css)
+//   content_stylesheet_update → browser.sheet.loadGlobal(fileUri)   (global, incl. content)
 //
-//   `ricekit_userstyles` (registered by ricekit-community/userstyles install.ts)
-//     - vars_update       → browser.sheet.apply() — registers a global
-//                           user-origin stylesheet holding :root { --ctp-* }
-//                           variables that the Catppuccin userstyles resolve.
-//
-// Either host may be missing (user hasn't run the other side's install). Each
-// port reconnects independently on disconnect so a missing host doesn't spam
-// the other's logs.
+// One port, one reconnect loop.
 
-const HOSTS = {
-  ricekit: {
-    reconnectMs: 5000,
-    handlers: {
-      theme_update: (msg) => {
-        if (msg.colors) applyFirefoxTheme(msg.colors);
-      },
-      stylesheet_update: (msg) => {
-        if (msg.fileUri) reloadStylesheet(msg.fileUri);
-      },
-    },
-  },
-  ricekit_userstyles: {
-    reconnectMs: 3000,
-    handlers: {
-      vars_update: async (msg) => {
-        if (typeof msg.css === "string") {
-          try {
-            await browser.sheet.apply(msg.css);
-            console.log(
-              `[ricekit-userstyles] vars applied (${msg.css.length} bytes)`,
-            );
-          } catch (e) {
-            console.error("[ricekit-userstyles] sheet.apply failed:", e);
-          }
-        }
-      },
-    },
-  },
-};
+"use strict";
 
-function connect(hostName) {
-  const cfg = HOSTS[hostName];
-  let reconnectTimer = null;
+const HOST_NAME = "ricekit";
+const RECONNECT_MS = 5000;
 
-  function open() {
-    if (reconnectTimer) {
-      clearTimeout(reconnectTimer);
-      reconnectTimer = null;
-    }
-    try {
-      console.log(`[${hostName}] connecting to native host...`);
-      const port = browser.runtime.connectNative(hostName);
+let reconnectTimer = null;
 
-      port.onMessage.addListener((msg) => {
-        if (!msg || typeof msg !== "object") return;
-        const handler = cfg.handlers[msg.type];
-        if (handler) handler(msg);
-      });
-
-      port.onDisconnect.addListener(() => {
-        const err = browser.runtime.lastError;
-        console.log(`[${hostName}] disconnected:`, err ? err.message : "clean");
-        reconnectTimer = setTimeout(open, cfg.reconnectMs);
-      });
-    } catch (e) {
-      console.error(`[${hostName}] connection error:`, e);
-      reconnectTimer = setTimeout(open, cfg.reconnectMs);
-    }
+function connect() {
+  if (reconnectTimer) {
+    clearTimeout(reconnectTimer);
+    reconnectTimer = null;
   }
 
-  open();
+  try {
+    console.log(`[${HOST_NAME}] connecting to native host...`);
+    const port = browser.runtime.connectNative(HOST_NAME);
+
+    port.onMessage.addListener((msg) => {
+      if (!msg || typeof msg !== "object") return;
+      if (msg.type === "theme_update" && msg.colors) {
+        applyFirefoxTheme(msg.colors);
+      } else if (msg.type === "stylesheet_update" && msg.fileUri) {
+        reloadChromeSheet(msg.fileUri);
+      } else if (msg.type === "content_stylesheet_update" && msg.fileUri) {
+        loadGlobalSheet(msg.fileUri);
+      }
+    });
+
+    port.onDisconnect.addListener(() => {
+      const err = browser.runtime.lastError;
+      console.log(`[${HOST_NAME}] disconnected:`, err ? err.message : "clean");
+      reconnectTimer = setTimeout(connect, RECONNECT_MS);
+    });
+  } catch (e) {
+    console.error(`[${HOST_NAME}] connection error:`, e);
+    reconnectTimer = setTimeout(connect, RECONNECT_MS);
+  }
 }
 
-// Standard Firefox theme API (ignored by Zen, but works on Firefox).
 function applyFirefoxTheme(colors) {
   browser.theme.update({ colors }).then(
-    () => console.log("[ricekit] Firefox theme applied"),
-    (err) => console.error("[ricekit] Firefox theme failed:", err),
+    () => console.log(`[${HOST_NAME}] Firefox theme applied`),
+    (err) => console.error(`[${HOST_NAME}] Firefox theme failed:`, err),
   );
 }
 
-// Reload userChrome.css via experiment API (works on Zen).
-async function reloadStylesheet(fileUri) {
+async function reloadChromeSheet(fileUri) {
   try {
     const result = await browser.stylesheet.reload(fileUri);
     console.log(
-      `[ricekit] Stylesheet reloaded (${result.windows} window(s), ${result.elapsed}ms)`,
+      `[${HOST_NAME}] chrome stylesheet reloaded (${result.windows} window(s), ${result.elapsed}ms)`,
     );
   } catch (e) {
-    console.error("[ricekit] Stylesheet reload failed:", e);
+    console.error(`[${HOST_NAME}] chrome stylesheet reload failed:`, e);
   }
 }
 
-for (const name of Object.keys(HOSTS)) connect(name);
+async function loadGlobalSheet(fileUri) {
+  try {
+    await browser.sheet.loadGlobal(fileUri);
+    console.log(`[${HOST_NAME}] global sheet loaded: ${fileUri}`);
+  } catch (e) {
+    console.error(`[${HOST_NAME}] global sheet load failed:`, e);
+  }
+}
+
+connect();
