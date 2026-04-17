@@ -56,6 +56,17 @@ deno task build
 
 Runtime live-reload (pushing fresh `:root` values on every `ricekit apply`) is owned by ricekit main: run `ricekit browser setup` to install the addon + native-messaging host. The addon ships the `userstyles` config that renders `~/.config/ricekit/active/userstyles/rk-vars.css`, which the host hot-reloads into every document.
 
+## Auto-update
+
+Every compiled `.user.css` is stamped at build time with:
+
+- `@updateURL` → `https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/<site>.user.css`
+- `@version` → `{upstream-version}.{YYYYMMDDHHMM}` (UTC)
+
+Stylus polls `@updateURL` every 24 hours (configurable per user) and refreshes installed styles when it sees a newer `@version`. The daily `bump-userstyles-upstream` workflow rebuilds + commits `build/` as part of each upstream bump PR, so as soon as that PR merges, every Stylus user with the bundle installed auto-updates within 24h.
+
+If you edit `src/compile.ts` / `src/rewrite-less.ts` / `src/rewrite-meta.ts`, run `deno task build` and commit the result alongside your source change. The `check-userstyles-build` CI workflow enforces this on every PR.
+
 ## Keeping upstream in sync
 
 The Catppuccin userstyles repo lives at `upstream/catppuccin/` as a git submodule, pinned to a specific commit. A daily GitHub Action (`.github/workflows/bump-userstyles-upstream.yml`) opens a PR when upstream has new commits — the PR runs the full build so we catch any breakage introduced by new LESS idioms before merging.
