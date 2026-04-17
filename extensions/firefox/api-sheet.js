@@ -1,15 +1,18 @@
 // WebExtension experiment API: register a single user-origin stylesheet via
 // nsIStyleSheetService.loadAndRegisterSheet, applied globally across all
-// documents in all windows (chrome + content). Calling loadGlobal() again
-// unregisters the previous sheet and registers the new one, triggering a
-// full repaint with new values — no page refresh required.
+// documents (chrome + content). Calling loadGlobal() again unregisters the
+// previous sheet and registers the new one — full repaint, no reload.
 //
-// The sibling `stylesheet` API handles chrome/userChrome.css reloads via
-// windowUtils — different scopes, different underlying XPCOM calls.
+// Accepts a file URI, reads it in parent process, registers as a data: URI.
+// file:// URIs load via loadAndRegisterSheet silently don't cascade into
+// https:// content documents (USER_SHEET security gate). data: URIs do.
+//
+// The sibling `stylesheet` API handles userChrome.css reloads via windowUtils
+// — different scopes, different XPCOM calls.
 
 "use strict";
 
-/* global ExtensionAPI, ExtensionError, Cc, Ci, Services */
+/* global ExtensionAPI, ExtensionError, Cc, Ci, Services, IOUtils */
 
 let currentUri = null;
 
@@ -32,10 +35,14 @@ this.sheet = class extends ExtensionAPI {
               }
             }
 
-            const uri = Services.io.newURI(fileUri);
+            const path = Services.io.newURI(fileUri).QueryInterface(Ci.nsIFileURL).file.path;
+            const css = await IOUtils.readUTF8(path);
+            const dataUri = "data:text/css;charset=utf-8," + encodeURIComponent(css);
+            const uri = Services.io.newURI(dataUri);
+
             sss.loadAndRegisterSheet(uri, sss.USER_SHEET);
             currentUri = uri;
-            return { applied: true };
+            return { applied: true, bytes: css.length };
           } catch (e) {
             throw new ExtensionError(
               `sheet.loadGlobal failed: ${e && e.message ? e.message : e}`,
