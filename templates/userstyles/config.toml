@@ -7,9 +7,11 @@ setup_instructions = """
 This config renders ~/.config/ricekit/active/userstyles/rk-vars.css containing the 22 ricekit ANSI+semantic tokens and 13 OKLCH-derived Catppuccin slots as CSS custom properties.
 
 Option A — live reload via Ricekit Firefox addon:
-  1. Run: ricekit browser setup
-  2. Load the extracted addon from ~/.config/ricekit/extensions/firefox/ (about:debugging → Load Temporary Add-on).
-  3. Install the Stylus userstyles bundle from ricekit-community (build/import.json → Stylus Import).
+  1. Run: ricekit browser setup  (registers the ricekit native-messaging host)
+  2. Install the Ricekit addon from this repo:
+       - XPI:  extensions/firefox/dist/ricekit-theme-<version>.xpi
+       - Or for dev: about:debugging#/runtime/this-firefox → Load Temporary Add-on → extensions/firefox/manifest.json
+  3. Install the Stylus userstyles bundle: build/import.json → Stylus → Manage → Import. Stylus auto-updates each style via @updateURL on its 24h poll.
 
 Option B — static fallback (no addon):
   @import url("file:///Users/<you>/.config/ricekit/active/userstyles/rk-vars.css");
