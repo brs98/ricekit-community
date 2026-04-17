@@ -86,4 +86,6 @@ jobs:
           title: "chore(userstyles): bump upstream catppuccin"
           body: ${{ steps.changelog.outputs.body }}
           labels: dependencies, userstyles
-          add-paths: userstyles/upstream/catppuccin
+          add-paths: |
+            userstyles/upstream/catppuccin
+            userstyles/build
