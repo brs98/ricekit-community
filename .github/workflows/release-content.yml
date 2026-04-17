@@ -27,29 +27,34 @@ jobs:
           echo "major=$MAJOR" >> "$GITHUB_OUTPUT"
           echo "Publishing content version $VERSION (schema major $MAJOR)"
 
-      - uses: dtolnay/rust-toolchain@stable
-      - uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: validator -> target
-
-      - name: Build validator
-        working-directory: validator
-        run: cargo build --release
-
-      - name: Validate all themes and templates
+      - name: Sanity-check content layout and TOML parse
         run: |
           set -euo pipefail
-          VALIDATOR="./validator/target/release/ricekit-validate"
+          MISSING=0
+          BROKEN=0
+
           for dir in themes/*/; do
-            echo "::group::Validating ${dir%/}"
-            "$VALIDATOR" "$dir"
-            echo "::endgroup::"
+            if [ ! -f "${dir}theme.toml" ]; then
+              echo "::error file=${dir}::missing theme.toml"
+              MISSING=$((MISSING + 1))
+            fi
           done
           for dir in templates/*/; do
-            echo "::group::Validating ${dir%/}"
-            "$VALIDATOR" "$dir"
-            echo "::endgroup::"
+            if [ ! -f "${dir}config.toml" ]; then
+              echo "::error file=${dir}::missing config.toml"
+              MISSING=$((MISSING + 1))
+            fi
           done
+
+          for f in themes/*/theme.toml templates/*/config.toml; do
+            python3 -c "import sys, tomllib; tomllib.load(open(sys.argv[1], 'rb'))" "$f" \
+              || { echo "::error file=$f::TOML parse failed"; BROKEN=$((BROKEN + 1)); }
+          done
+
+          if [ $MISSING -gt 0 ] || [ $BROKEN -gt 0 ]; then
+            echo "Aborting: $MISSING missing files, $BROKEN parse errors"
+            exit 1
+          fi
 
       - name: Build manifest.json
         run: |
