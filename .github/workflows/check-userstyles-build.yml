@@ -1,0 +1,61 @@
+# Fails if committed userstyles/build/ is out of sync with what `deno task
+# build` produces from the current sources. Catches PRs that edit
+# userstyles/src/ or bump the upstream submodule without rebuilding.
+name: check-userstyles-build
+
+on:
+  pull_request:
+    paths:
+      - "userstyles/src/**"
+      - "userstyles/upstream/**"
+      - "userstyles/build/**"
+      - "userstyles/deno.json"
+      - ".github/workflows/check-userstyles-build.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Extract committed build stamp (for reproducibility)
+        id: stamp
+        run: |
+          set -euo pipefail
+          # Every committed .user.css shares the same stamp, so any one file
+          # is a valid source. Format: @version X.Y.Z.YYYYMMDDHHMM — we grab
+          # the trailing 12-digit segment.
+          sample=userstyles/build/dist/github.user.css
+          stamp=$(grep -m1 -oE '@version [^[:space:]]+' "$sample" \
+            | grep -oE '[0-9]{12}$' || true)
+          if [ -z "$stamp" ]; then
+            echo "::error::could not extract build stamp from $sample"
+            exit 1
+          fi
+          echo "stamp=$stamp" >> "$GITHUB_OUTPUT"
+          echo "Using committed stamp: $stamp"
+
+      - name: Rebuild dist with pinned stamp
+        working-directory: userstyles
+        env:
+          USERSTYLES_BUILD_STAMP: ${{ steps.stamp.outputs.stamp }}
+        run: deno task build
+
+      - name: Fail if build/ drifted from sources
+        run: |
+          set -euo pipefail
+          if ! git diff --quiet -- userstyles/build; then
+            echo "::error::userstyles/build/ is out of date. Run 'cd userstyles && deno task build' locally and commit the result."
+            git diff --stat -- userstyles/build
+            exit 1
+          fi
+          echo "build/ is in sync with sources."
