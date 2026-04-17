@@ -1,0 +1,1044 @@
+/* ==UserStyle==
+@name Spotify Web Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/spotify-web
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/spotify-web
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/spotify-web.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aspotify-web
+@description Soothing pastel theme for Spotify Web
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("open.spotify.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* some borders on the playlist details */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .encore-dark-theme,
+    :root .encore-dark-theme .encore-base-set,
+    :root .encore-light-theme,
+    :root .encore-light-theme .encore-base-set,
+    :root .encore-dark-theme .encore-inverted-light-set {
+      --background-base: var(--rk-background);
+      --background-highlight: var(--rk-surface0);
+      --background-press: var(--rk-crust);
+      --background-elevated-base: var(--rk-surface0);
+      --background-elevated-highlight: var(--rk-black);
+      --background-elevated-press: var(--rk-crust);
+      --background-tinted-base: var(--rk-crust);
+      --background-tinted-highlight: var(--rk-mantle);
+      --background-tinted-press: var(--rk-background);
+      --background-unsafe-for-small-text-base: var(--rk-background);
+      --background-unsafe-for-small-text-highlight: var(--rk-background);
+      --background-unsafe-for-small-text-press: var(--rk-background);
+      --text-base: var(--rk-foreground);
+      --text-subdued: var(--rk-bright-white);
+      --text-bright-accent: var(--rk-accent);
+      --text-negative: var(--rk-red);
+      --text-warning: var(--rk-yellow);
+      --text-positive: var(--rk-accent);
+      --text-announcement: var(--rk-sapphire);
+      --essential-base: var(--rk-foreground);
+      --essential-subdued: var(--rk-bright-white);
+      --essential-bright-accent: var(--rk-accent);
+      --essential-negative: var(--rk-red);
+      --essential-warning: var(--rk-yellow);
+      --essential-positive: var(--rk-green);
+      --essential-announcement: var(--rk-background);
+      --decorative-base: var(--rk-foreground);
+      --decorative-subdued: var(--rk-bright-black);
+    }
+    :root .encore-dark-theme .encore-inverted-light-set {
+      --background-base: var(--rk-black);
+      --background-highlight: var(--rk-surface0);
+      --background-press: var(--rk-black);
+    }
+    :root .encore-dark-theme .encore-bright-accent-set {
+      --background-base: var(--rk-accent);
+      --background-highlight: var(--rk-accent);
+      --background-press: var(--rk-accent);
+      --background-elevated-base: var(--rk-accent);
+      --background-elevated-highlight: var(--rk-accent);
+      --background-elevated-press: var(--rk-accent);
+      --background-tinted-base: var(--rk-accent);
+      --background-tinted-highlight: var(--rk-accent);
+      --background-tinted-press: var(--rk-accent);
+      --background-unsafe-for-small-text-base: var(--rk-accent);
+      --background-unsafe-for-small-text-highlight: var(--rk-accent);
+      --background-unsafe-for-small-text-press: var(--rk-accent);
+      --decorative-subdued: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root .encore-dark-theme .encore-over-media-set {
+      --background-base: var(--rk-mantle);
+      --background-highlight: var(--rk-crust);
+      --background-press: var(--rk-mantle);
+      --background-unsafe-for-small-text-base: var(--rk-mantle);
+      --background-unsafe-for-small-text-highlight: var(--rk-mantle);
+      --background-unsafe-for-small-text-press: var(--rk-mantle);
+      --background-elevated-base: var(--rk-crust);
+      --background-elevated-highlight: var(--rk-crust);
+      --background-elevated-press: var(--rk-mantle);
+      --background-tinted-base: var(--rk-mantle);
+      --background-tinted-highlight: var(--rk-mantle);
+      --background-tinted-press: var(--rk-mantle);
+    }
+    :root .T1xI1RTSFU7Wu94UuvE6 * {
+      background: var(--rk-surface0) !important;
+    }
+    :root .bQthUEx0_U98DJkT1saO,
+    :root .RVRoa p {
+      color: var(--rk-background) !important;
+    }
+    :root .encore-text {
+      color: var(--rk-foreground);
+    }
+    :root .ydlidzq2hSQrvGXn7yni {
+      background: var(--rk-foreground);
+      color: var(--rk-crust);
+    }
+    :root .encore-dark-theme .encore-base-set > *,
+    :root .encore-dark-theme > * {
+      --parents-essential-base: var(--rk-foreground);
+    }
+    :root .X8yW2lJbFCQfV5GjoRwL {
+      --generic-tooltip-background-color: var(--rk-mantle);
+    }
+    :root .SboKmDrCTZng7t4EgNoM {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root #main > * > *,
+    :root .sqKERfoKl4KwrtHqcKOd,
+    :root .HkbHLcqgUfXruL5xVi28,
+    :root .uhDzVbFHyCQDH6WrWZaC,
+    :root .pHrwZOFBdT8FNXnmcPPI {
+      background: var(--rk-crust) !important;
+    }
+    :root .ePPpO_NuGDUxVRTw7y6W {
+      border-color: var(--rk-surface0);
+    }
+    :root .uWvwXlS0Da1bWsRX6KOw,
+    :root .n5XwsUqagSoVk8oMiw1x {
+      filter: saturate(0) brightness(1.3) !important;
+    }
+    :root .eoWRdH,
+    :root .in4OjUTflcsoj9RUpf05 *,
+    :root .gpNta6i8q3KYJC6WBZQC * {
+      color: var(--rk-white) !important;
+    }
+    :root ._EShSNaBK1wUIaZQFJJQ {
+      box-shadow: 0 4px 20px var(--rk-mantle);
+    }
+    :root .gHImFiUWOg93pvTefeAD,
+    :root .CoLO4pdSl8LGWyVZA00t {
+      background: var(--rk-background) !important;
+    }
+    :root .mjZrvVI3CxfHJXu7y0Lg,
+    :root .coBkWVskipFo8KxLKief .T1xI1RTSFU7Wu94UuvE6 {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .ListRowTitle__LineClamp-sc-1xe2if1-0.lmgIvZ *,
+    :root .EaTxqhHk6J4ecKHwpY5m *,
+    :root .SboKmDrCTZng7t4EgNoM *,
+    :root .MfVrtIzQJ7iZXfRWg6eM,
+    :root .Ydwa1P5GkCggtLlSvphs,
+    :root .Fb61sprjhh75aOITDnsJ *,
+    :root .Ai_McRq9wJEYK21w8nX_ *,
+    :root .QZhV0hWVKlExlKr266jo::placeholder,
+    :root .JzZyf6OGCGtdscOZGt8Y.t6HIrX67Lp80Nj6tGauz *,
+    :root .hfdkySA4kiUldFsPj9lD.ZcNcu7WZgOAz_Mkcoff3 *,
+    :root .ListRowTitle__LineClamp-sc-1xe2if1-0 *,
+    :root .FZhaXNtbN3Crwrgd0TA7.control-button,
+    :root .COJ84QbXPrd4jkO1HU2N *,
+    :root .zhQX2DOI2muMo8EKsZ6h,
+    :root .MHIOvvlSYRmF7VAJDLWy,
+    :root .JouuH90_RNAdTj0ZjcCA,
+    :root .r9m6lHy7RyIPDzW1Youe,
+    :root .PDPsYDh4ntfQE3B4duUI,
+    :root .bfQ2S9bMXr_kJjqEfcwA *,
+    :root .QO9loc33XC50mMRUCIvf,
+    :root .G7zO58ORUHxcUw0sXktM,
+    :root .rq2VQ5mb9SDAFWbBIUIn *,
+    :root .lp9Tfm4rsM9_pfbIE0zd,
+    :root .w6j_vX6SF5IxSXrrkYw5,
+    :root .prGqQr33U0mG14TJ5V8a *,
+    :root .BQD_pE0Nva_z6z7CvZww *,
+    :root .W5cB_o0XkkU7Q8tlTGxq,
+    :root .PGSe59fD1Hwc9yUM2d3U a,
+    :root .jb9xD5ECTqKFK02qe3HZ *,
+    :root .X8yW2lJbFCQfV5GjoRwL *,
+    :root .tbvnCR3ZJxmAKY6nRPBe,
+    :root .CmR9tHJ5ta6oWJlKBm3k *,
+    :root .xgmjVLxjqfcXK5BV_XyN.fUYMR7LuRXv0KJWFvRZA,
+    :root .DzWw3g4E_66wu9ktqn36 .home-active-icon,
+    :root .Footer__StyledFooter-sc-xwm5vq-0 *,
+    :root .DzWw3g4E_66wu9ktqn36 .search-active-icon,
+    :root .dYnaPI,
+    :root .home-active-icon,
+    :root .zOsKPnD_9x3KJqQCSmAq,
+    :root .beyOcd3p0PEzhrlKIbU1,
+    :root .oORVTPvg6eTQflVKKgw8 {
+      color: var(--rk-foreground) !important;
+    }
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .ObVor_8sQq5whKbtWs8a,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .W676nknusnBt8sz19YVV,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .ObVor_8sQq5whKbtWs8a,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .W676nknusnBt8sz19YVV,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .UudGCx16EmBkuFPllvss,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .ucB9avGYvzsmzXUOw0S7,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .UudGCx16EmBkuFPllvss,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .ucB9avGYvzsmzXUOw0S7,
+    :root .NPv26QCDgdnwsPOlYJmQ div:nth-child(2) {
+      color: var(--rk-bright-white);
+    }
+    :root .VKCcyYujazVPj6VkksPM svg path {
+      fill: var(--rk-foreground);
+    }
+    :root .ThG4UqWk7ASXCMm69Opn,
+    :root .BQD_pE0Nva_z6z7CvZww *,
+    :root .k2ndSrHzhAsXBcLqRKYx * {
+      color: var(--rk-overlay2) !important;
+    }
+    :root .gqYYMz8DkhaT3e44LcHQ span {
+      color: var(--rk-background);
+    }
+    :root *[class*="ButtonInner-sc-14ud5tc-0 GBxjH encore-bright-accent-set vq0lsCoYrDUDvkuUIaRg"] * {
+      color: var(--rk-crust) !important;
+      fill: var(--rk-crust) !important;
+    }
+    :root .bk509U3ZhZc9YBJAmoPB {
+      background: var(--rk-mantle);
+    }
+    :root .HVCCFeUiHVwZVv74p34a *,
+    :root .mXNT9H2GU7lDW4cGx0q1,
+    :root .uV8q95GGAb2VDtL3gpYa {
+      background: var(--rk-surface0) !important;
+    }
+    :root ._VADS4mdajCt5Yuf6KjW,
+    :root .uJjmxe0T11dUVeW6Biz8 {
+      background-color: var(--rk-background);
+    }
+    :root .QO9loc33XC50mMRUCIvf {
+      background-color: var(--rk-surface0);
+    }
+    :root .QO9loc33XC50mMRUCIvf:focus {
+      -webkit-box-shadow: 0 0 0 2px var(--rk-foreground);
+      box-shadow: 0 0 0 2px var(--rk-foreground);
+    }
+    :root .QO9loc33XC50mMRUCIvf:hover {
+      background-color: var(--rk-black);
+    }
+    :root .H6jh9Xd7DNOq3NsLDmCB:active,
+    :root .H6jh9Xd7DNOq3NsLDmCB:focus,
+    :root .H6jh9Xd7DNOq3NsLDmCB:hover {
+      color: var(--rk-foreground) !important;
+    }
+    :root .NbcaczStd8vD2rHWwaKv,
+    :root .QZhV0hWVKlExlKr266jo {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root div[role*="menuitem"] {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .H6jh9Xd7DNOq3NsLDmCB,
+    :root .htqz7Vb8mLJvGKTi1vrs,
+    :root .dsbIME {
+      color: var(--rk-foreground);
+    }
+    :root .IconWrapper__Wrapper-sc-1hf1hjl-0 svg {
+      color: var(--rk-crust) !important;
+    }
+    :root .kPpCsU {
+      fill: var(--rk-foreground);
+    }
+    :root .VgSbatGBB9XwTH2_dsxg .ql0zZd7giPXSnPg75NR0 {
+      background: var(--rk-background) !important;
+      color: var(--rk-foreground);
+    }
+    :root .HsbczDqu9qjcYr7EIdHR,
+    :root .rovbQsmAS_mwvpKHaVhQ * {
+      background: transparent !important;
+    }
+    :root .Z35BWOA10YGn5uc9YgAp,
+    :root .pQmF4tvRpUeLWgPKUcW7 {
+      background-color: var(--rk-crust);
+    }
+    :root .S4OmZ_IZexmZ5dasPqW5 {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .T1xI1RTSFU7Wu94UuvE6[style*="background-color:"] {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .fIvMht6B9HdROywMNJZ4.hIFR8WDm_54EEIa1gwpC {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .kpGMQq1KFz620g_BD_dS {
+      background-color: var(--rk-overlay0);
+    }
+    :root .link-subtle {
+      color: var(--rk-bright-white);
+    }
+    :root .link-subtle:hover {
+      color: var(--rk-foreground);
+    }
+    :root .c0KyMkxeMCWQGE7cR8s_,
+    :root .s58sp4t3h1uU9n_42KqD,
+    :root .TextForLabel-sc-1jqya9m-0 span {
+      color: var(--rk-background) !important;
+    }
+    :root .LunqxlFIupJw_Dkx6mNx {
+      background: var(--rk-mantle) !important;
+    }
+    :root .bQthUEx0_U98DJkT1saO,
+    :root .RVRoa p {
+      color: var(--rk-foreground);
+    }
+    :root .kmZeYl {
+      background-color: var(--rk-mantle);
+    }
+    :root .kmZeYl:hover {
+      background-color: var(--rk-crust);
+    }
+    :root #onetrust-banner-sdk {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-policy-text,
+    :root .ot-dpd-title,
+    :root .onetrust-policy-title,
+    :root .ot-text-bold {
+      color: var(--rk-foreground) !important;
+    }
+    :root .ot-dpd-desc,
+    :root .ot-link-btn {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-policy-title {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-banner-sdk button {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-pc-btn-handler {
+      background-color: var(--rk-background) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk,
+    :root .ot-acc-txt,
+    :root .ot-acc-grpdesc {
+      background-color: var(--rk-background) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h3,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h5,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h4,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h6,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h2,
+    :root #onetrust-pc-sdk .ot-always-active,
+    :root .ot-acc-txt,
+    :root .ot-acc-grpdesc,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk p {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-pc-sdk .ot-accordion-layout.ot-cat-item {
+      border-color: var(--rk-accent) !important;
+      border-radius: 8px;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk button:not(
+        #clear-filters-handler,
+        .ot-close-icon,
+        #filter-btn-handler,
+        .ot-remove-objection-handler,
+        .ot-obj-leg-btn-handler,
+        [aria-expanded],
+        .ot-link-btn
+      ) {
+      background-color: var(--rk-accent) !important;
+      border-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span {
+      color: var(--rk-foreground);
+    }
+    :root #onetrust-pc-sdk input[type="text"] {
+      background-color: var(--rk-mantle) !important;
+      border-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-pc-sdk .ot-pc-header,
+    :root #onetrust-pc-sdk ul li {
+      border-bottom-color: var(--rk-accent) !important;
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root #ot-ven-lst {
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root .ot-pc-footer {
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-pc-sdk li > button {
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk {
+      background-color: var(--rk-background) !important;
+    }
+    :root .dz_h98rH9nZCwfPdnKgr {
+      background-image: none;
+    }
+    :root .RfidWIoz8FON2WhFoItU {
+      color: var(--rk-foreground);
+    }
+    :root .cuLHaM {
+      background-color: var(--rk-background);
+    }
+    :root #Desktop_LeftSidebar_Id {
+      background-color: transparent;
+    }
+    :root .y2UicQnlTq148rL8Y0jp {
+      box-shadow: 0 6px 10px var(--rk-mantle);
+    }
+    :root .vnCew8qzJq3cVGlYFXRI {
+      background-color: var(--rk-foreground);
+    }
+    :root .vnCew8qzJq3cVGlYFXRI * {
+      fill: var(--rk-crust);
+    }
+    :root .rovbQsmAS_mwvpKHaVhQ .PFgcCoJSWC3KjhZxHDYH * {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .TywOcKZEqNynWecCiATc {
+      --bg-color: var(--rk-black);
+      --fg-color: var(--rk-foreground);
+      --is-active-fg-color: var(--rk-accent);
+    }
+    :root a {
+      color: var(--rk-accent);
+    }
+    :root .Ng3dPPA2_1CFYkzPukjM {
+      background: var(--rk-blue);
+    }
+    :root .KAZD28usA1vPz5GVpm63.EHxL6K_6WWDlTCZP6x5w::after {
+      background-color: var(--rk-accent);
+    }
+    :root .tippy-box[data-theme~="activation"] {
+      background-color: var(--rk-accent);
+      color: var(--rk-crust);
+    }
+    :root .tippy-box[data-theme~="activation"] .c0KyMkxeMCWQGE7cR8s_ *,
+    :root .tippy-box[data-theme~="activation"] .TextForLabel-sc-1jqya9m-0.kIsEKW {
+      color: var(--rk-crust);
+    }
+    :root .YIJxiTuPgMQav316cRqP {
+      --generic-tooltip-background-color: var(--rk-surface0);
+    }
+    :root .tippy-arrow {
+      color: var(--rk-surface0) !important;
+    }
+    :root .zrvvPyoxE6wQNqnu0yWA,
+    :root .mjprSb2e1tKJpqwvgFSh,
+    :root .jW4eWdr_LUeOXwPpKhWG {
+      color: var(--rk-foreground);
+      background: var(--rk-surface0);
+    }
+    :root input:checked ~ .Js64TOfWtHksI6TQ6knT {
+      background: var(--rk-accent) !important;
+    }
+    :root .bXJ77rNIJ18Y0GfegQdr + label > :first-child {
+      background: var(--rk-foreground) !important;
+    }
+    :root .Z35BWOA10YGn5uc9YgAp:focus-within,
+    :root .Z35BWOA10YGn5uc9YgAp:hover,
+    :root .Z35BWOA10YGn5uc9YgAp[data-context-menu-open="true"] {
+      background: var(--rk-mantle) !important;
+    }
+    :root .wC9sIed7pfp47wZbmU6m:hover,
+    :root .wC9sIed7pfp47wZbmU6m:not([aria-checked="true"]):focus {
+      background: var(--rk-surface0) !important;
+    }
+    :root .DuEPSADpSwCcO880xjUG:not(:first-child) > .QgtQw2NJz7giDZxap2BB::before {
+      border-color: var(--rk-surface0);
+    }
+    :root .pSxFsY9Fgcj5f8Gf05mh,
+    :root .qyKJPLjz8o4jnbk92JOn {
+      background-color: rgb(from var(--rk-crust) r g b / 0.7);
+    }
+    :root .eG930DCaQXDFqjhxRGIs > * {
+      background: var(--rk-crust) !important;
+    }
+    :root .IconWrapper__Wrapper-sc-1hf1hjl-0.fIXqki svg {
+      color: var(--rk-foreground) !important;
+    }
+    :root .IconWrapper__Wrapper-sc-1hf1hjl-0.bjlVXn svg.bneLcE {
+      color: var(--rk-background) !important;
+    }
+    :root .OF_3F0SQCsBtL1jSTlTA svg,
+    :root .OF_3F0SQCsBtL1jSTlTA::after,
+    :root .tP0mccyU1WAa7I9PevC1 svg,
+    :root .tP0mccyU1WAa7I9PevC1::after {
+      color: var(--rk-accent) !important;
+    }
+    :root .npv-up-next {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .mbUrqWP55sK6zhspiR72 button {
+      color: var(--rk-foreground) !important;
+    }
+    :root .npv-lyrics__text-wrapper--previous p {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .npv-lyrics__text-wrapper--current p {
+      color: var(--rk-foreground) !important;
+    }
+    :root .npv-lyrics__text-wrapper--next p {
+      color: var(--rk-white) !important;
+    }
+    :root .npv-lyrics__text--credits {
+      color: var(--rk-foreground) !important;
+    }
+    :root div[data-tippy-root],
+    :root #context-menu,
+    :root #hover-or-focus-tooltip,
+    :root .nYdM55iHFByRTzJUmx9X {
+      border-radius: 8px;
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* some borders on the playlist details */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .encore-dark-theme,
+    :root .encore-dark-theme .encore-base-set,
+    :root .encore-light-theme,
+    :root .encore-light-theme .encore-base-set,
+    :root .encore-dark-theme .encore-inverted-light-set {
+      --background-base: var(--rk-background);
+      --background-highlight: var(--rk-surface0);
+      --background-press: var(--rk-crust);
+      --background-elevated-base: var(--rk-surface0);
+      --background-elevated-highlight: var(--rk-black);
+      --background-elevated-press: var(--rk-crust);
+      --background-tinted-base: var(--rk-crust);
+      --background-tinted-highlight: var(--rk-mantle);
+      --background-tinted-press: var(--rk-background);
+      --background-unsafe-for-small-text-base: var(--rk-background);
+      --background-unsafe-for-small-text-highlight: var(--rk-background);
+      --background-unsafe-for-small-text-press: var(--rk-background);
+      --text-base: var(--rk-foreground);
+      --text-subdued: var(--rk-bright-white);
+      --text-bright-accent: var(--rk-accent);
+      --text-negative: var(--rk-red);
+      --text-warning: var(--rk-yellow);
+      --text-positive: var(--rk-accent);
+      --text-announcement: var(--rk-sapphire);
+      --essential-base: var(--rk-foreground);
+      --essential-subdued: var(--rk-bright-white);
+      --essential-bright-accent: var(--rk-accent);
+      --essential-negative: var(--rk-red);
+      --essential-warning: var(--rk-yellow);
+      --essential-positive: var(--rk-green);
+      --essential-announcement: var(--rk-background);
+      --decorative-base: var(--rk-foreground);
+      --decorative-subdued: var(--rk-bright-black);
+    }
+    :root .encore-dark-theme .encore-inverted-light-set {
+      --background-base: var(--rk-black);
+      --background-highlight: var(--rk-surface0);
+      --background-press: var(--rk-black);
+    }
+    :root .encore-dark-theme .encore-bright-accent-set {
+      --background-base: var(--rk-accent);
+      --background-highlight: var(--rk-accent);
+      --background-press: var(--rk-accent);
+      --background-elevated-base: var(--rk-accent);
+      --background-elevated-highlight: var(--rk-accent);
+      --background-elevated-press: var(--rk-accent);
+      --background-tinted-base: var(--rk-accent);
+      --background-tinted-highlight: var(--rk-accent);
+      --background-tinted-press: var(--rk-accent);
+      --background-unsafe-for-small-text-base: var(--rk-accent);
+      --background-unsafe-for-small-text-highlight: var(--rk-accent);
+      --background-unsafe-for-small-text-press: var(--rk-accent);
+      --decorative-subdued: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root .encore-dark-theme .encore-over-media-set {
+      --background-base: var(--rk-mantle);
+      --background-highlight: var(--rk-crust);
+      --background-press: var(--rk-mantle);
+      --background-unsafe-for-small-text-base: var(--rk-mantle);
+      --background-unsafe-for-small-text-highlight: var(--rk-mantle);
+      --background-unsafe-for-small-text-press: var(--rk-mantle);
+      --background-elevated-base: var(--rk-crust);
+      --background-elevated-highlight: var(--rk-crust);
+      --background-elevated-press: var(--rk-mantle);
+      --background-tinted-base: var(--rk-mantle);
+      --background-tinted-highlight: var(--rk-mantle);
+      --background-tinted-press: var(--rk-mantle);
+    }
+    :root .encore-text {
+      color: var(--rk-foreground);
+    }
+    :root .ydlidzq2hSQrvGXn7yni {
+      background: var(--rk-foreground);
+      color: var(--rk-crust);
+    }
+    :root .encore-dark-theme .encore-base-set > *,
+    :root .encore-dark-theme > * {
+      --parents-essential-base: var(--rk-foreground);
+    }
+    :root .X8yW2lJbFCQfV5GjoRwL {
+      --generic-tooltip-background-color: var(--rk-mantle);
+    }
+    :root .SboKmDrCTZng7t4EgNoM {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root #main > * > *,
+    :root .sqKERfoKl4KwrtHqcKOd,
+    :root .HkbHLcqgUfXruL5xVi28,
+    :root .uhDzVbFHyCQDH6WrWZaC,
+    :root .pHrwZOFBdT8FNXnmcPPI {
+      background: var(--rk-crust) !important;
+    }
+    :root .ePPpO_NuGDUxVRTw7y6W {
+      border-color: var(--rk-surface0);
+    }
+    :root .uWvwXlS0Da1bWsRX6KOw,
+    :root .n5XwsUqagSoVk8oMiw1x {
+      filter: saturate(0) brightness(1.3) !important;
+    }
+    :root .eoWRdH,
+    :root .in4OjUTflcsoj9RUpf05 *,
+    :root .gpNta6i8q3KYJC6WBZQC * {
+      color: var(--rk-white) !important;
+    }
+    :root ._EShSNaBK1wUIaZQFJJQ {
+      box-shadow: 0 4px 20px var(--rk-mantle);
+    }
+    :root .gHImFiUWOg93pvTefeAD,
+    :root .CoLO4pdSl8LGWyVZA00t {
+      background: var(--rk-background) !important;
+    }
+    :root .mjZrvVI3CxfHJXu7y0Lg,
+    :root .coBkWVskipFo8KxLKief .T1xI1RTSFU7Wu94UuvE6 {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .ListRowTitle__LineClamp-sc-1xe2if1-0.lmgIvZ *,
+    :root .EaTxqhHk6J4ecKHwpY5m *,
+    :root .SboKmDrCTZng7t4EgNoM *,
+    :root .MfVrtIzQJ7iZXfRWg6eM,
+    :root .Ydwa1P5GkCggtLlSvphs,
+    :root .Fb61sprjhh75aOITDnsJ *,
+    :root .Ai_McRq9wJEYK21w8nX_ *,
+    :root .QZhV0hWVKlExlKr266jo::placeholder,
+    :root .JzZyf6OGCGtdscOZGt8Y.t6HIrX67Lp80Nj6tGauz *,
+    :root .hfdkySA4kiUldFsPj9lD.ZcNcu7WZgOAz_Mkcoff3 *,
+    :root .ListRowTitle__LineClamp-sc-1xe2if1-0 *,
+    :root .FZhaXNtbN3Crwrgd0TA7.control-button,
+    :root .COJ84QbXPrd4jkO1HU2N *,
+    :root .zhQX2DOI2muMo8EKsZ6h,
+    :root .MHIOvvlSYRmF7VAJDLWy,
+    :root .JouuH90_RNAdTj0ZjcCA,
+    :root .r9m6lHy7RyIPDzW1Youe,
+    :root .PDPsYDh4ntfQE3B4duUI,
+    :root .bfQ2S9bMXr_kJjqEfcwA *,
+    :root .QO9loc33XC50mMRUCIvf,
+    :root .G7zO58ORUHxcUw0sXktM,
+    :root .rq2VQ5mb9SDAFWbBIUIn *,
+    :root .lp9Tfm4rsM9_pfbIE0zd,
+    :root .w6j_vX6SF5IxSXrrkYw5,
+    :root .prGqQr33U0mG14TJ5V8a *,
+    :root .BQD_pE0Nva_z6z7CvZww *,
+    :root .W5cB_o0XkkU7Q8tlTGxq,
+    :root .PGSe59fD1Hwc9yUM2d3U a,
+    :root .jb9xD5ECTqKFK02qe3HZ *,
+    :root .X8yW2lJbFCQfV5GjoRwL *,
+    :root .tbvnCR3ZJxmAKY6nRPBe,
+    :root .CmR9tHJ5ta6oWJlKBm3k *,
+    :root .xgmjVLxjqfcXK5BV_XyN.fUYMR7LuRXv0KJWFvRZA,
+    :root .DzWw3g4E_66wu9ktqn36 .home-active-icon,
+    :root .Footer__StyledFooter-sc-xwm5vq-0 *,
+    :root .DzWw3g4E_66wu9ktqn36 .search-active-icon,
+    :root .dYnaPI,
+    :root .home-active-icon,
+    :root .zOsKPnD_9x3KJqQCSmAq,
+    :root .beyOcd3p0PEzhrlKIbU1,
+    :root .oORVTPvg6eTQflVKKgw8 {
+      color: var(--rk-foreground) !important;
+    }
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .ObVor_8sQq5whKbtWs8a,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) .W676nknusnBt8sz19YVV,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH:focus-within:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .ObVor_8sQq5whKbtWs8a,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) .W676nknusnBt8sz19YVV,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH:hover:not(.tH1iuxCV8NexP4pzEBa4) ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .UudGCx16EmBkuFPllvss,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG .ucB9avGYvzsmzXUOw0S7,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .PAqIqZXvse_3h6sDVxU0,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .UudGCx16EmBkuFPllvss,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .UudGCx16EmBkuFPllvss a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover ._TH6YAXEzJtzSxhkGSqu,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover ._TH6YAXEzJtzSxhkGSqu a,
+    :root .IjYxRc5luMiDPhKhZVUH.JgERXNoqNav5zOHiZGfG:hover .ucB9avGYvzsmzXUOw0S7,
+    :root .NPv26QCDgdnwsPOlYJmQ div:nth-child(2) {
+      color: var(--rk-bright-white);
+    }
+    :root .VKCcyYujazVPj6VkksPM svg path {
+      fill: var(--rk-foreground);
+    }
+    :root .ThG4UqWk7ASXCMm69Opn,
+    :root .BQD_pE0Nva_z6z7CvZww *,
+    :root .k2ndSrHzhAsXBcLqRKYx * {
+      color: var(--rk-overlay2) !important;
+    }
+    :root .gqYYMz8DkhaT3e44LcHQ span {
+      color: var(--rk-background);
+    }
+    :root *[class*="ButtonInner-sc-14ud5tc-0 GBxjH encore-bright-accent-set vq0lsCoYrDUDvkuUIaRg"] * {
+      color: var(--rk-crust) !important;
+      fill: var(--rk-crust) !important;
+    }
+    :root .bk509U3ZhZc9YBJAmoPB {
+      background: var(--rk-mantle);
+    }
+    :root .HVCCFeUiHVwZVv74p34a *,
+    :root .mXNT9H2GU7lDW4cGx0q1,
+    :root .uV8q95GGAb2VDtL3gpYa {
+      background: var(--rk-surface0) !important;
+    }
+    :root ._VADS4mdajCt5Yuf6KjW,
+    :root .uJjmxe0T11dUVeW6Biz8 {
+      background-color: var(--rk-background);
+    }
+    :root .QO9loc33XC50mMRUCIvf {
+      background-color: var(--rk-surface0);
+    }
+    :root .QO9loc33XC50mMRUCIvf:focus {
+      -webkit-box-shadow: 0 0 0 2px var(--rk-foreground);
+      box-shadow: 0 0 0 2px var(--rk-foreground);
+    }
+    :root .QO9loc33XC50mMRUCIvf:hover {
+      background-color: var(--rk-black);
+    }
+    :root .H6jh9Xd7DNOq3NsLDmCB:active,
+    :root .H6jh9Xd7DNOq3NsLDmCB:focus,
+    :root .H6jh9Xd7DNOq3NsLDmCB:hover {
+      color: var(--rk-foreground) !important;
+    }
+    :root .NbcaczStd8vD2rHWwaKv,
+    :root .QZhV0hWVKlExlKr266jo {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root div[role*="menuitem"] {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .H6jh9Xd7DNOq3NsLDmCB,
+    :root .htqz7Vb8mLJvGKTi1vrs,
+    :root .dsbIME {
+      color: var(--rk-foreground);
+    }
+    :root .IconWrapper__Wrapper-sc-1hf1hjl-0 svg {
+      color: var(--rk-crust) !important;
+    }
+    :root .kPpCsU {
+      fill: var(--rk-foreground);
+    }
+    :root .VgSbatGBB9XwTH2_dsxg .ql0zZd7giPXSnPg75NR0 {
+      background: var(--rk-background) !important;
+      color: var(--rk-foreground);
+    }
+    :root .HsbczDqu9qjcYr7EIdHR,
+    :root .rovbQsmAS_mwvpKHaVhQ * {
+      background: transparent !important;
+    }
+    :root .Z35BWOA10YGn5uc9YgAp,
+    :root .pQmF4tvRpUeLWgPKUcW7 {
+      background-color: var(--rk-crust);
+    }
+    :root .S4OmZ_IZexmZ5dasPqW5 {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .T1xI1RTSFU7Wu94UuvE6[style*="background-color:"] {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .fIvMht6B9HdROywMNJZ4.hIFR8WDm_54EEIa1gwpC {
+      background-color: var(--rk-accent) !important;
+    }
+    :root .kpGMQq1KFz620g_BD_dS {
+      background-color: var(--rk-overlay0);
+    }
+    :root .link-subtle {
+      color: var(--rk-bright-white);
+    }
+    :root .link-subtle:hover {
+      color: var(--rk-foreground);
+    }
+    :root .c0KyMkxeMCWQGE7cR8s_,
+    :root .s58sp4t3h1uU9n_42KqD,
+    :root .TextForLabel-sc-1jqya9m-0 span {
+      color: var(--rk-background) !important;
+    }
+    :root .LunqxlFIupJw_Dkx6mNx {
+      background: var(--rk-mantle) !important;
+    }
+    :root .bQthUEx0_U98DJkT1saO,
+    :root .RVRoa p {
+      color: var(--rk-foreground);
+    }
+    :root .kmZeYl {
+      background-color: var(--rk-mantle);
+    }
+    :root .kmZeYl:hover {
+      background-color: var(--rk-crust);
+    }
+    :root #onetrust-banner-sdk {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-policy-text,
+    :root .ot-dpd-title,
+    :root .onetrust-policy-title,
+    :root .ot-text-bold {
+      color: var(--rk-foreground) !important;
+    }
+    :root .ot-dpd-desc,
+    :root .ot-link-btn {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-policy-title {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-banner-sdk button {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-pc-btn-handler {
+      background-color: var(--rk-background) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk,
+    :root .ot-acc-txt,
+    :root .ot-acc-grpdesc {
+      background-color: var(--rk-background) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-title,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk #ot-pc-desc,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h3,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h5,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h4,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h6,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk h2,
+    :root #onetrust-pc-sdk .ot-always-active,
+    :root .ot-acc-txt,
+    :root .ot-acc-grpdesc,
+    :root #onetrust-consent-sdk #onetrust-pc-sdk p {
+      color: var(--rk-foreground) !important;
+    }
+    :root #onetrust-pc-sdk .ot-accordion-layout.ot-cat-item {
+      border-color: var(--rk-accent) !important;
+      border-radius: 8px;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk button:not(
+        #clear-filters-handler,
+        .ot-close-icon,
+        #filter-btn-handler,
+        .ot-remove-objection-handler,
+        .ot-obj-leg-btn-handler,
+        [aria-expanded],
+        .ot-link-btn
+      ) {
+      background-color: var(--rk-accent) !important;
+      border-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk .ot-sel-all-hdr span {
+      color: var(--rk-foreground);
+    }
+    :root #onetrust-pc-sdk input[type="text"] {
+      background-color: var(--rk-mantle) !important;
+      border-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-pc-sdk .ot-pc-header,
+    :root #onetrust-pc-sdk ul li {
+      border-bottom-color: var(--rk-accent) !important;
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root #ot-ven-lst {
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root .ot-pc-footer {
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-pc-sdk li > button {
+      border-top-color: var(--rk-accent) !important;
+    }
+    :root #onetrust-consent-sdk #onetrust-pc-sdk #ot-sel-blk {
+      background-color: var(--rk-background) !important;
+    }
+    :root .dz_h98rH9nZCwfPdnKgr {
+      background-image: none;
+    }
+    :root .RfidWIoz8FON2WhFoItU {
+      color: var(--rk-foreground);
+    }
+    :root .cuLHaM {
+      background-color: var(--rk-background);
+    }
+    :root #Desktop_LeftSidebar_Id {
+      background-color: transparent;
+    }
+    :root .y2UicQnlTq148rL8Y0jp {
+      box-shadow: 0 6px 10px var(--rk-mantle);
+    }
+    :root .vnCew8qzJq3cVGlYFXRI {
+      background-color: var(--rk-foreground);
+    }
+    :root .vnCew8qzJq3cVGlYFXRI * {
+      fill: var(--rk-crust);
+    }
+    :root .rovbQsmAS_mwvpKHaVhQ .PFgcCoJSWC3KjhZxHDYH * {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .TywOcKZEqNynWecCiATc {
+      --bg-color: var(--rk-black);
+      --fg-color: var(--rk-foreground);
+      --is-active-fg-color: var(--rk-accent);
+    }
+    :root a {
+      color: var(--rk-accent);
+    }
+    :root .Ng3dPPA2_1CFYkzPukjM {
+      background: var(--rk-blue);
+    }
+    :root .KAZD28usA1vPz5GVpm63.EHxL6K_6WWDlTCZP6x5w::after {
+      background-color: var(--rk-accent);
+    }
+    :root .tippy-box[data-theme~="activation"] {
+      background-color: var(--rk-accent);
+      color: var(--rk-crust);
+    }
+    :root .tippy-box[data-theme~="activation"] .c0KyMkxeMCWQGE7cR8s_ *,
+    :root .tippy-box[data-theme~="activation"] .TextForLabel-sc-1jqya9m-0.kIsEKW {
+      color: var(--rk-crust);
+    }
+    :root .YIJxiTuPgMQav316cRqP {
+      --generic-tooltip-background-color: var(--rk-surface0);
+    }
+    :root .tippy-arrow {
+      color: var(--rk-surface0) !important;
+    }
+    :root .zrvvPyoxE6wQNqnu0yWA,
+    :root .mjprSb2e1tKJpqwvgFSh,
+    :root .jW4eWdr_LUeOXwPpKhWG {
+      color: var(--rk-foreground);
+      background: var(--rk-surface0);
+    }
+    :root input:checked ~ .Js64TOfWtHksI6TQ6knT {
+      background: var(--rk-accent) !important;
+    }
+    :root .bXJ77rNIJ18Y0GfegQdr + label > :first-child {
+      background: var(--rk-foreground) !important;
+    }
+    :root .Z35BWOA10YGn5uc9YgAp:focus-within,
+    :root .Z35BWOA10YGn5uc9YgAp:hover,
+    :root .Z35BWOA10YGn5uc9YgAp[data-context-menu-open="true"] {
+      background: var(--rk-mantle) !important;
+    }
+    :root .wC9sIed7pfp47wZbmU6m:hover,
+    :root .wC9sIed7pfp47wZbmU6m:not([aria-checked="true"]):focus {
+      background: var(--rk-surface0) !important;
+    }
+    :root .DuEPSADpSwCcO880xjUG:not(:first-child) > .QgtQw2NJz7giDZxap2BB::before {
+      border-color: var(--rk-surface0);
+    }
+    :root .pSxFsY9Fgcj5f8Gf05mh,
+    :root .qyKJPLjz8o4jnbk92JOn {
+      background-color: rgb(from var(--rk-crust) r g b / 0.7);
+    }
+    :root .eG930DCaQXDFqjhxRGIs > * {
+      background: var(--rk-crust) !important;
+    }
+    :root .IconWrapper__Wrapper-sc-1hf1hjl-0.fIXqki svg {
+      color: var(--rk-foreground) !important;
+    }
+    :root .IconWrapper__Wrapper-sc-1hf1hjl-0.bjlVXn svg.bneLcE {
+      color: var(--rk-background) !important;
+    }
+    :root .OF_3F0SQCsBtL1jSTlTA svg,
+    :root .OF_3F0SQCsBtL1jSTlTA::after,
+    :root .tP0mccyU1WAa7I9PevC1 svg,
+    :root .tP0mccyU1WAa7I9PevC1::after {
+      color: var(--rk-accent) !important;
+    }
+    :root .npv-up-next {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .mbUrqWP55sK6zhspiR72 button {
+      color: var(--rk-foreground) !important;
+    }
+    :root .npv-lyrics__text-wrapper--previous p {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .npv-lyrics__text-wrapper--current p {
+      color: var(--rk-foreground) !important;
+    }
+    :root .npv-lyrics__text-wrapper--next p {
+      color: var(--rk-white) !important;
+    }
+    :root .npv-lyrics__text--credits {
+      color: var(--rk-foreground) !important;
+    }
+    :root div[data-tippy-root],
+    :root #context-menu,
+    :root #hover-or-focus-tooltip,
+    :root .nYdM55iHFByRTzJUmx9X {
+      border-radius: 8px;
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+  }
+}

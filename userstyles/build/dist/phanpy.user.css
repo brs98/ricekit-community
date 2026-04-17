@@ -1,0 +1,139 @@
+/* ==UserStyle==
+@name Phanpy Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/phanpy
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/phanpy
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/phanpy.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aphanpy
+@description Soothing pastel theme for Phanpy
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("phanpy.social") {
+  :root:not(:has(.is-light)) {
+    color-scheme: dark;
+    --text-color: var(--rk-foreground);
+    --text-insignificant-color: var(--rk-white);
+    --link-color: var(--rk-accent);
+    --link-text-color: var(--rk-accent);
+    --link-faded-color: var(--rk-accent);
+    --link-light-color: var(--rk-accent);
+    --button-bg-blur-color: var(--rk-accent);
+    --button-bg-color: var(--rk-accent);
+    --button-text-color: var(--rk-background);
+    --bg-faded-color: var(--rk-background);
+    --bg-faded-blur-color: var(--rk-mantle);
+    --bg-blur-color: var(--rk-mantle);
+    --close-button-bg-color: var(--rk-mantle);
+    --close-button-color: var(--rk-white);
+    --bg-color: var(--rk-background);
+    --link-bg-hover-color: var(--rk-mantle);
+    --divider-color: var(--rk-surface0);
+    --outline-color: var(--rk-surface0);
+    --outline-hover-color: var(--rk-bright-black);
+    --reblog-faded-color: rgb(from var(--rk-accent) r g b / 0.2);
+    --reblog-color: var(--rk-accent);
+    --reply-to-faded-color: rgb(from var(--rk-yellow) r g b / 0.2);
+    --reply-to-text-color: var(--rk-yellow);
+    --reply-to-color: var(--rk-yellow);
+    --favourite-color: var(--rk-red);
+    --green-color: var(--rk-green);
+    --red-color: var(--rk-red);
+    --comment-line-color: var(--rk-black);
+    --media-bg-color: var(--rk-background);
+    --media-fg-color: var(--rk-foreground);
+    --media-outline-color: var(--rk-foreground);
+  }
+  :root:not(:has(.is-light)) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:not(:has(.is-light)) input::placeholder,
+  :root:not(:has(.is-light)) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root:not(:has(.is-light)) .szh-menu__item--disabled {
+    color: var(--rk-white);
+  }
+  :root:not(:has(.is-light)) .button.plain2 {
+    background-color: var(--rk-mantle);
+  }
+  :root:not(:has(.is-light)) .replies-parent-link {
+    background-color: var(--rk-surface0) !important;
+  }
+  :root:not(:has(.is-light)) .account-container {
+    --original-color: var(--rk-blue);
+  }
+  :root:not(:has(.is-light)) .account-container .profile-field,
+  :root:not(:has(.is-light)) .account-container .stats,
+  :root:not(:has(.is-light)) .account-container .posting-stats-button {
+    background-color: var(--rk-mantle);
+    -webkit-filter: none;
+    filter: none;
+  }
+  :root.is-light {
+    color-scheme: dark;
+    --text-color: var(--rk-foreground);
+    --text-insignificant-color: var(--rk-white);
+    --link-color: var(--rk-accent);
+    --link-text-color: var(--rk-accent);
+    --link-faded-color: var(--rk-accent);
+    --link-light-color: var(--rk-accent);
+    --button-bg-blur-color: var(--rk-accent);
+    --button-bg-color: var(--rk-accent);
+    --button-text-color: var(--rk-background);
+    --bg-faded-color: var(--rk-background);
+    --bg-faded-blur-color: var(--rk-mantle);
+    --bg-blur-color: var(--rk-mantle);
+    --close-button-bg-color: var(--rk-mantle);
+    --close-button-color: var(--rk-white);
+    --bg-color: var(--rk-background);
+    --link-bg-hover-color: var(--rk-mantle);
+    --divider-color: var(--rk-surface0);
+    --outline-color: var(--rk-surface0);
+    --outline-hover-color: var(--rk-bright-black);
+    --reblog-faded-color: rgb(from var(--rk-accent) r g b / 0.2);
+    --reblog-color: var(--rk-accent);
+    --reply-to-faded-color: rgb(from var(--rk-yellow) r g b / 0.2);
+    --reply-to-text-color: var(--rk-yellow);
+    --reply-to-color: var(--rk-yellow);
+    --favourite-color: var(--rk-red);
+    --green-color: var(--rk-green);
+    --red-color: var(--rk-red);
+    --comment-line-color: var(--rk-black);
+    --media-bg-color: var(--rk-background);
+    --media-fg-color: var(--rk-foreground);
+    --media-outline-color: var(--rk-foreground);
+  }
+  :root.is-light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.is-light input::placeholder,
+  :root.is-light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.is-light .szh-menu__item--disabled {
+    color: var(--rk-white);
+  }
+  :root.is-light .button.plain2 {
+    background-color: var(--rk-mantle);
+  }
+  :root.is-light .replies-parent-link {
+    background-color: var(--rk-surface0) !important;
+  }
+  :root.is-light .account-container {
+    --original-color: var(--rk-blue);
+  }
+  :root.is-light .account-container .profile-field,
+  :root.is-light .account-container .stats,
+  :root.is-light .account-container .posting-stats-button {
+    background-color: var(--rk-mantle);
+    -webkit-filter: none;
+    filter: none;
+  }
+}

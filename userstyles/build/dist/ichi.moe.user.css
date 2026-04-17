@@ -1,0 +1,437 @@
+/* ==UserStyle==
+@name ichi.moe Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/ichi.moe
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/ichi.moe
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/ichi.moe.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aichi.moe
+@description Soothing pastel theme for ichi.moe
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+
+@var checkbox zen "Zen Mode" 0
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("ichi.moe") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* Options */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root html,
+    :root body {
+      background: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root footer {
+      color: var(--rk-bright-white);
+    }
+    :root span.query-word:hover {
+      border-color: var(--rk-magenta);
+    }
+    :root .panel-error {
+      background-color: rgb(from var(--rk-red) r g b / 0.8);
+    }
+    :root .highlight {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.8);
+    }
+    :root .gloss {
+      background-color: var(--rk-surface0);
+    }
+    :root .gloss,
+    :root .gloss-rtext {
+      border-color: var(--rk-overlay0);
+    }
+    :root .gloss:target {
+      box-shadow: 0 0 5px var(--rk-overlay0);
+      -webkit-box-shadow: 0 0 5px var(--rk-overlay0);
+      -moz-box-shadow: 0 0 5px var(--rk-overlay0);
+    }
+    :root a {
+      color: var(--rk-sapphire);
+    }
+    :root a.wiktionary-link {
+      color: var(--rk-foreground);
+    }
+    :root a.info-link {
+      color: var(--rk-foreground);
+    }
+    :root a.info-link:hover {
+      border-bottom-color: var(--rk-sapphire);
+    }
+    :root .note-skipped a {
+      color: var(--rk-bright-white);
+    }
+    :root .note-skipped a:hover {
+      border-color: var(--rk-bright-white);
+    }
+    :root .jspDrag {
+      background-color: var(--rk-bright-black);
+    }
+    :root .conj-negative {
+      color: var(--rk-red);
+    }
+    :root .conj-formal {
+      color: var(--rk-blue);
+    }
+    :root .pos-desc {
+      color: var(--rk-green);
+    }
+    :root .reading-table tr:nth-of-type(2n),
+    :root table.kanji-match tr:nth-of-type(2n) {
+      background: rgb(from var(--rk-black) r g b / 0.5);
+    }
+    :root .kanji-big a {
+      color: var(--rk-bright-white);
+    }
+    :root .autocomplete-suggestions {
+      border-color: var(--rk-overlay0);
+    }
+    :root .autocomplete-suggestions,
+    :root .autocomplete-selected {
+      background: var(--rk-surface0);
+    }
+    :root .autocomplete-suggestions strong {
+      color: var(--rk-lavender);
+    }
+    :root .autocomplete-group strong {
+      border-bottom-color: var(--rk-foreground);
+    }
+    :root .button {
+      background-color: var(--rk-sapphire);
+      border-color: var(--rk-sapphire);
+      color: var(--rk-background);
+    }
+    :root button:hover,
+    :root button:focus,
+    :root .button:hover,
+    :root .button:focus {
+      background-color: hsl(from var(--rk-sapphire) h s calc(l - 25));
+      color: var(--rk-background);
+    }
+    :root h1,
+    :root h2,
+    :root h3,
+    :root h4,
+    :root h5,
+    :root h6 {
+      color: var(--rk-foreground);
+    }
+    :root input[type="text"],
+    :root input[type="password"],
+    :root input[type="date"],
+    :root input[type="datetime"],
+    :root input[type="datetime-local"],
+    :root input[type="month"],
+    :root input[type="week"],
+    :root input[type="email"],
+    :root input[type="number"],
+    :root input[type="search"],
+    :root input[type="tel"],
+    :root input[type="time"],
+    :root input[type="url"],
+    :root input[type="color"],
+    :root textarea,
+    :root input[type="file"],
+    :root input[type="checkbox"],
+    :root input[type="radio"],
+    :root select,
+    :root input[type="text"]:focus,
+    :root input[type="password"]:focus,
+    :root input[type="date"]:focus,
+    :root input[type="datetime"]:focus,
+    :root input[type="datetime-local"]:focus,
+    :root input[type="month"]:focus,
+    :root input[type="week"]:focus,
+    :root input[type="email"]:focus,
+    :root input[type="number"]:focus,
+    :root input[type="search"]:focus,
+    :root input[type="tel"]:focus,
+    :root input[type="time"]:focus,
+    :root input[type="url"]:focus,
+    :root input[type="color"]:focus,
+    :root textarea:focus,
+    :root input[type="file"]:focus,
+    :root input[type="checkbox"]:focus,
+    :root input[type="radio"]:focus,
+    :root select:focus {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .header-nav a {
+      color: var(--rk-magenta);
+    }
+    :root .header-nav a:hover {
+      color: hsl(from var(--rk-magenta) h s calc(l - 15));
+    }
+    :root .jspTrack {
+      background: var(--rk-black);
+    }
+    :root .f-dropdown {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-bright-white);
+    }
+    :root .f-dropdown::before {
+      border-color: transparent transparent var(--rk-bright-white);
+    }
+    :root span.query-pick {
+      color: var(--rk-foreground);
+    }
+    :root .has-tip {
+      color: var(--rk-bright-white);
+      border-color: var(--rk-overlay1);
+    }
+    :root .has-tip:hover,
+    :root .has-tip:focus {
+      border-bottom-color: var(--rk-sapphire);
+      color: var(--rk-sapphire);
+    }
+    :root label {
+      color: var(--rk-bright-white);
+    }
+    :root table {
+      background: var(--rk-background);
+      background-color: var(--rk-black);
+    }
+    :root table tr th,
+    :root table tr td {
+      color: var(--rk-bright-white);
+    }
+    :root table tr.even,
+    :root table tr.alt,
+    :root table tr:nth-of-type(2n) {
+      background: rgb(from var(--rk-black) r g b / 0.5);
+    }
+    :root .kanji-table td,
+    :root .reading-table tr ~ tr > td,
+    :root table.kanji-match td,
+    :root tr.match-row-kanji,
+    :root tr.match-row-reading {
+      border-color: var(--rk-black);
+    }
+    :root img {
+      filter: contrast(1.2) opacity(85%);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* Options */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root html,
+    :root body {
+      background: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root footer {
+      color: var(--rk-bright-white);
+    }
+    :root span.query-word:hover {
+      border-color: var(--rk-magenta);
+    }
+    :root .panel-error {
+      background-color: rgb(from var(--rk-red) r g b / 0.8);
+    }
+    :root .highlight {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.8);
+    }
+    :root .gloss {
+      background-color: var(--rk-surface0);
+    }
+    :root .gloss,
+    :root .gloss-rtext {
+      border-color: var(--rk-overlay0);
+    }
+    :root .gloss:target {
+      box-shadow: 0 0 5px var(--rk-overlay0);
+      -webkit-box-shadow: 0 0 5px var(--rk-overlay0);
+      -moz-box-shadow: 0 0 5px var(--rk-overlay0);
+    }
+    :root a {
+      color: var(--rk-sapphire);
+    }
+    :root a.wiktionary-link {
+      color: var(--rk-foreground);
+    }
+    :root a.info-link {
+      color: var(--rk-foreground);
+    }
+    :root a.info-link:hover {
+      border-bottom-color: var(--rk-sapphire);
+    }
+    :root .note-skipped a {
+      color: var(--rk-bright-white);
+    }
+    :root .note-skipped a:hover {
+      border-color: var(--rk-bright-white);
+    }
+    :root .jspDrag {
+      background-color: var(--rk-bright-black);
+    }
+    :root .conj-negative {
+      color: var(--rk-red);
+    }
+    :root .conj-formal {
+      color: var(--rk-blue);
+    }
+    :root .pos-desc {
+      color: var(--rk-green);
+    }
+    :root .reading-table tr:nth-of-type(2n),
+    :root table.kanji-match tr:nth-of-type(2n) {
+      background: rgb(from var(--rk-black) r g b / 0.5);
+    }
+    :root .kanji-big a {
+      color: var(--rk-bright-white);
+    }
+    :root .autocomplete-suggestions {
+      border-color: var(--rk-overlay0);
+    }
+    :root .autocomplete-suggestions,
+    :root .autocomplete-selected {
+      background: var(--rk-surface0);
+    }
+    :root .autocomplete-suggestions strong {
+      color: var(--rk-lavender);
+    }
+    :root .autocomplete-group strong {
+      border-bottom-color: var(--rk-foreground);
+    }
+    :root .button {
+      background-color: var(--rk-sapphire);
+      border-color: var(--rk-sapphire);
+      color: var(--rk-background);
+    }
+    :root button:hover,
+    :root button:focus,
+    :root .button:hover,
+    :root .button:focus {
+      background-color: hsl(from var(--rk-sapphire) h s calc(l - 25));
+      color: var(--rk-background);
+    }
+    :root h1,
+    :root h2,
+    :root h3,
+    :root h4,
+    :root h5,
+    :root h6 {
+      color: var(--rk-foreground);
+    }
+    :root input[type="text"],
+    :root input[type="password"],
+    :root input[type="date"],
+    :root input[type="datetime"],
+    :root input[type="datetime-local"],
+    :root input[type="month"],
+    :root input[type="week"],
+    :root input[type="email"],
+    :root input[type="number"],
+    :root input[type="search"],
+    :root input[type="tel"],
+    :root input[type="time"],
+    :root input[type="url"],
+    :root input[type="color"],
+    :root textarea,
+    :root input[type="file"],
+    :root input[type="checkbox"],
+    :root input[type="radio"],
+    :root select,
+    :root input[type="text"]:focus,
+    :root input[type="password"]:focus,
+    :root input[type="date"]:focus,
+    :root input[type="datetime"]:focus,
+    :root input[type="datetime-local"]:focus,
+    :root input[type="month"]:focus,
+    :root input[type="week"]:focus,
+    :root input[type="email"]:focus,
+    :root input[type="number"]:focus,
+    :root input[type="search"]:focus,
+    :root input[type="tel"]:focus,
+    :root input[type="time"]:focus,
+    :root input[type="url"]:focus,
+    :root input[type="color"]:focus,
+    :root textarea:focus,
+    :root input[type="file"]:focus,
+    :root input[type="checkbox"]:focus,
+    :root input[type="radio"]:focus,
+    :root select:focus {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .header-nav a {
+      color: var(--rk-magenta);
+    }
+    :root .header-nav a:hover {
+      color: hsl(from var(--rk-magenta) h s calc(l - 15));
+    }
+    :root .jspTrack {
+      background: var(--rk-black);
+    }
+    :root .f-dropdown {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-bright-white);
+    }
+    :root .f-dropdown::before {
+      border-color: transparent transparent var(--rk-bright-white);
+    }
+    :root span.query-pick {
+      color: var(--rk-foreground);
+    }
+    :root .has-tip {
+      color: var(--rk-bright-white);
+      border-color: var(--rk-overlay1);
+    }
+    :root .has-tip:hover,
+    :root .has-tip:focus {
+      border-bottom-color: var(--rk-sapphire);
+      color: var(--rk-sapphire);
+    }
+    :root label {
+      color: var(--rk-bright-white);
+    }
+    :root table {
+      background: var(--rk-background);
+      background-color: var(--rk-black);
+    }
+    :root table tr th,
+    :root table tr td {
+      color: var(--rk-bright-white);
+    }
+    :root table tr.even,
+    :root table tr.alt,
+    :root table tr:nth-of-type(2n) {
+      background: rgb(from var(--rk-black) r g b / 0.5);
+    }
+    :root .kanji-table td,
+    :root .reading-table tr ~ tr > td,
+    :root table.kanji-match td,
+    :root tr.match-row-kanji,
+    :root tr.match-row-reading {
+      border-color: var(--rk-black);
+    }
+    :root img {
+      filter: contrast(1.2) opacity(85%);
+    }
+  }
+}

@@ -1,0 +1,255 @@
+/* ==UserStyle==
+@name boringproxy Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/boringproxy
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/boringproxy
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/boringproxy.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aboringproxy
+@description Soothing pastel theme for boringproxy
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("boring.example.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background: var(--rk-background);
+    }
+    :root main {
+      background: var(--rk-crust);
+    }
+    :root .content {
+      border-color: var(--rk-overlay0);
+    }
+    :root .menu {
+      background: var(--rk-mantle);
+    }
+    :root .menu-item {
+      background: var(--rk-crust);
+    }
+    :root .menu-item:hover {
+      background: var(--rk-bright-black);
+      color: var(--rk-accent);
+    }
+    :root .menu-item:any-link {
+      color: var(--rk-foreground);
+    }
+    :root .button {
+      border-color: var(--rk-accent);
+      background-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+    }
+    :root .button:hover {
+      color: var(--rk-surface0);
+      background-color: var(--rk-accent);
+      border-color: var(--rk-crust);
+    }
+    :root .list {
+      background-color: var(--rk-crust);
+    }
+    :root .list-item {
+      color: var(--rk-accent);
+    }
+    :root .tn-tunnel-link {
+      color: var(--rk-bright-white);
+      text-decoration: none;
+    }
+    :root .tn-tunnel-table__cell {
+      color: var(--rk-foreground);
+    }
+    :root body a {
+      color: var(--rk-foreground);
+    }
+    :root body a:visited {
+      color: var(--rk-accent);
+    }
+    :root .tn-attribute__name {
+      color: var(--rk-foreground);
+    }
+    :root .tn-attribute__value {
+      color: var(--rk-white);
+    }
+    :root .tunnel-adder h1 {
+      color: var(--rk-foreground);
+    }
+    :root .input {
+      color: var(--rk-foreground);
+    }
+    :root .input input {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .input select {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .token-adder {
+      color: var(--rk-foreground);
+    }
+    :root .token-adder select {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .client-adder {
+      color: var(--rk-foreground);
+    }
+    :root .client-adder select {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .client-adder input {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .user-adder {
+      color: var(--rk-foreground);
+    }
+    :root .user-adder input {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .dialog__content {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background: var(--rk-background);
+    }
+    :root main {
+      background: var(--rk-crust);
+    }
+    :root .content {
+      border-color: var(--rk-overlay0);
+    }
+    :root .menu {
+      background: var(--rk-mantle);
+    }
+    :root .menu-item {
+      background: var(--rk-crust);
+    }
+    :root .menu-item:hover {
+      background: var(--rk-bright-black);
+      color: var(--rk-accent);
+    }
+    :root .menu-item:any-link {
+      color: var(--rk-foreground);
+    }
+    :root .button {
+      border-color: var(--rk-accent);
+      background-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+    }
+    :root .button:hover {
+      color: var(--rk-surface0);
+      background-color: var(--rk-accent);
+      border-color: var(--rk-crust);
+    }
+    :root .list {
+      background-color: var(--rk-crust);
+    }
+    :root .list-item {
+      color: var(--rk-accent);
+    }
+    :root .tn-tunnel-link {
+      color: var(--rk-bright-white);
+      text-decoration: none;
+    }
+    :root .tn-tunnel-table__cell {
+      color: var(--rk-foreground);
+    }
+    :root body a {
+      color: var(--rk-foreground);
+    }
+    :root body a:visited {
+      color: var(--rk-accent);
+    }
+    :root .tn-attribute__name {
+      color: var(--rk-foreground);
+    }
+    :root .tn-attribute__value {
+      color: var(--rk-white);
+    }
+    :root .tunnel-adder h1 {
+      color: var(--rk-foreground);
+    }
+    :root .input {
+      color: var(--rk-foreground);
+    }
+    :root .input input {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .input select {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .token-adder {
+      color: var(--rk-foreground);
+    }
+    :root .token-adder select {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .client-adder {
+      color: var(--rk-foreground);
+    }
+    :root .client-adder select {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .client-adder input {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .user-adder {
+      color: var(--rk-foreground);
+    }
+    :root .user-adder input {
+      background-color: var(--rk-crust);
+      color: var(--rk-white);
+      border-color: var(--rk-accent);
+    }
+    :root .dialog__content {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+  }
+}

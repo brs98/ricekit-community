@@ -1,0 +1,1225 @@
+/* ==UserStyle==
+@name ListenBrainz Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/listenbrainz
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/listenbrainz
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/listenbrainz.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Alistenbrainz
+@description Soothing pastel theme for ListenBrainz
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("listenbrainz.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      --toastify-color-light: var(--rk-overlay0);
+      --toastify-text-color-light: var(--rk-foreground);
+      --toastify-color-info: var(--rk-blue);
+      --toastify-color-success: var(--rk-green);
+      --toastify-color-warning: var(--rk-yellow);
+      --toastify-color-error: var(--rk-red);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+    }
+    :root body nav[role="navigation"] .navbar-header .navbar-toggle {
+      border-color: var(--rk-accent);
+    }
+    :root body nav[role="navigation"] .navbar-header .navbar-toggle .icon-bar {
+      background-color: var(--rk-accent);
+    }
+    :root body nav[role="navigation"] .navbar-logo > img {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2027%2030%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M13%201%201%208v14l12%207z%22/%3E%3Cpath%20fill%3D%22%23fab387%22%20d%3D%22m14%201%2012%207v14l-12%207z%22/%3E%3C/svg%3E");
+    }
+    :root body nav[role="navigation"] #side-nav {
+      background-color: var(--rk-mantle);
+    }
+    :root body nav[role="navigation"] #side-nav a,
+    :root body nav[role="navigation"] #side-nav a:visited {
+      color: var(--rk-blue);
+    }
+    :root body nav[role="navigation"] #side-nav a:hover,
+    :root body nav[role="navigation"] #side-nav a:visited:hover {
+      color: var(--rk-sky);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input:focus {
+      box-shadow: inset 1px 2px 4px var(--rk-black);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input:focus ~ button {
+      box-shadow: inset -3px 2px 4px var(--rk-bright-black);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input ~ button {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root body nav[role="navigation"] #side-nav .mobile-nav-fix {
+      background-color: transparent;
+    }
+    :root body nav[role="navigation"] #side-nav-overlay {
+      background-color: var(--rk-crust);
+    }
+    :root a {
+      color: var(--rk-blue);
+    }
+    :root a:hover {
+      color: var(--rk-sky);
+    }
+    :root a:visited:not(.btn) {
+      color: var(--rk-lavender);
+    }
+    :root a:visited:not(.btn):hover {
+      color: var(--rk-sky);
+    }
+    :root h2,
+    :root h3,
+    :root h4 {
+      color: var(--rk-foreground);
+    }
+    :root .text-muted,
+    :root .help-block {
+      color: var(--rk-white);
+    }
+    :root .text-success {
+      color: var(--rk-green);
+    }
+    :root .text-danger {
+      color: var(--rk-red);
+    }
+    :root a > svg.fa-link {
+      color: var(--rk-foreground);
+    }
+    :root .form-control {
+      border-color: var(--rk-background);
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .panel {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-black);
+    }
+    :root .panel .panel-heading {
+      background-color: var(--rk-black);
+      outline-color: var(--rk-bright-black);
+    }
+    :root .well {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-mantle);
+    }
+    :root .toggle-switch {
+      background-color: var(--rk-surface0);
+    }
+    :root .toggle-switch::before {
+      background-color: var(--rk-overlay0);
+    }
+    :root .toggle-checkbox:checked + .toggle-switch {
+      background-color: var(--rk-black);
+    }
+    :root .toggle-checkbox:checked + .toggle-switch::before {
+      background-color: var(--rk-accent);
+    }
+    :root .table tr > td,
+    :root .table tr > th {
+      border-color: var(--rk-black);
+    }
+    :root .table.table-striped > tbody > tr:nth-of-type(2n+1) {
+      background-color: var(--rk-surface0);
+    }
+    :root .music-service-selection .music-service-option label {
+      background-color: var(--rk-black);
+      border-color: rgb(from var(--rk-green) r g b / 0.5);
+    }
+    :root .music-service-selection .music-service-option input[type="radio"]:checked + label {
+      background-color: rgb(from var(--rk-green) r g b / 0.5);
+    }
+    :root .music-service-selection .music-service-option input[type="radio"]:checked + label::after {
+      color: var(--rk-green);
+      border-color: var(--rk-green);
+      background-color: var(--rk-black);
+    }
+    :root .pill.secondary {
+      color: var(--rk-foreground);
+      border-color: var(--rk-white);
+    }
+    :root .btn-primary,
+    :root .btn-info,
+    :root .btn-outline,
+    :root .musicbrainz-profile-button,
+    :root .lb-follow-button.block,
+    :root .pill.secondary.active {
+      color: var(--rk-crust);
+      background-color: var(--rk-accent);
+      border-color: transparent;
+    }
+    :root .btn-primary:hover,
+    :root .btn-info:hover,
+    :root .btn-outline:hover,
+    :root .musicbrainz-profile-button:hover,
+    :root .lb-follow-button.block:hover,
+    :root .pill.secondary.active:hover {
+      color: var(--rk-crust);
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root .open > .dropdown-toggle.btn-info {
+      color: var(--rk-crust);
+      background-color: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root .secondary-nav > ol.breadcrumb {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .secondary-nav > ol.breadcrumb > li.active {
+      color: var(--rk-foreground);
+      border-color: transparent;
+    }
+    :root .secondary-nav .nav.nav-tabs {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .secondary-nav .nav.nav-tabs > li {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .secondary-nav .nav.nav-tabs > li > a {
+      background-color: transparent;
+      border-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+    }
+    :root .secondary-nav .nav.nav-tabs > li > a.active {
+      border-bottom-color: transparent;
+    }
+    :root .secondary-nav .nav.nav-tabs > li:hover {
+      background-color: var(--rk-surface0);
+    }
+    :root .secondary-nav .nav.nav-tabs > li.active {
+      background-color: var(--rk-background);
+      border-bottom-color: transparent;
+    }
+    :root .listen-header h3 {
+      color: var(--rk-white);
+    }
+    :root .listen-header h3::after {
+      border-top-color: var(--rk-black);
+    }
+    :root .webSocket-box {
+      border-bottom-color: var(--rk-mantle);
+    }
+    :root .webSocket-box .read-more {
+      background-image: linear-gradient(to bottom, transparent, #1e1e2e);
+    }
+    :root .card {
+      background-color: var(--rk-surface0);
+      border-color: transparent;
+      box-shadow: rgb(from var(--rk-surface0) r g b / 0.1) 0 1px 1px, rgb(from var(--rk-surface0) r g b / 0.15) 0 2px 2px, rgb(from var(--rk-surface0) r g b / 0.2) 0 4px 4px;
+    }
+    :root .card#listen-count-card {
+      margin-bottom: 5px;
+      border-color: var(--rk-black);
+    }
+    :root .card.listen-card .listen-thumbnail > div {
+      color: var(--rk-accent);
+      background-color: var(--rk-black);
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+    :root .card.listen-card .listen-time {
+      color: var(--rk-white);
+    }
+    :root .card.listen-card .listen-controls .btn.dropdown-toggle,
+    :root .card.listen-card .listen-controls .btn.play-button,
+    :root .card.listen-card .listen-controls .btn-transparent[title="Reset"] {
+      color: var(--rk-foreground);
+    }
+    :root .card.listen-card .listen-controls .btn.dropdown-toggle:hover,
+    :root .card.listen-card .listen-controls .btn.play-button:hover,
+    :root .card.listen-card .listen-controls .btn-transparent[title="Reset"]:hover,
+    :root .card.listen-card .listen-controls .btn.dropdown-toggle.playing,
+    :root .card.listen-card .listen-controls .btn.play-button.playing,
+    :root .card.listen-card .listen-controls .btn-transparent[title="Reset"].playing {
+      color: var(--rk-accent);
+    }
+    :root .card.listen-card .listen-controls .love {
+      stroke: var(--rk-foreground);
+    }
+    :root .card.listen-card .listen-controls .love.loved {
+      color: var(--rk-red);
+      stroke: transparent;
+    }
+    :root .card.listen-card .listen-controls .love:hover {
+      color: transparent;
+      stroke: var(--rk-red);
+    }
+    :root .card.listen-card .listen-controls .hate {
+      stroke: var(--rk-foreground);
+    }
+    :root .card.listen-card .listen-controls .hate.hated {
+      color: var(--rk-accent);
+      stroke: transparent;
+    }
+    :root .card.listen-card .listen-controls .hate:hover {
+      color: transparent;
+      stroke: var(--rk-accent);
+    }
+    :root .card.listen-card.playing-now,
+    :root .card.listen-card.current-listen {
+      background-color: var(--rk-black) !important;
+    }
+    :root .card.listen-card.playing-now .listen-thumbnail > div,
+    :root .card.listen-card.current-listen .listen-thumbnail > div {
+      background-color: var(--rk-bright-black);
+      height: 100%;
+    }
+    :root hr,
+    :root #listen-count-card hr,
+    :root .card-user-sn hr {
+      border-top-color: var(--rk-black);
+    }
+    :root .follower-following-list,
+    :root .similar-users-list {
+      box-shadow: inset 0 11px 8px -10px var(--rk-background);
+    }
+    :root .follower-following-list > :not(:first-child),
+    :root .similar-users-list > :not(:first-child) {
+      border-color: var(--rk-black);
+    }
+    :root .progress {
+      background-color: var(--rk-black);
+    }
+    :root .progress .progress-bar.purple {
+      background-color: var(--rk-accent);
+    }
+    :root .progress .progress-bar.orange {
+      background-color: var(--rk-peach);
+    }
+    :root .progress .progress-bar.red {
+      background-color: var(--rk-red);
+    }
+    :root .dropdown-menu {
+      background-color: var(--rk-overlay0);
+    }
+    :root .dropdown-menu button,
+    :root .dropdown-menu a {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-menu button:visited,
+    :root .dropdown-menu a:visited {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-menu button:hover,
+    :root .dropdown-menu a:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+    }
+    :root .pager li > a,
+    :root .pager li > a:focus,
+    :root .pager li > a:visited,
+    :root .pager li a:active,
+    :root .pager li > span {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-black);
+    }
+    :root .pager li > a:hover,
+    :root .pager li > a:focus:hover,
+    :root .pager li > a:visited:hover,
+    :root .pager li a:active:hover,
+    :root .pager li > span:hover {
+      background-color: var(--rk-black);
+    }
+    :root .pager li > a,
+    :root .pager li > a:focus,
+    :root .pager li > a:visited,
+    :root .pager li > a:active {
+      color: var(--rk-blue);
+    }
+    :root .pager li > a:hover,
+    :root .pager li > a:focus:hover,
+    :root .pager li > a:visited:hover,
+    :root .pager li > a:active:hover {
+      color: var(--rk-sky);
+    }
+    :root .pager li.disabled > a,
+    :root .pager li.disabled > a:focus,
+    :root .pager li.disabled > a:visited,
+    :root .pager li.disabled > a:active,
+    :root .pager li.disabled > span {
+      color: var(--rk-foreground);
+      background-color: var(--rk-surface0);
+    }
+    :root .pager li.disabled > a:hover,
+    :root .pager li.disabled > a:focus:hover,
+    :root .pager li.disabled > a:visited:hover,
+    :root .pager li.disabled > a:active:hover,
+    :root .pager li.disabled > span:hover {
+      background-color: inherit;
+    }
+    :root .react-datetime-picker .react-datetime-picker__wrapper {
+      border-color: var(--rk-mantle);
+    }
+    :root .react-datetime-picker .react-calendar {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-black);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation button:disabled,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer button:disabled {
+      background-color: var(--rk-bright-black);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation button:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer button:enabled:hover {
+      background-color: var(--rk-black);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation button:enabled:focus,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer button:enabled:focus {
+      background-color: transparent;
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--now,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--now {
+      background-color: var(--rk-peach);
+      color: var(--rk-crust);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--now:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--now:enabled:hover {
+      background-color: var(--rk-yellow);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--hasActive,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--hasActive,
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--active,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--active {
+      color: var(--rk-foreground);
+      background-color: rgb(from var(--rk-accent) r g b / 0.4);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--hasActive:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--hasActive:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--active:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--active:enabled:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.5);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__month-view__days__day--neighboringMonth {
+      color: var(--rk-white);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__month-view__days__day--weekend {
+      color: var(--rk-red);
+    }
+    :root .stats-full-width-graph line {
+      stroke: var(--rk-white) !important;
+    }
+    :root .stats-full-width-graph text {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .stats-full-width-graph.user-artist-map > div + div > div,
+    :root .stats-full-width-graph svg + div > div {
+      background-color: var(--rk-overlay0) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root rect[fill="#353070"] {
+      fill: var(--rk-accent);
+    }
+    :root rect[fill="#eb743b"] {
+      fill: var(--rk-peach);
+    }
+    :root .badge-info {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .modal-content {
+      background-color: var(--rk-mantle);
+    }
+    :root .modal-content button.close {
+      color: var(--rk-foreground);
+      opacity: 1;
+      text-shadow: none;
+    }
+    :root .modal-content .track-search #recording-mbid,
+    :root .modal-content .track-search .track-search-dropdown {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-crust);
+    }
+    :root .modal-content .modal-header,
+    :root .modal-content .modal-footer {
+      border-color: var(--rk-crust);
+    }
+    :root .explore-card {
+      background-color: var(--rk-surface0);
+      filter: drop-shadow(0 4px 4px rgba(108, 112, 134, 0.25));
+    }
+    :root .explore-card .explore-card-img {
+      border-color: var(--rk-surface0);
+    }
+    :root .explore-card .explore-card-text {
+      background-color: var(--rk-surface0);
+    }
+    :root .sidebar {
+      background-color: var(--rk-mantle);
+    }
+    :root .sidebar .sidebar-header {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .sidebar .sidenav-content-grid {
+      background: transparent;
+    }
+    :root .rc-slider-rail {
+      background-color: var(--rk-black);
+    }
+    :root .rc-slider-handle {
+      background-color: var(--rk-accent);
+    }
+    :root .rc-slider-handle.rc-slider-handle-dragging {
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .rc-slider-mark-text {
+      color: var(--rk-white);
+    }
+    :root .release-card-grid-title {
+      background-color: transparent;
+    }
+    :root .release-card-grid-title::before,
+    :root .release-card-grid-title::after {
+      border-color: var(--rk-surface0);
+    }
+    :root #homepage-container .homepage-upper {
+      background: linear-gradient(288deg, #fab387 16.96%, #cba6f7 98.91%);
+    }
+    :root #homepage-container .homepage-upper h1 {
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-upper .homepage-info h1 {
+      color: var(--rk-foreground);
+    }
+    :root #homepage-container .homepage-upper .homepage-info .homepage-info-links > a {
+      color: var(--rk-blue);
+    }
+    :root #homepage-container .homepage-upper .homepage-info .homepage-info-links > a:hover {
+      color: var(--rk-sky);
+    }
+    :root #homepage-container .homepage-upper .homepage-upper-grey-box {
+      background-color: var(--rk-background);
+    }
+    :root #homepage-container .homepage-lower {
+      background: linear-gradient(288deg, #fab387 16.96%, #cba6f7 98.91%);
+    }
+    :root #homepage-container .homepage-lower h1 {
+      color: var(--rk-foreground);
+    }
+    :root #homepage-container .homepage-lower .homepage-info {
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-lower .homepage-info h1 {
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-lower .homepage-info .homepage-info-links > a {
+      color: #89b4fa;
+    }
+    :root #homepage-container .homepage-lower .homepage-info .homepage-info-links > a:hover {
+      color: #89dceb;
+    }
+    :root #homepage-container .homepage-lower .homepage-lower-grey-box {
+      background-color: var(--rk-background);
+    }
+    :root #homepage-container .homepage-info {
+      color: var(--rk-foreground);
+    }
+    :root #homepage-container .homepage-info .create-account-button {
+      background-color: var(--rk-accent);
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-info .create-account-button:hover {
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root #brainz-player {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root #brainz-player .progress {
+      background-color: var(--rk-black);
+    }
+    :root #brainz-player .progress > .progress-bar {
+      background-color: var(--rk-accent);
+    }
+    :root #brainz-player .no-album-art {
+      background-color: transparent;
+    }
+    :root #brainz-player .controls > .btn-link,
+    :root #brainz-player .actions > a {
+      color: var(--rk-accent);
+    }
+    :root #brainz-player .actions .love {
+      stroke: var(--rk-foreground);
+    }
+    :root #brainz-player .actions .love.loved {
+      color: var(--rk-red);
+      stroke: transparent;
+    }
+    :root #brainz-player .actions .love:hover {
+      color: transparent;
+      stroke: var(--rk-red);
+    }
+    :root #brainz-player .actions .hate {
+      stroke: var(--rk-foreground);
+    }
+    :root #brainz-player .actions .hate.hated {
+      color: var(--rk-accent);
+      stroke: transparent;
+    }
+    :root #brainz-player .actions .hate:hover {
+      color: transparent;
+      stroke: var(--rk-accent);
+    }
+    :root #brainz-player .actions .fa-ellipsis-vertical {
+      stroke: var(--rk-accent);
+    }
+    :root #brainz-player .dropup-content {
+      background-color: var(--rk-overlay0);
+    }
+    :root #brainz-player .dropup-content button,
+    :root #brainz-player .dropup-content a {
+      color: var(--rk-foreground) !important;
+    }
+    :root #brainz-player .dropup-content button:visited,
+    :root #brainz-player .dropup-content a:visited {
+      color: var(--rk-foreground) !important;
+    }
+    :root #brainz-player .dropup-content button:hover,
+    :root #brainz-player .dropup-content a:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+    }
+    :root .footer {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-crust);
+    }
+    :root .footer .color-gray {
+      color: var(--rk-white);
+    }
+    :root .footer .section-line {
+      border-color: var(--rk-crust);
+    }
+  }
+  @media (prefers-color-scheme: light) and (max-width: 991px) {
+    :root .secondary-nav::after {
+      background: linear-gradient(270deg, #11111b, transparent);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --toastify-color-light: var(--rk-overlay0);
+      --toastify-text-color-light: var(--rk-foreground);
+      --toastify-color-info: var(--rk-blue);
+      --toastify-color-success: var(--rk-green);
+      --toastify-color-warning: var(--rk-yellow);
+      --toastify-color-error: var(--rk-red);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+    }
+    :root body nav[role="navigation"] .navbar-header .navbar-toggle {
+      border-color: var(--rk-accent);
+    }
+    :root body nav[role="navigation"] .navbar-header .navbar-toggle .icon-bar {
+      background-color: var(--rk-accent);
+    }
+    :root body nav[role="navigation"] .navbar-logo > img {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2027%2030%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M13%201%201%208v14l12%207z%22/%3E%3Cpath%20fill%3D%22%23fab387%22%20d%3D%22m14%201%2012%207v14l-12%207z%22/%3E%3C/svg%3E");
+    }
+    :root body nav[role="navigation"] #side-nav {
+      background-color: var(--rk-mantle);
+    }
+    :root body nav[role="navigation"] #side-nav a,
+    :root body nav[role="navigation"] #side-nav a:visited {
+      color: var(--rk-blue);
+    }
+    :root body nav[role="navigation"] #side-nav a:hover,
+    :root body nav[role="navigation"] #side-nav a:visited:hover {
+      color: var(--rk-sky);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input:focus {
+      box-shadow: inset 1px 2px 4px var(--rk-black);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input:focus ~ button {
+      box-shadow: inset -3px 2px 4px var(--rk-bright-black);
+    }
+    :root body nav[role="navigation"] #side-nav .search-bar input ~ button {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root body nav[role="navigation"] #side-nav .mobile-nav-fix {
+      background-color: transparent;
+    }
+    :root body nav[role="navigation"] #side-nav-overlay {
+      background-color: var(--rk-crust);
+    }
+    :root a {
+      color: var(--rk-blue);
+    }
+    :root a:hover {
+      color: var(--rk-sky);
+    }
+    :root a:visited:not(.btn) {
+      color: var(--rk-lavender);
+    }
+    :root a:visited:not(.btn):hover {
+      color: var(--rk-sky);
+    }
+    :root h2,
+    :root h3,
+    :root h4 {
+      color: var(--rk-foreground);
+    }
+    :root .text-muted,
+    :root .help-block {
+      color: var(--rk-white);
+    }
+    :root .text-success {
+      color: var(--rk-green);
+    }
+    :root .text-danger {
+      color: var(--rk-red);
+    }
+    :root a > svg.fa-link {
+      color: var(--rk-foreground);
+    }
+    :root .form-control {
+      border-color: var(--rk-background);
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .panel {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-black);
+    }
+    :root .panel .panel-heading {
+      background-color: var(--rk-black);
+      outline-color: var(--rk-bright-black);
+    }
+    :root .well {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-mantle);
+    }
+    :root .toggle-switch {
+      background-color: var(--rk-surface0);
+    }
+    :root .toggle-switch::before {
+      background-color: var(--rk-overlay0);
+    }
+    :root .toggle-checkbox:checked + .toggle-switch {
+      background-color: var(--rk-black);
+    }
+    :root .toggle-checkbox:checked + .toggle-switch::before {
+      background-color: var(--rk-accent);
+    }
+    :root .table tr > td,
+    :root .table tr > th {
+      border-color: var(--rk-black);
+    }
+    :root .table.table-striped > tbody > tr:nth-of-type(2n+1) {
+      background-color: var(--rk-surface0);
+    }
+    :root .music-service-selection .music-service-option label {
+      background-color: var(--rk-black);
+      border-color: rgb(from var(--rk-green) r g b / 0.5);
+    }
+    :root .music-service-selection .music-service-option input[type="radio"]:checked + label {
+      background-color: rgb(from var(--rk-green) r g b / 0.5);
+    }
+    :root .music-service-selection .music-service-option input[type="radio"]:checked + label::after {
+      color: var(--rk-green);
+      border-color: var(--rk-green);
+      background-color: var(--rk-black);
+    }
+    :root .pill.secondary {
+      color: var(--rk-foreground);
+      border-color: var(--rk-white);
+    }
+    :root .btn-primary,
+    :root .btn-info,
+    :root .btn-outline,
+    :root .musicbrainz-profile-button,
+    :root .lb-follow-button.block,
+    :root .pill.secondary.active {
+      color: var(--rk-crust);
+      background-color: var(--rk-accent);
+      border-color: transparent;
+    }
+    :root .btn-primary:hover,
+    :root .btn-info:hover,
+    :root .btn-outline:hover,
+    :root .musicbrainz-profile-button:hover,
+    :root .lb-follow-button.block:hover,
+    :root .pill.secondary.active:hover {
+      color: var(--rk-crust);
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root .open > .dropdown-toggle.btn-info {
+      color: var(--rk-crust);
+      background-color: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root .secondary-nav > ol.breadcrumb {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .secondary-nav > ol.breadcrumb > li.active {
+      color: var(--rk-foreground);
+      border-color: transparent;
+    }
+    :root .secondary-nav .nav.nav-tabs {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .secondary-nav .nav.nav-tabs > li {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .secondary-nav .nav.nav-tabs > li > a {
+      background-color: transparent;
+      border-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+    }
+    :root .secondary-nav .nav.nav-tabs > li > a.active {
+      border-bottom-color: transparent;
+    }
+    :root .secondary-nav .nav.nav-tabs > li:hover {
+      background-color: var(--rk-surface0);
+    }
+    :root .secondary-nav .nav.nav-tabs > li.active {
+      background-color: var(--rk-background);
+      border-bottom-color: transparent;
+    }
+    :root .listen-header h3 {
+      color: var(--rk-white);
+    }
+    :root .listen-header h3::after {
+      border-top-color: var(--rk-black);
+    }
+    :root .webSocket-box {
+      border-bottom-color: var(--rk-mantle);
+    }
+    :root .webSocket-box .read-more {
+      background-image: linear-gradient(to bottom, transparent, #1e1e2e);
+    }
+    :root .card {
+      background-color: var(--rk-surface0);
+      border-color: transparent;
+      box-shadow: rgb(from var(--rk-surface0) r g b / 0.1) 0 1px 1px, rgb(from var(--rk-surface0) r g b / 0.15) 0 2px 2px, rgb(from var(--rk-surface0) r g b / 0.2) 0 4px 4px;
+    }
+    :root .card#listen-count-card {
+      margin-bottom: 5px;
+      border-color: var(--rk-black);
+    }
+    :root .card.listen-card .listen-thumbnail > div {
+      color: var(--rk-accent);
+      background-color: var(--rk-black);
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+    :root .card.listen-card .listen-time {
+      color: var(--rk-white);
+    }
+    :root .card.listen-card .listen-controls .btn.dropdown-toggle,
+    :root .card.listen-card .listen-controls .btn.play-button,
+    :root .card.listen-card .listen-controls .btn-transparent[title="Reset"] {
+      color: var(--rk-foreground);
+    }
+    :root .card.listen-card .listen-controls .btn.dropdown-toggle:hover,
+    :root .card.listen-card .listen-controls .btn.play-button:hover,
+    :root .card.listen-card .listen-controls .btn-transparent[title="Reset"]:hover,
+    :root .card.listen-card .listen-controls .btn.dropdown-toggle.playing,
+    :root .card.listen-card .listen-controls .btn.play-button.playing,
+    :root .card.listen-card .listen-controls .btn-transparent[title="Reset"].playing {
+      color: var(--rk-accent);
+    }
+    :root .card.listen-card .listen-controls .love {
+      stroke: var(--rk-foreground);
+    }
+    :root .card.listen-card .listen-controls .love.loved {
+      color: var(--rk-red);
+      stroke: transparent;
+    }
+    :root .card.listen-card .listen-controls .love:hover {
+      color: transparent;
+      stroke: var(--rk-red);
+    }
+    :root .card.listen-card .listen-controls .hate {
+      stroke: var(--rk-foreground);
+    }
+    :root .card.listen-card .listen-controls .hate.hated {
+      color: var(--rk-accent);
+      stroke: transparent;
+    }
+    :root .card.listen-card .listen-controls .hate:hover {
+      color: transparent;
+      stroke: var(--rk-accent);
+    }
+    :root .card.listen-card.playing-now,
+    :root .card.listen-card.current-listen {
+      background-color: var(--rk-black) !important;
+    }
+    :root .card.listen-card.playing-now .listen-thumbnail > div,
+    :root .card.listen-card.current-listen .listen-thumbnail > div {
+      background-color: var(--rk-bright-black);
+      height: 100%;
+    }
+    :root hr,
+    :root #listen-count-card hr,
+    :root .card-user-sn hr {
+      border-top-color: var(--rk-black);
+    }
+    :root .follower-following-list,
+    :root .similar-users-list {
+      box-shadow: inset 0 11px 8px -10px var(--rk-background);
+    }
+    :root .follower-following-list > :not(:first-child),
+    :root .similar-users-list > :not(:first-child) {
+      border-color: var(--rk-black);
+    }
+    :root .progress {
+      background-color: var(--rk-black);
+    }
+    :root .progress .progress-bar.purple {
+      background-color: var(--rk-accent);
+    }
+    :root .progress .progress-bar.orange {
+      background-color: var(--rk-peach);
+    }
+    :root .progress .progress-bar.red {
+      background-color: var(--rk-red);
+    }
+    :root .dropdown-menu {
+      background-color: var(--rk-overlay0);
+    }
+    :root .dropdown-menu button,
+    :root .dropdown-menu a {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-menu button:visited,
+    :root .dropdown-menu a:visited {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-menu button:hover,
+    :root .dropdown-menu a:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+    }
+    :root .pager li > a,
+    :root .pager li > a:focus,
+    :root .pager li > a:visited,
+    :root .pager li a:active,
+    :root .pager li > span {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-black);
+    }
+    :root .pager li > a:hover,
+    :root .pager li > a:focus:hover,
+    :root .pager li > a:visited:hover,
+    :root .pager li a:active:hover,
+    :root .pager li > span:hover {
+      background-color: var(--rk-black);
+    }
+    :root .pager li > a,
+    :root .pager li > a:focus,
+    :root .pager li > a:visited,
+    :root .pager li > a:active {
+      color: var(--rk-blue);
+    }
+    :root .pager li > a:hover,
+    :root .pager li > a:focus:hover,
+    :root .pager li > a:visited:hover,
+    :root .pager li > a:active:hover {
+      color: var(--rk-sky);
+    }
+    :root .pager li.disabled > a,
+    :root .pager li.disabled > a:focus,
+    :root .pager li.disabled > a:visited,
+    :root .pager li.disabled > a:active,
+    :root .pager li.disabled > span {
+      color: var(--rk-foreground);
+      background-color: var(--rk-surface0);
+    }
+    :root .pager li.disabled > a:hover,
+    :root .pager li.disabled > a:focus:hover,
+    :root .pager li.disabled > a:visited:hover,
+    :root .pager li.disabled > a:active:hover,
+    :root .pager li.disabled > span:hover {
+      background-color: inherit;
+    }
+    :root .react-datetime-picker .react-datetime-picker__wrapper {
+      border-color: var(--rk-mantle);
+    }
+    :root .react-datetime-picker .react-calendar {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-black);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation button:disabled,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer button:disabled {
+      background-color: var(--rk-bright-black);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation button:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer button:enabled:hover {
+      background-color: var(--rk-black);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation button:enabled:focus,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer button:enabled:focus {
+      background-color: transparent;
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--now,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--now {
+      background-color: var(--rk-peach);
+      color: var(--rk-crust);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--now:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--now:enabled:hover {
+      background-color: var(--rk-yellow);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--hasActive,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--hasActive,
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--active,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--active {
+      color: var(--rk-foreground);
+      background-color: rgb(from var(--rk-accent) r g b / 0.4);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--hasActive:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--hasActive:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__navigation .react-calendar__tile--active:enabled:hover,
+    :root .react-datetime-picker .react-calendar .react-calendar__viewContainer .react-calendar__tile--active:enabled:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.5);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__month-view__days__day--neighboringMonth {
+      color: var(--rk-white);
+    }
+    :root .react-datetime-picker .react-calendar .react-calendar__month-view__days__day--weekend {
+      color: var(--rk-red);
+    }
+    :root .stats-full-width-graph line {
+      stroke: var(--rk-white) !important;
+    }
+    :root .stats-full-width-graph text {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .stats-full-width-graph.user-artist-map > div + div > div,
+    :root .stats-full-width-graph svg + div > div {
+      background-color: var(--rk-overlay0) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root rect[fill="#353070"] {
+      fill: var(--rk-accent);
+    }
+    :root rect[fill="#eb743b"] {
+      fill: var(--rk-peach);
+    }
+    :root .badge-info {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .modal-content {
+      background-color: var(--rk-mantle);
+    }
+    :root .modal-content button.close {
+      color: var(--rk-foreground);
+      opacity: 1;
+      text-shadow: none;
+    }
+    :root .modal-content .track-search #recording-mbid,
+    :root .modal-content .track-search .track-search-dropdown {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-crust);
+    }
+    :root .modal-content .modal-header,
+    :root .modal-content .modal-footer {
+      border-color: var(--rk-crust);
+    }
+    :root .explore-card {
+      background-color: var(--rk-surface0);
+      filter: drop-shadow(0 4px 4px rgba(108, 112, 134, 0.25));
+    }
+    :root .explore-card .explore-card-img {
+      border-color: var(--rk-surface0);
+    }
+    :root .explore-card .explore-card-text {
+      background-color: var(--rk-surface0);
+    }
+    :root .sidebar {
+      background-color: var(--rk-mantle);
+    }
+    :root .sidebar .sidebar-header {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .sidebar .sidenav-content-grid {
+      background: transparent;
+    }
+    :root .rc-slider-rail {
+      background-color: var(--rk-black);
+    }
+    :root .rc-slider-handle {
+      background-color: var(--rk-accent);
+    }
+    :root .rc-slider-handle.rc-slider-handle-dragging {
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .rc-slider-mark-text {
+      color: var(--rk-white);
+    }
+    :root .release-card-grid-title {
+      background-color: transparent;
+    }
+    :root .release-card-grid-title::before,
+    :root .release-card-grid-title::after {
+      border-color: var(--rk-surface0);
+    }
+    :root #homepage-container .homepage-upper {
+      background: linear-gradient(288deg, #fab387 16.96%, #cba6f7 98.91%);
+    }
+    :root #homepage-container .homepage-upper h1 {
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-upper .homepage-info h1 {
+      color: var(--rk-foreground);
+    }
+    :root #homepage-container .homepage-upper .homepage-info .homepage-info-links > a {
+      color: var(--rk-blue);
+    }
+    :root #homepage-container .homepage-upper .homepage-info .homepage-info-links > a:hover {
+      color: var(--rk-sky);
+    }
+    :root #homepage-container .homepage-upper .homepage-upper-grey-box {
+      background-color: var(--rk-background);
+    }
+    :root #homepage-container .homepage-lower {
+      background: linear-gradient(288deg, #fab387 16.96%, #cba6f7 98.91%);
+    }
+    :root #homepage-container .homepage-lower h1 {
+      color: var(--rk-foreground);
+    }
+    :root #homepage-container .homepage-lower .homepage-info {
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-lower .homepage-info h1 {
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-lower .homepage-info .homepage-info-links > a {
+      color: #1e66f5;
+    }
+    :root #homepage-container .homepage-lower .homepage-info .homepage-info-links > a:hover {
+      color: #04a5e5;
+    }
+    :root #homepage-container .homepage-lower .homepage-lower-grey-box {
+      background-color: var(--rk-background);
+    }
+    :root #homepage-container .homepage-info {
+      color: var(--rk-foreground);
+    }
+    :root #homepage-container .homepage-info .create-account-button {
+      background-color: var(--rk-accent);
+      color: var(--rk-crust);
+    }
+    :root #homepage-container .homepage-info .create-account-button:hover {
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root #brainz-player {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root #brainz-player .progress {
+      background-color: var(--rk-black);
+    }
+    :root #brainz-player .progress > .progress-bar {
+      background-color: var(--rk-accent);
+    }
+    :root #brainz-player .no-album-art {
+      background-color: transparent;
+    }
+    :root #brainz-player .controls > .btn-link,
+    :root #brainz-player .actions > a {
+      color: var(--rk-accent);
+    }
+    :root #brainz-player .actions .love {
+      stroke: var(--rk-foreground);
+    }
+    :root #brainz-player .actions .love.loved {
+      color: var(--rk-red);
+      stroke: transparent;
+    }
+    :root #brainz-player .actions .love:hover {
+      color: transparent;
+      stroke: var(--rk-red);
+    }
+    :root #brainz-player .actions .hate {
+      stroke: var(--rk-foreground);
+    }
+    :root #brainz-player .actions .hate.hated {
+      color: var(--rk-accent);
+      stroke: transparent;
+    }
+    :root #brainz-player .actions .hate:hover {
+      color: transparent;
+      stroke: var(--rk-accent);
+    }
+    :root #brainz-player .actions .fa-ellipsis-vertical {
+      stroke: var(--rk-accent);
+    }
+    :root #brainz-player .dropup-content {
+      background-color: var(--rk-overlay0);
+    }
+    :root #brainz-player .dropup-content button,
+    :root #brainz-player .dropup-content a {
+      color: var(--rk-foreground) !important;
+    }
+    :root #brainz-player .dropup-content button:visited,
+    :root #brainz-player .dropup-content a:visited {
+      color: var(--rk-foreground) !important;
+    }
+    :root #brainz-player .dropup-content button:hover,
+    :root #brainz-player .dropup-content a:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+    }
+    :root .footer {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-crust);
+    }
+    :root .footer .color-gray {
+      color: var(--rk-white);
+    }
+    :root .footer .section-line {
+      border-color: var(--rk-crust);
+    }
+  }
+  @media (prefers-color-scheme: dark) and (max-width: 991px) {
+    :root .secondary-nav::after {
+      background: linear-gradient(270deg, #11111b, transparent);
+    }
+  }
+}

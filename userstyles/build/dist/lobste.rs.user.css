@@ -1,0 +1,259 @@
+/* ==UserStyle==
+@name Lobsters Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/lobste.rs
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/lobste.rs
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lobste.rs.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Alobste.rs
+@description Soothing pastel theme for Lobsters
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("lobste.rs") {
+  @media (prefers-color-scheme: light) {
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) {
+      color-scheme: dark;
+      --color-bg: var(--rk-background);
+      --color-fg: var(--rk-foreground);
+      --color-fg-shape: var(--rk-bright-black);
+      --color-tag-bg: rgb(from var(--rk-yellow) r g b / 0.2);
+      --color-tag-border: rgb(from var(--rk-yellow) r g b / 0.2);
+      --color-lobsters-tag-special-bg: rgb(from var(--rk-red) r g b / 0.3);
+      --color-lobsters-tag-special-border: rgb(from var(--rk-red) r g b / 0.3);
+      --color-tag-media-bg: rgb(from var(--rk-blue) r g b / 0.2);
+      --color-tag-media-border: rgb(from var(--rk-blue) r g b / 0.3);
+      --color-tag-meta-bg: var(--rk-surface0);
+      --color-tag-meta-border: var(--rk-bright-black);
+      --color-bg-target: rgb(from var(--rk-accent) r g b / 0.2);
+      --color-fg-affirmative: var(--rk-green);
+      --color-fg-accent: var(--rk-accent);
+      --color-fg-author: var(--rk-blue);
+      --color-fg-contrast-7-5: var(--rk-blue);
+      --color-fg-link: var(--rk-blue);
+      --color-fg-link-visited: var(--rk-lavender);
+      --color-fg-contrast-4-5: var(--rk-white);
+      --color-fg-contrast-5: var(--rk-bright-white);
+      --color-fg-contrast-6: var(--rk-bright-white);
+      --color-fg-contrast-10: var(--rk-foreground);
+      --color-fg-contrast-13: var(--rk-foreground);
+      --color-box-bg: var(--rk-mantle);
+      --color-button-bg: var(--rk-mantle);
+      --color-button-bg-shaded: var(--rk-surface0);
+      --color-box-border: var(--rk-surface0);
+      --color-box-border-focus: var(--rk-accent);
+      --color-box-bg-shaded: var(--rk-mantle);
+      --color-mobile-story-liner-bg: var(--rk-background);
+      --color-mobile-story-comments-bubble-fill: var(--rk-black);
+      --color-mobile-story-comments-bubble-fill-zero: var(--rk-surface0);
+      --color-table-header-bg: var(--rk-surface0);
+      --color-table-header-border: var(--rk-black);
+      --color-table-row-bg-even: var(--rk-mantle);
+      --color-table-row-bg-odd: var(--rk-crust);
+      --color-table-row-border: var(--rk-background);
+      --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
+      --color-fg-negative: var(--rk-red);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) input::placeholder,
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) hr {
+      color: var(--rk-bright-black);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) #logo {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M16%2016H0V0h16z%22/%3E%3Cpath%20fill%3D%22%231e1e2e%22%20d%3D%22M3.5%2013.45v-.63c0-.11%200-.1.1-.11.23-.02.46-.03.69-.07.46-.08.67-.31.74-.78.02-.14.03-.29.03-.43V4.69c0-.18-.02-.36-.04-.53-.03-.31-.23-.5-.52-.61-.27-.1-.55-.11-.83-.13h-.15v-.65c0-.07.02-.09.09-.09h5.24c.07%200%20.1.01.1.09-.01.19%200%20.37%200%20.56v.08c-.14.01-.28%200-.41.02-.2.03-.4.06-.59.11-.35.11-.53.35-.57.68q-.03.225-.03.45v6.39c0%20.27.03.54.06.8.03.29.22.48.49.58.23.09.48.11.72.12.63.02%201.25.01%201.86-.15.88-.22%201.47-.77%201.76-1.64.09-.28.13-.57.2-.86.01-.02.03-.06.05-.06h.66c-.02%201.2.02%202.4%200%203.6z%22/%3E%3C/svg%3E");
+      background-color: transparent !important;
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) #logo::after {
+      background: none;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) {
+      color-scheme: dark;
+      --color-bg: var(--rk-background);
+      --color-fg: var(--rk-foreground);
+      --color-fg-shape: var(--rk-bright-black);
+      --color-tag-bg: rgb(from var(--rk-yellow) r g b / 0.2);
+      --color-tag-border: rgb(from var(--rk-yellow) r g b / 0.2);
+      --color-lobsters-tag-special-bg: rgb(from var(--rk-red) r g b / 0.3);
+      --color-lobsters-tag-special-border: rgb(from var(--rk-red) r g b / 0.3);
+      --color-tag-media-bg: rgb(from var(--rk-blue) r g b / 0.2);
+      --color-tag-media-border: rgb(from var(--rk-blue) r g b / 0.3);
+      --color-tag-meta-bg: var(--rk-surface0);
+      --color-tag-meta-border: var(--rk-bright-black);
+      --color-bg-target: rgb(from var(--rk-accent) r g b / 0.2);
+      --color-fg-affirmative: var(--rk-green);
+      --color-fg-accent: var(--rk-accent);
+      --color-fg-author: var(--rk-blue);
+      --color-fg-contrast-7-5: var(--rk-blue);
+      --color-fg-link: var(--rk-blue);
+      --color-fg-link-visited: var(--rk-lavender);
+      --color-fg-contrast-4-5: var(--rk-white);
+      --color-fg-contrast-5: var(--rk-bright-white);
+      --color-fg-contrast-6: var(--rk-bright-white);
+      --color-fg-contrast-10: var(--rk-foreground);
+      --color-fg-contrast-13: var(--rk-foreground);
+      --color-box-bg: var(--rk-mantle);
+      --color-button-bg: var(--rk-mantle);
+      --color-button-bg-shaded: var(--rk-surface0);
+      --color-box-border: var(--rk-surface0);
+      --color-box-border-focus: var(--rk-accent);
+      --color-box-bg-shaded: var(--rk-mantle);
+      --color-mobile-story-liner-bg: var(--rk-background);
+      --color-mobile-story-comments-bubble-fill: var(--rk-black);
+      --color-mobile-story-comments-bubble-fill-zero: var(--rk-surface0);
+      --color-table-header-bg: var(--rk-surface0);
+      --color-table-header-border: var(--rk-black);
+      --color-table-row-bg-even: var(--rk-mantle);
+      --color-table-row-bg-odd: var(--rk-crust);
+      --color-table-row-border: var(--rk-background);
+      --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
+      --color-fg-negative: var(--rk-red);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) input::placeholder,
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) hr {
+      color: var(--rk-bright-black);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) #logo {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M16%2016H0V0h16z%22/%3E%3Cpath%20fill%3D%22%231e1e2e%22%20d%3D%22M3.5%2013.45v-.63c0-.11%200-.1.1-.11.23-.02.46-.03.69-.07.46-.08.67-.31.74-.78.02-.14.03-.29.03-.43V4.69c0-.18-.02-.36-.04-.53-.03-.31-.23-.5-.52-.61-.27-.1-.55-.11-.83-.13h-.15v-.65c0-.07.02-.09.09-.09h5.24c.07%200%20.1.01.1.09-.01.19%200%20.37%200%20.56v.08c-.14.01-.28%200-.41.02-.2.03-.4.06-.59.11-.35.11-.53.35-.57.68q-.03.225-.03.45v6.39c0%20.27.03.54.06.8.03.29.22.48.49.58.23.09.48.11.72.12.63.02%201.25.01%201.86-.15.88-.22%201.47-.77%201.76-1.64.09-.28.13-.57.2-.86.01-.02.03-.06.05-.06h.66c-.02%201.2.02%202.4%200%203.6z%22/%3E%3C/svg%3E");
+      background-color: transparent !important;
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) #logo::after {
+      background: none;
+    }
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) {
+    color-scheme: dark;
+    --color-bg: var(--rk-background);
+    --color-fg: var(--rk-foreground);
+    --color-fg-shape: var(--rk-bright-black);
+    --color-tag-bg: rgb(from var(--rk-yellow) r g b / 0.2);
+    --color-tag-border: rgb(from var(--rk-yellow) r g b / 0.2);
+    --color-lobsters-tag-special-bg: rgb(from var(--rk-red) r g b / 0.3);
+    --color-lobsters-tag-special-border: rgb(from var(--rk-red) r g b / 0.3);
+    --color-tag-media-bg: rgb(from var(--rk-blue) r g b / 0.2);
+    --color-tag-media-border: rgb(from var(--rk-blue) r g b / 0.3);
+    --color-tag-meta-bg: var(--rk-surface0);
+    --color-tag-meta-border: var(--rk-bright-black);
+    --color-bg-target: rgb(from var(--rk-accent) r g b / 0.2);
+    --color-fg-affirmative: var(--rk-green);
+    --color-fg-accent: var(--rk-accent);
+    --color-fg-author: var(--rk-blue);
+    --color-fg-contrast-7-5: var(--rk-blue);
+    --color-fg-link: var(--rk-blue);
+    --color-fg-link-visited: var(--rk-lavender);
+    --color-fg-contrast-4-5: var(--rk-white);
+    --color-fg-contrast-5: var(--rk-bright-white);
+    --color-fg-contrast-6: var(--rk-bright-white);
+    --color-fg-contrast-10: var(--rk-foreground);
+    --color-fg-contrast-13: var(--rk-foreground);
+    --color-box-bg: var(--rk-mantle);
+    --color-button-bg: var(--rk-mantle);
+    --color-button-bg-shaded: var(--rk-surface0);
+    --color-box-border: var(--rk-surface0);
+    --color-box-border-focus: var(--rk-accent);
+    --color-box-bg-shaded: var(--rk-mantle);
+    --color-mobile-story-liner-bg: var(--rk-background);
+    --color-mobile-story-comments-bubble-fill: var(--rk-black);
+    --color-mobile-story-comments-bubble-fill-zero: var(--rk-surface0);
+    --color-table-header-bg: var(--rk-surface0);
+    --color-table-header-border: var(--rk-black);
+    --color-table-row-bg-even: var(--rk-mantle);
+    --color-table-row-bg-odd: var(--rk-crust);
+    --color-table-row-border: var(--rk-background);
+    --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
+    --color-fg-negative: var(--rk-red);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) input::placeholder,
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) hr {
+    color: var(--rk-bright-black);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) #logo {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M16%2016H0V0h16z%22/%3E%3Cpath%20fill%3D%22%231e1e2e%22%20d%3D%22M3.5%2013.45v-.63c0-.11%200-.1.1-.11.23-.02.46-.03.69-.07.46-.08.67-.31.74-.78.02-.14.03-.29.03-.43V4.69c0-.18-.02-.36-.04-.53-.03-.31-.23-.5-.52-.61-.27-.1-.55-.11-.83-.13h-.15v-.65c0-.07.02-.09.09-.09h5.24c.07%200%20.1.01.1.09-.01.19%200%20.37%200%20.56v.08c-.14.01-.28%200-.41.02-.2.03-.4.06-.59.11-.35.11-.53.35-.57.68q-.03.225-.03.45v6.39c0%20.27.03.54.06.8.03.29.22.48.49.58.23.09.48.11.72.12.63.02%201.25.01%201.86-.15.88-.22%201.47-.77%201.76-1.64.09-.28.13-.57.2-.86.01-.02.03-.06.05-.06h.66c-.02%201.2.02%202.4%200%203.6z%22/%3E%3C/svg%3E");
+    background-color: transparent !important;
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) #logo::after {
+    background: none;
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) {
+    color-scheme: dark;
+    --color-bg: var(--rk-background);
+    --color-fg: var(--rk-foreground);
+    --color-fg-shape: var(--rk-bright-black);
+    --color-tag-bg: rgb(from var(--rk-yellow) r g b / 0.2);
+    --color-tag-border: rgb(from var(--rk-yellow) r g b / 0.2);
+    --color-lobsters-tag-special-bg: rgb(from var(--rk-red) r g b / 0.3);
+    --color-lobsters-tag-special-border: rgb(from var(--rk-red) r g b / 0.3);
+    --color-tag-media-bg: rgb(from var(--rk-blue) r g b / 0.2);
+    --color-tag-media-border: rgb(from var(--rk-blue) r g b / 0.3);
+    --color-tag-meta-bg: var(--rk-surface0);
+    --color-tag-meta-border: var(--rk-bright-black);
+    --color-bg-target: rgb(from var(--rk-accent) r g b / 0.2);
+    --color-fg-affirmative: var(--rk-green);
+    --color-fg-accent: var(--rk-accent);
+    --color-fg-author: var(--rk-blue);
+    --color-fg-contrast-7-5: var(--rk-blue);
+    --color-fg-link: var(--rk-blue);
+    --color-fg-link-visited: var(--rk-lavender);
+    --color-fg-contrast-4-5: var(--rk-white);
+    --color-fg-contrast-5: var(--rk-bright-white);
+    --color-fg-contrast-6: var(--rk-bright-white);
+    --color-fg-contrast-10: var(--rk-foreground);
+    --color-fg-contrast-13: var(--rk-foreground);
+    --color-box-bg: var(--rk-mantle);
+    --color-button-bg: var(--rk-mantle);
+    --color-button-bg-shaded: var(--rk-surface0);
+    --color-box-border: var(--rk-surface0);
+    --color-box-border-focus: var(--rk-accent);
+    --color-box-bg-shaded: var(--rk-mantle);
+    --color-mobile-story-liner-bg: var(--rk-background);
+    --color-mobile-story-comments-bubble-fill: var(--rk-black);
+    --color-mobile-story-comments-bubble-fill-zero: var(--rk-surface0);
+    --color-table-header-bg: var(--rk-surface0);
+    --color-table-header-border: var(--rk-black);
+    --color-table-row-bg-even: var(--rk-mantle);
+    --color-table-row-bg-odd: var(--rk-crust);
+    --color-table-row-border: var(--rk-background);
+    --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
+    --color-fg-negative: var(--rk-red);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) input::placeholder,
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) hr {
+    color: var(--rk-bright-black);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) #logo {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M16%2016H0V0h16z%22/%3E%3Cpath%20fill%3D%22%231e1e2e%22%20d%3D%22M3.5%2013.45v-.63c0-.11%200-.1.1-.11.23-.02.46-.03.69-.07.46-.08.67-.31.74-.78.02-.14.03-.29.03-.43V4.69c0-.18-.02-.36-.04-.53-.03-.31-.23-.5-.52-.61-.27-.1-.55-.11-.83-.13h-.15v-.65c0-.07.02-.09.09-.09h5.24c.07%200%20.1.01.1.09-.01.19%200%20.37%200%20.56v.08c-.14.01-.28%200-.41.02-.2.03-.4.06-.59.11-.35.11-.53.35-.57.68q-.03.225-.03.45v6.39c0%20.27.03.54.06.8.03.29.22.48.49.58.23.09.48.11.72.12.63.02%201.25.01%201.86-.15.88-.22%201.47-.77%201.76-1.64.09-.28.13-.57.2-.86.01-.02.03-.06.05-.06h.66c-.02%201.2.02%202.4%200%203.6z%22/%3E%3C/svg%3E");
+    background-color: transparent !important;
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) #logo::after {
+    background: none;
+  }
+}

@@ -1,0 +1,289 @@
+/* ==UserStyle==
+@name Amplenote Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/amplenote
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/amplenote
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/amplenote.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aamplenote
+@description Soothing pastel theme for Amplenote
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("amplenote.com") {
+  body:not(.theme-light) {
+    color-scheme: dark;
+  }
+  body:not(.theme-light) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  body:not(.theme-light) input::placeholder,
+  body:not(.theme-light) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  body:not(.theme-light).themeable {
+    --color-background-primary: var(--rk-background);
+    --color-background-primary-rgb: 30, 30, 46;
+    --color-background-secondary: var(--rk-mantle);
+    --color-background-tertiary: var(--rk-mantle);
+    --color-background-popup: var(--rk-background);
+    --color-background-dialog: var(--rk-mantle);
+    --color-background-header: var(--rk-mantle);
+    --color-background-nav: var(--rk-mantle);
+    --color-background-nav-active: var(--rk-surface0);
+    --color-background-search-bar: var(--rk-crust);
+    --color-background-nav-menu: var(--rk-mantle);
+    --color-background-nav-menu-divider: var(--rk-crust);
+    --color-background-nav-avatar: var(--rk-crust);
+    --color-background-popup-small: var(--rk-surface0);
+    --color-background-reversed: var(--rk-surface0);
+    --color-background-reversed-secondary: var(--rk-bright-black);
+    --color-background-element-high-contrast: rgb(from var(--rk-overlay2) r g b / 0.4);
+    --color-background-element-medium-contrast: rgb(from var(--rk-accent) r g b / 0.4);
+    --color-background-element-medium-contrast-rgb: fade(#cba6f7. 40%);
+    --color-background-element-low-contrast: var(--rk-crust);
+    --color-background-note-menu-button: var(--rk-surface0);
+    --color-background-banner: var(--rk-surface0);
+    --color-background-banner-alt: var(--rk-background);
+    --color-background-nav-divider: var(--rk-surface0);
+    --color-background-action-low-contrast: rgb(from var(--rk-accent) r g b / 0.5);
+    --color-background-action-medium-contrast: rgb(from var(--rk-accent) r g b / 0.6);
+    --color-background-action-high-contrast: var(--rk-accent);
+    --color-background-action-high-contrast-rgb: 203, 166, 247;
+    --color-background-action-high-contrast-alt: rgb(from var(--rk-accent) r g b / 0.75);
+    --color-background-error-high-contrast: var(--rk-red);
+    --color-background-error-medium-contrast: rgb(from var(--rk-red) r g b / 0.5);
+    --color-border-primary: var(--rk-surface0);
+    --color-border-secondary: var(--rk-black);
+    --color-border-tertiary: var(--rk-black);
+    --color-text-reversed: var(--rk-foreground);
+    --color-text-high-contrast: var(--rk-foreground);
+    --color-text-nav-high-contrast: var(--rk-foreground);
+    --color-text-medium-contrast: var(--rk-bright-white);
+    --color-text-nav-medium-contrast: var(--rk-bright-white);
+    --color-text-low-contrast: var(--rk-white);
+    --color-text-nav-low-contrast: var(--rk-white);
+    --color-text-lower-contrast: var(--rk-overlay2);
+    --color-text-nav-lower-contrast: var(--rk-bright-black);
+    --color-text-error-low-contrast: var(--rk-peach);
+    --color-text-error-low-contrast-rgb: 250, 179, 135;
+    --color-text-error-medium-contrast: var(--rk-red);
+    --color-text-error-high-contrast: var(--rk-red);
+    --color-text-status: var(--rk-green);
+    --color-text-link: var(--rk-accent);
+    --color-text-button: var(--rk-crust);
+    --color-background-task-value: var(--rk-black);
+    --color-background-sidebar-task: var(--rk-surface0);
+    --color-overlay-low-contrast: var(--rk-accent);
+    --mdc-theme-surface: var(--rk-background);
+  }
+  body:not(.theme-light) header.note-header-container .logo-wrapper .ample-svg-logo .logo-icon {
+    fill: var(--rk-foreground);
+  }
+  body:not(.theme-light) .notes-list .notes-list-item:hover {
+    background-color: var(--rk-crust);
+  }
+  body:not(.theme-light) .ample-editor .editor-tabs .tab:not(.current) {
+    border-bottom-color: var(--rk-surface0) !important;
+  }
+  body:not(.theme-light) .referencing-notes,
+  body:not(.theme-light) .tab.current,
+  body:not(.theme-light) .editor-title-input-wrapper textarea,
+  body:not(.theme-light) .completed-tasks,
+  body:not(.theme-light) .no-tasks-message {
+    background-color: var(--rk-background) !important;
+  }
+  body:not(.theme-light) .new-note-button {
+    color: var(--rk-crust) !important;
+  }
+  body:not(.theme-light) .ample-editor .check-list-item.value-1 .row-wrapper {
+    border-left-color: var(--rk-sapphire);
+  }
+  body:not(.theme-light) .menu-button.synced {
+    color: var(--rk-green) !important;
+  }
+  body:not(.theme-light) .menu-button .refreshing {
+    color: var(--rk-blue) !important;
+  }
+  body:not(.theme-light) .primary-side-nav .section-link.default .shortcut-icon {
+    color: var(--rk-yellow);
+  }
+  body:not(.theme-light) .ample-editor:not(.mobile-embed) .check-list-item:hover:not(.expanded) .row-wrapper {
+    background-color: var(--rk-surface0);
+  }
+  body:not(.theme-light) .mdc-chip-set.mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading,
+  body:not(.theme-light) .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
+    color: var(--rk-crust);
+  }
+  body:not(.theme-light) .account-appearance-app .mdc-chip i.material-icons.mdc-chip__icon--leading {
+    color: var(--rk-foreground);
+  }
+  body:not(.theme-light) .DayPicker-Weekday {
+    color: var(--rk-white);
+  }
+  body:not(.theme-light) .calendar-pane .fc .fc-timegrid-now-indicator-arrow .line {
+    border-bottom-color: var(--rk-accent);
+  }
+  body:not(.theme-light) .calendar-pane .fc .fc-timegrid-now-indicator-arrow .material-icons {
+    color: var(--rk-accent);
+  }
+  body:not(.theme-light) .calendar-pane .fc .fc-timegrid-now-indicator-line {
+    border-color: hsl(from var(--rk-accent) h s calc(l - 10));
+  }
+  body:not(.theme-light) .calendar-pane .fc .fc-timegrid .fc-daygrid-day-events,
+  body:not(.theme-light) .calendar-pane .fc .fc-timegrid .all-day-slot {
+    background-color: var(--rk-background);
+  }
+  body:not(.theme-light) #completed-tasks-stroke-gradient [offset="0%"],
+  body:not(.theme-light) #completed-tasks-fill-gradient [offset="0%"] {
+    stop-color: var(--rk-maroon);
+  }
+  body:not(.theme-light) #completed-tasks-stroke-gradient [offset="50%"],
+  body:not(.theme-light) #completed-tasks-fill-gradient [offset="50%"] {
+    stop-color: var(--rk-peach);
+  }
+  body:not(.theme-light) #completed-tasks-stroke-gradient [offset="100%"],
+  body:not(.theme-light) #completed-tasks-fill-gradient [offset="100%"] {
+    stop-color: var(--rk-yellow);
+  }
+  body.theme-light {
+    color-scheme: dark;
+  }
+  body.theme-light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  body.theme-light input::placeholder,
+  body.theme-light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  body.theme-light.themeable {
+    --color-background-primary: var(--rk-background);
+    --color-background-primary-rgb: 30, 30, 46;
+    --color-background-secondary: var(--rk-mantle);
+    --color-background-tertiary: var(--rk-mantle);
+    --color-background-popup: var(--rk-background);
+    --color-background-dialog: var(--rk-mantle);
+    --color-background-header: var(--rk-mantle);
+    --color-background-nav: var(--rk-mantle);
+    --color-background-nav-active: var(--rk-surface0);
+    --color-background-search-bar: var(--rk-crust);
+    --color-background-nav-menu: var(--rk-mantle);
+    --color-background-nav-menu-divider: var(--rk-crust);
+    --color-background-nav-avatar: var(--rk-crust);
+    --color-background-popup-small: var(--rk-surface0);
+    --color-background-reversed: var(--rk-surface0);
+    --color-background-reversed-secondary: var(--rk-bright-black);
+    --color-background-element-high-contrast: rgb(from var(--rk-overlay2) r g b / 0.4);
+    --color-background-element-medium-contrast: rgb(from var(--rk-accent) r g b / 0.4);
+    --color-background-element-medium-contrast-rgb: fade(#cba6f7. 40%);
+    --color-background-element-low-contrast: var(--rk-crust);
+    --color-background-note-menu-button: var(--rk-surface0);
+    --color-background-banner: var(--rk-surface0);
+    --color-background-banner-alt: var(--rk-background);
+    --color-background-nav-divider: var(--rk-surface0);
+    --color-background-action-low-contrast: rgb(from var(--rk-accent) r g b / 0.5);
+    --color-background-action-medium-contrast: rgb(from var(--rk-accent) r g b / 0.6);
+    --color-background-action-high-contrast: var(--rk-accent);
+    --color-background-action-high-contrast-rgb: 203, 166, 247;
+    --color-background-action-high-contrast-alt: rgb(from var(--rk-accent) r g b / 0.75);
+    --color-background-error-high-contrast: var(--rk-red);
+    --color-background-error-medium-contrast: rgb(from var(--rk-red) r g b / 0.5);
+    --color-border-primary: var(--rk-surface0);
+    --color-border-secondary: var(--rk-black);
+    --color-border-tertiary: var(--rk-black);
+    --color-text-reversed: var(--rk-foreground);
+    --color-text-high-contrast: var(--rk-foreground);
+    --color-text-nav-high-contrast: var(--rk-foreground);
+    --color-text-medium-contrast: var(--rk-bright-white);
+    --color-text-nav-medium-contrast: var(--rk-bright-white);
+    --color-text-low-contrast: var(--rk-white);
+    --color-text-nav-low-contrast: var(--rk-white);
+    --color-text-lower-contrast: var(--rk-overlay2);
+    --color-text-nav-lower-contrast: var(--rk-bright-black);
+    --color-text-error-low-contrast: var(--rk-peach);
+    --color-text-error-low-contrast-rgb: 250, 179, 135;
+    --color-text-error-medium-contrast: var(--rk-red);
+    --color-text-error-high-contrast: var(--rk-red);
+    --color-text-status: var(--rk-green);
+    --color-text-link: var(--rk-accent);
+    --color-text-button: var(--rk-crust);
+    --color-background-task-value: var(--rk-black);
+    --color-background-sidebar-task: var(--rk-surface0);
+    --color-overlay-low-contrast: var(--rk-accent);
+    --mdc-theme-surface: var(--rk-background);
+  }
+  body.theme-light header.note-header-container .logo-wrapper .ample-svg-logo .logo-icon {
+    fill: var(--rk-foreground);
+  }
+  body.theme-light .notes-list .notes-list-item:hover {
+    background-color: var(--rk-crust);
+  }
+  body.theme-light .ample-editor .editor-tabs .tab:not(.current) {
+    border-bottom-color: var(--rk-surface0) !important;
+  }
+  body.theme-light .referencing-notes,
+  body.theme-light .tab.current,
+  body.theme-light .editor-title-input-wrapper textarea,
+  body.theme-light .completed-tasks,
+  body.theme-light .no-tasks-message {
+    background-color: var(--rk-background) !important;
+  }
+  body.theme-light .new-note-button {
+    color: var(--rk-crust) !important;
+  }
+  body.theme-light .ample-editor .check-list-item.value-1 .row-wrapper {
+    border-left-color: var(--rk-sapphire);
+  }
+  body.theme-light .menu-button.synced {
+    color: var(--rk-green) !important;
+  }
+  body.theme-light .menu-button .refreshing {
+    color: var(--rk-blue) !important;
+  }
+  body.theme-light .primary-side-nav .section-link.default .shortcut-icon {
+    color: var(--rk-yellow);
+  }
+  body.theme-light .ample-editor:not(.mobile-embed) .check-list-item:hover:not(.expanded) .row-wrapper {
+    background-color: var(--rk-surface0);
+  }
+  body.theme-light .mdc-chip-set.mdc-chip-set--choice .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading,
+  body.theme-light .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
+    color: var(--rk-crust);
+  }
+  body.theme-light .account-appearance-app .mdc-chip i.material-icons.mdc-chip__icon--leading {
+    color: var(--rk-foreground);
+  }
+  body.theme-light .DayPicker-Weekday {
+    color: var(--rk-white);
+  }
+  body.theme-light .calendar-pane .fc .fc-timegrid-now-indicator-arrow .line {
+    border-bottom-color: var(--rk-accent);
+  }
+  body.theme-light .calendar-pane .fc .fc-timegrid-now-indicator-arrow .material-icons {
+    color: var(--rk-accent);
+  }
+  body.theme-light .calendar-pane .fc .fc-timegrid-now-indicator-line {
+    border-color: hsl(from var(--rk-accent) h s calc(l - 10));
+  }
+  body.theme-light .calendar-pane .fc .fc-timegrid .fc-daygrid-day-events,
+  body.theme-light .calendar-pane .fc .fc-timegrid .all-day-slot {
+    background-color: var(--rk-background);
+  }
+  body.theme-light #completed-tasks-stroke-gradient [offset="0%"],
+  body.theme-light #completed-tasks-fill-gradient [offset="0%"] {
+    stop-color: var(--rk-maroon);
+  }
+  body.theme-light #completed-tasks-stroke-gradient [offset="50%"],
+  body.theme-light #completed-tasks-fill-gradient [offset="50%"] {
+    stop-color: var(--rk-peach);
+  }
+  body.theme-light #completed-tasks-stroke-gradient [offset="100%"],
+  body.theme-light #completed-tasks-fill-gradient [offset="100%"] {
+    stop-color: var(--rk-yellow);
+  }
+}

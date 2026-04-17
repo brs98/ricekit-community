@@ -1,0 +1,215 @@
+/* ==UserStyle==
+@name Home Manager Options Search Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/home-manager-options-search
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/home-manager-options-search
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/home-manager-options-search.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ahome-manager-options-search
+@description Soothing pastel theme for Home Manager Options Search
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("home-manager-options.extranix.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root header {
+      background-color: var(--rk-mantle);
+    }
+    :root header nav.shortcuts li a {
+      color: var(--rk-foreground);
+    }
+    :root header nav.shortcuts li a:hover {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root #lastUpdateElement {
+      color: var(--rk-foreground);
+    }
+    :root a,
+    :root a:visited {
+      color: var(--rk-accent);
+    }
+    :root input,
+    :root textarea,
+    :root select {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      caret-color: var(--rk-foreground);
+      border-color: var(--rk-surface0);
+    }
+    :root .progress-bar-striped {
+      background-image: linear-gradient(45deg, rgba(205, 214, 244, 0.4) 25%, transparent 25%, transparent 50%, rgba(205, 214, 244, 0.4) 50%, rgba(205, 214, 244, 0.4) 75%, transparent 75%, transparent);
+      background-color: var(--rk-accent);
+      color: var(--rk-crust);
+    }
+    :root .form-control:focus {
+      border-color: var(--rk-accent);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--rk-accent);
+    }
+    :root .table-striped > tbody > tr:nth-of-type(2n+1) {
+      background-color: var(--rk-surface0);
+    }
+    :root table#indexedOptionsTable tr td,
+    :root .table > thead > tr > th {
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root table tr.optrow:focus-visible,
+    :root table tr.optrow:hover {
+      background-color: var(--rk-black) !important;
+    }
+    :root .modal-content {
+      background-color: var(--rk-background);
+    }
+    :root .modal-content .modal-header,
+    :root .modal-content .modal-footer {
+      border-color: var(--rk-surface0) !important;
+    }
+    :root .modal-content .close {
+      color: var(--rk-foreground);
+      text-shadow: 0 1px 0 var(--rk-foreground);
+    }
+    :root .modal-content pre {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-surface0);
+    }
+    :root .btn-default {
+      background: var(--rk-surface0);
+      color: var(--rk-foreground);
+      text-shadow: none;
+      box-shadow: none;
+      border-color: var(--rk-surface0);
+    }
+    :root .btn-default:hover,
+    :root .btn-default:focus,
+    :root .btn-default:active,
+    :root .btn-default .focus,
+    :root .btn-default .active {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+      border-color: var(--rk-surface0);
+    }
+    :root footer {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-bright-black);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root header {
+      background-color: var(--rk-mantle);
+    }
+    :root header nav.shortcuts li a {
+      color: var(--rk-foreground);
+    }
+    :root header nav.shortcuts li a:hover {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root #lastUpdateElement {
+      color: var(--rk-foreground);
+    }
+    :root a,
+    :root a:visited {
+      color: var(--rk-accent);
+    }
+    :root input,
+    :root textarea,
+    :root select {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      caret-color: var(--rk-foreground);
+      border-color: var(--rk-surface0);
+    }
+    :root .progress-bar-striped {
+      background-image: linear-gradient(45deg, rgba(205, 214, 244, 0.4) 25%, transparent 25%, transparent 50%, rgba(205, 214, 244, 0.4) 50%, rgba(205, 214, 244, 0.4) 75%, transparent 75%, transparent);
+      background-color: var(--rk-accent);
+      color: var(--rk-crust);
+    }
+    :root .form-control:focus {
+      border-color: var(--rk-accent);
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px var(--rk-accent);
+    }
+    :root .table-striped > tbody > tr:nth-of-type(2n+1) {
+      background-color: var(--rk-surface0);
+    }
+    :root table#indexedOptionsTable tr td,
+    :root .table > thead > tr > th {
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root table tr.optrow:focus-visible,
+    :root table tr.optrow:hover {
+      background-color: var(--rk-black) !important;
+    }
+    :root .modal-content {
+      background-color: var(--rk-background);
+    }
+    :root .modal-content .modal-header,
+    :root .modal-content .modal-footer {
+      border-color: var(--rk-surface0) !important;
+    }
+    :root .modal-content .close {
+      color: var(--rk-foreground);
+      text-shadow: 0 1px 0 var(--rk-foreground);
+    }
+    :root .modal-content pre {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-surface0);
+    }
+    :root .btn-default {
+      background: var(--rk-surface0);
+      color: var(--rk-foreground);
+      text-shadow: none;
+      box-shadow: none;
+      border-color: var(--rk-surface0);
+    }
+    :root .btn-default:hover,
+    :root .btn-default:focus,
+    :root .btn-default:active,
+    :root .btn-default .focus,
+    :root .btn-default .active {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+      border-color: var(--rk-surface0);
+    }
+    :root footer {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-bright-black);
+    }
+  }
+}

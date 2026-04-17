@@ -1,0 +1,1945 @@
+/* ==UserStyle==
+@name NixOS Wiki Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/wiki.nixos.org
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/wiki.nixos.org
+@version 2025.09.06.202604171629
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Awiki.nixos.org
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/wiki.nixos.org.user.css
+@description Soothing pastel theme for NixOS Wiki
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+@var checkbox highlight-redirect "Highlight redirect links" 0
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("wiki.nixos.org") {
+  @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --background-color-base: var(--rk-background);
+      --home-panel-heading-background: var(--rk-mantle);
+      --home-panel-border-color: var(--rk-surface0);
+      --table-border-color: var(--rk-crust);
+      --table-header-background: var(--rk-black);
+      --table-even-background: var(--rk-bright-black);
+      background-color: var(--rk-background);
+      /* maths */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body,
+    :root .vector-feature-zebra-design-enabled .vector-header-container .mw-header,
+    :root .vector-feature-zebra-design-enabled .mw-page-container,
+    :root .vector-feature-zebra-design-enabled .vector-pinned-container,
+    :root .vector-feature-zebra-design-enabled .vector-dropdown .vector-dropdown-content,
+    :root .uls-lcd,
+    :root .uls-search,
+    :root .uls-filtersuggestion,
+    :root #uls-settings-block.uls-settings-block--vector-2022.uls-settings-block--with-add-languages,
+    :root .app-badges .footer-sidebar-content,
+    :root .pure-form input[type="search"],
+    :root .suggestions-dropdown,
+    :root .cdx-menu,
+    :root .vector-header-container .mw-header,
+    :root .mw-page-container,
+    :root .vector-pinned-container,
+    :root .vector-header-container .vector-sticky-header,
+    :root .mw-mmv-image,
+    :root .mw-body,
+    :root .frb-form-wrapper,
+    :root .mw-echo-ui-placeholderItemWidget,
+    :root .oo-ui-popupWidget-popup,
+    :root .mw-echo-ui-notificationItemWidget,
+    :root .oo-ui-optionWidget-selected {
+      background-color: var(--rk-background);
+    }
+    :root body,
+    :root .mw-heading,
+    :root h1,
+    :root h2,
+    :root h3,
+    :root h4,
+    :root h5,
+    :root h6,
+    :root .vector-feature-zebra-design-enabled body,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-list-item-active > .vector-toc-link,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-expanded) > .vector-toc-link,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-list-item-active.vector-toc-level-1-active > .vector-toc-link,
+    :root .vector-menu-tabs .mw-list-item.selected a,
+    :root .vector-menu-tabs .mw-list-item.selected a:visited,
+    :root .cdx-button:enabled,
+    :root .cdx-button.cdx-button--fake-button--enabled,
+    :root .mw-footer li,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-active) > .vector-toc-link,
+    :root .central-featured-lang small,
+    :root .footer-sidebar-text,
+    :root .other-project-tagline,
+    :root .site-license,
+    :root .search-container .js-langpicker-label,
+    :root .langlist > ul > li,
+    :root .suggestion-title,
+    :root .cdx-menu-item--enabled .cdx-menu-item__content,
+    :root .mwe-popups .mwe-popups-extract,
+    :root .mw-body-content .mw-number-text h3,
+    :root .vector-pinnable-element .vector-menu-heading,
+    :root .vector-toc .vector-toc-list-item-active > .vector-toc-link,
+    :root .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-expanded) > .vector-toc-link,
+    :root .vector-toc .vector-toc-list-item-active.vector-toc-level-1-active > .vector-toc-link,
+    :root .uls-empty-state .uls-empty-state__header,
+    :root .uls-empty-state .uls-empty-state__desc,
+    :root .uls-no-results-found-title,
+    :root .mw-mmv-post-image,
+    :root .mw-mmv-credit,
+    :root .frb-form-wrapper,
+    :root .mw-echo-ui-notificationItemWidget-content-message-header,
+    :root .oo-ui-labelElement,
+    :root #contentSub:not(:empty) {
+      color: var(--rk-foreground) !important;
+    }
+    :root .mw-parser-output .fmbox {
+      border-color: var(--rk-bright-black) !important;
+      background-color: var(--rk-background) !important;
+    }
+    :root .cdx-thumbnail__image {
+      border-color: var(--rk-foreground);
+    }
+    :root .equation-box,
+    :root .equation-box * {
+      background: none !important;
+    }
+    :root img.mwe-math-fallback-image-display,
+    :root img.mwe-math-fallback-image-inline {
+      filter: brightness(0) saturate(100%) invert(31%) sepia(9%) saturate(1499%) hue-rotate(196deg) brightness(90%) contrast(85%);
+    }
+    :root .mwe-popups .mwe-popups-extract[dir="ltr"]::after {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #313244 50%);
+    }
+    :root table {
+      background: var(--rk-bright-black) !important;
+    }
+    :root tr {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root th {
+      background: var(--rk-overlay0) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root .quotebox,
+    :root div.thumbinner {
+      background-color: var(--rk-surface0) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .navbox-group,
+    :root .infobox-label {
+      color: var(--rk-foreground) !important;
+    }
+    :root .cdx-button:enabled,
+    :root .cdx-text-input__input:enabled {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+      border-color: var(--rk-bright-black);
+    }
+    :root .cdx-button:enabled:hover,
+    :root .cdx-text-input__input:enabled:hover {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-foreground);
+      color: var(--rk-foreground);
+    }
+    :root .vector-dropdown .vector-dropdown-content,
+    :root .header-container.header-chrome {
+      background-color: var(--rk-mantle);
+    }
+    :root .skin-vector .uls-search {
+      border-bottom-color: var(--rk-bright-black);
+    }
+    :root .oo-ui-textInputWidget,
+    :root .oo-ui-inputWidget-input {
+      color: var(--rk-foreground) !important;
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .oo-ui-pendingElement-pending {
+      background-color: var(--rk-background);
+      background-image: linear-gradient(135deg, #313244 25%, transparent 25%, transparent 50%, #313244 50%, #313244 75%, transparent 75%, transparent);
+    }
+    :root .oo-ui-tagItemWidget.oo-ui-widget-disabled {
+      color: var(--rk-foreground);
+      background-color: var(--rk-overlay0);
+      text-shadow: 0 0 0 var(--rk-foreground);
+      border-color: var(--rk-surface0);
+    }
+    :root .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+    :root .mw-mmv-credit,
+    :root .mw-mmv-options-dialog-header,
+    :root .mw-mmv-options-text-header {
+      color: var(--rk-foreground);
+    }
+    :root .mw-mmv-options-text-body {
+      color: var(--rk-white);
+    }
+    :root .mw-ui-input:not(:disabled) {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-ui-button {
+      color: var(--rk-mantle);
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .imbox-delete {
+      border-color: var(--rk-red) !important;
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .imbox {
+      background-color: var(--rk-overlay0) !important;
+      border-color: var(--rk-peach) !important;
+    }
+    :root .talkheader-help {
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-green) !important;
+    }
+    :root .assess,
+    :root .assess-NA,
+    :root .navbox-subgroup {
+      background: var(--rk-surface0) !important;
+      border-color: var(--rk-black) !important;
+    }
+    :root .documentation,
+    :root .documentation-container,
+    :root .documentation-metadata {
+      background-color: rgb(from var(--rk-green) r g b / 0.15) !important;
+    }
+    :root .ambox,
+    :root .portalborder {
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .navbox-title {
+      color: var(--rk-foreground) !important;
+    }
+    :root .mw-content-ltr.mw-highlight-lines pre,
+    :root .mw-content-ltr.content .mw-highlight-lines pre {
+      box-shadow: inset 2.75em 0 0 var(--rk-mantle);
+    }
+    :root .mbox-text {
+      color: var(--rk-foreground) !important;
+    }
+    :root .sidebar-above,
+    :root .p,
+    :root .o {
+      color: var(--rk-foreground) !important;
+    }
+    :root .ni,
+    :root .mw-templatedata-doc-muted {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .nv,
+    :root .nn {
+      color: var(--rk-blue) !important;
+    }
+    :root .sidebar-above a span {
+      color: var(--rk-foreground) !important;
+    }
+    :root .sidebar-title-with-pretitle span {
+      color: var(--rk-foreground) !important;
+    }
+    :root .nt {
+      color: var(--rk-green) !important;
+    }
+    :root .nl {
+      color: var(--rk-cyan) !important;
+    }
+    :root .ambox-style {
+      border-left-color: var(--rk-yellow) !important;
+    }
+    :root .mw-parser-output .mainpage-frame {
+      background: var(--rk-surface0) !important;
+      border-color: var(--rk-surface0) !important;
+    }
+    :root .mw-parser-output .mainpage-heading-title {
+      background: linear-gradient(to right, rgba(214, 186, 248, 0.4), #313244) !important;
+    }
+    :root .hidden-title {
+      background-color: var(--rk-green) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root .mw-mmv-post-image,
+    :root .mw-mmv-options-dialog {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .mw-mmv-image-metadata {
+      background-color: var(--rk-background);
+      border-color: var(--rk-background);
+    }
+    :root .mw-mmv-dialog-down-arrow {
+      background-color: var(--rk-background) !important;
+    }
+    :root .oo-ui-tagItemWidget.oo-ui-widget-enabled {
+      color: var(--rk-foreground);
+      background-color: var(--rk-overlay0) !important;
+      border-color: var(--rk-surface0);
+    }
+    :root ol.references li:target {
+      background-color: var(--rk-bright-black);
+    }
+    :root .mw-body-content .error {
+      color: var(--rk-red);
+    }
+    :root .divbox-gray,
+    :root .infobox-above {
+      background-color: var(--rk-bright-black) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root .biota > * > tr > th {
+      background-color: var(--rk-yellow) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root .cmbox {
+      background-color: var(--rk-blue) !important;
+    }
+    :root .wikitable {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .wikitable > * > tr > th {
+      background-color: var(--rk-black) !important;
+    }
+    :root .wikitable > * > tr > td,
+    :root .wikitable > * > tr > th {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-searchresults-has-iw .iw-result__header a {
+      color: var(--rk-foreground);
+    }
+    :root .mw-search-result-data {
+      color: var(--rk-white);
+    }
+    :root .navbox-abovebelow {
+      background-color: var(--rk-overlay2) !important;
+      border-color: var(--rk-overlay2) !important;
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-element .vector-menu-heading {
+      color: var(--rk-foreground);
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .mwe-popups .mwe-popups-container {
+      background-color: var(--rk-surface0);
+    }
+    :root .vector-pinnable-header-toggle-button {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .vector-pinnable-header-toggle-button:hover {
+      background-color: var(--rk-background);
+    }
+    :root .mw-parser-output .navbox-list {
+      border-color: var(--rk-surface0);
+    }
+    :root .pure-button-primary-progressive,
+    :root .pure-button-primary-progressive:hover {
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .suggestion-link {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .cdx-menu,
+    :root .skin-vector .uls-menu,
+    :root .suggestiodns-dropdown,
+    :root .cdx-search-input--has-end-button,
+    :root .vector-sticky-header,
+    :root .vector-sticky-header-context-bar,
+    :root .mw-heading2 {
+      border-color: var(--rk-bright-black);
+    }
+    :root .suggestion-link.active {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .suggestion-link.active .suggestion-title {
+      color: var(--rk-accent);
+    }
+    :root .mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-highlighted,
+    :root .cdx-menu-item--enabled.cdx-menu-item--highlighted {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .mw-echo-ui-sortedListWidget,
+    :root .mw-echo-ui-sortedListWidget-group,
+    :root .mw-echo-ui-subGroupListWidget-header {
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-mmv-post-image,
+    :root .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive .cdx-button__icon {
+      background-color: var(--rk-crust);
+    }
+    :root .cdx-text-input__input:enabled::placeholder,
+    :root .cdx-text-input__input:enabled ~ .cdx-text-input__icon-vue,
+    :root .skin-vector .uls-languagefilter,
+    :root .skin-vector .uls-lcd-region-title,
+    :root .suggestion-description,
+    :root .cdx-menu-item--enabled .cdx-menu-item__text__description,
+    :root .mw-number-text,
+    :root .boilerplate > div:nth-child(3) > span:nth-child(1),
+    :root .boilerplate > div:nth-child(4) > span:nth-child(2) {
+      color: var(--rk-white) !important;
+    }
+    :root input:hover + .cdx-button.cdx-button--action-progressive {
+      background-color: rgb(from var(--rk-accent) r g b / 0.125);
+    }
+    :root #pt-notifications-alert .mw-echo-unseen-notifications::after {
+      background-color: var(--rk-red) !important;
+    }
+    :root #pt-notifications-notice .mw-echo-unseen-notifications::after {
+      background-color: var(--rk-blue) !important;
+    }
+    :root a,
+    :root .mw-parser-output a.external:visited {
+      color: var(--rk-accent);
+    }
+    :root a:visited,
+    :root .mw-parser-output a.external:visited:visited {
+      color: var(--rk-accent);
+    }
+    :root a.new,
+    :root .mw-parser-output .cs1-visible-error,
+    :root .vector-menu-tabs .mw-list-item.new a,
+    :root .mw-plusminus-neg {
+      color: var(--rk-red);
+    }
+    :root a.mw-selflink {
+      color: var(--rk-foreground);
+    }
+    :root #searchInput {
+      color: var(--rk-foreground);
+    }
+    :root #searchInput:hover {
+      border-color: var(--rk-bright-black);
+    }
+    :root #searchInput:focus {
+      border-color: var(--rk-accent);
+    }
+    :root .pure-form input[type="search"] {
+      border-color: var(--rk-bright-black);
+      box-shadow: inset 0 0 0 1px var(--rk-bright-black);
+    }
+    :root #pt-notifications-alert .mw-echo-notifications-badge::after,
+    :root #pt-notifications-notice .mw-echo-notifications-badge::after,
+    :root .mw-echo-notification-badge-nojs::after {
+      border-color: var(--rk-crust);
+      background-color: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root h2 {
+      border-bottom-color: var(--rk-bright-black);
+    }
+    :root .mw-footer {
+      border-top-color: var(--rk-bright-black);
+    }
+    :root .bookshelf {
+      border-top-color: var(--rk-surface0);
+      box-shadow: 0 -1px 0 var(--rk-surface0);
+    }
+    :root body.ns-talk .mw-parser-output .mp-toolbox,
+    :root .mw-parser-output .tmbox,
+    :root #talkheader {
+      border-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+      background-color: rgb(from var(--rk-yellow) r g b / 0.1) !important;
+    }
+    :root body.ns-talk .mw-parser-output .mp-toolbox-daily th {
+      border-color: rgb(from var(--rk-yellow) r g b / 0.8) !important;
+      background-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+    }
+    :root .fn.org {
+      color: var(--rk-accent);
+    }
+    :root .mw-parser-output .mp-toolbox-daily th,
+    :root .mw-parser-output td.mp-toolbox-tfl-not {
+      background: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+      border-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+    }
+    :root body.ns-talk .mw-parser-output .mp-toolbox-daily {
+      border-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+      background: none !important;
+    }
+    :root .mw-parser-output tr + tr > .navbox-list,
+    :root .mw-parser-output tr + tr > .navbox-group {
+      border-top-color: var(--rk-surface0);
+    }
+    :root .ext-phonos-PhonosButton.oo-ui-buttonElement-frameless.oo-ui-buttonWidget > .oo-ui-buttonElement-button:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .styled-select:hover {
+      background-color: var(--rk-surface0);
+    }
+    :root .lang-list-button,
+    :root .lang-list-button:hover {
+      background-color: var(--rk-background);
+      border-color: var(--rk-black);
+      outline-color: var(--rk-background);
+    }
+    :root .cdx-typeahead-search__search-footer__icon.cdx-icon {
+      color: var(--rk-white);
+    }
+    :root .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-active) > .vector-toc-link {
+      color: var(--rk-foreground) !important;
+    }
+    :root .lang-list-active .lang-list-button {
+      background-color: var(--rk-background);
+      border-color: var(--rk-black);
+      outline-color: var(--rk-background);
+    }
+    :root .lang-list-button:focus {
+      box-shadow: inset 0 0 0 1px var(--rk-accent);
+    }
+    :root .lang-list-border {
+      background-color: var(--rk-black);
+    }
+    :root .infobox-header {
+      background-color: var(--rk-black) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root td[style*="background-color"],
+    :root td[style*="background-color"] * {
+      color: var(--rk-crust) !important;
+    }
+    :root #toc-Services > a:nth-child(1) > div:nth-child(1) {
+      color: var(--rk-foreground) !important;
+    }
+    :root .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive,
+    :root .vector-menu-tabs .mw-list-item a,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-link,
+    :root .mw-parser-output a.extiw,
+    :root .mw-parser-output a.external,
+    :root .mw-collapsible-toggle-default .mw-collapsible-text,
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-element .mw-list-item a,
+    :root .vector-feature-zebra-design-enabled .vector-dropdown-content .mw-list-item a,
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-element .mw-list-item a:not(.mw-selflink):visited,
+    :root .vector-feature-zebra-design-enabled .vector-dropdown-content .mw-list-item a:not(.mw-selflink):visited,
+    :root .uls-language-block a,
+    :root .lang-list-button,
+    :root .fancycaptcha-reload,
+    :root #pt-userpage-2 a:not(.mw-selflink),
+    :root .vector-pinnable-element .mw-list-item a,
+    :root .vector-pinnable-element .mw-list-item a:not(.mw-selflink):visited,
+    :root .vector-toc .vector-toc-link,
+    :root .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
+    :root .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
+    :root .vector-dropdown-content .mw-list-item a,
+    :root .vector-dropdown-content .mw-list-item a:not(.mw-selflink):visited {
+      color: var(--rk-accent);
+    }
+    :root .cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive,
+    :root .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive,
+    :root .mw-ui-button.mw-ui-progressive:not(:disabled),
+    :root .mw-ui-button.mw-ui-progressive:not(:disabled):hover {
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root .mw-message-box-warning,
+    :root .boilerplate {
+      border-color: var(--rk-accent) !important;
+      background-color: rgb(from var(--rk-accent) r g b / 0.25) !important;
+      color: var(--rk-foreground);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-sticky-pinned-container::after,
+    :root .vector-sticky-pinned-container::after {
+      background: none;
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-header-toggle-button {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-header-toggle-button:hover {
+      background-color: var(--rk-background);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-header,
+    :root .vector-pinnable-header,
+    :root .vector-pinnable-element .vector-menu-heading {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root hr {
+      border-bottom-color: var(--rk-background);
+    }
+    :root .central-featured-lang strong:hover,
+    :root .link-box:hover,
+    :root .central-featured-lang :hover,
+    :root .other-project-link:hover,
+    :root .lang-list-container {
+      background-color: var(--rk-surface0);
+    }
+    :root .vector-page-toolbar-container {
+      box-shadow: 0 1px var(--rk-black);
+    }
+    :root .mw-parser-output .navbox-even {
+      background-color: var(--rk-black);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-page-titlebar::after,
+    :root .mw-parser-output .wikipedia-languages-prettybars,
+    :root .vector-page-titlebar::after {
+      background-color: var(--rk-bright-black) !important;
+    }
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(2) {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .client-js .mw-content-ltr .mw-editsection-bracket:first-of-type,
+    :root .client-js .mw-content-ltr .mw-editsection-bracket:not(:first-of-type),
+    :root .mw-collapsible-toggle-default::before,
+    :root .mw-collapsible-toggle-default::after {
+      color: var(--rk-bright-white);
+    }
+    :root .infobox,
+    :root .mw-parser-output .navbox,
+    :root .catlinks,
+    :root .mw-parser-output #mp-topbanner,
+    :root .mw-parser-output .sidebar,
+    :root .fancycaptcha-captcha-container,
+    :root .fancycaptcha-captcha-and-reload,
+    :root .cdx-checkbox__icon,
+    :root .mw-message-box,
+    :root .uls-menu .uls-no-results-view .uls-no-found-more,
+    :root .client-js .vector-below-page-title .vector-page-titlebar-toc > label:nth-child(2),
+    :root .mw-parser-output .ombox,
+    :root code,
+    :root .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+    :root .mw-mmv-label,
+    :root #page-secondary-actions > a,
+    :root .mw-parser-output .ambox,
+    :root td[class="sidebar-navbar"],
+    :root textarea,
+    :root .mw-parser-output .side-box {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root #pagehistory li.selected {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black) !important;
+      outline-color: var(--rk-bright-black) !important;
+    }
+    :root .cdx-checkbox__icon {
+      border-color: var(--rk-accent) !important;
+    }
+    :root .fancycaptcha-captcha-container .mw-ui-inputو .mw-ui-input:not(:disabled) {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-black);
+    }
+    :root .mw-ui-input:not(:disabled),
+    :root .mw-ui-button:not(:disabled) {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-black) !important;
+    }
+    :root .mw-parser-output .module-shortcutboxplain {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black);
+    }
+    :root .sidebar-pretitle,
+    :root .sidebar-title-with-pretitle,
+    :root .sidebar-list-title {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .mw-parser-output #mp-bottom,
+    :root .mw-parser-output .sidebar-collapse .sidebar-below {
+      border-color: var(--rk-bright-black);
+    }
+    :root .lang-list-content,
+    :root .bookshelf .text {
+      background-color: var(--rk-surface0);
+    }
+    :root .mw-parser-output #mp-bottom .mp-h2,
+    :root .uls-language-block > ul > li:hover {
+      background: var(--rk-surface0);
+      border-color: var(--rk-bright-black);
+    }
+    :root figure[typeof~="mw:File/Thumb"] {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+      border-top-color: var(--rk-bright-black);
+      border-left-color: var(--rk-bright-black);
+      border-right-color: var(--rk-bright-black);
+    }
+    :root figure[typeof~="mw:File/Thumb"] > figcaption {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+      border-bottom-color: var(--rk-bright-black);
+      border-left-color: var(--rk-bright-black);
+      border-right-color: var(--rk-bright-black);
+    }
+    :root figure[typeof~="mw:File/Thumb"] > :not(figcaption) .mw-file-element {
+      color: var(--rk-bright-black) !important;
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-parser-output #mp-left,
+    :root .mw-parser-output #mp-left .mp-h2,
+    :root th[class="sidebar-title"] {
+      background-color: rgb(from var(--rk-green) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-green) r g b / 0.2) !important;
+    }
+    :root .mw-plusminus-pos {
+      color: var(--rk-green) !important;
+    }
+    :root .mw-parser-output #mp-right,
+    :root .mw-parser-output #mp-right .mp-h2 {
+      background-color: rgb(from var(--rk-blue) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-blue) r g b / 0.2) !important;
+    }
+    :root .mw-parser-output #mp-lower,
+    :root .mw-parser-output #mp-lower .mp-h2 {
+      background-color: rgb(from var(--rk-accent) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .mw-collapsible-toggle-default:active .mw-collapsible-text {
+      color: var(--rk-peach);
+    }
+    :root .mw-parser-output #mp-middle,
+    :root .mw-parser-output #mp-middle .mp-h2 {
+      background-color: rgb(from var(--rk-magenta) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-magenta) r g b / 0.2) !important;
+    }
+    :root .mw-parser-output .navbox-title,
+    :root .summary,
+    :root .infobox > tbody:nth-child(1) > tr:nth-child(4) > th:nth-child(1),
+    :root .infobox > tbody:nth-child(1) > tr:nth-child(6) > th:nth-child(1) {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .infobox > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1) {
+      background-color: var(--rk-black) !important;
+    }
+    :root .mw-parser-output .navbox-group,
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3),
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.nowraplinks:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.nowraplinks:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.nowraplinks:nth-child(1) > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root .navbox-abovebelow {
+      background-color: var(--rk-black) !important;
+    }
+    :root .mw-parser-output .tracklist > tbody {
+      color: inherit;
+    }
+    :root .mw-parser-output .tracklist > tbody > .tracklist-total-length * {
+      background-color: var(--rk-overlay1);
+      color: var(--rk-background);
+    }
+    :root .mw-content-ltr > table:nth-child(20) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) {
+      border-color: var(--rk-bright-black) !important;
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .noarticletext,
+    :root #noarticletext {
+      background-color: var(--rk-background) !important;
+    }
+    :root #sisterproject {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root [style="color:#02a64f;line-height:initial"] {
+      color: var(--rk-green) !important;
+    }
+    :root [style="color:#f78e1e;line-height:initial"] {
+      color: var(--rk-peach) !important;
+    }
+    :root [style="color:#77278b;line-height:initial"] {
+      color: var(--rk-accent) !important;
+    }
+    :root [style="color:#87746a;line-height:initial"] {
+      color: var(--rk-maroon) !important;
+    }
+    :root [style="color:#009aC8;line-height:initial"] {
+      color: var(--rk-sky) !important;
+    }
+    :root [style="color:#ffd520;line-height:initial"] {
+      color: var(--rk-yellow) !important;
+    }
+    :root [style="color:#0060a9;line-height:initial"] {
+      color: var(--rk-blue) !important;
+    }
+    :root table.nowraplinks:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1),
+    :root .navbox-list-with-group.navbox-list.navbox-odd {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .mw-parser-output tr + tr > .navbox-abovebelow {
+      border-color: var(--rk-background);
+    }
+    :root .catlinks li {
+      border-left-color: var(--rk-bright-black);
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-menu {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%203v2h18V3zm0%208h18V9H1zm0%206h18v-2H1z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-ellipsis {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-appearance {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.25%2014.5a4.25%204.25%200%200%200%204.247-4.092c.3-.21.706-.21%201.006%200a4.25%204.25%200%200%200%208.431.59L19%2011a1%201%200%201%200-.182-1.984%204.252%204.252%200%200%200-7.896-.615%202.9%202.9%200%200%200-1.844%200%204.25%204.25%200%200%200-7.896.615%201%201%200%201%200-.116%201.981A4.25%204.25%200%200%200%205.25%2014.5m0-2a2.25%202.25%200%201%200%200-4.5%202.25%202.25%200%200%200%200%204.5M17%2010.25a2.25%202.25%200%201%201-4.5%200%202.25%202.25%200%200%201%204.5%200%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-feature-zebra-design-enabled .vector-dropdown .vector-dropdown-label:not(.cdx-button--icon-only)::after,
+    :root .vector-icon.mw-ui-icon-wikimedia-expand {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .cdx-checkbox__input:checked:not(:indeterminate) + .cdx-checkbox__icon::before {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M7%2014.17%202.83%2010l-1.41%201.41L7%2017%2019%205l-1.41-1.42z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-page-titlebar .mw-portlet-lang .vector-dropdown-label.cdx-button--action-progressive.cdx-button--weight-quiet::after {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-dropdown .vector-dropdown-label:not(.cdx-button--icon-only)::after {
+      background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-language-progressive {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%2018h-1.44a.6.6%200%200%201-.4-.12.8.8%200%200%201-.23-.31L17%2015h-5l-1%202.54a.8.8%200%200%201-.22.3.6.6%200%200%201-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89%209.5a12%2012%200%200%201-.39-1.24q-.09.37-.19.69l-.19.56-1.58%204.19zm-6.3-1.58a13.4%2013.4%200%200%201-2.91-1.41%2011.46%2011.46%200%200%200%202.81-5.37H12V4H7.31a4%204%200%200%200-.2-.56C6.87%202.79%206.6%202%206.6%202l-1.47.5s.4.89.6%201.5H0v1.33h2.15A11.23%2011.23%200%200%200%205%2010.7a17.2%2017.2%200%200%201-5%202.1q.56.82.87%201.38a23.3%2023.3%200%200%200%205.22-2.51%2015.6%2015.6%200%200%200%203.56%201.77zM3.63%205.33h4.91a8.1%208.1%200%200%201-2.45%204.45%209.1%209.1%200%200%201-2.46-4.45%22%20fill%3D%22%23cba6f7%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-language {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%2018h-1.44a.6.6%200%200%201-.4-.12.8.8%200%200%201-.23-.31L17%2015h-5l-1%202.54a.8.8%200%200%201-.22.3.6.6%200%200%201-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89%209.5a12%2012%200%200%201-.39-1.24q-.09.37-.19.69l-.19.56-1.58%204.19zm-6.3-1.58a13.4%2013.4%200%200%201-2.91-1.41%2011.46%2011.46%200%200%200%202.81-5.37H12V4H7.31a4%204%200%200%200-.2-.56C6.87%202.79%206.6%202%206.6%202l-1.47.5s.4.89.6%201.5H0v1.33h2.15A11.23%2011.23%200%200%200%205%2010.7a17.2%2017.2%200%200%201-5%202.1q.56.82.87%201.38a23.3%2023.3%200%200%200%205.22-2.51%2015.6%2015.6%200%200%200%203.56%201.77zM3.63%205.33h4.91a8.1%208.1%200%200%201-2.45%204.45%209.1%209.1%200%200%201-2.46-4.45%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E") !important;
+    }
+    :root .mw-parser-output a.external {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M6%201h5v5L8.86%203.85%204.7%208%204%207.3l4.15-4.16zM2%203h2v1H2v6h6V8h1v2a1%201%200%200%201-1%201H2a1%201%200%200%201-1-1V4a1%201%200%200%201%201-1%22/%3E%3C/svg%3E") !important;
+    }
+    :root .plainlinks a.external {
+      background: none !important;
+    }
+    :root #mw-indicator-mw-helplink a {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M10%200a10%2010%200%201%200%2010%2010A10%2010%200%200%200%2010%200m1%2016H9v-2h2zm2.71-7.6a2.6%202.6%200%200%201-.33.74%203.2%203.2%200%200%201-.48.55l-.54.48c-.21.18-.41.35-.58.52a2.5%202.5%200%200%200-.47.56A2.3%202.3%200%200%200%2011%2012a3.8%203.8%200%200%200-.11%201H9.08a9%209%200%200%201%20.07-1.25%203.3%203.3%200%200%201%20.25-.9%202.8%202.8%200%200%201%20.41-.67%204%204%200%200%201%20.58-.58c.17-.16.34-.3.51-.44a3%203%200%200%200%20.43-.44%201.8%201.8%200%200%200%20.3-.55%202%202%200%200%200%20.11-.72%202.1%202.1%200%200%200-.17-.86%201.7%201.7%200%200%200-1-.9%201.7%201.7%200%200%200-.5-.1%201.77%201.77%200%200%200-1.53.68%203%203%200%200%200-.5%201.82H6.16a4.7%204.7%200%200%201%20.28-1.68%203.6%203.6%200%200%201%20.8-1.29%203.9%203.9%200%200%201%201.28-.83A4.6%204.6%200%200%201%2010.18%204a4.4%204.4%200%200%201%201.44.23%203.5%203.5%200%200%201%201.15.65%203.1%203.1%200%200%201%20.78%201.06%203.5%203.5%200%200%201%20.29%201.45%203.4%203.4%200%200%201-.13%201.01%22/%3E%3C/svg%3E") !important;
+    }
+    :root .cdx-search-input .cdx-text-input__icon.cdx-text-input__start-icon {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%23a6adc8%22%3E%3Cpath%20d%3D%22M12.2%2013.6a7%207%200%201%201%201.4-1.4l5.4%205.4-1.4%201.4zM3%208a5%205%200%201%200%2010%200A5%205%200%200%200%203%208%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-listBullet {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M7%2015h12v2H7zm0-6h12v2H7zm0-6h12v2H7z%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%224%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%2216%22%20r%3D%222%22/%3E%3C/g%3E%3C/svg%3E") !important;
+    }
+    :root ul {
+      list-style-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%225%22%20height%3D%2213%22%3E%3Ccircle%20cx%3D%222.5%22%20cy%3D%229%22%20r%3D%222.5%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-volumeUp,
+    :root .mw-ui-icon-volumeUp::before {
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22%23cdd6f4%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M4%206v8l5.2%203.9c.3.3.8%200%20.8-.5V2.6c0-.5-.5-.8-.8-.5zm0%208H1a1%201%200%200%201-1-1V7a1%201%200%200%201%201-1h3m12.4%2011.4a1%201%200%200%201-.7-1.7%208%208%200%200%200%200-11.4A1%201%200%200%201%2017%203a10%2010%200%200%201%200%2014.2%201%201%200%200%201-.7.3z%22/%3E%3Cpath%20d%3D%22M13.5%2014.5a1%201%200%200%201-.7-.3%201%201%200%200%201%200-1.4%204%204%200%200%200%200-5.6%201%201%200%200%201%201.4-1.4%206%206%200%200%201%200%208.4%201%201%200%200%201-.7.3%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-fullScreen {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%201v6h2V3h4V1zm2%2012H1v6h6v-2H3zm14%204h-4v2h6v-6h-2zm0-16h-4v2h4v4h2V1z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .fancycaptcha-reload {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M15.65%204.35A8%208%200%201%200%2017.4%2013h-2.22a6%206%200%201%201-1-7.22L11%209h7V2z%22/%3E%3C/svg%3E");
+    }
+    :root .popups-icon--settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%23cdd6f4%22%3E%3Cg%20transform%3D%22translate%2810%2010%29%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2845%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2890%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%28135%29%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-userAvatar {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M10%2011c-5.92%200-8%203-8%205v3h16v-3c0-2-2.08-5-8-5%22/%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%225.5%22%20r%3D%224.5%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-watchlist {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%203h16v2H1Zm0%206h6v2H1Zm0%206h8v2H1Zm8-4.24h3.85L14.5%207l1.65%203.76H20l-3%203.17.9%204.05-3.4-2.14L11.1%2018l.9-4.05Z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-tray {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M3%201a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V3a2%202%200%200%200-2-2zm14%2012h-4l-1%202H8l-1-2H3V3h14z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-bell {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M16%207a5.38%205.38%200%200%200-4.46-4.85C11.6%201.46%2011.53%200%2010%200S8.4%201.46%208.46%202.15A5.38%205.38%200%200%200%204%207v6l-2%202v1h16v-1l-2-2zm-6%2013a3%203%200%200%200%203-3H7a3%203%200%200%200%203%203%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-user-menu-logged-in .vector-dropdown-label::after {
+      background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-star {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%207h-7L10%20.5%207%207H0l5.46%205.47-1.64%207%206.18-3.7%206.18%203.73-1.63-7zm-10%206.9-3.76%202.27%201-4.28L3.5%208.5h4.61L10%204.6l1.9%203.9h4.6l-3.73%203.4%201%204.28z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-userTalk {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M18%200H2a2%202%200%200%200-2%202v18l4-4h14a2%202%200%200%200%202-2V2a2%202%200%200%200-2-2m-4%204a1.5%201.5%200%201%201-1.5%201.5A1.5%201.5%200%200%201%2014%204M6%204a1.5%201.5%200%201%201-1.5%201.5A1.5%201.5%200%200%201%206%204m4%208c-2.61%200-4.83-.67-5.65-3h11.3c-.82%202.33-3.04%203-5.65%203%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-sandbox {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M8%2012V9l6-6%203%203-6%206zm10-7-3-3%202-2%203%203zM8%202h2v2H8zM4%202h2v2H4zM0%203a1%201%200%200%201%201-1h1v2H0zm0%203h2v2H0zm0%204h2v2H0zm0%204h2v2H0zm0%204h2v2H1a1%201%200%200%201-1-1zm4%200h2v2H4zm4%200h2v2H8zm4%200h2v1a1%201%200%200%201-1%201h-1zm0-4h2v2h-2z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cg%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20transform%3D%22translate%2810%2010%29%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2845%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2890%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%28135%29%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-unStar {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%207h-7L10%20.5%207%207H0l5.46%205.47-1.64%207%206.18-3.7%206.18%203.73-1.63-7z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-image-progressive.oo-ui-icon-settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cba6f7%22%3E%3Cg%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20transform%3D%22translate%2810%2010%29%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2845%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2890%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%28135%29%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-bell {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M16%207a5.38%205.38%200%200%200-4.46-4.85C11.6%201.46%2011.53%200%2010%200S8.4%201.46%208.46%202.15A5.38%205.38%200%200%200%204%207v6l-2%202v1h16v-1l-2-2zm-6%2013a3%203%200%200%200%203-3H7a3%203%200%200%200%203%203%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-next {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M7%201%205.6%202.5%2013%2010l-7.4%207.5L7%2019l9-9z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20transform%3D%22translate%2810%2010%29%22%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20transform%3D%22rotate%2845%29%22%20href%3D%22%23a%22%20fill%3D%22%23cdd6f4%22/%3E%3Cuse%20transform%3D%22rotate%2890%29%22%20href%3D%22%23a%22%20fill%3D%22%23cdd6f4%22/%3E%3Cuse%20transform%3D%22rotate%28135%29%22%20href%3D%22%23a%22%20fill%3D%22%23cdd6f4%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-expand {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Ctitle%3E%20expand%20%3C/title%3E%3Cpath%20d%3D%22m17.5%204.75-7.5%207.5-7.5-7.5L1%206.25l9%209%209-9z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-tray {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M3%201a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V3a2%202%200%200%200-2-2zm14%2012h-4l-1%202H8l-1-2H3V3h14z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-labFlask {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M13%207.61V3h1V1H6v2h1v4.61l-5.86%209.88A1%201%200%200%200%202%2019h16a1%201%200%200%200%20.86-1.51zm-4.2.88a1%201%200%200%200%20.2-.6V3h2v4.89a1%201%200%200%200%20.14.51l2.14%203.6H6.72z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .mw-ui-icon-vector-gadget-pt-darkmode {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23cdd6f4%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M17.39%2015.14A7.33%207.33%200%200%201%2011.75%201.6c.23-.11.56-.23.79-.34a8.2%208.2%200%200%200-5.41.45%209%209%200%201%200%207%2016.58%208.42%208.42%200%200%200%204.29-3.84%205.3%205.3%200%200%201-1.03.69%22/%3E%3C/svg%3E");
+    }
+    :root .client-dark-mode .mw-ui-icon-vector-gadget-pt-darkmode {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23cdd6f4%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M17.07%207.07V2.93h-4.14L10%200%207.07%202.93H2.93v4.14L0%2010l2.93%202.93v4.14h4.14L10%2020l2.93-2.93h4.14v-4.14L20%2010zM10%2016a6%206%200%201%201%206-6%206%206%200%200%201-6%206%22/%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%224.5%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-userContributions {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Ccircle%20cx%3D%2215.5%22%20cy%3D%2210.5%22%20r%3D%222.5%22/%3E%3Cpath%20d%3D%22M1%2015h8v2H1Zm0-6h10v2H1Zm0-6h16v2H1Zm14.5%2010.6c-3.3%200-4.5%201.6-4.5%202.7V18h9v-1.7c0-1-1.2-2.7-4.5-2.7%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-logOut {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M3%203h8V1H3a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h8v-2H3z%22/%3E%3Cpath%20d%3D%22M13%205v4H5v2h8v4l6-5z%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .uls-search-label,
+    :root .vector-icon.mw-ui-icon-wikimedia-search {
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22%23cdd6f4%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.2%2013.6a7%207%200%201%201%201.4-1.4l5.4%205.4-1.4%201.4zM13%208A5%205%200%201%201%203%208a5%205%200%200%201%2010%200%22/%3E%3C/svg%3E");
+    }
+    :root .mw-ui-icon-vector-gadget-pt-darkmode-sticky-header {
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22%23cdd6f4%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M17.39%2015.14A7.33%207.33%200%200%201%2011.75%201.6c.23-.11.56-.23.79-.34a8.2%208.2%200%200%200-5.41.45%209%209%200%201%200%207%2016.58%208.42%208.42%200%200%200%204.29-3.84%205.3%205.3%200%200%201-1.03.69%22/%3E%3C/svg%3E");
+    }
+    :root .cdx-message .cdx-message__icon {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M10%200C4.477%200%200%204.477%200%2010s4.477%2010%2010%2010%2010-4.477%2010-10S15.523%200%2010%200M9%205h2v2H9zm0%204h2v6H9z%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-edit {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22m16.77%208%201.94-2a1%201%200%200%200%200-1.41l-3.34-3.3a1%201%200%200%200-1.41%200L12%203.23zM1%2014.25V19h4.75l9.96-9.96-4.75-4.75z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-history {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M9%206v5h.06l2.48%202.47%201.41-1.41L11%2010.11V6z%22/%3E%3Cpath%20d%3D%22M10%201a9%209%200%200%200-7.85%2013.35L.5%2016H6v-5.5l-2.38%202.38A7%207%200%201%201%2010%2017v2a9%209%200%200%200%200-18%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-speechBubbles {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M17%204v7a2%202%200%200%201-2%202H4v1a2%202%200%200%200%202%202h10l4%204V6a2%202%200%200%200-2-2zM6%2010H0v6z%22/%3E%3Crect%20width%3D%2216%22%20height%3D%2212%22%20rx%3D%222%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-editLock {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M12%2012a2%202%200%200%201-2-2V5.25l-9%209V19h4.75l7-7zm7-8h-.5V2.5a2.5%202.5%200%200%200-5%200V4H13a1%201%200%200%200-1%201v4a1%201%200%200%200%201%201h6a1%201%200%200%200%201-1V5a1%201%200%200%200-1-1m-3%204a1%201%200%201%201%201-1%201%201%200%200%201-1%201m1.5-4h-3V2.75C14.5%202%2014.5%201%2016%201s1.5%201%201.5%201.75z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .branding-box > a:nth-child(1) > span:nth-child(1) > img:nth-child(1) {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%2018%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20fill-rule%3D%22nonzero%22%20d%3D%22m18.339%200%20.199.001h.375l.174.001h.315l.138.001.323.001h.171l.058.053v.5q0%20.208-.231.208c-.753.035-.908.11-1.184.507-.15.216-.447.68-.755%201.204L15.28%207.419l-.074.154%203.23%206.611.196.054L23.72%202.162q.265-.73-.078-1.035c-.228-.197-.389-.315-.978-.34l-.477-.023a.28.28%200%200%201-.168-.061.17.17%200%200%201-.08-.147V.054l.073-.052h5.749l.058.052v.502q0%20.204-.231.205-1.129.051-1.673.489c-.362.294-.645.698-.848%201.225%200%200-1.53%203.5-3.137%207.159l-.268.61c-1.12%202.55-2.24%205.09-2.876%206.501-.613%201.17-1.22%201.06-1.745-.033-.411-.847-1.1-2.33-1.8-3.86l-.469-1.024c-.273-.6-.54-1.19-.786-1.727-1.08%202.23-2.56%205.26-3.3%206.624-.715%201.24-1.3%201.08-1.771.032-1.63-3.84-4.97-10.6-6.539-14.35-.29-.697-.51-1.14-.716-1.32Q1.347.827.36.774.002.734%200%20.593V.067L.058.016.592.014H1.6l.969-.001h.253l1.734.001h.225l.95.001h.577l.058.052v.5q0%20.207-.26.206L5.454.8q-.84.036-.84.5c0%20.145.06.38.19.696%201.25%203.05%205.58%2012.2%205.576%2012.169l.158.04%202.787-5.56c-.34-.751-.558-1.23-.558-1.234l-1.916-3.765s-.37-.753-.497-1.004C9.512.972%209.53.882%208.68.772c-.238-.031-.361-.061-.362-.18V.065L8.39.013h.702L10.58.01h2.77l.131.043V.58q0%20.181-.26.182l-.36.052c-.909.07-.76.442-.156%201.644l1.838%203.76%202.034-4.055c.318-.693.278-.9.157-1.064l-.027-.035c-.081-.096-.351-.251-.94-.275l-.231-.025a.28.28%200%200%201-.167-.06.17.17%200%200%201-.079-.147v-.5l.072-.052L16.24%200zm10.464%205.318h.118c.71%200%202.73-.053%202.73-.053l.027.053v.577c0%20.08-.053.131-.158.132l-.551.053c-.814.078-1.1.29-1.103.815v8.74c0%20.578.262.92%201.103.998l.551.054c.079%200%20.157.051.158.156v.552l-.027.053s-1.99-.053-2.808-.053c-.735%200-2.78.053-2.783.053l-.052-.053v-.552c0-.105.078-.156.184-.156l.525-.054c.866-.078%201.13-.499%201.128-.997V6.895c0-.575-.316-.736-1.128-.813l-.525-.054c-.105%200-.184-.024-.184-.105v-.605l.026-.053s1.89.048%202.769.053m8.81%2010.318c0%20.577.341.866%201.103.997l.288.054c.079.025.157.051.158.156v.551l-.027.054s-1.65-.054-2.44-.054c-.736%200-2.89.054-2.888.054l-.053-.054v-.55c0-.106.08-.157.184-.157l.525-.054c.787-.079%201.13-.499%201.129-.997V6.895c0-.575-.29-.736-1.129-.813l-.525-.055c-.105%200-.184-.024-.184-.105v-.604l.027-.053s2.15.053%202.966.053c.736%200%202.39-.053%202.389-.053l.026.053v.577c0%20.079-.053.105-.158.131l-.288.054c-.814.156-1.1.289-1.103.815v3.964c.866%200%201.36-.444%202.52-1.68%201.05-1.16%201.86-2.12%201.864-2.626%200-.21-.236-.445-.762-.526-.105-.024-.157-.052-.157-.13V5.29l.026-.024s2.13.053%202.888.053c.682%200%201.84-.053%201.837-.053l.079.024v.606c0%20.079-.079.131-.21.131-1.02.08-1.73.131-2.678%201.208l-2.257%202.597c-.446.475-.604.76-.604.972%200%20.157.105.288.237.445l3.963%204.778c.315.366.945.525%201.47.628l.131.026c.08.025.184.077.184.156v.551l-.079.027s-1.39-.026-2.126-.027c-.656%200-1.6.027-1.6.027l-.027-.027v-.315c0-.342-.026-.629-.394-1.049l-2.914-3.623c-.394-.526-.814-.655-1.39-.655v3.89zm14.151%200c0%20.577.262.919%201.102.997l.552.054c.078%200%20.157.051.157.156v.551l-.026.054s-1.99-.054-2.809-.054c-.735%200-2.78.054-2.782.054l-.053-.054v-.55c0-.106.08-.157.184-.157l.525-.054c.866-.079%201.13-.499%201.129-.997V6.895c0-.575-.315-.736-1.129-.813l-.525-.055c-.105%200-.184-.024-.184-.105v-.604l.027-.053s2.07.053%202.887.053c.709%200%202.73-.053%202.73-.053l.026.053v.577c0%20.079-.052.131-.157.131l-.552.054c-.814.078-1.1.289-1.102.815zm5.672-8.69c0-.814-.341-.84-1.575-.919-.157%200-.184-.077-.184-.13v-.605l.053-.026c.394%200%201.94.053%202.703.053.735%200%201.78-.053%202.757-.053%203.73%200%204.41%201.84%204.407%203.203%200%201.58-.76%204.04-4.486%204.043-.656%200-1.18-.054-1.655-.263v3.516c0%20.576.315.71%201.156.84l.526.079c.105.025.185.053.185.156v.551l-.024.054s-2.1-.054-2.915-.054c-.735%200-2.7.054-2.704.054l-.026-.054v-.551c0-.105.053-.131.158-.156l.55-.08c.815-.104%201.08-.34%201.077-.84zm2.021%204.568c.525.211%201.18.236%201.706.237%201.58%200%202.33-.947%202.335-2.967%200-2.26-1.02-2.76-2.466-2.756-1.26%200-1.58.236-1.576.919zm10.661%205.88c-.787%200-2.6.054-2.598.054l-.027-.054v-.577c0-.052.027-.13.158-.13l.605-.054c.815-.079%201.05-.604%201.051-1.128V6.843c0-.606-.315-.71-1.05-.761l-.606-.055c-.157-.024-.157-.077-.158-.105v-.604l.027-.053s2.05.053%202.834.053h3.859c.787%200%202.65-.053%202.652-.053l.055.053c.024%201.13.208%202.15.393%203.15l-.654.105c-.288-.972-.786-2.36-2.466-2.362h-2.1c-.5%200-.761.184-.761.63v3.806h1.967c.736%200%20.92-.315%201.025-.84l.157-.55c0-.08.053-.133.157-.133h.444c.055%200%20.055.027.055.079-.055.576-.157%201.31-.158%201.943%200%20.655.105%201.21.158%201.811l-.055.054h-.444c-.13%200-.186-.054-.186-.133l-.13-.576c-.106-.526-.342-.815-1.028-.815h-1.966v4.017c0%20.497.286.995.76.996h2.495c1.34%200%202.08-.84%202.388-2.207l.654.079-.526%203.017-.052.053s-1.55-.053-2.336-.053zm9.872-.707.604-.054c.788-.079%201.05-.315%201.05-1.128V6.843c0-.685-.185-.685-1.05-.761l-.576-.055c-.105%200-.186-.052-.186-.13v-.578l.026-.053s2.31.053%202.784.053c.497%200%202.78-.053%203.465-.053%204.38%200%206.54%202.73%206.537%206.221%200%204.59-3.26%205.96-6.167%205.958-2.1%200-3.02-.054-3.832-.054-.788%200-2.78.054-2.784.054l-.026-.054v-.55a.147.147%200%200%201%20.155-.154m5.855%200c2.89%200%204.52-1.07%204.515-4.752%200-2.73-.605-5.91-5.014-5.908-1.02%200-1.68.157-1.68.816v8.662c0%20.733.183%201.18%202.179%201.182m12.996-1.051c0%20.577.262.919%201.102.997l.551.054c.079%200%20.157.051.158.156v.551l-.027.054s-1.99-.054-2.807-.054c-.736%200-2.78.054-2.783.054l-.053-.054v-.55c0-.106.079-.157.184-.157l.526-.054c.865-.079%201.13-.499%201.128-.997V6.895c0-.575-.316-.736-1.128-.813l-.526-.055c-.105%200-.184-.024-.184-.105v-.604l.026-.053s2.07.053%202.886.053c.708%200%202.73-.053%202.73-.053l.025.053v.577c0%20.079-.055.131-.158.131l-.551.054c-.815.078-1.1.289-1.103.815zm8.086.997.762.054c.105%200%20.21.078.21.209v.498l-.053.054s-2.86-.054-3.491-.054c-.683%200-2.36.054-2.364.054l-.053-.054v-.498c0-.13.079-.21.21-.21%201.16-.078%201.81-.29%202.546-1.97l5.826-13.65c.288-.682.5-.946.895-.946.365%200%20.498.264.707.788l5.38%2014.227c.37%201.02.895%201.42%201.945%201.523l.288.025c.132%200%20.264.078.263.211v.497l-.078.053s-2.02-.053-3.046-.053c-.92%200-3.49.053-3.492.053l-.025-.053v-.497c0-.133.053-.21.187-.21l.735-.054c.996-.078%201.37-.395%201.103-1.128l-1.602-4.438h-5.461c-.63%200-.787.105-.918.444l-1.524%203.807c-.262.66.079%201.24%201.05%201.318m6.431-6.67-2.546-7.007h-.052l-2.625%206.667c-.105.265.078.341.655.342h4.568v-.001z%22/%3E%3C/svg%3E");
+    }
+    :root .panel-heading,
+    :root .mw-pt-languages-list,
+    :root .mw-pt-languages-label {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+    }
+    :root .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+    :root .oo-ui-inputWidget-input,
+    :root .mw-widget-dateInputWidget-handle,
+    :root .oo-ui-menuSelectWidget {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root .oo-ui-menuOptionWidget:hover {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .cdx-search-input__end-button {
+      background-color: var(--rk-crust) !important;
+    }
+    :root .mw-pt-languages {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .mw-pt-progress--complete::after,
+    :root .mw-pt-progress--high::after {
+      border-color: var(--rk-accent);
+      background: conic-gradient(#cdd6f4 0, #cba6f7 0);
+    }
+    :root pre,
+    :root .oo-ui-panelLayout-framed {
+      border-color: var(--rk-surface0);
+    }
+    :root #vector-page-titlebar-toc-label {
+      background-color: var(--rk-mantle);
+      color: var(--rk-white) !important;
+      border-color: var(--rk-white) !important;
+    }
+    :root tbody * {
+      background-color: var(--rk-surface0) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root [style*="padding: 0.5em; margin: 0.50em 0; background-color: #C1E5FF; border: thin solid #1D99F3; overflow: hidden;"] {
+      background-color: var(--rk-sapphire) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root [style*="padding: 0.5em; margin: 0.50em 0; background-color: #F6F6F6; border: thin solid #31363B; overflow: hidden;"] {
+      background-color: var(--rk-rosewater) !important;
+      color: var(--rk-mantle) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --background-color-base: var(--rk-background);
+      --home-panel-heading-background: var(--rk-mantle);
+      --home-panel-border-color: var(--rk-surface0);
+      --table-border-color: var(--rk-crust);
+      --table-header-background: var(--rk-black);
+      --table-even-background: var(--rk-bright-black);
+      background-color: var(--rk-background);
+      /* maths */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body,
+    :root .vector-feature-zebra-design-enabled .vector-header-container .mw-header,
+    :root .vector-feature-zebra-design-enabled .mw-page-container,
+    :root .vector-feature-zebra-design-enabled .vector-pinned-container,
+    :root .vector-feature-zebra-design-enabled .vector-dropdown .vector-dropdown-content,
+    :root .uls-lcd,
+    :root .uls-search,
+    :root .uls-filtersuggestion,
+    :root #uls-settings-block.uls-settings-block--vector-2022.uls-settings-block--with-add-languages,
+    :root .app-badges .footer-sidebar-content,
+    :root .pure-form input[type="search"],
+    :root .suggestions-dropdown,
+    :root .cdx-menu,
+    :root .vector-header-container .mw-header,
+    :root .mw-page-container,
+    :root .vector-pinned-container,
+    :root .vector-header-container .vector-sticky-header,
+    :root .mw-mmv-image,
+    :root .mw-body,
+    :root .frb-form-wrapper,
+    :root .mw-echo-ui-placeholderItemWidget,
+    :root .oo-ui-popupWidget-popup,
+    :root .mw-echo-ui-notificationItemWidget,
+    :root .oo-ui-optionWidget-selected {
+      background-color: var(--rk-background);
+    }
+    :root body,
+    :root .mw-heading,
+    :root h1,
+    :root h2,
+    :root h3,
+    :root h4,
+    :root h5,
+    :root h6,
+    :root .vector-feature-zebra-design-enabled body,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-list-item-active > .vector-toc-link,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-expanded) > .vector-toc-link,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-list-item-active.vector-toc-level-1-active > .vector-toc-link,
+    :root .vector-menu-tabs .mw-list-item.selected a,
+    :root .vector-menu-tabs .mw-list-item.selected a:visited,
+    :root .cdx-button:enabled,
+    :root .cdx-button.cdx-button--fake-button--enabled,
+    :root .mw-footer li,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-active) > .vector-toc-link,
+    :root .central-featured-lang small,
+    :root .footer-sidebar-text,
+    :root .other-project-tagline,
+    :root .site-license,
+    :root .search-container .js-langpicker-label,
+    :root .langlist > ul > li,
+    :root .suggestion-title,
+    :root .cdx-menu-item--enabled .cdx-menu-item__content,
+    :root .mwe-popups .mwe-popups-extract,
+    :root .mw-body-content .mw-number-text h3,
+    :root .vector-pinnable-element .vector-menu-heading,
+    :root .vector-toc .vector-toc-list-item-active > .vector-toc-link,
+    :root .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-expanded) > .vector-toc-link,
+    :root .vector-toc .vector-toc-list-item-active.vector-toc-level-1-active > .vector-toc-link,
+    :root .uls-empty-state .uls-empty-state__header,
+    :root .uls-empty-state .uls-empty-state__desc,
+    :root .uls-no-results-found-title,
+    :root .mw-mmv-post-image,
+    :root .mw-mmv-credit,
+    :root .frb-form-wrapper,
+    :root .mw-echo-ui-notificationItemWidget-content-message-header,
+    :root .oo-ui-labelElement,
+    :root #contentSub:not(:empty) {
+      color: var(--rk-foreground) !important;
+    }
+    :root .mw-parser-output .fmbox {
+      border-color: var(--rk-bright-black) !important;
+      background-color: var(--rk-background) !important;
+    }
+    :root .cdx-thumbnail__image {
+      border-color: var(--rk-foreground);
+    }
+    :root .equation-box,
+    :root .equation-box * {
+      background: none !important;
+    }
+    :root img.mwe-math-fallback-image-display,
+    :root img.mwe-math-fallback-image-inline {
+      filter: brightness(0) saturate(100%) invert(83%) sepia(28%) saturate(223%) hue-rotate(190deg) brightness(99%) contrast(93%);
+    }
+    :root .mwe-popups .mwe-popups-extract[dir="ltr"]::after {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #313244 50%);
+    }
+    :root table {
+      background: var(--rk-bright-black) !important;
+    }
+    :root tr {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root th {
+      background: var(--rk-overlay0) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root .quotebox,
+    :root div.thumbinner {
+      background-color: var(--rk-surface0) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .navbox-group,
+    :root .infobox-label {
+      color: var(--rk-foreground) !important;
+    }
+    :root .cdx-button:enabled,
+    :root .cdx-text-input__input:enabled {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+      border-color: var(--rk-bright-black);
+    }
+    :root .cdx-button:enabled:hover,
+    :root .cdx-text-input__input:enabled:hover {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-foreground);
+      color: var(--rk-foreground);
+    }
+    :root .vector-dropdown .vector-dropdown-content,
+    :root .header-container.header-chrome {
+      background-color: var(--rk-mantle);
+    }
+    :root .skin-vector .uls-search {
+      border-bottom-color: var(--rk-bright-black);
+    }
+    :root .oo-ui-textInputWidget,
+    :root .oo-ui-inputWidget-input {
+      color: var(--rk-foreground) !important;
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .oo-ui-pendingElement-pending {
+      background-color: var(--rk-background);
+      background-image: linear-gradient(135deg, #313244 25%, transparent 25%, transparent 50%, #313244 50%, #313244 75%, transparent 75%, transparent);
+    }
+    :root .oo-ui-tagItemWidget.oo-ui-widget-disabled {
+      color: var(--rk-foreground);
+      background-color: var(--rk-overlay0);
+      text-shadow: 0 0 0 var(--rk-foreground);
+      border-color: var(--rk-surface0);
+    }
+    :root .oo-ui-buttonElement-frameless.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+    :root .mw-mmv-credit,
+    :root .mw-mmv-options-dialog-header,
+    :root .mw-mmv-options-text-header {
+      color: var(--rk-foreground);
+    }
+    :root .mw-mmv-options-text-body {
+      color: var(--rk-white);
+    }
+    :root .mw-ui-input:not(:disabled) {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-ui-button {
+      color: var(--rk-mantle);
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .imbox-delete {
+      border-color: var(--rk-red) !important;
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .imbox {
+      background-color: var(--rk-overlay0) !important;
+      border-color: var(--rk-peach) !important;
+    }
+    :root .talkheader-help {
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-green) !important;
+    }
+    :root .assess,
+    :root .assess-NA,
+    :root .navbox-subgroup {
+      background: var(--rk-surface0) !important;
+      border-color: var(--rk-black) !important;
+    }
+    :root .documentation,
+    :root .documentation-container,
+    :root .documentation-metadata {
+      background-color: rgb(from var(--rk-green) r g b / 0.15) !important;
+    }
+    :root .ambox,
+    :root .portalborder {
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .navbox-title {
+      color: var(--rk-foreground) !important;
+    }
+    :root .mw-content-ltr.mw-highlight-lines pre,
+    :root .mw-content-ltr.content .mw-highlight-lines pre {
+      box-shadow: inset 2.75em 0 0 var(--rk-mantle);
+    }
+    :root .mbox-text {
+      color: var(--rk-foreground) !important;
+    }
+    :root .sidebar-above,
+    :root .p,
+    :root .o {
+      color: var(--rk-foreground) !important;
+    }
+    :root .ni,
+    :root .mw-templatedata-doc-muted {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .nv,
+    :root .nn {
+      color: var(--rk-blue) !important;
+    }
+    :root .sidebar-above a span {
+      color: var(--rk-foreground) !important;
+    }
+    :root .sidebar-title-with-pretitle span {
+      color: var(--rk-foreground) !important;
+    }
+    :root .nt {
+      color: var(--rk-green) !important;
+    }
+    :root .nl {
+      color: var(--rk-cyan) !important;
+    }
+    :root .ambox-style {
+      border-left-color: var(--rk-yellow) !important;
+    }
+    :root .mw-parser-output .mainpage-frame {
+      background: var(--rk-surface0) !important;
+      border-color: var(--rk-surface0) !important;
+    }
+    :root .mw-parser-output .mainpage-heading-title {
+      background: linear-gradient(to right, rgba(214, 186, 248, 0.4), #313244) !important;
+    }
+    :root .hidden-title {
+      background-color: var(--rk-green) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root .mw-mmv-post-image,
+    :root .mw-mmv-options-dialog {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .mw-mmv-image-metadata {
+      background-color: var(--rk-background);
+      border-color: var(--rk-background);
+    }
+    :root .mw-mmv-dialog-down-arrow {
+      background-color: var(--rk-background) !important;
+    }
+    :root .oo-ui-tagItemWidget.oo-ui-widget-enabled {
+      color: var(--rk-foreground);
+      background-color: var(--rk-overlay0) !important;
+      border-color: var(--rk-surface0);
+    }
+    :root ol.references li:target {
+      background-color: var(--rk-bright-black);
+    }
+    :root .mw-body-content .error {
+      color: var(--rk-red);
+    }
+    :root .divbox-gray,
+    :root .infobox-above {
+      background-color: var(--rk-bright-black) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root .biota > * > tr > th {
+      background-color: var(--rk-yellow) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root .cmbox {
+      background-color: var(--rk-blue) !important;
+    }
+    :root .wikitable {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root .wikitable > * > tr > th {
+      background-color: var(--rk-black) !important;
+    }
+    :root .wikitable > * > tr > td,
+    :root .wikitable > * > tr > th {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-searchresults-has-iw .iw-result__header a {
+      color: var(--rk-foreground);
+    }
+    :root .mw-search-result-data {
+      color: var(--rk-white);
+    }
+    :root .navbox-abovebelow {
+      background-color: var(--rk-overlay2) !important;
+      border-color: var(--rk-overlay2) !important;
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-element .vector-menu-heading {
+      color: var(--rk-foreground);
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .mwe-popups .mwe-popups-container {
+      background-color: var(--rk-surface0);
+    }
+    :root .vector-pinnable-header-toggle-button {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .vector-pinnable-header-toggle-button:hover {
+      background-color: var(--rk-background);
+    }
+    :root .mw-parser-output .navbox-list {
+      border-color: var(--rk-surface0);
+    }
+    :root .pure-button-primary-progressive,
+    :root .pure-button-primary-progressive:hover {
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .suggestion-link {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .cdx-menu,
+    :root .skin-vector .uls-menu,
+    :root .suggestiodns-dropdown,
+    :root .cdx-search-input--has-end-button,
+    :root .vector-sticky-header,
+    :root .vector-sticky-header-context-bar,
+    :root .mw-heading2 {
+      border-color: var(--rk-bright-black);
+    }
+    :root .suggestion-link.active {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .suggestion-link.active .suggestion-title {
+      color: var(--rk-accent);
+    }
+    :root .mw-echo-ui-pageNotificationsOptionWidget.oo-ui-optionWidget-highlighted,
+    :root .cdx-menu-item--enabled.cdx-menu-item--highlighted {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .mw-echo-ui-sortedListWidget,
+    :root .mw-echo-ui-sortedListWidget-group,
+    :root .mw-echo-ui-subGroupListWidget-header {
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-mmv-post-image,
+    :root .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive .cdx-button__icon {
+      background-color: var(--rk-crust);
+    }
+    :root .cdx-text-input__input:enabled::placeholder,
+    :root .cdx-text-input__input:enabled ~ .cdx-text-input__icon-vue,
+    :root .skin-vector .uls-languagefilter,
+    :root .skin-vector .uls-lcd-region-title,
+    :root .suggestion-description,
+    :root .cdx-menu-item--enabled .cdx-menu-item__text__description,
+    :root .mw-number-text,
+    :root .boilerplate > div:nth-child(3) > span:nth-child(1),
+    :root .boilerplate > div:nth-child(4) > span:nth-child(2) {
+      color: var(--rk-white) !important;
+    }
+    :root input:hover + .cdx-button.cdx-button--action-progressive {
+      background-color: rgb(from var(--rk-accent) r g b / 0.125);
+    }
+    :root #pt-notifications-alert .mw-echo-unseen-notifications::after {
+      background-color: var(--rk-red) !important;
+    }
+    :root #pt-notifications-notice .mw-echo-unseen-notifications::after {
+      background-color: var(--rk-blue) !important;
+    }
+    :root a,
+    :root .mw-parser-output a.external:visited {
+      color: var(--rk-accent);
+    }
+    :root a:visited,
+    :root .mw-parser-output a.external:visited:visited {
+      color: var(--rk-accent);
+    }
+    :root a.new,
+    :root .mw-parser-output .cs1-visible-error,
+    :root .vector-menu-tabs .mw-list-item.new a,
+    :root .mw-plusminus-neg {
+      color: var(--rk-red);
+    }
+    :root a.mw-selflink {
+      color: var(--rk-foreground);
+    }
+    :root #searchInput {
+      color: var(--rk-foreground);
+    }
+    :root #searchInput:hover {
+      border-color: var(--rk-bright-black);
+    }
+    :root #searchInput:focus {
+      border-color: var(--rk-accent);
+    }
+    :root .pure-form input[type="search"] {
+      border-color: var(--rk-bright-black);
+      box-shadow: inset 0 0 0 1px var(--rk-bright-black);
+    }
+    :root #pt-notifications-alert .mw-echo-notifications-badge::after,
+    :root #pt-notifications-notice .mw-echo-notifications-badge::after,
+    :root .mw-echo-notification-badge-nojs::after {
+      border-color: var(--rk-crust);
+      background-color: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root h2 {
+      border-bottom-color: var(--rk-bright-black);
+    }
+    :root .mw-footer {
+      border-top-color: var(--rk-bright-black);
+    }
+    :root .bookshelf {
+      border-top-color: var(--rk-surface0);
+      box-shadow: 0 -1px 0 var(--rk-surface0);
+    }
+    :root body.ns-talk .mw-parser-output .mp-toolbox,
+    :root .mw-parser-output .tmbox,
+    :root #talkheader {
+      border-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+      background-color: rgb(from var(--rk-yellow) r g b / 0.1) !important;
+    }
+    :root body.ns-talk .mw-parser-output .mp-toolbox-daily th {
+      border-color: rgb(from var(--rk-yellow) r g b / 0.8) !important;
+      background-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+    }
+    :root .fn.org {
+      color: var(--rk-accent);
+    }
+    :root .mw-parser-output .mp-toolbox-daily th,
+    :root .mw-parser-output td.mp-toolbox-tfl-not {
+      background: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+      border-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+    }
+    :root body.ns-talk .mw-parser-output .mp-toolbox-daily {
+      border-color: rgb(from var(--rk-yellow) r g b / 0.2) !important;
+      background: none !important;
+    }
+    :root .mw-parser-output tr + tr > .navbox-list,
+    :root .mw-parser-output tr + tr > .navbox-group {
+      border-top-color: var(--rk-surface0);
+    }
+    :root .ext-phonos-PhonosButton.oo-ui-buttonElement-frameless.oo-ui-buttonWidget > .oo-ui-buttonElement-button:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .styled-select:hover {
+      background-color: var(--rk-surface0);
+    }
+    :root .lang-list-button,
+    :root .lang-list-button:hover {
+      background-color: var(--rk-background);
+      border-color: var(--rk-black);
+      outline-color: var(--rk-background);
+    }
+    :root .cdx-typeahead-search__search-footer__icon.cdx-icon {
+      color: var(--rk-white);
+    }
+    :root .vector-toc .vector-toc-level-1-active:not(.vector-toc-list-item-active) > .vector-toc-link {
+      color: var(--rk-foreground) !important;
+    }
+    :root .lang-list-active .lang-list-button {
+      background-color: var(--rk-background);
+      border-color: var(--rk-black);
+      outline-color: var(--rk-background);
+    }
+    :root .lang-list-button:focus {
+      box-shadow: inset 0 0 0 1px var(--rk-accent);
+    }
+    :root .lang-list-border {
+      background-color: var(--rk-black);
+    }
+    :root .infobox-header {
+      background-color: var(--rk-black) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root td[style*="background-color"],
+    :root td[style*="background-color"] * {
+      color: var(--rk-crust) !important;
+    }
+    :root #toc-Services > a:nth-child(1) > div:nth-child(1) {
+      color: var(--rk-foreground) !important;
+    }
+    :root .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-quiet.cdx-button--action-progressive,
+    :root .vector-menu-tabs .mw-list-item a,
+    :root .vector-feature-zebra-design-enabled .vector-toc .vector-toc-link,
+    :root .mw-parser-output a.extiw,
+    :root .mw-parser-output a.external,
+    :root .mw-collapsible-toggle-default .mw-collapsible-text,
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-element .mw-list-item a,
+    :root .vector-feature-zebra-design-enabled .vector-dropdown-content .mw-list-item a,
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-element .mw-list-item a:not(.mw-selflink):visited,
+    :root .vector-feature-zebra-design-enabled .vector-dropdown-content .mw-list-item a:not(.mw-selflink):visited,
+    :root .uls-language-block a,
+    :root .lang-list-button,
+    :root .fancycaptcha-reload,
+    :root #pt-userpage-2 a:not(.mw-selflink),
+    :root .vector-pinnable-element .mw-list-item a,
+    :root .vector-pinnable-element .mw-list-item a:not(.mw-selflink):visited,
+    :root .vector-toc .vector-toc-link,
+    :root .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button,
+    :root .oo-ui-buttonElement-frameless.oo-ui-widget-enabled.oo-ui-flaggedElement-progressive > .oo-ui-buttonElement-button:hover,
+    :root .vector-dropdown-content .mw-list-item a,
+    :root .vector-dropdown-content .mw-list-item a:not(.mw-selflink):visited {
+      color: var(--rk-accent);
+    }
+    :root .cdx-button:enabled.cdx-button--weight-primary.cdx-button--action-progressive,
+    :root .cdx-button.cdx-button--fake-button--enabled.cdx-button--weight-primary.cdx-button--action-progressive,
+    :root .mw-ui-button.mw-ui-progressive:not(:disabled),
+    :root .mw-ui-button.mw-ui-progressive:not(:disabled):hover {
+      background-color: var(--rk-accent);
+      border-color: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root .mw-message-box-warning,
+    :root .boilerplate {
+      border-color: var(--rk-accent) !important;
+      background-color: rgb(from var(--rk-accent) r g b / 0.25) !important;
+      color: var(--rk-foreground);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-sticky-pinned-container::after,
+    :root .vector-sticky-pinned-container::after {
+      background: none;
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-header-toggle-button {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-header-toggle-button:hover {
+      background-color: var(--rk-background);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-pinnable-header,
+    :root .vector-pinnable-header,
+    :root .vector-pinnable-element .vector-menu-heading {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root hr {
+      border-bottom-color: var(--rk-background);
+    }
+    :root .central-featured-lang strong:hover,
+    :root .link-box:hover,
+    :root .central-featured-lang :hover,
+    :root .other-project-link:hover,
+    :root .lang-list-container {
+      background-color: var(--rk-surface0);
+    }
+    :root .vector-page-toolbar-container {
+      box-shadow: 0 1px var(--rk-black);
+    }
+    :root .mw-parser-output .navbox-even {
+      background-color: var(--rk-black);
+    }
+    :root .vector-feature-zebra-design-enabled .vector-page-titlebar::after,
+    :root .mw-parser-output .wikipedia-languages-prettybars,
+    :root .vector-page-titlebar::after {
+      background-color: var(--rk-bright-black) !important;
+    }
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(2) {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .client-js .mw-content-ltr .mw-editsection-bracket:first-of-type,
+    :root .client-js .mw-content-ltr .mw-editsection-bracket:not(:first-of-type),
+    :root .mw-collapsible-toggle-default::before,
+    :root .mw-collapsible-toggle-default::after {
+      color: var(--rk-bright-white);
+    }
+    :root .infobox,
+    :root .mw-parser-output .navbox,
+    :root .catlinks,
+    :root .mw-parser-output #mp-topbanner,
+    :root .mw-parser-output .sidebar,
+    :root .fancycaptcha-captcha-container,
+    :root .fancycaptcha-captcha-and-reload,
+    :root .cdx-checkbox__icon,
+    :root .mw-message-box,
+    :root .uls-menu .uls-no-results-view .uls-no-found-more,
+    :root .client-js .vector-below-page-title .vector-page-titlebar-toc > label:nth-child(2),
+    :root .mw-parser-output .ombox,
+    :root code,
+    :root .oo-ui-buttonElement-framed.oo-ui-widget-enabled > .oo-ui-buttonElement-button,
+    :root .mw-mmv-label,
+    :root #page-secondary-actions > a,
+    :root .mw-parser-output .ambox,
+    :root td[class="sidebar-navbar"],
+    :root textarea,
+    :root .mw-parser-output .side-box {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root #pagehistory li.selected {
+      background-color: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black) !important;
+      outline-color: var(--rk-bright-black) !important;
+    }
+    :root .cdx-checkbox__icon {
+      border-color: var(--rk-accent) !important;
+    }
+    :root .fancycaptcha-captcha-container .mw-ui-inputو .mw-ui-input:not(:disabled) {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-black);
+    }
+    :root .mw-ui-input:not(:disabled),
+    :root .mw-ui-button:not(:disabled) {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-black) !important;
+    }
+    :root .mw-parser-output .module-shortcutboxplain {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-bright-black);
+    }
+    :root .sidebar-pretitle,
+    :root .sidebar-title-with-pretitle,
+    :root .sidebar-list-title {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .mw-parser-output #mp-bottom,
+    :root .mw-parser-output .sidebar-collapse .sidebar-below {
+      border-color: var(--rk-bright-black);
+    }
+    :root .lang-list-content,
+    :root .bookshelf .text {
+      background-color: var(--rk-surface0);
+    }
+    :root .mw-parser-output #mp-bottom .mp-h2,
+    :root .uls-language-block > ul > li:hover {
+      background: var(--rk-surface0);
+      border-color: var(--rk-bright-black);
+    }
+    :root figure[typeof~="mw:File/Thumb"] {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+      border-top-color: var(--rk-bright-black);
+      border-left-color: var(--rk-bright-black);
+      border-right-color: var(--rk-bright-black);
+    }
+    :root figure[typeof~="mw:File/Thumb"] > figcaption {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+      border-bottom-color: var(--rk-bright-black);
+      border-left-color: var(--rk-bright-black);
+      border-right-color: var(--rk-bright-black);
+    }
+    :root figure[typeof~="mw:File/Thumb"] > :not(figcaption) .mw-file-element {
+      color: var(--rk-bright-black) !important;
+      border-color: var(--rk-bright-black);
+    }
+    :root .mw-parser-output #mp-left,
+    :root .mw-parser-output #mp-left .mp-h2,
+    :root th[class="sidebar-title"] {
+      background-color: rgb(from var(--rk-green) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-green) r g b / 0.2) !important;
+    }
+    :root .mw-plusminus-pos {
+      color: var(--rk-green) !important;
+    }
+    :root .mw-parser-output #mp-right,
+    :root .mw-parser-output #mp-right .mp-h2 {
+      background-color: rgb(from var(--rk-blue) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-blue) r g b / 0.2) !important;
+    }
+    :root .mw-parser-output #mp-lower,
+    :root .mw-parser-output #mp-lower .mp-h2 {
+      background-color: rgb(from var(--rk-accent) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .mw-collapsible-toggle-default:active .mw-collapsible-text {
+      color: var(--rk-peach);
+    }
+    :root .mw-parser-output #mp-middle,
+    :root .mw-parser-output #mp-middle .mp-h2 {
+      background-color: rgb(from var(--rk-magenta) r g b / 0.1) !important;
+      border-color: rgb(from var(--rk-magenta) r g b / 0.2) !important;
+    }
+    :root .mw-parser-output .navbox-title,
+    :root .summary,
+    :root .infobox > tbody:nth-child(1) > tr:nth-child(4) > th:nth-child(1),
+    :root .infobox > tbody:nth-child(1) > tr:nth-child(6) > th:nth-child(1) {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    }
+    :root .infobox > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(1) {
+      background-color: var(--rk-black) !important;
+    }
+    :root .mw-parser-output .navbox-group,
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(3),
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(2) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.expanded:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.nowraplinks:nth-child(1) > tbody:nth-child(1) > tr:nth-child(3) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.nowraplinks:nth-child(1) > tbody:nth-child(1) > tr:nth-child(4) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root table.nowraplinks:nth-child(1) > tbody:nth-child(1) > tr:nth-child(5) > td:nth-child(1) > table:nth-child(2) > tbody:nth-child(1) > tr:nth-child(1),
+    :root .navbox-abovebelow {
+      background-color: var(--rk-black) !important;
+    }
+    :root .mw-parser-output .tracklist > tbody {
+      color: inherit;
+    }
+    :root .mw-parser-output .tracklist > tbody > .tracklist-total-length * {
+      background-color: var(--rk-overlay1);
+      color: var(--rk-background);
+    }
+    :root .mw-content-ltr > table:nth-child(20) > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) {
+      border-color: var(--rk-bright-black) !important;
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .noarticletext,
+    :root #noarticletext {
+      background-color: var(--rk-background) !important;
+    }
+    :root #sisterproject {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root [style="color:#02a64f;line-height:initial"] {
+      color: var(--rk-green) !important;
+    }
+    :root [style="color:#f78e1e;line-height:initial"] {
+      color: var(--rk-peach) !important;
+    }
+    :root [style="color:#77278b;line-height:initial"] {
+      color: var(--rk-accent) !important;
+    }
+    :root [style="color:#87746a;line-height:initial"] {
+      color: var(--rk-maroon) !important;
+    }
+    :root [style="color:#009aC8;line-height:initial"] {
+      color: var(--rk-sky) !important;
+    }
+    :root [style="color:#ffd520;line-height:initial"] {
+      color: var(--rk-yellow) !important;
+    }
+    :root [style="color:#0060a9;line-height:initial"] {
+      color: var(--rk-blue) !important;
+    }
+    :root table.nowraplinks:nth-child(4) > tbody:nth-child(1) > tr:nth-child(1),
+    :root .navbox-list-with-group.navbox-list.navbox-odd {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .mw-parser-output tr + tr > .navbox-abovebelow {
+      border-color: var(--rk-background);
+    }
+    :root .catlinks li {
+      border-left-color: var(--rk-bright-black);
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-menu {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%203v2h18V3zm0%208h18V9H1zm0%206h18v-2H1z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-ellipsis {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%2217%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-appearance {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M5.25%2014.5a4.25%204.25%200%200%200%204.247-4.092c.3-.21.706-.21%201.006%200a4.25%204.25%200%200%200%208.431.59L19%2011a1%201%200%201%200-.182-1.984%204.252%204.252%200%200%200-7.896-.615%202.9%202.9%200%200%200-1.844%200%204.25%204.25%200%200%200-7.896.615%201%201%200%201%200-.116%201.981A4.25%204.25%200%200%200%205.25%2014.5m0-2a2.25%202.25%200%201%200%200-4.5%202.25%202.25%200%200%200%200%204.5M17%2010.25a2.25%202.25%200%201%201-4.5%200%202.25%202.25%200%200%201%204.5%200%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-feature-zebra-design-enabled .vector-dropdown .vector-dropdown-label:not(.cdx-button--icon-only)::after,
+    :root .vector-icon.mw-ui-icon-wikimedia-expand {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .cdx-checkbox__input:checked:not(:indeterminate) + .cdx-checkbox__icon::before {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M7%2014.17%202.83%2010l-1.41%201.41L7%2017%2019%205l-1.41-1.42z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-page-titlebar .mw-portlet-lang .vector-dropdown-label.cdx-button--action-progressive.cdx-button--weight-quiet::after {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-dropdown .vector-dropdown-label:not(.cdx-button--icon-only)::after {
+      background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-language-progressive {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%2018h-1.44a.6.6%200%200%201-.4-.12.8.8%200%200%201-.23-.31L17%2015h-5l-1%202.54a.8.8%200%200%201-.22.3.6.6%200%200%201-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89%209.5a12%2012%200%200%201-.39-1.24q-.09.37-.19.69l-.19.56-1.58%204.19zm-6.3-1.58a13.4%2013.4%200%200%201-2.91-1.41%2011.46%2011.46%200%200%200%202.81-5.37H12V4H7.31a4%204%200%200%200-.2-.56C6.87%202.79%206.6%202%206.6%202l-1.47.5s.4.89.6%201.5H0v1.33h2.15A11.23%2011.23%200%200%200%205%2010.7a17.2%2017.2%200%200%201-5%202.1q.56.82.87%201.38a23.3%2023.3%200%200%200%205.22-2.51%2015.6%2015.6%200%200%200%203.56%201.77zM3.63%205.33h4.91a8.1%208.1%200%200%201-2.45%204.45%209.1%209.1%200%200%201-2.46-4.45%22%20fill%3D%22%23cba6f7%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-language {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%2018h-1.44a.6.6%200%200%201-.4-.12.8.8%200%200%201-.23-.31L17%2015h-5l-1%202.54a.8.8%200%200%201-.22.3.6.6%200%200%201-.4.14H9l4.55-11.47h1.89zm-3.53-4.31L14.89%209.5a12%2012%200%200%201-.39-1.24q-.09.37-.19.69l-.19.56-1.58%204.19zm-6.3-1.58a13.4%2013.4%200%200%201-2.91-1.41%2011.46%2011.46%200%200%200%202.81-5.37H12V4H7.31a4%204%200%200%200-.2-.56C6.87%202.79%206.6%202%206.6%202l-1.47.5s.4.89.6%201.5H0v1.33h2.15A11.23%2011.23%200%200%200%205%2010.7a17.2%2017.2%200%200%201-5%202.1q.56.82.87%201.38a23.3%2023.3%200%200%200%205.22-2.51%2015.6%2015.6%200%200%200%203.56%201.77zM3.63%205.33h4.91a8.1%208.1%200%200%201-2.45%204.45%209.1%209.1%200%200%201-2.46-4.45%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E") !important;
+    }
+    :root .mw-parser-output a.external {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M6%201h5v5L8.86%203.85%204.7%208%204%207.3l4.15-4.16zM2%203h2v1H2v6h6V8h1v2a1%201%200%200%201-1%201H2a1%201%200%200%201-1-1V4a1%201%200%200%201%201-1%22/%3E%3C/svg%3E") !important;
+    }
+    :root .plainlinks a.external {
+      background: none !important;
+    }
+    :root #mw-indicator-mw-helplink a {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M10%200a10%2010%200%201%200%2010%2010A10%2010%200%200%200%2010%200m1%2016H9v-2h2zm2.71-7.6a2.6%202.6%200%200%201-.33.74%203.2%203.2%200%200%201-.48.55l-.54.48c-.21.18-.41.35-.58.52a2.5%202.5%200%200%200-.47.56A2.3%202.3%200%200%200%2011%2012a3.8%203.8%200%200%200-.11%201H9.08a9%209%200%200%201%20.07-1.25%203.3%203.3%200%200%201%20.25-.9%202.8%202.8%200%200%201%20.41-.67%204%204%200%200%201%20.58-.58c.17-.16.34-.3.51-.44a3%203%200%200%200%20.43-.44%201.8%201.8%200%200%200%20.3-.55%202%202%200%200%200%20.11-.72%202.1%202.1%200%200%200-.17-.86%201.7%201.7%200%200%200-1-.9%201.7%201.7%200%200%200-.5-.1%201.77%201.77%200%200%200-1.53.68%203%203%200%200%200-.5%201.82H6.16a4.7%204.7%200%200%201%20.28-1.68%203.6%203.6%200%200%201%20.8-1.29%203.9%203.9%200%200%201%201.28-.83A4.6%204.6%200%200%201%2010.18%204a4.4%204.4%200%200%201%201.44.23%203.5%203.5%200%200%201%201.15.65%203.1%203.1%200%200%201%20.78%201.06%203.5%203.5%200%200%201%20.29%201.45%203.4%203.4%200%200%201-.13%201.01%22/%3E%3C/svg%3E") !important;
+    }
+    :root .cdx-search-input .cdx-text-input__icon.cdx-text-input__start-icon {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%23a6adc8%22%3E%3Cpath%20d%3D%22M12.2%2013.6a7%207%200%201%201%201.4-1.4l5.4%205.4-1.4%201.4zM3%208a5%205%200%201%200%2010%200A5%205%200%200%200%203%208%22/%3E%3C/svg%3E") !important;
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-listBullet {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M7%2015h12v2H7zm0-6h12v2H7zm0-6h12v2H7z%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%224%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%2210%22%20r%3D%222%22/%3E%3Ccircle%20cx%3D%223%22%20cy%3D%2216%22%20r%3D%222%22/%3E%3C/g%3E%3C/svg%3E") !important;
+    }
+    :root ul {
+      list-style-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%225%22%20height%3D%2213%22%3E%3Ccircle%20cx%3D%222.5%22%20cy%3D%229%22%20r%3D%222.5%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-volumeUp,
+    :root .mw-ui-icon-volumeUp::before {
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22%23cdd6f4%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M4%206v8l5.2%203.9c.3.3.8%200%20.8-.5V2.6c0-.5-.5-.8-.8-.5zm0%208H1a1%201%200%200%201-1-1V7a1%201%200%200%201%201-1h3m12.4%2011.4a1%201%200%200%201-.7-1.7%208%208%200%200%200%200-11.4A1%201%200%200%201%2017%203a10%2010%200%200%201%200%2014.2%201%201%200%200%201-.7.3z%22/%3E%3Cpath%20d%3D%22M13.5%2014.5a1%201%200%200%201-.7-.3%201%201%200%200%201%200-1.4%204%204%200%200%200%200-5.6%201%201%200%200%201%201.4-1.4%206%206%200%200%201%200%208.4%201%201%200%200%201-.7.3%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-fullScreen {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%201v6h2V3h4V1zm2%2012H1v6h6v-2H3zm14%204h-4v2h6v-6h-2zm0-16h-4v2h4v4h2V1z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .fancycaptcha-reload {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M15.65%204.35A8%208%200%201%200%2017.4%2013h-2.22a6%206%200%201%201-1-7.22L11%209h7V2z%22/%3E%3C/svg%3E");
+    }
+    :root .popups-icon--settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%23cdd6f4%22%3E%3Cg%20transform%3D%22translate%2810%2010%29%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2845%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2890%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%28135%29%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-userAvatar {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M10%2011c-5.92%200-8%203-8%205v3h16v-3c0-2-2.08-5-8-5%22/%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%225.5%22%20r%3D%224.5%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-watchlist {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M1%203h16v2H1Zm0%206h6v2H1Zm0%206h8v2H1Zm8-4.24h3.85L14.5%207l1.65%203.76H20l-3%203.17.9%204.05-3.4-2.14L11.1%2018l.9-4.05Z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-tray {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M3%201a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V3a2%202%200%200%200-2-2zm14%2012h-4l-1%202H8l-1-2H3V3h14z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-bell {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M16%207a5.38%205.38%200%200%200-4.46-4.85C11.6%201.46%2011.53%200%2010%200S8.4%201.46%208.46%202.15A5.38%205.38%200%200%200%204%207v6l-2%202v1h16v-1l-2-2zm-6%2013a3%203%200%200%200%203-3H7a3%203%200%200%200%203%203%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-user-menu-logged-in .vector-dropdown-label::after {
+      background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212%22%20height%3D%2212%22%20viewBox%3D%220%200%2012%2012%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22m11.05%203.996-.965-1.053-4.035%203.86-3.947-3.86L1.05%203.996l5%205z%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-star {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%207h-7L10%20.5%207%207H0l5.46%205.47-1.64%207%206.18-3.7%206.18%203.73-1.63-7zm-10%206.9-3.76%202.27%201-4.28L3.5%208.5h4.61L10%204.6l1.9%203.9h4.6l-3.73%203.4%201%204.28z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-userTalk {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M18%200H2a2%202%200%200%200-2%202v18l4-4h14a2%202%200%200%200%202-2V2a2%202%200%200%200-2-2m-4%204a1.5%201.5%200%201%201-1.5%201.5A1.5%201.5%200%200%201%2014%204M6%204a1.5%201.5%200%201%201-1.5%201.5A1.5%201.5%200%200%201%206%204m4%208c-2.61%200-4.83-.67-5.65-3h11.3c-.82%202.33-3.04%203-5.65%203%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-sandbox {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M8%2012V9l6-6%203%203-6%206zm10-7-3-3%202-2%203%203zM8%202h2v2H8zM4%202h2v2H4zM0%203a1%201%200%200%201%201-1h1v2H0zm0%203h2v2H0zm0%204h2v2H0zm0%204h2v2H0zm0%204h2v2H1a1%201%200%200%201-1-1zm4%200h2v2H4zm4%200h2v2H8zm4%200h2v1a1%201%200%200%201-1%201h-1zm0-4h2v2h-2z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cg%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20transform%3D%22translate%2810%2010%29%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2845%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2890%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%28135%29%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-unStar {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M20%207h-7L10%20.5%207%207H0l5.46%205.47-1.64%207%206.18-3.7%206.18%203.73-1.63-7z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-image-progressive.oo-ui-icon-settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cba6f7%22%3E%3Cg%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20transform%3D%22translate%2810%2010%29%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2845%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%2890%29%22/%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20transform%3D%22rotate%28135%29%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-bell {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M16%207a5.38%205.38%200%200%200-4.46-4.85C11.6%201.46%2011.53%200%2010%200S8.4%201.46%208.46%202.15A5.38%205.38%200%200%200%204%207v6l-2%202v1h16v-1l-2-2zm-6%2013a3%203%200%200%200%203-3H7a3%203%200%200%200%203%203%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-next {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M7%201%205.6%202.5%2013%2010l-7.4%207.5L7%2019l9-9z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-settings {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20transform%3D%22translate%2810%2010%29%22%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20id%3D%22a%22%20d%3D%22M1.5-10h-3l-1%206.5h5m0%207h-5l1%206.5h3%22/%3E%3Cuse%20transform%3D%22rotate%2845%29%22%20href%3D%22%23a%22%20fill%3D%22%23cdd6f4%22/%3E%3Cuse%20transform%3D%22rotate%2890%29%22%20href%3D%22%23a%22%20fill%3D%22%23cdd6f4%22/%3E%3Cuse%20transform%3D%22rotate%28135%29%22%20href%3D%22%23a%22%20fill%3D%22%23cdd6f4%22/%3E%3C/g%3E%3Cpath%20d%3D%22M10%202.5a7.5%207.5%200%200%200%200%2015%207.5%207.5%200%200%200%200-15v4a3.5%203.5%200%200%201%200%207%203.5%203.5%200%200%201%200-7%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-expand {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Ctitle%3E%20expand%20%3C/title%3E%3Cpath%20d%3D%22m17.5%204.75-7.5%207.5-7.5-7.5L1%206.25l9%209%209-9z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .oo-ui-icon-tray {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M3%201a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h14a2%202%200%200%200%202-2V3a2%202%200%200%200-2-2zm14%2012h-4l-1%202H8l-1-2H3V3h14z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-labFlask {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M13%207.61V3h1V1H6v2h1v4.61l-5.86%209.88A1%201%200%200%200%202%2019h16a1%201%200%200%200%20.86-1.51zm-4.2.88a1%201%200%200%200%20.2-.6V3h2v4.89a1%201%200%200%200%20.14.51l2.14%203.6H6.72z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .mw-ui-icon-vector-gadget-pt-darkmode {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23cdd6f4%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M17.39%2015.14A7.33%207.33%200%200%201%2011.75%201.6c.23-.11.56-.23.79-.34a8.2%208.2%200%200%200-5.41.45%209%209%200%201%200%207%2016.58%208.42%208.42%200%200%200%204.29-3.84%205.3%205.3%200%200%201-1.03.69%22/%3E%3C/svg%3E");
+    }
+    :root .client-dark-mode .mw-ui-icon-vector-gadget-pt-darkmode {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22%23cdd6f4%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M17.07%207.07V2.93h-4.14L10%200%207.07%202.93H2.93v4.14L0%2010l2.93%202.93v4.14h4.14L10%2020l2.93-2.93h4.14v-4.14L20%2010zM10%2016a6%206%200%201%201%206-6%206%206%200%200%201-6%206%22/%3E%3Ccircle%20cx%3D%2210%22%20cy%3D%2210%22%20r%3D%224.5%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-userContributions {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Ccircle%20cx%3D%2215.5%22%20cy%3D%2210.5%22%20r%3D%222.5%22/%3E%3Cpath%20d%3D%22M1%2015h8v2H1Zm0-6h10v2H1Zm0-6h16v2H1Zm14.5%2010.6c-3.3%200-4.5%201.6-4.5%202.7V18h9v-1.7c0-1-1.2-2.7-4.5-2.7%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-logOut {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M3%203h8V1H3a2%202%200%200%200-2%202v14a2%202%200%200%200%202%202h8v-2H3z%22/%3E%3Cpath%20d%3D%22M13%205v4H5v2h8v4l6-5z%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .uls-search-label,
+    :root .vector-icon.mw-ui-icon-wikimedia-search {
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22%23cdd6f4%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20fill-rule%3D%22evenodd%22%20d%3D%22M12.2%2013.6a7%207%200%201%201%201.4-1.4l5.4%205.4-1.4%201.4zM13%208A5%205%200%201%201%203%208a5%205%200%200%201%2010%200%22/%3E%3C/svg%3E");
+    }
+    :root .mw-ui-icon-vector-gadget-pt-darkmode-sticky-header {
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D%22%23cdd6f4%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M17.39%2015.14A7.33%207.33%200%200%201%2011.75%201.6c.23-.11.56-.23.79-.34a8.2%208.2%200%200%200-5.41.45%209%209%200%201%200%207%2016.58%208.42%208.42%200%200%200%204.29-3.84%205.3%205.3%200%200%201-1.03.69%22/%3E%3C/svg%3E");
+    }
+    :root .cdx-message .cdx-message__icon {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M10%200C4.477%200%200%204.477%200%2010s4.477%2010%2010%2010%2010-4.477%2010-10S15.523%200%2010%200M9%205h2v2H9zm0%204h2v6H9z%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-edit {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22m16.77%208%201.94-2a1%201%200%200%200%200-1.41l-3.34-3.3a1%201%200%200%200-1.41%200L12%203.23zM1%2014.25V19h4.75l9.96-9.96-4.75-4.75z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-history {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M9%206v5h.06l2.48%202.47%201.41-1.41L11%2010.11V6z%22/%3E%3Cpath%20d%3D%22M10%201a9%209%200%200%200-7.85%2013.35L.5%2016H6v-5.5l-2.38%202.38A7%207%200%201%201%2010%2017v2a9%209%200%200%200%200-18%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-speechBubbles {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cg%20fill%3D%22%23cdd6f4%22%3E%3Cpath%20d%3D%22M17%204v7a2%202%200%200%201-2%202H4v1a2%202%200%200%200%202%202h10l4%204V6a2%202%200%200%200-2-2zM6%2010H0v6z%22/%3E%3Crect%20width%3D%2216%22%20height%3D%2212%22%20rx%3D%222%22/%3E%3C/g%3E%3C/svg%3E");
+    }
+    :root .vector-icon.mw-ui-icon-wikimedia-editLock {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M12%2012a2%202%200%200%201-2-2V5.25l-9%209V19h4.75l7-7zm7-8h-.5V2.5a2.5%202.5%200%200%200-5%200V4H13a1%201%200%200%200-1%201v4a1%201%200%200%200%201%201h6a1%201%200%200%200%201-1V5a1%201%200%200%200-1-1m-3%204a1%201%200%201%201%201-1%201%201%200%200%201-1%201m1.5-4h-3V2.75C14.5%202%2014.5%201%2016%201s1.5%201%201.5%201.75z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    }
+    :root .branding-box > a:nth-child(1) > span:nth-child(1) > img:nth-child(1) {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20120%2018%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20fill-rule%3D%22nonzero%22%20d%3D%22m18.339%200%20.199.001h.375l.174.001h.315l.138.001.323.001h.171l.058.053v.5q0%20.208-.231.208c-.753.035-.908.11-1.184.507-.15.216-.447.68-.755%201.204L15.28%207.419l-.074.154%203.23%206.611.196.054L23.72%202.162q.265-.73-.078-1.035c-.228-.197-.389-.315-.978-.34l-.477-.023a.28.28%200%200%201-.168-.061.17.17%200%200%201-.08-.147V.054l.073-.052h5.749l.058.052v.502q0%20.204-.231.205-1.129.051-1.673.489c-.362.294-.645.698-.848%201.225%200%200-1.53%203.5-3.137%207.159l-.268.61c-1.12%202.55-2.24%205.09-2.876%206.501-.613%201.17-1.22%201.06-1.745-.033-.411-.847-1.1-2.33-1.8-3.86l-.469-1.024c-.273-.6-.54-1.19-.786-1.727-1.08%202.23-2.56%205.26-3.3%206.624-.715%201.24-1.3%201.08-1.771.032-1.63-3.84-4.97-10.6-6.539-14.35-.29-.697-.51-1.14-.716-1.32Q1.347.827.36.774.002.734%200%20.593V.067L.058.016.592.014H1.6l.969-.001h.253l1.734.001h.225l.95.001h.577l.058.052v.5q0%20.207-.26.206L5.454.8q-.84.036-.84.5c0%20.145.06.38.19.696%201.25%203.05%205.58%2012.2%205.576%2012.169l.158.04%202.787-5.56c-.34-.751-.558-1.23-.558-1.234l-1.916-3.765s-.37-.753-.497-1.004C9.512.972%209.53.882%208.68.772c-.238-.031-.361-.061-.362-.18V.065L8.39.013h.702L10.58.01h2.77l.131.043V.58q0%20.181-.26.182l-.36.052c-.909.07-.76.442-.156%201.644l1.838%203.76%202.034-4.055c.318-.693.278-.9.157-1.064l-.027-.035c-.081-.096-.351-.251-.94-.275l-.231-.025a.28.28%200%200%201-.167-.06.17.17%200%200%201-.079-.147v-.5l.072-.052L16.24%200zm10.464%205.318h.118c.71%200%202.73-.053%202.73-.053l.027.053v.577c0%20.08-.053.131-.158.132l-.551.053c-.814.078-1.1.29-1.103.815v8.74c0%20.578.262.92%201.103.998l.551.054c.079%200%20.157.051.158.156v.552l-.027.053s-1.99-.053-2.808-.053c-.735%200-2.78.053-2.783.053l-.052-.053v-.552c0-.105.078-.156.184-.156l.525-.054c.866-.078%201.13-.499%201.128-.997V6.895c0-.575-.316-.736-1.128-.813l-.525-.054c-.105%200-.184-.024-.184-.105v-.605l.026-.053s1.89.048%202.769.053m8.81%2010.318c0%20.577.341.866%201.103.997l.288.054c.079.025.157.051.158.156v.551l-.027.054s-1.65-.054-2.44-.054c-.736%200-2.89.054-2.888.054l-.053-.054v-.55c0-.106.08-.157.184-.157l.525-.054c.787-.079%201.13-.499%201.129-.997V6.895c0-.575-.29-.736-1.129-.813l-.525-.055c-.105%200-.184-.024-.184-.105v-.604l.027-.053s2.15.053%202.966.053c.736%200%202.39-.053%202.389-.053l.026.053v.577c0%20.079-.053.105-.158.131l-.288.054c-.814.156-1.1.289-1.103.815v3.964c.866%200%201.36-.444%202.52-1.68%201.05-1.16%201.86-2.12%201.864-2.626%200-.21-.236-.445-.762-.526-.105-.024-.157-.052-.157-.13V5.29l.026-.024s2.13.053%202.888.053c.682%200%201.84-.053%201.837-.053l.079.024v.606c0%20.079-.079.131-.21.131-1.02.08-1.73.131-2.678%201.208l-2.257%202.597c-.446.475-.604.76-.604.972%200%20.157.105.288.237.445l3.963%204.778c.315.366.945.525%201.47.628l.131.026c.08.025.184.077.184.156v.551l-.079.027s-1.39-.026-2.126-.027c-.656%200-1.6.027-1.6.027l-.027-.027v-.315c0-.342-.026-.629-.394-1.049l-2.914-3.623c-.394-.526-.814-.655-1.39-.655v3.89zm14.151%200c0%20.577.262.919%201.102.997l.552.054c.078%200%20.157.051.157.156v.551l-.026.054s-1.99-.054-2.809-.054c-.735%200-2.78.054-2.782.054l-.053-.054v-.55c0-.106.08-.157.184-.157l.525-.054c.866-.079%201.13-.499%201.129-.997V6.895c0-.575-.315-.736-1.129-.813l-.525-.055c-.105%200-.184-.024-.184-.105v-.604l.027-.053s2.07.053%202.887.053c.709%200%202.73-.053%202.73-.053l.026.053v.577c0%20.079-.052.131-.157.131l-.552.054c-.814.078-1.1.289-1.102.815zm5.672-8.69c0-.814-.341-.84-1.575-.919-.157%200-.184-.077-.184-.13v-.605l.053-.026c.394%200%201.94.053%202.703.053.735%200%201.78-.053%202.757-.053%203.73%200%204.41%201.84%204.407%203.203%200%201.58-.76%204.04-4.486%204.043-.656%200-1.18-.054-1.655-.263v3.516c0%20.576.315.71%201.156.84l.526.079c.105.025.185.053.185.156v.551l-.024.054s-2.1-.054-2.915-.054c-.735%200-2.7.054-2.704.054l-.026-.054v-.551c0-.105.053-.131.158-.156l.55-.08c.815-.104%201.08-.34%201.077-.84zm2.021%204.568c.525.211%201.18.236%201.706.237%201.58%200%202.33-.947%202.335-2.967%200-2.26-1.02-2.76-2.466-2.756-1.26%200-1.58.236-1.576.919zm10.661%205.88c-.787%200-2.6.054-2.598.054l-.027-.054v-.577c0-.052.027-.13.158-.13l.605-.054c.815-.079%201.05-.604%201.051-1.128V6.843c0-.606-.315-.71-1.05-.761l-.606-.055c-.157-.024-.157-.077-.158-.105v-.604l.027-.053s2.05.053%202.834.053h3.859c.787%200%202.65-.053%202.652-.053l.055.053c.024%201.13.208%202.15.393%203.15l-.654.105c-.288-.972-.786-2.36-2.466-2.362h-2.1c-.5%200-.761.184-.761.63v3.806h1.967c.736%200%20.92-.315%201.025-.84l.157-.55c0-.08.053-.133.157-.133h.444c.055%200%20.055.027.055.079-.055.576-.157%201.31-.158%201.943%200%20.655.105%201.21.158%201.811l-.055.054h-.444c-.13%200-.186-.054-.186-.133l-.13-.576c-.106-.526-.342-.815-1.028-.815h-1.966v4.017c0%20.497.286.995.76.996h2.495c1.34%200%202.08-.84%202.388-2.207l.654.079-.526%203.017-.052.053s-1.55-.053-2.336-.053zm9.872-.707.604-.054c.788-.079%201.05-.315%201.05-1.128V6.843c0-.685-.185-.685-1.05-.761l-.576-.055c-.105%200-.186-.052-.186-.13v-.578l.026-.053s2.31.053%202.784.053c.497%200%202.78-.053%203.465-.053%204.38%200%206.54%202.73%206.537%206.221%200%204.59-3.26%205.96-6.167%205.958-2.1%200-3.02-.054-3.832-.054-.788%200-2.78.054-2.784.054l-.026-.054v-.55a.147.147%200%200%201%20.155-.154m5.855%200c2.89%200%204.52-1.07%204.515-4.752%200-2.73-.605-5.91-5.014-5.908-1.02%200-1.68.157-1.68.816v8.662c0%20.733.183%201.18%202.179%201.182m12.996-1.051c0%20.577.262.919%201.102.997l.551.054c.079%200%20.157.051.158.156v.551l-.027.054s-1.99-.054-2.807-.054c-.736%200-2.78.054-2.783.054l-.053-.054v-.55c0-.106.079-.157.184-.157l.526-.054c.865-.079%201.13-.499%201.128-.997V6.895c0-.575-.316-.736-1.128-.813l-.526-.055c-.105%200-.184-.024-.184-.105v-.604l.026-.053s2.07.053%202.886.053c.708%200%202.73-.053%202.73-.053l.025.053v.577c0%20.079-.055.131-.158.131l-.551.054c-.815.078-1.1.289-1.103.815zm8.086.997.762.054c.105%200%20.21.078.21.209v.498l-.053.054s-2.86-.054-3.491-.054c-.683%200-2.36.054-2.364.054l-.053-.054v-.498c0-.13.079-.21.21-.21%201.16-.078%201.81-.29%202.546-1.97l5.826-13.65c.288-.682.5-.946.895-.946.365%200%20.498.264.707.788l5.38%2014.227c.37%201.02.895%201.42%201.945%201.523l.288.025c.132%200%20.264.078.263.211v.497l-.078.053s-2.02-.053-3.046-.053c-.92%200-3.49.053-3.492.053l-.025-.053v-.497c0-.133.053-.21.187-.21l.735-.054c.996-.078%201.37-.395%201.103-1.128l-1.602-4.438h-5.461c-.63%200-.787.105-.918.444l-1.524%203.807c-.262.66.079%201.24%201.05%201.318m6.431-6.67-2.546-7.007h-.052l-2.625%206.667c-.105.265.078.341.655.342h4.568v-.001z%22/%3E%3C/svg%3E");
+    }
+    :root .panel-heading,
+    :root .mw-pt-languages-list,
+    :root .mw-pt-languages-label {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+    }
+    :root .oo-ui-dropdownWidget.oo-ui-widget-enabled .oo-ui-dropdownWidget-handle,
+    :root .oo-ui-inputWidget-input,
+    :root .mw-widget-dateInputWidget-handle,
+    :root .oo-ui-menuSelectWidget {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root .oo-ui-menuOptionWidget:hover {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .cdx-search-input__end-button {
+      background-color: var(--rk-crust) !important;
+    }
+    :root .mw-pt-languages {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .mw-pt-progress--complete::after,
+    :root .mw-pt-progress--high::after {
+      border-color: var(--rk-accent);
+      background: conic-gradient(#cdd6f4 0, #cba6f7 0);
+    }
+    :root pre,
+    :root .oo-ui-panelLayout-framed {
+      border-color: var(--rk-surface0);
+    }
+    :root #vector-page-titlebar-toc-label {
+      background-color: var(--rk-mantle);
+      color: var(--rk-white) !important;
+      border-color: var(--rk-white) !important;
+    }
+    :root tbody * {
+      background-color: var(--rk-surface0) !important;
+      border-color: var(--rk-bright-black) !important;
+    }
+    :root [style*="padding: 0.5em; margin: 0.50em 0; background-color: #C1E5FF; border: thin solid #1D99F3; overflow: hidden;"] {
+      background-color: var(--rk-sapphire) !important;
+      color: var(--rk-mantle) !important;
+    }
+    :root [style*="padding: 0.5em; margin: 0.50em 0; background-color: #F6F6F6; border: thin solid #31363B; overflow: hidden;"] {
+      background-color: var(--rk-rosewater) !important;
+      color: var(--rk-mantle) !important;
+    }
+  }
+}

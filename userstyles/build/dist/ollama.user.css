@@ -1,0 +1,364 @@
+/* ==UserStyle==
+@name Ollama Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/ollama
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/ollama
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/ollama.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aollama
+@description Soothing pastel theme for Ollama
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("ollama.com") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.css");
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+      /* Llama logos */
+      /* Tailwind */
+      /* Models page, color for non-weight pills/tags. Background color is solid from `.bg-indigo-50`. */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root img[src="/public/ollama.png"],
+    :root img[src="/public/shades.png"],
+    :root img[src="/public/glasses.png"] {
+      filter: none;
+    }
+    :root code,
+    :root pre {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground) !important;
+    }
+    :root input {
+      background-color: var(--rk-mantle);
+    }
+    :root main,
+    :root section,
+    :root strong,
+    :root h3,
+    :root ul,
+    :root button,
+    :root li,
+    :root li::marker {
+      color: var(--rk-foreground);
+    }
+    :root blockquote {
+      color: var(--rk-white);
+    }
+    :root a[class~=""] {
+      color: var(--rk-blue);
+    }
+    :root #query,
+    :root #filter,
+    :root #search {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root #readme,
+    :root #display,
+    :root #file-explorer {
+      color: var(--rk-foreground);
+    }
+    :root .command {
+      color: var(--rk-foreground);
+    }
+    :root .truncate {
+      color: var(--rk-foreground);
+    }
+    :root * {
+      border-color: var(--rk-black);
+    }
+    :root .prose {
+      --tw-prose-headings: var(--rk-foreground);
+      --tw-prose-links: var(--rk-accent);
+    }
+    :root .text-white,
+    :root .text-black {
+      color: var(--rk-foreground);
+    }
+    :root .text-gray-900 {
+      color: var(--rk-bright-white);
+    }
+    :root .text-green-500,
+    :root .text-emerald-500,
+    :root .text-green-700 {
+      color: var(--rk-green);
+    }
+    :root .text-yellow-900 {
+      color: var(--rk-yellow);
+    }
+    :root .text-neutral-300,
+    :root .text-neutral-400,
+    :root .text-neutral-500 {
+      color: var(--rk-white);
+    }
+    :root .text-neutral-700,
+    :root .text-neutral-800,
+    :root .text-neutral-900 {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .text-red-500 {
+      color: var(--rk-red);
+    }
+    :root .text-blue-500,
+    :root .text-blue-600 {
+      color: var(--rk-accent);
+    }
+    :root .text-indigo-600 {
+      color: var(--rk-crust);
+    }
+    :root .bg-neutral-100 pre,
+    :root .bg-neutral-100 .command {
+      background-color: unset !important;
+    }
+    :root .bg-white {
+      background-color: var(--rk-mantle);
+    }
+    :root .bg-black,
+    :root .hover\:bg-black:hover {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .bg-neutral-50 {
+      background-color: var(--rk-surface0);
+    }
+    :root .bg-neutral-100,
+    :root .hover\:bg-neutral-100:hover {
+      background-color: var(--rk-bright-black) !important;
+    }
+    :root .bg-neutral-700,
+    :root .bg-neutral-800 {
+      background-color: var(--rk-black);
+    }
+    :root .bg-green-50 {
+      background-color: rgb(from var(--rk-green) r g b / 0.1);
+    }
+    :root .bg-yellow-50 {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.1);
+    }
+    :root .bg-indigo-50 {
+      background-color: var(--rk-accent);
+    }
+    :root .bg-\[\#ddf4ff\] {
+      background-color: rgb(from var(--rk-accent) r g b / 0.1);
+    }
+    :root .border {
+      border-color: var(--rk-accent);
+    }
+    :root .border-neutral-200,
+    :root .border-neutral-300,
+    :root .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+    :root .divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
+      border-color: var(--rk-black);
+    }
+    :root .focus\:border-blue-400:focus {
+      border-color: var(--rk-accent);
+    }
+    :root .focus\:border-red-400:focus {
+      border-color: var(--rk-red);
+    }
+    :root .ring-neutral-300 {
+      --tw-ring-color: var(--rk-black) !important;
+    }
+    :root .ring-green-600\/20 {
+      --tw-ring-color: var(--rk-green);
+    }
+    :root .ring-yellow-600\/20 {
+      --tw-ring-color: var(--rk-yellow);
+    }
+    :root select:focus,
+    :root .ring-blue-300,
+    :root .focus\:ring-blue-300:focus {
+      --tw-ring-color: rgba(203, 166, 247, var(--tw-ring-opacity));
+    }
+    :root .focus\:ring-red-300:focus {
+      --tw-ring-color: rgba(243, 139, 168, var(--tw-ring-opacity));
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+      /* Llama logos */
+      /* Tailwind */
+      /* Models page, color for non-weight pills/tags. Background color is solid from `.bg-indigo-50`. */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root img[src="/public/ollama.png"],
+    :root img[src="/public/shades.png"],
+    :root img[src="/public/glasses.png"] {
+      filter: none;
+    }
+    :root code,
+    :root pre {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground) !important;
+    }
+    :root input {
+      background-color: var(--rk-mantle);
+    }
+    :root main,
+    :root section,
+    :root strong,
+    :root h3,
+    :root ul,
+    :root button,
+    :root li,
+    :root li::marker {
+      color: var(--rk-foreground);
+    }
+    :root blockquote {
+      color: var(--rk-white);
+    }
+    :root a[class~=""] {
+      color: var(--rk-blue);
+    }
+    :root #query,
+    :root #filter,
+    :root #search {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root #readme,
+    :root #display,
+    :root #file-explorer {
+      color: var(--rk-foreground);
+    }
+    :root .command {
+      color: var(--rk-foreground);
+    }
+    :root .truncate {
+      color: var(--rk-foreground);
+    }
+    :root * {
+      border-color: var(--rk-black);
+    }
+    :root .prose {
+      --tw-prose-headings: var(--rk-foreground);
+      --tw-prose-links: var(--rk-accent);
+    }
+    :root .text-white,
+    :root .text-black {
+      color: var(--rk-foreground);
+    }
+    :root .text-gray-900 {
+      color: var(--rk-bright-white);
+    }
+    :root .text-green-500,
+    :root .text-emerald-500,
+    :root .text-green-700 {
+      color: var(--rk-green);
+    }
+    :root .text-yellow-900 {
+      color: var(--rk-yellow);
+    }
+    :root .text-neutral-300,
+    :root .text-neutral-400,
+    :root .text-neutral-500 {
+      color: var(--rk-white);
+    }
+    :root .text-neutral-700,
+    :root .text-neutral-800,
+    :root .text-neutral-900 {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .text-red-500 {
+      color: var(--rk-red);
+    }
+    :root .text-blue-500,
+    :root .text-blue-600 {
+      color: var(--rk-accent);
+    }
+    :root .text-indigo-600 {
+      color: var(--rk-crust);
+    }
+    :root .bg-neutral-100 pre,
+    :root .bg-neutral-100 .command {
+      background-color: unset !important;
+    }
+    :root .bg-white {
+      background-color: var(--rk-mantle);
+    }
+    :root .bg-black,
+    :root .hover\:bg-black:hover {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .bg-neutral-50 {
+      background-color: var(--rk-surface0);
+    }
+    :root .bg-neutral-100,
+    :root .hover\:bg-neutral-100:hover {
+      background-color: var(--rk-bright-black) !important;
+    }
+    :root .bg-neutral-700,
+    :root .bg-neutral-800 {
+      background-color: var(--rk-black);
+    }
+    :root .bg-green-50 {
+      background-color: rgb(from var(--rk-green) r g b / 0.1);
+    }
+    :root .bg-yellow-50 {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.1);
+    }
+    :root .bg-indigo-50 {
+      background-color: var(--rk-accent);
+    }
+    :root .bg-\[\#ddf4ff\] {
+      background-color: rgb(from var(--rk-accent) r g b / 0.1);
+    }
+    :root .border {
+      border-color: var(--rk-accent);
+    }
+    :root .border-neutral-200,
+    :root .border-neutral-300,
+    :root .divide-gray-200 > :not([hidden]) ~ :not([hidden]),
+    :root .divide-neutral-200 > :not([hidden]) ~ :not([hidden]) {
+      border-color: var(--rk-black);
+    }
+    :root .focus\:border-blue-400:focus {
+      border-color: var(--rk-accent);
+    }
+    :root .focus\:border-red-400:focus {
+      border-color: var(--rk-red);
+    }
+    :root .ring-neutral-300 {
+      --tw-ring-color: var(--rk-black) !important;
+    }
+    :root .ring-green-600\/20 {
+      --tw-ring-color: var(--rk-green);
+    }
+    :root .ring-yellow-600\/20 {
+      --tw-ring-color: var(--rk-yellow);
+    }
+    :root select:focus,
+    :root .ring-blue-300,
+    :root .focus\:ring-blue-300:focus {
+      --tw-ring-color: rgba(203, 166, 247, var(--tw-ring-opacity));
+    }
+    :root .focus\:ring-red-300:focus {
+      --tw-ring-color: rgba(243, 139, 168, var(--tw-ring-opacity));
+    }
+  }
+}

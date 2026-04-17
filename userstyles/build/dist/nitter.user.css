@@ -1,0 +1,181 @@
+/* ==UserStyle==
+@name Nitter Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/nitter
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/nitter
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/nitter.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Anitter
+@description Soothing pastel theme for Nitter
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("nitter.net"), domain("nitter.unixfox.eu"), domain("nitter.42l.fr"), domain("nitter.fdn.fr"), domain("nitter.1d4.us"), domain("nitter.kavin.rocks"), domain("nitter.namazso.eu"), domain("nitter.hu"), domain("bird.trom.tf"), domain("nitter.it"), domain("twitter.censors.us"), domain("nitter.grimneko.de"), domain("n.hyperborea.cloud"), domain("nitter.ca"), domain("twitter.076.ne.jp"), domain("nitter.mstdn.social"), domain("nitter.fly.dev"), domain("nitter.weiler.rocks"), domain("nitter.sethforprivacy.com"), domain("nttr.stream"), domain("nitter.tiekoetter.com"), domain("nitter.spaceint.fr"), domain("nitter.privacy.com.denitter.mastodon.pro"), domain("nitter.notraxx.chnitter.poast.org"), domain("nitter.bird.froth.zone"), domain("nitter.dcs0.hu"), domain("twitter.beparanoid.de"), domain("n.ramle.be"), domain("nitter.cz"), domain("nitter.privacydev.net"), domain("tweet.lambda.dance"), domain("nitter.kylrth.com"), domain("nitter.oishi-ra.men"), domain("nitter.foss.wtf"), domain("nitter.priv.pw"), domain("t.com.sb"), domain("xcancel.com"), domain("nitter.poast.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* logo */
+      /* Fix Poll Leader color */
+      /* xcancel "verifying your request" */
+      /* error text color contrast */
+      /* twitter blue verification checkmark contrast */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      --bg_color: var(--rk-mantle);
+      --fg_color: var(--rk-foreground);
+      --fg_faded: var(--rk-bright-white);
+      --fg_dark: var(--rk-accent);
+      --fg_nav: var(--rk-accent);
+      --bg_panel: var(--rk-crust);
+      --bg_elements: var(--rk-background);
+      --bg_overlays: var(--rk-background);
+      --bg_hover: var(--rk-crust);
+      --grey: var(--rk-bright-white);
+      --dark_grey: var(--rk-overlay0);
+      --darker_grey: var(--rk-background);
+      --darkest_grey: var(--rk-mantle);
+      --border_grey: var(--rk-background);
+      --accent: var(--rk-accent);
+      --accent_light: hsl(from var(--rk-accent) h s calc(l + 10));
+      --accent_dark: hsl(from var(--rk-accent) h s calc(l - 10));
+      --accent_border: hsl(from var(--rk-accent) h s calc(l - 10));
+      --play_button: var(--rk-accent);
+      --play_button_hover: var(--rk-accent);
+      --more_replies_dots: hsl(from var(--rk-accent) h s calc(l - 10));
+      --error_red: var(--rk-red);
+      --verified_blue: var(--rk-blue);
+      --icon_text: var(--rk-foreground);
+      --tab: var(--rk-foreground);
+      --tab_selected: var(--rk-accent);
+      --profile_stat: var(--rk-foreground);
+      --verified_government: var(--rk-white);
+      --verified_business: var(--rk-yellow);
+      background-color: var(--bg_color);
+      color: var(--fg_color);
+      line-height: 1.3;
+      margin: 0;
+    }
+    :root img.site-logo {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23cba6f7%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2220%22%20d%3D%22M145%2041H81v418h78V183.5L355%20459h64V41h-78v275.5z%22/%3E%3C/svg%3E");
+    }
+    :root .poll-meter.leader {
+      color: var(--bg_color);
+    }
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] {
+      background: var(--rk-background) !important;
+    }
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] h1,
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] h2,
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] p,
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] #status {
+      color: var(--rk-accent) !important;
+    }
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] [style="width:auto;margin:16px auto;border:1px solid #FF6C60;background-color:#1f1f1f;border-radius:3px 3px 3px 3px;padding:10px;"] {
+      background: var(--rk-background) !important;
+      border-color: var(--rk-accent) !important;
+    }
+    :root .error-panel {
+      color: var(--rk-crust);
+    }
+    :root .error-panel a {
+      color: var(--rk-crust);
+      text-decoration: underline;
+    }
+    :root .verified-icon.blue {
+      color: var(--rk-crust);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* logo */
+      /* Fix Poll Leader color */
+      /* xcancel "verifying your request" */
+      /* error text color contrast */
+      /* twitter blue verification checkmark contrast */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      --bg_color: var(--rk-mantle);
+      --fg_color: var(--rk-foreground);
+      --fg_faded: var(--rk-bright-white);
+      --fg_dark: var(--rk-accent);
+      --fg_nav: var(--rk-accent);
+      --bg_panel: var(--rk-crust);
+      --bg_elements: var(--rk-background);
+      --bg_overlays: var(--rk-background);
+      --bg_hover: var(--rk-crust);
+      --grey: var(--rk-bright-white);
+      --dark_grey: var(--rk-overlay0);
+      --darker_grey: var(--rk-background);
+      --darkest_grey: var(--rk-mantle);
+      --border_grey: var(--rk-background);
+      --accent: var(--rk-accent);
+      --accent_light: hsl(from var(--rk-accent) h s calc(l + 10));
+      --accent_dark: hsl(from var(--rk-accent) h s calc(l - 10));
+      --accent_border: hsl(from var(--rk-accent) h s calc(l - 10));
+      --play_button: var(--rk-accent);
+      --play_button_hover: var(--rk-accent);
+      --more_replies_dots: hsl(from var(--rk-accent) h s calc(l - 10));
+      --error_red: var(--rk-red);
+      --verified_blue: var(--rk-blue);
+      --icon_text: var(--rk-foreground);
+      --tab: var(--rk-foreground);
+      --tab_selected: var(--rk-accent);
+      --profile_stat: var(--rk-foreground);
+      --verified_government: var(--rk-white);
+      --verified_business: var(--rk-yellow);
+      background-color: var(--bg_color);
+      color: var(--fg_color);
+      line-height: 1.3;
+      margin: 0;
+    }
+    :root img.site-logo {
+      content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22500%22%20height%3D%22500%22%20fill%3D%22none%22%3E%3Cpath%20stroke%3D%22%23cba6f7%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%2220%22%20d%3D%22M145%2041H81v418h78V183.5L355%20459h64V41h-78v275.5z%22/%3E%3C/svg%3E");
+    }
+    :root .poll-meter.leader {
+      color: var(--bg_color);
+    }
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] {
+      background: var(--rk-background) !important;
+    }
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] h1,
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] h2,
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] p,
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] #status {
+      color: var(--rk-accent) !important;
+    }
+    :root [style="background-color:#1f1f1f;color:#1f1f1f;font-family:Arial,Helvetica,sans-serif;font-size:100%;"] [style="width:auto;margin:16px auto;border:1px solid #FF6C60;background-color:#1f1f1f;border-radius:3px 3px 3px 3px;padding:10px;"] {
+      background: var(--rk-background) !important;
+      border-color: var(--rk-accent) !important;
+    }
+    :root .error-panel {
+      color: var(--rk-crust);
+    }
+    :root .error-panel a {
+      color: var(--rk-crust);
+      text-decoration: underline;
+    }
+    :root .verified-icon.blue {
+      color: var(--rk-crust);
+    }
+  }
+}

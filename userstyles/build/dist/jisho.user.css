@@ -1,0 +1,1391 @@
+/* ==UserStyle==
+@name Jisho Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/jisho
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/jisho
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/jisho.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ajisho
+@description Soothing pastel theme for Jisho
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("jisho.org") {
+  @media (prefers-color-scheme: light) {
+    :root[data-color-theme="auto"] {
+      color-scheme: dark;
+    }
+    :root[data-color-theme="auto"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root[data-color-theme="auto"] input::placeholder,
+    :root[data-color-theme="auto"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root[data-color-theme="auto"] body {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] body a {
+      color: var(--rk-accent);
+    }
+    :root[data-color-theme="auto"] body a:hover {
+      color: #e1cef8;
+    }
+    :root[data-color-theme="auto"] h1 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h2 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h3 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h4 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h5 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h6 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] button,
+    :root[data-color-theme="auto"] .button,
+    :root[data-color-theme="auto"] .tabs .tab-title > a {
+      background-color: var(--rk-overlay0);
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] button:hover,
+    :root[data-color-theme="auto"] .button:hover,
+    :root[data-color-theme="auto"] .tabs .tab-title > a:hover,
+    :root[data-color-theme="auto"] button:focus,
+    :root[data-color-theme="auto"] .button:focus,
+    :root[data-color-theme="auto"] .tabs .tab-title > a:focus {
+      background-color: var(--rk-overlay1);
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] .button-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    :root[data-color-theme="auto"] .button-group.radius > *,
+    :root[data-color-theme="auto"] .button-group > li {
+      margin: unset;
+    }
+    :root[data-color-theme="auto"] .f-dropdown {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .f-dropdown::before {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] .f-dropdown li:hover {
+      background-color: var(--rk-crust);
+    }
+    :root[data-color-theme="auto"] header.row {
+      background-color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] h1.logo a {
+      background-image: url("//assets.jisho.org/assets/jisho-logo-v4-dark@2x-e676613b426d34187b61928823730a225b52165aaef99f948bd3dc5fc16fa787.png");
+    }
+    :root[data-color-theme="auto"] nav .links .color_theme_picker--wrapper:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root[data-color-theme="auto"] nav .links .color_theme_picker--choices {
+      background-color: var(--rk-mantle);
+    }
+    :root[data-color-theme="auto"] nav .links .color_theme_picker--choices li a:hover {
+      background-color: var(--rk-crust);
+    }
+    :root[data-color-theme="auto"] form.search .input_methods,
+    :root[data-color-theme="auto"] form.search .input_method_button h4 {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search .input_method_button:hover {
+      background-color: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] form.search .main {
+      background-color: var(--rk-surface0);
+      box-shadow: none;
+    }
+    :root[data-color-theme="auto"] form.search .inner {
+      background-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] form.search .inner input {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .search_type {
+      border-right-color: var(--rk-overlay0);
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search .submit {
+      background-color: var(--rk-overlay1);
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .search-form_clear-button {
+      background-color: transparent;
+    }
+    :root[data-color-theme="auto"] form.search .search-form_clear-button .clear-icon {
+      fill: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search .results .result_label,
+    :root[data-color-theme="auto"] form.search #radical_area .results .result_label {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .results .result,
+    :root[data-color-theme="auto"] form.search #radical_area .results .result {
+      background-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] form.search .results .result:hover,
+    :root[data-color-theme="auto"] form.search #radical_area .results .result:hover {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .results .g1,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g1 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g2,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g2 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g3,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g3 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g4,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g4 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g5,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g5 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g6,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g6 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g7,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g7 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g8,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g8 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table {
+      background-image: repeating-linear-gradient(180deg, #45475a, #45475a 32px, #585b70 32px, #585b70 64px);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .number {
+      background-color: var(--rk-foreground);
+      color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .radical {
+      background-image: none;
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .radical.available:hover {
+      background-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .radical.selected {
+      border-color: var(--rk-foreground);
+      background-color: rgb(from var(--rk-yellow) r g b / 0.3);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area.combined_mode .reset_radicals {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area.combined_mode .reset_radicals:hover {
+      color: var(--rk-foreground);
+      background-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] form.search .handwriting .panel {
+      background-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] form.search .handwriting .pencil-icon {
+      color: var(--rk-bright-black) !important;
+    }
+    :root[data-color-theme="auto"] .speech_area_active #speech_button,
+    :root[data-color-theme="auto"] .radical_area_active #radical_button,
+    :root[data-color-theme="auto"] .handwriting_area_active #handwriting_button {
+      border-bottom-color: var(--rk-accent);
+    }
+    :root[data-color-theme="auto"] #what_is_this {
+      color: unset;
+    }
+    :root[data-color-theme="auto"] .japanese_word__furigana-invisible {
+      opacity: 0;
+    }
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Noun"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Proper noun"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Pronoun"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Suffix"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Prefix"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Symbol"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Interjection"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Propernoun"] a {
+      color: var(--rk-peach);
+      border-bottom-color: var(--rk-peach);
+    }
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Particle"] a {
+      color: var(--rk-red);
+      border-bottom-color: var(--rk-red);
+    }
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Verb"] a {
+      color: var(--rk-white);
+      border-bottom-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] #main_results h4 .result_count {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .fact {
+      outline-color: var(--rk-mantle);
+      border-color: var(--rk-background);
+      background-color: var(--rk-mantle);
+    }
+    :root[data-color-theme="auto"] .concept_light {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .concept_light-status .concept_light-tag {
+      color: var(--rk-background);
+      background-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .concept_light-status .concept_light-tag.concept_light-common {
+      background-color: var(--rk-green);
+    }
+    :root[data-color-theme="auto"] .concept_light-status .concept_light-tag a {
+      color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] .concept_light-meanings .meaning-tags,
+    :root[data-color-theme="auto"] .concept_light-meanings .meaning-definition-section_divider {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .concept_light .sentence,
+    :root[data-color-theme="auto"] .meaning-abstract,
+    :root[data-color-theme="auto"] .supplemental_info {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .kanji_light {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .kanji_light .info {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .sentences_block .sentence {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] #secondary aside .minor-text {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .kanji-details__main-readings-list a {
+      border-bottom-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .kanji_play_button,
+    :root[data-color-theme="auto"] .kanji_strokes .replay_button,
+    :root[data-color-theme="auto"] .kanji_strokes .toggle_kanji_actions {
+      color: var(--rk-foreground);
+      background-color: transparent;
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .actions {
+      background-color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .actions h3 {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-background {
+      background-color: var(--rk-accent);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-base {
+      border-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-origin {
+      background-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-handle {
+      background-color: var(--rk-foreground);
+      border-color: var(--rk-bright-black);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-active {
+      background-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--bounding_box,
+    :root[data-color-theme="auto"] .stroke_order_diagram--guide_line {
+      stroke: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--path_start {
+      fill: rgb(from var(--rk-red) r g b / 0.8);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--current_path {
+      stroke: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--existing_path {
+      stroke: rgb(from var(--rk-white) r g b / 0.5);
+    }
+    :root[data-color-theme="auto"] .kanji table {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .kanji tr {
+      background-color: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] .kanji tr td {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body .discussion_status {
+      background-color: var(--rk-black);
+      border-bottom-color: var(--rk-overlay0);
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body .discussion_about {
+      background-color: color-mix(in srgb, var(--rk-surface0) 80%, var(--rk-cyan));
+      color: var(--rk-cyan);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body .comment_status {
+      background-color: var(--rk-bright-black);
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .discussion_title a {
+      color: var(--rk-foreground) !important;
+    }
+    :root[data-color-theme="auto"] footer .ornament {
+      background-color: var(--rk-red);
+      box-shadow: 0 0 10px 5px var(--rk-overlay0);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root[data-color-theme="auto"] {
+      color-scheme: dark;
+    }
+    :root[data-color-theme="auto"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root[data-color-theme="auto"] input::placeholder,
+    :root[data-color-theme="auto"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root[data-color-theme="auto"] body {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] body a {
+      color: var(--rk-accent);
+    }
+    :root[data-color-theme="auto"] body a:hover {
+      color: #b687ed;
+    }
+    :root[data-color-theme="auto"] h1 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h2 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h3 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h4 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h5 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] h6 {
+      color: #cdd6f4;
+    }
+    :root[data-color-theme="auto"] button,
+    :root[data-color-theme="auto"] .button,
+    :root[data-color-theme="auto"] .tabs .tab-title > a {
+      background-color: var(--rk-overlay0);
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] button:hover,
+    :root[data-color-theme="auto"] .button:hover,
+    :root[data-color-theme="auto"] .tabs .tab-title > a:hover,
+    :root[data-color-theme="auto"] button:focus,
+    :root[data-color-theme="auto"] .button:focus,
+    :root[data-color-theme="auto"] .tabs .tab-title > a:focus {
+      background-color: var(--rk-overlay1);
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] .button-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    :root[data-color-theme="auto"] .button-group.radius > *,
+    :root[data-color-theme="auto"] .button-group > li {
+      margin: unset;
+    }
+    :root[data-color-theme="auto"] .f-dropdown {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .f-dropdown::before {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] .f-dropdown li:hover {
+      background-color: var(--rk-crust);
+    }
+    :root[data-color-theme="auto"] header.row {
+      background-color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] h1.logo a {
+      background-image: url("//assets.jisho.org/assets/jisho-logo-v4-dark@2x-e676613b426d34187b61928823730a225b52165aaef99f948bd3dc5fc16fa787.png");
+    }
+    :root[data-color-theme="auto"] nav .links .color_theme_picker--wrapper:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root[data-color-theme="auto"] nav .links .color_theme_picker--choices {
+      background-color: var(--rk-mantle);
+    }
+    :root[data-color-theme="auto"] nav .links .color_theme_picker--choices li a:hover {
+      background-color: var(--rk-crust);
+    }
+    :root[data-color-theme="auto"] form.search .input_methods,
+    :root[data-color-theme="auto"] form.search .input_method_button h4 {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search .input_method_button:hover {
+      background-color: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] form.search .main {
+      background-color: var(--rk-surface0);
+      box-shadow: none;
+    }
+    :root[data-color-theme="auto"] form.search .inner {
+      background-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] form.search .inner input {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .search_type {
+      border-right-color: var(--rk-overlay0);
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search .submit {
+      background-color: var(--rk-overlay1);
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .search-form_clear-button {
+      background-color: transparent;
+    }
+    :root[data-color-theme="auto"] form.search .search-form_clear-button .clear-icon {
+      fill: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search .results .result_label,
+    :root[data-color-theme="auto"] form.search #radical_area .results .result_label {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .results .result,
+    :root[data-color-theme="auto"] form.search #radical_area .results .result {
+      background-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] form.search .results .result:hover,
+    :root[data-color-theme="auto"] form.search #radical_area .results .result:hover {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search .results .g1,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g1 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g2,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g2 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g3,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g3 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g4,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g4 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g5,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g5 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g6,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g6 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g7,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g7 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search .results .g8,
+    :root[data-color-theme="auto"] form.search #radical_area .results .g8 {
+      color: #89b4fa;
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table {
+      background-image: repeating-linear-gradient(180deg, #45475a, #45475a 32px, #585b70 32px, #585b70 64px);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .number {
+      background-color: var(--rk-foreground);
+      color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .radical {
+      background-image: none;
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .radical.available:hover {
+      background-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area .radical_table .radical.selected {
+      border-color: var(--rk-foreground);
+      background-color: rgb(from var(--rk-yellow) r g b / 0.3);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area.combined_mode .reset_radicals {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] form.search #radical_area.combined_mode .reset_radicals:hover {
+      color: var(--rk-foreground);
+      background-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] form.search .handwriting .panel {
+      background-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] form.search .handwriting .pencil-icon {
+      color: var(--rk-bright-black) !important;
+    }
+    :root[data-color-theme="auto"] .speech_area_active #speech_button,
+    :root[data-color-theme="auto"] .radical_area_active #radical_button,
+    :root[data-color-theme="auto"] .handwriting_area_active #handwriting_button {
+      border-bottom-color: var(--rk-accent);
+    }
+    :root[data-color-theme="auto"] #what_is_this {
+      color: unset;
+    }
+    :root[data-color-theme="auto"] .japanese_word__furigana-invisible {
+      opacity: 0;
+    }
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Noun"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Proper noun"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Pronoun"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Suffix"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Prefix"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Symbol"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Interjection"] a,
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Propernoun"] a {
+      color: var(--rk-peach);
+      border-bottom-color: var(--rk-peach);
+    }
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Particle"] a {
+      color: var(--rk-red);
+      border-bottom-color: var(--rk-red);
+    }
+    :root[data-color-theme="auto"] #zen_bar li[data-pos="Verb"] a {
+      color: var(--rk-white);
+      border-bottom-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] #main_results h4 .result_count {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .fact {
+      outline-color: var(--rk-mantle);
+      border-color: var(--rk-background);
+      background-color: var(--rk-mantle);
+    }
+    :root[data-color-theme="auto"] .concept_light {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .concept_light-status .concept_light-tag {
+      color: var(--rk-background);
+      background-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .concept_light-status .concept_light-tag.concept_light-common {
+      background-color: var(--rk-green);
+    }
+    :root[data-color-theme="auto"] .concept_light-status .concept_light-tag a {
+      color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] .concept_light-meanings .meaning-tags,
+    :root[data-color-theme="auto"] .concept_light-meanings .meaning-definition-section_divider {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .concept_light .sentence,
+    :root[data-color-theme="auto"] .meaning-abstract,
+    :root[data-color-theme="auto"] .supplemental_info {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .kanji_light {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .kanji_light .info {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .sentences_block .sentence {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] #secondary aside .minor-text {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .kanji-details__main-readings-list a {
+      border-bottom-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .kanji_play_button,
+    :root[data-color-theme="auto"] .kanji_strokes .replay_button,
+    :root[data-color-theme="auto"] .kanji_strokes .toggle_kanji_actions {
+      color: var(--rk-foreground);
+      background-color: transparent;
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .actions {
+      background-color: var(--rk-background);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .actions h3 {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-background {
+      background-color: var(--rk-accent);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-base {
+      border-color: var(--rk-black);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-origin {
+      background-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-handle {
+      background-color: var(--rk-foreground);
+      border-color: var(--rk-bright-black);
+    }
+    :root[data-color-theme="auto"] .kanji_strokes .noUi-target .noUi-active {
+      background-color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--bounding_box,
+    :root[data-color-theme="auto"] .stroke_order_diagram--guide_line {
+      stroke: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--path_start {
+      fill: rgb(from var(--rk-red) r g b / 0.8);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--current_path {
+      stroke: var(--rk-foreground);
+    }
+    :root[data-color-theme="auto"] .stroke_order_diagram--existing_path {
+      stroke: rgb(from var(--rk-white) r g b / 0.5);
+    }
+    :root[data-color-theme="auto"] .kanji table {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .kanji tr {
+      background-color: var(--rk-surface0);
+    }
+    :root[data-color-theme="auto"] .kanji tr td {
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-overlay0);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body .discussion_status {
+      background-color: var(--rk-black);
+      border-bottom-color: var(--rk-overlay0);
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body .discussion_about {
+      background-color: color-mix(in srgb, var(--rk-surface0) 80%, var(--rk-cyan));
+      color: var(--rk-cyan);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .comment_body .comment_status {
+      background-color: var(--rk-bright-black);
+      color: var(--rk-white);
+    }
+    :root[data-color-theme="auto"] .discussion_thread .discussion_title a {
+      color: var(--rk-foreground) !important;
+    }
+    :root[data-color-theme="auto"] footer .ornament {
+      background-color: var(--rk-red);
+      box-shadow: 0 0 10px 5px var(--rk-overlay0);
+    }
+  }
+  :root[data-color-theme="dark"] {
+    color-scheme: dark;
+  }
+  :root[data-color-theme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-color-theme="dark"] input::placeholder,
+  :root[data-color-theme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-color-theme="dark"] body {
+    background-color: var(--rk-background) !important;
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] body a {
+    color: var(--rk-accent);
+  }
+  :root[data-color-theme="dark"] body a:hover {
+    color: #b687ed;
+  }
+  :root[data-color-theme="dark"] h1 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="dark"] h2 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="dark"] h3 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="dark"] h4 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="dark"] h5 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="dark"] h6 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="dark"] button,
+  :root[data-color-theme="dark"] .button,
+  :root[data-color-theme="dark"] .tabs .tab-title > a {
+    background-color: var(--rk-overlay0);
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] button:hover,
+  :root[data-color-theme="dark"] .button:hover,
+  :root[data-color-theme="dark"] .tabs .tab-title > a:hover,
+  :root[data-color-theme="dark"] button:focus,
+  :root[data-color-theme="dark"] .button:focus,
+  :root[data-color-theme="dark"] .tabs .tab-title > a:focus {
+    background-color: var(--rk-overlay1);
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] .button-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  :root[data-color-theme="dark"] .button-group.radius > *,
+  :root[data-color-theme="dark"] .button-group > li {
+    margin: unset;
+  }
+  :root[data-color-theme="dark"] .f-dropdown {
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] .f-dropdown::before {
+    border-bottom-color: var(--rk-surface0);
+  }
+  :root[data-color-theme="dark"] .f-dropdown li:hover {
+    background-color: var(--rk-crust);
+  }
+  :root[data-color-theme="dark"] header.row {
+    background-color: var(--rk-background);
+  }
+  :root[data-color-theme="dark"] h1.logo a {
+    background-image: url("//assets.jisho.org/assets/jisho-logo-v4-dark@2x-e676613b426d34187b61928823730a225b52165aaef99f948bd3dc5fc16fa787.png");
+  }
+  :root[data-color-theme="dark"] nav .links .color_theme_picker--wrapper:hover {
+    background-color: var(--rk-mantle);
+  }
+  :root[data-color-theme="dark"] nav .links .color_theme_picker--choices {
+    background-color: var(--rk-mantle);
+  }
+  :root[data-color-theme="dark"] nav .links .color_theme_picker--choices li a:hover {
+    background-color: var(--rk-crust);
+  }
+  :root[data-color-theme="dark"] form.search .input_methods,
+  :root[data-color-theme="dark"] form.search .input_method_button h4 {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] form.search .input_method_button:hover {
+    background-color: var(--rk-surface0);
+  }
+  :root[data-color-theme="dark"] form.search .main {
+    background-color: var(--rk-surface0);
+    box-shadow: none;
+  }
+  :root[data-color-theme="dark"] form.search .inner {
+    background-color: var(--rk-black);
+  }
+  :root[data-color-theme="dark"] form.search .inner input {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] form.search .search_type {
+    border-right-color: var(--rk-overlay0);
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] form.search .submit {
+    background-color: var(--rk-overlay1);
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] form.search .search-form_clear-button {
+    background-color: transparent;
+  }
+  :root[data-color-theme="dark"] form.search .search-form_clear-button .clear-icon {
+    fill: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] form.search .results .result_label,
+  :root[data-color-theme="dark"] form.search #radical_area .results .result_label {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] form.search .results .result,
+  :root[data-color-theme="dark"] form.search #radical_area .results .result {
+    background-color: var(--rk-black);
+  }
+  :root[data-color-theme="dark"] form.search .results .result:hover,
+  :root[data-color-theme="dark"] form.search #radical_area .results .result:hover {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] form.search .results .g1,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g1 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g2,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g2 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g3,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g3 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g4,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g4 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g5,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g5 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g6,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g6 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g7,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g7 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search .results .g8,
+  :root[data-color-theme="dark"] form.search #radical_area .results .g8 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="dark"] form.search #radical_area .radical_table {
+    background-image: repeating-linear-gradient(180deg, #45475a, #45475a 32px, #585b70 32px, #585b70 64px);
+  }
+  :root[data-color-theme="dark"] form.search #radical_area .radical_table .number {
+    background-color: var(--rk-foreground);
+    color: var(--rk-background);
+  }
+  :root[data-color-theme="dark"] form.search #radical_area .radical_table .radical {
+    background-image: none;
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] form.search #radical_area .radical_table .radical.available:hover {
+    background-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] form.search #radical_area .radical_table .radical.selected {
+    border-color: var(--rk-foreground);
+    background-color: rgb(from var(--rk-yellow) r g b / 0.3);
+  }
+  :root[data-color-theme="dark"] form.search #radical_area.combined_mode .reset_radicals {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] form.search #radical_area.combined_mode .reset_radicals:hover {
+    color: var(--rk-foreground);
+    background-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] form.search .handwriting .panel {
+    background-color: var(--rk-black);
+  }
+  :root[data-color-theme="dark"] form.search .handwriting .pencil-icon {
+    color: var(--rk-bright-black) !important;
+  }
+  :root[data-color-theme="dark"] .speech_area_active #speech_button,
+  :root[data-color-theme="dark"] .radical_area_active #radical_button,
+  :root[data-color-theme="dark"] .handwriting_area_active #handwriting_button {
+    border-bottom-color: var(--rk-accent);
+  }
+  :root[data-color-theme="dark"] #what_is_this {
+    color: unset;
+  }
+  :root[data-color-theme="dark"] .japanese_word__furigana-invisible {
+    opacity: 0;
+  }
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Noun"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Proper noun"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Pronoun"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Suffix"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Prefix"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Symbol"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Interjection"] a,
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Propernoun"] a {
+    color: var(--rk-peach);
+    border-bottom-color: var(--rk-peach);
+  }
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Particle"] a {
+    color: var(--rk-red);
+    border-bottom-color: var(--rk-red);
+  }
+  :root[data-color-theme="dark"] #zen_bar li[data-pos="Verb"] a {
+    color: var(--rk-white);
+    border-bottom-color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] #main_results h4 .result_count {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .fact {
+    outline-color: var(--rk-mantle);
+    border-color: var(--rk-background);
+    background-color: var(--rk-mantle);
+  }
+  :root[data-color-theme="dark"] .concept_light {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] .concept_light-status .concept_light-tag {
+    color: var(--rk-background);
+    background-color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .concept_light-status .concept_light-tag.concept_light-common {
+    background-color: var(--rk-green);
+  }
+  :root[data-color-theme="dark"] .concept_light-status .concept_light-tag a {
+    color: var(--rk-background);
+  }
+  :root[data-color-theme="dark"] .concept_light-meanings .meaning-tags,
+  :root[data-color-theme="dark"] .concept_light-meanings .meaning-definition-section_divider {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .concept_light .sentence,
+  :root[data-color-theme="dark"] .meaning-abstract,
+  :root[data-color-theme="dark"] .supplemental_info {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .kanji_light {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] .kanji_light .info {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .sentences_block .sentence {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] #secondary aside .minor-text {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .kanji-details__main-readings-list a {
+    border-bottom-color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .kanji_play_button,
+  :root[data-color-theme="dark"] .kanji_strokes .replay_button,
+  :root[data-color-theme="dark"] .kanji_strokes .toggle_kanji_actions {
+    color: var(--rk-foreground);
+    background-color: transparent;
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .actions {
+    background-color: var(--rk-background);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .actions h3 {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .noUi-target .noUi-background {
+    background-color: var(--rk-accent);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .noUi-target .noUi-base {
+    border-color: var(--rk-black);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .noUi-target .noUi-origin {
+    background-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .noUi-target .noUi-handle {
+    background-color: var(--rk-foreground);
+    border-color: var(--rk-bright-black);
+  }
+  :root[data-color-theme="dark"] .kanji_strokes .noUi-target .noUi-active {
+    background-color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .stroke_order_diagram--bounding_box,
+  :root[data-color-theme="dark"] .stroke_order_diagram--guide_line {
+    stroke: var(--rk-surface0);
+  }
+  :root[data-color-theme="dark"] .stroke_order_diagram--path_start {
+    fill: rgb(from var(--rk-red) r g b / 0.8);
+  }
+  :root[data-color-theme="dark"] .stroke_order_diagram--current_path {
+    stroke: var(--rk-foreground);
+  }
+  :root[data-color-theme="dark"] .stroke_order_diagram--existing_path {
+    stroke: rgb(from var(--rk-white) r g b / 0.5);
+  }
+  :root[data-color-theme="dark"] .kanji table {
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] .kanji tr {
+    background-color: var(--rk-surface0);
+  }
+  :root[data-color-theme="dark"] .kanji tr td {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .discussion_thread .comment_body {
+    background-color: var(--rk-surface0);
+    border-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="dark"] .discussion_thread .comment_body .discussion_status {
+    background-color: var(--rk-black);
+    border-bottom-color: var(--rk-overlay0);
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .discussion_thread .comment_body .discussion_about {
+    background-color: color-mix(in srgb, var(--rk-surface0) 80%, var(--rk-cyan));
+    color: var(--rk-cyan);
+  }
+  :root[data-color-theme="dark"] .discussion_thread .comment_body .comment_status {
+    background-color: var(--rk-bright-black);
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="dark"] .discussion_thread .discussion_title a {
+    color: var(--rk-foreground) !important;
+  }
+  :root[data-color-theme="dark"] footer .ornament {
+    background-color: var(--rk-red);
+    box-shadow: 0 0 10px 5px var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] {
+    color-scheme: dark;
+  }
+  :root[data-color-theme="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-color-theme="light"] input::placeholder,
+  :root[data-color-theme="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-color-theme="light"] body {
+    background-color: var(--rk-background) !important;
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] body a {
+    color: var(--rk-accent);
+  }
+  :root[data-color-theme="light"] body a:hover {
+    color: #e1cef8;
+  }
+  :root[data-color-theme="light"] h1 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="light"] h2 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="light"] h3 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="light"] h4 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="light"] h5 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="light"] h6 {
+    color: #cdd6f4;
+  }
+  :root[data-color-theme="light"] button,
+  :root[data-color-theme="light"] .button,
+  :root[data-color-theme="light"] .tabs .tab-title > a {
+    background-color: var(--rk-overlay0);
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] button:hover,
+  :root[data-color-theme="light"] .button:hover,
+  :root[data-color-theme="light"] .tabs .tab-title > a:hover,
+  :root[data-color-theme="light"] button:focus,
+  :root[data-color-theme="light"] .button:focus,
+  :root[data-color-theme="light"] .tabs .tab-title > a:focus {
+    background-color: var(--rk-overlay1);
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] .button-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  :root[data-color-theme="light"] .button-group.radius > *,
+  :root[data-color-theme="light"] .button-group > li {
+    margin: unset;
+  }
+  :root[data-color-theme="light"] .f-dropdown {
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] .f-dropdown::before {
+    border-bottom-color: var(--rk-surface0);
+  }
+  :root[data-color-theme="light"] .f-dropdown li:hover {
+    background-color: var(--rk-crust);
+  }
+  :root[data-color-theme="light"] header.row {
+    background-color: var(--rk-background);
+  }
+  :root[data-color-theme="light"] h1.logo a {
+    background-image: url("//assets.jisho.org/assets/jisho-logo-v4-dark@2x-e676613b426d34187b61928823730a225b52165aaef99f948bd3dc5fc16fa787.png");
+  }
+  :root[data-color-theme="light"] nav .links .color_theme_picker--wrapper:hover {
+    background-color: var(--rk-mantle);
+  }
+  :root[data-color-theme="light"] nav .links .color_theme_picker--choices {
+    background-color: var(--rk-mantle);
+  }
+  :root[data-color-theme="light"] nav .links .color_theme_picker--choices li a:hover {
+    background-color: var(--rk-crust);
+  }
+  :root[data-color-theme="light"] form.search .input_methods,
+  :root[data-color-theme="light"] form.search .input_method_button h4 {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] form.search .input_method_button:hover {
+    background-color: var(--rk-surface0);
+  }
+  :root[data-color-theme="light"] form.search .main {
+    background-color: var(--rk-surface0);
+    box-shadow: none;
+  }
+  :root[data-color-theme="light"] form.search .inner {
+    background-color: var(--rk-black);
+  }
+  :root[data-color-theme="light"] form.search .inner input {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] form.search .search_type {
+    border-right-color: var(--rk-overlay0);
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] form.search .submit {
+    background-color: var(--rk-overlay1);
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] form.search .search-form_clear-button {
+    background-color: transparent;
+  }
+  :root[data-color-theme="light"] form.search .search-form_clear-button .clear-icon {
+    fill: var(--rk-white);
+  }
+  :root[data-color-theme="light"] form.search .results .result_label,
+  :root[data-color-theme="light"] form.search #radical_area .results .result_label {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] form.search .results .result,
+  :root[data-color-theme="light"] form.search #radical_area .results .result {
+    background-color: var(--rk-black);
+  }
+  :root[data-color-theme="light"] form.search .results .result:hover,
+  :root[data-color-theme="light"] form.search #radical_area .results .result:hover {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] form.search .results .g1,
+  :root[data-color-theme="light"] form.search #radical_area .results .g1 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g2,
+  :root[data-color-theme="light"] form.search #radical_area .results .g2 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g3,
+  :root[data-color-theme="light"] form.search #radical_area .results .g3 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g4,
+  :root[data-color-theme="light"] form.search #radical_area .results .g4 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g5,
+  :root[data-color-theme="light"] form.search #radical_area .results .g5 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g6,
+  :root[data-color-theme="light"] form.search #radical_area .results .g6 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g7,
+  :root[data-color-theme="light"] form.search #radical_area .results .g7 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search .results .g8,
+  :root[data-color-theme="light"] form.search #radical_area .results .g8 {
+    color: #89b4fa;
+  }
+  :root[data-color-theme="light"] form.search #radical_area .radical_table {
+    background-image: repeating-linear-gradient(180deg, #45475a, #45475a 32px, #585b70 32px, #585b70 64px);
+  }
+  :root[data-color-theme="light"] form.search #radical_area .radical_table .number {
+    background-color: var(--rk-foreground);
+    color: var(--rk-background);
+  }
+  :root[data-color-theme="light"] form.search #radical_area .radical_table .radical {
+    background-image: none;
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] form.search #radical_area .radical_table .radical.available:hover {
+    background-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] form.search #radical_area .radical_table .radical.selected {
+    border-color: var(--rk-foreground);
+    background-color: rgb(from var(--rk-yellow) r g b / 0.3);
+  }
+  :root[data-color-theme="light"] form.search #radical_area.combined_mode .reset_radicals {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] form.search #radical_area.combined_mode .reset_radicals:hover {
+    color: var(--rk-foreground);
+    background-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] form.search .handwriting .panel {
+    background-color: var(--rk-black);
+  }
+  :root[data-color-theme="light"] form.search .handwriting .pencil-icon {
+    color: var(--rk-bright-black) !important;
+  }
+  :root[data-color-theme="light"] .speech_area_active #speech_button,
+  :root[data-color-theme="light"] .radical_area_active #radical_button,
+  :root[data-color-theme="light"] .handwriting_area_active #handwriting_button {
+    border-bottom-color: var(--rk-accent);
+  }
+  :root[data-color-theme="light"] #what_is_this {
+    color: unset;
+  }
+  :root[data-color-theme="light"] .japanese_word__furigana-invisible {
+    opacity: 0;
+  }
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Noun"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Proper noun"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Pronoun"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Suffix"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Prefix"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Symbol"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Interjection"] a,
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Propernoun"] a {
+    color: var(--rk-peach);
+    border-bottom-color: var(--rk-peach);
+  }
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Particle"] a {
+    color: var(--rk-red);
+    border-bottom-color: var(--rk-red);
+  }
+  :root[data-color-theme="light"] #zen_bar li[data-pos="Verb"] a {
+    color: var(--rk-white);
+    border-bottom-color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] #main_results h4 .result_count {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .fact {
+    outline-color: var(--rk-mantle);
+    border-color: var(--rk-background);
+    background-color: var(--rk-mantle);
+  }
+  :root[data-color-theme="light"] .concept_light {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] .concept_light-status .concept_light-tag {
+    color: var(--rk-background);
+    background-color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .concept_light-status .concept_light-tag.concept_light-common {
+    background-color: var(--rk-green);
+  }
+  :root[data-color-theme="light"] .concept_light-status .concept_light-tag a {
+    color: var(--rk-background);
+  }
+  :root[data-color-theme="light"] .concept_light-meanings .meaning-tags,
+  :root[data-color-theme="light"] .concept_light-meanings .meaning-definition-section_divider {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .concept_light .sentence,
+  :root[data-color-theme="light"] .meaning-abstract,
+  :root[data-color-theme="light"] .supplemental_info {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .kanji_light {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] .kanji_light .info {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .sentences_block .sentence {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] #secondary aside .minor-text {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .kanji-details__main-readings-list a {
+    border-bottom-color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .kanji_play_button,
+  :root[data-color-theme="light"] .kanji_strokes .replay_button,
+  :root[data-color-theme="light"] .kanji_strokes .toggle_kanji_actions {
+    color: var(--rk-foreground);
+    background-color: transparent;
+  }
+  :root[data-color-theme="light"] .kanji_strokes .actions {
+    background-color: var(--rk-background);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .actions h3 {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .noUi-target .noUi-background {
+    background-color: var(--rk-accent);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .noUi-target .noUi-base {
+    border-color: var(--rk-black);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .noUi-target .noUi-origin {
+    background-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .noUi-target .noUi-handle {
+    background-color: var(--rk-foreground);
+    border-color: var(--rk-bright-black);
+  }
+  :root[data-color-theme="light"] .kanji_strokes .noUi-target .noUi-active {
+    background-color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .stroke_order_diagram--bounding_box,
+  :root[data-color-theme="light"] .stroke_order_diagram--guide_line {
+    stroke: var(--rk-surface0);
+  }
+  :root[data-color-theme="light"] .stroke_order_diagram--path_start {
+    fill: rgb(from var(--rk-red) r g b / 0.8);
+  }
+  :root[data-color-theme="light"] .stroke_order_diagram--current_path {
+    stroke: var(--rk-foreground);
+  }
+  :root[data-color-theme="light"] .stroke_order_diagram--existing_path {
+    stroke: rgb(from var(--rk-white) r g b / 0.5);
+  }
+  :root[data-color-theme="light"] .kanji table {
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] .kanji tr {
+    background-color: var(--rk-surface0);
+  }
+  :root[data-color-theme="light"] .kanji tr td {
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .discussion_thread .comment_body {
+    background-color: var(--rk-surface0);
+    border-color: var(--rk-overlay0);
+  }
+  :root[data-color-theme="light"] .discussion_thread .comment_body .discussion_status {
+    background-color: var(--rk-black);
+    border-bottom-color: var(--rk-overlay0);
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .discussion_thread .comment_body .discussion_about {
+    background-color: color-mix(in srgb, var(--rk-surface0) 80%, var(--rk-cyan));
+    color: var(--rk-cyan);
+  }
+  :root[data-color-theme="light"] .discussion_thread .comment_body .comment_status {
+    background-color: var(--rk-bright-black);
+    color: var(--rk-white);
+  }
+  :root[data-color-theme="light"] .discussion_thread .discussion_title a {
+    color: var(--rk-foreground) !important;
+  }
+  :root[data-color-theme="light"] footer .ornament {
+    background-color: var(--rk-red);
+    box-shadow: 0 0 10px 5px var(--rk-overlay0);
+  }
+}

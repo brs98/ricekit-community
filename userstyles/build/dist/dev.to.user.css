@@ -1,0 +1,724 @@
+/* ==UserStyle==
+@name DEV Community Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/dev.to
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/dev.to
+@version 2025.12.29.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/dev.to.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Adev.to
+@description Soothing pastel theme for DEV Community
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("dev.to"), domain("forem.com") {
+  @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
+  body.dark-theme {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --body-bg: var(--rk-mantle);
+    --black: var(--rk-crust);
+    --body-color: var(--rk-foreground);
+    --color-primary: var(--rk-bright-white);
+    --color-secondary: var(--rk-white);
+    --header-bg: var(--rk-background);
+    --header-shadow: var(--rk-crust);
+    --footer-bg: var(--rk-crust);
+    --footer-color: var(--rk-white);
+    --form-bg: var(--rk-crust);
+    --form-bg-focus: var(--rk-background);
+    --form-border: var(--rk-surface0);
+    --form-border-hover: var(--rk-black);
+    --form-border-focus: var(--rk-accent);
+    --focus: var(--rk-accent) !important;
+    --base-100: var(--rk-foreground);
+    --base-90: var(--rk-bright-white);
+    --base-80: var(--rk-bright-white);
+    --base-70: var(--rk-white);
+    --base-60: var(--rk-overlay2);
+    --base-50: var(--rk-overlay1);
+    --base-20: var(--rk-background);
+    --base-0: var(--rk-crust);
+    --base-inverted: var(--rk-surface0);
+    --tab-color-current: var(--rk-accent);
+    --tab-color: var(--rk-foreground);
+    --tab-color-hover: var(--rk-background);
+    --tab-bg-hover: rgb(from var(--rk-accent) r g b / 0.7);
+    --link-branded-color: var(--rk-accent);
+    --link-branded-color-hover: var(--rk-accent);
+    --link-color: var(--rk-foreground);
+    --link-color-hover: var(--rk-blue);
+    --link-bg-hover: var(--rk-mantle);
+    --link-color-secondary: var(--rk-bright-white);
+    --link-color-secondary-hover: var(--rk-foreground);
+    --link-bg-current: var(--rk-mantle);
+    --link-color-current: var(--rk-accent);
+    --link-current-bg: var(--rk-surface0);
+    --link-current-color: var(--rk-accent);
+    --btn-bg-hover: var(--rk-surface0);
+    --btn-color: var(--rk-foreground);
+    --btn-color-hover: var(--rk-accent);
+    --btn-primary-bg: var(--rk-accent);
+    --btn-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+    --btn-primary-color: var(--rk-background);
+    --btn-primary-color-hover: var(--rk-crust);
+    --button-primary-color: var(--rk-background);
+    --button-primary-color-hover: var(--rk-background);
+    --button-primary-bg: var(--rk-accent);
+    --button-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+    --button-secondary-bg: var(--rk-black);
+    --button-secondary-bg-hover: rgb(from var(--rk-black) r g b / 0.9);
+    --button-secondary-color: var(--rk-bright-white);
+    --button-secondary-color-hover: var(--rk-foreground);
+    --button-outlined-bg-hover: var(--rk-mantle);
+    --button-outlined-color: var(--rk-bright-white);
+    --button-outlined-color-hover: var(--rk-foreground);
+    --button-outlined-border: var(--rk-surface0);
+    --button-outlined-border-hover: var(--rk-black);
+    --button-ghost-bg-hover: var(--rk-background);
+    --button-ghost-color: var(--rk-foreground);
+    --button-ghost-color-hover: var(--rk-foreground);
+    --button-ghost-dimmed-color: var(--rk-white);
+    --button-ghost-dimmed-color-hover: var(--rk-bright-white);
+    --reaction-like-bg: rgb(from var(--rk-red) r g b / 0.1);
+    --reaction-like-color: var(--rk-red);
+    --reaction-comment-color: var(--rk-yellow);
+    --reaction-save-color: var(--rk-blue);
+    --divider: var(--rk-surface0);
+    --label-primary: var(--rk-foreground);
+    --label-secondary: var(--rk-bright-white);
+    --accent-brand: var(--rk-accent);
+    --accent-danger-darker: var(--rk-red);
+    --accent-danger: var(--rk-red);
+    --accent-warning: var(--rk-yellow);
+    --accent-warning-a10: rgb(from var(--rk-yellow) r g b / 0.1);
+    --accent-success-a10: rgb(from var(--rk-green) r g b / 0.2);
+    --card-bg: var(--rk-background);
+    --card-color: var(--rk-foreground);
+    --card-border: var(--rk-mantle);
+    --card-secondary-bg: var(--rk-surface0);
+    --card-secondary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+    --card-secondary-color: var(--rk-bright-white);
+    --card-secondary-border: var(--rk-surface0);
+    --card-tertiary-bg: var(--rk-surface0);
+    --card-tertiary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+    --card-color-tertiary: var(--rk-foreground);
+    --cta-branded-bg-hover: var(--rk-accent);
+    --cta-branded-color: var(--rk-accent);
+    --cta-branded-color-hover: var(--rk-background);
+    --cta-branded-border: var(--rk-accent);
+    --cta-branded-border-hover: var(--rk-accent);
+    --tooltip-bg: var(--rk-bright-black);
+    --tooltip-color: var(--rk-foreground);
+    --modal-bg: var(--rk-surface0);
+    --tag-bg: rgb(from var(--rk-blue) r g b / 0.1);
+    --tag-bg-hover: rgb(from var(--rk-blue) r g b / 0.2);
+    --tag-color: var(--rk-blue);
+    --tag-color-hover: var(--rk-blue);
+    --tag-prefix: var(--rk-blue);
+    --tag-prefix-hover: var(--rk-blue);
+    --indicator-bg: var(--rk-blue);
+    --indicator-color: var(--rk-background);
+    --indicator-subtle-bg: rgb(from var(--rk-blue) r g b / 0.2);
+    --indicator-subtle-color: var(--rk-bright-white);
+    --syntax-background-color: var(--rk-mantle);
+  }
+  body.dark-theme ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  body.dark-theme input::placeholder,
+  body.dark-theme textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  body.dark-theme img[src^="https://assets.dev.to/assets/heart-plus-active-"] {
+    content: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20d%3D%22M19%2014v3h3v2h-3v3h-2v-3h-3v-2h3v-3zm1.243-9.243a6%206%200%200%201%20.507%207.91%206%206%200%200%200-8.061%208.127l-.69.691-8.478-8.492a6%206%200%200%201%208.48-8.464%206%206%200%200%201%208.242.228%22%20fill%3D%22%23f38ba8%22/%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M19.076%2016.974v-3h-2v3h-3v2h3v3h2v-3h3v-2zm-6.311%203.794%22%20fill%3D%22%236c7086%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23181825%22%20d%3D%22M0%200h24v24H0z%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  }
+  body.dark-theme .crayons-tag__prefix {
+    --tag-prefix: var(--rk-blue);
+  }
+  body.dark-theme .crayons-btn--danger {
+    --color: var(--rk-background);
+    --color-hover: var(--rk-crust);
+  }
+  body.dark-theme .crayons-btn--ghost .reaction-icon {
+    filter: none;
+  }
+  body.dark-theme .text-styles--billboard > div {
+    border-color: var(--rk-surface0) !important;
+  }
+  body.dark-theme hr {
+    border-color: var(--rk-bright-black);
+  }
+  body.dark-theme #custom {
+    background-color: var(--rk-crust);
+    color: var(--rk-foreground);
+  }
+  body.dark-theme #custom .tw-bg-dolphin,
+  body.dark-theme #custom .tw-bg-white,
+  body.dark-theme #custom .tw-bg-black,
+  body.dark-theme #custom .tw-bg-zinc-50,
+  body.dark-theme #custom .tw-bg-zinc-950 {
+    background-color: var(--rk-crust);
+  }
+  body.dark-theme #custom .tw-bg-zinc-100,
+  body.dark-theme #custom .tw-bg-zinc-200,
+  body.dark-theme #custom .tw-bg-zinc-800,
+  body.dark-theme #custom .tw-bg-zinc-900 {
+    background-color: var(--rk-mantle);
+  }
+  body.dark-theme #custom .tw-text-black,
+  body.dark-theme #custom .tw-text-white,
+  body.dark-theme #custom .tw-text-zinc-50,
+  body.dark-theme #custom .tw-text-zinc-950 {
+    color: var(--rk-foreground);
+  }
+  body.dark-theme #custom .tw-text-zinc-100,
+  body.dark-theme #custom .tw-text-zinc-200,
+  body.dark-theme #custom .tw-text-zinc-800,
+  body.dark-theme #custom .tw-text-zinc-900 {
+    color: var(--rk-bright-white);
+  }
+  body.dark-theme #custom .tw-text-zinc-300,
+  body.dark-theme #custom .tw-text-zinc-400,
+  body.dark-theme #custom .tw-text-zinc-600,
+  body.dark-theme #custom .tw-text-zinc-700 {
+    color: var(--rk-white);
+  }
+  body.dark-theme #custom .tw-border-zinc-800,
+  body.dark-theme #custom .tw-border-zinc-600 {
+    border-color: var(--rk-surface0);
+  }
+  body.light-theme {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --body-bg: var(--rk-mantle);
+    --black: var(--rk-crust);
+    --body-color: var(--rk-foreground);
+    --color-primary: var(--rk-bright-white);
+    --color-secondary: var(--rk-white);
+    --header-bg: var(--rk-background);
+    --header-shadow: var(--rk-crust);
+    --footer-bg: var(--rk-crust);
+    --footer-color: var(--rk-white);
+    --form-bg: var(--rk-crust);
+    --form-bg-focus: var(--rk-background);
+    --form-border: var(--rk-surface0);
+    --form-border-hover: var(--rk-black);
+    --form-border-focus: var(--rk-accent);
+    --focus: var(--rk-accent) !important;
+    --base-100: var(--rk-foreground);
+    --base-90: var(--rk-bright-white);
+    --base-80: var(--rk-bright-white);
+    --base-70: var(--rk-white);
+    --base-60: var(--rk-overlay2);
+    --base-50: var(--rk-overlay1);
+    --base-20: var(--rk-background);
+    --base-0: var(--rk-crust);
+    --base-inverted: var(--rk-surface0);
+    --tab-color-current: var(--rk-accent);
+    --tab-color: var(--rk-foreground);
+    --tab-color-hover: var(--rk-background);
+    --tab-bg-hover: rgb(from var(--rk-accent) r g b / 0.7);
+    --link-branded-color: var(--rk-accent);
+    --link-branded-color-hover: var(--rk-accent);
+    --link-color: var(--rk-foreground);
+    --link-color-hover: var(--rk-blue);
+    --link-bg-hover: var(--rk-mantle);
+    --link-color-secondary: var(--rk-bright-white);
+    --link-color-secondary-hover: var(--rk-foreground);
+    --link-bg-current: var(--rk-mantle);
+    --link-color-current: var(--rk-accent);
+    --link-current-bg: var(--rk-surface0);
+    --link-current-color: var(--rk-accent);
+    --btn-bg-hover: var(--rk-surface0);
+    --btn-color: var(--rk-foreground);
+    --btn-color-hover: var(--rk-accent);
+    --btn-primary-bg: var(--rk-accent);
+    --btn-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+    --btn-primary-color: var(--rk-background);
+    --btn-primary-color-hover: var(--rk-crust);
+    --button-primary-color: var(--rk-background);
+    --button-primary-color-hover: var(--rk-background);
+    --button-primary-bg: var(--rk-accent);
+    --button-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+    --button-secondary-bg: var(--rk-black);
+    --button-secondary-bg-hover: rgb(from var(--rk-black) r g b / 0.9);
+    --button-secondary-color: var(--rk-bright-white);
+    --button-secondary-color-hover: var(--rk-foreground);
+    --button-outlined-bg-hover: var(--rk-mantle);
+    --button-outlined-color: var(--rk-bright-white);
+    --button-outlined-color-hover: var(--rk-foreground);
+    --button-outlined-border: var(--rk-surface0);
+    --button-outlined-border-hover: var(--rk-black);
+    --button-ghost-bg-hover: var(--rk-background);
+    --button-ghost-color: var(--rk-foreground);
+    --button-ghost-color-hover: var(--rk-foreground);
+    --button-ghost-dimmed-color: var(--rk-white);
+    --button-ghost-dimmed-color-hover: var(--rk-bright-white);
+    --reaction-like-bg: rgb(from var(--rk-red) r g b / 0.1);
+    --reaction-like-color: var(--rk-red);
+    --reaction-comment-color: var(--rk-yellow);
+    --reaction-save-color: var(--rk-blue);
+    --divider: var(--rk-surface0);
+    --label-primary: var(--rk-foreground);
+    --label-secondary: var(--rk-bright-white);
+    --accent-brand: var(--rk-accent);
+    --accent-danger-darker: var(--rk-red);
+    --accent-danger: var(--rk-red);
+    --accent-warning: var(--rk-yellow);
+    --accent-warning-a10: rgb(from var(--rk-yellow) r g b / 0.1);
+    --accent-success-a10: rgb(from var(--rk-green) r g b / 0.2);
+    --card-bg: var(--rk-background);
+    --card-color: var(--rk-foreground);
+    --card-border: var(--rk-mantle);
+    --card-secondary-bg: var(--rk-surface0);
+    --card-secondary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+    --card-secondary-color: var(--rk-bright-white);
+    --card-secondary-border: var(--rk-surface0);
+    --card-tertiary-bg: var(--rk-surface0);
+    --card-tertiary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+    --card-color-tertiary: var(--rk-foreground);
+    --cta-branded-bg-hover: var(--rk-accent);
+    --cta-branded-color: var(--rk-accent);
+    --cta-branded-color-hover: var(--rk-background);
+    --cta-branded-border: var(--rk-accent);
+    --cta-branded-border-hover: var(--rk-accent);
+    --tooltip-bg: var(--rk-bright-black);
+    --tooltip-color: var(--rk-foreground);
+    --modal-bg: var(--rk-surface0);
+    --tag-bg: rgb(from var(--rk-blue) r g b / 0.1);
+    --tag-bg-hover: rgb(from var(--rk-blue) r g b / 0.2);
+    --tag-color: var(--rk-blue);
+    --tag-color-hover: var(--rk-blue);
+    --tag-prefix: var(--rk-blue);
+    --tag-prefix-hover: var(--rk-blue);
+    --indicator-bg: var(--rk-blue);
+    --indicator-color: var(--rk-background);
+    --indicator-subtle-bg: rgb(from var(--rk-blue) r g b / 0.2);
+    --indicator-subtle-color: var(--rk-bright-white);
+    --syntax-background-color: var(--rk-mantle);
+  }
+  body.light-theme ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  body.light-theme input::placeholder,
+  body.light-theme textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  body.light-theme img[src^="https://assets.dev.to/assets/heart-plus-active-"] {
+    content: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20d%3D%22M19%2014v3h3v2h-3v3h-2v-3h-3v-2h3v-3zm1.243-9.243a6%206%200%200%201%20.507%207.91%206%206%200%200%200-8.061%208.127l-.69.691-8.478-8.492a6%206%200%200%201%208.48-8.464%206%206%200%200%201%208.242.228%22%20fill%3D%22%23f38ba8%22/%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M19.076%2016.974v-3h-2v3h-3v2h3v3h2v-3h3v-2zm-6.311%203.794%22%20fill%3D%22%236c7086%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23181825%22%20d%3D%22M0%200h24v24H0z%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  }
+  body.light-theme .crayons-tag__prefix {
+    --tag-prefix: var(--rk-blue);
+  }
+  body.light-theme .crayons-btn--danger {
+    --color: var(--rk-background);
+    --color-hover: var(--rk-crust);
+  }
+  body.light-theme .crayons-btn--ghost .reaction-icon {
+    filter: none;
+  }
+  body.light-theme .text-styles--billboard > div {
+    border-color: var(--rk-surface0) !important;
+  }
+  body.light-theme hr {
+    border-color: var(--rk-bright-black);
+  }
+  body.light-theme #custom {
+    background-color: var(--rk-crust);
+    color: var(--rk-foreground);
+  }
+  body.light-theme #custom .tw-bg-dolphin,
+  body.light-theme #custom .tw-bg-white,
+  body.light-theme #custom .tw-bg-black,
+  body.light-theme #custom .tw-bg-zinc-50,
+  body.light-theme #custom .tw-bg-zinc-950 {
+    background-color: var(--rk-crust);
+  }
+  body.light-theme #custom .tw-bg-zinc-100,
+  body.light-theme #custom .tw-bg-zinc-200,
+  body.light-theme #custom .tw-bg-zinc-800,
+  body.light-theme #custom .tw-bg-zinc-900 {
+    background-color: var(--rk-mantle);
+  }
+  body.light-theme #custom .tw-text-black,
+  body.light-theme #custom .tw-text-white,
+  body.light-theme #custom .tw-text-zinc-50,
+  body.light-theme #custom .tw-text-zinc-950 {
+    color: var(--rk-foreground);
+  }
+  body.light-theme #custom .tw-text-zinc-100,
+  body.light-theme #custom .tw-text-zinc-200,
+  body.light-theme #custom .tw-text-zinc-800,
+  body.light-theme #custom .tw-text-zinc-900 {
+    color: var(--rk-bright-white);
+  }
+  body.light-theme #custom .tw-text-zinc-300,
+  body.light-theme #custom .tw-text-zinc-400,
+  body.light-theme #custom .tw-text-zinc-600,
+  body.light-theme #custom .tw-text-zinc-700 {
+    color: var(--rk-white);
+  }
+  body.light-theme #custom .tw-border-zinc-800,
+  body.light-theme #custom .tw-border-zinc-600 {
+    border-color: var(--rk-surface0);
+  }
+  @media (prefers-color-scheme: light) {
+    body[data-user-status="logged-out"] {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --body-bg: var(--rk-mantle);
+      --black: var(--rk-crust);
+      --body-color: var(--rk-foreground);
+      --color-primary: var(--rk-bright-white);
+      --color-secondary: var(--rk-white);
+      --header-bg: var(--rk-background);
+      --header-shadow: var(--rk-crust);
+      --footer-bg: var(--rk-crust);
+      --footer-color: var(--rk-white);
+      --form-bg: var(--rk-crust);
+      --form-bg-focus: var(--rk-background);
+      --form-border: var(--rk-surface0);
+      --form-border-hover: var(--rk-black);
+      --form-border-focus: var(--rk-accent);
+      --focus: var(--rk-accent) !important;
+      --base-100: var(--rk-foreground);
+      --base-90: var(--rk-bright-white);
+      --base-80: var(--rk-bright-white);
+      --base-70: var(--rk-white);
+      --base-60: var(--rk-overlay2);
+      --base-50: var(--rk-overlay1);
+      --base-20: var(--rk-background);
+      --base-0: var(--rk-crust);
+      --base-inverted: var(--rk-surface0);
+      --tab-color-current: var(--rk-accent);
+      --tab-color: var(--rk-foreground);
+      --tab-color-hover: var(--rk-background);
+      --tab-bg-hover: rgb(from var(--rk-accent) r g b / 0.7);
+      --link-branded-color: var(--rk-accent);
+      --link-branded-color-hover: var(--rk-accent);
+      --link-color: var(--rk-foreground);
+      --link-color-hover: var(--rk-blue);
+      --link-bg-hover: var(--rk-mantle);
+      --link-color-secondary: var(--rk-bright-white);
+      --link-color-secondary-hover: var(--rk-foreground);
+      --link-bg-current: var(--rk-mantle);
+      --link-color-current: var(--rk-accent);
+      --link-current-bg: var(--rk-surface0);
+      --link-current-color: var(--rk-accent);
+      --btn-bg-hover: var(--rk-surface0);
+      --btn-color: var(--rk-foreground);
+      --btn-color-hover: var(--rk-accent);
+      --btn-primary-bg: var(--rk-accent);
+      --btn-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+      --btn-primary-color: var(--rk-background);
+      --btn-primary-color-hover: var(--rk-crust);
+      --button-primary-color: var(--rk-background);
+      --button-primary-color-hover: var(--rk-background);
+      --button-primary-bg: var(--rk-accent);
+      --button-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+      --button-secondary-bg: var(--rk-black);
+      --button-secondary-bg-hover: rgb(from var(--rk-black) r g b / 0.9);
+      --button-secondary-color: var(--rk-bright-white);
+      --button-secondary-color-hover: var(--rk-foreground);
+      --button-outlined-bg-hover: var(--rk-mantle);
+      --button-outlined-color: var(--rk-bright-white);
+      --button-outlined-color-hover: var(--rk-foreground);
+      --button-outlined-border: var(--rk-surface0);
+      --button-outlined-border-hover: var(--rk-black);
+      --button-ghost-bg-hover: var(--rk-background);
+      --button-ghost-color: var(--rk-foreground);
+      --button-ghost-color-hover: var(--rk-foreground);
+      --button-ghost-dimmed-color: var(--rk-white);
+      --button-ghost-dimmed-color-hover: var(--rk-bright-white);
+      --reaction-like-bg: rgb(from var(--rk-red) r g b / 0.1);
+      --reaction-like-color: var(--rk-red);
+      --reaction-comment-color: var(--rk-yellow);
+      --reaction-save-color: var(--rk-blue);
+      --divider: var(--rk-surface0);
+      --label-primary: var(--rk-foreground);
+      --label-secondary: var(--rk-bright-white);
+      --accent-brand: var(--rk-accent);
+      --accent-danger-darker: var(--rk-red);
+      --accent-danger: var(--rk-red);
+      --accent-warning: var(--rk-yellow);
+      --accent-warning-a10: rgb(from var(--rk-yellow) r g b / 0.1);
+      --accent-success-a10: rgb(from var(--rk-green) r g b / 0.2);
+      --card-bg: var(--rk-background);
+      --card-color: var(--rk-foreground);
+      --card-border: var(--rk-mantle);
+      --card-secondary-bg: var(--rk-surface0);
+      --card-secondary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+      --card-secondary-color: var(--rk-bright-white);
+      --card-secondary-border: var(--rk-surface0);
+      --card-tertiary-bg: var(--rk-surface0);
+      --card-tertiary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+      --card-color-tertiary: var(--rk-foreground);
+      --cta-branded-bg-hover: var(--rk-accent);
+      --cta-branded-color: var(--rk-accent);
+      --cta-branded-color-hover: var(--rk-background);
+      --cta-branded-border: var(--rk-accent);
+      --cta-branded-border-hover: var(--rk-accent);
+      --tooltip-bg: var(--rk-bright-black);
+      --tooltip-color: var(--rk-foreground);
+      --modal-bg: var(--rk-surface0);
+      --tag-bg: rgb(from var(--rk-blue) r g b / 0.1);
+      --tag-bg-hover: rgb(from var(--rk-blue) r g b / 0.2);
+      --tag-color: var(--rk-blue);
+      --tag-color-hover: var(--rk-blue);
+      --tag-prefix: var(--rk-blue);
+      --tag-prefix-hover: var(--rk-blue);
+      --indicator-bg: var(--rk-blue);
+      --indicator-color: var(--rk-background);
+      --indicator-subtle-bg: rgb(from var(--rk-blue) r g b / 0.2);
+      --indicator-subtle-color: var(--rk-bright-white);
+      --syntax-background-color: var(--rk-mantle);
+    }
+    body[data-user-status="logged-out"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    body[data-user-status="logged-out"] input::placeholder,
+    body[data-user-status="logged-out"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    body[data-user-status="logged-out"] img[src^="https://assets.dev.to/assets/heart-plus-active-"] {
+      content: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20d%3D%22M19%2014v3h3v2h-3v3h-2v-3h-3v-2h3v-3zm1.243-9.243a6%206%200%200%201%20.507%207.91%206%206%200%200%200-8.061%208.127l-.69.691-8.478-8.492a6%206%200%200%201%208.48-8.464%206%206%200%200%201%208.242.228%22%20fill%3D%22%23f38ba8%22/%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M19.076%2016.974v-3h-2v3h-3v2h3v3h2v-3h3v-2zm-6.311%203.794%22%20fill%3D%22%236c7086%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23181825%22%20d%3D%22M0%200h24v24H0z%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    }
+    body[data-user-status="logged-out"] .crayons-tag__prefix {
+      --tag-prefix: var(--rk-blue);
+    }
+    body[data-user-status="logged-out"] .crayons-btn--danger {
+      --color: var(--rk-background);
+      --color-hover: var(--rk-crust);
+    }
+    body[data-user-status="logged-out"] .crayons-btn--ghost .reaction-icon {
+      filter: none;
+    }
+    body[data-user-status="logged-out"] .text-styles--billboard > div {
+      border-color: var(--rk-surface0) !important;
+    }
+    body[data-user-status="logged-out"] hr {
+      border-color: var(--rk-bright-black);
+    }
+    body[data-user-status="logged-out"] #custom {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    body[data-user-status="logged-out"] #custom .tw-bg-dolphin,
+    body[data-user-status="logged-out"] #custom .tw-bg-white,
+    body[data-user-status="logged-out"] #custom .tw-bg-black,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-50,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-950 {
+      background-color: var(--rk-crust);
+    }
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-100,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-200,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-800,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-900 {
+      background-color: var(--rk-mantle);
+    }
+    body[data-user-status="logged-out"] #custom .tw-text-black,
+    body[data-user-status="logged-out"] #custom .tw-text-white,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-50,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-950 {
+      color: var(--rk-foreground);
+    }
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-100,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-200,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-800,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-900 {
+      color: var(--rk-bright-white);
+    }
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-300,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-400,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-600,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-700 {
+      color: var(--rk-white);
+    }
+    body[data-user-status="logged-out"] #custom .tw-border-zinc-800,
+    body[data-user-status="logged-out"] #custom .tw-border-zinc-600 {
+      border-color: var(--rk-surface0);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    body[data-user-status="logged-out"] {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --body-bg: var(--rk-mantle);
+      --black: var(--rk-crust);
+      --body-color: var(--rk-foreground);
+      --color-primary: var(--rk-bright-white);
+      --color-secondary: var(--rk-white);
+      --header-bg: var(--rk-background);
+      --header-shadow: var(--rk-crust);
+      --footer-bg: var(--rk-crust);
+      --footer-color: var(--rk-white);
+      --form-bg: var(--rk-crust);
+      --form-bg-focus: var(--rk-background);
+      --form-border: var(--rk-surface0);
+      --form-border-hover: var(--rk-black);
+      --form-border-focus: var(--rk-accent);
+      --focus: var(--rk-accent) !important;
+      --base-100: var(--rk-foreground);
+      --base-90: var(--rk-bright-white);
+      --base-80: var(--rk-bright-white);
+      --base-70: var(--rk-white);
+      --base-60: var(--rk-overlay2);
+      --base-50: var(--rk-overlay1);
+      --base-20: var(--rk-background);
+      --base-0: var(--rk-crust);
+      --base-inverted: var(--rk-surface0);
+      --tab-color-current: var(--rk-accent);
+      --tab-color: var(--rk-foreground);
+      --tab-color-hover: var(--rk-background);
+      --tab-bg-hover: rgb(from var(--rk-accent) r g b / 0.7);
+      --link-branded-color: var(--rk-accent);
+      --link-branded-color-hover: var(--rk-accent);
+      --link-color: var(--rk-foreground);
+      --link-color-hover: var(--rk-blue);
+      --link-bg-hover: var(--rk-mantle);
+      --link-color-secondary: var(--rk-bright-white);
+      --link-color-secondary-hover: var(--rk-foreground);
+      --link-bg-current: var(--rk-mantle);
+      --link-color-current: var(--rk-accent);
+      --link-current-bg: var(--rk-surface0);
+      --link-current-color: var(--rk-accent);
+      --btn-bg-hover: var(--rk-surface0);
+      --btn-color: var(--rk-foreground);
+      --btn-color-hover: var(--rk-accent);
+      --btn-primary-bg: var(--rk-accent);
+      --btn-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+      --btn-primary-color: var(--rk-background);
+      --btn-primary-color-hover: var(--rk-crust);
+      --button-primary-color: var(--rk-background);
+      --button-primary-color-hover: var(--rk-background);
+      --button-primary-bg: var(--rk-accent);
+      --button-primary-bg-hover: rgb(from var(--rk-accent) r g b / 0.9);
+      --button-secondary-bg: var(--rk-black);
+      --button-secondary-bg-hover: rgb(from var(--rk-black) r g b / 0.9);
+      --button-secondary-color: var(--rk-bright-white);
+      --button-secondary-color-hover: var(--rk-foreground);
+      --button-outlined-bg-hover: var(--rk-mantle);
+      --button-outlined-color: var(--rk-bright-white);
+      --button-outlined-color-hover: var(--rk-foreground);
+      --button-outlined-border: var(--rk-surface0);
+      --button-outlined-border-hover: var(--rk-black);
+      --button-ghost-bg-hover: var(--rk-background);
+      --button-ghost-color: var(--rk-foreground);
+      --button-ghost-color-hover: var(--rk-foreground);
+      --button-ghost-dimmed-color: var(--rk-white);
+      --button-ghost-dimmed-color-hover: var(--rk-bright-white);
+      --reaction-like-bg: rgb(from var(--rk-red) r g b / 0.1);
+      --reaction-like-color: var(--rk-red);
+      --reaction-comment-color: var(--rk-yellow);
+      --reaction-save-color: var(--rk-blue);
+      --divider: var(--rk-surface0);
+      --label-primary: var(--rk-foreground);
+      --label-secondary: var(--rk-bright-white);
+      --accent-brand: var(--rk-accent);
+      --accent-danger-darker: var(--rk-red);
+      --accent-danger: var(--rk-red);
+      --accent-warning: var(--rk-yellow);
+      --accent-warning-a10: rgb(from var(--rk-yellow) r g b / 0.1);
+      --accent-success-a10: rgb(from var(--rk-green) r g b / 0.2);
+      --card-bg: var(--rk-background);
+      --card-color: var(--rk-foreground);
+      --card-border: var(--rk-mantle);
+      --card-secondary-bg: var(--rk-surface0);
+      --card-secondary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+      --card-secondary-color: var(--rk-bright-white);
+      --card-secondary-border: var(--rk-surface0);
+      --card-tertiary-bg: var(--rk-surface0);
+      --card-tertiary-bg-hover: rgb(from var(--rk-surface0) r g b / 0.9);
+      --card-color-tertiary: var(--rk-foreground);
+      --cta-branded-bg-hover: var(--rk-accent);
+      --cta-branded-color: var(--rk-accent);
+      --cta-branded-color-hover: var(--rk-background);
+      --cta-branded-border: var(--rk-accent);
+      --cta-branded-border-hover: var(--rk-accent);
+      --tooltip-bg: var(--rk-bright-black);
+      --tooltip-color: var(--rk-foreground);
+      --modal-bg: var(--rk-surface0);
+      --tag-bg: rgb(from var(--rk-blue) r g b / 0.1);
+      --tag-bg-hover: rgb(from var(--rk-blue) r g b / 0.2);
+      --tag-color: var(--rk-blue);
+      --tag-color-hover: var(--rk-blue);
+      --tag-prefix: var(--rk-blue);
+      --tag-prefix-hover: var(--rk-blue);
+      --indicator-bg: var(--rk-blue);
+      --indicator-color: var(--rk-background);
+      --indicator-subtle-bg: rgb(from var(--rk-blue) r g b / 0.2);
+      --indicator-subtle-color: var(--rk-bright-white);
+      --syntax-background-color: var(--rk-mantle);
+    }
+    body[data-user-status="logged-out"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    body[data-user-status="logged-out"] input::placeholder,
+    body[data-user-status="logged-out"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    body[data-user-status="logged-out"] img[src^="https://assets.dev.to/assets/heart-plus-active-"] {
+      content: url("data:image/svg+xml,%3Csvg%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20clip-path%3D%22url%28%23a%29%22%3E%3Cpath%20d%3D%22M19%2014v3h3v2h-3v3h-2v-3h-3v-2h3v-3zm1.243-9.243a6%206%200%200%201%20.507%207.91%206%206%200%200%200-8.061%208.127l-.69.691-8.478-8.492a6%206%200%200%201%208.48-8.464%206%206%200%200%201%208.242.228%22%20fill%3D%22%23f38ba8%22/%3E%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M19.076%2016.974v-3h-2v3h-3v2h3v3h2v-3h3v-2zm-6.311%203.794%22%20fill%3D%22%236c7086%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath%20id%3D%22a%22%3E%3Cpath%20fill%3D%22%23181825%22%20d%3D%22M0%200h24v24H0z%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+    }
+    body[data-user-status="logged-out"] .crayons-tag__prefix {
+      --tag-prefix: var(--rk-blue);
+    }
+    body[data-user-status="logged-out"] .crayons-btn--danger {
+      --color: var(--rk-background);
+      --color-hover: var(--rk-crust);
+    }
+    body[data-user-status="logged-out"] .crayons-btn--ghost .reaction-icon {
+      filter: none;
+    }
+    body[data-user-status="logged-out"] .text-styles--billboard > div {
+      border-color: var(--rk-surface0) !important;
+    }
+    body[data-user-status="logged-out"] hr {
+      border-color: var(--rk-bright-black);
+    }
+    body[data-user-status="logged-out"] #custom {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    body[data-user-status="logged-out"] #custom .tw-bg-dolphin,
+    body[data-user-status="logged-out"] #custom .tw-bg-white,
+    body[data-user-status="logged-out"] #custom .tw-bg-black,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-50,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-950 {
+      background-color: var(--rk-crust);
+    }
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-100,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-200,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-800,
+    body[data-user-status="logged-out"] #custom .tw-bg-zinc-900 {
+      background-color: var(--rk-mantle);
+    }
+    body[data-user-status="logged-out"] #custom .tw-text-black,
+    body[data-user-status="logged-out"] #custom .tw-text-white,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-50,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-950 {
+      color: var(--rk-foreground);
+    }
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-100,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-200,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-800,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-900 {
+      color: var(--rk-bright-white);
+    }
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-300,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-400,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-600,
+    body[data-user-status="logged-out"] #custom .tw-text-zinc-700 {
+      color: var(--rk-white);
+    }
+    body[data-user-status="logged-out"] #custom .tw-border-zinc-800,
+    body[data-user-status="logged-out"] #custom .tw-border-zinc-600 {
+      border-color: var(--rk-surface0);
+    }
+  }
+}

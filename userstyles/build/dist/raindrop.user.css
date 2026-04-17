@@ -1,0 +1,407 @@
+/* ==UserStyle==
+@name Raindrop Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/raindrop
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/raindrop
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/raindrop.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Araindrop
+@description Soothing pastel theme for Raindrop
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("app.raindrop.io") {
+  [data-theme="night"] {
+    color-scheme: dark !important;
+  }
+  [data-theme="night"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+  }
+  [data-theme="night"] input::placeholder,
+  [data-theme="night"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  [data-theme="night"],
+  [data-theme="night"] [data-theme] {
+    --background-color: var(--rk-background) !important;
+    --disable-background-color: var(--rk-crust) !important;
+    --disable-text-color: var(--rk-overlay1) !important;
+    --accent-color: var(--rk-accent) !important;
+    --alternative-background-color: var(--rk-mantle) !important;
+    --sidebar-background-color: var(--rk-mantle) !important;
+    --hover-background-color: rgb(from var(--rk-overlay0) r g b / 0.2) !important;
+    --active-background-color: var(--rk-black) !important;
+    --primary-text-color: var(--rk-foreground) !important;
+    --secondary-text-color: var(--rk-white) !important;
+    --shadow-color: rgb(from var(--rk-foreground) r g b / 0.1) !important;
+    --shadow-light-color: rgb(from var(--rk-foreground) r g b / 0.1) !important;
+    --danger-color: var(--rk-red) !important;
+    --important-color: var(--rk-red) !important;
+    --success-color: var(--rk-green) !important;
+    --highlights-color: var(--rk-accent) !important;
+    --reminder-color: var(--rk-peach) !important;
+    --note-color: var(--rk-yellow) !important;
+    --article-color: var(--rk-peach) !important;
+    --audio-color: var(--rk-accent) !important;
+    --document-color: var(--rk-white) !important;
+    --book-color: var(--rk-rosewater) !important;
+    --image-color: var(--rk-green) !important;
+    --video-color: var(--rk-blue) !important;
+    --broken-color: var(--rk-maroon) !important;
+    --duplicate-color: var(--rk-sapphire) !important;
+    --tag-color: var(--rk-white) !important;
+    --filter-color: var(--rk-white) !important;
+    color: var(--rk-foreground) !important;
+  }
+  [data-theme="night"] [data-variant="active"],
+  [data-theme="night"] [data-theme] [data-variant="active"] {
+    background: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [data-theme="night"] [class^="header-"][data-fancy="true"],
+  [data-theme="night"] [data-theme] [class^="header-"][data-fancy="true"] {
+    background: linear-gradient(to bottom, var(--background-color) 30%, rgba(30, 30, 46, 0.6) 100%) !important;
+  }
+  [data-theme="night"] [class^="cover-"] > [class^="more-"],
+  [data-theme="night"] [data-theme] [class^="cover-"] > [class^="more-"] {
+    background: rgb(from var(--rk-accent) r g b / 0.85) !important;
+  }
+  [data-theme="night"] [title="Add Bookmark"],
+  [data-theme="night"] [data-theme] [title="Add Bookmark"] {
+    color: var(--rk-background) !important;
+  }
+  [data-theme="night"] [class^="button-"][data-variant="primary"][disabled],
+  [data-theme="night"] [data-theme] [class^="button-"][data-variant="primary"][disabled] {
+    filter: none !important;
+    opacity: 100% !important;
+    background: var(--rk-overlay0) !important;
+    color: var(--rk-crust) !important;
+  }
+  [data-theme="night"] [class*="isDropping-"],
+  [data-theme="night"] [data-theme] [class*="isDropping-"] {
+    background-color: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [data-theme="night"] .svSidebar,
+  [data-theme="night"] [data-theme] .svSidebar {
+    background: var(--sidebar-background-color) !important;
+  }
+  [data-theme="night"] [href^="https://api.raindrop.io/v1/auth/google"] > span {
+    color: var(--rk-foreground) !important;
+  }
+  [data-theme="day"],
+  [data-theme="sunset"] {
+    color-scheme: dark;
+  }
+  [data-theme="day"] ::selection,
+  [data-theme="sunset"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  [data-theme="day"] input::placeholder,
+  [data-theme="sunset"] input::placeholder,
+  [data-theme="day"] textarea::placeholder,
+  [data-theme="sunset"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  [data-theme="day"],
+  [data-theme="sunset"],
+  [data-theme="day"] [data-theme],
+  [data-theme="sunset"] [data-theme] {
+    --background-color: var(--rk-background);
+    --disable-background-color: var(--rk-crust);
+    --disable-text-color: var(--rk-overlay1);
+    --accent-color: var(--rk-accent);
+    --alternative-background-color: var(--rk-mantle);
+    --sidebar-background-color: var(--rk-mantle);
+    --hover-background-color: rgb(from var(--rk-overlay0) r g b / 0.2);
+    --active-background-color: var(--rk-black);
+    --primary-text-color: var(--rk-foreground);
+    --secondary-text-color: var(--rk-white);
+    --shadow-color: rgb(from var(--rk-foreground) r g b / 0.1);
+    --shadow-light-color: rgb(from var(--rk-foreground) r g b / 0.1);
+    --danger-color: var(--rk-red);
+    --important-color: var(--rk-red);
+    --success-color: var(--rk-green);
+    --highlights-color: var(--rk-accent);
+    --reminder-color: var(--rk-peach);
+    --note-color: var(--rk-yellow);
+    --article-color: var(--rk-peach);
+    --audio-color: var(--rk-accent);
+    --document-color: var(--rk-white);
+    --book-color: var(--rk-rosewater);
+    --image-color: var(--rk-green);
+    --video-color: var(--rk-blue);
+    --broken-color: var(--rk-maroon);
+    --duplicate-color: var(--rk-sapphire);
+    --tag-color: var(--rk-white);
+    --filter-color: var(--rk-white);
+    color: var(--rk-foreground);
+  }
+  [data-theme="day"] [data-variant="active"],
+  [data-theme="sunset"] [data-variant="active"],
+  [data-theme="day"] [data-theme] [data-variant="active"],
+  [data-theme="sunset"] [data-theme] [data-variant="active"] {
+    background: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [data-theme="day"] [class^="header-"][data-fancy="true"],
+  [data-theme="sunset"] [class^="header-"][data-fancy="true"],
+  [data-theme="day"] [data-theme] [class^="header-"][data-fancy="true"],
+  [data-theme="sunset"] [data-theme] [class^="header-"][data-fancy="true"] {
+    background: linear-gradient(to bottom, var(--background-color) 30%, rgba(30, 30, 46, 0.6) 100%);
+  }
+  [data-theme="day"] [class^="cover-"] > [class^="more-"],
+  [data-theme="sunset"] [class^="cover-"] > [class^="more-"],
+  [data-theme="day"] [data-theme] [class^="cover-"] > [class^="more-"],
+  [data-theme="sunset"] [data-theme] [class^="cover-"] > [class^="more-"] {
+    background: rgb(from var(--rk-accent) r g b / 0.85);
+  }
+  [data-theme="day"] [title="Add Bookmark"],
+  [data-theme="sunset"] [title="Add Bookmark"],
+  [data-theme="day"] [data-theme] [title="Add Bookmark"],
+  [data-theme="sunset"] [data-theme] [title="Add Bookmark"] {
+    color: var(--rk-background);
+  }
+  [data-theme="day"] [class^="button-"][data-variant="primary"][disabled],
+  [data-theme="sunset"] [class^="button-"][data-variant="primary"][disabled],
+  [data-theme="day"] [data-theme] [class^="button-"][data-variant="primary"][disabled],
+  [data-theme="sunset"] [data-theme] [class^="button-"][data-variant="primary"][disabled] {
+    filter: none;
+    opacity: 100%;
+    background: var(--rk-overlay0);
+    color: var(--rk-crust);
+  }
+  [data-theme="day"] [class*="isDropping-"],
+  [data-theme="sunset"] [class*="isDropping-"],
+  [data-theme="day"] [data-theme] [class*="isDropping-"],
+  [data-theme="sunset"] [data-theme] [class*="isDropping-"] {
+    background-color: rgb(from var(--rk-accent) r g b / 0.1);
+  }
+  [data-theme="day"] .svSidebar,
+  [data-theme="sunset"] .svSidebar,
+  [data-theme="day"] [data-theme] .svSidebar,
+  [data-theme="sunset"] [data-theme] .svSidebar {
+    background: var(--sidebar-background-color);
+  }
+  [data-theme="day"] [href^="https://api.raindrop.io/v1/auth/google"] > span,
+  [data-theme="sunset"] [href^="https://api.raindrop.io/v1/auth/google"] > span {
+    color: var(--rk-foreground);
+  }
+  [class^="theme-"][data-index="0"],
+  [class^="theme-"][data-index="2"] > [class^="main-"],
+  [class^="theme-"][data-index="3"] {
+    color-scheme: dark !important;
+  }
+  [class^="theme-"][data-index="0"] ::selection,
+  [class^="theme-"][data-index="2"] > [class^="main-"] ::selection,
+  [class^="theme-"][data-index="3"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+  }
+  [class^="theme-"][data-index="0"] input::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="main-"] input::placeholder,
+  [class^="theme-"][data-index="3"] input::placeholder,
+  [class^="theme-"][data-index="0"] textarea::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="main-"] textarea::placeholder,
+  [class^="theme-"][data-index="3"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  [class^="theme-"][data-index="0"],
+  [class^="theme-"][data-index="2"] > [class^="main-"],
+  [class^="theme-"][data-index="3"],
+  [class^="theme-"][data-index="0"] [data-theme],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme],
+  [class^="theme-"][data-index="3"] [data-theme] {
+    --background-color: var(--rk-background) !important;
+    --disable-background-color: var(--rk-crust) !important;
+    --disable-text-color: var(--rk-overlay1) !important;
+    --accent-color: var(--rk-accent) !important;
+    --alternative-background-color: var(--rk-mantle) !important;
+    --sidebar-background-color: var(--rk-mantle) !important;
+    --hover-background-color: rgb(from var(--rk-overlay0) r g b / 0.2) !important;
+    --active-background-color: var(--rk-black) !important;
+    --primary-text-color: var(--rk-foreground) !important;
+    --secondary-text-color: var(--rk-white) !important;
+    --shadow-color: rgb(from var(--rk-foreground) r g b / 0.1) !important;
+    --shadow-light-color: rgb(from var(--rk-foreground) r g b / 0.1) !important;
+    --danger-color: var(--rk-red) !important;
+    --important-color: var(--rk-red) !important;
+    --success-color: var(--rk-green) !important;
+    --highlights-color: var(--rk-accent) !important;
+    --reminder-color: var(--rk-peach) !important;
+    --note-color: var(--rk-yellow) !important;
+    --article-color: var(--rk-peach) !important;
+    --audio-color: var(--rk-accent) !important;
+    --document-color: var(--rk-white) !important;
+    --book-color: var(--rk-rosewater) !important;
+    --image-color: var(--rk-green) !important;
+    --video-color: var(--rk-blue) !important;
+    --broken-color: var(--rk-maroon) !important;
+    --duplicate-color: var(--rk-sapphire) !important;
+    --tag-color: var(--rk-white) !important;
+    --filter-color: var(--rk-white) !important;
+    color: var(--rk-foreground) !important;
+  }
+  [class^="theme-"][data-index="0"] [data-variant="active"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-variant="active"],
+  [class^="theme-"][data-index="3"] [data-variant="active"],
+  [class^="theme-"][data-index="0"] [data-theme] [data-variant="active"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] [data-variant="active"],
+  [class^="theme-"][data-index="3"] [data-theme] [data-variant="active"] {
+    background: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [class^="theme-"][data-index="0"] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="3"] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="0"] [data-theme] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="3"] [data-theme] [class^="header-"][data-fancy="true"] {
+    background: linear-gradient(to bottom, var(--background-color) 30%, rgba(30, 30, 46, 0.6) 100%) !important;
+  }
+  [class^="theme-"][data-index="0"] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="3"] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="0"] [data-theme] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="3"] [data-theme] [class^="cover-"] > [class^="more-"] {
+    background: rgb(from var(--rk-accent) r g b / 0.85) !important;
+  }
+  [class^="theme-"][data-index="0"] [title="Add Bookmark"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [title="Add Bookmark"],
+  [class^="theme-"][data-index="3"] [title="Add Bookmark"],
+  [class^="theme-"][data-index="0"] [data-theme] [title="Add Bookmark"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] [title="Add Bookmark"],
+  [class^="theme-"][data-index="3"] [data-theme] [title="Add Bookmark"] {
+    color: var(--rk-background) !important;
+  }
+  [class^="theme-"][data-index="0"] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="3"] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="0"] [data-theme] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="3"] [data-theme] [class^="button-"][data-variant="primary"][disabled] {
+    filter: none !important;
+    opacity: 100% !important;
+    background: var(--rk-overlay0) !important;
+    color: var(--rk-crust) !important;
+  }
+  [class^="theme-"][data-index="0"] [class*="isDropping-"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [class*="isDropping-"],
+  [class^="theme-"][data-index="3"] [class*="isDropping-"],
+  [class^="theme-"][data-index="0"] [data-theme] [class*="isDropping-"],
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] [class*="isDropping-"],
+  [class^="theme-"][data-index="3"] [data-theme] [class*="isDropping-"] {
+    background-color: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [class^="theme-"][data-index="0"] .svSidebar,
+  [class^="theme-"][data-index="2"] > [class^="main-"] .svSidebar,
+  [class^="theme-"][data-index="3"] .svSidebar,
+  [class^="theme-"][data-index="0"] [data-theme] .svSidebar,
+  [class^="theme-"][data-index="2"] > [class^="main-"] [data-theme] .svSidebar,
+  [class^="theme-"][data-index="3"] [data-theme] .svSidebar {
+    background: var(--sidebar-background-color) !important;
+  }
+  [class^="theme-"][data-index="0"] [href^="https://api.raindrop.io/v1/auth/google"] > span,
+  [class^="theme-"][data-index="2"] > [class^="main-"] [href^="https://api.raindrop.io/v1/auth/google"] > span,
+  [class^="theme-"][data-index="3"] [href^="https://api.raindrop.io/v1/auth/google"] > span {
+    color: var(--rk-foreground) !important;
+  }
+  [class^="theme-"][data-index="1"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] {
+    color-scheme: dark !important;
+  }
+  [class^="theme-"][data-index="1"] ::selection,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+  }
+  [class^="theme-"][data-index="1"] input::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] input::placeholder,
+  [class^="theme-"][data-index="1"] textarea::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  [class^="theme-"][data-index="1"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"],
+  [class^="theme-"][data-index="1"] [data-theme],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] {
+    --background-color: var(--rk-background) !important;
+    --disable-background-color: var(--rk-crust) !important;
+    --disable-text-color: var(--rk-overlay1) !important;
+    --accent-color: var(--rk-accent) !important;
+    --alternative-background-color: var(--rk-mantle) !important;
+    --sidebar-background-color: var(--rk-mantle) !important;
+    --hover-background-color: rgb(from var(--rk-overlay0) r g b / 0.2) !important;
+    --active-background-color: var(--rk-black) !important;
+    --primary-text-color: var(--rk-foreground) !important;
+    --secondary-text-color: var(--rk-white) !important;
+    --shadow-color: rgb(from var(--rk-foreground) r g b / 0.1) !important;
+    --shadow-light-color: rgb(from var(--rk-foreground) r g b / 0.1) !important;
+    --danger-color: var(--rk-red) !important;
+    --important-color: var(--rk-red) !important;
+    --success-color: var(--rk-green) !important;
+    --highlights-color: var(--rk-accent) !important;
+    --reminder-color: var(--rk-peach) !important;
+    --note-color: var(--rk-yellow) !important;
+    --article-color: var(--rk-peach) !important;
+    --audio-color: var(--rk-accent) !important;
+    --document-color: var(--rk-white) !important;
+    --book-color: var(--rk-rosewater) !important;
+    --image-color: var(--rk-green) !important;
+    --video-color: var(--rk-blue) !important;
+    --broken-color: var(--rk-maroon) !important;
+    --duplicate-color: var(--rk-sapphire) !important;
+    --tag-color: var(--rk-white) !important;
+    --filter-color: var(--rk-white) !important;
+    color: var(--rk-foreground) !important;
+  }
+  [class^="theme-"][data-index="1"] [data-variant="active"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-variant="active"],
+  [class^="theme-"][data-index="1"] [data-theme] [data-variant="active"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] [data-variant="active"] {
+    background: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [class^="theme-"][data-index="1"] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="1"] [data-theme] [class^="header-"][data-fancy="true"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] [class^="header-"][data-fancy="true"] {
+    background: linear-gradient(to bottom, var(--background-color) 30%, rgba(30, 30, 46, 0.6) 100%) !important;
+  }
+  [class^="theme-"][data-index="1"] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="1"] [data-theme] [class^="cover-"] > [class^="more-"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] [class^="cover-"] > [class^="more-"] {
+    background: rgb(from var(--rk-accent) r g b / 0.85) !important;
+  }
+  [class^="theme-"][data-index="1"] [title="Add Bookmark"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [title="Add Bookmark"],
+  [class^="theme-"][data-index="1"] [data-theme] [title="Add Bookmark"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] [title="Add Bookmark"] {
+    color: var(--rk-background) !important;
+  }
+  [class^="theme-"][data-index="1"] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="1"] [data-theme] [class^="button-"][data-variant="primary"][disabled],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] [class^="button-"][data-variant="primary"][disabled] {
+    filter: none !important;
+    opacity: 100% !important;
+    background: var(--rk-overlay0) !important;
+    color: var(--rk-crust) !important;
+  }
+  [class^="theme-"][data-index="1"] [class*="isDropping-"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [class*="isDropping-"],
+  [class^="theme-"][data-index="1"] [data-theme] [class*="isDropping-"],
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] [class*="isDropping-"] {
+    background-color: rgb(from var(--rk-accent) r g b / 0.1) !important;
+  }
+  [class^="theme-"][data-index="1"] .svSidebar,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] .svSidebar,
+  [class^="theme-"][data-index="1"] [data-theme] .svSidebar,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [data-theme] .svSidebar {
+    background: var(--sidebar-background-color) !important;
+  }
+  [class^="theme-"][data-index="1"] [href^="https://api.raindrop.io/v1/auth/google"] > span,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] [href^="https://api.raindrop.io/v1/auth/google"] > span {
+    color: var(--rk-foreground) !important;
+  }
+}

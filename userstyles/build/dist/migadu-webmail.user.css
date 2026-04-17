@@ -1,0 +1,741 @@
+/* ==UserStyle==
+@name Migadu Webmail Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/migadu-webmail
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/migadu-webmail
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/migadu-webmail.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Amigadu-webmail
+@description Soothing pastel theme for Migadu Webmail
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+
+@var checkbox hideProfilePictures "Hide Profile Pictures" 0
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("webmail.migadu.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      --main-color: var(--rk-foreground);
+      --main-bg-color: var(--rk-background);
+      --border-color: var(--rk-surface0);
+      --dropdown-menu-color: var(--rk-foreground);
+      --dropdown-menu-bg-color: var(--rk-background);
+      --dropdown-menu-hover-bg-color: var(--rk-black);
+      --dropdown-menu-hover-color: var(--rk-foreground);
+      --dropdown-menu-disabled-color: var(--rk-white);
+      --dropdown-menu-border-clr: var(--rk-surface0);
+      --folders-color: var(--rk-foreground);
+      --folders-disabled-color: var(--rk-bright-black);
+      --folders-selected-color: var(--rk-blue);
+      --folders-selected-bg-color: rgb(from var(--rk-blue) r g b / 0.1);
+      --folders-focused-color: var(--rk-blue);
+      --folders-hover-color: var(--rk-foreground);
+      --folders-hover-bg-color: var(--rk-background);
+      --folders-drop-color: var(--rk-foreground);
+      --settings-menu-color: var(--rk-foreground);
+      --settings-menu-selected-color: var(--rk-blue);
+      --settings-menu-selected-bg-color: rgb(from var(--rk-blue) r g b / 0.1);
+      --settings-menu-hover-color: var(--rk-foreground);
+      --settings-menu-hover-bg-color: var(--rk-background);
+      --message-list-toolbar-bg-color: var(--rk-overlay0);
+      --panel-bg-clr: var(--rk-background);
+      --message-header-bg-clr: var(--rk-mantle);
+      --hr-color: var(--rk-surface0);
+      --dialog-bg-clr: var(--rk-background);
+      --dialog-clr: var(--rk-foreground);
+      --tr-hover-bg-clr: var(--rk-crust);
+      --loading-color: var(--rk-foreground);
+      --login-color: var(--rk-foreground);
+      --login-bg-color: var(--rk-crust);
+      --tab-hover-border-clr: var(--rk-surface0);
+      --tab-active-bg-clr: var(--rk-crust);
+      --tr-odd-bg-clr: var(--rk-mantle);
+      /* Login page */
+      /* Inbox */
+      /* Buttons */
+      --btn-clr: var(--rk-foreground);
+      --btn-border-clr: var(--rk-overlay0);
+      /* Links */
+      --link-color: var(--rk-blue);
+      /* Inputs */
+      --input-bg-clr: var(--rk-background);
+      --input-border-clr: var(--rk-surface0);
+      --input-focus-border-clr: var(--rk-overlay0);
+      --input-clr: var(--rk-bright-white);
+      /* stylelint-disable property-disallowed-list */
+      /* stylelint-enable property-disallowed-list */
+      /* Nothing selected */
+      /* Loading messages */
+      /* Tags */
+      /* Profile pictures */
+      /* Settings */
+      /* Send mail modal */
+      /* Minimize and close icons */
+      /* Email address field */
+      /* Untheme message content */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .LoginView .btn,
+    :root .LoginView input {
+      border-color: var(--rk-surface0);
+    }
+    :root .LoginView input:focus,
+    :root .LoginView input:hover {
+      border-color: var(--rk-black);
+    }
+    :root .messageItemHeader,
+    :root .bodySubHeader,
+    :root .thm-message-list-top-toolbar,
+    :root .thm-message-list-bottom-toolbar {
+      background: var(--rk-mantle) !important;
+    }
+    :root .btn [class^="icon-"] {
+      color: var(--rk-foreground);
+    }
+    :root .btn.btn-success {
+      background-color: rgb(from var(--rk-green) r g b / 0.2);
+    }
+    :root .btn.btn-success,
+    :root .btn.btn-success [class^="icon-"] {
+      color: var(--rk-green) !important;
+    }
+    :root .btn.btn-success:hover,
+    :root .btn.btn-success:active {
+      background-color: rgb(from var(--rk-green) r g b / 0.4);
+    }
+    :root .btn.btn-warning {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.2);
+    }
+    :root .btn.btn-warning,
+    :root .btn.btn-warning [class^="icon-"] {
+      color: var(--rk-yellow) !important;
+    }
+    :root .btn.btn-warning:hover,
+    :root .btn.btn-warning:active {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.4);
+    }
+    :root .btn.btn-danger {
+      background-color: rgb(from var(--rk-red) r g b / 0.2);
+    }
+    :root .btn.btn-danger,
+    :root .btn.btn-danger [class^="icon-"] {
+      color: var(--rk-red) !important;
+    }
+    :root .btn.btn-danger:hover,
+    :root .btn.btn-danger:active {
+      background-color: rgb(from var(--rk-red) r g b / 0.4);
+    }
+    :root .btn.disabled,
+    :root .btn.disabled.fontastic,
+    :root .btn.disabled .fontastic {
+      color: var(--rk-surface0) !important;
+    }
+    :root .btn,
+    :root .btn.disabled,
+    :root .btn[disabled],
+    :root .btn.disabled:hover,
+    :root .btn[disabled]:hover {
+      border-color: var(--rk-surface0) !important;
+      text-shadow: none !important;
+      background-color: var(--rk-background);
+    }
+    :root .btn:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root #messageItem .b-text-part a:visited {
+      color: var(--rk-accent);
+    }
+    :root .select,
+    :root select {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20height%3D%2210px%22%20width%3D%2215px%22%3E%3Ctext%20x%3D%220%22%20y%3D%2210%22%20fill%3D%22%23bac2de%22%3E%E2%96%BE%3C/text%3E%3C/svg%3E") !important;
+    }
+    :root .e-checkbox.material-design input:checked + div {
+      border-color: hsl(from var(--rk-green) h s calc(l - 10));
+    }
+    @keyframes checkmark-to-box {
+      0% {
+        top: -1px;
+        left: 5px;
+        width: 10px;
+        height: 18px;
+        border: 2px solid hsl(from var(--rk-green) h s calc(l - 10));
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+      50% {
+        top: 13px;
+        left: 5px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+      }
+      100% {
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--rk-overlay0);
+        transform: rotate(0);
+      }
+    }
+    @keyframes box-to-checkmark {
+      0% {
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--rk-overlay0);
+        transform: rotate(0);
+      }
+      50% {
+        top: 13px;
+        left: 5px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+      }
+      100% {
+        top: -1px;
+        left: 5px;
+        width: 10px;
+        height: 18px;
+        border: 2px solid hsl(from var(--rk-green) h s calc(l - 10));
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+    :root .messageView .b-message-view-desc,
+    :root #V-PopupsContacts .b-view-content .b-contact-view-desc {
+      color: var(--rk-overlay0);
+    }
+    :root .messageList .b-content .listDragOver,
+    :root .messageList .b-content .listEmptyMessage,
+    :root .messageList .b-content .listError,
+    :root .messageList .b-content .listLoading {
+      color: var(--rk-overlay0);
+    }
+    :root .messageList .b-content .listError {
+      color: var(--rk-red);
+    }
+    :root #messageItem .loading,
+    :root #V-PopupsContacts .b-list-content .listEmptyList,
+    :root #V-PopupsContacts .b-list-content .listEmptyListLoading,
+    :root #V-PopupsContacts .b-list-content .listEmptySearchList {
+      color: var(--rk-overlay0);
+    }
+    :root .icon-spinner {
+      border-color: var(--rk-black);
+      border-top-color: var(--rk-foreground);
+    }
+    :root .iconcolor-green {
+      color: var(--rk-green);
+    }
+    :root .iconcolor-red {
+      color: var(--rk-red);
+    }
+    :root .b-folders .is-flagged .flag-icon::after,
+    :root .messageListItem.hasFlaggedSubMessage .flagParent::after,
+    :root .messageListItem.msgflag-\\flagged .flagParent::after {
+      color: #facb9b;
+    }
+    :root .msgflag-\$important .checkboxMessage {
+      background-color: var(--rk-red);
+    }
+    :root .msgflag-\$important.focused {
+      background-color: rgb(from var(--rk-red) r g b / 0.3);
+    }
+    :root .msgflag-\$important:not(.focused) {
+      color: var(--rk-red);
+    }
+    :root .msgflag-\$todo .checkboxMessage {
+      background-color: var(--rk-blue);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$todo.focused {
+      background-color: rgb(from var(--rk-blue) r g b / 0.3);
+    }
+    :root .msgflag-\$todo:not(.focused) {
+      color: var(--rk-blue);
+    }
+    :root .msgflag-\$label5 .checkboxMessage {
+      background-color: hsl(from var(--rk-magenta) h s calc(l - 10));
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label4 .checkboxMessage {
+      background-color: var(--rk-blue);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label3 .checkboxMessage {
+      background-color: var(--rk-green);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label2 .checkboxMessage {
+      background-color: #facb9b;
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label1 .checkboxMessage {
+      background-color: var(--rk-red);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label5.focused {
+      background-color: rgb(from var(--rk-magenta) r g b / 0.3);
+    }
+    :root .msgflag-\$label4.focused {
+      background-color: rgb(from var(--rk-blue) r g b / 0.3);
+    }
+    :root .msgflag-\$label3.focused {
+      background-color: rgb(from var(--rk-green) r g b / 0.3);
+    }
+    :root .msgflag-\$label2.focused {
+      background-color: rgb(from color-mix(in srgb, var(--rk-red) 50%, var(--rk-yellow)) r g b / 0.3);
+    }
+    :root .msgflag-\$label1.focused {
+      background-color: rgb(from var(--rk-red) r g b / 0.3);
+    }
+    :root .msgflag-\$label5:not(.focused) {
+      color: hsl(from var(--rk-magenta) h s calc(l - 10));
+    }
+    :root .msgflag-\$label4:not(.focused) {
+      color: var(--rk-blue);
+    }
+    :root .msgflag-\$label3:not(.focused) {
+      color: var(--rk-green);
+    }
+    :root .msgflag-\$label2:not(.focused) {
+      color: #facb9b;
+    }
+    :root .msgflag-\$label1:not(.focused) {
+      color: var(--rk-red);
+    }
+    :root .messageList .b-content .listSearchDesc {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root #V-Settings-Themes figure.selected {
+      background-color: rgb(from var(--rk-green) r g b / 0.4);
+      border-color: var(--rk-foreground);
+    }
+    :root #V-Settings-Themes figure:hover {
+      border-color: var(--rk-surface0);
+    }
+    :root #V-PopupsContacts .e-contact-item.focused,
+    :root .messageListItem.focused {
+      border-left-color: var(--rk-bright-black);
+      background-color: var(--rk-surface0);
+    }
+    :root #V-PopupsContacts .e-contact-item.checked,
+    :root .messageListItem.checked {
+      border-left-color: hsl(from var(--rk-accent) h s calc(l + 10));
+    }
+    :root #V-PopupsContacts .e-contact-item.checked.focused,
+    :root .messageListItem.checked.focused,
+    :root #V-PopupsContacts .e-contact-item.selected,
+    :root .messageListItem.selected {
+      border-left-color: var(--rk-accent);
+    }
+    :root #V-PopupsContacts .e-contact-item.selected,
+    :root .messageListItem.selected {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root #V-PopupsContacts .e-contact-item {
+      border-left-color: var(--rk-surface0);
+    }
+    :root .squire-toolbar,
+    :root #V-PopupsCompose .attachmentAreaParent {
+      border-color: var(--rk-surface0);
+    }
+    :root #V-PopupsCompose header {
+      color: var(--rk-foreground);
+    }
+    :root #V-PopupsCompose header div.pull-right a.minimize-custom,
+    :root #V-PopupsCompose .close,
+    :root .close {
+      border-color: var(--rk-foreground);
+      color: var(--rk-foreground);
+    }
+    :root .emailaddresses li[draggable] {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-surface0);
+      box-shadow: 0 1px 0 rgb(from var(--rk-mantle) r g b / 0.75) inset;
+      color: var(--rk-foreground);
+    }
+    :root .emailaddresses li a {
+      color: var(--rk-surface0);
+    }
+    :root div:has(> .bodyText) {
+      color: #333;
+      background-color: #fff;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --main-color: var(--rk-foreground);
+      --main-bg-color: var(--rk-background);
+      --border-color: var(--rk-surface0);
+      --dropdown-menu-color: var(--rk-foreground);
+      --dropdown-menu-bg-color: var(--rk-background);
+      --dropdown-menu-hover-bg-color: var(--rk-black);
+      --dropdown-menu-hover-color: var(--rk-foreground);
+      --dropdown-menu-disabled-color: var(--rk-white);
+      --dropdown-menu-border-clr: var(--rk-surface0);
+      --folders-color: var(--rk-foreground);
+      --folders-disabled-color: var(--rk-bright-black);
+      --folders-selected-color: var(--rk-blue);
+      --folders-selected-bg-color: rgb(from var(--rk-blue) r g b / 0.1);
+      --folders-focused-color: var(--rk-blue);
+      --folders-hover-color: var(--rk-foreground);
+      --folders-hover-bg-color: var(--rk-background);
+      --folders-drop-color: var(--rk-foreground);
+      --settings-menu-color: var(--rk-foreground);
+      --settings-menu-selected-color: var(--rk-blue);
+      --settings-menu-selected-bg-color: rgb(from var(--rk-blue) r g b / 0.1);
+      --settings-menu-hover-color: var(--rk-foreground);
+      --settings-menu-hover-bg-color: var(--rk-background);
+      --message-list-toolbar-bg-color: var(--rk-overlay0);
+      --panel-bg-clr: var(--rk-background);
+      --message-header-bg-clr: var(--rk-mantle);
+      --hr-color: var(--rk-surface0);
+      --dialog-bg-clr: var(--rk-background);
+      --dialog-clr: var(--rk-foreground);
+      --tr-hover-bg-clr: var(--rk-crust);
+      --loading-color: var(--rk-foreground);
+      --login-color: var(--rk-foreground);
+      --login-bg-color: var(--rk-crust);
+      --tab-hover-border-clr: var(--rk-surface0);
+      --tab-active-bg-clr: var(--rk-crust);
+      --tr-odd-bg-clr: var(--rk-mantle);
+      /* Login page */
+      /* Inbox */
+      /* Buttons */
+      --btn-clr: var(--rk-foreground);
+      --btn-border-clr: var(--rk-overlay0);
+      /* Links */
+      --link-color: var(--rk-blue);
+      /* Inputs */
+      --input-bg-clr: var(--rk-background);
+      --input-border-clr: var(--rk-surface0);
+      --input-focus-border-clr: var(--rk-overlay0);
+      --input-clr: var(--rk-bright-white);
+      /* stylelint-disable property-disallowed-list */
+      /* stylelint-enable property-disallowed-list */
+      /* Nothing selected */
+      /* Loading messages */
+      /* Tags */
+      /* Profile pictures */
+      /* Settings */
+      /* Send mail modal */
+      /* Minimize and close icons */
+      /* Email address field */
+      /* Untheme message content */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .LoginView .btn,
+    :root .LoginView input {
+      border-color: var(--rk-surface0);
+    }
+    :root .LoginView input:focus,
+    :root .LoginView input:hover {
+      border-color: var(--rk-black);
+    }
+    :root .messageItemHeader,
+    :root .bodySubHeader,
+    :root .thm-message-list-top-toolbar,
+    :root .thm-message-list-bottom-toolbar {
+      background: var(--rk-mantle) !important;
+    }
+    :root .btn [class^="icon-"] {
+      color: var(--rk-foreground);
+    }
+    :root .btn.btn-success {
+      background-color: rgb(from var(--rk-green) r g b / 0.2);
+    }
+    :root .btn.btn-success,
+    :root .btn.btn-success [class^="icon-"] {
+      color: var(--rk-green) !important;
+    }
+    :root .btn.btn-success:hover,
+    :root .btn.btn-success:active {
+      background-color: rgb(from var(--rk-green) r g b / 0.4);
+    }
+    :root .btn.btn-warning {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.2);
+    }
+    :root .btn.btn-warning,
+    :root .btn.btn-warning [class^="icon-"] {
+      color: var(--rk-yellow) !important;
+    }
+    :root .btn.btn-warning:hover,
+    :root .btn.btn-warning:active {
+      background-color: rgb(from var(--rk-yellow) r g b / 0.4);
+    }
+    :root .btn.btn-danger {
+      background-color: rgb(from var(--rk-red) r g b / 0.2);
+    }
+    :root .btn.btn-danger,
+    :root .btn.btn-danger [class^="icon-"] {
+      color: var(--rk-red) !important;
+    }
+    :root .btn.btn-danger:hover,
+    :root .btn.btn-danger:active {
+      background-color: rgb(from var(--rk-red) r g b / 0.4);
+    }
+    :root .btn.disabled,
+    :root .btn.disabled.fontastic,
+    :root .btn.disabled .fontastic {
+      color: var(--rk-surface0) !important;
+    }
+    :root .btn,
+    :root .btn.disabled,
+    :root .btn[disabled],
+    :root .btn.disabled:hover,
+    :root .btn[disabled]:hover {
+      border-color: var(--rk-surface0) !important;
+      text-shadow: none !important;
+      background-color: var(--rk-background);
+    }
+    :root .btn:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root #messageItem .b-text-part a:visited {
+      color: var(--rk-accent);
+    }
+    :root .select,
+    :root select {
+      background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20height%3D%2210px%22%20width%3D%2215px%22%3E%3Ctext%20x%3D%220%22%20y%3D%2210%22%20fill%3D%22%23bac2de%22%3E%E2%96%BE%3C/text%3E%3C/svg%3E") !important;
+    }
+    :root .e-checkbox.material-design input:checked + div {
+      border-color: hsl(from var(--rk-green) h s calc(l - 10));
+    }
+    @keyframes checkmark-to-box {
+      0% {
+        top: -1px;
+        left: 5px;
+        width: 10px;
+        height: 18px;
+        border: 2px solid hsl(from var(--rk-green) h s calc(l - 10));
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+      50% {
+        top: 13px;
+        left: 5px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+      }
+      100% {
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--rk-overlay0);
+        transform: rotate(0);
+      }
+    }
+    @keyframes box-to-checkmark {
+      0% {
+        top: 0;
+        left: 0;
+        width: 18px;
+        height: 18px;
+        border: 2px solid var(--rk-overlay0);
+        transform: rotate(0);
+      }
+      50% {
+        top: 13px;
+        left: 5px;
+        width: 4px;
+        height: 4px;
+        transform: rotate(45deg);
+      }
+      100% {
+        top: -1px;
+        left: 5px;
+        width: 10px;
+        height: 18px;
+        border: 2px solid hsl(from var(--rk-green) h s calc(l - 10));
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+    }
+    :root .messageView .b-message-view-desc,
+    :root #V-PopupsContacts .b-view-content .b-contact-view-desc {
+      color: var(--rk-overlay0);
+    }
+    :root .messageList .b-content .listDragOver,
+    :root .messageList .b-content .listEmptyMessage,
+    :root .messageList .b-content .listError,
+    :root .messageList .b-content .listLoading {
+      color: var(--rk-overlay0);
+    }
+    :root .messageList .b-content .listError {
+      color: var(--rk-red);
+    }
+    :root #messageItem .loading,
+    :root #V-PopupsContacts .b-list-content .listEmptyList,
+    :root #V-PopupsContacts .b-list-content .listEmptyListLoading,
+    :root #V-PopupsContacts .b-list-content .listEmptySearchList {
+      color: var(--rk-overlay0);
+    }
+    :root .icon-spinner {
+      border-color: var(--rk-black);
+      border-top-color: var(--rk-foreground);
+    }
+    :root .iconcolor-green {
+      color: var(--rk-green);
+    }
+    :root .iconcolor-red {
+      color: var(--rk-red);
+    }
+    :root .b-folders .is-flagged .flag-icon::after,
+    :root .messageListItem.hasFlaggedSubMessage .flagParent::after,
+    :root .messageListItem.msgflag-\\flagged .flagParent::after {
+      color: #facb9b;
+    }
+    :root .msgflag-\$important .checkboxMessage {
+      background-color: var(--rk-red);
+    }
+    :root .msgflag-\$important.focused {
+      background-color: rgb(from var(--rk-red) r g b / 0.3);
+    }
+    :root .msgflag-\$important:not(.focused) {
+      color: var(--rk-red);
+    }
+    :root .msgflag-\$todo .checkboxMessage {
+      background-color: var(--rk-blue);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$todo.focused {
+      background-color: rgb(from var(--rk-blue) r g b / 0.3);
+    }
+    :root .msgflag-\$todo:not(.focused) {
+      color: var(--rk-blue);
+    }
+    :root .msgflag-\$label5 .checkboxMessage {
+      background-color: hsl(from var(--rk-magenta) h s calc(l - 10));
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label4 .checkboxMessage {
+      background-color: var(--rk-blue);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label3 .checkboxMessage {
+      background-color: var(--rk-green);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label2 .checkboxMessage {
+      background-color: #facb9b;
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label1 .checkboxMessage {
+      background-color: var(--rk-red);
+      color: var(--rk-foreground);
+    }
+    :root .msgflag-\$label5.focused {
+      background-color: rgb(from var(--rk-magenta) r g b / 0.3);
+    }
+    :root .msgflag-\$label4.focused {
+      background-color: rgb(from var(--rk-blue) r g b / 0.3);
+    }
+    :root .msgflag-\$label3.focused {
+      background-color: rgb(from var(--rk-green) r g b / 0.3);
+    }
+    :root .msgflag-\$label2.focused {
+      background-color: rgb(from color-mix(in srgb, var(--rk-red) 50%, var(--rk-yellow)) r g b / 0.3);
+    }
+    :root .msgflag-\$label1.focused {
+      background-color: rgb(from var(--rk-red) r g b / 0.3);
+    }
+    :root .msgflag-\$label5:not(.focused) {
+      color: hsl(from var(--rk-magenta) h s calc(l - 10));
+    }
+    :root .msgflag-\$label4:not(.focused) {
+      color: var(--rk-blue);
+    }
+    :root .msgflag-\$label3:not(.focused) {
+      color: var(--rk-green);
+    }
+    :root .msgflag-\$label2:not(.focused) {
+      color: #facb9b;
+    }
+    :root .msgflag-\$label1:not(.focused) {
+      color: var(--rk-red);
+    }
+    :root .messageList .b-content .listSearchDesc {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root #V-Settings-Themes figure.selected {
+      background-color: rgb(from var(--rk-green) r g b / 0.4);
+      border-color: var(--rk-foreground);
+    }
+    :root #V-Settings-Themes figure:hover {
+      border-color: var(--rk-surface0);
+    }
+    :root #V-PopupsContacts .e-contact-item.focused,
+    :root .messageListItem.focused {
+      border-left-color: var(--rk-bright-black);
+      background-color: var(--rk-surface0);
+    }
+    :root #V-PopupsContacts .e-contact-item.checked,
+    :root .messageListItem.checked {
+      border-left-color: hsl(from var(--rk-accent) h s calc(l + 10));
+    }
+    :root #V-PopupsContacts .e-contact-item.checked.focused,
+    :root .messageListItem.checked.focused,
+    :root #V-PopupsContacts .e-contact-item.selected,
+    :root .messageListItem.selected {
+      border-left-color: var(--rk-accent);
+    }
+    :root #V-PopupsContacts .e-contact-item.selected,
+    :root .messageListItem.selected {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root #V-PopupsContacts .e-contact-item {
+      border-left-color: var(--rk-surface0);
+    }
+    :root .squire-toolbar,
+    :root #V-PopupsCompose .attachmentAreaParent {
+      border-color: var(--rk-surface0);
+    }
+    :root #V-PopupsCompose header {
+      color: var(--rk-foreground);
+    }
+    :root #V-PopupsCompose header div.pull-right a.minimize-custom,
+    :root #V-PopupsCompose .close,
+    :root .close {
+      border-color: var(--rk-foreground);
+      color: var(--rk-foreground);
+    }
+    :root .emailaddresses li[draggable] {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-surface0);
+      box-shadow: 0 1px 0 rgb(from var(--rk-mantle) r g b / 0.75) inset;
+      color: var(--rk-foreground);
+    }
+    :root .emailaddresses li a {
+      color: var(--rk-surface0);
+    }
+    :root div:has(> .bodyText) {
+      color: #333;
+      background-color: #fff;
+    }
+  }
+}

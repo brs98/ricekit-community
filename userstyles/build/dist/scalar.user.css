@@ -1,0 +1,123 @@
+/* ==UserStyle==
+@name Scalar Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/scalar
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/scalar
+@version 2026.01.20.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/scalar.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ascalar
+@description Soothing pastel theme for Scalar
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("scalar.com") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+  code.hljs {
+    background: none !important;
+  }
+  .light-mode {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --scalar-color-1: var(--rk-foreground);
+    --scalar-color-2: var(--rk-bright-white);
+    --scalar-color-3: var(--rk-white);
+    --scalar-color-accent: var(--rk-accent);
+    --scalar-background-1: var(--rk-background);
+    --scalar-background-2: var(--rk-surface0);
+    --scalar-background-3: var(--rk-black);
+    --scalar-background-accent: rgb(from var(--rk-accent) r g b / 0.12);
+    --scalar-border-color: var(--rk-black);
+    --scalar-color-green: var(--rk-green);
+    --scalar-color-red: var(--rk-red);
+    --scalar-color-yellow: var(--rk-yellow);
+    --scalar-color-blue: var(--rk-blue);
+    --scalar-color-orange: var(--rk-peach);
+    --scalar-color-purple: var(--rk-accent);
+    --scalar-selection-1: rgb(from var(--rk-accent) r g b / 0.3);
+    --scalar-button-1: var(--rk-accent);
+    --scalar-button-1-hover: hsl(from var(--rk-accent) h s calc(l - 5));
+    --scalar-button-1-color: var(--rk-background);
+    background-color: var(--rk-background);
+  }
+  .light-mode ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .light-mode input::placeholder,
+  .light-mode textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .light-mode .sidebar {
+    --scalar-sidebar-background-1: var(--rk-mantle);
+    --scalar-sidebar-item-hover-background: var(--rk-surface0);
+    --scalar-sidebar-item-active-background: rgb(from var(--rk-accent) r g b / 0.1);
+    --scalar-sidebar-color-active: var(--rk-accent);
+  }
+  .light-mode .scalar-code-block,
+  .light-mode .t-editor__code {
+    background-color: var(--rk-mantle);
+  }
+  .light-mode .brightness-lifted {
+    filter: none;
+  }
+  .light-mode .text-white {
+    color: var(--rk-background);
+  }
+  .light-mode .logo {
+    filter: none;
+  }
+  .dark-mode {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --scalar-color-1: var(--rk-foreground);
+    --scalar-color-2: var(--rk-bright-white);
+    --scalar-color-3: var(--rk-white);
+    --scalar-color-accent: var(--rk-accent);
+    --scalar-background-1: var(--rk-background);
+    --scalar-background-2: var(--rk-surface0);
+    --scalar-background-3: var(--rk-black);
+    --scalar-background-accent: rgb(from var(--rk-accent) r g b / 0.12);
+    --scalar-border-color: var(--rk-black);
+    --scalar-color-green: var(--rk-green);
+    --scalar-color-red: var(--rk-red);
+    --scalar-color-yellow: var(--rk-yellow);
+    --scalar-color-blue: var(--rk-blue);
+    --scalar-color-orange: var(--rk-peach);
+    --scalar-color-purple: var(--rk-accent);
+    --scalar-selection-1: rgb(from var(--rk-accent) r g b / 0.3);
+    --scalar-button-1: var(--rk-accent);
+    --scalar-button-1-hover: hsl(from var(--rk-accent) h s calc(l - 5));
+    --scalar-button-1-color: var(--rk-background);
+    background-color: var(--rk-background);
+  }
+  .dark-mode ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .dark-mode input::placeholder,
+  .dark-mode textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .dark-mode .sidebar {
+    --scalar-sidebar-background-1: var(--rk-mantle);
+    --scalar-sidebar-item-hover-background: var(--rk-surface0);
+    --scalar-sidebar-item-active-background: rgb(from var(--rk-accent) r g b / 0.1);
+    --scalar-sidebar-color-active: var(--rk-accent);
+  }
+  .dark-mode .scalar-code-block,
+  .dark-mode .t-editor__code {
+    background-color: var(--rk-mantle);
+  }
+  .dark-mode .brightness-lifted {
+    filter: none;
+  }
+  .dark-mode .text-white {
+    color: var(--rk-background);
+  }
+  .dark-mode .logo {
+    filter: none;
+  }
+}

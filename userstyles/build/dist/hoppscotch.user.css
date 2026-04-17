@@ -1,0 +1,163 @@
+/* ==UserStyle==
+@name Hoppscotch Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/hoppscotch
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/hoppscotch
+@version 2025.12.27.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/hoppscotch.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ahoppscotch
+@description Soothing pastel theme for Hoppscotch
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("hoppscotch.io") {
+  :root.dark {
+    color-scheme: dark;
+    --primary-color: var(--rk-background);
+    --primary-light-color: var(--rk-mantle);
+    --primary-dark-color: var(--rk-crust);
+    --primary-contrast-color: var(--rk-mantle);
+    --secondary-color: var(--rk-white);
+    --secondary-light-color: var(--rk-white);
+    --secondary-dark-color: var(--rk-bright-white);
+    --divider-color: var(--rk-surface0);
+    --divider-light-color: var(--rk-surface0);
+    --divider-dark-color: var(--rk-surface0);
+    --error-color: var(--rk-red);
+    --tooltip-color: var(--rk-foreground);
+    --popover-color: var(--rk-crust);
+    --editor-theme: "vscode-esque";
+    --editor-type-color: rgb(from var(--rk-accent) r g b / 0.9);
+    --editor-name-color: var(--rk-blue);
+    --editor-operator-color: var(--rk-accent);
+    --editor-invalid-color: var(--rk-maroon);
+    --editor-separator-color: var(--rk-overlay0);
+    --editor-meta-color: var(--rk-overlay0);
+    --editor-variable-color: var(--rk-green);
+    --editor-link-color: var(--rk-sapphire);
+    --editor-constant-color: rgb(from var(--rk-lavender) r g b / 0.012);
+    --editor-keyword-color: var(--rk-red);
+    --accent-color: var(--rk-accent);
+    --accent-light-color: rgb(from var(--rk-accent) r g b / NaN);
+    --accent-dark-color: rgb(from var(--rk-accent) r g b / NaN);
+    --accent-contrast-color: var(--rk-crust);
+    --gradient-from-color: rgb(from var(--rk-accent) r g b / NaN);
+    --gradient-via-color: rgb(from var(--rk-accent) r g b / NaN);
+    --gradient-to-color: rgb(from var(--rk-accent) r g b / NaN);
+    --editor-process-color: var(--rk-foreground);
+    --banner-info-color: rgb(from var(--rk-blue) r g b / 0.2);
+    --method-get-color: var(--rk-green);
+    --method-post-color: var(--rk-yellow);
+    --method-put-color: var(--rk-sapphire);
+    --method-patch-color: var(--rk-accent);
+    --method-delete-color: var(--rk-red);
+    --method-head-color: var(--rk-cyan);
+    --method-options-color: var(--rk-lavender);
+    --method-default-color: var(--rk-overlay1);
+    --status-info-color: var(--rk-blue);
+    --status-success-color: var(--rk-green);
+    --status-redirect-color: var(--rk-peach);
+    --status-critical-error-color: var(--rk-red);
+    --status-server-error-color: var(--rk-red);
+    --status-missing-data-color: var(--rk-overlay0);
+  }
+  :root.dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.dark input::placeholder,
+  :root.dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.dark .cm-editor {
+    background: var(--rk-mantle);
+  }
+  :root.dark .cm-editor .cm-placeholder {
+    color: var(--rk-foreground);
+  }
+  :root.dark .cm-focused .cm-activeLine {
+    background-color: var(--rk-background);
+  }
+  :root.dark .cm-focused .cm-activeLineGutter {
+    background-color: var(--rk-surface0);
+  }
+  :root.dark .cm-selectionBackground {
+    background: rgb(from var(--rk-accent) r g b / 0.3) !important;
+  }
+  :root.light {
+    color-scheme: dark;
+    --primary-color: var(--rk-background);
+    --primary-light-color: var(--rk-mantle);
+    --primary-dark-color: var(--rk-crust);
+    --primary-contrast-color: var(--rk-mantle);
+    --secondary-color: var(--rk-white);
+    --secondary-light-color: var(--rk-white);
+    --secondary-dark-color: var(--rk-bright-white);
+    --divider-color: var(--rk-surface0);
+    --divider-light-color: var(--rk-surface0);
+    --divider-dark-color: var(--rk-surface0);
+    --error-color: var(--rk-red);
+    --tooltip-color: var(--rk-foreground);
+    --popover-color: var(--rk-crust);
+    --editor-theme: "vscode-esque";
+    --editor-type-color: rgb(from var(--rk-accent) r g b / 0.9);
+    --editor-name-color: var(--rk-blue);
+    --editor-operator-color: var(--rk-accent);
+    --editor-invalid-color: var(--rk-maroon);
+    --editor-separator-color: var(--rk-overlay0);
+    --editor-meta-color: var(--rk-overlay0);
+    --editor-variable-color: var(--rk-green);
+    --editor-link-color: var(--rk-sapphire);
+    --editor-constant-color: rgb(from var(--rk-lavender) r g b / 0.012);
+    --editor-keyword-color: var(--rk-red);
+    --accent-color: var(--rk-accent);
+    --accent-light-color: rgb(from var(--rk-accent) r g b / NaN);
+    --accent-dark-color: rgb(from var(--rk-accent) r g b / NaN);
+    --accent-contrast-color: var(--rk-crust);
+    --gradient-from-color: rgb(from var(--rk-accent) r g b / NaN);
+    --gradient-via-color: rgb(from var(--rk-accent) r g b / NaN);
+    --gradient-to-color: rgb(from var(--rk-accent) r g b / NaN);
+    --editor-process-color: var(--rk-foreground);
+    --banner-info-color: rgb(from var(--rk-blue) r g b / 0.2);
+    --method-get-color: var(--rk-green);
+    --method-post-color: var(--rk-yellow);
+    --method-put-color: var(--rk-sapphire);
+    --method-patch-color: var(--rk-accent);
+    --method-delete-color: var(--rk-red);
+    --method-head-color: var(--rk-cyan);
+    --method-options-color: var(--rk-lavender);
+    --method-default-color: var(--rk-overlay1);
+    --status-info-color: var(--rk-blue);
+    --status-success-color: var(--rk-green);
+    --status-redirect-color: var(--rk-peach);
+    --status-critical-error-color: var(--rk-red);
+    --status-server-error-color: var(--rk-red);
+    --status-missing-data-color: var(--rk-overlay0);
+  }
+  :root.light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.light input::placeholder,
+  :root.light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.light .cm-editor {
+    background: var(--rk-mantle);
+  }
+  :root.light .cm-editor .cm-placeholder {
+    color: var(--rk-foreground);
+  }
+  :root.light .cm-focused .cm-activeLine {
+    background-color: var(--rk-background);
+  }
+  :root.light .cm-focused .cm-activeLineGutter {
+    background-color: var(--rk-surface0);
+  }
+  :root.light .cm-selectionBackground {
+    background: rgb(from var(--rk-accent) r g b / 0.3) !important;
+  }
+}

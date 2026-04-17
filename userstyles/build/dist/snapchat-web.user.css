@@ -1,0 +1,207 @@
+/* ==UserStyle==
+@name Snapchat Web Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/snapchat-web
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/snapchat-web
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/snapchat-web.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Asnapchat-web
+@description Soothing pastel theme for Snapchat Web
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document url-prefix("https://www.snapchat.com/web") {
+  :root[theme="dark"] {
+    color-scheme: dark;
+    /* Snapchat applies the variables (overrides?) to specific elements so we need to apply to every element (with high specificity) to override those. */
+  }
+  :root[theme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[theme="dark"] input::placeholder,
+  :root[theme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[theme="dark"],
+  :root[theme="dark"] body > main#root * {
+    --sigMain: var(--rk-background);
+    --sigSurface: var(--rk-mantle);
+    --sigSurfaceRGB: 24, 24, 37;
+    --sigAboveSurface: var(--rk-crust);
+    --sigSurfaceDown: var(--rk-background);
+    --sigSubscreen: var(--rk-crust);
+    --sigTextField: var(--rk-crust);
+    --sigDivider: var(--rk-surface0);
+    --sigDividerLight: var(--rk-surface0);
+    --sigColorBackgroundBorder: var(--rk-surface0);
+    --sigBackgroundPrimary: var(--rk-background);
+    --sigBackgroundSecondary: var(--rk-mantle);
+    --sigBackgroundSecondaryHover: hsl(from var(--rk-mantle) h s calc(l - 5));
+    --sigBackgroundTertiary: var(--rk-crust);
+    --sigBackgroundMessageHover: var(--rk-black);
+    --sigBackgroundMessageSaved: var(--rk-surface0);
+    --sigBackgroundMessageSavedHover: var(--rk-bright-black);
+    --sigOverlay: rgb(from var(--rk-black) r g b / 0.4);
+    --sigOverlayHover: rgb(from var(--rk-black) r g b / 0.35);
+    --sigBrandSecondary: var(--rk-accent);
+    --sigObject: rgba(255, 255, 255, 0.05);
+    --sigTextPrimary: var(--rk-foreground);
+    --sigButtonOnPrimary: var(--rk-crust);
+    --sigTextSecondary: var(--rk-white);
+    --sigButtonOnSecondary: var(--rk-white);
+    --sigTextTertiary: var(--rk-bright-white);
+    --sigButtonOnTertiary: var(--rk-bright-white);
+    --sigTextNegative: var(--rk-red);
+    --sigButtonOnSuccess: var(--rk-background);
+    --sigButtonOnError: var(--rk-background);
+    --sigButtonOnNegative: var(--rk-background);
+    --sigButtonOnChatSurfaceCalling: var(--rk-background);
+    --sigTextPlayer: var(--rk-crust);
+    --sigButtonGreyHover: hsl(from var(--rk-surface0) h s calc(l - 5));
+    --sigButtonGreyActive: hsl(from var(--rk-surface0) h s calc(l - 8));
+    --sigButtonPrimary: var(--rk-accent);
+    --sigButtonPrimaryHover: hsl(from var(--rk-accent) h s calc(l - 5));
+    --sigButtonPrimaryActive: hsl(from var(--rk-accent) h s calc(l - 8));
+    --sigButtonSecondary: var(--rk-surface0);
+    --sigButtonSecondaryHover: var(--rk-black);
+    --sigButtonSecondaryActive: var(--rk-bright-black);
+    --sigButtonNegative: var(--rk-red);
+    --sigButtonError: var(--rk-red);
+    --sigButtonErrorHover: hsl(from var(--rk-red) h s calc(l - 5));
+    --sigButtonSuccess: var(--rk-green);
+    --sigButtonSuccessHover: hsl(from var(--rk-green) h s calc(l - 5));
+    --sigIconCalling: var(--rk-green);
+    --sigIconCallingHover: hsl(from var(--rk-green) h s calc(l - 5));
+    --sigChatSurfaceCalling: var(--rk-green);
+    --sigChatSurfaceCallingDisabled: hsl(from var(--rk-green) h s calc(l - 20));
+    --sigChatSurfaceCallingHover: hsl(from var(--rk-green) h s calc(l - 5));
+    --sigChat: var(--rk-blue);
+    --sigChatIcon: var(--rk-blue);
+    --sigSnapWithoutSound: var(--rk-red);
+    --sigSnapWithSound: var(--rk-accent);
+  }
+  :root[theme="dark"] button[title="New Chat"] path[fill="#fff"],
+  :root[theme="dark"] [id*="downshift-"] a path[fill="#fff"],
+  :root[theme="dark"] [aria-label="Unselect chosen user"] path[fill="#fff"] {
+    fill: var(--rk-crust);
+  }
+  :root[theme="dark"] button[title="New Chat"] path[fill="#51B7FF"],
+  :root[theme="dark"] [id*="downshift-"] a path[fill="#51B7FF"],
+  :root[theme="dark"] [aria-label="Unselect chosen user"] path[fill="#51B7FF"] {
+    fill: var(--rk-accent);
+  }
+  :root[theme="dark"] form > div > div > div[role="searchbox"] button {
+    color: var(--rk-crust);
+  }
+  :root[theme="dark"] form > div > div > div[role="searchbox"] button path {
+    fill: var(--rk-crust);
+  }
+  :root[theme="dark"] li button[type="button"].replyText {
+    background-color: rgba(30, 30, 30, 0.8);
+  }
+  :root[theme="dark"] [data-projection-id] button {
+    --sigColorAlwaysWhite: var(--rk-surface0);
+  }
+  :root[theme="dark"] img[role="presentation"][src^="blob:"] + div > svg > path[fill="#fff"] {
+    fill: var(--rk-foreground);
+  }
+  :root[theme="light"] {
+    color-scheme: dark;
+    /* Snapchat applies the variables (overrides?) to specific elements so we need to apply to every element (with high specificity) to override those. */
+  }
+  :root[theme="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[theme="light"] input::placeholder,
+  :root[theme="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[theme="light"],
+  :root[theme="light"] body > main#root * {
+    --sigMain: var(--rk-background);
+    --sigSurface: var(--rk-mantle);
+    --sigSurfaceRGB: 24, 24, 37;
+    --sigAboveSurface: var(--rk-crust);
+    --sigSurfaceDown: var(--rk-background);
+    --sigSubscreen: var(--rk-crust);
+    --sigTextField: var(--rk-crust);
+    --sigDivider: var(--rk-surface0);
+    --sigDividerLight: var(--rk-surface0);
+    --sigColorBackgroundBorder: var(--rk-surface0);
+    --sigBackgroundPrimary: var(--rk-background);
+    --sigBackgroundSecondary: var(--rk-mantle);
+    --sigBackgroundSecondaryHover: hsl(from var(--rk-mantle) h s calc(l - 5));
+    --sigBackgroundTertiary: var(--rk-crust);
+    --sigBackgroundMessageHover: var(--rk-black);
+    --sigBackgroundMessageSaved: var(--rk-surface0);
+    --sigBackgroundMessageSavedHover: var(--rk-bright-black);
+    --sigOverlay: rgb(from var(--rk-black) r g b / 0.4);
+    --sigOverlayHover: rgb(from var(--rk-black) r g b / 0.35);
+    --sigBrandSecondary: var(--rk-accent);
+    --sigObject: rgba(255, 255, 255, 0.05);
+    --sigTextPrimary: var(--rk-foreground);
+    --sigButtonOnPrimary: var(--rk-crust);
+    --sigTextSecondary: var(--rk-white);
+    --sigButtonOnSecondary: var(--rk-white);
+    --sigTextTertiary: var(--rk-bright-white);
+    --sigButtonOnTertiary: var(--rk-bright-white);
+    --sigTextNegative: var(--rk-red);
+    --sigButtonOnSuccess: var(--rk-background);
+    --sigButtonOnError: var(--rk-background);
+    --sigButtonOnNegative: var(--rk-background);
+    --sigButtonOnChatSurfaceCalling: var(--rk-background);
+    --sigTextPlayer: var(--rk-crust);
+    --sigButtonGreyHover: hsl(from var(--rk-surface0) h s calc(l - 5));
+    --sigButtonGreyActive: hsl(from var(--rk-surface0) h s calc(l - 8));
+    --sigButtonPrimary: var(--rk-accent);
+    --sigButtonPrimaryHover: hsl(from var(--rk-accent) h s calc(l - 5));
+    --sigButtonPrimaryActive: hsl(from var(--rk-accent) h s calc(l - 8));
+    --sigButtonSecondary: var(--rk-surface0);
+    --sigButtonSecondaryHover: var(--rk-black);
+    --sigButtonSecondaryActive: var(--rk-bright-black);
+    --sigButtonNegative: var(--rk-red);
+    --sigButtonError: var(--rk-red);
+    --sigButtonErrorHover: hsl(from var(--rk-red) h s calc(l - 5));
+    --sigButtonSuccess: var(--rk-green);
+    --sigButtonSuccessHover: hsl(from var(--rk-green) h s calc(l - 5));
+    --sigIconCalling: var(--rk-green);
+    --sigIconCallingHover: hsl(from var(--rk-green) h s calc(l - 5));
+    --sigChatSurfaceCalling: var(--rk-green);
+    --sigChatSurfaceCallingDisabled: hsl(from var(--rk-green) h s calc(l - 20));
+    --sigChatSurfaceCallingHover: hsl(from var(--rk-green) h s calc(l - 5));
+    --sigChat: var(--rk-blue);
+    --sigChatIcon: var(--rk-blue);
+    --sigSnapWithoutSound: var(--rk-red);
+    --sigSnapWithSound: var(--rk-accent);
+  }
+  :root[theme="light"] button[title="New Chat"] path[fill="#fff"],
+  :root[theme="light"] [id*="downshift-"] a path[fill="#fff"],
+  :root[theme="light"] [aria-label="Unselect chosen user"] path[fill="#fff"] {
+    fill: var(--rk-crust);
+  }
+  :root[theme="light"] button[title="New Chat"] path[fill="#51B7FF"],
+  :root[theme="light"] [id*="downshift-"] a path[fill="#51B7FF"],
+  :root[theme="light"] [aria-label="Unselect chosen user"] path[fill="#51B7FF"] {
+    fill: var(--rk-accent);
+  }
+  :root[theme="light"] form > div > div > div[role="searchbox"] button {
+    color: var(--rk-crust);
+  }
+  :root[theme="light"] form > div > div > div[role="searchbox"] button path {
+    fill: var(--rk-crust);
+  }
+  :root[theme="light"] li button[type="button"].replyText {
+    background-color: rgba(30, 30, 30, 0.8);
+  }
+  :root[theme="light"] [data-projection-id] button {
+    --sigColorAlwaysWhite: var(--rk-surface0);
+  }
+  :root[theme="light"] img[role="presentation"][src^="blob:"] + div > svg > path[fill="#fff"] {
+    fill: var(--rk-foreground);
+  }
+}

@@ -1,0 +1,989 @@
+/* ==UserStyle==
+@name React.dev Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/react.dev
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/react.dev
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/react.dev.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Areact.dev
+@description Soothing pastel theme for React.dev
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("react.dev") {
+  html.dark {
+    color-scheme: dark;
+    --docsearch-modal-background: var(--rk-background) !important;
+    --docsearch-hit-background: var(--rk-mantle) !important;
+    --docsearch-highlight-color: var(--rk-accent) !important;
+    --docsearch-primary-color: var(--rk-accent) !important;
+    --docsearch-container-background: rgba(127, 132, 156, 0.8) !important;
+    --docsearch-text-color: var(--rk-foreground) !important;
+    --docsearch-logo-color: var(--rk-blue) !important;
+    --docsearch-muted-color: var(--rk-white) !important;
+    --docsearch-searchbox-background: var(--rk-accent) !important;
+    --docsearch-searchbox-focus-background: var(--rk-accent) !important;
+    --docsearch-hit-color: var(--rk-crust) !important;
+    --docsearch-hit-active-color: var(--rk-background) !important;
+    --docsearch-footer-background: var(--rk-overlay0) !important;
+    --docsearch-key-gradient: linear-gradient(-225deg, #1e1e2e, #11111b) !important;
+  }
+  html.dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html.dark input::placeholder,
+  html.dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html.dark svg {
+    color: var(--rk-accent) !important;
+  }
+  html.dark .text-primary {
+    color: var(--rk-foreground);
+  }
+  html.dark .dark\:text-primary-dark {
+    color: var(--rk-foreground);
+  }
+  html.dark .dark\:text-white {
+    color: var(--rk-foreground);
+  }
+  html.dark .text-secondary {
+    color: var(--rk-foreground);
+  }
+  html.dark .text-gray-30 {
+    color: var(--rk-bright-white);
+  }
+  html.dark .text-red-50,
+  html.dark .text-red-30 {
+    color: var(--rk-red) !important;
+  }
+  html.dark .text-gray-50 {
+    color: var(--rk-white);
+  }
+  html.dark .text-red-50,
+  html.dark .text-red-40 {
+    color: #f38ba8 !important;
+  }
+  html.dark .text-red-50 svg,
+  html.dark .text-red-40 svg {
+    color: #f38ba8 !important;
+  }
+  html.dark .text-purple-50,
+  html.dark .text-purple-30,
+  html.dark .text-purple-60 {
+    color: #cba6f7 !important;
+  }
+  html.dark .text-purple-50 svg,
+  html.dark .text-purple-30 svg,
+  html.dark .text-purple-60 svg {
+    color: #cba6f7 !important;
+  }
+  html.dark .text-blue-50,
+  html.dark .text-blue-40,
+  html.dark .text-blue-60 {
+    color: #89b4fa !important;
+  }
+  html.dark .text-blue-50 svg,
+  html.dark .text-blue-40 svg,
+  html.dark .text-blue-60 svg {
+    color: #89b4fa !important;
+  }
+  html.dark .text-yellow-40,
+  html.dark .text-yellow-50,
+  html.dark .text-yellow-60 {
+    color: #f9e2af !important;
+  }
+  html.dark .text-yellow-40 svg,
+  html.dark .text-yellow-50 svg,
+  html.dark .text-yellow-60 svg {
+    color: #f9e2af !important;
+  }
+  html.dark .text-green-60,
+  html.dark .text-green-40 {
+    color: var(--rk-green) !important;
+  }
+  html.dark .text-tertiary,
+  html.dark .text-tertiary-dark {
+    color: var(--rk-white);
+  }
+  html.dark .text-link,
+  html.dark .text-link-dark {
+    color: var(--rk-accent);
+  }
+  html.dark .hover\:text-link:hover,
+  html.dark .text-link:hover,
+  html.dark .text-link-dark:hover {
+    color: var(--rk-accent);
+  }
+  html.dark .hover\:bg-gray-80:hover,
+  html.dark .hover\:bg-gray-5:hover {
+    background-color: var(--rk-mantle);
+  }
+  html.dark .hover\:bg-card:hover {
+    background-color: var(--rk-crust);
+  }
+  html.dark a > code {
+    color: var(--rk-accent) !important;
+  }
+  html.dark .console-block code {
+    background-color: var(--rk-black) !important;
+    color: var(--rk-red) !important;
+  }
+  html.dark .sp-wrapper {
+    --sp-colors-accent: var(--rk-accent);
+    --sp-colors-clickable: var(--rk-flamingo);
+    --sp-colors-disabled: var(--rk-foreground);
+    --sp-colors-error: var(--rk-red);
+    --sp-colors-error-surface: var(--rk-maroon);
+    --sp-colors-surface1: var(--rk-surface0);
+    --sp-colors-surface2: var(--rk-black);
+    --sp-syntax-color-plain: var(--rk-foreground);
+    --sp-syntax-color-comment: var(--rk-overlay2);
+    --sp-syntax-color-keyword: var(--rk-accent);
+    --sp-syntax-color-tag: var(--rk-blue);
+    --sp-syntax-color-punctuation: var(--rk-overlay2);
+    --sp-syntax-color-definition: var(--rk-yellow);
+    --sp-syntax-color-property: var(--rk-blue);
+    --sp-syntax-color-static: var(--rk-peach);
+    --sp-syntax-color-string: var(--rk-green);
+  }
+  html.dark .border-blue-40 {
+    border-color: var(--rk-blue);
+  }
+  html.dark .border-b-4 {
+    border-color: var(--rk-foreground);
+  }
+  html.dark .border-yellow-40 {
+    border-color: var(--rk-yellow);
+  }
+  html.dark .border-purple-40 {
+    border-color: var(--rk-lavender);
+  }
+  html.dark .border-purple-10 {
+    border-color: var(--rk-accent);
+  }
+  html.dark .dark\:border-purple-30,
+  html.dark .border-purple-30 {
+    border-color: var(--rk-accent);
+  }
+  html.dark .border-green-40 {
+    border-color: var(--rk-green);
+  }
+  html.dark .hover\:border-gray-10:hover {
+    border-color: var(--rk-accent);
+  }
+  html.dark .border-gray-300,
+  html.dark .bg-gray-90 {
+    border-color: var(--rk-overlay2);
+  }
+  html.dark .border-gray-20 {
+    border-color: var(--rk-overlay1);
+  }
+  html.dark .border-link:hover {
+    border-color: var(--rk-accent);
+  }
+  html.dark .dark\:border-link-dark {
+    border-color: var(--rk-accent);
+  }
+  html.dark .bg-card-dark,
+  html.dark .bg-card {
+    background-color: var(--rk-surface0);
+  }
+  html.dark .bg-highlight {
+    background-color: var(--rk-surface0);
+  }
+  html.dark .bg-highlight-dark {
+    background-color: var(--rk-surface0);
+  }
+  html.dark .bg-github-highlight {
+    background-color: var(--rk-surface0);
+  }
+  html.dark .bg-link {
+    color: var(--rk-surface0);
+    background-color: var(--rk-accent);
+  }
+  html.dark .bg-gradient-left,
+  html.dark .bg-gradient-left-dark {
+    background-image: conic-gradient(from 90deg at -10% 100%, #181825 0deg, #1e1e2e 90deg, #11111b 1turn);
+  }
+  html.dark .bg-gray-3,
+  html.dark .bg-gray-5 {
+    background-color: var(--rk-crust);
+  }
+  html.dark .bg-gray-40\/5,
+  html.dark .bg-gray-60\/5 {
+    background-color: var(--rk-overlay1);
+  }
+  html.dark .bg-gray-40\/10,
+  html.dark .bg-gray-60\/10 {
+    background-color: var(--rk-overlay0);
+  }
+  html.dark .bg-gray-30,
+  html.dark .bg-gray-300,
+  html.dark .bg-gray-70,
+  html.dark .bg-gray-700 {
+    background-color: var(--rk-surface0);
+  }
+  html.dark .bg-gray-80,
+  html.dark .bg-gray-200,
+  html.dark .bg-gray-95 {
+    background-color: var(--rk-mantle);
+  }
+  html.dark .bg-black {
+    background-color: var(--rk-background);
+  }
+  html.dark .bg-green-5,
+  html.dark .bg-green-60,
+  html.dark .bg-green-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-green-5 p,
+  html.dark .bg-green-60 p,
+  html.dark .bg-green-40 p {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-green-5 button,
+  html.dark .bg-green-60 button,
+  html.dark .bg-green-40 button {
+    color: var(--rk-background) !important;
+    background-color: #a6e3a1 !important;
+  }
+  html.dark .bg-green-5 button svg,
+  html.dark .bg-green-60 button svg,
+  html.dark .bg-green-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html.dark .bg-green-5 .text-primary,
+  html.dark .bg-green-60 .text-primary,
+  html.dark .bg-green-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-green-5 .text-link,
+  html.dark .bg-green-60 .text-link,
+  html.dark .bg-green-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-green-5 .bg-highlight,
+  html.dark .bg-green-60 .bg-highlight,
+  html.dark .bg-green-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-green-5 .bg-link,
+  html.dark .bg-green-60 .bg-link,
+  html.dark .bg-green-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-red-5,
+  html.dark .bg-red-60 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-red-5 p,
+  html.dark .bg-red-60 p {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-red-5 button,
+  html.dark .bg-red-60 button {
+    color: var(--rk-background) !important;
+    background-color: #f38ba8 !important;
+  }
+  html.dark .bg-red-5 button svg,
+  html.dark .bg-red-60 button svg {
+    color: var(--rk-background) !important;
+  }
+  html.dark .bg-red-5 .text-primary,
+  html.dark .bg-red-60 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-red-5 .text-link,
+  html.dark .bg-red-60 .text-link {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-red-5 .bg-highlight,
+  html.dark .bg-red-60 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-red-5 .bg-link,
+  html.dark .bg-red-60 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-yellow-5,
+  html.dark .bg-yellow-60,
+  html.dark .bg-yellow-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-yellow-5 p,
+  html.dark .bg-yellow-60 p,
+  html.dark .bg-yellow-40 p {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-yellow-5 button,
+  html.dark .bg-yellow-60 button,
+  html.dark .bg-yellow-40 button {
+    color: var(--rk-background) !important;
+    background-color: #fab387 !important;
+  }
+  html.dark .bg-yellow-5 button svg,
+  html.dark .bg-yellow-60 button svg,
+  html.dark .bg-yellow-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html.dark .bg-yellow-5 .text-primary,
+  html.dark .bg-yellow-60 .text-primary,
+  html.dark .bg-yellow-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-yellow-5 .text-link,
+  html.dark .bg-yellow-60 .text-link,
+  html.dark .bg-yellow-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-yellow-5 .bg-highlight,
+  html.dark .bg-yellow-60 .bg-highlight,
+  html.dark .bg-yellow-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-yellow-5 .bg-link,
+  html.dark .bg-yellow-60 .bg-link,
+  html.dark .bg-yellow-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-purple-5,
+  html.dark .bg-purple-60,
+  html.dark .bg-purple-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-purple-5 p,
+  html.dark .bg-purple-60 p,
+  html.dark .bg-purple-40 p {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-purple-5 button,
+  html.dark .bg-purple-60 button,
+  html.dark .bg-purple-40 button {
+    color: var(--rk-background) !important;
+    background-color: #cba6f7 !important;
+  }
+  html.dark .bg-purple-5 button svg,
+  html.dark .bg-purple-60 button svg,
+  html.dark .bg-purple-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html.dark .bg-purple-5 .text-primary,
+  html.dark .bg-purple-60 .text-primary,
+  html.dark .bg-purple-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-purple-5 .text-link,
+  html.dark .bg-purple-60 .text-link,
+  html.dark .bg-purple-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-purple-5 .bg-highlight,
+  html.dark .bg-purple-60 .bg-highlight,
+  html.dark .bg-purple-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-purple-5 .bg-link,
+  html.dark .bg-purple-60 .bg-link,
+  html.dark .bg-purple-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-blue-10,
+  html.dark .bg-blue-60,
+  html.dark .bg-blue-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-blue-10 p,
+  html.dark .bg-blue-60 p,
+  html.dark .bg-blue-40 p {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-blue-10 button,
+  html.dark .bg-blue-60 button,
+  html.dark .bg-blue-40 button {
+    color: var(--rk-background) !important;
+    background-color: #89b4fa !important;
+  }
+  html.dark .bg-blue-10 button svg,
+  html.dark .bg-blue-60 button svg,
+  html.dark .bg-blue-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html.dark .bg-blue-10 .text-primary,
+  html.dark .bg-blue-60 .text-primary,
+  html.dark .bg-blue-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-blue-10 .text-link,
+  html.dark .bg-blue-60 .text-link,
+  html.dark .bg-blue-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-blue-10 .bg-highlight,
+  html.dark .bg-blue-60 .bg-highlight,
+  html.dark .bg-blue-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html.dark .bg-blue-10 .bg-link,
+  html.dark .bg-blue-60 .bg-link,
+  html.dark .bg-blue-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html.dark .bg-red-30 {
+    background-color: rgb(from var(--rk-red) r g b / 0.1);
+  }
+  html.dark .bg-gradient-right,
+  html.dark .bg-gradient-right-dark {
+    background-image: conic-gradient(from -90deg at 110% 100%, #11111b 0deg, #1e1e2e 90deg, #181825 1turn);
+  }
+  html.dark .bg-white,
+  html.dark .bg-wash {
+    background-color: var(--rk-background) !important;
+  }
+  html.dark .bg-secondary-button {
+    background-color: var(--rk-black);
+  }
+  html.dark .outline-link {
+    outline-color: var(--rk-accent);
+  }
+  html.dark .focus\:outline-link:focus {
+    outline-color: var(--rk-accent);
+  }
+  html.dark .DocSearch-Form {
+    background-color: var(--rk-mantle);
+  }
+  html.dark .DocSearch-Form input {
+    color: var(--rk-foreground);
+  }
+  html.dark .DocSearch-Form :focus-visible {
+    outline-color: 2px solid var(--rk-accent) !important;
+  }
+  html.dark .DocSearch-Hit .DocSearch-Hit-title {
+    color: var(--rk-foreground);
+  }
+  html.dark .DocSearch-Hit svg {
+    color: currentcolor !important;
+  }
+  html.dark .DocSearch-Hit .DocSearch-Hit-Tree {
+    color: var(--rk-background) !important;
+  }
+  html.dark .DocSearch-Hit[aria-selected="false"] mark {
+    color: var(--rk-accent) !important;
+  }
+  html.dark .DocSearch-Hit[aria-selected="false"] .DocSearch-Hit-Tree {
+    color: var(--rk-white) !important;
+  }
+  html.dark .DocSearch-Hit-source {
+    color: var(--rk-foreground);
+  }
+  html.dark .DocSearch-Cancel {
+    color: var(--rk-accent);
+  }
+  html.dark .DocSearch-Footer {
+    background-color: var(--rk-background);
+  }
+  html.dark .DocSearch-Footer [aria-label="Algolia"] .cls-1,
+  html.dark .DocSearch-Footer [aria-label="Algolia"] .cls-2 {
+    fill: var(--rk-accent) !important;
+  }
+  html {
+    color-scheme: dark;
+    --docsearch-modal-background: var(--rk-background) !important;
+    --docsearch-hit-background: var(--rk-mantle) !important;
+    --docsearch-highlight-color: var(--rk-accent) !important;
+    --docsearch-primary-color: var(--rk-accent) !important;
+    --docsearch-container-background: rgba(127, 132, 156, 0.8) !important;
+    --docsearch-text-color: var(--rk-foreground) !important;
+    --docsearch-logo-color: var(--rk-blue) !important;
+    --docsearch-muted-color: var(--rk-white) !important;
+    --docsearch-searchbox-background: var(--rk-accent) !important;
+    --docsearch-searchbox-focus-background: var(--rk-accent) !important;
+    --docsearch-hit-color: var(--rk-crust) !important;
+    --docsearch-hit-active-color: var(--rk-background) !important;
+    --docsearch-footer-background: var(--rk-overlay0) !important;
+    --docsearch-key-gradient: linear-gradient(-225deg, #1e1e2e, #11111b) !important;
+  }
+  html ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html input::placeholder,
+  html textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html svg {
+    color: var(--rk-accent) !important;
+  }
+  html .text-primary {
+    color: var(--rk-foreground);
+  }
+  html .dark\:text-primary-dark {
+    color: var(--rk-foreground);
+  }
+  html .dark\:text-white {
+    color: var(--rk-foreground);
+  }
+  html .text-secondary {
+    color: var(--rk-foreground);
+  }
+  html .text-gray-30 {
+    color: var(--rk-bright-white);
+  }
+  html .text-red-50,
+  html .text-red-30 {
+    color: var(--rk-red) !important;
+  }
+  html .text-gray-50 {
+    color: var(--rk-white);
+  }
+  html .text-red-50,
+  html .text-red-40 {
+    color: #f38ba8 !important;
+  }
+  html .text-red-50 svg,
+  html .text-red-40 svg {
+    color: #f38ba8 !important;
+  }
+  html .text-purple-50,
+  html .text-purple-30,
+  html .text-purple-60 {
+    color: #cba6f7 !important;
+  }
+  html .text-purple-50 svg,
+  html .text-purple-30 svg,
+  html .text-purple-60 svg {
+    color: #cba6f7 !important;
+  }
+  html .text-blue-50,
+  html .text-blue-40,
+  html .text-blue-60 {
+    color: #89b4fa !important;
+  }
+  html .text-blue-50 svg,
+  html .text-blue-40 svg,
+  html .text-blue-60 svg {
+    color: #89b4fa !important;
+  }
+  html .text-yellow-40,
+  html .text-yellow-50,
+  html .text-yellow-60 {
+    color: #f9e2af !important;
+  }
+  html .text-yellow-40 svg,
+  html .text-yellow-50 svg,
+  html .text-yellow-60 svg {
+    color: #f9e2af !important;
+  }
+  html .text-green-60,
+  html .text-green-40 {
+    color: var(--rk-green) !important;
+  }
+  html .text-tertiary,
+  html .text-tertiary-dark {
+    color: var(--rk-white);
+  }
+  html .text-link,
+  html .text-link-dark {
+    color: var(--rk-accent);
+  }
+  html .hover\:text-link:hover,
+  html .text-link:hover,
+  html .text-link-dark:hover {
+    color: var(--rk-accent);
+  }
+  html .hover\:bg-gray-80:hover,
+  html .hover\:bg-gray-5:hover {
+    background-color: var(--rk-mantle);
+  }
+  html .hover\:bg-card:hover {
+    background-color: var(--rk-crust);
+  }
+  html a > code {
+    color: var(--rk-accent) !important;
+  }
+  html .console-block code {
+    background-color: var(--rk-black) !important;
+    color: var(--rk-red) !important;
+  }
+  html .sp-wrapper {
+    --sp-colors-accent: var(--rk-accent);
+    --sp-colors-clickable: var(--rk-flamingo);
+    --sp-colors-disabled: var(--rk-foreground);
+    --sp-colors-error: var(--rk-red);
+    --sp-colors-error-surface: var(--rk-maroon);
+    --sp-colors-surface1: var(--rk-surface0);
+    --sp-colors-surface2: var(--rk-black);
+    --sp-syntax-color-plain: var(--rk-foreground);
+    --sp-syntax-color-comment: var(--rk-overlay2);
+    --sp-syntax-color-keyword: var(--rk-accent);
+    --sp-syntax-color-tag: var(--rk-blue);
+    --sp-syntax-color-punctuation: var(--rk-overlay2);
+    --sp-syntax-color-definition: var(--rk-yellow);
+    --sp-syntax-color-property: var(--rk-blue);
+    --sp-syntax-color-static: var(--rk-peach);
+    --sp-syntax-color-string: var(--rk-green);
+  }
+  html .border-blue-40 {
+    border-color: var(--rk-blue);
+  }
+  html .border-b-4 {
+    border-color: var(--rk-foreground);
+  }
+  html .border-yellow-40 {
+    border-color: var(--rk-yellow);
+  }
+  html .border-purple-40 {
+    border-color: var(--rk-lavender);
+  }
+  html .border-purple-10 {
+    border-color: var(--rk-accent);
+  }
+  html .dark\:border-purple-30,
+  html .border-purple-30 {
+    border-color: var(--rk-accent);
+  }
+  html .border-green-40 {
+    border-color: var(--rk-green);
+  }
+  html .hover\:border-gray-10:hover {
+    border-color: var(--rk-accent);
+  }
+  html .border-gray-300,
+  html .bg-gray-90 {
+    border-color: var(--rk-overlay2);
+  }
+  html .border-gray-20 {
+    border-color: var(--rk-overlay1);
+  }
+  html .border-link:hover {
+    border-color: var(--rk-accent);
+  }
+  html .dark\:border-link-dark {
+    border-color: var(--rk-accent);
+  }
+  html .bg-card-dark,
+  html .bg-card {
+    background-color: var(--rk-surface0);
+  }
+  html .bg-highlight {
+    background-color: var(--rk-surface0);
+  }
+  html .bg-highlight-dark {
+    background-color: var(--rk-surface0);
+  }
+  html .bg-github-highlight {
+    background-color: var(--rk-surface0);
+  }
+  html .bg-link {
+    color: var(--rk-surface0);
+    background-color: var(--rk-accent);
+  }
+  html .bg-gradient-left,
+  html .bg-gradient-left-dark {
+    background-image: conic-gradient(from 90deg at -10% 100%, #181825 0deg, #1e1e2e 90deg, #11111b 1turn);
+  }
+  html .bg-gray-3,
+  html .bg-gray-5 {
+    background-color: var(--rk-crust);
+  }
+  html .bg-gray-40\/5,
+  html .bg-gray-60\/5 {
+    background-color: var(--rk-overlay1);
+  }
+  html .bg-gray-40\/10,
+  html .bg-gray-60\/10 {
+    background-color: var(--rk-overlay0);
+  }
+  html .bg-gray-30,
+  html .bg-gray-300,
+  html .bg-gray-70,
+  html .bg-gray-700 {
+    background-color: var(--rk-surface0);
+  }
+  html .bg-gray-80,
+  html .bg-gray-200,
+  html .bg-gray-95 {
+    background-color: var(--rk-mantle);
+  }
+  html .bg-black {
+    background-color: var(--rk-background);
+  }
+  html .bg-green-5,
+  html .bg-green-60,
+  html .bg-green-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html .bg-green-5 p,
+  html .bg-green-60 p,
+  html .bg-green-40 p {
+    color: var(--rk-foreground);
+  }
+  html .bg-green-5 button,
+  html .bg-green-60 button,
+  html .bg-green-40 button {
+    color: var(--rk-background) !important;
+    background-color: #a6e3a1 !important;
+  }
+  html .bg-green-5 button svg,
+  html .bg-green-60 button svg,
+  html .bg-green-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html .bg-green-5 .text-primary,
+  html .bg-green-60 .text-primary,
+  html .bg-green-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html .bg-green-5 .text-link,
+  html .bg-green-60 .text-link,
+  html .bg-green-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html .bg-green-5 .bg-highlight,
+  html .bg-green-60 .bg-highlight,
+  html .bg-green-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html .bg-green-5 .bg-link,
+  html .bg-green-60 .bg-link,
+  html .bg-green-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html .bg-red-5,
+  html .bg-red-60 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html .bg-red-5 p,
+  html .bg-red-60 p {
+    color: var(--rk-foreground);
+  }
+  html .bg-red-5 button,
+  html .bg-red-60 button {
+    color: var(--rk-background) !important;
+    background-color: #f38ba8 !important;
+  }
+  html .bg-red-5 button svg,
+  html .bg-red-60 button svg {
+    color: var(--rk-background) !important;
+  }
+  html .bg-red-5 .text-primary,
+  html .bg-red-60 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html .bg-red-5 .text-link,
+  html .bg-red-60 .text-link {
+    color: var(--rk-accent);
+  }
+  html .bg-red-5 .bg-highlight,
+  html .bg-red-60 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html .bg-red-5 .bg-link,
+  html .bg-red-60 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html .bg-yellow-5,
+  html .bg-yellow-60,
+  html .bg-yellow-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html .bg-yellow-5 p,
+  html .bg-yellow-60 p,
+  html .bg-yellow-40 p {
+    color: var(--rk-foreground);
+  }
+  html .bg-yellow-5 button,
+  html .bg-yellow-60 button,
+  html .bg-yellow-40 button {
+    color: var(--rk-background) !important;
+    background-color: #fab387 !important;
+  }
+  html .bg-yellow-5 button svg,
+  html .bg-yellow-60 button svg,
+  html .bg-yellow-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html .bg-yellow-5 .text-primary,
+  html .bg-yellow-60 .text-primary,
+  html .bg-yellow-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html .bg-yellow-5 .text-link,
+  html .bg-yellow-60 .text-link,
+  html .bg-yellow-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html .bg-yellow-5 .bg-highlight,
+  html .bg-yellow-60 .bg-highlight,
+  html .bg-yellow-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html .bg-yellow-5 .bg-link,
+  html .bg-yellow-60 .bg-link,
+  html .bg-yellow-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html .bg-purple-5,
+  html .bg-purple-60,
+  html .bg-purple-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html .bg-purple-5 p,
+  html .bg-purple-60 p,
+  html .bg-purple-40 p {
+    color: var(--rk-foreground);
+  }
+  html .bg-purple-5 button,
+  html .bg-purple-60 button,
+  html .bg-purple-40 button {
+    color: var(--rk-background) !important;
+    background-color: #cba6f7 !important;
+  }
+  html .bg-purple-5 button svg,
+  html .bg-purple-60 button svg,
+  html .bg-purple-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html .bg-purple-5 .text-primary,
+  html .bg-purple-60 .text-primary,
+  html .bg-purple-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html .bg-purple-5 .text-link,
+  html .bg-purple-60 .text-link,
+  html .bg-purple-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html .bg-purple-5 .bg-highlight,
+  html .bg-purple-60 .bg-highlight,
+  html .bg-purple-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html .bg-purple-5 .bg-link,
+  html .bg-purple-60 .bg-link,
+  html .bg-purple-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html .bg-blue-10,
+  html .bg-blue-60,
+  html .bg-blue-40 {
+    background-color: rgb(from @divColor r g b / 0.4);
+    color: var(--rk-foreground);
+  }
+  html .bg-blue-10 p,
+  html .bg-blue-60 p,
+  html .bg-blue-40 p {
+    color: var(--rk-foreground);
+  }
+  html .bg-blue-10 button,
+  html .bg-blue-60 button,
+  html .bg-blue-40 button {
+    color: var(--rk-background) !important;
+    background-color: #89b4fa !important;
+  }
+  html .bg-blue-10 button svg,
+  html .bg-blue-60 button svg,
+  html .bg-blue-40 button svg {
+    color: var(--rk-background) !important;
+  }
+  html .bg-blue-10 .text-primary,
+  html .bg-blue-60 .text-primary,
+  html .bg-blue-40 .text-primary {
+    color: var(--rk-foreground);
+  }
+  html .bg-blue-10 .text-link,
+  html .bg-blue-60 .text-link,
+  html .bg-blue-40 .text-link {
+    color: var(--rk-accent);
+  }
+  html .bg-blue-10 .bg-highlight,
+  html .bg-blue-60 .bg-highlight,
+  html .bg-blue-40 .bg-highlight {
+    color: var(--rk-accent);
+  }
+  html .bg-blue-10 .bg-link,
+  html .bg-blue-60 .bg-link,
+  html .bg-blue-40 .bg-link {
+    background-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  html .bg-red-30 {
+    background-color: rgb(from var(--rk-red) r g b / 0.1);
+  }
+  html .bg-gradient-right,
+  html .bg-gradient-right-dark {
+    background-image: conic-gradient(from -90deg at 110% 100%, #11111b 0deg, #1e1e2e 90deg, #181825 1turn);
+  }
+  html .bg-white,
+  html .bg-wash {
+    background-color: var(--rk-background) !important;
+  }
+  html .bg-secondary-button {
+    background-color: var(--rk-black);
+  }
+  html .outline-link {
+    outline-color: var(--rk-accent);
+  }
+  html .focus\:outline-link:focus {
+    outline-color: var(--rk-accent);
+  }
+  html .DocSearch-Form {
+    background-color: var(--rk-mantle);
+  }
+  html .DocSearch-Form input {
+    color: var(--rk-foreground);
+  }
+  html .DocSearch-Form :focus-visible {
+    outline-color: 2px solid var(--rk-accent) !important;
+  }
+  html .DocSearch-Hit .DocSearch-Hit-title {
+    color: var(--rk-foreground);
+  }
+  html .DocSearch-Hit svg {
+    color: currentcolor !important;
+  }
+  html .DocSearch-Hit .DocSearch-Hit-Tree {
+    color: var(--rk-background) !important;
+  }
+  html .DocSearch-Hit[aria-selected="false"] mark {
+    color: var(--rk-accent) !important;
+  }
+  html .DocSearch-Hit[aria-selected="false"] .DocSearch-Hit-Tree {
+    color: var(--rk-white) !important;
+  }
+  html .DocSearch-Hit-source {
+    color: var(--rk-foreground);
+  }
+  html .DocSearch-Cancel {
+    color: var(--rk-accent);
+  }
+  html .DocSearch-Footer {
+    background-color: var(--rk-background);
+  }
+  html .DocSearch-Footer [aria-label="Algolia"] .cls-1,
+  html .DocSearch-Footer [aria-label="Algolia"] .cls-2 {
+    fill: var(--rk-accent) !important;
+  }
+}

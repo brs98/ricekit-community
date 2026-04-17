@@ -1,0 +1,490 @@
+/* ==UserStyle==
+@name DeepSeek Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/deepseek
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/deepseek
+@version 2025.12.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/deepseek.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Adeepseek
+@description Soothing pastel theme for DeepSeek
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document url-prefix("https://chat.deepseek.com") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+  body[data-ds-dark-theme] {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --dsw-alias-bg-base: var(--rk-background);
+    --dsw-alias-bg-layer-1: var(--rk-mantle);
+    --dsw-alias-bg-layer-2: var(--rk-background);
+    --dsw-alias-bg-layer-3: var(--rk-surface0);
+    --dsw-alias-bg-mask-1: rgba(0, 0, 0, 0.5);
+    --dsw-alias-bg-mask-2: rgba(0, 0, 0, 0.2);
+    --dsw-alias-bg-multi-select: color-mix(in srgb, var(--rk-accent) 8%, var(--rk-mantle));
+    --dsw-alias-bg-skeleton: rgb(from var(--rk-foreground) r g b / 0.08);
+    --dsw-alias-border-inverted2: rgba(255, 255, 255, 0.08);
+    --dsw-alias-border-inverted: rgba(255, 255, 255, 0.06);
+    --dsw-alias-border-l1: rgba(255, 255, 255, 0.06);
+    --dsw-alias-border-l2-darkmode-thin: rgba(255, 255, 255, 0.06);
+    --dsw-alias-border-l2: var(--rk-black);
+    --dsw-alias-border-l3: var(--rk-bright-black);
+    --dsw-alias-border-l4: var(--rk-overlay0);
+    --dsw-alias-brand-primary-invert: var(--rk-foreground);
+    --dsw-alias-brand-primary: var(--rk-accent);
+    --dsw-alias-brand-text: var(--rk-accent);
+    --dsw-alias-button-contrast-fill: var(--rk-foreground);
+    --dsw-alias-button-elevated-fill: var(--rk-black);
+    --dsw-alias-button-floating-fill: var(--rk-background);
+    --dsw-alias-button-floating-hover: color-mix(in srgb, var(--rk-foreground) 8%, var(--rk-background));
+    --dsw-alias-button-ghost-active-border: var(--rk-accent);
+    --dsw-alias-button-ghost-active-fill: rgb(from var(--rk-accent) r g b / 0.14);
+    --dsw-alias-button-ghost-active-hover: rgb(from var(--rk-accent) r g b / 0.18);
+    --dsw-alias-button-primary-dimmed: hsl(from var(--rk-accent) h s calc(l - 8));
+    --dsw-alias-button-primary-fill: var(--dsw-alias-brand-primary);
+    --dsw-alias-button-primary-hover: hsl(from var(--rk-accent) h s calc(l + 8));
+    --dsw-alias-interactive-bg-active: rgb(from var(--rk-foreground) r g b / 0.14);
+    --dsw-alias-interactive-bg-hover-accent: rgb(from var(--rk-foreground) r g b / 0.24);
+    --dsw-alias-interactive-bg-hover-danger: rgb(from var(--rk-red) r g b / 0.15);
+    --dsw-alias-interactive-bg-hover: rgb(from var(--rk-foreground) r g b / 0.08);
+    --dsw-alias-label-caption: var(--rk-overlay0);
+    --dsw-alias-label-dimmed: var(--rk-black);
+    --dsw-alias-label-primary-dimmed: var(--dsw-static-neutral-bluish-100);
+    --dsw-alias-label-primary-inverted: var(--dsw-static-neutral-bluish-800);
+    --dsw-alias-label-primary: var(--rk-foreground);
+    --dsw-alias-label-secondary: var(--rk-white);
+    --dsw-alias-label-tertiary: var(--rk-overlay1);
+    --dsw-alias-markdown-citation: var(--dsw-static-neutral-bluish-800);
+    --dsw-alias-markdown-code-block-banner: var(--rk-surface0);
+    --dsw-alias-markdown-code-block: var(--rk-mantle);
+    --dsw-alias-markdown-code-segment-selected: var(--dsw-static-neutral-bluish-800);
+    --dsw-alias-markdown-code-segment-unselected: var(--dsw-static-neutral-bluish-900);
+    --dsw-alias-markdown-inline-code: var(--rk-surface0);
+    --dsw-alias-markdown-tag: var(--dsw-static-neutral-bluish-850);
+    --dsw-alias-scrollbar-bg-l1: var(--rk-bright-black);
+    --dsw-alias-scrollbar-bg-l2: var(--rk-overlay0);
+    --dsw-alias-scrollbar-hover-l1: var(--rk-overlay0);
+    --dsw-alias-scrollbar-hover-l2: var(--rk-overlay1);
+    --dsw-alias-state-error-primary: var(--rk-red);
+    --dsw-alias-state-error-secondary: var(--rk-red);
+    --dsw-alias-state-success-primary: var(--rk-green);
+    --dsw-alias-state-success-secondary: var(--rk-green);
+    --dsw-alias-state-warn-label: var(--dsw-static-amber-600);
+    --dsw-alias-state-warn-primary: var(--dsw-static-amber-500);
+    --dsw-alias-state-warn-secondary: var(--dsw-static-amber-400);
+    --dsw-alias-state-warn-tertiary: var(--dsw-static-amber-900);
+    --dsw-alias-toast-bg: var(--dsw-static-neutral-bluish-750);
+    --dsw-alias-tooltip-bg: var(--dsw-static-neutral-bluish-750);
+    --dsw-specific-bubble: var(--rk-surface0);
+    --dsw-specific-input-major: var(--rk-surface0);
+    --dsw-specific-login-input: var(--dsw-static-neutral-900);
+    --dsw-specific-menu: var(--dsw-alias-bg-layer-3);
+    --dsw-specific-selector: rgb(from var(--rk-foreground) r g b / 0.14);
+    --dsw-specific-sidebar-fill: var(--rk-mantle);
+    --dsw-specific-sidebar-nav-item-active-accent: var(--rk-surface0);
+    --dsw-specific-sidebar-nav-item-active: var(--rk-surface0);
+    --dsw-specific-sidebar-nav-item-hover: rgb(from var(--rk-foreground) r g b / 0.08);
+    --dsw-specific-tip: var(--dsw-static-neutral-bluish-800);
+    --dsr-bg: var(--rk-crust);
+    --dsr-text-0: var(--rk-foreground);
+    --dsr-text-1: var(--rk-bright-white);
+    --dsr-text-2: var(--rk-white);
+    --dsr-text-3: var(--rk-overlay2);
+    --dsr-text-4: var(--rk-overlay1);
+    --dsr-border-1: rgb(var(--ds-rgb-neutral-450));
+    --dsr-border-2: rgb(var(--ds-rgb-neutral-600));
+    --dsr-input-border: #5a5a69;
+    --dsr-input-bg: #404045;
+    --dsr-button-main-bg: #509fff;
+    --dsr-button-main-bg-hover: #4166d5;
+    --dsr-button-second-bg: var(--dsr-main-2);
+    --dsr-button-grey-0: rgb(var(--ds-rgb-neutral-600));
+    --dsr-button-grey-1: rgb(var(--ds-rgb-neutral-650));
+    --dsr-button-grey-2: rgb(var(--ds-rgb-neutral-700));
+    --dsr-delete-button-bg: rgb(var(--ds-rgb-red-500) / 0.85);
+    --dsr-delete-button-bg-hover: rgb(var(--ds-rgb-red-550) / 0.45);
+    --dsr-tooltip-fg: rgb(var(--ds-rgb-zinc-650));
+    --dsr-tooltip-bg: #000;
+    --dsr-side-bg: #212327;
+    --dsr-side-hover-bg-rgb: 51, 51, 51;
+    --dsr-side-hover-bg: rgb(var(--ds-rgb-neutral-750));
+    --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-350));
+    --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-500));
+    --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
+    --dsr-side-icon-hover: rgb(var(--ds-rgb-zinc-750));
+    --dsr-error-fg: rgb(var(--ds-rgb-red-450));
+    --dsr-risk-text: #e4773d;
+    --dsr-risk-border: #4c4740;
+    --dsr-risk-fill: #31302e;
+    /* Fade out text on active sidebar nav item */
+    /* Fade out text on hovered sidebar nav item */
+    /* Fade out on top of conversation */
+    /* Fade out on top of conversation when multiselect active */
+    /* Response feedback rating radio button focus */
+    /* Send button icon */
+  }
+  body[data-ds-dark-theme] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  body[data-ds-dark-theme] input::placeholder,
+  body[data-ds-dark-theme] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  body[data-ds-dark-theme] .ds-elevated,
+  body[data-ds-dark-theme] [data-elevated] {
+    --ds-bordered-secondary-button-color: var(--dsr-text-1) !important;
+    --ds-button-hover-color: initial !important;
+    --ds-input-prefix-color: var(--dsr-text-1) !important;
+    --ds-modal-content-color: var(--rk-surface0) !important;
+    --ds-rgb-bg-base: var(--ds-rgb-black) !important;
+    --ds-rgb-elevated: 49, 50, 68 !important;
+    --ds-rgb-error: 243, 139, 168 !important;
+    --ds-rgb-header: 40 40 40 !important;
+    --ds-rgb-info: 137, 180, 250 !important;
+    --ds-rgb-input-focus: var(--ds-rgb-neutral-900) !important;
+    --ds-rgb-input-strong: var(--ds-rgb-neutral-700) !important;
+    --ds-rgb-input: var(--ds-rgb-neutral-800) !important;
+    --ds-rgb-label-1: 205, 214, 244 !important;
+    --ds-rgb-label-2: 166, 173, 200 !important;
+    --ds-rgb-label-3: 127, 132, 156 !important;
+    --ds-rgb-link: var(--ds-rgb-primary) !important;
+    --ds-rgb-primary-foreground: 30, 30, 46 !important;
+    --ds-rgb-primary: 203, 166, 247 !important;
+    --ds-rgb-segmented-button: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented-separator: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-separator-strong: 108, 112, 134 !important;
+    --ds-rgb-separator: 88, 91, 112 !important;
+    --ds-rgb-success: 166, 227, 161 !important;
+    --ds-rgb-tag: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-thumb: var(--ds-rgb-neutral-200) !important;
+    --ds-rgb-track: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-warning: 249, 226, 175 !important;
+    --ds-rgba-transparent: 255 255 255/0 !important;
+    --ds-tabs-active-color: var(--rk-accent) !important;
+    --ds-text-primary-button-color: var(--rk-accent) !important;
+    --ds-rgb-hover: 44, 44.72, 61.84 !important;
+    --ds-toast-custom-color: var(--rk-surface0) !important;
+    --ds-toast-custom-text-color: var(--rk-foreground) !important;
+    --ds-toast-cutsom-border: 1px solid var(--rk-black) !important;
+    --ds-md-inline-code-color: var(--rk-background) !important;
+  }
+  body[data-ds-dark-theme],
+  body[data-ds-dark-theme] .ds-theme {
+    --ds-bordered-secondary-button-color: var(--dsr-text-1) !important;
+    --ds-button-hover-color: initial !important;
+    --ds-input-prefix-color: var(--dsr-text-1) !important;
+    --ds-modal-content-color: var(--rk-surface0) !important;
+    --ds-rgb-bg-base: var(--ds-rgb-black) !important;
+    --ds-rgb-elevated: 49, 50, 68 !important;
+    --ds-rgb-error: 243, 139, 168 !important;
+    --ds-rgb-header: 40 40 40 !important;
+    --ds-rgb-info: 137, 180, 250 !important;
+    --ds-rgb-input-focus: var(--ds-rgb-neutral-900) !important;
+    --ds-rgb-input-strong: var(--ds-rgb-neutral-700) !important;
+    --ds-rgb-input: var(--ds-rgb-neutral-800) !important;
+    --ds-rgb-label-1: 205, 214, 244 !important;
+    --ds-rgb-label-2: 166, 173, 200 !important;
+    --ds-rgb-label-3: 127, 132, 156 !important;
+    --ds-rgb-link: var(--ds-rgb-primary) !important;
+    --ds-rgb-primary-foreground: 30, 30, 46 !important;
+    --ds-rgb-primary: 203, 166, 247 !important;
+    --ds-rgb-segmented-button: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented-separator: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-separator-strong: 108, 112, 134 !important;
+    --ds-rgb-separator: 88, 91, 112 !important;
+    --ds-rgb-success: 166, 227, 161 !important;
+    --ds-rgb-tag: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-thumb: var(--ds-rgb-neutral-200) !important;
+    --ds-rgb-track: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-warning: 249, 226, 175 !important;
+    --ds-rgba-transparent: 255 255 255/0 !important;
+    --ds-tabs-active-color: var(--rk-accent) !important;
+    --ds-text-primary-button-color: var(--rk-accent) !important;
+    --ds-rgb-hover: 44, 44.72, 61.84 !important;
+    --ds-toast-custom-color: var(--rk-surface0) !important;
+    --ds-toast-custom-text-color: var(--rk-foreground) !important;
+    --ds-toast-cutsom-border: 1px solid var(--rk-black) !important;
+    --ds-md-inline-code-color: var(--rk-background) !important;
+    --wip-ds-color-bg-tooltip: var(--rk-surface0);
+  }
+  body[data-ds-dark-theme] .ds-sign-up-form__main {
+    background: var(--rk-background);
+  }
+  body[data-ds-dark-theme] .ds-switch.ds-switch.ds-switch {
+    --switch-color: var(--rk-bright-black);
+    --switch-thumb-color: var(--rk-foreground);
+  }
+  body[data-ds-dark-theme] .ds-switch.ds-switch.ds-switch.ds-switch--checked {
+    --switch-color: var(--rk-accent);
+    --switch-thumb-color: var(--rk-background);
+  }
+  body[data-ds-dark-theme] .ds-basic-button--primary {
+    --ds-primary-button-text-color: var(--rk-background);
+  }
+  body[data-ds-dark-theme] .ds-checkbox svg {
+    color: var(--rk-background);
+  }
+  body[data-ds-dark-theme] .ds-tooltip {
+    --tooltip-text-color: var(--rk-foreground);
+  }
+  body[data-ds-dark-theme] ._546d736.b64fb9ae ._254829d {
+    --mask-base-color: 49, 50, 68;
+  }
+  body[data-ds-dark-theme] ._546d736 ._254829d {
+    --mask-base-color: 49, 50, 68;
+  }
+  body[data-ds-dark-theme] .c99b79f8.c99b79f8.c99b79f8 {
+    background: linear-gradient(to bottom, #11111b, transparent);
+  }
+  body[data-ds-dark-theme] .a51c5344 .c99b79f8.c99b79f8.c99b79f8 {
+    background: linear-gradient(to bottom, var(--dsw-alias-bg-multi-select), transparent);
+  }
+  body[data-ds-dark-theme] ._74d6322 .ds-radio-button-group .ds-radio-button.ds-radio-button--active::after {
+    box-shadow: var(--radio-button-group-button-outline-box-shadow-focus);
+  }
+  body[data-ds-dark-theme] ._7436101 {
+    color: var(--rk-background);
+  }
+  body:not([data-ds-dark-theme]) {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --dsw-alias-bg-base: var(--rk-background);
+    --dsw-alias-bg-layer-1: var(--rk-mantle);
+    --dsw-alias-bg-layer-2: var(--rk-background);
+    --dsw-alias-bg-layer-3: var(--rk-surface0);
+    --dsw-alias-bg-mask-1: rgba(0, 0, 0, 0.5);
+    --dsw-alias-bg-mask-2: rgba(0, 0, 0, 0.2);
+    --dsw-alias-bg-multi-select: color-mix(in srgb, var(--rk-accent) 8%, var(--rk-mantle));
+    --dsw-alias-bg-skeleton: rgb(from var(--rk-foreground) r g b / 0.08);
+    --dsw-alias-border-inverted2: rgba(255, 255, 255, 0.08);
+    --dsw-alias-border-inverted: rgba(255, 255, 255, 0.06);
+    --dsw-alias-border-l1: rgba(255, 255, 255, 0.06);
+    --dsw-alias-border-l2-darkmode-thin: rgba(255, 255, 255, 0.06);
+    --dsw-alias-border-l2: var(--rk-black);
+    --dsw-alias-border-l3: var(--rk-bright-black);
+    --dsw-alias-border-l4: var(--rk-overlay0);
+    --dsw-alias-brand-primary-invert: var(--rk-foreground);
+    --dsw-alias-brand-primary: var(--rk-accent);
+    --dsw-alias-brand-text: var(--rk-accent);
+    --dsw-alias-button-contrast-fill: var(--rk-foreground);
+    --dsw-alias-button-elevated-fill: var(--rk-black);
+    --dsw-alias-button-floating-fill: var(--rk-background);
+    --dsw-alias-button-floating-hover: color-mix(in srgb, var(--rk-foreground) 8%, var(--rk-background));
+    --dsw-alias-button-ghost-active-border: var(--rk-accent);
+    --dsw-alias-button-ghost-active-fill: rgb(from var(--rk-accent) r g b / 0.14);
+    --dsw-alias-button-ghost-active-hover: rgb(from var(--rk-accent) r g b / 0.18);
+    --dsw-alias-button-primary-dimmed: hsl(from var(--rk-accent) h s calc(l - 8));
+    --dsw-alias-button-primary-fill: var(--dsw-alias-brand-primary);
+    --dsw-alias-button-primary-hover: hsl(from var(--rk-accent) h s calc(l + 8));
+    --dsw-alias-interactive-bg-active: rgb(from var(--rk-foreground) r g b / 0.14);
+    --dsw-alias-interactive-bg-hover-accent: rgb(from var(--rk-foreground) r g b / 0.24);
+    --dsw-alias-interactive-bg-hover-danger: rgb(from var(--rk-red) r g b / 0.15);
+    --dsw-alias-interactive-bg-hover: rgb(from var(--rk-foreground) r g b / 0.08);
+    --dsw-alias-label-caption: var(--rk-overlay0);
+    --dsw-alias-label-dimmed: var(--rk-black);
+    --dsw-alias-label-primary-dimmed: var(--dsw-static-neutral-bluish-100);
+    --dsw-alias-label-primary-inverted: var(--dsw-static-neutral-bluish-800);
+    --dsw-alias-label-primary: var(--rk-foreground);
+    --dsw-alias-label-secondary: var(--rk-white);
+    --dsw-alias-label-tertiary: var(--rk-overlay1);
+    --dsw-alias-markdown-citation: var(--dsw-static-neutral-bluish-800);
+    --dsw-alias-markdown-code-block-banner: var(--rk-surface0);
+    --dsw-alias-markdown-code-block: var(--rk-mantle);
+    --dsw-alias-markdown-code-segment-selected: var(--dsw-static-neutral-bluish-800);
+    --dsw-alias-markdown-code-segment-unselected: var(--dsw-static-neutral-bluish-900);
+    --dsw-alias-markdown-inline-code: var(--rk-surface0);
+    --dsw-alias-markdown-tag: var(--dsw-static-neutral-bluish-850);
+    --dsw-alias-scrollbar-bg-l1: var(--rk-bright-black);
+    --dsw-alias-scrollbar-bg-l2: var(--rk-overlay0);
+    --dsw-alias-scrollbar-hover-l1: var(--rk-overlay0);
+    --dsw-alias-scrollbar-hover-l2: var(--rk-overlay1);
+    --dsw-alias-state-error-primary: var(--rk-red);
+    --dsw-alias-state-error-secondary: var(--rk-red);
+    --dsw-alias-state-success-primary: var(--rk-green);
+    --dsw-alias-state-success-secondary: var(--rk-green);
+    --dsw-alias-state-warn-label: var(--dsw-static-amber-600);
+    --dsw-alias-state-warn-primary: var(--dsw-static-amber-500);
+    --dsw-alias-state-warn-secondary: var(--dsw-static-amber-400);
+    --dsw-alias-state-warn-tertiary: var(--dsw-static-amber-900);
+    --dsw-alias-toast-bg: var(--dsw-static-neutral-bluish-750);
+    --dsw-alias-tooltip-bg: var(--dsw-static-neutral-bluish-750);
+    --dsw-specific-bubble: var(--rk-surface0);
+    --dsw-specific-input-major: var(--rk-surface0);
+    --dsw-specific-login-input: var(--dsw-static-neutral-900);
+    --dsw-specific-menu: var(--dsw-alias-bg-layer-3);
+    --dsw-specific-selector: rgb(from var(--rk-foreground) r g b / 0.14);
+    --dsw-specific-sidebar-fill: var(--rk-mantle);
+    --dsw-specific-sidebar-nav-item-active-accent: var(--rk-surface0);
+    --dsw-specific-sidebar-nav-item-active: var(--rk-surface0);
+    --dsw-specific-sidebar-nav-item-hover: rgb(from var(--rk-foreground) r g b / 0.08);
+    --dsw-specific-tip: var(--dsw-static-neutral-bluish-800);
+    --dsr-bg: var(--rk-crust);
+    --dsr-text-0: var(--rk-foreground);
+    --dsr-text-1: var(--rk-bright-white);
+    --dsr-text-2: var(--rk-white);
+    --dsr-text-3: var(--rk-overlay2);
+    --dsr-text-4: var(--rk-overlay1);
+    --dsr-border-1: rgb(var(--ds-rgb-neutral-450));
+    --dsr-border-2: rgb(var(--ds-rgb-neutral-600));
+    --dsr-input-border: #5a5a69;
+    --dsr-input-bg: #404045;
+    --dsr-button-main-bg: #509fff;
+    --dsr-button-main-bg-hover: #4166d5;
+    --dsr-button-second-bg: var(--dsr-main-2);
+    --dsr-button-grey-0: rgb(var(--ds-rgb-neutral-600));
+    --dsr-button-grey-1: rgb(var(--ds-rgb-neutral-650));
+    --dsr-button-grey-2: rgb(var(--ds-rgb-neutral-700));
+    --dsr-delete-button-bg: rgb(var(--ds-rgb-red-500) / 0.85);
+    --dsr-delete-button-bg-hover: rgb(var(--ds-rgb-red-550) / 0.45);
+    --dsr-tooltip-fg: rgb(var(--ds-rgb-zinc-650));
+    --dsr-tooltip-bg: #000;
+    --dsr-side-bg: #212327;
+    --dsr-side-hover-bg-rgb: 51, 51, 51;
+    --dsr-side-hover-bg: rgb(var(--ds-rgb-neutral-750));
+    --dsr-icon-fg-1: rgb(var(--ds-rgb-neutral-350));
+    --dsr-icon-hover-0: rgb(var(--ds-rgb-neutral-500));
+    --dsr-icon-hover-1: rgb(var(--ds-rgb-neutral-700));
+    --dsr-side-icon-hover: rgb(var(--ds-rgb-zinc-750));
+    --dsr-error-fg: rgb(var(--ds-rgb-red-450));
+    --dsr-risk-text: #e4773d;
+    --dsr-risk-border: #4c4740;
+    --dsr-risk-fill: #31302e;
+    /* Fade out text on active sidebar nav item */
+    /* Fade out text on hovered sidebar nav item */
+    /* Fade out on top of conversation */
+    /* Fade out on top of conversation when multiselect active */
+    /* Response feedback rating radio button focus */
+    /* Send button icon */
+  }
+  body:not([data-ds-dark-theme]) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  body:not([data-ds-dark-theme]) input::placeholder,
+  body:not([data-ds-dark-theme]) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  body:not([data-ds-dark-theme]) .ds-elevated,
+  body:not([data-ds-dark-theme]) [data-elevated] {
+    --ds-bordered-secondary-button-color: var(--dsr-text-1) !important;
+    --ds-button-hover-color: initial !important;
+    --ds-input-prefix-color: var(--dsr-text-1) !important;
+    --ds-modal-content-color: var(--rk-surface0) !important;
+    --ds-rgb-bg-base: var(--ds-rgb-black) !important;
+    --ds-rgb-elevated: 49, 50, 68 !important;
+    --ds-rgb-error: 243, 139, 168 !important;
+    --ds-rgb-header: 40 40 40 !important;
+    --ds-rgb-info: 137, 180, 250 !important;
+    --ds-rgb-input-focus: var(--ds-rgb-neutral-900) !important;
+    --ds-rgb-input-strong: var(--ds-rgb-neutral-700) !important;
+    --ds-rgb-input: var(--ds-rgb-neutral-800) !important;
+    --ds-rgb-label-1: 205, 214, 244 !important;
+    --ds-rgb-label-2: 166, 173, 200 !important;
+    --ds-rgb-label-3: 127, 132, 156 !important;
+    --ds-rgb-link: var(--ds-rgb-primary) !important;
+    --ds-rgb-primary-foreground: 30, 30, 46 !important;
+    --ds-rgb-primary: 203, 166, 247 !important;
+    --ds-rgb-segmented-button: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented-separator: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-separator-strong: 108, 112, 134 !important;
+    --ds-rgb-separator: 88, 91, 112 !important;
+    --ds-rgb-success: 166, 227, 161 !important;
+    --ds-rgb-tag: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-thumb: var(--ds-rgb-neutral-200) !important;
+    --ds-rgb-track: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-warning: 249, 226, 175 !important;
+    --ds-rgba-transparent: 255 255 255/0 !important;
+    --ds-tabs-active-color: var(--rk-accent) !important;
+    --ds-text-primary-button-color: var(--rk-accent) !important;
+    --ds-rgb-hover: 44, 44.72, 61.84 !important;
+    --ds-toast-custom-color: var(--rk-surface0) !important;
+    --ds-toast-custom-text-color: var(--rk-foreground) !important;
+    --ds-toast-cutsom-border: 1px solid var(--rk-black) !important;
+    --ds-md-inline-code-color: var(--rk-background) !important;
+  }
+  body:not([data-ds-dark-theme]),
+  body:not([data-ds-dark-theme]) .ds-theme {
+    --ds-bordered-secondary-button-color: var(--dsr-text-1) !important;
+    --ds-button-hover-color: initial !important;
+    --ds-input-prefix-color: var(--dsr-text-1) !important;
+    --ds-modal-content-color: var(--rk-surface0) !important;
+    --ds-rgb-bg-base: var(--ds-rgb-black) !important;
+    --ds-rgb-elevated: 49, 50, 68 !important;
+    --ds-rgb-error: 243, 139, 168 !important;
+    --ds-rgb-header: 40 40 40 !important;
+    --ds-rgb-info: 137, 180, 250 !important;
+    --ds-rgb-input-focus: var(--ds-rgb-neutral-900) !important;
+    --ds-rgb-input-strong: var(--ds-rgb-neutral-700) !important;
+    --ds-rgb-input: var(--ds-rgb-neutral-800) !important;
+    --ds-rgb-label-1: 205, 214, 244 !important;
+    --ds-rgb-label-2: 166, 173, 200 !important;
+    --ds-rgb-label-3: 127, 132, 156 !important;
+    --ds-rgb-link: var(--ds-rgb-primary) !important;
+    --ds-rgb-primary-foreground: 30, 30, 46 !important;
+    --ds-rgb-primary: 203, 166, 247 !important;
+    --ds-rgb-segmented-button: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented-separator: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-segmented: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-separator-strong: 108, 112, 134 !important;
+    --ds-rgb-separator: 88, 91, 112 !important;
+    --ds-rgb-success: 166, 227, 161 !important;
+    --ds-rgb-tag: var(--ds-rgb-neutral-600) !important;
+    --ds-rgb-thumb: var(--ds-rgb-neutral-200) !important;
+    --ds-rgb-track: var(--ds-rgb-neutral-500) !important;
+    --ds-rgb-warning: 249, 226, 175 !important;
+    --ds-rgba-transparent: 255 255 255/0 !important;
+    --ds-tabs-active-color: var(--rk-accent) !important;
+    --ds-text-primary-button-color: var(--rk-accent) !important;
+    --ds-rgb-hover: 44, 44.72, 61.84 !important;
+    --ds-toast-custom-color: var(--rk-surface0) !important;
+    --ds-toast-custom-text-color: var(--rk-foreground) !important;
+    --ds-toast-cutsom-border: 1px solid var(--rk-black) !important;
+    --ds-md-inline-code-color: var(--rk-background) !important;
+    --wip-ds-color-bg-tooltip: var(--rk-surface0);
+  }
+  body:not([data-ds-dark-theme]) .ds-sign-up-form__main {
+    background: var(--rk-background);
+  }
+  body:not([data-ds-dark-theme]) .ds-switch.ds-switch.ds-switch {
+    --switch-color: var(--rk-bright-black);
+    --switch-thumb-color: var(--rk-foreground);
+  }
+  body:not([data-ds-dark-theme]) .ds-switch.ds-switch.ds-switch.ds-switch--checked {
+    --switch-color: var(--rk-accent);
+    --switch-thumb-color: var(--rk-background);
+  }
+  body:not([data-ds-dark-theme]) .ds-basic-button--primary {
+    --ds-primary-button-text-color: var(--rk-background);
+  }
+  body:not([data-ds-dark-theme]) .ds-checkbox svg {
+    color: var(--rk-background);
+  }
+  body:not([data-ds-dark-theme]) .ds-tooltip {
+    --tooltip-text-color: var(--rk-foreground);
+  }
+  body:not([data-ds-dark-theme]) ._546d736.b64fb9ae ._254829d {
+    --mask-base-color: 49, 50, 68;
+  }
+  body:not([data-ds-dark-theme]) ._546d736 ._254829d {
+    --mask-base-color: 49, 50, 68;
+  }
+  body:not([data-ds-dark-theme]) .c99b79f8.c99b79f8.c99b79f8 {
+    background: linear-gradient(to bottom, #11111b, transparent);
+  }
+  body:not([data-ds-dark-theme]) .a51c5344 .c99b79f8.c99b79f8.c99b79f8 {
+    background: linear-gradient(to bottom, var(--dsw-alias-bg-multi-select), transparent);
+  }
+  body:not([data-ds-dark-theme]) ._74d6322 .ds-radio-button-group .ds-radio-button.ds-radio-button--active::after {
+    box-shadow: var(--radio-button-group-button-outline-box-shadow-focus);
+  }
+  body:not([data-ds-dark-theme]) ._7436101 {
+    color: var(--rk-background);
+  }
+}

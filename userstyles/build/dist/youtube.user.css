@@ -1,0 +1,2425 @@
+/* ==UserStyle==
+@name YouTube Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/youtube
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/youtube
+@version 2026.04.14.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/youtube.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ayoutube
+@description Soothing pastel theme for YouTube
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+
+@var checkbox logo "Enable YouTube logo" 1
+@var checkbox oled "Enable black bars" 0
+@var checkbox sponsorBlock "Enable SponsorBlock segments" 1
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("youtube.com") {
+  :root[dark] {
+    color-scheme: dark;
+    color: var(--rk-foreground);
+    background: var(--rk-background);
+    /* Misc */
+    /* Selected chapter */
+    /* Skeleton */
+    /* Ambient mode */
+    /* Icons */
+    /* Notifications Bell and Indicator */
+    /* Buttons */
+    /* Search box */
+    /* Video description */
+    /* Links */
+    /* Course Playlist (e.g. https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6) */
+    /* Thumbnails */
+    /* Panels, popups, tooltips */
+    /* Video player */
+    /* Video highlight */
+    /* Video previews */
+    /* Shorts titles and views on homepage */
+    /* Buy super thanks bar */
+    /* Avatar */
+    /* Channel pages */
+    /* Components */
+    /* Menus and context sheets */
+    /* Dialogs */
+    /* Dropdowns */
+    /* Toggles/Switches */
+    /* Textareas */
+    /* Comments */
+    /* Profile Card */
+    /* Live chat replay */
+    /* Category tag pills */
+  }
+  :root[dark] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[dark] input::placeholder,
+  :root[dark] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[dark],
+  :root[dark] [dark],
+  :root[dark] [system-icons],
+  :root[dark] [darker-dark-theme],
+  :root[dark][dark],
+  :root[dark][system-icons],
+  :root[dark][darker-dark-theme] {
+    --efyt-control-bar-background-color: var(--rk-mantle) !important;
+    --dimmer-text: var(--rk-foreground) !important;
+    /* Newest Variables */
+    --yt-sys-color-baseline--base-background: var(--rk-background) !important;
+    --yt-sys-color-baseline--menu-background: var(--rk-mantle) !important;
+    --yt-sys-color-baseline--raised-background: var(--rk-surface0) !important;
+    --yt-sys-color-baseline--additive-background: var(--rk-surface0) !important;
+    --yt-sys-color-baseline--wordmark-text: var(--rk-foreground) !important;
+    --yt-sys-color-baseline--text-primary: var(--rk-foreground) !important;
+    --yt-sys-color-baseline--text-secondary: var(--rk-white) !important;
+    --yt-sys-color-baseline--call-to-action: var(--rk-accent) !important;
+    --yt-sys-color-baseline--suggested-action: color-mix(in srgb, var(--rk-accent) 30%, var(--rk-background)) !important;
+    --yt-sys-color-baseline--outline: var(--rk-surface0) !important;
+    --yt-sys-color-baseline--outline-opaque: var(--rk-black) !important;
+    --yt-sys-color-baseline--outline-inverse-opaque: var(--rk-overlay0) !important;
+    --yt-sys-color-baseline--overlay-background-medium-light: rgb(from @black r g b / 0.6) !important;
+    --yt-sys-color-baseline--overlay-background-heavy: rgb(from @black r g b / 0.8) !important;
+    --yt-sys-color-baseline--overlay-background-solid: var(--rk-crust) !important;
+    --yt-sys-color-baseline--overlay-text-primary: var(--rk-foreground) !important;
+    --yt-spec-white-1: var(--rk-foreground) !important;
+    --yt-spec-white-2: var(--rk-white) !important;
+    --yt-spec-white-3: var(--rk-bright-white) !important;
+    --yt-spec-white-4: hsl(from var(--rk-bright-white) h s calc(l - 5)) !important;
+    --yt-spec-black-1: var(--rk-overlay1) !important;
+    --yt-spec-black-2: var(--rk-overlay0) !important;
+    --yt-spec-black-3: var(--rk-bright-black) !important;
+    --yt-spec-black-4: var(--rk-black) !important;
+    --yt-spec-black-pure: var(--rk-surface0) !important;
+    --yt-spec-grey-1: var(--rk-foreground) !important;
+    --yt-spec-grey-2: var(--rk-white) !important;
+    --yt-spec-grey-3: var(--rk-bright-white) !important;
+    --yt-spec-grey-4: var(--rk-overlay2) !important;
+    --yt-spec-grey-5: var(--rk-overlay1) !important;
+    --yt-brand-youtube-red: var(--rk-accent) !important;
+    --yt-brand-medium-red: var(--rk-accent) !important;
+    --yt-brand-light-red: var(--rk-accent) !important;
+    --yt-spec-red-30: var(--rk-peach) !important;
+    --yt-spec-red-70: var(--rk-red) !important;
+    --yt-spec-red-indicator: var(--rk-accent) !important;
+    --yt-spec-pale-blue: var(--rk-sky) !important;
+    --yt-spec-light-blue: var(--rk-sky) !important;
+    --yt-spec-dark-blue: var(--rk-sapphire) !important;
+    --yt-spec-navy-blue: var(--rk-cyan) !important;
+    --yt-spec-light-green: var(--rk-green) !important;
+    --yt-spec-dark-green: var(--rk-green) !important;
+    --yt-spec-yellow: var(--rk-peach) !important;
+    --yt-spec-black-pure-alpha-5: var(--rk-white) !important;
+    --yt-spec-black-pure-alpha-10: var(--rk-overlay2) !important;
+    --yt-spec-black-pure-alpha-15: rgb(from var(--rk-crust) r g b / 0.85) !important;
+    --yt-spec-black-pure-alpha-30: rgb(from var(--rk-crust) r g b / 0.7) !important;
+    --yt-spec-black-pure-alpha-60: rgb(from var(--rk-crust) r g b / 0.4) !important;
+    --yt-spec-black-pure-alpha-80: rgb(from var(--rk-crust) r g b / 0.2) !important;
+    --yt-spec-black-1-alpha-98: rgb(from var(--rk-crust) r g b / 0.02) !important;
+    --yt-spec-black-1-alpha-95: rgb(from var(--rk-crust) r g b / 0.05) !important;
+    --yt-spec-white-1-alpha-10: rgb(from var(--rk-foreground) r g b / 0.9) !important;
+    --yt-spec-white-1-alpha-20: rgb(from var(--rk-foreground) r g b / 0.8) !important;
+    --yt-spec-white-1-alpha-25: rgb(from var(--rk-foreground) r g b / 0.75) !important;
+    --yt-spec-white-1-alpha-30: rgb(from var(--rk-foreground) r g b / 0.7) !important;
+    --yt-spec-white-1-alpha-70: rgb(from var(--rk-foreground) r g b / 0.3) !important;
+    --yt-spec-white-1-alpha-95: rgb(from var(--rk-foreground) r g b / 0.05) !important;
+    --yt-spec-white-1-alpha-98: rgb(from var(--rk-foreground) r g b / 0.02) !important;
+    --yt-brand-medium-red-alpha-90: rgb(from var(--rk-accent) r g b / 0.1) !important;
+    --yt-brand-medium-red-alpha-30: rgb(from var(--rk-accent) r g b / 0.7) !important;
+    --yt-brand-light-red-alpha-30: rgb(from var(--rk-accent) r g b / 0.7) !important;
+    --yt-spec-light-blue-alpha-30: rgb(from var(--rk-sapphire) r g b / 0.7) !important;
+    --yt-spec-dark-blue-alpha-30: rgb(from var(--rk-sapphire) r g b / 0.7) !important;
+    --yt-spec-base-background: var(--rk-background) !important;
+    --yt-spec-raised-background: var(--rk-surface0) !important;
+    --yt-spec-menu-background: var(--rk-mantle) !important;
+    --yt-spec-inverted-background: var(--rk-foreground) !important;
+    --yt-spec-additive-background: var(--rk-surface0) !important;
+    --yt-spec-outline: var(--rk-surface0) !important;
+    --yt-spec-shadow: rgb(from var(--rk-crust) r g b / 0.75) !important;
+    --yt-spec-text-primary: var(--rk-foreground) !important;
+    --yt-spec-text-secondary: var(--rk-white) !important;
+    --yt-spec-text-disabled: var(--rk-bright-white) !important;
+    --yt-spec-text-primary-inverse: var(--rk-crust) !important;
+    --yt-spec-call-to-action: var(--rk-accent) !important;
+    --yt-spec-call-to-action-inverse: var(--rk-accent) !important;
+    --yt-spec-suggested-action: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    --yt-spec-suggested-action-inverse: var(--rk-foreground) !important;
+    --yt-spec-icon-active-other: var(--rk-foreground) !important;
+    --yt-spec-button-chip-background-hover: var(--rk-black) !important;
+    --yt-spec-touch-response: var(--rk-surface0) !important;
+    --yt-spec-touch-response-inverse: var(--rk-accent) !important;
+    --yt-spec-brand-icon-active: var(--rk-accent) !important;
+    --yt-spec-brand-button-background: var(--rk-accent) !important;
+    --yt-spec-brand-link-text: var(--rk-sapphire) !important;
+    --yt-spec-wordmark-text: var(--rk-foreground) !important;
+    --yt-spec-error-indicator: var(--rk-red) !important;
+    --yt-spec-themed-blue: var(--rk-accent) !important;
+    --yt-spec-themed-green: var(--rk-green) !important;
+    --yt-spec-ad-indicator: var(--rk-cyan) !important;
+    --yt-spec-themed-overlay-background: rgb(from var(--rk-crust) r g b / 0.8) !important;
+    --yt-spec-commerce-badge-background: var(--rk-green) !important;
+    --yt-spec-static-brand-red: var(--rk-accent) !important;
+    --yt-spec-static-brand-white: var(--rk-foreground) !important;
+    --yt-spec-static-brand-black: var(--rk-background) !important;
+    --yt-spec-static-clear-color: rgb(from var(--rk-crust) r g b / 1) !important;
+    --yt-spec-static-clear-black: var(--rk-background) !important;
+    --yt-spec-static-ad-yellow: var(--rk-peach) !important;
+    --yt-spec-static-grey: var(--rk-white) !important;
+    --yt-spec-static-overlay-background-solid: var(--rk-crust) !important;
+    --yt-spec-static-overlay-background-heavy: var(--rk-crust) !important;
+    --yt-spec-static-overlay-background-medium: rgb(from var(--rk-crust) r g b / 0.5) !important;
+    --yt-spec-static-overlay-background-light: rgb(from var(--rk-crust) r g b / 0.9) !important;
+    --yt-spec-static-overlay-text-primary: var(--rk-foreground) !important;
+    --yt-spec-static-overlay-text-secondary: rgb(from var(--rk-white) r g b / 0.3) !important;
+    --yt-spec-static-overlay-text-disabled: rgb(from var(--rk-white) r g b / 0.7) !important;
+    --yt-spec-static-overlay-call-to-action: var(--rk-accent) !important;
+    --yt-spec-static-overlay-icon-active-other: var(--rk-crust) !important;
+    --yt-spec-static-overlay-icon-inactive: var(--rk-black) !important;
+    --yt-spec-static-overlay-icon-disabled: var(--rk-bright-black) !important;
+    --yt-spec-static-overlay-button-primary: var(--rk-accent) !important;
+    --yt-spec-static-overlay-touch-response: var(--rk-overlay1) !important;
+    --yt-spec-static-overlay-touch-response-inverse: var(--rk-black) !important;
+    --yt-spec-static-overlay-background-brand: var(--rk-accent) !important;
+    --yt-spec-assistive-feed-themed-gradient-1: var(--rk-white) !important;
+    --yt-spec-assistive-feed-themed-gradient-2: var(--rk-lavender) !important;
+    --yt-spec-assistive-feed-themed-gradient-3: var(--rk-red) !important;
+    --yt-spec-brand-background-solid: var(--rk-background) !important;
+    --yt-spec-brand-background-primary: var(--rk-background) !important;
+    --yt-spec-brand-background-secondary: var(--rk-mantle) !important;
+    --yt-spec-general-background-a: var(--rk-background) !important;
+    --yt-spec-general-background-b: var(--rk-background) !important;
+    --yt-spec-general-background-c: var(--rk-crust) !important;
+    --yt-spec-error-background: var(--rk-background) !important;
+    --yt-spec-10-percent-layer: var(--rk-black) !important;
+    --yt-spec-snackbar-background: var(--rk-mantle) !important;
+    --yt-spec-snackbar-background-updated: var(--rk-mantle) !important;
+    --yt-spec-badge-chip-background: var(--rk-surface0) !important;
+    --yt-spec-verified-badge-background: var(--rk-overlay0) !important;
+    --yt-spec-call-to-action-fadeoutd: rgb(from var(--rk-sapphire) r g b / 0.7) !important;
+    --yt-spec-call-to-action-hover: var(--rk-accent) !important;
+    --yt-spec-brand-button-background-hover: var(--rk-accent) !important;
+    --yt-spec-brand-link-text-fadeoutd: rgb(from var(--rk-accent) r g b / 0.7) !important;
+    --yt-spec-filled-button-focus-outline: var(--rk-surface0) !important;
+    --yt-spec-static-overlay-button-hover: var(--rk-black) !important;
+    --yt-spec-mono-filled-hover: var(--rk-black) !important;
+    --yt-spec-commerce-filled-hover: var(--rk-accent) !important;
+    --yt-spec-mono-tonal-hover: var(--rk-black) !important;
+    --yt-spec-commerce-tonal-hover: var(--rk-bright-black) !important;
+    --yt-spec-static-overlay-filled-hover: var(--rk-overlay1) !important;
+    --yt-spec-static-overlay-tonal-hover: var(--rk-black) !important;
+    --yt-spec-paper-tab-ink: rgb(from var(--rk-foreground) r g b / 0.7) !important;
+    --yt-spec-filled-button-text: var(--rk-foreground) !important;
+    --yt-spec-selected-nav-text: var(--rk-foreground) !important;
+    --iron-icon-fill-color: var(--rk-foreground) !important;
+    --yt-spec-overlay-text-primary: var(--rk-foreground) !important;
+    --yt-spec-overlay-background-medium-light: rgb(from @black r g b / 0.6) !important;
+    --yt-spec-overlay-background-heavy: rgb(from @black r g b / 0.8) !important;
+    --yt-spec-overlay-background-solid: #1e1e2e !important;
+    /* Search bar */
+    --ytd-searchbox-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-border-shadow-color: rgb(from var(--rk-crust) r g b / 1) !important;
+    --ytd-searchbox-legacy-button-color: var(--rk-mantle) !important;
+    --ytd-searchbox-legacy-button-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-button-focus-color: var(--rk-accent) !important;
+    --ytd-searchbox-legacy-button-hover-color: var(--rk-mantle) !important;
+    --ytd-searchbox-legacy-button-hover-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-button-icon-color: var(--rk-accent) !important;
+    --ytd-searchbox-background: var(--rk-background) !important;
+    --ytd-searchbox-text-color: var(--rk-foreground) !important;
+    /* System icons */
+    --yt-spec-icon-inactive: var(--rk-foreground) !important;
+    --yt-spec-icon-disabled: var(--rk-overlay1) !important;
+    --yt-spec-brand-icon-inactive: var(--rk-overlay2) !important;
+    /* Live chat */
+    --yt-live-chat-background-color: var(--rk-background) !important;
+    --yt-live-chat-primary-text-color: var(--rk-foreground) !important;
+    --yt-live-chat-action-panel-background-color: var(--rk-background) !important;
+    --yt-live-chat-secondary-background-color: var(--rk-black) !important;
+    --yt-live-chat-toast-background-color: var(--rk-bright-black) !important;
+    --yt-live-chat-mode-change-background-color: var(--rk-background) !important;
+    --yt-live-chat-secondary-text-color: var(--rk-white) !important;
+    --yt-live-chat-tertiary-text-color: rgb(from var(--rk-foreground) r g b / 0.46) !important;
+    --yt-live-chat-text-input-field-inactive-underline-color: var(--rk-white) !important;
+    --yt-live-chat-text-input-field-placeholder-color: var(--rk-white) !important;
+    --yt-live-chat-enabled-send-button-color: var(--rk-foreground) !important;
+    --yt-live-chat-disabled-icon-button-color: var(--rk-bright-white) !important;
+    --yt-live-chat-picker-button-hover-color: var(--rk-accent) !important;
+    --yt-live-chat-mention-background-color: var(--rk-accent) !important;
+    --yt-live-chat-mention-text-color: var(--rk-foreground) !important;
+    --yt-live-chat-deleted-message-color: var(--rk-white) !important;
+    --yt-live-chat-deleted-message-bar-color: var(--rk-bright-white) !important;
+    --yt-live-chat-reconnect-message-color: var(--rk-foreground) !important;
+    --yt-live-chat-disabled-button-background-color: var(--rk-overlay0) !important;
+    --yt-live-chat-sub-panel-background-color: var(--rk-background) !important;
+    --yt-live-chat-sub-panel-background-color-transparent: var(--rk-mantle) !important;
+    --yt-live-chat-moderator-color: var(--rk-lavender) !important;
+    --yt-live-chat-owner-color: var(--rk-peach) !important;
+    --yt-live-chat-message-highlight-background-color: var(--rk-background) !important;
+    --yt-live-chat-sponsor-color: var(--rk-green) !important;
+    --yt-live-chat-overlay-color: rgb(from var(--rk-mantle) r g b / 0.5) !important;
+    --yt-live-chat-dialog-background-color: var(--rk-background) !important;
+    --yt-emoji-picker-variant-selector-bg-color: var(--rk-background) !important;
+    --yt-live-chat-moderation-mode-hover-background-color: rgb(from var(--rk-mantle) r g b / 0.7) !important;
+    --yt-grey: var(--rk-white) !important;
+    --yt-live-chat-text-input-field-suggestion-background-color: var(--rk-white) !important;
+    --yt-live-chat-text-input-field-suggestion-background-color-hover: var(--rk-bright-white) !important;
+    --yt-emoji-picker-search-background-color: var(--rk-surface0) !important;
+    --yt-emoji-picker-search-color: var(--rk-foreground) !important;
+    --yt-emoji-picker-search-placeholder-color: var(--rk-accent) !important;
+    --yt-live-chat-slider-active-color: var(--rk-accent) !important;
+    --yt-live-chat-slider-container-color: var(--rk-surface0) !important;
+    --yt-live-chat-slider-markers-color: var(--rk-foreground) !important;
+    --yt-live-chat-banner-gradient-scrim: linear-gradient(#181825, transparent) !important;
+    --yt-live-chat-action-panel-gradient-scrim: linear-gradient(to top, #181825, transparent) !important;
+    --yt-live-chat-automod-button-background-color-hover: rgb(from var(--rk-crust) r g b / 0.5) !important;
+    --yt-live-chat-automod-button-explanation-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+    --yt-live-chat-shimmer-background-color: rgb(from var(--rk-crust) r g b / 0.6) !important;
+    --yt-live-chat-shimmer-linear-gradient: linear-gradient(0deg, rgba(205, 214, 244, 0.9) 40%, rgba(30, 30, 46, 0.7) 50%, rgba(205, 214, 244, 0.9) 60%) !important;
+    --yt-live-chat-vem-background-color: var(--rk-mantle) !important;
+    --yt-live-chat-product-picker-icon-color: rgb(from var(--rk-foreground) r g b / 0.5) !important;
+    --yt-live-chat-product-picker-hover-color: var(--rk-overlay0) !important;
+    --yt-live-chat-product-picker-disabled-icon-color: rgb(from var(--rk-foreground) r g b / 0.7) !important;
+    --yt-live-chat-action-panel-background-color-transparent: (null) !important;
+    --paper-tooltip-background: var(--rk-bright-black) !important;
+    --paper-tooltip-text-color: var(--rk-foreground) !important;
+    /* Links */
+    --yt-endpoint-color: var(--rk-foreground) !important;
+    --yt-endpoint-visited-color: var(--rk-foreground) !important;
+    --yt-endpoint-hover-color: var(--rk-accent) !important;
+    --sb-dark-red-outline: var(--rk-accent) !important;
+    --sb-main-bg-color: var(--rk-background) !important;
+    --sb-main-fg-color: var(--rk-foreground) !important;
+    --sb-grey-bg-color: var(--rk-background) !important;
+    --sb-grey-fg-color: var(--rk-white) !important;
+    --sb-red-bg-color: var(--rk-accent) !important;
+    --sb-category-sponsor: var(--rk-green) !important;
+    --sb-category-selfpromo: var(--rk-yellow) !important;
+    --sb-category-exclusive_access: var(--rk-cyan) !important;
+    --sb-category-interaction: var(--rk-accent) !important;
+    --sb-category-poi_highlight: var(--rk-magenta) !important;
+    --sb-category-intro: var(--rk-sky) !important;
+    --sb-category-outro: var(--rk-blue) !important;
+    --sb-category-preview: var(--rk-sapphire) !important;
+    --sb-category-filler: var(--rk-lavender) !important;
+    --sb-category-music_offtopic: var(--rk-peach) !important;
+  }
+  :root[dark] .ytTooltipContainerDefaultTooltipContent,
+  :root[dark] [dark] .ytTooltipContainerDefaultTooltipContent,
+  :root[dark] [system-icons] .ytTooltipContainerDefaultTooltipContent,
+  :root[dark] [darker-dark-theme] .ytTooltipContainerDefaultTooltipContent,
+  :root[dark][dark] .ytTooltipContainerDefaultTooltipContent,
+  :root[dark][system-icons] .ytTooltipContainerDefaultTooltipContent,
+  :root[dark][darker-dark-theme] .ytTooltipContainerDefaultTooltipContent {
+    background: var(--paper-tooltip-background) !important;
+    color: var(--paper-tooltip-text-color) !important;
+  }
+  :root[dark]:not(.style-scope) {
+    --primary-text-color: var(--rk-foreground) !important;
+    --primary-background-color: var(--rk-background) !important;
+    --secondary-text-color: var(--rk-white) !important;
+    --disabled-text-color: var(--rk-bright-white) !important;
+    --divider-color: var(--rk-overlay0) !important;
+    --error-color: var(--rk-red) !important;
+    --primary-color: var(--rk-accent) !important;
+    --light-primary-color: var(--rk-accent) !important;
+    --dark-primary-color: var(--rk-blue) !important;
+    --accent-color: var(--rk-accent) !important;
+    --light-accent-color: var(--rk-accent) !important;
+    --dark-accent-color: var(--rk-accent) !important;
+    --light-theme-background-color: var(--rk-background) !important;
+    --light-theme-base-color: var(--rk-foreground) !important;
+    --light-theme-text-color: var(--rk-foreground) !important;
+    --light-theme-secondary-color: var(--rk-white) !important;
+    --light-theme-disabled-color: var(--rk-bright-white) !important;
+    --light-theme-divider-color: var(--rk-overlay0) !important;
+    --dark-theme-background-color: var(--rk-background) !important;
+    --dark-theme-base-color: var(--rk-foreground) !important;
+    --dark-theme-text-color: var(--rk-foreground) !important;
+    --dark-theme-secondary-color: var(--rk-white) !important;
+    --dark-theme-disabled-color: var(--rk-bright-white) !important;
+    --dark-theme-divider-color: var(--rk-overlay0) !important;
+  }
+  :root[dark] #progress.yt-page-navigation-progress {
+    background: var(--rk-accent);
+  }
+  :root[dark] ytd-macro-markers-list-item-renderer {
+    --ytd-macro-markers-list-item-background-color: var(--rk-surface0);
+    --ytd-macro-markers-list-item-title-color: var(--rk-foreground);
+    --ytd-macro-markers-list-item-secondary-color: var(--rk-bright-white);
+    --ytd-macro-markers-list-item-timestamp-background-color: var(--rk-black);
+  }
+  :root[dark] ytd-playlist-panel-video-renderer {
+    --yt-lightsource-section2-color: var(--rk-black);
+    --yt-lightsource-section4-color: var(--rk-bright-black);
+    --yt-lightsource-primary-title-color: var(--rk-foreground);
+    --yt-lightsource-secondary-title-color: var(--rk-foreground);
+    --yt-active-playlist-panel-background-color: var(--rk-surface0);
+  }
+  :root[dark] ytd-playlist-panel-renderer[collapsible][collapsed][use-color-palette] .header.ytd-playlist-panel-renderer {
+    --iron-icon-fill-color: var(--rk-foreground);
+    background-color: var(--rk-background);
+  }
+  :root[dark] #container.ytd-masthead {
+    --iron-icon-fill-color: var(--rk-foreground);
+  }
+  :root[dark] #background.ytd-masthead,
+  :root[dark] #frosted-glass {
+    --yt-frosted-glass-desktop: var(--rk-background);
+    --yt-spec-frosted-glass-desktop: var(--rk-background);
+  }
+  :root[dark] ytd-feed-filter-chip-bar-renderer[expand-instead-of-scroll] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+    --iron-icon-fill-color: var(--rk-foreground);
+    background-color: var(--rk-background);
+  }
+  :root[dark] .ytp-progress-list {
+    background: rgb(from var(--rk-surface0) r g b / 0.8);
+  }
+  :root[dark] .ytp-load-progress {
+    background: rgb(from var(--rk-overlay0) r g b / 1);
+  }
+  :root[dark] ytd-expandable-metadata-renderer {
+    --yt-lightsource-section1-color: var(--rk-background);
+    --yt-lightsource-section2-color: var(--rk-surface0);
+    --yt-lightsource-section3-color: var(--rk-black);
+    --yt-lightsource-section4-color: var(--rk-bright-black);
+    --yt-lightsource-primary-title-color: var(--rk-foreground);
+    --yt-lightsource-secondary-title-color: var(--rk-white);
+  }
+  :root[dark] yt-live-chat-renderer {
+    --yt-button-default-text-color: var(--rk-foreground);
+    --yt-button-default-background-color: var(--rk-background);
+    --yt-button-dark-text-color: var(--rk-background);
+    --yt-button-dark-background-color: var(--rk-accent);
+    --yt-button-payment-background-color: var(--rk-accent);
+  }
+  :root[dark] yt-icon-button.yt-live-chat-item-list-renderer {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root[dark] yt-icon-button.yt-live-chat-item-list-renderer:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root[dark] #guide-skeleton,
+  :root[dark] #home-container-skeleton,
+  :root[dark] #home-chips {
+    background-color: var(--rk-background);
+    z-index: -1;
+  }
+  :root[dark] ytd-app[is-shorts-page] {
+    background: var(--yt-spec-base-background);
+  }
+  :root[dark] #guide-skeleton .guide-ghost-icon,
+  :root[dark] #guide-skeleton .guide-ghost-text,
+  :root[dark] .masthead-skeleton-icon,
+  :root[dark] #home-page-skeleton .skeleton-bg-color,
+  :root[dark] .watch-skeleton .skeleton-bg-color {
+    background-color: var(--rk-black);
+  }
+  :root[dark] #cinematics,
+  :root[dark] #cinematic-container {
+    display: none;
+  }
+  :root[dark] .ytp-settings-button.ytp-hd-quality-badge::after,
+  :root[dark] .ytp-settings-button.ytp-hdr-quality-badge::after,
+  :root[dark] .ytp-settings-button.ytp-4k-quality-badge::after,
+  :root[dark] .ytp-settings-button.ytp-5k-quality-badge::after,
+  :root[dark] .ytp-settings-button.ytp-8k-quality-badge::after,
+  :root[dark] .ytp-settings-button.ytp-3d-badge-grey::after,
+  :root[dark] .ytp-settings-button.ytp-3d-badge::after {
+    background-color: var(--rk-accent);
+  }
+  :root[dark] [fill="red"],
+  :root[dark] [fill="#F00"],
+  :root[dark] [fill="#FF0000"],
+  :root[dark] [fill="#f03"],
+  :root[dark] [fill="#FF0033"] {
+    fill: var(--rk-accent);
+  }
+  :root[dark] [fill="white"] {
+    fill: var(--rk-foreground);
+  }
+  :root[dark] yt-icon.ytd-logo [fill="white"] {
+    fill: var(--rk-crust);
+  }
+  :root[dark] .yt-spec-icon-shape [fill="#FAFAFA"],
+  :root[dark] .yt-spec-icon-shape [fill="#000"],
+  :root[dark] .yt-spec-icon-shape [fill="#fff"],
+  :root[dark] .yt-spec-icon-shape [fill="#FFF"],
+  :root[dark] .yt-spec-icon-shape [fill="#FFFFFF"] {
+    fill: var(--rk-crust);
+  }
+  :root[dark] .ytSpecIconBadgeShapeStyleOverlay .ytSpecIconBadgeShapeIcon,
+  :root[dark] .ytSpecIconBadgeShapeBadge {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytSpecIconBadgeShapeTypeNotification .ytSpecIconBadgeShapeBadge {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    color: var(--rk-foreground);
+    background-color: var(--rk-surface0);
+    /* Accent for filled-in thumbs up (like button) */
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [fill="rgb(3,3,3)"],
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [fill="rgb(0,0,0)"],
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [fill="rgb(255,255,255)"] {
+    fill: var(--rk-foreground);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [stroke="rgb(0,0,0)"],
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [stroke="rgb(255,255,255)"] {
+    stroke: var(--rk-foreground);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [animated-icon-type="LIKE"] g path[fill] {
+    fill: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [animated-icon-type="LIKE"] g path[fill] + [stroke] {
+    stroke: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
+    background-color: var(--rk-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
+    color: var(--rk-foreground);
+    border-color: var(--rk-bright-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline:hover {
+    background-color: var(--rk-bright-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
+    color: var(--rk-foreground);
+    /* Accent for filled-in thumbs up (like button) */
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text path[d="M3,11h3v10H3V11z M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11v10h10.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z"] {
+    fill: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover {
+    background-color: var(--rk-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root[dark] .yt-spec-button-shape-next--disabled {
+    color: var(--rk-overlay1);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+    color: var(--rk-foreground);
+    background-color: var(--rk-surface0);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:hover {
+    background-color: var(--rk-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text:hover {
+    background-color: var(--rk-surface0);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--outline {
+    color: var(--rk-foreground);
+    border-color: var(--rk-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--outline:hover {
+    background: var(--rk-surface0);
+  }
+  :root[dark] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+    color: var(--rk-accent);
+    border-color: var(--rk-bright-black);
+  }
+  :root[dark] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline:hover {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    color: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+    color: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[dark] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  :root[dark] .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l + 5));
+  }
+  :root[dark] .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--filled {
+    color: var(--rk-white);
+    background-color: rgb(from var(--rk-black) r g b / 0.7);
+  }
+  :root[dark] .ytSearchboxComponentInputBox,
+  :root[dark] .ytSearchboxComponentInputBoxDark {
+    background: var(--ytd-searchbox-background);
+    color: var(--ytd-searchbox-text-color);
+    border-color: var(--ytd-searchbox-border-color);
+    box-shadow: none;
+  }
+  :root[dark] .ytSearchboxComponentInputBoxHasFocus,
+  :root[dark] .ytSearchboxComponentInputBoxHasFocusDark {
+    border-color: var(--rk-accent);
+  }
+  :root[dark] .ytSuggestionComponentPersonalizedSuggestion {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytSuggestionComponentHighlighted {
+    background: var(--rk-black);
+  }
+  :root[dark] .ytSuggestionComponentLargerRemovedText {
+    color: var(--rk-overlay1);
+  }
+  :root[dark] .ytSearchboxComponentSuggestionsContainer,
+  :root[dark] .ytSearchboxComponentSuggestionsContainerDark {
+    background: var(--yt-spec-raised-background);
+    border-color: var(--yt-spec-raised-background);
+  }
+  :root[dark] .ytSuggestionComponentSuggestion,
+  :root[dark] .ytSuggestionComponentSuggestionDark {
+    color: var(--ytd-searchbox-text-color);
+  }
+  :root[dark] .ytSearchboxComponentSearchButton,
+  :root[dark] .ytSearchboxComponentSearchButtonDark {
+    color: var(--ytd-searchbox-text-color);
+    background: var(--yt-spec-raised-background);
+    border-color: var(--ytd-searchbox-border-color);
+  }
+  :root[dark] .ytSearchboxComponentClearButtonIcon,
+  :root[dark] .ytSearchboxComponentClearButtonIconDark {
+    color: var(--ytd-searchbox-text-color);
+  }
+  :root[dark] ytd-watch-metadata {
+    --yt-saturated-raised-background: var(--rk-black) !important;
+    --yt-saturated-text-primary: var(--rk-foreground) !important;
+    --yt-saturated-text-secondary: var(--rk-bright-white) !important;
+  }
+  :root[dark] ytd-text-inline-expander .ytAttributedStringLinkInheritColor:not(
+        .ytAttributedStringLink
+      ) {
+    color: var(--rk-foreground) !important;
+  }
+  :root[dark] .ytAttributedStringHighlightTextDecorator {
+    background-color: var(--rk-bright-black) !important;
+  }
+  :root[dark] .ytAttributedStringLinkCallToActionColor {
+    color: var(--rk-accent);
+  }
+  :root[dark] .ytwCourseProgressViewModelHostProgressTitle,
+  :root[dark] .ytwCourseProgressViewModelHostProgressSubtitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytwCourseProgressViewModelHostProgressBar {
+    background-color: rgb(from @white r g b / 0.2);
+  }
+  :root[dark] .ytwCourseProgressViewModelHostProgressBar .ytwCourseProgressViewModelHostProgressBarFill {
+    background-color: var(--rk-foreground);
+  }
+  :root[dark] .ytwHowThisWasMadeSectionViewModelSectionTitle,
+  :root[dark] .ytwHowThisWasMadeSectionViewModelBodyHeader {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytwHowThisWasMadeSectionViewModelBodyText {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytVideoDescriptionYouchatSectionViewModelSectionTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytVideoDescriptionYouchatSectionViewModelSubHeaderText {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytwYouChatItemViewModelHost {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytwYouChatChipsDataChip {
+    color: var(--rk-foreground);
+    border-color: var(--rk-bright-black);
+  }
+  :root[dark] .ytwYouChatChipsDataChip:hover {
+    background-color: var(--rk-black);
+  }
+  :root[dark] .chatInputViewModelChatDisclaimer {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytwTimelineChapterViewModelTitle,
+  :root[dark] .ytShelfHeaderLayoutTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytwTranscriptSegmentViewModelHost {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytwTranscriptSegmentViewModelTimestamp {
+    background-color: var(--rk-bright-black);
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytwTranscriptSegmentViewModelTimestampActive {
+    background-color: var(--rk-overlay0);
+    color: var(--rk-foreground);
+  }
+  :root[dark] .videoAttributesSectionViewModelTitle,
+  :root[dark] .ytVideoAttributeViewModelTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytVideoAttributeViewModelSubtitle,
+  :root[dark] .ytVideoAttributeViewModelSecondarySubtitle {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytp-sb-unsubscribe {
+    background-color: var(--rk-bright-black);
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytp-sb-subscribe {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBar {
+    background-color: var(--rk-bright-black);
+  }
+  :root[dark] .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment {
+    background: var(--rk-accent);
+  }
+  :root[dark] ytd-thumbnail-overlay-resume-playback-renderer {
+    background-color: var(--rk-bright-black);
+  }
+  :root[dark] ytd-thumbnail-overlay-resume-playback-renderer #progress.ytd-thumbnail-overlay-resume-playback-renderer {
+    background: var(--rk-accent);
+  }
+  :root[dark] .ytp-tooltip-bottom-text {
+    background: rgb(from var(--rk-surface0) r g b / 0.9);
+    color: var(--rk-foreground);
+    text-shadow: none;
+  }
+  :root[dark] .ytp-popup {
+    background: rgb(from var(--rk-surface0) r g b / 0.9);
+    text-shadow: none;
+  }
+  :root[dark] .ytp-panel-menu,
+  :root[dark] .ytp-panel-header,
+  :root[dark] .ytp-panel-footer,
+  :root[dark] .ytp-menuitem-label,
+  :root[dark] .ytp-premium-label,
+  :root[dark] .ytp-menuitem-content,
+  :root[dark] .ytp-menuitem-label-count,
+  :root[dark] .ytp-menu-label-secondary,
+  :root[dark] .ytd-menu-title-renderer {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytp-panel-footer-content-link {
+    color: var(--rk-accent);
+  }
+  :root[dark] .ytp-panel-back-button {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%2032%2032%22%20version%3D%221.1%22%3E%3Cpath%20d%3D%22m19.41%2020.09-4.58-4.59%204.58-4.59L18%209.5l-6%206%206%206z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+  }
+  :root[dark] .ytp-menuitem[aria-checked="false"] .ytp-menuitem-toggle-checkbox::after {
+    background-color: var(--rk-overlay1);
+  }
+  :root[dark] .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+    background-color: var(--rk-bright-black);
+  }
+  :root[dark] .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox::after {
+    background-color: var(--rk-foreground);
+  }
+  :root[dark] .ytp-menuitem:not([aria-disabled="true"]):hover {
+    background-color: var(--rk-black);
+  }
+  :root[dark] yt-progress-bar .ytProgressBarLineProgressBarPlayed,
+  :root[dark] yt-progress-bar .ytProgressBarPlayheadProgressBarPlayheadDot {
+    background: var(--rk-accent);
+  }
+  :root[dark] yt-progress-bar .ytProgressBarLineProgressBarHovered,
+  :root[dark] yt-progress-bar .ytProgressBarLineProgressBarBackground {
+    background: var(--rk-foreground);
+  }
+  :root[dark] .ytp-cards-button .ytp-cards-button-icon use {
+    fill: #1e1e2e;
+  }
+  :root[dark] .ytp-cards-button .ytp-cards-button-icon path {
+    fill: #cdd6f4;
+  }
+  :root[dark] .ytp-cards-teaser .ytp-cards-teaser-box {
+    background-color: var(--rk-bright-black);
+    border-bottom-color: var(--rk-bright-black);
+  }
+  :root[dark] .ytp-cards-teaser .ytp-cards-teaser-text {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .html5-video-player {
+    color: #cdd6f4;
+    background-color: var(--rk-crust);
+    /* stats for nerds */
+  }
+  :root[dark] .html5-video-player .ytp-swatch-background-color,
+  :root[dark] .html5-video-player .ytp-play-progress {
+    background: var(--rk-accent);
+  }
+  :root[dark] .html5-video-player .ytp-svg-fill,
+  :root[dark] .html5-video-player [fill="#fff"] {
+    fill: #cdd6f4;
+  }
+  :root[dark] .html5-video-player .ytp-volume-slider-handle,
+  :root[dark] .html5-video-player .ytp-volume-slider-handle::before {
+    background-color: #cdd6f4;
+  }
+  :root[dark] .html5-video-player .ytp-volume-slider-handle::after {
+    background-color: rgb(from @white r g b / 0.2);
+  }
+  :root[dark] .html5-video-player .ytp-time-current,
+  :root[dark] .html5-video-player .ytp-time-separator,
+  :root[dark] .html5-video-player .ytp-time-duration {
+    color: #cdd6f4;
+  }
+  :root[dark] .html5-video-player .ytp-live-badge[disabled]::before {
+    background: var(--rk-accent);
+  }
+  :root[dark] .html5-video-player .ytp-live-badge::before {
+    background: var(--rk-overlay0);
+  }
+  :root[dark] .html5-video-player .ytp-button[aria-pressed]::after,
+  :root[dark] .html5-video-player .ytp-subtitles-button[aria-pressed]::after {
+    background-color: var(--rk-accent);
+  }
+  :root[dark] .html5-video-player .ytp-sfn {
+    background: rgb(from var(--rk-background) r g b / 0.8);
+    color: var(--rk-foreground);
+  }
+  :root[dark] .html5-video-player .ytp-autonav-toggle-button {
+    background-color: var(--rk-bright-black);
+  }
+  :root[dark] .html5-video-player .ytp-autonav-toggle-button::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12.75%204.5h-3c-.6%200-1.17.23-1.6.65-.42.43-.65%201-.65%201.6v22.5c0%20.59.23%201.16.65%201.59.43.42%201%20.66%201.6.66h3c.59%200%201.16-.24%201.59-.66.42-.43.66-1%20.66-1.59V6.75c0-.6-.24-1.17-.66-1.6-.43-.42-1-.65-1.59-.65m13.5%200h-3c-.6%200-1.17.23-1.6.65-.42.43-.65%201-.65%201.6v22.5c0%20.59.23%201.16.65%201.59.43.42%201%20.66%201.6.66h3c.59%200%201.16-.24%201.59-.66.42-.43.66-1%20.66-1.59V6.75c0-.6-.24-1.17-.66-1.6-.43-.42-1-.65-1.59-.65%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    background-color: var(--rk-overlay1);
+  }
+  :root[dark] .html5-video-player .ytp-autonav-toggle-button[aria-checked="true"]::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22m17%208.6-6.11-3.61c-1.5-.88-3.39.2-3.39%201.94v22.13c0%201.74%201.89%202.82%203.39%201.94L17%2027.4zm0%200v18.8L33%2018z%22%20fill%3D%22%231e1e2e%22/%3E%3C/svg%3E");
+    background-color: #cdd6f4;
+  }
+  :root[dark] ytd-rich-item-renderer.ytd-rich-item-renderer-highlight {
+    background-color: rgb(from var(--rk-accent) r g b / 0.1);
+    box-shadow: rgb(from var(--rk-accent) r g b / 0.1) 0 0 0 10px;
+  }
+  :root[dark] #shorts-container {
+    --yt-spec-static-overlay-text-primary: #cdd6f4;
+    /* Buy super thanks button */
+  }
+  :root[dark] #shorts-container .YtwFactoidRendererLabel {
+    color: var(--rk-white);
+  }
+  :root[dark] #shorts-container .YtwFactoidRendererValue {
+    color: var(--rk-foreground);
+  }
+  :root[dark] #shorts-container ytd-reel-video-renderer:not([is-watch-while-mode]) .ytSpecButtonShapeWithLabelLabel {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] #shorts-container ytd-reel-video-renderer[is-watch-while-mode] .ytSpecButtonShapeWithLabelLabel {
+    color: #cdd6f4;
+  }
+  :root[dark] #shorts-container .ytdVolumeControlsMuteIcon {
+    color: #cdd6f4;
+  }
+  :root[dark] #shorts-container .YtdShortsSuggestedActionStaticHostContainer {
+    background-color: rgb(from @black r g b / 0.6);
+  }
+  :root[dark] #shorts-container .YtdShortsSuggestedActionStaticHostContainer .YtdShortsSuggestedActionStaticHostLeadingIcon,
+  :root[dark] #shorts-container .YtdShortsSuggestedActionStaticHostContainer .YtdShortsSuggestedActionStaticHostPrimaryText {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytBadgeShapeThumbnailDefaultRedesign,
+  :root[dark] .yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--tonal[style="background-color: rgba(0, 0, 0, 0.3);"],
+  :root[dark] .ytdVolumeControlsBackgroundScrim,
+  :root[dark] .ytInlinePlayerControlsTopRightControlsCircleButton {
+    background: rgb(from @black r g b / 0.6) !important;
+    color: #cdd6f4;
+  }
+  :root[dark] .yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--filled {
+    background: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root[dark] .ytSpecTouchFeedbackShapeHoverEffect {
+    background-color: var(--rk-surface0) !important;
+  }
+  :root[dark] .ytLockupMetadataViewModelTitle {
+    color: var(--rk-foreground) !important;
+  }
+  :root[dark] .ytLockupMetadataViewModelMetadata {
+    color: var(--rk-white) !important;
+  }
+  :root[dark] .ytBadgeShapeDefault {
+    color: var(--rk-white);
+    background: var(--rk-black);
+  }
+  :root[dark] .ytBadgeShapeDefault.ytBadgeShapeModern {
+    background: none;
+  }
+  :root[dark] .ytBadgeShapeCommerce {
+    color: var(--rk-green);
+  }
+  :root[dark] .ytBadgeShapeThumbnailLive {
+    background: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root[dark] .shortsLockupViewModelHostOutsideMetadataEndpoint {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .shortsLockupViewModelHostOutsideMetadataSubhead {
+    color: var(--rk-white);
+  }
+  :root[dark] #progressContainer.tp-yt-paper-progress {
+    background-color: var(--rk-mantle);
+  }
+  :root[dark] #comment-chip-container.yt-pdg-comment-chip-renderer,
+  :root[dark] .slider-knob-inner.tp-yt-paper-slider {
+    background: var(--rk-accent);
+  }
+  :root[dark] #primaryProgress.tp-yt-paper-progress {
+    background: linear-gradient(139deg, #fab387, #eba0ac, #f38ba8, #f5c2e7);
+  }
+  :root[dark] #container.ytd-pdg-comment-preview-renderer {
+    background-color: var(--rk-mantle);
+  }
+  :root[dark] #comment-chip-price.yt-pdg-comment-chip-renderer,
+  :root[dark] yt-icon.yt-pdg-comment-chip-renderer {
+    color: var(--rk-crust);
+  }
+  :root[dark] .ytSpecAvatarShapeLiveRing::after {
+    background: var(--rk-accent) !important;
+  }
+  :root[dark] .ytSpecAvatarShapeLiveBadge {
+    background-color: var(--rk-accent);
+  }
+  :root[dark] .ytSpecAvatarShapeLiveBadgeText {
+    color: var(--rk-background);
+  }
+  :root[dark] .ytPageHeaderViewModelHost .ytPageHeaderViewModelTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytPageHeaderViewModelHost .ytPageHeaderViewModelContentMetadata {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytPageHeaderViewModelHost [style$="color: rgb(255, 255, 255);"] {
+    color: var(--rk-foreground) !important;
+  }
+  :root[dark] .ytTruncatedTextHost {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytAttributionViewModelSuffix .ytAttributedStringLinkCallToActionColor,
+  :root[dark] .ytTruncatedTextAbsoluteButton {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytTabShapeTab {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytTabShapeTabSelected {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .tabGroupShapeSlider {
+    background-color: var(--rk-foreground);
+  }
+  :root[dark] .ytTabShapeHost:hover .ytTabShapeTabBar {
+    background-color: var(--rk-bright-white);
+  }
+  :root[dark] .ytContextualSheetLayoutHost,
+  :root[dark] ytd-menu-popup-renderer {
+    background-color: var(--rk-mantle);
+  }
+  :root[dark] .ytListItemViewModelTappable:hover {
+    background-color: var(--rk-surface0);
+  }
+  :root[dark] .ytPanelHeaderViewModelTitle,
+  :root[dark] .ytListItemViewModelTitle,
+  :root[dark] .ytListItemViewModelAccessory {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytListItemViewModelSubtitle {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytSpecDialogLayoutHost {
+    background-color: var(--rk-mantle);
+  }
+  :root[dark] .ytSpecDialogLayoutHost .ytDialogHeaderViewModelText {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytDropdownViewModelTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytDropdownViewModelLabel {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytDropdownViewModelSupportError {
+    color: var(--rk-red);
+  }
+  :root[dark] .ytDropdownViewModelDropdownContainerErrorBorder {
+    border-color: var(--rk-red);
+  }
+  :root[dark] .ytStandardsTextareaShapeTextareaContainerOutline:focus-within {
+    border-color: var(--rk-foreground);
+  }
+  :root[dark] .ytSwitchShapeTrack {
+    background-color: var(--rk-bright-black);
+  }
+  :root[dark] .ytSwitchShapeKnob {
+    background-color: var(--rk-mantle);
+  }
+  :root[dark] .ytSwitchShapeTrackActive {
+    background-color: var(--rk-accent);
+  }
+  :root[dark] .ytStandardsTextareaShapeTextarea {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytStandardsTextareaShapePlaceholder {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytStandardsTextareaShapeTextarea::placeholder {
+    color: transparent !important;
+  }
+  :root[dark] .ytSubThreadConnection,
+  :root[dark] .ytSubThreadContinuation {
+    border-left-color: var(--rk-black);
+  }
+  :root[dark] .ytSubThreadConnection {
+    border-bottom-color: var(--rk-black);
+  }
+  :root[dark] .ytSubThreadHovered > .ytSubThreadThreadline .ytSubThreadConnection,
+  :root[dark] .ytSubThreadHovered > .ytSubThreadThreadline .ytSubThreadContinuation {
+    border-left-color: var(--rk-overlay0);
+  }
+  :root[dark] .ytSubThreadHovered > .ytSubThreadThreadline .ytSubThreadConnection {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root[dark] .ytProfileCardViewModelHost {
+    background-color: var(--rk-mantle);
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelChannelName,
+  :root[dark] .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelMetadataHandleWithBoldFont {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelBadge {
+    filter: none;
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelMetadataContent {
+    color: var(--rk-white);
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytProfileInfoViewModelSectionTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytProfileInfoViewModelSectionSubtitle {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytProfileInfoViewModelSectionHeartIcon {
+    filter: none;
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytCommentInteractionViewModelVideoTitle {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytProfileCardViewModelHost .ytCommentInteractionViewModelCommentContent {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytVideoMetadataCarouselViewModelHost,
+  :root[dark] .YtVideoMetadataCarouselViewModelHost {
+    background-color: var(--rk-surface0);
+  }
+  :root[dark] .ytVideoMetadataCarouselViewModelHost .ytCarouselTitleViewModelTitle,
+  :root[dark] .YtVideoMetadataCarouselViewModelHost .ytCarouselTitleViewModelTitle,
+  :root[dark] .ytVideoMetadataCarouselViewModelHost .YtCarouselTitleViewModelTitle,
+  :root[dark] .YtVideoMetadataCarouselViewModelHost .YtCarouselTitleViewModelTitle,
+  :root[dark] .ytVideoMetadataCarouselViewModelHost .yt-core-attributed-string,
+  :root[dark] .YtVideoMetadataCarouselViewModelHost .yt-core-attributed-string,
+  :root[dark] .ytVideoMetadataCarouselViewModelHost .yt-icon-shape,
+  :root[dark] .YtVideoMetadataCarouselViewModelHost .yt-icon-shape {
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytVideoMetadataCarouselViewModelHost .ytTextCarouselItemViewModelHost,
+  :root[dark] .YtVideoMetadataCarouselViewModelHost .ytTextCarouselItemViewModelHost {
+    color: var(--rk-bright-white);
+  }
+  :root[dark] .ytChipShapeInactive {
+    background-color: var(--rk-surface0);
+    color: var(--rk-foreground);
+  }
+  :root[dark] .ytChipShapeActive {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root:not([dark]) {
+    color-scheme: dark;
+    color: var(--rk-foreground);
+    background: var(--rk-background);
+    /* Misc */
+    /* Selected chapter */
+    /* Skeleton */
+    /* Ambient mode */
+    /* Icons */
+    /* Notifications Bell and Indicator */
+    /* Buttons */
+    /* Search box */
+    /* Video description */
+    /* Links */
+    /* Course Playlist (e.g. https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6) */
+    /* Thumbnails */
+    /* Panels, popups, tooltips */
+    /* Video player */
+    /* Video highlight */
+    /* Video previews */
+    /* Shorts titles and views on homepage */
+    /* Buy super thanks bar */
+    /* Avatar */
+    /* Channel pages */
+    /* Components */
+    /* Menus and context sheets */
+    /* Dialogs */
+    /* Dropdowns */
+    /* Toggles/Switches */
+    /* Textareas */
+    /* Comments */
+    /* Profile Card */
+    /* Live chat replay */
+    /* Category tag pills */
+  }
+  :root:not([dark]) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:not([dark]) input::placeholder,
+  :root:not([dark]) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root:not([dark]),
+  :root:not([dark]) [dark],
+  :root:not([dark]) [system-icons],
+  :root:not([dark]) [darker-dark-theme],
+  :root:not([dark])[dark],
+  :root:not([dark])[system-icons],
+  :root:not([dark])[darker-dark-theme] {
+    --efyt-control-bar-background-color: var(--rk-mantle) !important;
+    --dimmer-text: var(--rk-foreground) !important;
+    /* Newest Variables */
+    --yt-sys-color-baseline--base-background: var(--rk-background) !important;
+    --yt-sys-color-baseline--menu-background: var(--rk-mantle) !important;
+    --yt-sys-color-baseline--raised-background: var(--rk-surface0) !important;
+    --yt-sys-color-baseline--additive-background: var(--rk-surface0) !important;
+    --yt-sys-color-baseline--wordmark-text: var(--rk-foreground) !important;
+    --yt-sys-color-baseline--text-primary: var(--rk-foreground) !important;
+    --yt-sys-color-baseline--text-secondary: var(--rk-white) !important;
+    --yt-sys-color-baseline--call-to-action: var(--rk-accent) !important;
+    --yt-sys-color-baseline--suggested-action: color-mix(in srgb, var(--rk-accent) 30%, var(--rk-background)) !important;
+    --yt-sys-color-baseline--outline: var(--rk-surface0) !important;
+    --yt-sys-color-baseline--outline-opaque: var(--rk-black) !important;
+    --yt-sys-color-baseline--outline-inverse-opaque: var(--rk-overlay0) !important;
+    --yt-sys-color-baseline--overlay-background-medium-light: rgb(from @black r g b / 0.6) !important;
+    --yt-sys-color-baseline--overlay-background-heavy: rgb(from @black r g b / 0.8) !important;
+    --yt-sys-color-baseline--overlay-background-solid: var(--rk-crust) !important;
+    --yt-sys-color-baseline--overlay-text-primary: var(--rk-foreground) !important;
+    --yt-spec-white-1: var(--rk-foreground) !important;
+    --yt-spec-white-2: var(--rk-white) !important;
+    --yt-spec-white-3: var(--rk-bright-white) !important;
+    --yt-spec-white-4: hsl(from var(--rk-bright-white) h s calc(l - 5)) !important;
+    --yt-spec-black-1: var(--rk-overlay1) !important;
+    --yt-spec-black-2: var(--rk-overlay0) !important;
+    --yt-spec-black-3: var(--rk-bright-black) !important;
+    --yt-spec-black-4: var(--rk-black) !important;
+    --yt-spec-black-pure: var(--rk-surface0) !important;
+    --yt-spec-grey-1: var(--rk-foreground) !important;
+    --yt-spec-grey-2: var(--rk-white) !important;
+    --yt-spec-grey-3: var(--rk-bright-white) !important;
+    --yt-spec-grey-4: var(--rk-overlay2) !important;
+    --yt-spec-grey-5: var(--rk-overlay1) !important;
+    --yt-brand-youtube-red: var(--rk-accent) !important;
+    --yt-brand-medium-red: var(--rk-accent) !important;
+    --yt-brand-light-red: var(--rk-accent) !important;
+    --yt-spec-red-30: var(--rk-peach) !important;
+    --yt-spec-red-70: var(--rk-red) !important;
+    --yt-spec-red-indicator: var(--rk-accent) !important;
+    --yt-spec-pale-blue: var(--rk-sky) !important;
+    --yt-spec-light-blue: var(--rk-sky) !important;
+    --yt-spec-dark-blue: var(--rk-sapphire) !important;
+    --yt-spec-navy-blue: var(--rk-cyan) !important;
+    --yt-spec-light-green: var(--rk-green) !important;
+    --yt-spec-dark-green: var(--rk-green) !important;
+    --yt-spec-yellow: var(--rk-peach) !important;
+    --yt-spec-black-pure-alpha-5: var(--rk-white) !important;
+    --yt-spec-black-pure-alpha-10: var(--rk-overlay2) !important;
+    --yt-spec-black-pure-alpha-15: rgb(from var(--rk-crust) r g b / 0.85) !important;
+    --yt-spec-black-pure-alpha-30: rgb(from var(--rk-crust) r g b / 0.7) !important;
+    --yt-spec-black-pure-alpha-60: rgb(from var(--rk-crust) r g b / 0.4) !important;
+    --yt-spec-black-pure-alpha-80: rgb(from var(--rk-crust) r g b / 0.2) !important;
+    --yt-spec-black-1-alpha-98: rgb(from var(--rk-crust) r g b / 0.02) !important;
+    --yt-spec-black-1-alpha-95: rgb(from var(--rk-crust) r g b / 0.05) !important;
+    --yt-spec-white-1-alpha-10: rgb(from var(--rk-foreground) r g b / 0.9) !important;
+    --yt-spec-white-1-alpha-20: rgb(from var(--rk-foreground) r g b / 0.8) !important;
+    --yt-spec-white-1-alpha-25: rgb(from var(--rk-foreground) r g b / 0.75) !important;
+    --yt-spec-white-1-alpha-30: rgb(from var(--rk-foreground) r g b / 0.7) !important;
+    --yt-spec-white-1-alpha-70: rgb(from var(--rk-foreground) r g b / 0.3) !important;
+    --yt-spec-white-1-alpha-95: rgb(from var(--rk-foreground) r g b / 0.05) !important;
+    --yt-spec-white-1-alpha-98: rgb(from var(--rk-foreground) r g b / 0.02) !important;
+    --yt-brand-medium-red-alpha-90: rgb(from var(--rk-accent) r g b / 0.1) !important;
+    --yt-brand-medium-red-alpha-30: rgb(from var(--rk-accent) r g b / 0.7) !important;
+    --yt-brand-light-red-alpha-30: rgb(from var(--rk-accent) r g b / 0.7) !important;
+    --yt-spec-light-blue-alpha-30: rgb(from var(--rk-sapphire) r g b / 0.7) !important;
+    --yt-spec-dark-blue-alpha-30: rgb(from var(--rk-sapphire) r g b / 0.7) !important;
+    --yt-spec-base-background: var(--rk-background) !important;
+    --yt-spec-raised-background: var(--rk-surface0) !important;
+    --yt-spec-menu-background: var(--rk-mantle) !important;
+    --yt-spec-inverted-background: var(--rk-foreground) !important;
+    --yt-spec-additive-background: var(--rk-surface0) !important;
+    --yt-spec-outline: var(--rk-surface0) !important;
+    --yt-spec-shadow: rgb(from var(--rk-crust) r g b / 0.75) !important;
+    --yt-spec-text-primary: var(--rk-foreground) !important;
+    --yt-spec-text-secondary: var(--rk-white) !important;
+    --yt-spec-text-disabled: var(--rk-bright-white) !important;
+    --yt-spec-text-primary-inverse: var(--rk-crust) !important;
+    --yt-spec-call-to-action: var(--rk-accent) !important;
+    --yt-spec-call-to-action-inverse: var(--rk-accent) !important;
+    --yt-spec-suggested-action: rgb(from var(--rk-accent) r g b / 0.2) !important;
+    --yt-spec-suggested-action-inverse: var(--rk-foreground) !important;
+    --yt-spec-icon-active-other: var(--rk-foreground) !important;
+    --yt-spec-button-chip-background-hover: var(--rk-black) !important;
+    --yt-spec-touch-response: var(--rk-surface0) !important;
+    --yt-spec-touch-response-inverse: var(--rk-accent) !important;
+    --yt-spec-brand-icon-active: var(--rk-accent) !important;
+    --yt-spec-brand-button-background: var(--rk-accent) !important;
+    --yt-spec-brand-link-text: var(--rk-sapphire) !important;
+    --yt-spec-wordmark-text: var(--rk-foreground) !important;
+    --yt-spec-error-indicator: var(--rk-red) !important;
+    --yt-spec-themed-blue: var(--rk-accent) !important;
+    --yt-spec-themed-green: var(--rk-green) !important;
+    --yt-spec-ad-indicator: var(--rk-cyan) !important;
+    --yt-spec-themed-overlay-background: rgb(from var(--rk-crust) r g b / 0.8) !important;
+    --yt-spec-commerce-badge-background: var(--rk-green) !important;
+    --yt-spec-static-brand-red: var(--rk-accent) !important;
+    --yt-spec-static-brand-white: var(--rk-foreground) !important;
+    --yt-spec-static-brand-black: var(--rk-background) !important;
+    --yt-spec-static-clear-color: rgb(from var(--rk-crust) r g b / 1) !important;
+    --yt-spec-static-clear-black: var(--rk-background) !important;
+    --yt-spec-static-ad-yellow: var(--rk-peach) !important;
+    --yt-spec-static-grey: var(--rk-white) !important;
+    --yt-spec-static-overlay-background-solid: var(--rk-crust) !important;
+    --yt-spec-static-overlay-background-heavy: var(--rk-crust) !important;
+    --yt-spec-static-overlay-background-medium: rgb(from var(--rk-crust) r g b / 0.5) !important;
+    --yt-spec-static-overlay-background-light: rgb(from var(--rk-crust) r g b / 0.9) !important;
+    --yt-spec-static-overlay-text-primary: var(--rk-foreground) !important;
+    --yt-spec-static-overlay-text-secondary: rgb(from var(--rk-white) r g b / 0.3) !important;
+    --yt-spec-static-overlay-text-disabled: rgb(from var(--rk-white) r g b / 0.7) !important;
+    --yt-spec-static-overlay-call-to-action: var(--rk-accent) !important;
+    --yt-spec-static-overlay-icon-active-other: var(--rk-crust) !important;
+    --yt-spec-static-overlay-icon-inactive: var(--rk-black) !important;
+    --yt-spec-static-overlay-icon-disabled: var(--rk-bright-black) !important;
+    --yt-spec-static-overlay-button-primary: var(--rk-accent) !important;
+    --yt-spec-static-overlay-touch-response: var(--rk-overlay1) !important;
+    --yt-spec-static-overlay-touch-response-inverse: var(--rk-black) !important;
+    --yt-spec-static-overlay-background-brand: var(--rk-accent) !important;
+    --yt-spec-assistive-feed-themed-gradient-1: var(--rk-white) !important;
+    --yt-spec-assistive-feed-themed-gradient-2: var(--rk-lavender) !important;
+    --yt-spec-assistive-feed-themed-gradient-3: var(--rk-red) !important;
+    --yt-spec-brand-background-solid: var(--rk-background) !important;
+    --yt-spec-brand-background-primary: var(--rk-background) !important;
+    --yt-spec-brand-background-secondary: var(--rk-mantle) !important;
+    --yt-spec-general-background-a: var(--rk-background) !important;
+    --yt-spec-general-background-b: var(--rk-background) !important;
+    --yt-spec-general-background-c: var(--rk-crust) !important;
+    --yt-spec-error-background: var(--rk-background) !important;
+    --yt-spec-10-percent-layer: var(--rk-black) !important;
+    --yt-spec-snackbar-background: var(--rk-mantle) !important;
+    --yt-spec-snackbar-background-updated: var(--rk-mantle) !important;
+    --yt-spec-badge-chip-background: var(--rk-surface0) !important;
+    --yt-spec-verified-badge-background: var(--rk-overlay0) !important;
+    --yt-spec-call-to-action-fadeoutd: rgb(from var(--rk-sapphire) r g b / 0.7) !important;
+    --yt-spec-call-to-action-hover: var(--rk-accent) !important;
+    --yt-spec-brand-button-background-hover: var(--rk-accent) !important;
+    --yt-spec-brand-link-text-fadeoutd: rgb(from var(--rk-accent) r g b / 0.7) !important;
+    --yt-spec-filled-button-focus-outline: var(--rk-surface0) !important;
+    --yt-spec-static-overlay-button-hover: var(--rk-black) !important;
+    --yt-spec-mono-filled-hover: var(--rk-black) !important;
+    --yt-spec-commerce-filled-hover: var(--rk-accent) !important;
+    --yt-spec-mono-tonal-hover: var(--rk-black) !important;
+    --yt-spec-commerce-tonal-hover: var(--rk-bright-black) !important;
+    --yt-spec-static-overlay-filled-hover: var(--rk-overlay1) !important;
+    --yt-spec-static-overlay-tonal-hover: var(--rk-black) !important;
+    --yt-spec-paper-tab-ink: rgb(from var(--rk-foreground) r g b / 0.7) !important;
+    --yt-spec-filled-button-text: var(--rk-foreground) !important;
+    --yt-spec-selected-nav-text: var(--rk-foreground) !important;
+    --iron-icon-fill-color: var(--rk-foreground) !important;
+    --yt-spec-overlay-text-primary: var(--rk-foreground) !important;
+    --yt-spec-overlay-background-medium-light: rgb(from @black r g b / 0.6) !important;
+    --yt-spec-overlay-background-heavy: rgb(from @black r g b / 0.8) !important;
+    --yt-spec-overlay-background-solid: #cdd6f4 !important;
+    /* Search bar */
+    --ytd-searchbox-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-border-shadow-color: rgb(from var(--rk-crust) r g b / 1) !important;
+    --ytd-searchbox-legacy-button-color: var(--rk-mantle) !important;
+    --ytd-searchbox-legacy-button-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-button-focus-color: var(--rk-accent) !important;
+    --ytd-searchbox-legacy-button-hover-color: var(--rk-mantle) !important;
+    --ytd-searchbox-legacy-button-hover-border-color: var(--rk-surface0) !important;
+    --ytd-searchbox-legacy-button-icon-color: var(--rk-accent) !important;
+    --ytd-searchbox-background: var(--rk-background) !important;
+    --ytd-searchbox-text-color: var(--rk-foreground) !important;
+    /* System icons */
+    --yt-spec-icon-inactive: var(--rk-foreground) !important;
+    --yt-spec-icon-disabled: var(--rk-overlay1) !important;
+    --yt-spec-brand-icon-inactive: var(--rk-overlay2) !important;
+    /* Live chat */
+    --yt-live-chat-background-color: var(--rk-background) !important;
+    --yt-live-chat-primary-text-color: var(--rk-foreground) !important;
+    --yt-live-chat-action-panel-background-color: var(--rk-background) !important;
+    --yt-live-chat-secondary-background-color: var(--rk-black) !important;
+    --yt-live-chat-toast-background-color: var(--rk-bright-black) !important;
+    --yt-live-chat-mode-change-background-color: var(--rk-background) !important;
+    --yt-live-chat-secondary-text-color: var(--rk-white) !important;
+    --yt-live-chat-tertiary-text-color: rgb(from var(--rk-foreground) r g b / 0.46) !important;
+    --yt-live-chat-text-input-field-inactive-underline-color: var(--rk-white) !important;
+    --yt-live-chat-text-input-field-placeholder-color: var(--rk-white) !important;
+    --yt-live-chat-enabled-send-button-color: var(--rk-foreground) !important;
+    --yt-live-chat-disabled-icon-button-color: var(--rk-bright-white) !important;
+    --yt-live-chat-picker-button-hover-color: var(--rk-accent) !important;
+    --yt-live-chat-mention-background-color: var(--rk-accent) !important;
+    --yt-live-chat-mention-text-color: var(--rk-foreground) !important;
+    --yt-live-chat-deleted-message-color: var(--rk-white) !important;
+    --yt-live-chat-deleted-message-bar-color: var(--rk-bright-white) !important;
+    --yt-live-chat-reconnect-message-color: var(--rk-foreground) !important;
+    --yt-live-chat-disabled-button-background-color: var(--rk-overlay0) !important;
+    --yt-live-chat-sub-panel-background-color: var(--rk-background) !important;
+    --yt-live-chat-sub-panel-background-color-transparent: var(--rk-mantle) !important;
+    --yt-live-chat-moderator-color: var(--rk-lavender) !important;
+    --yt-live-chat-owner-color: var(--rk-peach) !important;
+    --yt-live-chat-message-highlight-background-color: var(--rk-background) !important;
+    --yt-live-chat-sponsor-color: var(--rk-green) !important;
+    --yt-live-chat-overlay-color: rgb(from var(--rk-mantle) r g b / 0.5) !important;
+    --yt-live-chat-dialog-background-color: var(--rk-background) !important;
+    --yt-emoji-picker-variant-selector-bg-color: var(--rk-background) !important;
+    --yt-live-chat-moderation-mode-hover-background-color: rgb(from var(--rk-mantle) r g b / 0.7) !important;
+    --yt-grey: var(--rk-white) !important;
+    --yt-live-chat-text-input-field-suggestion-background-color: var(--rk-white) !important;
+    --yt-live-chat-text-input-field-suggestion-background-color-hover: var(--rk-bright-white) !important;
+    --yt-emoji-picker-search-background-color: var(--rk-surface0) !important;
+    --yt-emoji-picker-search-color: var(--rk-foreground) !important;
+    --yt-emoji-picker-search-placeholder-color: var(--rk-accent) !important;
+    --yt-live-chat-slider-active-color: var(--rk-accent) !important;
+    --yt-live-chat-slider-container-color: var(--rk-surface0) !important;
+    --yt-live-chat-slider-markers-color: var(--rk-foreground) !important;
+    --yt-live-chat-banner-gradient-scrim: linear-gradient(#181825, transparent) !important;
+    --yt-live-chat-action-panel-gradient-scrim: linear-gradient(to top, #181825, transparent) !important;
+    --yt-live-chat-automod-button-background-color-hover: rgb(from var(--rk-crust) r g b / 0.5) !important;
+    --yt-live-chat-automod-button-explanation-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
+    --yt-live-chat-shimmer-background-color: rgb(from var(--rk-crust) r g b / 0.6) !important;
+    --yt-live-chat-shimmer-linear-gradient: linear-gradient(0deg, rgba(205, 214, 244, 0.9) 40%, rgba(30, 30, 46, 0.7) 50%, rgba(205, 214, 244, 0.9) 60%) !important;
+    --yt-live-chat-vem-background-color: var(--rk-mantle) !important;
+    --yt-live-chat-product-picker-icon-color: rgb(from var(--rk-foreground) r g b / 0.5) !important;
+    --yt-live-chat-product-picker-hover-color: var(--rk-overlay0) !important;
+    --yt-live-chat-product-picker-disabled-icon-color: rgb(from var(--rk-foreground) r g b / 0.7) !important;
+    --yt-live-chat-action-panel-background-color-transparent: (null) !important;
+    --paper-tooltip-background: var(--rk-bright-black) !important;
+    --paper-tooltip-text-color: var(--rk-foreground) !important;
+    /* Links */
+    --yt-endpoint-color: var(--rk-foreground) !important;
+    --yt-endpoint-visited-color: var(--rk-foreground) !important;
+    --yt-endpoint-hover-color: var(--rk-accent) !important;
+    --sb-dark-red-outline: var(--rk-accent) !important;
+    --sb-main-bg-color: var(--rk-background) !important;
+    --sb-main-fg-color: var(--rk-foreground) !important;
+    --sb-grey-bg-color: var(--rk-background) !important;
+    --sb-grey-fg-color: var(--rk-white) !important;
+    --sb-red-bg-color: var(--rk-accent) !important;
+    --sb-category-sponsor: var(--rk-green) !important;
+    --sb-category-selfpromo: var(--rk-yellow) !important;
+    --sb-category-exclusive_access: var(--rk-cyan) !important;
+    --sb-category-interaction: var(--rk-accent) !important;
+    --sb-category-poi_highlight: var(--rk-magenta) !important;
+    --sb-category-intro: var(--rk-sky) !important;
+    --sb-category-outro: var(--rk-blue) !important;
+    --sb-category-preview: var(--rk-sapphire) !important;
+    --sb-category-filler: var(--rk-lavender) !important;
+    --sb-category-music_offtopic: var(--rk-peach) !important;
+  }
+  :root:not([dark]) .ytTooltipContainerDefaultTooltipContent,
+  :root:not([dark]) [dark] .ytTooltipContainerDefaultTooltipContent,
+  :root:not([dark]) [system-icons] .ytTooltipContainerDefaultTooltipContent,
+  :root:not([dark]) [darker-dark-theme] .ytTooltipContainerDefaultTooltipContent,
+  :root:not([dark])[dark] .ytTooltipContainerDefaultTooltipContent,
+  :root:not([dark])[system-icons] .ytTooltipContainerDefaultTooltipContent,
+  :root:not([dark])[darker-dark-theme] .ytTooltipContainerDefaultTooltipContent {
+    background: var(--paper-tooltip-background) !important;
+    color: var(--paper-tooltip-text-color) !important;
+  }
+  :root:not([dark]):not(.style-scope) {
+    --primary-text-color: var(--rk-foreground) !important;
+    --primary-background-color: var(--rk-background) !important;
+    --secondary-text-color: var(--rk-white) !important;
+    --disabled-text-color: var(--rk-bright-white) !important;
+    --divider-color: var(--rk-overlay0) !important;
+    --error-color: var(--rk-red) !important;
+    --primary-color: var(--rk-accent) !important;
+    --light-primary-color: var(--rk-accent) !important;
+    --dark-primary-color: var(--rk-blue) !important;
+    --accent-color: var(--rk-accent) !important;
+    --light-accent-color: var(--rk-accent) !important;
+    --dark-accent-color: var(--rk-accent) !important;
+    --light-theme-background-color: var(--rk-background) !important;
+    --light-theme-base-color: var(--rk-foreground) !important;
+    --light-theme-text-color: var(--rk-foreground) !important;
+    --light-theme-secondary-color: var(--rk-white) !important;
+    --light-theme-disabled-color: var(--rk-bright-white) !important;
+    --light-theme-divider-color: var(--rk-overlay0) !important;
+    --dark-theme-background-color: var(--rk-background) !important;
+    --dark-theme-base-color: var(--rk-foreground) !important;
+    --dark-theme-text-color: var(--rk-foreground) !important;
+    --dark-theme-secondary-color: var(--rk-white) !important;
+    --dark-theme-disabled-color: var(--rk-bright-white) !important;
+    --dark-theme-divider-color: var(--rk-overlay0) !important;
+  }
+  :root:not([dark]) #progress.yt-page-navigation-progress {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) ytd-macro-markers-list-item-renderer {
+    --ytd-macro-markers-list-item-background-color: var(--rk-surface0);
+    --ytd-macro-markers-list-item-title-color: var(--rk-foreground);
+    --ytd-macro-markers-list-item-secondary-color: var(--rk-bright-white);
+    --ytd-macro-markers-list-item-timestamp-background-color: var(--rk-black);
+  }
+  :root:not([dark]) ytd-playlist-panel-video-renderer {
+    --yt-lightsource-section2-color: var(--rk-black);
+    --yt-lightsource-section4-color: var(--rk-bright-black);
+    --yt-lightsource-primary-title-color: var(--rk-foreground);
+    --yt-lightsource-secondary-title-color: var(--rk-foreground);
+    --yt-active-playlist-panel-background-color: var(--rk-surface0);
+  }
+  :root:not([dark]) ytd-playlist-panel-renderer[collapsible][collapsed][use-color-palette] .header.ytd-playlist-panel-renderer {
+    --iron-icon-fill-color: var(--rk-foreground);
+    background-color: var(--rk-background);
+  }
+  :root:not([dark]) #container.ytd-masthead {
+    --iron-icon-fill-color: var(--rk-foreground);
+  }
+  :root:not([dark]) #background.ytd-masthead,
+  :root:not([dark]) #frosted-glass {
+    --yt-frosted-glass-desktop: var(--rk-background);
+    --yt-spec-frosted-glass-desktop: var(--rk-background);
+  }
+  :root:not([dark]) ytd-feed-filter-chip-bar-renderer[expand-instead-of-scroll] #chips-wrapper.ytd-feed-filter-chip-bar-renderer {
+    --iron-icon-fill-color: var(--rk-foreground);
+    background-color: var(--rk-background);
+  }
+  :root:not([dark]) ytd-expandable-metadata-renderer {
+    --yt-lightsource-section1-color: var(--rk-background);
+    --yt-lightsource-section2-color: var(--rk-surface0);
+    --yt-lightsource-section3-color: var(--rk-black);
+    --yt-lightsource-section4-color: var(--rk-bright-black);
+    --yt-lightsource-primary-title-color: var(--rk-foreground);
+    --yt-lightsource-secondary-title-color: var(--rk-white);
+  }
+  :root:not([dark]) yt-live-chat-renderer {
+    --yt-button-default-text-color: var(--rk-foreground);
+    --yt-button-default-background-color: var(--rk-background);
+    --yt-button-dark-text-color: var(--rk-background);
+    --yt-button-dark-background-color: var(--rk-accent);
+    --yt-button-payment-background-color: var(--rk-accent);
+  }
+  :root:not([dark]) yt-icon-button.yt-live-chat-item-list-renderer {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root:not([dark]) yt-icon-button.yt-live-chat-item-list-renderer:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root:not([dark]) #guide-skeleton,
+  :root:not([dark]) #home-container-skeleton,
+  :root:not([dark]) #home-chips {
+    background-color: var(--rk-background);
+    z-index: -1;
+  }
+  :root:not([dark]) ytd-app[is-shorts-page] {
+    background: var(--yt-spec-base-background);
+  }
+  :root:not([dark]) #guide-skeleton .guide-ghost-icon,
+  :root:not([dark]) #guide-skeleton .guide-ghost-text,
+  :root:not([dark]) .masthead-skeleton-icon,
+  :root:not([dark]) #home-page-skeleton .skeleton-bg-color,
+  :root:not([dark]) .watch-skeleton .skeleton-bg-color {
+    background-color: var(--rk-black);
+  }
+  :root:not([dark]) #cinematics,
+  :root:not([dark]) #cinematic-container {
+    display: none;
+  }
+  :root:not([dark]) .ytp-settings-button.ytp-hd-quality-badge::after,
+  :root:not([dark]) .ytp-settings-button.ytp-hdr-quality-badge::after,
+  :root:not([dark]) .ytp-settings-button.ytp-4k-quality-badge::after,
+  :root:not([dark]) .ytp-settings-button.ytp-5k-quality-badge::after,
+  :root:not([dark]) .ytp-settings-button.ytp-8k-quality-badge::after,
+  :root:not([dark]) .ytp-settings-button.ytp-3d-badge-grey::after,
+  :root:not([dark]) .ytp-settings-button.ytp-3d-badge::after {
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) [fill="red"],
+  :root:not([dark]) [fill="#F00"],
+  :root:not([dark]) [fill="#FF0000"],
+  :root:not([dark]) [fill="#f03"],
+  :root:not([dark]) [fill="#FF0033"] {
+    fill: var(--rk-accent);
+  }
+  :root:not([dark]) [fill="white"] {
+    fill: var(--rk-foreground);
+  }
+  :root:not([dark]) yt-icon.ytd-logo [fill="white"] {
+    fill: var(--rk-crust);
+  }
+  :root:not([dark]) .yt-spec-icon-shape [fill="#FAFAFA"],
+  :root:not([dark]) .yt-spec-icon-shape [fill="#000"],
+  :root:not([dark]) .yt-spec-icon-shape [fill="#fff"],
+  :root:not([dark]) .yt-spec-icon-shape [fill="#FFF"],
+  :root:not([dark]) .yt-spec-icon-shape [fill="#FFFFFF"] {
+    fill: var(--rk-crust);
+  }
+  :root:not([dark]) .ytSpecIconBadgeShapeStyleOverlay .ytSpecIconBadgeShapeIcon,
+  :root:not([dark]) .ytSpecIconBadgeShapeBadge {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytSpecIconBadgeShapeTypeNotification .ytSpecIconBadgeShapeBadge {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal {
+    color: var(--rk-foreground);
+    background-color: var(--rk-surface0);
+    /* Accent for filled-in thumbs up (like button) */
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [fill="rgb(3,3,3)"],
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [fill="rgb(0,0,0)"],
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [fill="rgb(255,255,255)"] {
+    fill: var(--rk-foreground);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [stroke="rgb(0,0,0)"],
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [stroke="rgb(255,255,255)"] {
+    stroke: var(--rk-foreground);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [animated-icon-type="LIKE"] g path[fill] {
+    fill: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal [animated-icon-type="LIKE"] g path[fill] + [stroke] {
+    stroke: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--tonal:hover {
+    background-color: var(--rk-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline {
+    color: var(--rk-foreground);
+    border-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--outline:hover {
+    background-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text {
+    color: var(--rk-foreground);
+    /* Accent for filled-in thumbs up (like button) */
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text path[d="M3,11h3v10H3V11z M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11v10h10.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z"] {
+    fill: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--text:hover {
+    background-color: var(--rk-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--mono.yt-spec-button-shape-next--filled:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--disabled {
+    color: var(--rk-overlay1);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal {
+    color: var(--rk-foreground);
+    background-color: var(--rk-surface0);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--tonal:hover {
+    background-color: var(--rk-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--text:hover {
+    background-color: var(--rk-surface0);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--filled {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--outline {
+    color: var(--rk-foreground);
+    border-color: var(--rk-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay.yt-spec-button-shape-next--outline:hover {
+    background: var(--rk-surface0);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline {
+    color: var(--rk-accent);
+    border-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--outline:hover {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    color: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text {
+    color: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--text:hover {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--call-to-action.yt-spec-button-shape-next--filled:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l + 5));
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--disabled.yt-spec-button-shape-next--filled {
+    color: var(--rk-white);
+    background-color: rgb(from var(--rk-black) r g b / 0.7);
+  }
+  :root:not([dark]) .ytSearchboxComponentInputBox,
+  :root:not([dark]) .ytSearchboxComponentInputBoxDark {
+    background: var(--ytd-searchbox-background);
+    color: var(--ytd-searchbox-text-color);
+    border-color: var(--ytd-searchbox-border-color);
+    box-shadow: none;
+  }
+  :root:not([dark]) .ytSearchboxComponentInputBoxHasFocus,
+  :root:not([dark]) .ytSearchboxComponentInputBoxHasFocusDark {
+    border-color: var(--rk-accent);
+  }
+  :root:not([dark]) .ytSuggestionComponentPersonalizedSuggestion {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytSuggestionComponentHighlighted {
+    background: var(--rk-black);
+  }
+  :root:not([dark]) .ytSuggestionComponentLargerRemovedText {
+    color: var(--rk-overlay1);
+  }
+  :root:not([dark]) .ytSearchboxComponentSuggestionsContainer,
+  :root:not([dark]) .ytSearchboxComponentSuggestionsContainerDark {
+    background: var(--yt-spec-raised-background);
+    border-color: var(--yt-spec-raised-background);
+  }
+  :root:not([dark]) .ytSuggestionComponentSuggestion,
+  :root:not([dark]) .ytSuggestionComponentSuggestionDark {
+    color: var(--ytd-searchbox-text-color);
+  }
+  :root:not([dark]) .ytSearchboxComponentSearchButton,
+  :root:not([dark]) .ytSearchboxComponentSearchButtonDark {
+    color: var(--ytd-searchbox-text-color);
+    background: var(--yt-spec-raised-background);
+    border-color: var(--ytd-searchbox-border-color);
+  }
+  :root:not([dark]) .ytSearchboxComponentClearButtonIcon,
+  :root:not([dark]) .ytSearchboxComponentClearButtonIconDark {
+    color: var(--ytd-searchbox-text-color);
+  }
+  :root:not([dark]) ytd-watch-metadata {
+    --yt-saturated-raised-background: var(--rk-black) !important;
+    --yt-saturated-text-primary: var(--rk-foreground) !important;
+    --yt-saturated-text-secondary: var(--rk-bright-white) !important;
+  }
+  :root:not([dark]) ytd-text-inline-expander .ytAttributedStringLinkInheritColor:not(
+        .ytAttributedStringLink
+      ) {
+    color: var(--rk-foreground) !important;
+  }
+  :root:not([dark]) .ytAttributedStringHighlightTextDecorator {
+    background-color: var(--rk-bright-black) !important;
+  }
+  :root:not([dark]) .ytAttributedStringLinkCallToActionColor {
+    color: var(--rk-accent);
+  }
+  :root:not([dark]) .ytwCourseProgressViewModelHostProgressTitle,
+  :root:not([dark]) .ytwCourseProgressViewModelHostProgressSubtitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytwCourseProgressViewModelHostProgressBar {
+    background-color: rgb(from @white r g b / 0.2);
+  }
+  :root:not([dark]) .ytwCourseProgressViewModelHostProgressBar .ytwCourseProgressViewModelHostProgressBarFill {
+    background-color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytwHowThisWasMadeSectionViewModelSectionTitle,
+  :root:not([dark]) .ytwHowThisWasMadeSectionViewModelBodyHeader {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytwHowThisWasMadeSectionViewModelBodyText {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytVideoDescriptionYouchatSectionViewModelSectionTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytVideoDescriptionYouchatSectionViewModelSubHeaderText {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytwYouChatItemViewModelHost {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytwYouChatChipsDataChip {
+    color: var(--rk-foreground);
+    border-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .ytwYouChatChipsDataChip:hover {
+    background-color: var(--rk-black);
+  }
+  :root:not([dark]) .chatInputViewModelChatDisclaimer {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytwTimelineChapterViewModelTitle,
+  :root:not([dark]) .ytShelfHeaderLayoutTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytwTranscriptSegmentViewModelHost {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytwTranscriptSegmentViewModelTimestamp {
+    background-color: var(--rk-bright-black);
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytwTranscriptSegmentViewModelTimestampActive {
+    background-color: var(--rk-overlay0);
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .videoAttributesSectionViewModelTitle,
+  :root:not([dark]) .ytVideoAttributeViewModelTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytVideoAttributeViewModelSubtitle,
+  :root:not([dark]) .ytVideoAttributeViewModelSecondarySubtitle {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytp-sb-unsubscribe {
+    background-color: var(--rk-bright-black);
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytp-sb-subscribe {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root:not([dark]) .ytThumbnailOverlayProgressBarHostWatchedProgressBar {
+    background-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .ytThumbnailOverlayProgressBarHostWatchedProgressBarSegment {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) ytd-thumbnail-overlay-resume-playback-renderer {
+    background-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) ytd-thumbnail-overlay-resume-playback-renderer #progress.ytd-thumbnail-overlay-resume-playback-renderer {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) .ytp-tooltip-bottom-text {
+    background: rgb(from var(--rk-surface0) r g b / 0.9);
+    color: var(--rk-foreground);
+    text-shadow: none;
+  }
+  :root:not([dark]) .ytp-popup {
+    background: rgb(from var(--rk-surface0) r g b / 0.9);
+    text-shadow: none;
+  }
+  :root:not([dark]) .ytp-panel-menu,
+  :root:not([dark]) .ytp-panel-header,
+  :root:not([dark]) .ytp-panel-footer,
+  :root:not([dark]) .ytp-menuitem-label,
+  :root:not([dark]) .ytp-premium-label,
+  :root:not([dark]) .ytp-menuitem-content,
+  :root:not([dark]) .ytp-menuitem-label-count,
+  :root:not([dark]) .ytp-menu-label-secondary,
+  :root:not([dark]) .ytd-menu-title-renderer {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytp-panel-footer-content-link {
+    color: var(--rk-accent);
+  }
+  :root:not([dark]) .ytp-panel-back-button {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22100%25%22%20height%3D%22100%25%22%20viewBox%3D%220%200%2032%2032%22%20version%3D%221.1%22%3E%3Cpath%20d%3D%22m19.41%2020.09-4.58-4.59%204.58-4.59L18%209.5l-6%206%206%206z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+  }
+  :root:not([dark]) .ytp-menuitem[aria-checked="false"] .ytp-menuitem-toggle-checkbox::after {
+    background-color: var(--rk-overlay1);
+  }
+  :root:not([dark]) .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox {
+    background-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .ytp-menuitem[aria-checked="true"] .ytp-menuitem-toggle-checkbox::after {
+    background-color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytp-menuitem:not([aria-disabled="true"]):hover {
+    background-color: var(--rk-black);
+  }
+  :root:not([dark]) yt-progress-bar .ytProgressBarLineProgressBarPlayed,
+  :root:not([dark]) yt-progress-bar .ytProgressBarPlayheadProgressBarPlayheadDot {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) yt-progress-bar .ytProgressBarLineProgressBarHovered,
+  :root:not([dark]) yt-progress-bar .ytProgressBarLineProgressBarBackground {
+    background: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytp-cards-button .ytp-cards-button-icon use {
+    fill: #cdd6f4;
+  }
+  :root:not([dark]) .ytp-cards-button .ytp-cards-button-icon path {
+    fill: #1e1e2e;
+  }
+  :root:not([dark]) .ytp-cards-teaser .ytp-cards-teaser-box {
+    background-color: var(--rk-bright-black);
+    border-bottom-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .ytp-cards-teaser .ytp-cards-teaser-text {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .html5-video-player {
+    color: #1e1e2e;
+    background-color: var(--rk-crust);
+    /* stats for nerds */
+  }
+  :root:not([dark]) .html5-video-player .ytp-swatch-background-color,
+  :root:not([dark]) .html5-video-player .ytp-play-progress {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) .html5-video-player .ytp-svg-fill,
+  :root:not([dark]) .html5-video-player [fill="#fff"] {
+    fill: #1e1e2e;
+  }
+  :root:not([dark]) .html5-video-player .ytp-volume-slider-handle,
+  :root:not([dark]) .html5-video-player .ytp-volume-slider-handle::before {
+    background-color: #1e1e2e;
+  }
+  :root:not([dark]) .html5-video-player .ytp-volume-slider-handle::after {
+    background-color: rgb(from @white r g b / 0.2);
+  }
+  :root:not([dark]) .html5-video-player .ytp-time-current,
+  :root:not([dark]) .html5-video-player .ytp-time-separator,
+  :root:not([dark]) .html5-video-player .ytp-time-duration {
+    color: #1e1e2e;
+  }
+  :root:not([dark]) .html5-video-player .ytp-live-badge[disabled]::before {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) .html5-video-player .ytp-live-badge::before {
+    background: var(--rk-overlay0);
+  }
+  :root:not([dark]) .html5-video-player .ytp-button[aria-pressed]::after,
+  :root:not([dark]) .html5-video-player .ytp-subtitles-button[aria-pressed]::after {
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) .html5-video-player .ytp-sfn {
+    background: rgb(from var(--rk-background) r g b / 0.8);
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .html5-video-player .ytp-autonav-toggle-button {
+    background-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .html5-video-player .ytp-autonav-toggle-button::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22M12.75%204.5h-3c-.6%200-1.17.23-1.6.65-.42.43-.65%201-.65%201.6v22.5c0%20.59.23%201.16.65%201.59.43.42%201%20.66%201.6.66h3c.59%200%201.16-.24%201.59-.66.42-.43.66-1%20.66-1.59V6.75c0-.6-.24-1.17-.66-1.6-.43-.42-1-.65-1.59-.65m13.5%200h-3c-.6%200-1.17.23-1.6.65-.42.43-.65%201-.65%201.6v22.5c0%20.59.23%201.16.65%201.59.43.42%201%20.66%201.6.66h3c.59%200%201.16-.24%201.59-.66.42-.43.66-1%20.66-1.59V6.75c0-.6-.24-1.17-.66-1.6-.43-.42-1-.65-1.59-.65%22%20fill%3D%22%231e1e2e%22/%3E%3C/svg%3E");
+    background-color: var(--rk-overlay1);
+  }
+  :root:not([dark]) .html5-video-player .ytp-autonav-toggle-button[aria-checked="true"]::after {
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2236%22%20height%3D%2236%22%20viewBox%3D%220%200%2036%2036%22%20fill%3D%22none%22%3E%3Cpath%20d%3D%22m17%208.6-6.11-3.61c-1.5-.88-3.39.2-3.39%201.94v22.13c0%201.74%201.89%202.82%203.39%201.94L17%2027.4zm0%200v18.8L33%2018z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
+    background-color: #1e1e2e;
+  }
+  :root:not([dark]) ytd-rich-item-renderer.ytd-rich-item-renderer-highlight {
+    background-color: rgb(from var(--rk-accent) r g b / 0.1);
+    box-shadow: rgb(from var(--rk-accent) r g b / 0.1) 0 0 0 10px;
+  }
+  :root:not([dark]) #shorts-container {
+    --yt-spec-static-overlay-text-primary: #1e1e2e;
+    /* Buy super thanks button */
+  }
+  :root:not([dark]) #shorts-container .YtwFactoidRendererLabel {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) #shorts-container .YtwFactoidRendererValue {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) #shorts-container ytd-reel-video-renderer:not([is-watch-while-mode]) .ytSpecButtonShapeWithLabelLabel {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) #shorts-container ytd-reel-video-renderer[is-watch-while-mode] .ytSpecButtonShapeWithLabelLabel {
+    color: #1e1e2e;
+  }
+  :root:not([dark]) #shorts-container .ytdVolumeControlsMuteIcon {
+    color: #1e1e2e;
+  }
+  :root:not([dark]) #shorts-container .YtdShortsSuggestedActionStaticHostContainer {
+    background-color: rgb(from @black r g b / 0.6);
+  }
+  :root:not([dark]) #shorts-container .YtdShortsSuggestedActionStaticHostContainer .YtdShortsSuggestedActionStaticHostLeadingIcon,
+  :root:not([dark]) #shorts-container .YtdShortsSuggestedActionStaticHostContainer .YtdShortsSuggestedActionStaticHostPrimaryText {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytBadgeShapeThumbnailDefaultRedesign,
+  :root:not([dark]) .yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--tonal[style="background-color: rgba(0, 0, 0, 0.3);"],
+  :root:not([dark]) .ytdVolumeControlsBackgroundScrim,
+  :root:not([dark]) .ytInlinePlayerControlsTopRightControlsCircleButton {
+    background: rgb(from @black r g b / 0.6) !important;
+    color: #1e1e2e;
+  }
+  :root:not([dark]) .yt-spec-button-shape-next--overlay-dark.yt-spec-button-shape-next--filled {
+    background: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root:not([dark]) .ytSpecTouchFeedbackShapeHoverEffect {
+    background-color: var(--rk-surface0) !important;
+  }
+  :root:not([dark]) .ytLockupMetadataViewModelTitle {
+    color: var(--rk-foreground) !important;
+  }
+  :root:not([dark]) .ytLockupMetadataViewModelMetadata {
+    color: var(--rk-white) !important;
+  }
+  :root:not([dark]) .ytBadgeShapeDefault {
+    color: var(--rk-white);
+    background: var(--rk-black);
+  }
+  :root:not([dark]) .ytBadgeShapeDefault.ytBadgeShapeModern {
+    background: none;
+  }
+  :root:not([dark]) .ytBadgeShapeCommerce {
+    color: var(--rk-green);
+  }
+  :root:not([dark]) .ytBadgeShapeThumbnailLive {
+    background: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root:not([dark]) .shortsLockupViewModelHostOutsideMetadataEndpoint {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .shortsLockupViewModelHostOutsideMetadataSubhead {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) #progressContainer.tp-yt-paper-progress {
+    background-color: var(--rk-mantle);
+  }
+  :root:not([dark]) #comment-chip-container.yt-pdg-comment-chip-renderer,
+  :root:not([dark]) .slider-knob-inner.tp-yt-paper-slider {
+    background: var(--rk-accent);
+  }
+  :root:not([dark]) #primaryProgress.tp-yt-paper-progress {
+    background: linear-gradient(139deg, #fab387, #eba0ac, #f38ba8, #f5c2e7);
+  }
+  :root:not([dark]) #container.ytd-pdg-comment-preview-renderer {
+    background-color: var(--rk-mantle);
+  }
+  :root:not([dark]) #comment-chip-price.yt-pdg-comment-chip-renderer,
+  :root:not([dark]) yt-icon.yt-pdg-comment-chip-renderer {
+    color: var(--rk-crust);
+  }
+  :root:not([dark]) .ytSpecAvatarShapeLiveRing::after {
+    background: var(--rk-accent) !important;
+  }
+  :root:not([dark]) .ytSpecAvatarShapeLiveBadge {
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) .ytSpecAvatarShapeLiveBadgeText {
+    color: var(--rk-background);
+  }
+  :root:not([dark]) .ytPageHeaderViewModelHost .ytPageHeaderViewModelTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytPageHeaderViewModelHost .ytPageHeaderViewModelContentMetadata {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytPageHeaderViewModelHost [style$="color: rgb(255, 255, 255);"] {
+    color: var(--rk-foreground) !important;
+  }
+  :root:not([dark]) .ytTruncatedTextHost {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytAttributionViewModelSuffix .ytAttributedStringLinkCallToActionColor,
+  :root:not([dark]) .ytTruncatedTextAbsoluteButton {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytTabShapeTab {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytTabShapeTabSelected {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .tabGroupShapeSlider {
+    background-color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytTabShapeHost:hover .ytTabShapeTabBar {
+    background-color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytContextualSheetLayoutHost,
+  :root:not([dark]) ytd-menu-popup-renderer {
+    background-color: var(--rk-mantle);
+  }
+  :root:not([dark]) .ytListItemViewModelTappable:hover {
+    background-color: var(--rk-surface0);
+  }
+  :root:not([dark]) .ytPanelHeaderViewModelTitle,
+  :root:not([dark]) .ytListItemViewModelTitle,
+  :root:not([dark]) .ytListItemViewModelAccessory {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytListItemViewModelSubtitle {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytSpecDialogLayoutHost {
+    background-color: var(--rk-mantle);
+  }
+  :root:not([dark]) .ytSpecDialogLayoutHost .ytDialogHeaderViewModelText {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytDropdownViewModelTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytDropdownViewModelLabel {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytDropdownViewModelSupportError {
+    color: var(--rk-red);
+  }
+  :root:not([dark]) .ytDropdownViewModelDropdownContainerErrorBorder {
+    border-color: var(--rk-red);
+  }
+  :root:not([dark]) .ytStandardsTextareaShapeTextareaContainerOutline:focus-within {
+    border-color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytSwitchShapeTrack {
+    background-color: var(--rk-bright-black);
+  }
+  :root:not([dark]) .ytSwitchShapeKnob {
+    background-color: var(--rk-mantle);
+  }
+  :root:not([dark]) .ytSwitchShapeTrackActive {
+    background-color: var(--rk-accent);
+  }
+  :root:not([dark]) .ytStandardsTextareaShapeTextarea {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytStandardsTextareaShapePlaceholder {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytStandardsTextareaShapeTextarea::placeholder {
+    color: transparent !important;
+  }
+  :root:not([dark]) .ytSubThreadConnection,
+  :root:not([dark]) .ytSubThreadContinuation {
+    border-left-color: var(--rk-black);
+  }
+  :root:not([dark]) .ytSubThreadConnection {
+    border-bottom-color: var(--rk-black);
+  }
+  :root:not([dark]) .ytSubThreadHovered > .ytSubThreadThreadline .ytSubThreadConnection,
+  :root:not([dark]) .ytSubThreadHovered > .ytSubThreadThreadline .ytSubThreadContinuation {
+    border-left-color: var(--rk-overlay0);
+  }
+  :root:not([dark]) .ytSubThreadHovered > .ytSubThreadThreadline .ytSubThreadConnection {
+    border-bottom-color: var(--rk-overlay0);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost {
+    background-color: var(--rk-mantle);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelChannelName,
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelMetadataHandleWithBoldFont {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelBadge {
+    filter: none;
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileIdentityInfoViewModelMetadataContent {
+    color: var(--rk-white);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileInfoViewModelSectionTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileInfoViewModelSectionSubtitle {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytProfileInfoViewModelSectionHeartIcon {
+    filter: none;
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytCommentInteractionViewModelVideoTitle {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytProfileCardViewModelHost .ytCommentInteractionViewModelCommentContent {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytVideoMetadataCarouselViewModelHost,
+  :root:not([dark]) .YtVideoMetadataCarouselViewModelHost {
+    background-color: var(--rk-surface0);
+  }
+  :root:not([dark]) .ytVideoMetadataCarouselViewModelHost .ytCarouselTitleViewModelTitle,
+  :root:not([dark]) .YtVideoMetadataCarouselViewModelHost .ytCarouselTitleViewModelTitle,
+  :root:not([dark]) .ytVideoMetadataCarouselViewModelHost .YtCarouselTitleViewModelTitle,
+  :root:not([dark]) .YtVideoMetadataCarouselViewModelHost .YtCarouselTitleViewModelTitle,
+  :root:not([dark]) .ytVideoMetadataCarouselViewModelHost .yt-core-attributed-string,
+  :root:not([dark]) .YtVideoMetadataCarouselViewModelHost .yt-core-attributed-string,
+  :root:not([dark]) .ytVideoMetadataCarouselViewModelHost .yt-icon-shape,
+  :root:not([dark]) .YtVideoMetadataCarouselViewModelHost .yt-icon-shape {
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytVideoMetadataCarouselViewModelHost .ytTextCarouselItemViewModelHost,
+  :root:not([dark]) .YtVideoMetadataCarouselViewModelHost .ytTextCarouselItemViewModelHost {
+    color: var(--rk-bright-white);
+  }
+  :root:not([dark]) .ytChipShapeInactive {
+    background-color: var(--rk-surface0);
+    color: var(--rk-foreground);
+  }
+  :root:not([dark]) .ytChipShapeActive {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+}
+@-moz-document url-prefix("https://studio.youtube.com") {
+  :root[dark] [src="https://www.gstatic.com/youtube/img/creator/yt_studio_logo_white.svg"] {
+    content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2097.55%2024%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M17.1%200S6.4%200%203.8.7a4.15%204.15%200%200%200-3%203C0%206.4%200%2012%200%2012a45%2045%200%200%200%20.7%208.2%204.32%204.32%200%200%200%203%203c2.7.8%2013.4.8%2013.4.8s10.7%200%2013.4-.7a4.32%204.32%200%200%200%203-3%2045%2045%200%200%200%20.7-8.2s.1-5.7-.6-8.3a4.32%204.32%200%200%200-3-3C27.9%200%2017.1%200%2017.1%200m-3.4%206.9%208.9%205.1-8.9%205.1z%22/%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M76.3.9v4.4c0%201.1%200%202%20.1%203.3h-.1A3.36%203.36%200%200%200%2073.4%207c-2.3%200-3.3%202-3.3%206.6V16c0%204.9.8%206.6%203.2%206.6a3.42%203.42%200%200%200%203.2-2.4h.1l.4%202.1h2.6V.9zm6.688.4c-1.126.032-1.687.55-1.687%202.1%200%201.7.599%202.1%201.799%202.1s1.8-.5%201.8-2.1-.6-2.1-1.8-2.1zM45%201.4c-3.6%200-5%201.7-5%204.9s1.1%204.5%203.7%206.8c1.6%201.4%202.8%202.5%202.8%204.8%200%201.5-.4%202.2-1.6%202.2s-1.7-.8-1.6-3.6h-3.1c-.6%204.2.8%206.1%204.5%206.2%203.5%200%205-1.5%205-5.4%200-3.1-1.3-4.4-3.7-6.6-1.9-1.8-2.8-2.5-2.8-4.6%200-1.4.3-2.2%201.6-2.2s1.6%201.1%201.5%203.9l3.1-.2c.5-4.2-.8-6.2-4.4-6.2m7.6%201.4-.4%204.5h-1.4v2.6H52v8.8c0%202.7.4%203.8%202.6%203.8a7.4%207.4%200%200%200%203.1-.6l-.6-2.2a5.2%205.2%200%200%201-1.3.2c-.5%200-.7-.3-.7-1.7V9.9h2.2V7.3H55V2.8zM91%207c-3.3%200-4.7%201.8-4.7%206.7v2.2c0%204.7%201.1%206.7%204.6%206.7s4.7-2%204.7-6.7v-2.2C95.6%208.9%2094.3%207%2091%207m-31.8.3v11.4c0%202.7.9%204%202.9%204a3.46%203.46%200%200%200%203.2-2.1h.1l.3%201.8h2.7V7.3H65v12a1.51%201.51%200%200%201-1.4%201c-.7%200-1-.6-1-1.9V7.3zm22.3%200v15.1h3.2V7.3zm9.4%202c1%200%201.3%201%201.3%203.1v4.7c0%202.2-.4%203.1-1.3%203.1s-1.2-.9-1.2-3.1v-4.7c0-2%20.2-3.1%201.2-3.1M75%209.4a1.56%201.56%200%200%201%201.3.8v8.5c-.2.9-.9%201.4-1.4%201.3-1%200-1.3-1-1.3-4.4v-1.9c0-3.3.3-4.3%201.4-4.3%22/%3E%3C/svg%3E");
+  }
+  :root[dark],
+  :root[dark] html,
+  :root[dark] html[dark],
+  :root[dark] html[dark][dark],
+  :root[dark][dark],
+  :root[dark][light],
+  :root[dark] [light],
+  :root[dark] html[light],
+  :root[dark] html[light][light] {
+    --yt-spec-black-pure-alpha-80: (null);
+    --yt-spec-black-pure-alpha-60: (null);
+    --yt-spec-black-1-alpha-98: (null);
+    --yt-spec-black-1-alpha-95: (null);
+    --iron-icon-fill-color: unset;
+    --yt-spec-text-primary: var(--rk-foreground);
+    --ytcp-text-primary: var(--rk-foreground);
+    --ytcp-text-primary-inverse: var(--rk-background);
+    --ytcp-static-overlay-text-primary-inverse: var(--rk-background);
+    --ytcp-wordmark-text: var(--rk-foreground);
+    --ytcp-text-secondary: var(--rk-white);
+    --ytcp-text-disabled: var(--rk-bright-white);
+    --ytcp-overlay-text-primary: var(--rk-overlay2);
+    --ytcp-general-background-a: var(--rk-background);
+    --yt-spec-base-background: var(--rk-background);
+    --yt-spec-black-3: var(--rk-background);
+    --yt-spec-brand-background-solid: var(--rk-mantle);
+    --ytcp-brand-background-solid: var(--rk-mantle);
+    --yt-spec-raised-background: var(--rk-mantle);
+    --ytcp-general-background-b: var(--rk-mantle);
+    --ytcp-analytics-reach-background: var(--rk-mantle);
+    --yt-spec-black-2: var(--rk-mantle);
+    --ytcp-general-background-c: var(--rk-crust);
+    --ytcp-menu-background: var(--rk-surface0);
+    --ytcp-container-border-color: var(--rk-surface0);
+    --ytcp-container-hovered-border-color: var(--rk-surface0);
+    --ytcp-line-divider-solid: var(--rk-surface0);
+    --ytcp-container-border-color-inverse: var(--rk-white);
+    --ytcp-line-divider-solid-inverse: var(--rk-white);
+    --ytcp-call-to-action: var(--rk-accent);
+    --ytcp-call-to-action-inverse: var(--rk-mantle);
+    --ytcp-call-to-action-raised-background: var(--rk-accent);
+    --yt-spec-brand-button-background: var(--rk-accent);
+    --ytcp-call-to-action-raised-disabled: var(--rk-bright-black);
+    --ytcp-call-to-action-raised-disabled-background: var(--rk-overlay2);
+    --ytcp-call-to-action-raised-background-inverse: var(--rk-background);
+    --ytcp-call-to-action-raised-disabled-inverse: var(--rk-bright-black);
+    --ytcp-call-to-action-raised-disabled-background-inverse: var(--rk-overlay2);
+    --yt-spec-brand-background-primary: var(--rk-surface0);
+    --yt-compact-link-icon-color: var(--rk-overlay2);
+    --ytcp-icon-active: var(--rk-accent);
+    --ytcp-icon-inactive: var(--rk-overlay2);
+    --ytcp-icon-disabled: var(--rk-overlay0);
+    --ytcp-icon-active-inverse: var(--rk-overlay1);
+    --ytcp-icon-disabled-inverse: var(--rk-bright-white);
+    --ytcp-error-red: var(--rk-red);
+    --ytcp-badge-red: var(--rk-red);
+    --ytcp-error-red-inverse: var(--rk-red);
+    --ytcp-themed-red-inverse: var(--rk-red);
+    --ytcp-themed-red: var(--rk-accent);
+    --ytcp-themed-blue: var(--rk-accent);
+    --ytcp-badge-blue: rgb(from var(--rk-accent) r g b / 0.3);
+    --ytcp-badge-blue-solid: var(--rk-blue);
+    --ytcp-themed-blue-inverse: var(--rk-blue);
+    --ytcp-themed-green: var(--rk-green);
+    --ytmus-genre-primary-melon: var(--rk-green);
+    --ytcp-themed-green-inverse: var(--rk-green);
+    --ytcp-analytics-pine: var(--rk-green);
+    --ytcp-analytics-pine-inverse: var(--rk-green);
+    --ytcp-analytics-parrot: var(--rk-green);
+    --ytcp-themed-yellow: var(--rk-peach);
+    --ytmus-genre-primary-gold: var(--rk-peach);
+    --ytcp-yellow-inverse: var(--rk-peach);
+    --ytcp-badge-yellow: var(--rk-peach);
+    --ytcp-analytics-yellow: var(--rk-peach);
+    --ytcp-analytics-apricot: var(--rk-peach);
+    --ytcp-suggested-action: var(--rk-cyan);
+    --ytcp-analytics-overview: var(--rk-cyan);
+    --ytcp-analytics-revenue: var(--rk-cyan);
+    --ytcp-analytics-default-secondary: var(--rk-cyan);
+    --ytcp-analytics-royal-blue: var(--rk-lavender);
+    --ytcp-analytics-reach: var(--rk-lavender);
+    --ytcp-analytics-audience: var(--rk-lavender);
+    --ytcp-analytics-engagement: var(--rk-magenta);
+    --ytcp-analytics-revenue-secondary: var(--rk-magenta);
+    --ytcp-analytics-bubblegum: var(--rk-flamingo);
+    --ytmus-genre-primary-ruby: var(--rk-flamingo);
+    --ytmus-genre-primary-salmon: var(--rk-accent);
+    --ytmus-genre-primary-orange: var(--rk-maroon);
+    --ytmus-genre-primary-sky: var(--rk-sky);
+    --ytmus-genre-primary-sky-inverse: var(--rk-sky);
+    --yt-spec-badge-chip-background: var(--rk-black);
+    --ytcp-focus-inverse: var(--rk-accent);
+    --ytcp-focus: var(--rk-accent);
+    --ytcp-selected-item: var(--rk-accent);
+    --ytcp-hover-item: var(--rk-overlay2);
+    --ytcp-chip-active-focus: var(--rk-accent);
+    --ytcp-playhead: var(--rk-overlay2);
+    --ytcp-playhead-inverse: var(--rk-overlay2);
+  }
+  :root[dark] ytcp-button.destructive.ytls-error-dialog {
+    color: var(--rk-background);
+  }
+  :root[dark] yt-formatted-string.ytls-error-dialog,
+  :root[dark] tp-yt-iron-icon.ytls-error-dialog {
+    color: var(--rk-foreground);
+  }
+  :root [src="https://www.gstatic.com/youtube/img/creator/yt_studio_logo_white.svg"] {
+    content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2097.55%2024%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M17.1%200S6.4%200%203.8.7a4.15%204.15%200%200%200-3%203C0%206.4%200%2012%200%2012a45%2045%200%200%200%20.7%208.2%204.32%204.32%200%200%200%203%203c2.7.8%2013.4.8%2013.4.8s10.7%200%2013.4-.7a4.32%204.32%200%200%200%203-3%2045%2045%200%200%200%20.7-8.2s.1-5.7-.6-8.3a4.32%204.32%200%200%200-3-3C27.9%200%2017.1%200%2017.1%200m-3.4%206.9%208.9%205.1-8.9%205.1z%22/%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M76.3.9v4.4c0%201.1%200%202%20.1%203.3h-.1A3.36%203.36%200%200%200%2073.4%207c-2.3%200-3.3%202-3.3%206.6V16c0%204.9.8%206.6%203.2%206.6a3.42%203.42%200%200%200%203.2-2.4h.1l.4%202.1h2.6V.9zm6.688.4c-1.126.032-1.687.55-1.687%202.1%200%201.7.599%202.1%201.799%202.1s1.8-.5%201.8-2.1-.6-2.1-1.8-2.1zM45%201.4c-3.6%200-5%201.7-5%204.9s1.1%204.5%203.7%206.8c1.6%201.4%202.8%202.5%202.8%204.8%200%201.5-.4%202.2-1.6%202.2s-1.7-.8-1.6-3.6h-3.1c-.6%204.2.8%206.1%204.5%206.2%203.5%200%205-1.5%205-5.4%200-3.1-1.3-4.4-3.7-6.6-1.9-1.8-2.8-2.5-2.8-4.6%200-1.4.3-2.2%201.6-2.2s1.6%201.1%201.5%203.9l3.1-.2c.5-4.2-.8-6.2-4.4-6.2m7.6%201.4-.4%204.5h-1.4v2.6H52v8.8c0%202.7.4%203.8%202.6%203.8a7.4%207.4%200%200%200%203.1-.6l-.6-2.2a5.2%205.2%200%200%201-1.3.2c-.5%200-.7-.3-.7-1.7V9.9h2.2V7.3H55V2.8zM91%207c-3.3%200-4.7%201.8-4.7%206.7v2.2c0%204.7%201.1%206.7%204.6%206.7s4.7-2%204.7-6.7v-2.2C95.6%208.9%2094.3%207%2091%207m-31.8.3v11.4c0%202.7.9%204%202.9%204a3.46%203.46%200%200%200%203.2-2.1h.1l.3%201.8h2.7V7.3H65v12a1.51%201.51%200%200%201-1.4%201c-.7%200-1-.6-1-1.9V7.3zm22.3%200v15.1h3.2V7.3zm9.4%202c1%200%201.3%201%201.3%203.1v4.7c0%202.2-.4%203.1-1.3%203.1s-1.2-.9-1.2-3.1v-4.7c0-2%20.2-3.1%201.2-3.1M75%209.4a1.56%201.56%200%200%201%201.3.8v8.5c-.2.9-.9%201.4-1.4%201.3-1%200-1.3-1-1.3-4.4v-1.9c0-3.3.3-4.3%201.4-4.3%22/%3E%3C/svg%3E");
+  }
+  :root,
+  :root html,
+  :root html[dark],
+  :root html[dark][dark],
+  :root[dark],
+  :root[light],
+  :root [light],
+  :root html[light],
+  :root html[light][light] {
+    --yt-spec-black-pure-alpha-80: (null);
+    --yt-spec-black-pure-alpha-60: (null);
+    --yt-spec-black-1-alpha-98: (null);
+    --yt-spec-black-1-alpha-95: (null);
+    --iron-icon-fill-color: unset;
+    --yt-spec-text-primary: var(--rk-foreground);
+    --ytcp-text-primary: var(--rk-foreground);
+    --ytcp-text-primary-inverse: var(--rk-background);
+    --ytcp-static-overlay-text-primary-inverse: var(--rk-background);
+    --ytcp-wordmark-text: var(--rk-foreground);
+    --ytcp-text-secondary: var(--rk-white);
+    --ytcp-text-disabled: var(--rk-bright-white);
+    --ytcp-overlay-text-primary: var(--rk-overlay2);
+    --ytcp-general-background-a: var(--rk-background);
+    --yt-spec-base-background: var(--rk-background);
+    --yt-spec-black-3: var(--rk-background);
+    --yt-spec-brand-background-solid: var(--rk-mantle);
+    --ytcp-brand-background-solid: var(--rk-mantle);
+    --yt-spec-raised-background: var(--rk-mantle);
+    --ytcp-general-background-b: var(--rk-mantle);
+    --ytcp-analytics-reach-background: var(--rk-mantle);
+    --yt-spec-black-2: var(--rk-mantle);
+    --ytcp-general-background-c: var(--rk-crust);
+    --ytcp-menu-background: var(--rk-surface0);
+    --ytcp-container-border-color: var(--rk-surface0);
+    --ytcp-container-hovered-border-color: var(--rk-surface0);
+    --ytcp-line-divider-solid: var(--rk-surface0);
+    --ytcp-container-border-color-inverse: var(--rk-white);
+    --ytcp-line-divider-solid-inverse: var(--rk-white);
+    --ytcp-call-to-action: var(--rk-accent);
+    --ytcp-call-to-action-inverse: var(--rk-mantle);
+    --ytcp-call-to-action-raised-background: var(--rk-accent);
+    --yt-spec-brand-button-background: var(--rk-accent);
+    --ytcp-call-to-action-raised-disabled: var(--rk-bright-black);
+    --ytcp-call-to-action-raised-disabled-background: var(--rk-overlay2);
+    --ytcp-call-to-action-raised-background-inverse: var(--rk-background);
+    --ytcp-call-to-action-raised-disabled-inverse: var(--rk-bright-black);
+    --ytcp-call-to-action-raised-disabled-background-inverse: var(--rk-overlay2);
+    --yt-spec-brand-background-primary: var(--rk-surface0);
+    --yt-compact-link-icon-color: var(--rk-overlay2);
+    --ytcp-icon-active: var(--rk-accent);
+    --ytcp-icon-inactive: var(--rk-overlay2);
+    --ytcp-icon-disabled: var(--rk-overlay0);
+    --ytcp-icon-active-inverse: var(--rk-overlay1);
+    --ytcp-icon-disabled-inverse: var(--rk-bright-white);
+    --ytcp-error-red: var(--rk-red);
+    --ytcp-badge-red: var(--rk-red);
+    --ytcp-error-red-inverse: var(--rk-red);
+    --ytcp-themed-red-inverse: var(--rk-red);
+    --ytcp-themed-red: var(--rk-accent);
+    --ytcp-themed-blue: var(--rk-accent);
+    --ytcp-badge-blue: rgb(from var(--rk-accent) r g b / 0.3);
+    --ytcp-badge-blue-solid: var(--rk-blue);
+    --ytcp-themed-blue-inverse: var(--rk-blue);
+    --ytcp-themed-green: var(--rk-green);
+    --ytmus-genre-primary-melon: var(--rk-green);
+    --ytcp-themed-green-inverse: var(--rk-green);
+    --ytcp-analytics-pine: var(--rk-green);
+    --ytcp-analytics-pine-inverse: var(--rk-green);
+    --ytcp-analytics-parrot: var(--rk-green);
+    --ytcp-themed-yellow: var(--rk-peach);
+    --ytmus-genre-primary-gold: var(--rk-peach);
+    --ytcp-yellow-inverse: var(--rk-peach);
+    --ytcp-badge-yellow: var(--rk-peach);
+    --ytcp-analytics-yellow: var(--rk-peach);
+    --ytcp-analytics-apricot: var(--rk-peach);
+    --ytcp-suggested-action: var(--rk-cyan);
+    --ytcp-analytics-overview: var(--rk-cyan);
+    --ytcp-analytics-revenue: var(--rk-cyan);
+    --ytcp-analytics-default-secondary: var(--rk-cyan);
+    --ytcp-analytics-royal-blue: var(--rk-lavender);
+    --ytcp-analytics-reach: var(--rk-lavender);
+    --ytcp-analytics-audience: var(--rk-lavender);
+    --ytcp-analytics-engagement: var(--rk-magenta);
+    --ytcp-analytics-revenue-secondary: var(--rk-magenta);
+    --ytcp-analytics-bubblegum: var(--rk-flamingo);
+    --ytmus-genre-primary-ruby: var(--rk-flamingo);
+    --ytmus-genre-primary-salmon: var(--rk-accent);
+    --ytmus-genre-primary-orange: var(--rk-maroon);
+    --ytmus-genre-primary-sky: var(--rk-sky);
+    --ytmus-genre-primary-sky-inverse: var(--rk-sky);
+    --yt-spec-badge-chip-background: var(--rk-black);
+    --ytcp-focus-inverse: var(--rk-accent);
+    --ytcp-focus: var(--rk-accent);
+    --ytcp-selected-item: var(--rk-accent);
+    --ytcp-hover-item: var(--rk-overlay2);
+    --ytcp-chip-active-focus: var(--rk-accent);
+    --ytcp-playhead: var(--rk-overlay2);
+    --ytcp-playhead-inverse: var(--rk-overlay2);
+  }
+  :root ytcp-button.destructive.ytls-error-dialog {
+    color: var(--rk-background);
+  }
+  :root yt-formatted-string.ytls-error-dialog,
+  :root tp-yt-iron-icon.ytls-error-dialog {
+    color: var(--rk-foreground);
+  }
+}
+@-moz-document domain("m.youtube.com") {
+  html[darker-dark-theme] {
+    background-color: var(--rk-background) !important;
+    color: var(--rk-foreground) !important;
+    /* Ambient mode */
+    /* Comment box */
+    /* Bottom bar */
+    /* Chips */
+    /* Buttons */
+  }
+  html[darker-dark-theme] #cinematics {
+    mix-blend-mode: lighten;
+  }
+  html[darker-dark-theme] .mobile-topbar-header[data-mode="watch"],
+  html[darker-dark-theme] ytm-mobile-topbar-renderer:not([ambient-topbar]) {
+    background: var(--rk-background);
+  }
+  html[darker-dark-theme] .mobile-topbar-header[data-mode="watch"] .mobile-topbar-logo,
+  html[darker-dark-theme] .mobile-topbar-header[data-mode="watch"] .mobile-topbar-title,
+  html[darker-dark-theme] .mobile-topbar-header[data-mode="watch"] .mobile-topbar-header-content {
+    color: var(--rk-foreground);
+  }
+  html[darker-dark-theme] .yt-spec-bottom-sheet-layout__bottom-sheet-renderer-container,
+  html[darker-dark-theme] .modern-styling {
+    background: var(--rk-surface0);
+  }
+  html[darker-dark-theme] .yt-spec-bottom-sheet-layout__bottom-sheet-layout-header-wrapper {
+    border-bottom-color: var(--rk-surface0);
+  }
+  html[darker-dark-theme] .yt-spec-bottom-sheet-layout__bottom-sheet-content {
+    color: var(--rk-foreground);
+  }
+  html[darker-dark-theme] .engagement-panel-container {
+    background: var(--rk-mantle);
+  }
+  html[darker-dark-theme] ytm-pivot-bar-renderer {
+    background: var(--rk-mantle);
+    color: var(--rk-foreground);
+    border-top-color: var(--rk-surface0);
+  }
+  html[darker-dark-theme] .chip-bar {
+    background-color: var(--rk-background);
+  }
+  html[darker-dark-theme] [chip-style*="STYLE_"] .chip-container {
+    color: var(--rk-foreground);
+    background-color: var(--rk-surface0);
+  }
+  html[darker-dark-theme] [chip-style*="STYLE_"].selected .chip-container {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  html[darker-dark-theme] .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
+    background-color: var(--rk-foreground);
+  }
+  html[darker-dark-theme] .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
+    border-color: var(--rk-black);
+  }
+  html[darker-dark-theme] .yt-spec-touch-feedback-shape--overlay-touch-response-inverse .yt-spec-touch-feedback-shape__fill {
+    background-color: var(--rk-accent);
+  }
+  html[darker-dark-theme] .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill {
+    background-color: var(--rk-foreground);
+  }
+  html {
+    background-color: var(--rk-background) !important;
+    color: var(--rk-foreground) !important;
+    /* Ambient mode */
+    /* Comment box */
+    /* Bottom bar */
+    /* Chips */
+    /* Buttons */
+  }
+  html #cinematics {
+    mix-blend-mode: lighten;
+  }
+  html .mobile-topbar-header[data-mode="watch"],
+  html ytm-mobile-topbar-renderer:not([ambient-topbar]) {
+    background: var(--rk-background);
+  }
+  html .mobile-topbar-header[data-mode="watch"] .mobile-topbar-logo,
+  html .mobile-topbar-header[data-mode="watch"] .mobile-topbar-title,
+  html .mobile-topbar-header[data-mode="watch"] .mobile-topbar-header-content {
+    color: var(--rk-foreground);
+  }
+  html .yt-spec-bottom-sheet-layout__bottom-sheet-renderer-container,
+  html .modern-styling {
+    background: var(--rk-surface0);
+  }
+  html .yt-spec-bottom-sheet-layout__bottom-sheet-layout-header-wrapper {
+    border-bottom-color: var(--rk-surface0);
+  }
+  html .yt-spec-bottom-sheet-layout__bottom-sheet-content {
+    color: var(--rk-foreground);
+  }
+  html .engagement-panel-container {
+    background: var(--rk-mantle);
+  }
+  html ytm-pivot-bar-renderer {
+    background: var(--rk-mantle);
+    color: var(--rk-foreground);
+    border-top-color: var(--rk-surface0);
+  }
+  html .chip-bar {
+    background-color: var(--rk-background);
+  }
+  html [chip-style*="STYLE_"] .chip-container {
+    color: var(--rk-foreground);
+    background-color: var(--rk-surface0);
+  }
+  html [chip-style*="STYLE_"].selected .chip-container {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  html .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__fill {
+    background-color: var(--rk-foreground);
+  }
+  html .yt-spec-touch-feedback-shape--touch-response .yt-spec-touch-feedback-shape__stroke {
+    border-color: var(--rk-black);
+  }
+  html .yt-spec-touch-feedback-shape--overlay-touch-response-inverse .yt-spec-touch-feedback-shape__fill {
+    background-color: var(--rk-accent);
+  }
+  html .yt-spec-touch-feedback-shape--overlay-touch-response .yt-spec-touch-feedback-shape__fill {
+    background-color: var(--rk-foreground);
+  }
+}

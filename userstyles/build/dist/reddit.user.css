@@ -1,0 +1,353 @@
+/* ==UserStyle==
+@name Reddit Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/reddit
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/reddit
+@version 2026.03.09.1.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/reddit.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Areddit
+@description Soothing pastel theme for Reddit
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("reddit.com") {
+  :root:not(.theme-dark) .theme-rpl,
+  :root:not(.theme-dark).theme-rpl,
+  :root:not(.theme-dark) .theme-beta,
+  :root:not(.theme-dark).theme-beta,
+  .theme-light {
+    color-scheme: dark;
+    --color-pizzaRed: var(--rk-red) !important;
+    --color-global-brand-orangered: var(--rk-accent) !important;
+    --color-global-focus: var(--rk-black) !important;
+    --color-interactive-content-disabled: var(--rk-white) !important;
+    --color-interactive-background-disabled: rgb(from var(--rk-bright-black) r g b / 0.7) !important;
+    --color-interactive-pressed: var(--rk-bright-black) !important;
+    --color-neutral-content: var(--rk-foreground) !important;
+    --color-neutral-content-disabled: var(--rk-white) !important;
+    --color-neutral-content-weak: var(--rk-white) !important;
+    --color-neutral-content-strong: var(--rk-foreground) !important;
+    --color-global-white: var(--rk-crust) !important;
+    --color-neutral-background: var(--rk-background) !important;
+    --color-neutral-background-selected: var(--rk-surface0) !important;
+    --color-neutral-background-weak: var(--rk-mantle) !important;
+    --color-neutral-background-medium: var(--rk-background) !important;
+    --color-neutral-background-strong: var(--rk-crust) !important;
+    --color-neutral-background-hover: var(--rk-surface0) !important;
+    --color-neutral-border: var(--rk-surface0) !important;
+    --color-neutral-border-medium: var(--rk-surface0) !important;
+    --color-neutral-border-weak: var(--rk-surface0) !important;
+    --color-neutral-border-strong: var(--rk-bright-black) !important;
+    --color-primary: var(--rk-accent) !important;
+    --color-primary-hover: hsl(from var(--rk-accent) h s calc(l + 10)) !important;
+    --color-primary-visited: var(--rk-lavender) !important;
+    --color-primary-background: var(--rk-accent) !important;
+    --color-primary-background-hover: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-primary-background-selected: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-primary-onBackground: var(--rk-background) !important;
+    --color-primary-onBackground-selected: var(--rk-crust) !important;
+    --color-secondary: var(--rk-white) !important;
+    --color-secondary-hover: var(--rk-bright-white) !important;
+    --color-secondary-weak: var(--rk-white) !important;
+    --color-secondary-onBackground: var(--rk-foreground) !important;
+    --color-secondary-background: var(--rk-mantle) !important;
+    --color-secondary-background-hover: var(--rk-black) !important;
+    --color-secondary-background-selected: var(--rk-black) !important;
+    --color-secondary-plain: var(--rk-white) !important;
+    --color-secondary-plain-hover: var(--rk-bright-white) !important;
+    --color-secondary-plain-weak: var(--rk-white) !important;
+    --color-danger-background: var(--rk-red) !important;
+    --color-danger-background-disabled: rgb(from var(--rk-red) r g b / 0.2) !important;
+    --color-danger-background-hover: rgb(from var(--rk-red) r g b / 0.98) !important;
+    --color-danger-onBackground: var(--rk-foreground) !important;
+    --color-danger-content: var(--rk-red) !important;
+    --color-danger-content-default: var(--rk-crust);
+    --color-danger-content-hover: hsl(from var(--rk-red) h s calc(l - 2)) !important;
+    --color-success-content: var(--rk-green) !important;
+    --color-success-hover: hsl(from var(--rk-green) h s calc(l - 2)) !important;
+    --color-success-onBackground: var(--rk-crust);
+    --color-success-background: var(--rk-green) !important;
+    --color-success-background-hover: hsl(from var(--rk-green) h s calc(l - 2)) !important;
+    --color-warning-content: var(--rk-yellow) !important;
+    --color-warning-content-hover: hsl(from var(--rk-yellow) h s calc(l - 2)) !important;
+    --color-warning-onBackground: var(--rk-background) !important;
+    --color-warning-background: var(--rk-yellow) !important;
+    --color-warning-background-hover: hsl(from var(--rk-yellow) h s calc(l - 2)) !important;
+    --color-upvote-content: var(--rk-accent) !important;
+    --color-upvote-disabled: var(--rk-white) !important;
+    --color-upvote-onBackground: var(--rk-foreground) !important;
+    --color-upvote-background: var(--rk-background) !important;
+    --color-upvote-background-hover: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-upvote-background-disabled: var(--rk-background) !important;
+    --color-downvote-content: var(--rk-foreground) !important;
+    --color-downvote-content-weak: var(--rk-foreground) !important;
+    --color-downvote-disabled: var(--rk-white) !important;
+    --color-downvote-onBackground: var(--rk-foreground) !important;
+    --color-downvote-background: var(--rk-background) !important;
+    --color-downvote-background-hover: hsl(from var(--rk-blue) h s calc(l - 5)) !important;
+    --color-downvote-background-disabled: var(--rk-mantle) !important;
+    --color-tone-1: var(--rk-foreground) !important;
+    --color-tone-2: var(--rk-white) !important;
+    --color-tone-3: var(--rk-overlay2) !important;
+    --color-tone-4: var(--rk-surface0) !important;
+    --color-tone-5: var(--rk-black) !important;
+    --color-tone-6: var(--rk-bright-black) !important;
+    --color-tone-7: var(--rk-background) !important;
+    --color-avatar-gradient: var(--rk-accent) !important;
+    --color-transparent-background-hover: rgb(from var(--rk-surface0) r g b / 0.3) !important;
+    --color-opacity-50: rgb(from var(--rk-background) r g b / 0.5) !important;
+    --color-online: var(--rk-accent) !important;
+    --color-favorite: var(--rk-accent) !important;
+    --color-brand-background: var(--rk-accent) !important;
+    --color-brand-background-hover: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-brand-onBackground: var(--rk-crust) !important;
+    --color-global-orangered: var(--rk-accent) !important;
+    --color-action-upvote: var(--rk-accent) !important;
+    --color-action-downvote: var(--rk-blue);
+    --color-banner-error-text: var(--rk-background) !important;
+    --shreddit-color-wordmark: var(--rk-accent);
+    /* Trending news carousel on https://www.reddit.com/r/popular/. */
+    /* Community themes - post header/metadata background and text. */
+  }
+  :root:not(.theme-dark) .theme-rpl ::selection,
+  :root:not(.theme-dark).theme-rpl ::selection,
+  :root:not(.theme-dark) .theme-beta ::selection,
+  :root:not(.theme-dark).theme-beta ::selection,
+  .theme-light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:not(.theme-dark) .theme-rpl input::placeholder,
+  :root:not(.theme-dark).theme-rpl input::placeholder,
+  :root:not(.theme-dark) .theme-beta input::placeholder,
+  :root:not(.theme-dark).theme-beta input::placeholder,
+  .theme-light input::placeholder,
+  :root:not(.theme-dark) .theme-rpl textarea::placeholder,
+  :root:not(.theme-dark).theme-rpl textarea::placeholder,
+  :root:not(.theme-dark) .theme-beta textarea::placeholder,
+  :root:not(.theme-dark).theme-beta textarea::placeholder,
+  .theme-light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root:not(.theme-dark) .theme-rpl #reddit-logo circle[fill="#FF4500"],
+  :root:not(.theme-dark).theme-rpl #reddit-logo circle[fill="#FF4500"],
+  :root:not(.theme-dark) .theme-beta #reddit-logo circle[fill="#FF4500"],
+  :root:not(.theme-dark).theme-beta #reddit-logo circle[fill="#FF4500"],
+  .theme-light #reddit-logo circle[fill="#FF4500"] {
+    fill: var(--rk-accent) !important;
+  }
+  :root:not(.theme-dark) .theme-rpl #reddit-logo path[fill="#FFF"],
+  :root:not(.theme-dark).theme-rpl #reddit-logo path[fill="#FFF"],
+  :root:not(.theme-dark) .theme-beta #reddit-logo path[fill="#FFF"],
+  :root:not(.theme-dark).theme-beta #reddit-logo path[fill="#FFF"],
+  .theme-light #reddit-logo path[fill="#FFF"] {
+    fill: var(--rk-crust) !important;
+  }
+  :root:not(.theme-dark) .theme-rpl shreddit-gallery-carousel .text-primary-onBackground,
+  :root:not(.theme-dark).theme-rpl shreddit-gallery-carousel .text-primary-onBackground,
+  :root:not(.theme-dark) .theme-beta shreddit-gallery-carousel .text-primary-onBackground,
+  :root:not(.theme-dark).theme-beta shreddit-gallery-carousel .text-primary-onBackground,
+  .theme-light shreddit-gallery-carousel .text-primary-onBackground {
+    color: var(--rk-foreground);
+  }
+  :root:not(.theme-dark) .theme-rpl shreddit-gallery-carousel .text-coolgray-350,
+  :root:not(.theme-dark).theme-rpl shreddit-gallery-carousel .text-coolgray-350,
+  :root:not(.theme-dark) .theme-beta shreddit-gallery-carousel .text-coolgray-350,
+  :root:not(.theme-dark).theme-beta shreddit-gallery-carousel .text-coolgray-350,
+  .theme-light shreddit-gallery-carousel .text-coolgray-350 {
+    color: var(--rk-bright-white);
+  }
+  :root:not(.theme-dark) .theme-rpl #pdp-credit-bar,
+  :root:not(.theme-dark).theme-rpl #pdp-credit-bar,
+  :root:not(.theme-dark) .theme-beta #pdp-credit-bar,
+  :root:not(.theme-dark).theme-beta #pdp-credit-bar,
+  .theme-light #pdp-credit-bar {
+    --color-neutral-background: var(--rk-background);
+    --color-neutral-content: var(--rk-foreground);
+    --color-neutral-content-weak: var(--rk-white);
+    --color-primary-hover: hsl(from var(--rk-accent) h s calc(l + 10));
+  }
+  :root:not(.theme-dark) .theme-rpl reddit-header-large reddit-search-large::before,
+  :root:not(.theme-dark).theme-rpl reddit-header-large reddit-search-large::before,
+  :root:not(.theme-dark) .theme-beta reddit-header-large reddit-search-large::before,
+  :root:not(.theme-dark).theme-beta reddit-header-large reddit-search-large::before,
+  .theme-light reddit-header-large reddit-search-large::before,
+  :root:not(.theme-dark) .theme-rpl reddit-header-large reddit-search-large::after,
+  :root:not(.theme-dark).theme-rpl reddit-header-large reddit-search-large::after,
+  :root:not(.theme-dark) .theme-beta reddit-header-large reddit-search-large::after,
+  :root:not(.theme-dark).theme-beta reddit-header-large reddit-search-large::after,
+  .theme-light reddit-header-large reddit-search-large::after {
+    background: linear-gradient(#1e1e2e, #1e1e2e) padding-box, linear-gradient(90deg, #cba6f7, #cba6f7) border-box;
+  }
+  :root:not(.theme-light) .theme-rpl,
+  :root:not(.theme-light).theme-rpl,
+  :root:not(.theme-light) .theme-beta,
+  :root:not(.theme-light).theme-beta,
+  .theme-dark {
+    color-scheme: dark;
+    --color-pizzaRed: var(--rk-red) !important;
+    --color-global-brand-orangered: var(--rk-accent) !important;
+    --color-global-focus: var(--rk-black) !important;
+    --color-interactive-content-disabled: var(--rk-white) !important;
+    --color-interactive-background-disabled: rgb(from var(--rk-bright-black) r g b / 0.7) !important;
+    --color-interactive-pressed: var(--rk-bright-black) !important;
+    --color-neutral-content: var(--rk-foreground) !important;
+    --color-neutral-content-disabled: var(--rk-white) !important;
+    --color-neutral-content-weak: var(--rk-white) !important;
+    --color-neutral-content-strong: var(--rk-foreground) !important;
+    --color-global-white: var(--rk-crust) !important;
+    --color-neutral-background: var(--rk-background) !important;
+    --color-neutral-background-selected: var(--rk-surface0) !important;
+    --color-neutral-background-weak: var(--rk-mantle) !important;
+    --color-neutral-background-medium: var(--rk-background) !important;
+    --color-neutral-background-strong: var(--rk-crust) !important;
+    --color-neutral-background-hover: var(--rk-surface0) !important;
+    --color-neutral-border: var(--rk-surface0) !important;
+    --color-neutral-border-medium: var(--rk-surface0) !important;
+    --color-neutral-border-weak: var(--rk-surface0) !important;
+    --color-neutral-border-strong: var(--rk-bright-black) !important;
+    --color-primary: var(--rk-accent) !important;
+    --color-primary-hover: hsl(from var(--rk-accent) h s calc(l + 10)) !important;
+    --color-primary-visited: var(--rk-lavender) !important;
+    --color-primary-background: var(--rk-accent) !important;
+    --color-primary-background-hover: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-primary-background-selected: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-primary-onBackground: var(--rk-background) !important;
+    --color-primary-onBackground-selected: var(--rk-crust) !important;
+    --color-secondary: var(--rk-white) !important;
+    --color-secondary-hover: var(--rk-bright-white) !important;
+    --color-secondary-weak: var(--rk-white) !important;
+    --color-secondary-onBackground: var(--rk-foreground) !important;
+    --color-secondary-background: var(--rk-mantle) !important;
+    --color-secondary-background-hover: var(--rk-black) !important;
+    --color-secondary-background-selected: var(--rk-black) !important;
+    --color-secondary-plain: var(--rk-white) !important;
+    --color-secondary-plain-hover: var(--rk-bright-white) !important;
+    --color-secondary-plain-weak: var(--rk-white) !important;
+    --color-danger-background: var(--rk-red) !important;
+    --color-danger-background-disabled: rgb(from var(--rk-red) r g b / 0.2) !important;
+    --color-danger-background-hover: rgb(from var(--rk-red) r g b / 0.98) !important;
+    --color-danger-onBackground: var(--rk-foreground) !important;
+    --color-danger-content: var(--rk-red) !important;
+    --color-danger-content-default: var(--rk-crust);
+    --color-danger-content-hover: hsl(from var(--rk-red) h s calc(l - 2)) !important;
+    --color-success-content: var(--rk-green) !important;
+    --color-success-hover: hsl(from var(--rk-green) h s calc(l - 2)) !important;
+    --color-success-onBackground: var(--rk-crust);
+    --color-success-background: var(--rk-green) !important;
+    --color-success-background-hover: hsl(from var(--rk-green) h s calc(l - 2)) !important;
+    --color-warning-content: var(--rk-yellow) !important;
+    --color-warning-content-hover: hsl(from var(--rk-yellow) h s calc(l - 2)) !important;
+    --color-warning-onBackground: var(--rk-background) !important;
+    --color-warning-background: var(--rk-yellow) !important;
+    --color-warning-background-hover: hsl(from var(--rk-yellow) h s calc(l - 2)) !important;
+    --color-upvote-content: var(--rk-accent) !important;
+    --color-upvote-disabled: var(--rk-white) !important;
+    --color-upvote-onBackground: var(--rk-foreground) !important;
+    --color-upvote-background: var(--rk-background) !important;
+    --color-upvote-background-hover: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-upvote-background-disabled: var(--rk-background) !important;
+    --color-downvote-content: var(--rk-foreground) !important;
+    --color-downvote-content-weak: var(--rk-foreground) !important;
+    --color-downvote-disabled: var(--rk-white) !important;
+    --color-downvote-onBackground: var(--rk-foreground) !important;
+    --color-downvote-background: var(--rk-background) !important;
+    --color-downvote-background-hover: hsl(from var(--rk-blue) h s calc(l - 5)) !important;
+    --color-downvote-background-disabled: var(--rk-mantle) !important;
+    --color-tone-1: var(--rk-foreground) !important;
+    --color-tone-2: var(--rk-white) !important;
+    --color-tone-3: var(--rk-overlay2) !important;
+    --color-tone-4: var(--rk-surface0) !important;
+    --color-tone-5: var(--rk-black) !important;
+    --color-tone-6: var(--rk-bright-black) !important;
+    --color-tone-7: var(--rk-background) !important;
+    --color-avatar-gradient: var(--rk-accent) !important;
+    --color-transparent-background-hover: rgb(from var(--rk-surface0) r g b / 0.3) !important;
+    --color-opacity-50: rgb(from var(--rk-background) r g b / 0.5) !important;
+    --color-online: var(--rk-accent) !important;
+    --color-favorite: var(--rk-accent) !important;
+    --color-brand-background: var(--rk-accent) !important;
+    --color-brand-background-hover: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    --color-brand-onBackground: var(--rk-crust) !important;
+    --color-global-orangered: var(--rk-accent) !important;
+    --color-action-upvote: var(--rk-accent) !important;
+    --color-action-downvote: var(--rk-blue);
+    --color-banner-error-text: var(--rk-background) !important;
+    --shreddit-color-wordmark: var(--rk-accent);
+    /* Trending news carousel on https://www.reddit.com/r/popular/. */
+    /* Community themes - post header/metadata background and text. */
+  }
+  :root:not(.theme-light) .theme-rpl ::selection,
+  :root:not(.theme-light).theme-rpl ::selection,
+  :root:not(.theme-light) .theme-beta ::selection,
+  :root:not(.theme-light).theme-beta ::selection,
+  .theme-dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:not(.theme-light) .theme-rpl input::placeholder,
+  :root:not(.theme-light).theme-rpl input::placeholder,
+  :root:not(.theme-light) .theme-beta input::placeholder,
+  :root:not(.theme-light).theme-beta input::placeholder,
+  .theme-dark input::placeholder,
+  :root:not(.theme-light) .theme-rpl textarea::placeholder,
+  :root:not(.theme-light).theme-rpl textarea::placeholder,
+  :root:not(.theme-light) .theme-beta textarea::placeholder,
+  :root:not(.theme-light).theme-beta textarea::placeholder,
+  .theme-dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root:not(.theme-light) .theme-rpl #reddit-logo circle[fill="#FF4500"],
+  :root:not(.theme-light).theme-rpl #reddit-logo circle[fill="#FF4500"],
+  :root:not(.theme-light) .theme-beta #reddit-logo circle[fill="#FF4500"],
+  :root:not(.theme-light).theme-beta #reddit-logo circle[fill="#FF4500"],
+  .theme-dark #reddit-logo circle[fill="#FF4500"] {
+    fill: var(--rk-accent) !important;
+  }
+  :root:not(.theme-light) .theme-rpl #reddit-logo path[fill="#FFF"],
+  :root:not(.theme-light).theme-rpl #reddit-logo path[fill="#FFF"],
+  :root:not(.theme-light) .theme-beta #reddit-logo path[fill="#FFF"],
+  :root:not(.theme-light).theme-beta #reddit-logo path[fill="#FFF"],
+  .theme-dark #reddit-logo path[fill="#FFF"] {
+    fill: var(--rk-crust) !important;
+  }
+  :root:not(.theme-light) .theme-rpl shreddit-gallery-carousel .text-primary-onBackground,
+  :root:not(.theme-light).theme-rpl shreddit-gallery-carousel .text-primary-onBackground,
+  :root:not(.theme-light) .theme-beta shreddit-gallery-carousel .text-primary-onBackground,
+  :root:not(.theme-light).theme-beta shreddit-gallery-carousel .text-primary-onBackground,
+  .theme-dark shreddit-gallery-carousel .text-primary-onBackground {
+    color: var(--rk-foreground);
+  }
+  :root:not(.theme-light) .theme-rpl shreddit-gallery-carousel .text-coolgray-350,
+  :root:not(.theme-light).theme-rpl shreddit-gallery-carousel .text-coolgray-350,
+  :root:not(.theme-light) .theme-beta shreddit-gallery-carousel .text-coolgray-350,
+  :root:not(.theme-light).theme-beta shreddit-gallery-carousel .text-coolgray-350,
+  .theme-dark shreddit-gallery-carousel .text-coolgray-350 {
+    color: var(--rk-bright-white);
+  }
+  :root:not(.theme-light) .theme-rpl #pdp-credit-bar,
+  :root:not(.theme-light).theme-rpl #pdp-credit-bar,
+  :root:not(.theme-light) .theme-beta #pdp-credit-bar,
+  :root:not(.theme-light).theme-beta #pdp-credit-bar,
+  .theme-dark #pdp-credit-bar {
+    --color-neutral-background: var(--rk-background);
+    --color-neutral-content: var(--rk-foreground);
+    --color-neutral-content-weak: var(--rk-white);
+    --color-primary-hover: hsl(from var(--rk-accent) h s calc(l + 10));
+  }
+  :root:not(.theme-light) .theme-rpl reddit-header-large reddit-search-large::before,
+  :root:not(.theme-light).theme-rpl reddit-header-large reddit-search-large::before,
+  :root:not(.theme-light) .theme-beta reddit-header-large reddit-search-large::before,
+  :root:not(.theme-light).theme-beta reddit-header-large reddit-search-large::before,
+  .theme-dark reddit-header-large reddit-search-large::before,
+  :root:not(.theme-light) .theme-rpl reddit-header-large reddit-search-large::after,
+  :root:not(.theme-light).theme-rpl reddit-header-large reddit-search-large::after,
+  :root:not(.theme-light) .theme-beta reddit-header-large reddit-search-large::after,
+  :root:not(.theme-light).theme-beta reddit-header-large reddit-search-large::after,
+  .theme-dark reddit-header-large reddit-search-large::after {
+    background: linear-gradient(#1e1e2e, #1e1e2e) padding-box, linear-gradient(90deg, #cba6f7, #cba6f7) border-box;
+  }
+}

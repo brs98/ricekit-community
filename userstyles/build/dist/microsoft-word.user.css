@@ -1,0 +1,567 @@
+/* ==UserStyle==
+@name Microsoft Word Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/microsoft-word
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/microsoft-word
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/microsoft-word.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Amicrosoft-word
+@description Soothing pastel theme for Microsoft Word
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+
+@var checkbox applyToDocument "Apply Theme to Document" 0
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("live.com") {
+  color-scheme: dark;
+  ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .fui-FluentProvider2,
+  .fui-FluentProvider86,
+  .fui-FluentProvider102 {
+    --colorNeutralStroke1: var(--rk-black);
+    --colorBrandForeground1: var(--rk-accent);
+    --colorNeutralForeground1: var(--rk-foreground);
+    --colorNeutralBackground1: var(--rk-surface0);
+    --colorNeutralForeground2: var(--rk-foreground);
+    --colorNeutralBackground3: var(--rk-background);
+    --colorNeutralStroke1Hover: var(--rk-bright-black);
+    --colorNeutralForeground1Hover: var(--rk-foreground);
+    --colorNeutralStrokeAccessible: var(--rk-bright-black);
+    --colorNeutralBackground1Hover: var(--rk-black);
+    --colorNeutralBackground3Hover: var(--rk-surface0);
+    --colorNeutralForegroundOnBrand: var(--rk-background);
+    --colorNeutralBackground1Selected: var(--rk-black);
+  }
+  .o365sx-navbar,
+  .o365cs-base .o365sx-button,
+  [data-unique-id="GoPremiumButton"],
+  [data-unique-id="DocumentTitleButton"],
+  #SearchButton {
+    background-color: var(--rk-background) !important;
+    color: var(--rk-foreground) !important;
+  }
+  .OfficeIconColors_mUpgradeProductGlyphColorless,
+  [aria-label="Saved to OneDrive"] > i:nth-child(1) > svg:nth-child(1),
+  #SearchButton > span:nth-child(1) > i:nth-child(1),
+  ._3_LjxRBZZiG458goXcTPLs.o365sx-neutral-dark-font,
+  ._3eLVxYuaVkSqw02CcIH8ec.o365sx-neutral-dark-font.o365sx-neutral-lighter-hover-background,
+  span.ms-Icon--WaffleOffice365._2hFKF2Ng35BcYrXwyNH86a {
+    fill: var(--rk-foreground) !important;
+    color: var(--rk-foreground) !important;
+  }
+  #RibbonContainer > div:nth-child(1) > div:nth-child(2) > div:nth-child(1),
+  #RibbonContainer > div:nth-child(1) > div:nth-child(2) > div:nth-child(2),
+  #RibbonTopBarContainer {
+    background-color: var(--rk-background) !important;
+  }
+  #tablist > div:nth-child(1) > div > div:nth-child(1) > button:nth-child(1) {
+    color: var(--rk-foreground) !important;
+  }
+  #Home-tabpanel,
+  #Home-tabpanel > div:nth-child(2),
+  #appLauncherTop,
+  #appLauncherMainView,
+  #ContextMenu-ContextMenu {
+    background-color: var(--rk-surface0) !important;
+  }
+  #ShareMenu {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  #Floatie-FontPicker-Floatie > div:nth-child(1),
+  #Floatie-FontSize-Floatie > div:nth-child(2) {
+    background-color: var(--rk-background);
+  }
+  #Floatie-FontPicker-Floatie > div:nth-child(1) > input:nth-child(1),
+  #Floatie-FontSize-Floatie-input {
+    color: var(--rk-foreground);
+  }
+  #Floatie-FontPicker-Floatie > div:nth-child(1) {
+    border-color: 1px solid var(--rk-bright-black);
+  }
+  #Floatie-FontSize-Floatiewrapper {
+    border-color: var(--rk-bright-black);
+  }
+  [data-unique-id="ReactTabbedPanelMenuContainer"] > div:nth-child(1) {
+    background-color: var(--rk-background) !important;
+  }
+  #TellMe-Menu > div:nth-child(1) {
+    background-color: var(--rk-surface0) !important;
+  }
+  #TellMe-Menu > div:nth-child(1) > ul:nth-child(1) > li div:nth-child(1) > ul:nth-child(1) > li,
+  #TellMe-Menu > div:nth-child(1) ul:nth-child(1) > li:nth-child(2) div:nth-child(1) > ul:nth-child(1) > li {
+    background-color: var(--rk-surface0) !important;
+  }
+  #TellMe-Menu > div:nth-child(1) > ul:nth-child(1) > li div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1),
+  #TellMe-Menu > div:nth-child(1) ul:nth-child(1) > li:nth-child(2) div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1) {
+    color: var(--rk-foreground);
+  }
+  #TellMe-Menu > div:nth-child(1) > ul:nth-child(1) > li div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1):hover,
+  #TellMe-Menu > div:nth-child(1) ul:nth-child(1) > li:nth-child(2) div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1):hover {
+    background-color: var(--rk-black) !important;
+  }
+  ._1acxHZf6WaSGxss7AMw7aZ.o365sx-neutral-lighter-hover-background:hover,
+  ._3eLVxYuaVkSqw02CcIH8ec.o365sx-neutral-dark-font.o365sx-neutral-lighter-hover-background:hover,
+  .ribbon-bottom-bar-divider,
+  .divider-745,
+  .divider-766 {
+    background-color: var(--rk-black) !important;
+  }
+  #WACViewPanel {
+    background-color: var(--rk-mantle) !important;
+  }
+  .Paragraph,
+  #TellMe-Menusection-0-title > div:nth-child(1) > span:nth-child(2),
+  #TellMe-Menusection-1-title > div:nth-child(1) > span:nth-child(2) {
+    color: var(--rk-foreground) !important;
+  }
+  .PageAdornmentHeaderLabelThemed,
+  .PageAdornmentFooterLabelThemed {
+    background-color: var(--rk-background) !important;
+    border-color: var(--rk-foreground) !important;
+    color: var(--rk-white);
+  }
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > button:hover,
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) > button:hover,
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) div:nth-child(2) > div:nth-child(1):hover,
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) div:nth-child(2) > div:nth-child(1):hover {
+    background-color: var(--rk-black) !important;
+  }
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) {
+    background: var(--rk-accent) !important;
+  }
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > span:nth-child(1) {
+    background: var(--rk-white) !important;
+  }
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > span:nth-child(3) {
+    background: var(--rk-white) !important;
+  }
+  [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > span:nth-child(4) {
+    background: var(--rk-white) !important;
+  }
+  #ReactFloatie > div:nth-child(1) {
+    background: var(--rk-surface0) !important;
+  }
+  #documentTitle > span:nth-child(1) > div:nth-child(2) > i:nth-child(1) > svg:nth-child(1) {
+    fill: var(--rk-foreground);
+  }
+  #ProgressBar {
+    background-color: var(--rk-surface0);
+  }
+  #ProgressBar:hover {
+    background-color: var(--rk-black);
+  }
+  #ProgressBar > div:nth-child(2) {
+    background-color: var(--rk-bright-black) !important;
+  }
+  #ProgressBar > div:nth-child(2) > div:nth-child(1) {
+    background: var(--rk-accent);
+  }
+  #ProgressBar > div:nth-child(3) > span:nth-child(1) {
+    color: var(--rk-foreground);
+  }
+  #ProgressBar > div:nth-child(3) > span:nth-child(2) {
+    color: var(--rk-accent);
+  }
+  #ProgressBar > div:nth-child(3) > span:nth-child(3) {
+    color: var(--rk-foreground);
+  }
+  #AppBrand > div:nth-child(1) > div:nth-child(1) > a:nth-child(1):hover {
+    background-color: var(--rk-surface0);
+  }
+  #appLauncherTop > div:nth-child(1) > div:nth-child(1) > button:nth-child(1):hover {
+    background-color: var(--rk-black);
+  }
+  #appLauncherTop > div:nth-child(1) > a:nth-child(2) {
+    color: var(--rk-accent);
+  }
+  #allAppsLink {
+    color: var(--rk-accent);
+  }
+  #ProgressCardScore > div:nth-child(1) {
+    color: var(--rk-accent);
+  }
+  #ProgressCardScore > div:nth-child(2) {
+    color: var(--rk-accent);
+  }
+  #WACStatusBarContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+    background-color: var(--rk-surface0);
+    border-top-color: var(--rk-black);
+  }
+  #WACStatusBarContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button,
+  #WACStatusBarContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) > button {
+    color: var(--rk-white) !important;
+  }
+  [data-unique-id="TellMeControl"] {
+    background: var(--rk-surface0) !important;
+  }
+  [data-unique-id="TellMeControl"] > div:nth-child(2) > label:nth-child(1),
+  [data-unique-id="TellMeControl"] [data-icon-name="Search"] {
+    color: var(--rk-white) !important;
+  }
+  #ReactTabbedPanelMenuPageContainer {
+    background-color: var(--rk-surface0) !important;
+  }
+  #UploadDocumentFromHomeTab,
+  #pageSection2CompoundButtonSectionProps > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button {
+    background-color: var(--rk-surface0) !important;
+  }
+  #UploadDocumentFromHomeTab:hover,
+  #pageSection2CompoundButtonSectionProps > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:hover {
+    background-color: var(--rk-black) !important;
+  }
+  #MultilineRibbon-RibbonModeToggleDropdown,
+  #FarPeripheralControls-ModeSwitcherDropdown,
+  #MultilineRibbon-RibbonModeToggleDropdownsection-0-title,
+  #MultilineRibbon-RibbonModeToggleDropdownsection-1-title {
+    background-color: var(--rk-surface0) !important;
+  }
+  #MultilineRibbon-RibbonModeToggleDropdown > div:nth-child(1) > span:nth-child(2),
+  #FarPeripheralControls-ModeSwitcherDropdown > div:nth-child(1) > span:nth-child(2),
+  #MultilineRibbon-RibbonModeToggleDropdownsection-0-title > div:nth-child(1) > span:nth-child(2),
+  #MultilineRibbon-RibbonModeToggleDropdownsection-1-title > div:nth-child(1) > span:nth-child(2) {
+    color: var(--rk-foreground) !important;
+  }
+  .PageAdornmentNumberLabel,
+  .FileMenuButtonSecondaryText,
+  #New,
+  #Open,
+  #Recent {
+    color: var(--rk-white) !important;
+  }
+  #Clipboard_MLR-label,
+  #Font_MLR-label,
+  #Paragraph_MLR-label,
+  #Styles-label,
+  #Editing-label,
+  #Dictation-label,
+  #GetAddins-label,
+  #Editor-label {
+    color: var(--rk-white) !important;
+  }
+  svg path.OfficeIconColors_m22 {
+    fill: var(--rk-foreground);
+  }
+  svg path.OfficeIconColors_m24,
+  svg path.OfficeIconColors_m25,
+  svg path.OfficeIconColors_m26,
+  svg path.OfficeIconColors_m2262 {
+    fill: var(--rk-accent);
+  }
+  svg path.OfficeIconColors_m27 {
+    fill: var(--rk-green);
+  }
+  svg path.OfficeIconColors_m211 {
+    fill: var(--rk-yellow);
+  }
+  svg path.OfficeIconColors_m212 {
+    fill: var(--rk-peach);
+  }
+  svg path.OfficeIconColors_m220,
+  svg path.OfficeIconColors_m221 {
+    fill: var(--rk-accent);
+  }
+  svg path.OfficeIconColors_m213 {
+    fill: var(--rk-red);
+  }
+  svg path.OfficeIconColors_m229 {
+    fill: var(--rk-red);
+  }
+  svg path.OfficeIconColors_m295 {
+    fill: var(--rk-blue);
+  }
+  svg path.OfficeIconColors_m2131 {
+    fill: var(--rk-green);
+  }
+  svg path.OfficeIconColors_m2227 {
+    fill: var(--rk-peach);
+  }
+  svg path.OfficeIconColors_m2251 {
+    fill: var(--rk-foreground);
+  }
+  .UxDarkMode {
+    color-scheme: dark;
+  }
+  .UxDarkMode ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .UxDarkMode input::placeholder,
+  .UxDarkMode textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .UxDarkMode .fui-FluentProvider2,
+  .UxDarkMode .fui-FluentProvider86,
+  .UxDarkMode .fui-FluentProvider102 {
+    --colorNeutralStroke1: var(--rk-black);
+    --colorBrandForeground1: var(--rk-accent);
+    --colorNeutralForeground1: var(--rk-foreground);
+    --colorNeutralBackground1: var(--rk-surface0);
+    --colorNeutralForeground2: var(--rk-foreground);
+    --colorNeutralBackground3: var(--rk-background);
+    --colorNeutralStroke1Hover: var(--rk-bright-black);
+    --colorNeutralForeground1Hover: var(--rk-foreground);
+    --colorNeutralStrokeAccessible: var(--rk-bright-black);
+    --colorNeutralBackground1Hover: var(--rk-black);
+    --colorNeutralBackground3Hover: var(--rk-surface0);
+    --colorNeutralForegroundOnBrand: var(--rk-background);
+    --colorNeutralBackground1Selected: var(--rk-black);
+  }
+  .UxDarkMode .o365sx-navbar,
+  .UxDarkMode .o365cs-base .o365sx-button,
+  .UxDarkMode [data-unique-id="GoPremiumButton"],
+  .UxDarkMode [data-unique-id="DocumentTitleButton"],
+  .UxDarkMode #SearchButton {
+    background-color: var(--rk-background) !important;
+    color: var(--rk-foreground) !important;
+  }
+  .UxDarkMode .OfficeIconColors_mUpgradeProductGlyphColorless,
+  .UxDarkMode [aria-label="Saved to OneDrive"] > i:nth-child(1) > svg:nth-child(1),
+  .UxDarkMode #SearchButton > span:nth-child(1) > i:nth-child(1),
+  .UxDarkMode ._3_LjxRBZZiG458goXcTPLs.o365sx-neutral-dark-font,
+  .UxDarkMode ._3eLVxYuaVkSqw02CcIH8ec.o365sx-neutral-dark-font.o365sx-neutral-lighter-hover-background,
+  .UxDarkMode span.ms-Icon--WaffleOffice365._2hFKF2Ng35BcYrXwyNH86a {
+    fill: var(--rk-foreground) !important;
+    color: var(--rk-foreground) !important;
+  }
+  .UxDarkMode #RibbonContainer > div:nth-child(1) > div:nth-child(2) > div:nth-child(1),
+  .UxDarkMode #RibbonContainer > div:nth-child(1) > div:nth-child(2) > div:nth-child(2),
+  .UxDarkMode #RibbonTopBarContainer {
+    background-color: var(--rk-background) !important;
+  }
+  .UxDarkMode #tablist > div:nth-child(1) > div > div:nth-child(1) > button:nth-child(1) {
+    color: var(--rk-foreground) !important;
+  }
+  .UxDarkMode #Home-tabpanel,
+  .UxDarkMode #Home-tabpanel > div:nth-child(2),
+  .UxDarkMode #appLauncherTop,
+  .UxDarkMode #appLauncherMainView,
+  .UxDarkMode #ContextMenu-ContextMenu {
+    background-color: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #ShareMenu {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  .UxDarkMode #Floatie-FontPicker-Floatie > div:nth-child(1),
+  .UxDarkMode #Floatie-FontSize-Floatie > div:nth-child(2) {
+    background-color: var(--rk-background);
+  }
+  .UxDarkMode #Floatie-FontPicker-Floatie > div:nth-child(1) > input:nth-child(1),
+  .UxDarkMode #Floatie-FontSize-Floatie-input {
+    color: var(--rk-foreground);
+  }
+  .UxDarkMode #Floatie-FontPicker-Floatie > div:nth-child(1) {
+    border-color: 1px solid var(--rk-bright-black);
+  }
+  .UxDarkMode #Floatie-FontSize-Floatiewrapper {
+    border-color: var(--rk-bright-black);
+  }
+  .UxDarkMode [data-unique-id="ReactTabbedPanelMenuContainer"] > div:nth-child(1) {
+    background-color: var(--rk-background) !important;
+  }
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) {
+    background-color: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) > ul:nth-child(1) > li div:nth-child(1) > ul:nth-child(1) > li,
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) ul:nth-child(1) > li:nth-child(2) div:nth-child(1) > ul:nth-child(1) > li {
+    background-color: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) > ul:nth-child(1) > li div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1),
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) ul:nth-child(1) > li:nth-child(2) div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1) {
+    color: var(--rk-foreground);
+  }
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) > ul:nth-child(1) > li div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1):hover,
+  .UxDarkMode #TellMe-Menu > div:nth-child(1) ul:nth-child(1) > li:nth-child(2) div:nth-child(1) > ul:nth-child(1) > li > button:nth-child(1):hover {
+    background-color: var(--rk-black) !important;
+  }
+  .UxDarkMode ._1acxHZf6WaSGxss7AMw7aZ.o365sx-neutral-lighter-hover-background:hover,
+  .UxDarkMode ._3eLVxYuaVkSqw02CcIH8ec.o365sx-neutral-dark-font.o365sx-neutral-lighter-hover-background:hover,
+  .UxDarkMode .ribbon-bottom-bar-divider,
+  .UxDarkMode .divider-745,
+  .UxDarkMode .divider-766 {
+    background-color: var(--rk-black) !important;
+  }
+  .UxDarkMode #WACViewPanel {
+    background-color: var(--rk-mantle) !important;
+  }
+  .UxDarkMode .Paragraph,
+  .UxDarkMode #TellMe-Menusection-0-title > div:nth-child(1) > span:nth-child(2),
+  .UxDarkMode #TellMe-Menusection-1-title > div:nth-child(1) > span:nth-child(2) {
+    color: var(--rk-foreground) !important;
+  }
+  .UxDarkMode .PageAdornmentHeaderLabelThemed,
+  .UxDarkMode .PageAdornmentFooterLabelThemed {
+    background-color: var(--rk-background) !important;
+    border-color: var(--rk-foreground) !important;
+    color: var(--rk-white);
+  }
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > button:hover,
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) > button:hover,
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) div:nth-child(2) > div:nth-child(1):hover,
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) div:nth-child(2) > div:nth-child(1):hover {
+    background-color: var(--rk-black) !important;
+  }
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) > div:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > span:nth-child(1) {
+    background: var(--rk-accent) !important;
+  }
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > span:nth-child(1) {
+    background: var(--rk-white) !important;
+  }
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > span:nth-child(3) {
+    background: var(--rk-white) !important;
+  }
+  .UxDarkMode [id="WACStatusBarContainer"] > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(1) > span:nth-child(4) {
+    background: var(--rk-white) !important;
+  }
+  .UxDarkMode #ReactFloatie > div:nth-child(1) {
+    background: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #documentTitle > span:nth-child(1) > div:nth-child(2) > i:nth-child(1) > svg:nth-child(1) {
+    fill: var(--rk-foreground);
+  }
+  .UxDarkMode #ProgressBar {
+    background-color: var(--rk-surface0);
+  }
+  .UxDarkMode #ProgressBar:hover {
+    background-color: var(--rk-black);
+  }
+  .UxDarkMode #ProgressBar > div:nth-child(2) {
+    background-color: var(--rk-bright-black) !important;
+  }
+  .UxDarkMode #ProgressBar > div:nth-child(2) > div:nth-child(1) {
+    background: var(--rk-accent);
+  }
+  .UxDarkMode #ProgressBar > div:nth-child(3) > span:nth-child(1) {
+    color: var(--rk-foreground);
+  }
+  .UxDarkMode #ProgressBar > div:nth-child(3) > span:nth-child(2) {
+    color: var(--rk-accent);
+  }
+  .UxDarkMode #ProgressBar > div:nth-child(3) > span:nth-child(3) {
+    color: var(--rk-foreground);
+  }
+  .UxDarkMode #AppBrand > div:nth-child(1) > div:nth-child(1) > a:nth-child(1):hover {
+    background-color: var(--rk-surface0);
+  }
+  .UxDarkMode #appLauncherTop > div:nth-child(1) > div:nth-child(1) > button:nth-child(1):hover {
+    background-color: var(--rk-black);
+  }
+  .UxDarkMode #appLauncherTop > div:nth-child(1) > a:nth-child(2) {
+    color: var(--rk-accent);
+  }
+  .UxDarkMode #allAppsLink {
+    color: var(--rk-accent);
+  }
+  .UxDarkMode #ProgressCardScore > div:nth-child(1) {
+    color: var(--rk-accent);
+  }
+  .UxDarkMode #ProgressCardScore > div:nth-child(2) {
+    color: var(--rk-accent);
+  }
+  .UxDarkMode #WACStatusBarContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) {
+    background-color: var(--rk-surface0);
+    border-top-color: var(--rk-black);
+  }
+  .UxDarkMode #WACStatusBarContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button,
+  .UxDarkMode #WACStatusBarContainer > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) div:nth-child(3) > button {
+    color: var(--rk-white) !important;
+  }
+  .UxDarkMode [data-unique-id="TellMeControl"] {
+    background: var(--rk-surface0) !important;
+  }
+  .UxDarkMode [data-unique-id="TellMeControl"] > div:nth-child(2) > label:nth-child(1),
+  .UxDarkMode [data-unique-id="TellMeControl"] [data-icon-name="Search"] {
+    color: var(--rk-white) !important;
+  }
+  .UxDarkMode #ReactTabbedPanelMenuPageContainer {
+    background-color: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #UploadDocumentFromHomeTab,
+  .UxDarkMode #pageSection2CompoundButtonSectionProps > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button {
+    background-color: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #UploadDocumentFromHomeTab:hover,
+  .UxDarkMode #pageSection2CompoundButtonSectionProps > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > button:hover {
+    background-color: var(--rk-black) !important;
+  }
+  .UxDarkMode #MultilineRibbon-RibbonModeToggleDropdown,
+  .UxDarkMode #FarPeripheralControls-ModeSwitcherDropdown,
+  .UxDarkMode #MultilineRibbon-RibbonModeToggleDropdownsection-0-title,
+  .UxDarkMode #MultilineRibbon-RibbonModeToggleDropdownsection-1-title {
+    background-color: var(--rk-surface0) !important;
+  }
+  .UxDarkMode #MultilineRibbon-RibbonModeToggleDropdown > div:nth-child(1) > span:nth-child(2),
+  .UxDarkMode #FarPeripheralControls-ModeSwitcherDropdown > div:nth-child(1) > span:nth-child(2),
+  .UxDarkMode #MultilineRibbon-RibbonModeToggleDropdownsection-0-title > div:nth-child(1) > span:nth-child(2),
+  .UxDarkMode #MultilineRibbon-RibbonModeToggleDropdownsection-1-title > div:nth-child(1) > span:nth-child(2) {
+    color: var(--rk-foreground) !important;
+  }
+  .UxDarkMode .PageAdornmentNumberLabel,
+  .UxDarkMode .FileMenuButtonSecondaryText,
+  .UxDarkMode #New,
+  .UxDarkMode #Open,
+  .UxDarkMode #Recent {
+    color: var(--rk-white) !important;
+  }
+  .UxDarkMode #Clipboard_MLR-label,
+  .UxDarkMode #Font_MLR-label,
+  .UxDarkMode #Paragraph_MLR-label,
+  .UxDarkMode #Styles-label,
+  .UxDarkMode #Editing-label,
+  .UxDarkMode #Dictation-label,
+  .UxDarkMode #GetAddins-label,
+  .UxDarkMode #Editor-label {
+    color: var(--rk-white) !important;
+  }
+  .UxDarkMode svg path.OfficeIconColors_m22 {
+    fill: var(--rk-foreground);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m24,
+  .UxDarkMode svg path.OfficeIconColors_m25,
+  .UxDarkMode svg path.OfficeIconColors_m26,
+  .UxDarkMode svg path.OfficeIconColors_m2262 {
+    fill: var(--rk-accent);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m27 {
+    fill: var(--rk-green);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m211 {
+    fill: var(--rk-yellow);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m212 {
+    fill: var(--rk-peach);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m220,
+  .UxDarkMode svg path.OfficeIconColors_m221 {
+    fill: var(--rk-accent);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m213 {
+    fill: var(--rk-red);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m229 {
+    fill: var(--rk-red);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m295 {
+    fill: var(--rk-blue);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m2131 {
+    fill: var(--rk-green);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m2227 {
+    fill: var(--rk-peach);
+  }
+  .UxDarkMode svg path.OfficeIconColors_m2251 {
+    fill: var(--rk-foreground);
+  }
+}

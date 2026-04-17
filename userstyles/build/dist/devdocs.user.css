@@ -1,0 +1,160 @@
+/* ==UserStyle==
+@name DevDocs Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/devdocs
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/devdocs
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/devdocs.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Adevdocs
+@description Soothing pastel theme for DevDocs
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("devdocs.io") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+  html._theme-default {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --documentBackground: var(--rk-background);
+    --contentBackground: var(--rk-background);
+    --textColor: var(--rk-foreground);
+    --textColorLight: var(--rk-bright-white);
+    --textColorLighter: var(--rk-white);
+    --textColorRed: var(--rk-red);
+    --focusBackground: var(--rk-surface0);
+    --focusBorder: var(--rk-black);
+    --focusText: var(--rk-foreground);
+    --selectionBackground: var(--rk-accent);
+    --selectionText: var(--rk-background);
+    --selectionBorder: var(--rk-black);
+    --highlightBackground: var(--rk-bright-black);
+    --loadingText: var(--rk-overlay2);
+    --linkColor: var(--rk-blue);
+    --linkColorHover: var(--rk-sky);
+    --headerBackground: var(--rk-crust);
+    --headerBorder: var(--rk-black);
+    --searchTagBackground: var(--rk-crust);
+    --searchBorder: var(--rk-black);
+    --inputFocusBorder: var(--rk-accent);
+    --sidebarBackground: var(--rk-mantle);
+    --sidebarBorder: var(--rk-black);
+    --scrollbarColor: var(--rk-overlay0);
+    --scrollbarColorHover: var(--rk-overlay1);
+    --boxHeaderBackground: var(--rk-mantle);
+    --boxHeaderColor: var(--rk-foreground);
+    --boxBackground: var(--rk-mantle);
+    --boxBorder: var(--rk-black);
+    --boxBorderLight: var(--rk-black);
+    --noteBackground: var(--rk-surface0);
+    --noteBorder: var(--rk-black);
+    --noteGreenBackground: rgb(from var(--rk-green) r g b / 0.3);
+    --noteGreenBorder: var(--rk-black);
+    --noteBlueBackground: rgb(from var(--rk-blue) r g b / 0.3);
+    --noteBlueBorder: var(--rk-black);
+    --noteOrangeBackground: rgb(from var(--rk-peach) r g b / 0.3);
+    --noteOrangeBorder: var(--rk-black);
+    --noteRedBackground: rgb(from var(--rk-red) r g b / 0.3);
+    --noteRedBorder: var(--rk-black);
+    --notifBackground: var(--rk-surface0);
+    --notifBorder: 1px solid var(--rk-black);
+    --notifColor: var(--rk-foreground);
+    --tipBackground: var(--rk-surface0);
+    --tipBorder: 1px solid var(--rk-black);
+    --noticeBackground: var(--rk-surface0);
+    --noticeBorder: var(--rk-black);
+    --labelBackground: var(--rk-surface0);
+  }
+  html._theme-default ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html._theme-default input::placeholder,
+  html._theme-default textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html._theme-default ._list-arrow {
+    fill: var(--rk-overlay0);
+    opacity: 1;
+  }
+  html._theme-default ._list-arrow:hover {
+    fill: var(--rk-overlay1);
+  }
+  html._theme-default ._search > svg {
+    fill: var(--rk-overlay2);
+    opacity: 1;
+  }
+  html._theme-dark {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --documentBackground: var(--rk-background);
+    --contentBackground: var(--rk-background);
+    --textColor: var(--rk-foreground);
+    --textColorLight: var(--rk-bright-white);
+    --textColorLighter: var(--rk-white);
+    --textColorRed: var(--rk-red);
+    --focusBackground: var(--rk-surface0);
+    --focusBorder: var(--rk-black);
+    --focusText: var(--rk-foreground);
+    --selectionBackground: var(--rk-accent);
+    --selectionText: var(--rk-background);
+    --selectionBorder: var(--rk-black);
+    --highlightBackground: var(--rk-bright-black);
+    --loadingText: var(--rk-overlay2);
+    --linkColor: var(--rk-blue);
+    --linkColorHover: var(--rk-sky);
+    --headerBackground: var(--rk-crust);
+    --headerBorder: var(--rk-black);
+    --searchTagBackground: var(--rk-crust);
+    --searchBorder: var(--rk-black);
+    --inputFocusBorder: var(--rk-accent);
+    --sidebarBackground: var(--rk-mantle);
+    --sidebarBorder: var(--rk-black);
+    --scrollbarColor: var(--rk-overlay0);
+    --scrollbarColorHover: var(--rk-overlay1);
+    --boxHeaderBackground: var(--rk-mantle);
+    --boxHeaderColor: var(--rk-foreground);
+    --boxBackground: var(--rk-mantle);
+    --boxBorder: var(--rk-black);
+    --boxBorderLight: var(--rk-black);
+    --noteBackground: var(--rk-surface0);
+    --noteBorder: var(--rk-black);
+    --noteGreenBackground: rgb(from var(--rk-green) r g b / 0.3);
+    --noteGreenBorder: var(--rk-black);
+    --noteBlueBackground: rgb(from var(--rk-blue) r g b / 0.3);
+    --noteBlueBorder: var(--rk-black);
+    --noteOrangeBackground: rgb(from var(--rk-peach) r g b / 0.3);
+    --noteOrangeBorder: var(--rk-black);
+    --noteRedBackground: rgb(from var(--rk-red) r g b / 0.3);
+    --noteRedBorder: var(--rk-black);
+    --notifBackground: var(--rk-surface0);
+    --notifBorder: 1px solid var(--rk-black);
+    --notifColor: var(--rk-foreground);
+    --tipBackground: var(--rk-surface0);
+    --tipBorder: 1px solid var(--rk-black);
+    --noticeBackground: var(--rk-surface0);
+    --noticeBorder: var(--rk-black);
+    --labelBackground: var(--rk-surface0);
+  }
+  html._theme-dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html._theme-dark input::placeholder,
+  html._theme-dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html._theme-dark ._list-arrow {
+    fill: var(--rk-overlay0);
+    opacity: 1;
+  }
+  html._theme-dark ._list-arrow:hover {
+    fill: var(--rk-overlay1);
+  }
+  html._theme-dark ._search > svg {
+    fill: var(--rk-overlay2);
+    opacity: 1;
+  }
+}

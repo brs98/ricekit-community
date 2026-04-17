@@ -1,0 +1,3549 @@
+/* ==UserStyle==
+@name Quizlet Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/quizlet
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/quizlet
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/quizlet.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Aquizlet
+@description Soothing pastel theme for Quizlet
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("quizlet.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /*     .AssemblyIcon--small {
+        color: @lavender;
+    } */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :root body {
+      color: var(--rk-foreground);
+      background: var(--rk-background);
+    }
+    :root .DashboardLayout {
+      background-color: var(--rk-background) !important;
+    }
+    :root .TopNavigation {
+      background-color: var(--rk-crust);
+    }
+    :root .s19dmjr1 {
+      border-color: none;
+      background: var(--rk-surface0);
+    }
+    :root .NavigationTab--span {
+      color: var(--rk-foreground) !important;
+    }
+    :root .s13oqxd2.NavigationTab:not(.no-highlight::after) {
+      background: var(--rk-overlay2);
+    }
+    :root .e1bxx0ta::after:hover {
+      background: var(--rk-overlay2);
+    }
+    :root .hri9878 {
+      color: var(--rk-bright-white);
+    }
+    :root .AssemblyCard {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-mantle);
+      box-shadow: 0 0.125rem 0.5rem 0 var(--rk-crust);
+    }
+    :root h5 {
+      color: var(--rk-foreground);
+    }
+    :root .CourseOverviewPreviewCard-recommendationTitle {
+      color: var(--rk-foreground);
+    }
+    :root .UISwitch-input:hover:not(:disabled) ~ .UISwitch-label {
+      color: var(--rk-yellow);
+    }
+    :root .UIToggle-optionInput:hover:not(:disabled) ~ .UIToggle-optionLabel {
+      color: var(--rk-yellow);
+    }
+    :root .UIToggle-optionInput:checked:not(:disabled) ~ .UIToggle-optionLabel {
+      background-color: var(--rk-yellow);
+      color: var(--rk-mantle);
+    }
+    :root .UIButton--inverted,
+    :root .UIButton--inverted:visited,
+    :root html.touch .UIButton--inverted:focus:hover:not(:active) {
+      box-shadow: inset 0 0 0 3px var(--rk-overlay0);
+    }
+    :root .UIButton--borderless,
+    :root .UIButton--borderless:visited,
+    :root html.touch .UIButton--borderless:focus:hover:not(:active) {
+      background: none;
+      background-color: initial;
+      color: inherit;
+    }
+    :root .UIButton,
+    :root .UIButton:visited,
+    :root html.touch .UIButton:focus:hover:not(:active) {
+      color: inherit;
+      background-color: var(--rk-blue);
+    }
+    :root .UIButton--alert,
+    :root .UIButton--alert:visited,
+    :root html.touch .UIButton--alert:focus:hover:not(:active) {
+      background-color: var(--rk-red);
+    }
+    :root .h1ebmrjk {
+      background: linear-gradient(180deg, #0000 69.83%, #1e1e2e 100%);
+    }
+    :root .jqcfj5w {
+      filter: brightness(0) saturate(100%) invert(12%) sepia(5%) saturate(4408%) hue-rotate(195deg) brightness(93%) contrast(90%);
+    }
+    :root .RichTextEditor[aria-invalid="true"]:not([aria-disabled="true"]) .RichTextEditor-label,
+    :root .LanguageBarSide.has-error .UILink,
+    :root .LanguageBarSide.has-error select {
+      color: var(--rk-maroon);
+    }
+    :root .neeykg0 {
+      filter: brightness(0) saturate(100%) invert(14%) sepia(10%) saturate(1367%) hue-rotate(192deg) brightness(95%) contrast(95%);
+    }
+    :root .CourseOverviewPreviewCard-recommendationLink:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .CourseOverviewPreviewCard-subtitle {
+      color: var(--rk-bright-white);
+    }
+    :root .CourseOverviewPreviewCard-recommendationLabel {
+      color: var(--rk-bright-white);
+    }
+    :root .CourseOverviewPreviewCard-divider {
+      border-color: var(--rk-mantle);
+    }
+    :root .AssemblyPrimaryButton--default {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-foreground);
+    }
+    :root .c1vierhv {
+      border-color: var(--rk-overlay2);
+    }
+    :root .djzjpyv {
+      color: var(--rk-bright-white);
+    }
+    :root span {
+      color: inherit;
+    }
+    :root .s139vgrg {
+      color: var(--rk-bright-white);
+    }
+    :root form {
+      background-color: inherit;
+    }
+    :root input {
+      background-color: var(--rk-surface0);
+    }
+    :root .b1r2wylq {
+      background-color: var(--rk-mantle);
+      box-shadow: 0 0.125rem 0.25rem var(--rk-crust);
+    }
+    :root .AssemblyPill {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .t7pmw6o {
+      color: var(--rk-foreground);
+    }
+    :root .UIBaseCard-footer .UserLink-username,
+    :root .UserLink-username {
+      color: var(--rk-foreground);
+    }
+    :root .UserLink-title {
+      color: var(--rk-foreground);
+    }
+    :root .UILinkBox {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIBaseCardHeader-info {
+      color: var(--rk-foreground);
+    }
+    :root .UIBaseCardHeader-thumbnail {
+      border-color: var(--rk-mantle);
+    }
+    :root .a1s81tf6 {
+      background-color: var(--rk-mantle);
+    }
+    :root .aup4qff {
+      color: var(--rk-mantle);
+    }
+    :root .illkdv2c {
+      color: var(--rk-maroon);
+    }
+    :root .react-calendar__month-view__weekdays__weekday {
+      color: var(--rk-white);
+    }
+    :root .CalendarTile--isCurrentWeek::after {
+      background-color: var(--rk-mantle);
+    }
+    :root .CalendarTile--isCurrentWeek {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyIcon--medium {
+      color: inherit;
+    }
+    :root .AssemblyIconButton--tertiary {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyButtonBase--circle {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblySecondaryButton {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyPillText {
+      color: var(--rk-foreground);
+    }
+    :root .SiteActivity-button.isGlobalNavInExperiment {
+      color: var(--rk-foreground);
+    }
+    :root .UIIcon--large {
+      color: var(--rk-foreground);
+    }
+    :root .s1da1u6y {
+      background-color: var(--rk-crust);
+    }
+    :root .CalendarTile--hasEvent {
+      color: var(--rk-mantle);
+    }
+    :root .c1qopd51 {
+      color: var(--rk-maroon);
+    }
+    :root .AssemblyIconButton--primary {
+      background: var(--rk-background);
+    }
+    :root .AssemblyButtonBase:hover:not([disabled]),
+    :root [aria-disabled="true"] {
+      background: var(--rk-mantle);
+    }
+    :root .SiteActivity-button {
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .SiteActivity-button:focus,
+    :root .SiteActivity-button:hover {
+      border-color: var(--rk-overlay0);
+      color: var(--rk-bright-white);
+    }
+    :root .NotificationBadge-container {
+      background: var(--rk-overlay2);
+    }
+    :root [d17q91q7][aria-expanded="true"] {
+      background-color: var(--rk-foreground);
+    }
+    :root .UILinkBox-link .UILink:active,
+    :root .UILinkBox-link .UILink:focus,
+    :root .UILinkBox-link .UILink:hover {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .AssemblySmallCard-hover:hover::after {
+      background-color: var(--rk-overlay2);
+    }
+    :root .rellgo5 {
+      color: var(--rk-foreground);
+    }
+    :root #react-autowhatever-site-header-global-search-autosuggest {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-mantle);
+    }
+    :root .tqxyjjt {
+      color: var(--rk-foreground);
+    }
+    :root text {
+      color: var(--rk-bright-white);
+    }
+    :root li.react-autosuggest__suggestion:hover {
+      background: var(--rk-mantle);
+    }
+    :root .poy4xqf {
+      background: var(--rk-crust);
+      border-color: var(--rk-crust);
+    }
+    :root .wej97zk {
+      background-color: var(--rk-crust);
+    }
+    :root .wvbj6cw {
+      background-color: var(--rk-crust);
+    }
+    :root .c721v4v {
+      color: var(--rk-foreground);
+    }
+    :root .c139umgt {
+      color: var(--rk-foreground);
+    }
+    :root .t1ow6gy9 {
+      color: var(--rk-bright-white);
+    }
+    :root .u1jilvfz {
+      background-color: var(--rk-overlay2);
+    }
+    :root .wej97zk:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .s1ovpdog {
+      background-color: var(--rk-mantle);
+      border-top-color: var(--rk-overlay0);
+    }
+    :root .c1ap9d88 .AssemblyMenuItem--title {
+      color: var(--rk-white);
+    }
+    :root .c1ap9d88:hover {
+      background-color: var(--rk-background);
+    }
+    :root .c1ap9d88 {
+      background-color: var(--rk-mantle);
+    }
+    :root .h1hbonvg {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIBaseCard-labelTag {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .UIIcon--chevron-right {
+      color: var(--rk-foreground);
+    }
+    :root .UIIcon--chevron-left {
+      color: var(--rk-foreground);
+    }
+    :root .UIPopover,
+    :root .UIPopover::after {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIPopover.UIPopover--mediumShadow {
+      box-shadow: 0 0.125rem 0.25rem var(--rk-crust);
+    }
+    :root .SetRecommendationCard-contextMenuItem:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .cxvmyeq {
+      border-color: var(--rk-crust);
+    }
+    :root .wxhi4p:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .AssemblyTab {
+      color: var(--rk-white);
+    }
+    :root .AssemblyTab::after {
+      color: var(--rk-white);
+    }
+    :root .s4cgp9b.AssemblyTab {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyTab:hover {
+      color: var(--rk-lavender);
+    }
+    :root .f1ub3img {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .AssemblyTabsWrapper::before {
+      background-color: var(--rk-overlay2);
+    }
+    :root .s4cgp9b.AssemblyTab::after {
+      background: var(--rk-blue);
+    }
+    :root .AssemblyTab:hover::after {
+      background: var(--rk-blue);
+    }
+    :root .w15oa27z:hover {
+      background: var(--rk-mantle);
+    }
+    :root .i1v4i7rf.textbookIcon {
+      background-image: url("https://assets.quizlet.com/a/j/dist/app/i/explanations/textbook_night.1ff39f68b703b28.svg");
+    }
+    :root .sinah8x {
+      color: var(--rk-white);
+    }
+    :root .SetPage {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage .SetPage-setDetailsInfoWrapper,
+    :root .SetPage .SetPage-setIntroWrapper.SetPage-setIntroWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage-setDetailsInfoWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage-setDetailsTermsWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage .SetPage-setDetailsTermsWrapper,
+    :root .SetPage .SetPage-setLinksWrapper.SetPage-setLinksWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SiteFooter {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .SiteFooter-bottom {
+      background-color: var(--rk-background);
+    }
+    :root .SetPageStickyHeader.is-pinned {
+      background-color: var(--rk-crust);
+    }
+    :root .StudyModesNavItem {
+      background-color: var(--rk-mantle);
+    }
+    :root .StudyModesNavItemName {
+      color: var(--rk-foreground);
+    }
+    :root .StudyModesNavItemName:visited {
+      color: var(--rk-foreground);
+    }
+    :root .c78g08u {
+      background-color: var(--rk-mantle);
+      box-shadow: 0 0.25rem 1rem 0 var(--rk-crust);
+    }
+    :root .o1rf13bx {
+      color: var(--rk-foreground);
+    }
+    :root .lck97c5 {
+      background: var(--rk-mantle);
+    }
+    :root .SetPageTerm {
+      background: var(--rk-mantle);
+    }
+    :root .AssemblyIconButton--secondary {
+      background: var(--rk-crust);
+    }
+    :root .UIDropdown--inverted {
+      background: var(--rk-background);
+    }
+    :root .UIDropdown-select {
+      color: var(--rk-foreground);
+    }
+    :root .soyu1j6 {
+      color: var(--rk-maroon);
+    }
+    :root .s1e29328.cbb9lkx {
+      color: var(--rk-red);
+      background: var(--rk-rosewater);
+      border-color: var(--rk-peach);
+    }
+    :root .kahyre1 {
+      color: var(--rk-green);
+    }
+    :root .kzo3tk {
+      color: var(--rk-blue);
+    }
+    :root .SiteActivity-button .NotificationBadge-container {
+      background-color: var(--rk-blue);
+    }
+    :root .hgmlhdt {
+      background-color: var(--rk-crust);
+    }
+    :root .o1rfl3bx {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .c1lf7cxm {
+      color: var(--rk-white);
+    }
+    :root .l3ucz5w {
+      color: var(--rk-bright-white);
+    }
+    :root .u3v4pv0 {
+      color: var(--rk-white);
+    }
+    :root .StudyModesNavItem:hover {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .o1g4qwv {
+      background-color: var(--rk-crust);
+    }
+    :root .tqyy7cr.h19ive8k {
+      color: var(--rk-foreground);
+    }
+    :root .t1kgxwr0 {
+      color: var(--rk-foreground);
+    }
+    :root .tuxzbsj {
+      fill: var(--rk-foreground);
+    }
+    :root .c5iom2o {
+      color: var(--rk-lavender);
+    }
+    :root .lck97c5:focus .c5iom2o,
+    :root .lck97c5:hover .c5iom2o {
+      color: var(--rk-blue);
+    }
+    :root .t4sjwm7 {
+      color: var(--rk-foreground);
+    }
+    :root body.colorRefresh-setPageOnly .UISwitch-label {
+      color: var(--rk-foreground);
+    }
+    :root .UISwitch-label {
+      border-color: var(--rk-overlay1);
+      background-color: var(--rk-mantle);
+      color: var(--rk-white);
+    }
+    :root .SetPageTerm-sideContent {
+      border-right-color: var(--rk-overlay2);
+    }
+    :root .UISwitch-input:checked:not(:disabled ~ .UISwitch-label) {
+      color: var(--rk-mantle);
+      border-color: var(--rk-yellow);
+      background-color: var(--rk-yellow);
+    }
+    :root .AssemblyIconButton--highlight {
+      background: none;
+      color: var(--rk-yellow);
+    }
+    :root .UIToggle-optionLabel {
+      background-color: var(--rk-mantle);
+      color: var(--rk-blue);
+    }
+    :root .AssemblyIconButton--highlight:hover:not([disabled]) {
+      background-color: var(--rk-crust);
+    }
+    :root .AssemblyIconButton--tertiary:hover:not([disabled]) {
+      background-color: var(--rk-crust);
+    }
+    :root .AssemblyButtonBase--square {
+      color: var(--rk-foreground);
+    }
+    :root .z1x1k8pd.svwhkoh {
+      color: var(--rk-green);
+      border-color: var(--rk-green);
+    }
+    :root .svwhkoh {
+      background-color: var(--rk-mantle);
+    }
+    :root .kzo3tk.cbb9lkx {
+      background: var(--rk-green);
+      border-color: var(--rk-green);
+      color: var(--rk-blue);
+    }
+    :root .kahyre1.l40n85g {
+      color: var(--rk-green);
+    }
+    :root .soyu1j6.l40n85g {
+      color: var(--rk-red);
+    }
+    :root .axrvw3e.s1e29328.cbb9lkx {
+      background: var(--rk-flamingo);
+      border-color: var(--rk-flamingo);
+      color: var(--rk-red);
+    }
+    :root .mnlifen {
+      background: var(--rk-mantle);
+    }
+    :root .f1yw38c3 {
+      background: none;
+    }
+    :root .AssemblyToggleSwitch-input:checked + .AssemblyToggleSwitch-fauxInput {
+      background: var(--rk-lavender);
+    }
+    :root .AssemblyToggleSwitch-input:checked + .AssemblyToggleSwitch-fauxInput::after {
+      background-color: var(--rk-magenta);
+    }
+    :root .AssemblyToggleSwitch-fauxInput {
+      background: var(--rk-overlay1);
+    }
+    :root .AssemblyToggleSwitch-fauxInput::after {
+      background: var(--rk-lavender);
+    }
+    :root .c13e2cpr {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyInput {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyInput-input {
+      color: var(--rk-bright-white);
+    }
+    :root .a1k2umqi {
+      background-color: var(--rk-crust);
+    }
+    :root .bxtl8jy {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .ah6785x {
+      color: var(--rk-bright-white);
+    }
+    :root .a1fcz3cu:focus-within > .ah6785x {
+      color: var(--rk-bright-white);
+    }
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestions-container--open {
+      background: var(--rk-mantle);
+    }
+    :root .e1g8wmc7 {
+      background-color: var(--rk-surface0);
+    }
+    :root .AssemblyLink--secondary:hover {
+      color: var(--rk-peach);
+    }
+    :root .a1k2umqi:focus-within {
+      border-bottom-color: var(--rk-blue);
+    }
+    :root .cgyrcnx {
+      background-color: var(--rk-overlay2);
+    }
+    :root .byhd60 {
+      background-color: var(--rk-maroon);
+    }
+    :root .d11ucs5j {
+      background: var(--rk-overlay2);
+    }
+    :root .sjsxdsz {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .fz4nps6 {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .AssemblyPrimaryButton--default:disabled,
+    :root .AssemblyPrimaryButton--default[aria-disabled="true"] {
+      background: var(--rk-surface0);
+      border-color: var(--rk-background);
+      color: var(--rk-white);
+    }
+    :root .ptc18zm {
+      background: inherit;
+    }
+    :root .c1gi3y8b {
+      background: var(--rk-crust);
+    }
+    :root .k3lm6f3 {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .w1uwrq7e {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .t1d08860 {
+      color: inherit;
+    }
+    :root .i1p8x1gp .i1e9rt5 {
+      color: var(--rk-maroon);
+    }
+    :root .i1p8x1gp {
+      background-color: var(--rk-mantle);
+    }
+    :root .i1p8x1gp,
+    :root .i1p8x1gp:focus,
+    :root .i1p8x1gp:hover {
+      border-color: var(--rk-maroon);
+    }
+    :root .cv1rd7s {
+      background: var(--rk-mantle);
+    }
+    :root .cv1rd7s,
+    :root .cv1rd7s:focus,
+    :root .cv1rd7s:hover {
+      border-color: var(--rk-green);
+    }
+    :root .cv1rd7s .i1e9rt5 {
+      color: var(--rk-green);
+    }
+    :root .b1jcf4jl {
+      background-color: var(--rk-crust);
+    }
+    :root .pck8ctn {
+      color: var(--rk-foreground);
+    }
+    :root .i6cf9vy {
+      color: var(--rk-red);
+    }
+    :root .c2mfnz6 {
+      color: var(--rk-green);
+    }
+    :root .pr2w5fu:first-child {
+      border-right-color: var(--rk-overlay2);
+    }
+    :root .t117larf {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .q1m09plc:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .q1m09plc {
+      color: var(--rk-blue);
+    }
+    :root .hbcu5v.q1m09plc {
+      color: var(--rk-bright-white);
+    }
+    :root .qzk5crt {
+      color: var(--rk-foreground);
+    }
+    :root .sd72jj0 {
+      color: var(--rk-bright-white);
+    }
+    :root .UIModalHeader {
+      background-color: var(--rk-crust);
+    }
+    :root .UIModalBody {
+      background-color: var(--rk-mantle);
+    }
+    :root .TestModeOptions {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIModal-box {
+      color: var(--rk-foreground);
+    }
+    :root .UICheckbox-label {
+      color: var(--rk-foreground);
+    }
+    :root .UICheckbox-input:checked ~ .UICheckbox-fauxInput {
+      border-color: var(--rk-yellow);
+    }
+    :root .UICheckbox-fauxInput::after {
+      border-color: var(--rk-yellow);
+      border-width: 0 0 0.125rem 0.125rem;
+    }
+    :root .UIInput-input {
+      color: var(--rk-foreground);
+    }
+    :root .UIInput[aria-invalid="false"] .UIInput-input ~ .UIInput-border {
+      box-shadow: 0 0.125rem 0 0 var(--rk-overlay2);
+    }
+    :root .UILink,
+    :root .UILink:visited {
+      color: var(--rk-rosewater);
+    }
+    :root .UIButton:active,
+    :root html.cursor .UIButton:hover,
+    :root html.cursor .UIButton:hover:visited {
+      background-color: var(--rk-sky);
+    }
+    :root .UIHorizontalRule {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .OptionsModal-description,
+    :root .TestModeOptions-listOption-description {
+      color: var(--rk-white);
+    }
+    :root .swjz05g {
+      background-color: var(--rk-crust);
+    }
+    :root .swjz05g,
+    :root .swjz05g:focus,
+    :root .swjz05g:hover {
+      border-color: var(--rk-blue);
+    }
+    :root .s2y71yx label {
+      background: var(--rk-surface0);
+    }
+    :root .s2y71yx input {
+      background: inherit;
+      color: var(--rk-foreground);
+    }
+    :root .TextbookRecommendations {
+      background: var(--rk-crust);
+    }
+    :root .TextbookCard-Details {
+      color: var(--rk-bright-white);
+    }
+    :root .AssemblyLink--title:any-link {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyLink--title:hover {
+      color: var(--rk-yellow);
+    }
+    :root .ah3z5j1 {
+      border-color: var(--rk-blue);
+    }
+    :root .hkyil8p {
+      color: var(--rk-blue);
+    }
+    :root .e17gih4t {
+      border-color: var(--rk-overlay2);
+    }
+    :root .o1q1tz6w {
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .hg3d33q {
+      border-color: #0000;
+    }
+    :root .ser6cev,
+    :root .c86ukn8 {
+      color: var(--rk-white);
+    }
+    :root .a99ei82 {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay2);
+    }
+    :root .qcpiy8g {
+      color: var(--rk-foreground);
+    }
+    :root .pqa404y {
+      color: var(--rk-green);
+    }
+    :root .s18c8hjh {
+      color: var(--rk-maroon);
+    }
+    :root .ljt3l6v {
+      fill: var(--rk-white);
+    }
+    :root .c16l7630.iayao2g {
+      color: var(--rk-green);
+    }
+    :root .i1e9dzkh.iayao2g {
+      color: var(--rk-maroon);
+    }
+    :root .w1e3jc65 {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-mantle);
+    }
+    :root .t7fr19y {
+      color: var(--rk-lavender);
+    }
+    :root .dw1ojws {
+      color: var(--rk-white);
+    }
+    :root .w1e3jc65:hover {
+      border-color: var(--rk-overlay2);
+    }
+    :root .q1nxab59 {
+      color: var(--rk-bright-white);
+    }
+    :root .ssbjprp {
+      color: var(--rk-white);
+    }
+    :root .smvj06a {
+      color: var(--rk-bright-white);
+    }
+    :root .cfzatrd.a548wz9 {
+      color: var(--rk-green);
+    }
+    :root .cag3g2z.anp68o5 {
+      color: var(--rk-green);
+    }
+    :root .CombinePage-wrap {
+      background-color: var(--rk-background);
+    }
+    :root .CombinePageTable-row {
+      background-color: var(--rk-mantle);
+    }
+    :root .CombinePageTable-rowTermCount {
+      color: var(--rk-bright-white);
+    }
+    :root .CombinePageTable-setTitle .UIHeading--four {
+      color: var(--rk-foreground);
+    }
+    :root .UIDropdown {
+      background: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .UIDropdown .UIDropdown-icon {
+      color: var(--rk-overlay2);
+    }
+    :root .UIDropdown-select:focus option {
+      background: var(--rk-mantle);
+    }
+    :root option:hover {
+      background: var(--rk-crust);
+    }
+    :root .ModeControls {
+      background-color: var(--rk-mantle);
+    }
+    :root .ModeControls-backText {
+      color: var(--rk-foreground);
+    }
+    :root .ModeControls-back {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .UIButton--whiteBorder {
+      background: var(--rk-crust);
+      border-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .MatchModeControls-currentTime {
+      color: var(--rk-blue);
+    }
+    :root .MatchModeQuestionScatterTile {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay0);
+    }
+    :root .MatchModeQuestionScatterTile.is-draggedOver,
+    :root .MatchModeQuestionScatterTile.is-dragging,
+    :root .MatchModeQuestionScatterTile:hover {
+      border-color: var(--rk-overlay2);
+    }
+    :root .MatchModeQuestionScatterTile.is-incorrect {
+      border-color: var(--rk-maroon);
+    }
+    :root .MatchModeQuestionScatterTile.is-correct {
+      border-color: var(--rk-green);
+    }
+    :root .HighscoresList {
+      background-color: var(--rk-crust);
+    }
+    :root .HighscoreRow {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIButton[aria-disabled="true"],
+    :root .UIButton[aria-disabled="true"]:active,
+    :root .UIButton[aria-disabled="true"]:focus,
+    :root .UIButton[aria-disabled="true"]:visited,
+    :root .UIButton[disabled],
+    :root .UIButton[disabled]:active,
+    :root .UIButton[disabled]:focus,
+    :root .UIButton[disabled]:visited,
+    :root html.cursor .UIButton[aria-disabled="true"]:hover,
+    :root html.cursor .UIButton[disabled]:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .t10tqhey {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-crust);
+    }
+    :root .t9i9vmb.h19ive8k,
+    :root .t1s26kx5.h19ive8k,
+    :root .s1rx7q8q.h19ive8k {
+      color: var(--rk-foreground);
+    }
+    :root .s8j1d54,
+    :root .c49e2ip {
+      color: var(--rk-bright-white);
+    }
+    :root .c6p6uaq .react-calendar__month-view__days__day {
+      color: var(--rk-foreground);
+    }
+    :root .c6p6uaq .react-calendar__month-view__days__day--neighboringMonth {
+      color: var(--rk-white);
+    }
+    :root .AchievementsImage--isActive .a130rwfv,
+    :root .al33ekg.isActive .a130rwfv {
+      color: var(--rk-white);
+    }
+    :root .s1rtnf4c::before,
+    :root .s1rtnf4c::after {
+      background: none;
+    }
+    :root .AchievementsImage--isActive .a130rwfv,
+    :root .al33ekg.isActive .a130rwfv,
+    :root .DashboardLayout .SetPreviewLink--noLinkBox,
+    :root .DashboardLayout .PreviewCard--noLinkBox {
+      background-color: var(--rk-mantle);
+    }
+    :root .SetPreview-queryMatchHighlight {
+      background: var(--rk-yellow);
+      color: var(--rk-background);
+    }
+    :root .cpey3pe {
+      color: var(--rk-foreground);
+    }
+    :root .s1fl65t6 {
+      color: var(--rk-white);
+    }
+    :root .t1ne2oir {
+      color: var(--rk-foreground);
+    }
+    :root .b1xq6unb {
+      color: var(--rk-foreground);
+    }
+    :root .bp0a7jj {
+      color: var(--rk-bright-white);
+    }
+    :root .pltikop {
+      color: var(--rk-blue);
+    }
+    :root .SettingsBox-box {
+      background-color: var(--rk-mantle);
+    }
+    :root .EdgyDataCoursePillbox .UIPill {
+      background: var(--rk-crust);
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .UIAutosuggest .react-autosuggest__suggestions-container {
+      background: var(--rk-mantle);
+    }
+    :root .UIAutosuggest .react-autosuggest__suggestion {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .UIAutosuggest .react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .EdgyDataCourseSelector-suggestion .EdgyDataCourseSelector-suggestionName {
+      color: var(--rk-foreground);
+    }
+    :root .UIInput-input.UIInput-autoExpandInput.is-focused ~ .UIInput-border,
+    :root .UIInput-input:focus ~ .UIInput-border {
+      box-shadow: 0 0.25rem 0 0 var(--rk-yellow);
+    }
+    :root .Divider-label {
+      background: var(--rk-mantle);
+    }
+    :root .the-label,
+    :root .UIButton {
+      color: var(--rk-crust);
+    }
+    :root input:checked + .p22broa {
+      box-shadow: 0 0 0 0.25rem var(--rk-blue);
+    }
+    :root .button.google {
+      background-color: var(--rk-red);
+      border-color: var(--rk-peach);
+    }
+    :root .button.google::after {
+      border-right-color: var(--rk-peach);
+    }
+    :root .b1opuclq {
+      background-color: var(--rk-mantle);
+      box-shadow: 0 0.25rem 1rem 0 var(--rk-crust);
+    }
+    :root .button.apple .label,
+    :root .button.facebook .label,
+    :root .button.google .label {
+      color: var(--rk-crust);
+    }
+    :root .button.facebook {
+      background-color: var(--rk-blue);
+      border-color: var(--rk-lavender);
+    }
+    :root .button.facebook::after {
+      border-right-color: var(--rk-lavender);
+    }
+    :root .UIInput-input:-webkit-autofill,
+    :root .UIInput-input:-webkit-autofill:focus,
+    :root .UIInput-input:-webkit-autofill:hover {
+      box-shadow: none !important;
+    }
+    :root .UIInput-input:-internal-autofill-previewed,
+    :root .UIInput-input:-internal-autofill-selected {
+      -webkit-text-fill-color: var(--rk-foreground);
+    }
+    :root .UILink:active,
+    :root html.cursor .UILink:hover,
+    :root html.cursor .UILink:hover:visited {
+      color: var(--rk-maroon);
+    }
+    :root .setting legend,
+    :root .setting p {
+      color: var(--rk-foreground);
+    }
+    :root .UIButton-wrapper {
+      color: inherit;
+    }
+    :root .UIButton--alert:active,
+    :root html.cursor .UIButton--alert:hover,
+    :root html.cursor .UIButton--alert:hover:visited {
+      background-color: var(--rk-maroon);
+    }
+    :root .c1qo8ql4 {
+      background-color: var(--rk-background);
+    }
+    :root .phx9gy6 {
+      color: var(--rk-foreground);
+    }
+    :root .soad3d7 {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyLink--primary:any-link {
+      color: var(--rk-rosewater);
+    }
+    :root .AssemblyLink {
+      color: var(--rk-rosewater);
+    }
+    :root .UIButton--borderless:active,
+    :root html.cursor .UIButton--borderless:hover,
+    :root html.cursor .UIButton--borderless:hover:visited {
+      background-color: initial;
+      color: var(--rk-yellow);
+    }
+    :root .UIButton--borderless[aria-disabled="true"],
+    :root .UIButton--borderless[aria-disabled="true"]:active,
+    :root .UIButton--borderless[aria-disabled="true"]:focus,
+    :root .UIButton--borderless[aria-disabled="true"]:visited,
+    :root .UIButton--borderless[disabled],
+    :root .UIButton--borderless[disabled]:active,
+    :root .UIButton--borderless[disabled]:focus,
+    :root .UIButton--borderless[disabled]:visited,
+    :root html.cursor .UIButton--borderless[aria-disabled="true"]:hover,
+    :root html.cursor .UIButton--borderless[disabled]:hover {
+      background-color: initial;
+    }
+    :root .s19dmjr1.isGlobalNavInExperiment.is-focused,
+    :root .s19dmjr1.isGlobalNavInExperiment.is-focused input {
+      background: var(--rk-surface0);
+    }
+    :root .t1iqlnnn p {
+      color: var(--rk-bright-white);
+    }
+    :root .axupt8p,
+    :root .igkckaz {
+      color: var(--rk-rosewater);
+    }
+    :root .axupt8p:active,
+    :root .axupt8p:focus,
+    :root .axupt8p:hover {
+      color: var(--rk-flamingo);
+    }
+    :root .cnuw08l {
+      background-color: var(--rk-mantle);
+    }
+    :root .c192jkj8 {
+      color: var(--rk-foreground);
+    }
+    :root .a1sd82zg {
+      background-color: var(--rk-crust);
+      border-left-color: var(--rk-lavender);
+    }
+    :root .g84nzqs {
+      background-image: none;
+    }
+    :root .du7o3ew > div:not(:last-child) {
+      border-right-color: var(--rk-overlay2);
+    }
+    :root .i73vo82:hover {
+      color: var(--rk-crust);
+      background-color: var(--rk-crust);
+    }
+    :root .f2nmi2p {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .a1scx0nz {
+      background-color: var(--rk-mantle);
+    }
+    :root .a4ouqer {
+      color: var(--rk-foreground);
+    }
+    :root .t104cykg {
+      color: var(--rk-foreground);
+    }
+    :root .ExplanationsLandingPage #PrismicExplanationsSearchBarTarget label,
+    :root .ExplanationsLandingPage #SearchBarTarget label,
+    :root .explanations.prismic-page #PrismicExplanationsSearchBarTarget label,
+    :root .explanations.prismic-page #SearchBarTarget label {
+      background-color: var(--rk-surface0);
+    }
+    :root .l1rgb1ub {
+      border-color: var(--rk-overlay2);
+    }
+    :root .theme-night .h1uvmh9x,
+    :root .h1uvmh9x {
+      background: var(--rk-mantle);
+    }
+    :root .h1wn8ccf {
+      color: var(--rk-foreground);
+    }
+    :root .ccm0r9d {
+      color: var(--rk-white);
+    }
+    :root .AssemblySmallCard-isActive::after {
+      background-color: var(--rk-lavender);
+    }
+    :root .i192320l {
+      border-color: var(--rk-mantle);
+    }
+    :root .b1j40uwt::before {
+      background-color: var(--rk-mantle);
+    }
+    :root .theme-night .g84nzqs {
+      background: none;
+    }
+    :root .CreateSetHeader-sticky {
+      background: var(--rk-background);
+    }
+    :root .a1fcz3cu {
+      background-color: var(--rk-surface0);
+    }
+    :root .CreateSetHeader-permissionsLink {
+      color: var(--rk-bright-white);
+    }
+    :root .CreateSetDiagramUploader .UIFloatedCard--white,
+    :root .TermContent-inner {
+      background-color: var(--rk-mantle);
+    }
+    :root .CreateSetDiagramUploader-banner {
+      border-color: var(--rk-overlay0);
+    }
+    :root .AssemblyIconButton--primaryInverted {
+      border-color: var(--rk-overlay2);
+    }
+    :root .StudiableItemToolbar {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .b18prmdf {
+      box-shadow: 0 0.125rem 0 0 var(--rk-overlay2);
+    }
+    :root .ImageUploadProminentContextToggle {
+      border-color: var(--rk-overlay0);
+    }
+    :root .UILinkButton {
+      border-bottom-color: var(--rk-blue);
+      color: var(--rk-foreground);
+    }
+    :root .p10i2lyl {
+      background-color: var(--rk-mantle);
+    }
+    :root * + .KeyboardShortcuts-shortcut,
+    :root .KeyboardShortcuts-shortcut + *,
+    :root .KeyboardShortcuts-shortcut + .KeyboardShortcuts-shortcut {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .UIKeyboardInput {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .UIDropdown-select option {
+      color: var(--rk-foreground);
+    }
+    :root .UIButton--inverted:active,
+    :root html.cursor .UIButton--inverted:hover,
+    :root html.cursor .UIButton--inverted:hover:visited {
+      box-shadow: inset 0 0 0 3px var(--rk-overlay2);
+    }
+    :root .PMEditor:focus-within ~ .b18prmdf {
+      box-shadow: 0 0.25rem 0 0 var(--rk-yellow);
+    }
+    :root .UITooltip,
+    :root .UITooltip::after {
+      background: var(--rk-crust);
+    }
+    :root :not(.ie11 .UITooltip),
+    :root :not(.ie11 .UIPopover) {
+      filter: none;
+    }
+    :root .LanguageSelect-option:hover,
+    :root .Select-option.is-focused .LanguageSelect-option {
+      background-color: var(--rk-yellow);
+    }
+    :root .i1u1jhdl {
+      background-color: var(--rk-crust);
+    }
+    :root .TermRowDragPlaceholder {
+      background: var(--rk-background);
+    }
+    :root .CreateSetDiagramUploader-banner.is-dropTarget {
+      border-color: var(--rk-yellow);
+    }
+    :root .TermContent-addRow:hover .UILinkButton {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .tetv1rf.t8spden:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .ImportTerms {
+      background-color: var(--rk-background);
+    }
+    :root .ImportTerms-import,
+    :root .ImportTerms-preview {
+      background-color: var(--rk-background);
+    }
+    :root .ImportTerms-textarea {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .TermRowsPreview .TermRowsPreview-row {
+      background: var(--rk-mantle);
+    }
+    :root .UIRadio-input:checked ~ .UIRadio-fauxInput {
+      border-color: var(--rk-yellow);
+    }
+    :root .UIRadio-fauxInput::after {
+      background-color: var(--rk-yellow);
+    }
+    :root .UILinkButton:active,
+    :root .UILinkButton:focus,
+    :root .UILinkButton:hover {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .AutosuggestContextItem {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyNotice-error {
+      border-color: var(--rk-red);
+      background-color: var(--rk-surface0);
+    }
+    :root .TermRow.is-duplicate {
+      outline-color: var(--rk-yellow);
+    }
+    :root .AssemblyPrimaryButton--danger {
+      background: var(--rk-red);
+      color: var(--rk-crust);
+    }
+    :root .AssemblyPrimaryButton--danger:hover:not([disabled]),
+    :root [aria-disabled="true"] {
+      background: var(--rk-magenta);
+    }
+    :root .s19dmjr1.is-focused,
+    :root .s19dmjr1.is-focused input,
+    :root .s2y71yx label,
+    :root .s2y71yx.is-expanded label {
+      background: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .eeiq5c0 {
+      color: var(--rk-foreground);
+    }
+    :root .t1r0fp00,
+    :root .t1elfe8k {
+      color: var(--rk-white);
+    }
+    :root .MobilePage {
+      background: var(--rk-background);
+    }
+    :root .MobilePage-feature {
+      border-color: var(--rk-overlay2);
+    }
+    :root .MobilePage-anyDevice {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .AssemblyTextButton--secondary {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyPrimaryButton--upgrade {
+      background: var(--rk-yellow);
+    }
+    :root .page,
+    :root .PrismicSimpleRichText--white,
+    :root .PrismicTextCallout--whiteBackground,
+    :root .PrismicVideoEmbedWithText--whiteBackground,
+    :root .p1mcvm6s,
+    :root .PrismicImageTextTile--whiteBackground,
+    :root .PrismicTextCallout--twilightBlue200Background,
+    :root #SearchResultsPageHeader-mainExperiment {
+      background-color: var(--rk-background);
+    }
+    :root .tfomyx6,
+    :root .i1rs7b62,
+    :root .d5ww82k {
+      color: var(--rk-foreground);
+    }
+    :root .cssrxmc {
+      background-color: var(--rk-yellow);
+    }
+    :root .PrismicImageTextTile-tileWrapper {
+      background-color: var(--rk-mantle);
+    }
+    :root .AssemblyPrimaryButton--upgrade:hover:not([disabled]) {
+      background: var(--rk-rosewater);
+    }
+    :root .s1qq0zr7 {
+      background-color: var(--rk-mantle);
+    }
+    :root .sv0yvnj a,
+    :root .sv0yvnj a:visited:not(:last-child) {
+      color: var(--rk-foreground);
+    }
+    :root .sg4pwu6:hover,
+    :root .hivq638,
+    :root .s1ahro8n:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .e7lqtuc .react-autosuggest__suggestions-container.react-autosuggest__suggestions-container--open {
+      background-color: var(--rk-mantle);
+    }
+    :root .e7lqtuc .react-autosuggest__section-title,
+    :root .SearchResultsPageHeader-queryFeedback,
+    :root .SearchResultsPage-contentType .SearchResultsPage-emptyStateHeadline,
+    :root .SearchResultsPage-contentType .SearchResultsPage-emptyStateDescription,
+    :root .SearchResultsPage-contentType .SearchResultsPage-emptyStateSuggestionsList {
+      color: var(--rk-foreground);
+    }
+    :root .markdown-body {
+      color: var(--rk-bright-white);
+    }
+    :root .e7lqtuc li.react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted,
+    :root .e7lqtuc li.react-autosuggest__suggestion:hover {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-lavender);
+    }
+    :root .UserPreviewCard-username,
+    :root .ClassPreviewCard-title {
+      color: var(--rk-foreground);
+    }
+    :root .UserPreviewCard-classesDescription,
+    :root .UserPreviewCard-createdSetsDescription,
+    :root .QuestionCard-subject,
+    :root .ClassPreviewCard-location,
+    :root .ClassPreviewCard-membersDescription,
+    :root .ClassPreviewCard-studySetsDescription {
+      color: var(--rk-bright-white);
+    }
+    :root .QuestionCard-bottomGradient {
+      background-image: none;
+    }
+    :root .AssemblyTextButton--primary {
+      color: var(--rk-rosewater);
+    }
+    :root .TosLegend--normal {
+      color: var(--rk-bright-white);
+    }
+    :root .AssemblyLink--secondary:any-link {
+      color: var(--rk-rosewater);
+    }
+    :root .lghzn8f,
+    :root .a1cdxe01.h9lvpq {
+      color: var(--rk-foreground);
+    }
+    :root .s1mff1xn,
+    :root .AssemblyCheckbox-label {
+      color: var(--rk-foreground);
+    }
+    :root .ccnmm10 {
+      background-color: var(--rk-mantle);
+    }
+    :root .c1g4obhz {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .SetPageTerm-wordText,
+    :root .SetPageTerm-definitionText {
+      color: var(--rk-foreground);
+    }
+    :root .SetPageTerms-embeddedDesktopAdWrapper {
+      background: var(--rk-mantle);
+    }
+    :root .c1qw5oc {
+      background: var(--rk-crust);
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .c19lfjrd,
+    :root .l1fkuqeb {
+      background-color: var(--rk-background);
+    }
+    :root .bxyvgmh {
+      background-color: var(--rk-mantle);
+    }
+    :root .ata5p6z[aria-disabled="true"],
+    :root .ata5p6z[aria-disabled="true"] div,
+    :root .ata5p6z[aria-disabled="true"] textarea {
+      background-color: var(--rk-mantle);
+    }
+    :root .ata5p6z {
+      border-color: var(--rk-overlay2);
+      background-color: var(--rk-mantle);
+    }
+    :root .AssemblyIconButton--primary:disabled,
+    :root .AssemblyIconButton--primary[aria-disabled="true"] {
+      background: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .ugcsb7m {
+      background-color: var(--rk-blue);
+      color: var(--rk-crust);
+    }
+    :root .AssemblySecondaryButton:disabled,
+    :root .AssemblySecondaryButton[aria-disabled="true"] {
+      background-color: var(--rk-background);
+      border-color: var(--rk-overlay2);
+    }
+    :root .m9mf1hr div,
+    :root .m9mf1hr textarea {
+      background-color: var(--rk-mantle);
+    }
+    :root .lu5rlws {
+      color: var(--rk-bright-white);
+    }
+    :root .b1yjduyh {
+      background-color: var(--rk-mantle);
+    }
+    :root .d6tac4m {
+      background-color: var(--rk-surface0);
+    }
+    :root .RecentFeed-empty {
+      background-color: var(--rk-mantle);
+    }
+    :root .i1ykvw4f {
+      background: var(--rk-mantle);
+    }
+    :root .i1ykvw4f:hover {
+      background: var(--rk-crust);
+    }
+    :root .RecentFeed-empty--cta {
+      color: var(--rk-foreground);
+    }
+    :root .UIButton--whiteBorder:active,
+    :root html.cursor .UIButton--whiteBorder:hover,
+    :root html.cursor .UIButton--whiteBorder:hover:visited {
+      color: var(--rk-yellow);
+    }
+    :root .c124zyvn {
+      background: var(--rk-background);
+    }
+    :root .AssemblyLink--primary:hover {
+      color: var(--rk-maroon);
+    }
+    :root .cczh2hb,
+    :root .h1jftztg,
+    :root .t2m5erc {
+      color: var(--rk-foreground);
+    }
+    :root .t1nv0ihp,
+    :root .sku1zau,
+    :root .s54kfc3 {
+      color: var(--rk-bright-white);
+    }
+    :root .ImageUploadProminentContextToggle .ImageUploadProminentContextToggle-IconExplanation {
+      color: var(--rk-foreground);
+    }
+    :root .SiteHeaderLogo-link {
+      color: var(--rk-blue);
+    }
+    :root .c1sgnxr5 {
+      color: var(--rk-green);
+    }
+    :root .suyglfi {
+      color: var(--rk-foreground);
+    }
+    :root .s2y71yx li.react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted,
+    :root .s2y71yx li.react-autosuggest__suggestion:hover {
+      background: var(--rk-mantle);
+    }
+    :root .q1kwd3of {
+      color: var(--rk-overlay2);
+    }
+    :root .c1741jrq:not(:first-child) {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .SetsView-studySetResults {
+      color: var(--rk-foreground);
+    }
+    :root .UILink .SetPreview-cardHeaderTitle,
+    :root .UILink .SetPreview-cardHeaderTitle:visited,
+    :root html.touch .UILink .SetPreview-cardHeaderTitle:focus:hover:not(:active) {
+      color: var(--rk-foreground);
+    }
+    :root .SetPreview-cardBylineClass {
+      color: var(--rk-white);
+    }
+    :root .UILink .SetPreview-cardHeaderTitle:active,
+    :root html.cursor .UILink .SetPreview-cardHeaderTitle:hover,
+    :root html.cursor .UILink .SetPreview-cardHeaderTitle:hover:visited {
+      color: var(--rk-yellow);
+    }
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted,
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestion:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestion {
+      border-bottom-color: var(--rk-mantle);
+    }
+    :root .EdgyDataCourseSelector-addYourOwn {
+      color: var(--rk-blue);
+    }
+    :root .i5h71e0 {
+      background-color: var(--rk-surface0);
+    }
+    :root .ikdjsw2 {
+      color: var(--rk-foreground);
+    }
+    :root .i1m3kkj2 {
+      color: var(--rk-foreground);
+    }
+    :root .i1190urg {
+      color: var(--rk-white);
+    }
+    :root .le206v0 {
+      border-color: var(--rk-overlay2);
+    }
+    :root .sby7w0g {
+      background: var(--rk-overlay2);
+    }
+    :root .c3s5vdc:hover {
+      background-color: var(--rk-blue);
+    }
+    :root .g4cyoxx {
+      color: var(--rk-foreground);
+    }
+    :root .s1lyn4nc {
+      background: var(--rk-blue);
+    }
+    :root .UIModal.is-white .UIModal-box {
+      background: var(--rk-mantle);
+    }
+    :root .UIModalBadge {
+      background-color: var(--rk-blue);
+      color: var(--rk-crust);
+    }
+    :root .CombinePage-sourceSelectWrap .UIFieldset-legend {
+      color: var(--rk-foreground);
+    }
+    :root .k1reqlz9.ijrfqxy svg {
+      fill: var(--rk-green);
+    }
+    :root .dhmqhsx.ijrfqxy svg {
+      fill: var(--rk-red);
+    }
+    :root .c6p6uaq .react-calendar__navigation__label {
+      color: var(--rk-foreground);
+    }
+    :root .c6p6uaq .react-calendar__navigation__arrow {
+      color: var(--rk-foreground);
+    }
+    :root .c6p6uaq .react-calendar__navigation__arrow:disabled {
+      color: var(--rk-overlay1);
+    }
+    :root .f1sxiitf {
+      background: none;
+    }
+    :root .c1ext0pg {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .sl7nfp9 {
+      background-color: var(--rk-mantle);
+    }
+    :root .sdw19mu .SetPreviewCardV1 {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .fiejqa {
+      background: none;
+    }
+    :root .t1ied0h6 {
+      color: var(--rk-bright-white);
+    }
+    :root .SetListMediumCard-isActive::before {
+      background-color: var(--rk-lavender);
+    }
+    :root .c51obz3 {
+      background-color: var(--rk-background);
+    }
+    :root .s80h93u {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .s80h93u:active:not([disabled]),
+    :root .s80h93u:hover:not([disabled]) {
+      background: var(--rk-crust);
+    }
+    :root .r78nxpu > div:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .stbnqj0 {
+      color: var(--rk-foreground);
+    }
+    :root .c1n6gny6,
+    :root .to5kbh1 {
+      color: var(--rk-foreground);
+    }
+    :root .tb3hrve {
+      color: var(--rk-white);
+    }
+    :root .HurricaneBanner--default {
+      background: var(--rk-crust);
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .HurricaneBanner--default .HurricaneBanner-text {
+      color: var(--rk-foreground);
+    }
+    :root .StudyModesNavSectionTitle {
+      color: var(--rk-foreground);
+    }
+    :root .cgkxufs {
+      background: var(--rk-crust);
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root .TeacherChoosePageView-gameTypeOption {
+      background-color: var(--rk-mantle);
+    }
+    :root .TeacherChoosePageView-gameTypes--text {
+      color: var(--rk-foreground);
+    }
+    :root .TeacherChoosePageView-gameTypes--description {
+      color: var(--rk-white);
+    }
+    :root .TeacherChoosePageView-gameTypes--cta,
+    :root .CardContent-cta {
+      color: var(--rk-blue);
+    }
+    :root .TeacherChoosePageView-gameTypeOption:hover,
+    :root .PlayModeCard:hover {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .PlayModeCard:active,
+    :root .PlayModeCard:focus:not(:active:not(:hover)),
+    :root html.cursor .PlayModeCard:hover,
+    :root html.cursor .PlayModeCard:hover:visited {
+      border-color: var(--rk-yellow);
+    }
+    :root .PlayModeCard {
+      background-color: var(--rk-mantle);
+    }
+    :root .CardContent-option {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .CardContent-text,
+    :root .CardContent-title {
+      color: var(--rk-foreground);
+    }
+    :root .TeacherLobbyView-join {
+      background-color: var(--rk-mantle);
+    }
+    :root .TeacherLobbyView .UIFloatedCard,
+    :root .TeacherStartGameView-side,
+    :root .TeacherEndView-side {
+      background: var(--rk-crust);
+    }
+    :root .theme-night .TeacherLobbyView .UIFloatedCard {
+      border-color: var(--rk-overlay2);
+    }
+    :root .TeacherLobbyView-join--instructionLink .UIButton {
+      color: var(--rk-blue);
+    }
+    :root .TeacherLobbyView-player:hover {
+      color: var(--rk-red);
+    }
+    :root .td5er02 .UIFloatedCard {
+      background-color: var(--rk-mantle);
+    }
+    :root .TermStat--perfectTerms .TermStat-header {
+      background-color: var(--rk-green);
+    }
+    :root .TermStat-header {
+      color: var(--rk-mantle);
+    }
+    :root .TermStatGroup-navProgress {
+      color: #a6adc8 \1;
+    }
+    :root .TeacherEndView-side--bottomButton .UIButton.UIButton--whiteBorderRounded {
+      color: var(--rk-foreground);
+    }
+    :root .SegmentedControl.SegmentedControl--quizletBlue .SegmentedControl-navItem.is-active,
+    :root .segmented-control.SegmentedControl--quizletBlue .SegmentedControl-navItem.is-active {
+      background: var(--rk-lavender);
+      color: var(--rk-crust);
+    }
+    :root .StudyWhileWaitingView {
+      background-color: var(--rk-background);
+    }
+    :root .firefox .CardsList.CardsList--showSingle .CardsItem .CardsItemSide .CardsItemInner,
+    :root .ie11 .CardsList.CardsList--showSingle .CardsItem .CardsItemSide .CardsItemInner,
+    :root .webkit .CardsList.CardsList--showSingle .CardsItem .CardsItemSide .CardsItemInner {
+      background-color: var(--rk-mantle);
+    }
+    :root .StudentTeamView-teamInner {
+      background-color: var(--rk-mantle);
+    }
+    :root .StudentAnswerOption .UIButton {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root .StudentAnswerOption .UIButton:active,
+    :root html.cursor .StudentAnswerOption .UIButton:hover,
+    :root html.cursor .StudentAnswerOption .UIButton:hover:visited {
+      border-color: var(--rk-yellow);
+    }
+    :root .StudentPlayingHeader {
+      background: var(--rk-crust);
+    }
+    :root .StudentLeaderboard-headstart {
+      background: var(--rk-blue);
+    }
+    :root .StudentLeaderboard {
+      background: var(--rk-lavender);
+    }
+    :root .StudentLeaderboard-team {
+      background: var(--rk-blue);
+    }
+    :root .StudentGameboard-feedback.is-incorrectAnswer {
+      background: var(--rk-red);
+    }
+    :root .StudentAnswerOption.is-showingIncorrectFeedback.StudentAnswerOption .UIButton {
+      background: var(--rk-red) !important;
+    }
+    :root .StudentAnswerOption.is-showingCorrectFeedback.StudentAnswerOption .UIButton {
+      background: var(--rk-green) !important;
+    }
+    :root .StudentIncorrectAnswerFeedback-section--correct .StudentIncorrectAnswerFeedback-heading {
+      color: var(--rk-green);
+    }
+    :root .TermStat--learnedTerms .TermStat-header {
+      background-color: var(--rk-red);
+    }
+    :root .TeacherChoosePageView-gameTypeOption:active,
+    :root .TeacherChoosePageView-gameTypeOption:focus:not(:active:not(:hover)),
+    :root html.cursor .TeacherChoosePageView-gameTypeOption:hover,
+    :root html.cursor .TeacherChoosePageView-gameTypeOption:hover:visited {
+      border-color: var(--rk-yellow);
+    }
+    :root .tllqvk3,
+    :root .c1tmoumb {
+      background-color: var(--rk-mantle);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /*     .AssemblyIcon--small {
+        color: @lavender;
+    } */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :root body {
+      color: var(--rk-foreground);
+      background: var(--rk-background);
+    }
+    :root .DashboardLayout {
+      background-color: var(--rk-background) !important;
+    }
+    :root .TopNavigation {
+      background-color: var(--rk-crust);
+    }
+    :root .s19dmjr1 {
+      border-color: none;
+      background: var(--rk-surface0);
+    }
+    :root .NavigationTab--span {
+      color: var(--rk-foreground) !important;
+    }
+    :root .s13oqxd2.NavigationTab:not(.no-highlight::after) {
+      background: var(--rk-overlay2);
+    }
+    :root .e1bxx0ta::after:hover {
+      background: var(--rk-overlay2);
+    }
+    :root .hri9878 {
+      color: var(--rk-bright-white);
+    }
+    :root .AssemblyCard {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-mantle);
+      box-shadow: 0 0.125rem 0.5rem 0 var(--rk-crust);
+    }
+    :root h5 {
+      color: var(--rk-foreground);
+    }
+    :root .CourseOverviewPreviewCard-recommendationTitle {
+      color: var(--rk-foreground);
+    }
+    :root .UISwitch-input:hover:not(:disabled) ~ .UISwitch-label {
+      color: var(--rk-yellow);
+    }
+    :root .UIToggle-optionInput:hover:not(:disabled) ~ .UIToggle-optionLabel {
+      color: var(--rk-yellow);
+    }
+    :root .UIToggle-optionInput:checked:not(:disabled) ~ .UIToggle-optionLabel {
+      background-color: var(--rk-yellow);
+      color: var(--rk-mantle);
+    }
+    :root .UIButton--inverted,
+    :root .UIButton--inverted:visited,
+    :root html.touch .UIButton--inverted:focus:hover:not(:active) {
+      box-shadow: inset 0 0 0 3px var(--rk-overlay0);
+    }
+    :root .UIButton--borderless,
+    :root .UIButton--borderless:visited,
+    :root html.touch .UIButton--borderless:focus:hover:not(:active) {
+      background: none;
+      background-color: initial;
+      color: inherit;
+    }
+    :root .UIButton,
+    :root .UIButton:visited,
+    :root html.touch .UIButton:focus:hover:not(:active) {
+      color: inherit;
+      background-color: var(--rk-blue);
+    }
+    :root .UIButton--alert,
+    :root .UIButton--alert:visited,
+    :root html.touch .UIButton--alert:focus:hover:not(:active) {
+      background-color: var(--rk-red);
+    }
+    :root .h1ebmrjk {
+      background: linear-gradient(180deg, #0000 69.83%, #1e1e2e 100%);
+    }
+    :root .jqcfj5w {
+      filter: brightness(0) saturate(100%) invert(12%) sepia(5%) saturate(4408%) hue-rotate(195deg) brightness(93%) contrast(90%);
+    }
+    :root .RichTextEditor[aria-invalid="true"]:not([aria-disabled="true"]) .RichTextEditor-label,
+    :root .LanguageBarSide.has-error .UILink,
+    :root .LanguageBarSide.has-error select {
+      color: var(--rk-maroon);
+    }
+    :root .neeykg0 {
+      filter: brightness(0) saturate(100%) invert(14%) sepia(10%) saturate(1367%) hue-rotate(192deg) brightness(95%) contrast(95%);
+    }
+    :root .CourseOverviewPreviewCard-recommendationLink:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .CourseOverviewPreviewCard-subtitle {
+      color: var(--rk-bright-white);
+    }
+    :root .CourseOverviewPreviewCard-recommendationLabel {
+      color: var(--rk-bright-white);
+    }
+    :root .CourseOverviewPreviewCard-divider {
+      border-color: var(--rk-mantle);
+    }
+    :root .AssemblyPrimaryButton--default {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-foreground);
+    }
+    :root .c1vierhv {
+      border-color: var(--rk-overlay2);
+    }
+    :root .djzjpyv {
+      color: var(--rk-bright-white);
+    }
+    :root span {
+      color: inherit;
+    }
+    :root .s139vgrg {
+      color: var(--rk-bright-white);
+    }
+    :root form {
+      background-color: inherit;
+    }
+    :root input {
+      background-color: var(--rk-surface0);
+    }
+    :root .b1r2wylq {
+      background-color: var(--rk-mantle);
+      box-shadow: 0 0.125rem 0.25rem var(--rk-crust);
+    }
+    :root .AssemblyPill {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .t7pmw6o {
+      color: var(--rk-foreground);
+    }
+    :root .UIBaseCard-footer .UserLink-username,
+    :root .UserLink-username {
+      color: var(--rk-foreground);
+    }
+    :root .UserLink-title {
+      color: var(--rk-foreground);
+    }
+    :root .UILinkBox {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIBaseCardHeader-info {
+      color: var(--rk-foreground);
+    }
+    :root .UIBaseCardHeader-thumbnail {
+      border-color: var(--rk-mantle);
+    }
+    :root .a1s81tf6 {
+      background-color: var(--rk-mantle);
+    }
+    :root .aup4qff {
+      color: var(--rk-mantle);
+    }
+    :root .illkdv2c {
+      color: var(--rk-maroon);
+    }
+    :root .react-calendar__month-view__weekdays__weekday {
+      color: var(--rk-white);
+    }
+    :root .CalendarTile--isCurrentWeek::after {
+      background-color: var(--rk-mantle);
+    }
+    :root .CalendarTile--isCurrentWeek {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyIcon--medium {
+      color: inherit;
+    }
+    :root .AssemblyIconButton--tertiary {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyButtonBase--circle {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblySecondaryButton {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyPillText {
+      color: var(--rk-foreground);
+    }
+    :root .SiteActivity-button.isGlobalNavInExperiment {
+      color: var(--rk-foreground);
+    }
+    :root .UIIcon--large {
+      color: var(--rk-foreground);
+    }
+    :root .s1da1u6y {
+      background-color: var(--rk-crust);
+    }
+    :root .CalendarTile--hasEvent {
+      color: var(--rk-mantle);
+    }
+    :root .c1qopd51 {
+      color: var(--rk-maroon);
+    }
+    :root .AssemblyIconButton--primary {
+      background: var(--rk-background);
+    }
+    :root .AssemblyButtonBase:hover:not([disabled]),
+    :root [aria-disabled="true"] {
+      background: var(--rk-mantle);
+    }
+    :root .SiteActivity-button {
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .SiteActivity-button:focus,
+    :root .SiteActivity-button:hover {
+      border-color: var(--rk-overlay0);
+      color: var(--rk-bright-white);
+    }
+    :root .NotificationBadge-container {
+      background: var(--rk-overlay2);
+    }
+    :root [d17q91q7][aria-expanded="true"] {
+      background-color: var(--rk-foreground);
+    }
+    :root .UILinkBox-link .UILink:active,
+    :root .UILinkBox-link .UILink:focus,
+    :root .UILinkBox-link .UILink:hover {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .AssemblySmallCard-hover:hover::after {
+      background-color: var(--rk-overlay2);
+    }
+    :root .rellgo5 {
+      color: var(--rk-foreground);
+    }
+    :root #react-autowhatever-site-header-global-search-autosuggest {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-mantle);
+    }
+    :root .tqxyjjt {
+      color: var(--rk-foreground);
+    }
+    :root text {
+      color: var(--rk-bright-white);
+    }
+    :root li.react-autosuggest__suggestion:hover {
+      background: var(--rk-mantle);
+    }
+    :root .poy4xqf {
+      background: var(--rk-crust);
+      border-color: var(--rk-crust);
+    }
+    :root .wej97zk {
+      background-color: var(--rk-crust);
+    }
+    :root .wvbj6cw {
+      background-color: var(--rk-crust);
+    }
+    :root .c721v4v {
+      color: var(--rk-foreground);
+    }
+    :root .c139umgt {
+      color: var(--rk-foreground);
+    }
+    :root .t1ow6gy9 {
+      color: var(--rk-bright-white);
+    }
+    :root .u1jilvfz {
+      background-color: var(--rk-overlay2);
+    }
+    :root .wej97zk:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .s1ovpdog {
+      background-color: var(--rk-mantle);
+      border-top-color: var(--rk-overlay0);
+    }
+    :root .c1ap9d88 .AssemblyMenuItem--title {
+      color: var(--rk-white);
+    }
+    :root .c1ap9d88:hover {
+      background-color: var(--rk-background);
+    }
+    :root .c1ap9d88 {
+      background-color: var(--rk-mantle);
+    }
+    :root .h1hbonvg {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIBaseCard-labelTag {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .UIIcon--chevron-right {
+      color: var(--rk-foreground);
+    }
+    :root .UIIcon--chevron-left {
+      color: var(--rk-foreground);
+    }
+    :root .UIPopover,
+    :root .UIPopover::after {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIPopover.UIPopover--mediumShadow {
+      box-shadow: 0 0.125rem 0.25rem var(--rk-crust);
+    }
+    :root .SetRecommendationCard-contextMenuItem:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .cxvmyeq {
+      border-color: var(--rk-crust);
+    }
+    :root .wxhi4p:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .AssemblyTab {
+      color: var(--rk-white);
+    }
+    :root .AssemblyTab::after {
+      color: var(--rk-white);
+    }
+    :root .s4cgp9b.AssemblyTab {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyTab:hover {
+      color: var(--rk-lavender);
+    }
+    :root .f1ub3img {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .AssemblyTabsWrapper::before {
+      background-color: var(--rk-overlay2);
+    }
+    :root .s4cgp9b.AssemblyTab::after {
+      background: var(--rk-blue);
+    }
+    :root .AssemblyTab:hover::after {
+      background: var(--rk-blue);
+    }
+    :root .w15oa27z:hover {
+      background: var(--rk-mantle);
+    }
+    :root .i1v4i7rf.textbookIcon {
+      background-image: url("https://assets.quizlet.com/a/j/dist/app/i/explanations/textbook_night.1ff39f68b703b28.svg");
+    }
+    :root .sinah8x {
+      color: var(--rk-white);
+    }
+    :root .SetPage {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage .SetPage-setDetailsInfoWrapper,
+    :root .SetPage .SetPage-setIntroWrapper.SetPage-setIntroWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage-setDetailsInfoWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage-setDetailsTermsWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SetPage .SetPage-setDetailsTermsWrapper,
+    :root .SetPage .SetPage-setLinksWrapper.SetPage-setLinksWrapper {
+      background-color: var(--rk-background);
+    }
+    :root .SiteFooter {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .SiteFooter-bottom {
+      background-color: var(--rk-background);
+    }
+    :root .SetPageStickyHeader.is-pinned {
+      background-color: var(--rk-crust);
+    }
+    :root .StudyModesNavItem {
+      background-color: var(--rk-mantle);
+    }
+    :root .StudyModesNavItemName {
+      color: var(--rk-foreground);
+    }
+    :root .StudyModesNavItemName:visited {
+      color: var(--rk-foreground);
+    }
+    :root .c78g08u {
+      background-color: var(--rk-mantle);
+      box-shadow: 0 0.25rem 1rem 0 var(--rk-crust);
+    }
+    :root .o1rf13bx {
+      color: var(--rk-foreground);
+    }
+    :root .lck97c5 {
+      background: var(--rk-mantle);
+    }
+    :root .SetPageTerm {
+      background: var(--rk-mantle);
+    }
+    :root .AssemblyIconButton--secondary {
+      background: var(--rk-crust);
+    }
+    :root .UIDropdown--inverted {
+      background: var(--rk-background);
+    }
+    :root .UIDropdown-select {
+      color: var(--rk-foreground);
+    }
+    :root .soyu1j6 {
+      color: var(--rk-maroon);
+    }
+    :root .s1e29328.cbb9lkx {
+      color: var(--rk-red);
+      background: var(--rk-rosewater);
+      border-color: var(--rk-peach);
+    }
+    :root .kahyre1 {
+      color: var(--rk-green);
+    }
+    :root .kzo3tk {
+      color: var(--rk-blue);
+    }
+    :root .SiteActivity-button .NotificationBadge-container {
+      background-color: var(--rk-blue);
+    }
+    :root .hgmlhdt {
+      background-color: var(--rk-crust);
+    }
+    :root .o1rfl3bx {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .c1lf7cxm {
+      color: var(--rk-white);
+    }
+    :root .l3ucz5w {
+      color: var(--rk-bright-white);
+    }
+    :root .u3v4pv0 {
+      color: var(--rk-white);
+    }
+    :root .StudyModesNavItem:hover {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .o1g4qwv {
+      background-color: var(--rk-crust);
+    }
+    :root .tqyy7cr.h19ive8k {
+      color: var(--rk-foreground);
+    }
+    :root .t1kgxwr0 {
+      color: var(--rk-foreground);
+    }
+    :root .tuxzbsj {
+      fill: var(--rk-foreground);
+    }
+    :root .c5iom2o {
+      color: var(--rk-lavender);
+    }
+    :root .lck97c5:focus .c5iom2o,
+    :root .lck97c5:hover .c5iom2o {
+      color: var(--rk-blue);
+    }
+    :root .t4sjwm7 {
+      color: var(--rk-foreground);
+    }
+    :root body.colorRefresh-setPageOnly .UISwitch-label {
+      color: var(--rk-foreground);
+    }
+    :root .UISwitch-label {
+      border-color: var(--rk-overlay1);
+      background-color: var(--rk-mantle);
+      color: var(--rk-white);
+    }
+    :root .SetPageTerm-sideContent {
+      border-right-color: var(--rk-overlay2);
+    }
+    :root .UISwitch-input:checked:not(:disabled ~ .UISwitch-label) {
+      color: var(--rk-mantle);
+      border-color: var(--rk-yellow);
+      background-color: var(--rk-yellow);
+    }
+    :root .AssemblyIconButton--highlight {
+      background: none;
+      color: var(--rk-yellow);
+    }
+    :root .UIToggle-optionLabel {
+      background-color: var(--rk-mantle);
+      color: var(--rk-blue);
+    }
+    :root .AssemblyIconButton--highlight:hover:not([disabled]) {
+      background-color: var(--rk-crust);
+    }
+    :root .AssemblyIconButton--tertiary:hover:not([disabled]) {
+      background-color: var(--rk-crust);
+    }
+    :root .AssemblyButtonBase--square {
+      color: var(--rk-foreground);
+    }
+    :root .z1x1k8pd.svwhkoh {
+      color: var(--rk-green);
+      border-color: var(--rk-green);
+    }
+    :root .svwhkoh {
+      background-color: var(--rk-mantle);
+    }
+    :root .kzo3tk.cbb9lkx {
+      background: var(--rk-green);
+      border-color: var(--rk-green);
+      color: var(--rk-blue);
+    }
+    :root .kahyre1.l40n85g {
+      color: var(--rk-green);
+    }
+    :root .soyu1j6.l40n85g {
+      color: var(--rk-red);
+    }
+    :root .axrvw3e.s1e29328.cbb9lkx {
+      background: var(--rk-flamingo);
+      border-color: var(--rk-flamingo);
+      color: var(--rk-red);
+    }
+    :root .mnlifen {
+      background: var(--rk-mantle);
+    }
+    :root .f1yw38c3 {
+      background: none;
+    }
+    :root .AssemblyToggleSwitch-input:checked + .AssemblyToggleSwitch-fauxInput {
+      background: var(--rk-lavender);
+    }
+    :root .AssemblyToggleSwitch-input:checked + .AssemblyToggleSwitch-fauxInput::after {
+      background-color: var(--rk-magenta);
+    }
+    :root .AssemblyToggleSwitch-fauxInput {
+      background: var(--rk-overlay1);
+    }
+    :root .AssemblyToggleSwitch-fauxInput::after {
+      background: var(--rk-lavender);
+    }
+    :root .c13e2cpr {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyInput {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyInput-input {
+      color: var(--rk-bright-white);
+    }
+    :root .a1k2umqi {
+      background-color: var(--rk-crust);
+    }
+    :root .bxtl8jy {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .ah6785x {
+      color: var(--rk-bright-white);
+    }
+    :root .a1fcz3cu:focus-within > .ah6785x {
+      color: var(--rk-bright-white);
+    }
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestions-container--open {
+      background: var(--rk-mantle);
+    }
+    :root .e1g8wmc7 {
+      background-color: var(--rk-surface0);
+    }
+    :root .AssemblyLink--secondary:hover {
+      color: var(--rk-peach);
+    }
+    :root .a1k2umqi:focus-within {
+      border-bottom-color: var(--rk-blue);
+    }
+    :root .cgyrcnx {
+      background-color: var(--rk-overlay2);
+    }
+    :root .byhd60 {
+      background-color: var(--rk-maroon);
+    }
+    :root .d11ucs5j {
+      background: var(--rk-overlay2);
+    }
+    :root .sjsxdsz {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .fz4nps6 {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .AssemblyPrimaryButton--default:disabled,
+    :root .AssemblyPrimaryButton--default[aria-disabled="true"] {
+      background: var(--rk-surface0);
+      border-color: var(--rk-background);
+      color: var(--rk-white);
+    }
+    :root .ptc18zm {
+      background: inherit;
+    }
+    :root .c1gi3y8b {
+      background: var(--rk-crust);
+    }
+    :root .k3lm6f3 {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .w1uwrq7e {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .t1d08860 {
+      color: inherit;
+    }
+    :root .i1p8x1gp .i1e9rt5 {
+      color: var(--rk-maroon);
+    }
+    :root .i1p8x1gp {
+      background-color: var(--rk-mantle);
+    }
+    :root .i1p8x1gp,
+    :root .i1p8x1gp:focus,
+    :root .i1p8x1gp:hover {
+      border-color: var(--rk-maroon);
+    }
+    :root .cv1rd7s {
+      background: var(--rk-mantle);
+    }
+    :root .cv1rd7s,
+    :root .cv1rd7s:focus,
+    :root .cv1rd7s:hover {
+      border-color: var(--rk-green);
+    }
+    :root .cv1rd7s .i1e9rt5 {
+      color: var(--rk-green);
+    }
+    :root .b1jcf4jl {
+      background-color: var(--rk-crust);
+    }
+    :root .pck8ctn {
+      color: var(--rk-foreground);
+    }
+    :root .i6cf9vy {
+      color: var(--rk-red);
+    }
+    :root .c2mfnz6 {
+      color: var(--rk-green);
+    }
+    :root .pr2w5fu:first-child {
+      border-right-color: var(--rk-overlay2);
+    }
+    :root .t117larf {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .q1m09plc:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .q1m09plc {
+      color: var(--rk-blue);
+    }
+    :root .hbcu5v.q1m09plc {
+      color: var(--rk-bright-white);
+    }
+    :root .qzk5crt {
+      color: var(--rk-foreground);
+    }
+    :root .sd72jj0 {
+      color: var(--rk-bright-white);
+    }
+    :root .UIModalHeader {
+      background-color: var(--rk-crust);
+    }
+    :root .UIModalBody {
+      background-color: var(--rk-mantle);
+    }
+    :root .TestModeOptions {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIModal-box {
+      color: var(--rk-foreground);
+    }
+    :root .UICheckbox-label {
+      color: var(--rk-foreground);
+    }
+    :root .UICheckbox-input:checked ~ .UICheckbox-fauxInput {
+      border-color: var(--rk-yellow);
+    }
+    :root .UICheckbox-fauxInput::after {
+      border-color: var(--rk-yellow);
+      border-width: 0 0 0.125rem 0.125rem;
+    }
+    :root .UIInput-input {
+      color: var(--rk-foreground);
+    }
+    :root .UIInput[aria-invalid="false"] .UIInput-input ~ .UIInput-border {
+      box-shadow: 0 0.125rem 0 0 var(--rk-overlay2);
+    }
+    :root .UILink,
+    :root .UILink:visited {
+      color: var(--rk-rosewater);
+    }
+    :root .UIButton:active,
+    :root html.cursor .UIButton:hover,
+    :root html.cursor .UIButton:hover:visited {
+      background-color: var(--rk-sky);
+    }
+    :root .UIHorizontalRule {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .OptionsModal-description,
+    :root .TestModeOptions-listOption-description {
+      color: var(--rk-white);
+    }
+    :root .swjz05g {
+      background-color: var(--rk-crust);
+    }
+    :root .swjz05g,
+    :root .swjz05g:focus,
+    :root .swjz05g:hover {
+      border-color: var(--rk-blue);
+    }
+    :root .s2y71yx label {
+      background: var(--rk-surface0);
+    }
+    :root .s2y71yx input {
+      background: inherit;
+      color: var(--rk-foreground);
+    }
+    :root .TextbookRecommendations {
+      background: var(--rk-crust);
+    }
+    :root .TextbookCard-Details {
+      color: var(--rk-bright-white);
+    }
+    :root .AssemblyLink--title:any-link {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyLink--title:hover {
+      color: var(--rk-yellow);
+    }
+    :root .ah3z5j1 {
+      border-color: var(--rk-blue);
+    }
+    :root .hkyil8p {
+      color: var(--rk-blue);
+    }
+    :root .e17gih4t {
+      border-color: var(--rk-overlay2);
+    }
+    :root .o1q1tz6w {
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .hg3d33q {
+      border-color: #0000;
+    }
+    :root .ser6cev,
+    :root .c86ukn8 {
+      color: var(--rk-white);
+    }
+    :root .a99ei82 {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay2);
+    }
+    :root .qcpiy8g {
+      color: var(--rk-foreground);
+    }
+    :root .pqa404y {
+      color: var(--rk-green);
+    }
+    :root .s18c8hjh {
+      color: var(--rk-maroon);
+    }
+    :root .ljt3l6v {
+      fill: var(--rk-white);
+    }
+    :root .c16l7630.iayao2g {
+      color: var(--rk-green);
+    }
+    :root .i1e9dzkh.iayao2g {
+      color: var(--rk-maroon);
+    }
+    :root .w1e3jc65 {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-mantle);
+    }
+    :root .t7fr19y {
+      color: var(--rk-lavender);
+    }
+    :root .dw1ojws {
+      color: var(--rk-white);
+    }
+    :root .w1e3jc65:hover {
+      border-color: var(--rk-overlay2);
+    }
+    :root .q1nxab59 {
+      color: var(--rk-bright-white);
+    }
+    :root .ssbjprp {
+      color: var(--rk-white);
+    }
+    :root .smvj06a {
+      color: var(--rk-bright-white);
+    }
+    :root .cfzatrd.a548wz9 {
+      color: var(--rk-green);
+    }
+    :root .cag3g2z.anp68o5 {
+      color: var(--rk-green);
+    }
+    :root .CombinePage-wrap {
+      background-color: var(--rk-background);
+    }
+    :root .CombinePageTable-row {
+      background-color: var(--rk-mantle);
+    }
+    :root .CombinePageTable-rowTermCount {
+      color: var(--rk-bright-white);
+    }
+    :root .CombinePageTable-setTitle .UIHeading--four {
+      color: var(--rk-foreground);
+    }
+    :root .UIDropdown {
+      background: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .UIDropdown .UIDropdown-icon {
+      color: var(--rk-overlay2);
+    }
+    :root .UIDropdown-select:focus option {
+      background: var(--rk-mantle);
+    }
+    :root option:hover {
+      background: var(--rk-crust);
+    }
+    :root .ModeControls {
+      background-color: var(--rk-mantle);
+    }
+    :root .ModeControls-backText {
+      color: var(--rk-foreground);
+    }
+    :root .ModeControls-back {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .UIButton--whiteBorder {
+      background: var(--rk-crust);
+      border-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .MatchModeControls-currentTime {
+      color: var(--rk-blue);
+    }
+    :root .MatchModeQuestionScatterTile {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-overlay0);
+    }
+    :root .MatchModeQuestionScatterTile.is-draggedOver,
+    :root .MatchModeQuestionScatterTile.is-dragging,
+    :root .MatchModeQuestionScatterTile:hover {
+      border-color: var(--rk-overlay2);
+    }
+    :root .MatchModeQuestionScatterTile.is-incorrect {
+      border-color: var(--rk-maroon);
+    }
+    :root .MatchModeQuestionScatterTile.is-correct {
+      border-color: var(--rk-green);
+    }
+    :root .HighscoresList {
+      background-color: var(--rk-crust);
+    }
+    :root .HighscoreRow {
+      background-color: var(--rk-mantle);
+    }
+    :root .UIButton[aria-disabled="true"],
+    :root .UIButton[aria-disabled="true"]:active,
+    :root .UIButton[aria-disabled="true"]:focus,
+    :root .UIButton[aria-disabled="true"]:visited,
+    :root .UIButton[disabled],
+    :root .UIButton[disabled]:active,
+    :root .UIButton[disabled]:focus,
+    :root .UIButton[disabled]:visited,
+    :root html.cursor .UIButton[aria-disabled="true"]:hover,
+    :root html.cursor .UIButton[disabled]:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .t10tqhey {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-crust);
+    }
+    :root .t9i9vmb.h19ive8k,
+    :root .t1s26kx5.h19ive8k,
+    :root .s1rx7q8q.h19ive8k {
+      color: var(--rk-foreground);
+    }
+    :root .s8j1d54,
+    :root .c49e2ip {
+      color: var(--rk-bright-white);
+    }
+    :root .c6p6uaq .react-calendar__month-view__days__day {
+      color: var(--rk-foreground);
+    }
+    :root .c6p6uaq .react-calendar__month-view__days__day--neighboringMonth {
+      color: var(--rk-white);
+    }
+    :root .AchievementsImage--isActive .a130rwfv,
+    :root .al33ekg.isActive .a130rwfv {
+      color: var(--rk-white);
+    }
+    :root .s1rtnf4c::before,
+    :root .s1rtnf4c::after {
+      background: none;
+    }
+    :root .AchievementsImage--isActive .a130rwfv,
+    :root .al33ekg.isActive .a130rwfv,
+    :root .DashboardLayout .SetPreviewLink--noLinkBox,
+    :root .DashboardLayout .PreviewCard--noLinkBox {
+      background-color: var(--rk-mantle);
+    }
+    :root .SetPreview-queryMatchHighlight {
+      background: var(--rk-yellow);
+      color: var(--rk-background);
+    }
+    :root .cpey3pe {
+      color: var(--rk-foreground);
+    }
+    :root .s1fl65t6 {
+      color: var(--rk-white);
+    }
+    :root .t1ne2oir {
+      color: var(--rk-foreground);
+    }
+    :root .b1xq6unb {
+      color: var(--rk-foreground);
+    }
+    :root .bp0a7jj {
+      color: var(--rk-bright-white);
+    }
+    :root .pltikop {
+      color: var(--rk-blue);
+    }
+    :root .SettingsBox-box {
+      background-color: var(--rk-mantle);
+    }
+    :root .EdgyDataCoursePillbox .UIPill {
+      background: var(--rk-crust);
+      border-color: var(--rk-overlay2);
+      color: var(--rk-foreground);
+    }
+    :root .UIAutosuggest .react-autosuggest__suggestions-container {
+      background: var(--rk-mantle);
+    }
+    :root .UIAutosuggest .react-autosuggest__suggestion {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .UIAutosuggest .react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .EdgyDataCourseSelector-suggestion .EdgyDataCourseSelector-suggestionName {
+      color: var(--rk-foreground);
+    }
+    :root .UIInput-input.UIInput-autoExpandInput.is-focused ~ .UIInput-border,
+    :root .UIInput-input:focus ~ .UIInput-border {
+      box-shadow: 0 0.25rem 0 0 var(--rk-yellow);
+    }
+    :root .Divider-label {
+      background: var(--rk-mantle);
+    }
+    :root .the-label,
+    :root .UIButton {
+      color: var(--rk-crust);
+    }
+    :root input:checked + .p22broa {
+      box-shadow: 0 0 0 0.25rem var(--rk-blue);
+    }
+    :root .button.google {
+      background-color: var(--rk-red);
+      border-color: var(--rk-peach);
+    }
+    :root .button.google::after {
+      border-right-color: var(--rk-peach);
+    }
+    :root .b1opuclq {
+      background-color: var(--rk-mantle);
+      box-shadow: 0 0.25rem 1rem 0 var(--rk-crust);
+    }
+    :root .button.apple .label,
+    :root .button.facebook .label,
+    :root .button.google .label {
+      color: var(--rk-crust);
+    }
+    :root .button.facebook {
+      background-color: var(--rk-blue);
+      border-color: var(--rk-lavender);
+    }
+    :root .button.facebook::after {
+      border-right-color: var(--rk-lavender);
+    }
+    :root .UIInput-input:-webkit-autofill,
+    :root .UIInput-input:-webkit-autofill:focus,
+    :root .UIInput-input:-webkit-autofill:hover {
+      box-shadow: none !important;
+    }
+    :root .UIInput-input:-internal-autofill-previewed,
+    :root .UIInput-input:-internal-autofill-selected {
+      -webkit-text-fill-color: var(--rk-foreground);
+    }
+    :root .UILink:active,
+    :root html.cursor .UILink:hover,
+    :root html.cursor .UILink:hover:visited {
+      color: var(--rk-maroon);
+    }
+    :root .setting legend,
+    :root .setting p {
+      color: var(--rk-foreground);
+    }
+    :root .UIButton-wrapper {
+      color: inherit;
+    }
+    :root .UIButton--alert:active,
+    :root html.cursor .UIButton--alert:hover,
+    :root html.cursor .UIButton--alert:hover:visited {
+      background-color: var(--rk-maroon);
+    }
+    :root .c1qo8ql4 {
+      background-color: var(--rk-background);
+    }
+    :root .phx9gy6 {
+      color: var(--rk-foreground);
+    }
+    :root .soad3d7 {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyLink--primary:any-link {
+      color: var(--rk-rosewater);
+    }
+    :root .AssemblyLink {
+      color: var(--rk-rosewater);
+    }
+    :root .UIButton--borderless:active,
+    :root html.cursor .UIButton--borderless:hover,
+    :root html.cursor .UIButton--borderless:hover:visited {
+      background-color: initial;
+      color: var(--rk-yellow);
+    }
+    :root .UIButton--borderless[aria-disabled="true"],
+    :root .UIButton--borderless[aria-disabled="true"]:active,
+    :root .UIButton--borderless[aria-disabled="true"]:focus,
+    :root .UIButton--borderless[aria-disabled="true"]:visited,
+    :root .UIButton--borderless[disabled],
+    :root .UIButton--borderless[disabled]:active,
+    :root .UIButton--borderless[disabled]:focus,
+    :root .UIButton--borderless[disabled]:visited,
+    :root html.cursor .UIButton--borderless[aria-disabled="true"]:hover,
+    :root html.cursor .UIButton--borderless[disabled]:hover {
+      background-color: initial;
+    }
+    :root .s19dmjr1.isGlobalNavInExperiment.is-focused,
+    :root .s19dmjr1.isGlobalNavInExperiment.is-focused input {
+      background: var(--rk-surface0);
+    }
+    :root .t1iqlnnn p {
+      color: var(--rk-bright-white);
+    }
+    :root .axupt8p,
+    :root .igkckaz {
+      color: var(--rk-rosewater);
+    }
+    :root .axupt8p:active,
+    :root .axupt8p:focus,
+    :root .axupt8p:hover {
+      color: var(--rk-flamingo);
+    }
+    :root .cnuw08l {
+      background-color: var(--rk-mantle);
+    }
+    :root .c192jkj8 {
+      color: var(--rk-foreground);
+    }
+    :root .a1sd82zg {
+      background-color: var(--rk-crust);
+      border-left-color: var(--rk-lavender);
+    }
+    :root .g84nzqs {
+      background-image: none;
+    }
+    :root .du7o3ew > div:not(:last-child) {
+      border-right-color: var(--rk-overlay2);
+    }
+    :root .i73vo82:hover {
+      color: var(--rk-crust);
+      background-color: var(--rk-crust);
+    }
+    :root .f2nmi2p {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .a1scx0nz {
+      background-color: var(--rk-mantle);
+    }
+    :root .a4ouqer {
+      color: var(--rk-foreground);
+    }
+    :root .t104cykg {
+      color: var(--rk-foreground);
+    }
+    :root .ExplanationsLandingPage #PrismicExplanationsSearchBarTarget label,
+    :root .ExplanationsLandingPage #SearchBarTarget label,
+    :root .explanations.prismic-page #PrismicExplanationsSearchBarTarget label,
+    :root .explanations.prismic-page #SearchBarTarget label {
+      background-color: var(--rk-surface0);
+    }
+    :root .l1rgb1ub {
+      border-color: var(--rk-overlay2);
+    }
+    :root .theme-night .h1uvmh9x,
+    :root .h1uvmh9x {
+      background: var(--rk-mantle);
+    }
+    :root .h1wn8ccf {
+      color: var(--rk-foreground);
+    }
+    :root .ccm0r9d {
+      color: var(--rk-white);
+    }
+    :root .AssemblySmallCard-isActive::after {
+      background-color: var(--rk-lavender);
+    }
+    :root .i192320l {
+      border-color: var(--rk-mantle);
+    }
+    :root .b1j40uwt::before {
+      background-color: var(--rk-mantle);
+    }
+    :root .theme-night .g84nzqs {
+      background: none;
+    }
+    :root .CreateSetHeader-sticky {
+      background: var(--rk-background);
+    }
+    :root .a1fcz3cu {
+      background-color: var(--rk-surface0);
+    }
+    :root .CreateSetHeader-permissionsLink {
+      color: var(--rk-bright-white);
+    }
+    :root .CreateSetDiagramUploader .UIFloatedCard--white,
+    :root .TermContent-inner {
+      background-color: var(--rk-mantle);
+    }
+    :root .CreateSetDiagramUploader-banner {
+      border-color: var(--rk-overlay0);
+    }
+    :root .AssemblyIconButton--primaryInverted {
+      border-color: var(--rk-overlay2);
+    }
+    :root .StudiableItemToolbar {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .b18prmdf {
+      box-shadow: 0 0.125rem 0 0 var(--rk-overlay2);
+    }
+    :root .ImageUploadProminentContextToggle {
+      border-color: var(--rk-overlay0);
+    }
+    :root .UILinkButton {
+      border-bottom-color: var(--rk-blue);
+      color: var(--rk-foreground);
+    }
+    :root .p10i2lyl {
+      background-color: var(--rk-mantle);
+    }
+    :root * + .KeyboardShortcuts-shortcut,
+    :root .KeyboardShortcuts-shortcut + *,
+    :root .KeyboardShortcuts-shortcut + .KeyboardShortcuts-shortcut {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .UIKeyboardInput {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .UIDropdown-select option {
+      color: var(--rk-foreground);
+    }
+    :root .UIButton--inverted:active,
+    :root html.cursor .UIButton--inverted:hover,
+    :root html.cursor .UIButton--inverted:hover:visited {
+      box-shadow: inset 0 0 0 3px var(--rk-overlay2);
+    }
+    :root .PMEditor:focus-within ~ .b18prmdf {
+      box-shadow: 0 0.25rem 0 0 var(--rk-yellow);
+    }
+    :root .UITooltip,
+    :root .UITooltip::after {
+      background: var(--rk-crust);
+    }
+    :root :not(.ie11 .UITooltip),
+    :root :not(.ie11 .UIPopover) {
+      filter: none;
+    }
+    :root .LanguageSelect-option:hover,
+    :root .Select-option.is-focused .LanguageSelect-option {
+      background-color: var(--rk-yellow);
+    }
+    :root .i1u1jhdl {
+      background-color: var(--rk-crust);
+    }
+    :root .TermRowDragPlaceholder {
+      background: var(--rk-background);
+    }
+    :root .CreateSetDiagramUploader-banner.is-dropTarget {
+      border-color: var(--rk-yellow);
+    }
+    :root .TermContent-addRow:hover .UILinkButton {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .tetv1rf.t8spden:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .ImportTerms {
+      background-color: var(--rk-background);
+    }
+    :root .ImportTerms-import,
+    :root .ImportTerms-preview {
+      background-color: var(--rk-background);
+    }
+    :root .ImportTerms-textarea {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .TermRowsPreview .TermRowsPreview-row {
+      background: var(--rk-mantle);
+    }
+    :root .UIRadio-input:checked ~ .UIRadio-fauxInput {
+      border-color: var(--rk-yellow);
+    }
+    :root .UIRadio-fauxInput::after {
+      background-color: var(--rk-yellow);
+    }
+    :root .UILinkButton:active,
+    :root .UILinkButton:focus,
+    :root .UILinkButton:hover {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .AutosuggestContextItem {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyNotice-error {
+      border-color: var(--rk-red);
+      background-color: var(--rk-surface0);
+    }
+    :root .TermRow.is-duplicate {
+      outline-color: var(--rk-yellow);
+    }
+    :root .AssemblyPrimaryButton--danger {
+      background: var(--rk-red);
+      color: var(--rk-crust);
+    }
+    :root .AssemblyPrimaryButton--danger:hover:not([disabled]),
+    :root [aria-disabled="true"] {
+      background: var(--rk-magenta);
+    }
+    :root .s19dmjr1.is-focused,
+    :root .s19dmjr1.is-focused input,
+    :root .s2y71yx label,
+    :root .s2y71yx.is-expanded label {
+      background: var(--rk-surface0);
+      color: var(--rk-foreground);
+    }
+    :root .eeiq5c0 {
+      color: var(--rk-foreground);
+    }
+    :root .t1r0fp00,
+    :root .t1elfe8k {
+      color: var(--rk-white);
+    }
+    :root .MobilePage {
+      background: var(--rk-background);
+    }
+    :root .MobilePage-feature {
+      border-color: var(--rk-overlay2);
+    }
+    :root .MobilePage-anyDevice {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .AssemblyTextButton--secondary {
+      color: var(--rk-foreground);
+    }
+    :root .AssemblyPrimaryButton--upgrade {
+      background: var(--rk-yellow);
+    }
+    :root .page,
+    :root .PrismicSimpleRichText--white,
+    :root .PrismicTextCallout--whiteBackground,
+    :root .PrismicVideoEmbedWithText--whiteBackground,
+    :root .p1mcvm6s,
+    :root .PrismicImageTextTile--whiteBackground,
+    :root .PrismicTextCallout--twilightBlue200Background,
+    :root #SearchResultsPageHeader-mainExperiment {
+      background-color: var(--rk-background);
+    }
+    :root .tfomyx6,
+    :root .i1rs7b62,
+    :root .d5ww82k {
+      color: var(--rk-foreground);
+    }
+    :root .cssrxmc {
+      background-color: var(--rk-yellow);
+    }
+    :root .PrismicImageTextTile-tileWrapper {
+      background-color: var(--rk-mantle);
+    }
+    :root .AssemblyPrimaryButton--upgrade:hover:not([disabled]) {
+      background: var(--rk-rosewater);
+    }
+    :root .s1qq0zr7 {
+      background-color: var(--rk-mantle);
+    }
+    :root .sv0yvnj a,
+    :root .sv0yvnj a:visited:not(:last-child) {
+      color: var(--rk-foreground);
+    }
+    :root .sg4pwu6:hover,
+    :root .hivq638,
+    :root .s1ahro8n:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .e7lqtuc .react-autosuggest__suggestions-container.react-autosuggest__suggestions-container--open {
+      background-color: var(--rk-mantle);
+    }
+    :root .e7lqtuc .react-autosuggest__section-title,
+    :root .SearchResultsPageHeader-queryFeedback,
+    :root .SearchResultsPage-contentType .SearchResultsPage-emptyStateHeadline,
+    :root .SearchResultsPage-contentType .SearchResultsPage-emptyStateDescription,
+    :root .SearchResultsPage-contentType .SearchResultsPage-emptyStateSuggestionsList {
+      color: var(--rk-foreground);
+    }
+    :root .markdown-body {
+      color: var(--rk-bright-white);
+    }
+    :root .e7lqtuc li.react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted,
+    :root .e7lqtuc li.react-autosuggest__suggestion:hover {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-lavender);
+    }
+    :root .UserPreviewCard-username,
+    :root .ClassPreviewCard-title {
+      color: var(--rk-foreground);
+    }
+    :root .UserPreviewCard-classesDescription,
+    :root .UserPreviewCard-createdSetsDescription,
+    :root .QuestionCard-subject,
+    :root .ClassPreviewCard-location,
+    :root .ClassPreviewCard-membersDescription,
+    :root .ClassPreviewCard-studySetsDescription {
+      color: var(--rk-bright-white);
+    }
+    :root .QuestionCard-bottomGradient {
+      background-image: none;
+    }
+    :root .AssemblyTextButton--primary {
+      color: var(--rk-rosewater);
+    }
+    :root .TosLegend--normal {
+      color: var(--rk-bright-white);
+    }
+    :root .AssemblyLink--secondary:any-link {
+      color: var(--rk-rosewater);
+    }
+    :root .lghzn8f,
+    :root .a1cdxe01.h9lvpq {
+      color: var(--rk-foreground);
+    }
+    :root .s1mff1xn,
+    :root .AssemblyCheckbox-label {
+      color: var(--rk-foreground);
+    }
+    :root .ccnmm10 {
+      background-color: var(--rk-mantle);
+    }
+    :root .c1g4obhz {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .SetPageTerm-wordText,
+    :root .SetPageTerm-definitionText {
+      color: var(--rk-foreground);
+    }
+    :root .SetPageTerms-embeddedDesktopAdWrapper {
+      background: var(--rk-mantle);
+    }
+    :root .c1qw5oc {
+      background: var(--rk-crust);
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .c19lfjrd,
+    :root .l1fkuqeb {
+      background-color: var(--rk-background);
+    }
+    :root .bxyvgmh {
+      background-color: var(--rk-mantle);
+    }
+    :root .ata5p6z[aria-disabled="true"],
+    :root .ata5p6z[aria-disabled="true"] div,
+    :root .ata5p6z[aria-disabled="true"] textarea {
+      background-color: var(--rk-mantle);
+    }
+    :root .ata5p6z {
+      border-color: var(--rk-overlay2);
+      background-color: var(--rk-mantle);
+    }
+    :root .AssemblyIconButton--primary:disabled,
+    :root .AssemblyIconButton--primary[aria-disabled="true"] {
+      background: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .ugcsb7m {
+      background-color: var(--rk-blue);
+      color: var(--rk-crust);
+    }
+    :root .AssemblySecondaryButton:disabled,
+    :root .AssemblySecondaryButton[aria-disabled="true"] {
+      background-color: var(--rk-background);
+      border-color: var(--rk-overlay2);
+    }
+    :root .m9mf1hr div,
+    :root .m9mf1hr textarea {
+      background-color: var(--rk-mantle);
+    }
+    :root .lu5rlws {
+      color: var(--rk-bright-white);
+    }
+    :root .b1yjduyh {
+      background-color: var(--rk-mantle);
+    }
+    :root .d6tac4m {
+      background-color: var(--rk-surface0);
+    }
+    :root .RecentFeed-empty {
+      background-color: var(--rk-mantle);
+    }
+    :root .i1ykvw4f {
+      background: var(--rk-mantle);
+    }
+    :root .i1ykvw4f:hover {
+      background: var(--rk-crust);
+    }
+    :root .RecentFeed-empty--cta {
+      color: var(--rk-foreground);
+    }
+    :root .UIButton--whiteBorder:active,
+    :root html.cursor .UIButton--whiteBorder:hover,
+    :root html.cursor .UIButton--whiteBorder:hover:visited {
+      color: var(--rk-yellow);
+    }
+    :root .c124zyvn {
+      background: var(--rk-background);
+    }
+    :root .AssemblyLink--primary:hover {
+      color: var(--rk-maroon);
+    }
+    :root .cczh2hb,
+    :root .h1jftztg,
+    :root .t2m5erc {
+      color: var(--rk-foreground);
+    }
+    :root .t1nv0ihp,
+    :root .sku1zau,
+    :root .s54kfc3 {
+      color: var(--rk-bright-white);
+    }
+    :root .ImageUploadProminentContextToggle .ImageUploadProminentContextToggle-IconExplanation {
+      color: var(--rk-foreground);
+    }
+    :root .SiteHeaderLogo-link {
+      color: var(--rk-blue);
+    }
+    :root .c1sgnxr5 {
+      color: var(--rk-green);
+    }
+    :root .suyglfi {
+      color: var(--rk-foreground);
+    }
+    :root .s2y71yx li.react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted,
+    :root .s2y71yx li.react-autosuggest__suggestion:hover {
+      background: var(--rk-mantle);
+    }
+    :root .q1kwd3of {
+      color: var(--rk-overlay2);
+    }
+    :root .c1741jrq:not(:first-child) {
+      border-top-color: var(--rk-overlay2);
+    }
+    :root .SetsView-studySetResults {
+      color: var(--rk-foreground);
+    }
+    :root .UILink .SetPreview-cardHeaderTitle,
+    :root .UILink .SetPreview-cardHeaderTitle:visited,
+    :root html.touch .UILink .SetPreview-cardHeaderTitle:focus:hover:not(:active) {
+      color: var(--rk-foreground);
+    }
+    :root .SetPreview-cardBylineClass {
+      color: var(--rk-white);
+    }
+    :root .UILink .SetPreview-cardHeaderTitle:active,
+    :root html.cursor .UILink .SetPreview-cardHeaderTitle:hover,
+    :root html.cursor .UILink .SetPreview-cardHeaderTitle:hover:visited {
+      color: var(--rk-yellow);
+    }
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestion.react-autosuggest__suggestion--highlighted,
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestion:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .e29yge6 .react-autosuggest__container .react-autosuggest__suggestion {
+      border-bottom-color: var(--rk-mantle);
+    }
+    :root .EdgyDataCourseSelector-addYourOwn {
+      color: var(--rk-blue);
+    }
+    :root .i5h71e0 {
+      background-color: var(--rk-surface0);
+    }
+    :root .ikdjsw2 {
+      color: var(--rk-foreground);
+    }
+    :root .i1m3kkj2 {
+      color: var(--rk-foreground);
+    }
+    :root .i1190urg {
+      color: var(--rk-white);
+    }
+    :root .le206v0 {
+      border-color: var(--rk-overlay2);
+    }
+    :root .sby7w0g {
+      background: var(--rk-overlay2);
+    }
+    :root .c3s5vdc:hover {
+      background-color: var(--rk-blue);
+    }
+    :root .g4cyoxx {
+      color: var(--rk-foreground);
+    }
+    :root .s1lyn4nc {
+      background: var(--rk-blue);
+    }
+    :root .UIModal.is-white .UIModal-box {
+      background: var(--rk-mantle);
+    }
+    :root .UIModalBadge {
+      background-color: var(--rk-blue);
+      color: var(--rk-crust);
+    }
+    :root .CombinePage-sourceSelectWrap .UIFieldset-legend {
+      color: var(--rk-foreground);
+    }
+    :root .k1reqlz9.ijrfqxy svg {
+      fill: var(--rk-green);
+    }
+    :root .dhmqhsx.ijrfqxy svg {
+      fill: var(--rk-red);
+    }
+    :root .c6p6uaq .react-calendar__navigation__label {
+      color: var(--rk-foreground);
+    }
+    :root .c6p6uaq .react-calendar__navigation__arrow {
+      color: var(--rk-foreground);
+    }
+    :root .c6p6uaq .react-calendar__navigation__arrow:disabled {
+      color: var(--rk-overlay1);
+    }
+    :root .f1sxiitf {
+      background: none;
+    }
+    :root .c1ext0pg {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .sl7nfp9 {
+      background-color: var(--rk-mantle);
+    }
+    :root .sdw19mu .SetPreviewCardV1 {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .fiejqa {
+      background: none;
+    }
+    :root .t1ied0h6 {
+      color: var(--rk-bright-white);
+    }
+    :root .SetListMediumCard-isActive::before {
+      background-color: var(--rk-lavender);
+    }
+    :root .c51obz3 {
+      background-color: var(--rk-background);
+    }
+    :root .s80h93u {
+      color: var(--rk-foreground);
+      border-color: var(--rk-overlay2);
+    }
+    :root .s80h93u:active:not([disabled]),
+    :root .s80h93u:hover:not([disabled]) {
+      background: var(--rk-crust);
+    }
+    :root .r78nxpu > div:hover {
+      background-color: var(--rk-mantle);
+    }
+    :root .stbnqj0 {
+      color: var(--rk-foreground);
+    }
+    :root .c1n6gny6,
+    :root .to5kbh1 {
+      color: var(--rk-foreground);
+    }
+    :root .tb3hrve {
+      color: var(--rk-white);
+    }
+    :root .HurricaneBanner--default {
+      background: var(--rk-crust);
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .HurricaneBanner--default .HurricaneBanner-text {
+      color: var(--rk-foreground);
+    }
+    :root .StudyModesNavSectionTitle {
+      color: var(--rk-foreground);
+    }
+    :root .cgkxufs {
+      background: var(--rk-crust);
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root .TeacherChoosePageView-gameTypeOption {
+      background-color: var(--rk-mantle);
+    }
+    :root .TeacherChoosePageView-gameTypes--text {
+      color: var(--rk-foreground);
+    }
+    :root .TeacherChoosePageView-gameTypes--description {
+      color: var(--rk-white);
+    }
+    :root .TeacherChoosePageView-gameTypes--cta,
+    :root .CardContent-cta {
+      color: var(--rk-blue);
+    }
+    :root .TeacherChoosePageView-gameTypeOption:hover,
+    :root .PlayModeCard:hover {
+      border-bottom-color: var(--rk-yellow);
+    }
+    :root .PlayModeCard:active,
+    :root .PlayModeCard:focus:not(:active:not(:hover)),
+    :root html.cursor .PlayModeCard:hover,
+    :root html.cursor .PlayModeCard:hover:visited {
+      border-color: var(--rk-yellow);
+    }
+    :root .PlayModeCard {
+      background-color: var(--rk-mantle);
+    }
+    :root .CardContent-option {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .CardContent-text,
+    :root .CardContent-title {
+      color: var(--rk-foreground);
+    }
+    :root .TeacherLobbyView-join {
+      background-color: var(--rk-mantle);
+    }
+    :root .TeacherLobbyView .UIFloatedCard,
+    :root .TeacherStartGameView-side,
+    :root .TeacherEndView-side {
+      background: var(--rk-crust);
+    }
+    :root .theme-night .TeacherLobbyView .UIFloatedCard {
+      border-color: var(--rk-overlay2);
+    }
+    :root .TeacherLobbyView-join--instructionLink .UIButton {
+      color: var(--rk-blue);
+    }
+    :root .TeacherLobbyView-player:hover {
+      color: var(--rk-red);
+    }
+    :root .td5er02 .UIFloatedCard {
+      background-color: var(--rk-mantle);
+    }
+    :root .TermStat--perfectTerms .TermStat-header {
+      background-color: var(--rk-green);
+    }
+    :root .TermStat-header {
+      color: var(--rk-mantle);
+    }
+    :root .TermStatGroup-navProgress {
+      color: #a6adc8 \1;
+    }
+    :root .TeacherEndView-side--bottomButton .UIButton.UIButton--whiteBorderRounded {
+      color: var(--rk-foreground);
+    }
+    :root .SegmentedControl.SegmentedControl--quizletBlue .SegmentedControl-navItem.is-active,
+    :root .segmented-control.SegmentedControl--quizletBlue .SegmentedControl-navItem.is-active {
+      background: var(--rk-lavender);
+      color: var(--rk-crust);
+    }
+    :root .StudyWhileWaitingView {
+      background-color: var(--rk-background);
+    }
+    :root .firefox .CardsList.CardsList--showSingle .CardsItem .CardsItemSide .CardsItemInner,
+    :root .ie11 .CardsList.CardsList--showSingle .CardsItem .CardsItemSide .CardsItemInner,
+    :root .webkit .CardsList.CardsList--showSingle .CardsItem .CardsItemSide .CardsItemInner {
+      background-color: var(--rk-mantle);
+    }
+    :root .StudentTeamView-teamInner {
+      background-color: var(--rk-mantle);
+    }
+    :root .StudentAnswerOption .UIButton {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root .StudentAnswerOption .UIButton:active,
+    :root html.cursor .StudentAnswerOption .UIButton:hover,
+    :root html.cursor .StudentAnswerOption .UIButton:hover:visited {
+      border-color: var(--rk-yellow);
+    }
+    :root .StudentPlayingHeader {
+      background: var(--rk-crust);
+    }
+    :root .StudentLeaderboard-headstart {
+      background: var(--rk-blue);
+    }
+    :root .StudentLeaderboard {
+      background: var(--rk-lavender);
+    }
+    :root .StudentLeaderboard-team {
+      background: var(--rk-blue);
+    }
+    :root .StudentGameboard-feedback.is-incorrectAnswer {
+      background: var(--rk-red);
+    }
+    :root .StudentAnswerOption.is-showingIncorrectFeedback.StudentAnswerOption .UIButton {
+      background: var(--rk-red) !important;
+    }
+    :root .StudentAnswerOption.is-showingCorrectFeedback.StudentAnswerOption .UIButton {
+      background: var(--rk-green) !important;
+    }
+    :root .StudentIncorrectAnswerFeedback-section--correct .StudentIncorrectAnswerFeedback-heading {
+      color: var(--rk-green);
+    }
+    :root .TermStat--learnedTerms .TermStat-header {
+      background-color: var(--rk-red);
+    }
+    :root .TeacherChoosePageView-gameTypeOption:active,
+    :root .TeacherChoosePageView-gameTypeOption:focus:not(:active:not(:hover)),
+    :root html.cursor .TeacherChoosePageView-gameTypeOption:hover,
+    :root html.cursor .TeacherChoosePageView-gameTypeOption:hover:visited {
+      border-color: var(--rk-yellow);
+    }
+    :root .tllqvk3,
+    :root .c1tmoumb {
+      background-color: var(--rk-mantle);
+    }
+  }
+}

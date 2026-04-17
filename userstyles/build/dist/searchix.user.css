@@ -1,0 +1,71 @@
+/* ==UserStyle==
+@name Searchix Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/searchix
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/searchix
+@version 2025.12.05.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/searchix.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Asearchix
+@description Soothing pastel theme for Searchix
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("searchix.ovh") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      --bg: var(--rk-background);
+      --accent-bg: var(--rk-mantle);
+      --text: var(--rk-foreground);
+      --text-light: var(--rk-white);
+      --accent: var(--rk-accent);
+      --accent-hover: var(--rk-accent);
+      --accent-error: rgb(from var(--rk-red) r g b / 0.2);
+      --border: var(--rk-overlay0);
+      --code: var(--rk-lavender);
+      --preformatted: var(--rk-foreground);
+      --disabled: var(--rk-crust);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root dialog {
+      color: var(--text);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: var(--rk-background);
+      --accent-bg: var(--rk-mantle);
+      --text: var(--rk-foreground);
+      --text-light: var(--rk-white);
+      --accent: var(--rk-accent);
+      --accent-hover: var(--rk-accent);
+      --accent-error: rgb(from var(--rk-red) r g b / 0.2);
+      --border: var(--rk-overlay0);
+      --code: var(--rk-lavender);
+      --preformatted: var(--rk-foreground);
+      --disabled: var(--rk-crust);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root dialog {
+      color: var(--text);
+    }
+  }
+}

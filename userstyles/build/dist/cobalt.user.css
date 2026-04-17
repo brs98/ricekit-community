@@ -1,0 +1,159 @@
+/* ==UserStyle==
+@name cobalt Catppuccin
+@namespace github.com/catppuccin/userstyles/styles/cobalt
+@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/cobalt
+@version 2025.09.06.202604171629
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/cobalt.user.css
+@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Acobalt
+@description Soothing pastel theme for cobalt
+@author Catppuccin
+@license MIT
+
+@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
+@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
+@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("cobalt.tools") {
+  [data-theme="dark"] {
+    color-scheme: dark;
+    --primary: var(--rk-background);
+    --secondary: var(--rk-foreground);
+    --gray: var(--rk-white);
+    --blue: var(--rk-blue);
+    --green: var(--rk-green);
+    --red: var(--rk-maroon);
+    --medium-red: var(--rk-red);
+    --dark-red: var(--rk-red);
+    --white: var(--rk-crust);
+    --button: var(--rk-surface0);
+    --button-hover: hsl(from var(--rk-surface0) h s calc(l - 5));
+    --button-active-hover: hsl(from var(--rk-white) h s calc(l - 5));
+    --button-elevated: var(--rk-black);
+    --button-elevated-hover: hsl(from var(--rk-black) h s calc(l - 5));
+    --button-text: var(--rk-foreground);
+    --sidebar-bg: var(--rk-mantle);
+    --sidebar-hover: var(--rk-surface0);
+    --sidebar-highlight: var(--rk-foreground);
+    --input-border: var(--rk-bright-black);
+    --popup-bg: var(--rk-mantle);
+    --toggle-bg-enabled: var(--rk-accent);
+  }
+  [data-theme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  [data-theme="dark"] input::placeholder,
+  [data-theme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  [data-theme="dark"] #donate-page {
+    --donate-gradient-start: var(--rk-black) !important;
+    --donate-gradient-end: var(--rk-surface0) !important;
+  }
+  [data-theme="dark"] #banner-left {
+    color: var(--rk-foreground);
+  }
+  [data-theme="dark"] #banner-subtitle {
+    color: var(--rk-white);
+    opacity: 1;
+  }
+  [data-theme="dark"] .donate-card button {
+    color: var(--rk-foreground) !important;
+  }
+  [data-theme="dark"] .donate-card {
+    color: var(--rk-foreground);
+  }
+  [data-theme="dark"] .donate-card-title {
+    color: var(--rk-foreground);
+  }
+  [data-theme="dark"] .donate-card-subtitle {
+    color: var(--rk-white);
+    opacity: 1;
+  }
+  [data-theme="dark"] #input-container.focused {
+    box-shadow: 0 0 0 2px var(--rk-foreground) inset !important;
+  }
+  [data-theme="dark"] #input-dollar-sign {
+    color: var(--rk-foreground);
+  }
+  [data-theme="dark"] #donation-custom-input {
+    color: var(--rk-foreground) !important;
+  }
+  [data-theme="dark"] #cobalt-logo path {
+    fill: var(--rk-foreground);
+  }
+  [data-theme="dark"] .sidebar-tab.active {
+    background-color: var(--rk-accent) !important;
+  }
+  [data-theme="light"] {
+    color-scheme: dark;
+    --primary: var(--rk-background);
+    --secondary: var(--rk-foreground);
+    --gray: var(--rk-white);
+    --blue: var(--rk-blue);
+    --green: var(--rk-green);
+    --red: var(--rk-maroon);
+    --medium-red: var(--rk-red);
+    --dark-red: var(--rk-red);
+    --white: var(--rk-crust);
+    --button: var(--rk-surface0);
+    --button-hover: hsl(from var(--rk-surface0) h s calc(l - 5));
+    --button-active-hover: hsl(from var(--rk-white) h s calc(l - 5));
+    --button-elevated: var(--rk-black);
+    --button-elevated-hover: hsl(from var(--rk-black) h s calc(l - 5));
+    --button-text: var(--rk-foreground);
+    --sidebar-bg: var(--rk-mantle);
+    --sidebar-hover: var(--rk-surface0);
+    --sidebar-highlight: var(--rk-foreground);
+    --input-border: var(--rk-bright-black);
+    --popup-bg: var(--rk-mantle);
+    --toggle-bg-enabled: var(--rk-accent);
+  }
+  [data-theme="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  [data-theme="light"] input::placeholder,
+  [data-theme="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  [data-theme="light"] #donate-page {
+    --donate-gradient-start: var(--rk-black) !important;
+    --donate-gradient-end: var(--rk-surface0) !important;
+  }
+  [data-theme="light"] #banner-left {
+    color: var(--rk-foreground);
+  }
+  [data-theme="light"] #banner-subtitle {
+    color: var(--rk-white);
+    opacity: 1;
+  }
+  [data-theme="light"] .donate-card button {
+    color: var(--rk-foreground) !important;
+  }
+  [data-theme="light"] .donate-card {
+    color: var(--rk-foreground);
+  }
+  [data-theme="light"] .donate-card-title {
+    color: var(--rk-foreground);
+  }
+  [data-theme="light"] .donate-card-subtitle {
+    color: var(--rk-white);
+    opacity: 1;
+  }
+  [data-theme="light"] #input-container.focused {
+    box-shadow: 0 0 0 2px var(--rk-foreground) inset !important;
+  }
+  [data-theme="light"] #input-dollar-sign {
+    color: var(--rk-foreground);
+  }
+  [data-theme="light"] #donation-custom-input {
+    color: var(--rk-foreground) !important;
+  }
+  [data-theme="light"] #cobalt-logo path {
+    fill: var(--rk-foreground);
+  }
+  [data-theme="light"] .sidebar-tab.active {
+    background-color: var(--rk-accent) !important;
+  }
+}
