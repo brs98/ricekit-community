@@ -3,41 +3,16 @@
 ![upstream compiling](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrs98%2Fricekit-community%2Fmain%2F.github%2Fbadges%2Fuserstyles-upstream.json)
 ![custom userstyles](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fbrs98%2Fricekit-community%2Fmain%2F.github%2Fbadges%2Fuserstyles-custom.json)
 
-Live-reloading web-page theming for Ricekit. The moment you run `ricekit apply <theme>`, every open tab re-colours with the new palette — no refresh, no manual step.
+Build tooling that compiles upstream Catppuccin userstyles into a Stylus-importable bundle consuming ricekit's `--rk-*` CSS variables.
 
-## How it works
+## What this directory does
 
-```
-ricekit apply <theme>
-        │
-        ▼  writes state.toml
-┌──────────────────────────────────────────────────────────┐
-│  Native messaging host   (src/host.ts, compiled binary)  │
-│  - Deno.watchFs on ~/.config/ricekit/state.toml          │
-│  - shells out to `ricekit theme show`                    │
-│  - emits a fresh :root { --rk-* } CSS blob               │
-│    (ricekit ANSI + OKLCH-derived Catppuccin slots)       │
-└──────────────────────────────┬───────────────────────────┘
-                               │ stdio (4-byte LE length + JSON)
-                               ▼
-┌──────────────────────────────────────────────────────────┐
-│  Firefox addon   (../extensions/firefox/)                │
-│  - WebExtension experiment API: sheet.apply(css)         │
-│  - nsIStyleSheetService.loadAndRegisterSheet(USER_SHEET) │
-│  - global user-origin stylesheet → all docs, all windows │
-└──────────────────────────────────────────────────────────┘
-                               │
-                               ▼  cascades into every page
-                     transformed Catppuccin userstyles
-                     (each references var(--rk-*) via Stylus)
-```
-
-Every Catppuccin userstyle has been transformed at build time:
+Every Catppuccin userstyle is transformed at build time:
 - LESS palette vars (`@text`, `@red`, `@mauve`) → `var(--rk-foreground)`, `var(--rk-red)`, `var(--rk-accent)` (full table below)
 - LESS color math (`fade(@accent, 30%)`, `lighten(@surface0, 5%)`) → CSS relative colors (`rgb(from var(--rk-accent) r g b / 0.3)`, `hsl(from var(--rk-surface0) h s calc(l + 5))`)
 - Stylus `@preprocessor less` directive stripped so Stylus treats the payload as plain CSS
 
-The addon installs a `:root` block with 22 ricekit ANSI + semantic tokens as `--rk-*`, plus 13 OKLCH-derived Catppuccin-named slots (`--rk-surface0`, `--rk-peach`, `--rk-lavender`, etc.) that track whatever the base ricekit theme is. Everything downstream is pure CSS — change the ricekit theme, every derivation re-evaluates at browser paint time.
+Result: `build/import.json`, a Stylus bulk-import bundle. Every rule references `var(--rk-*)` — the `:root` block that defines those variables is rendered by ricekit main (see the `userstyles` config template) and live-reloaded by the ricekit Firefox addon.
 
 ### Catppuccin → ricekit mapping
 
@@ -52,7 +27,7 @@ ANSI-direct (from Catppuccin's style guide, `docs/style-guide.md §ANSI Color Ge
 
 Semantic direct: `@text` → `--rk-foreground`, `@base` → `--rk-background`, `@accent` / `@mauve` → `--rk-accent`.
 
-OKLCH-derived at `:root` (so the result tracks the theme): `@surface0`, `@mantle`, `@crust`, `@overlay0/1/2`, `@maroon`, `@flamingo`, `@rosewater`, `@peach`, `@sapphire`, `@sky`, `@lavender`.
+OKLCH-derived at `:root` (tracks the theme): `@surface0`, `@mantle`, `@crust`, `@overlay0/1/2`, `@maroon`, `@flamingo`, `@rosewater`, `@peach`, `@sapphire`, `@sky`, `@lavender`.
 
 ## Layout
 
@@ -62,33 +37,24 @@ userstyles/
 ├── src/
 │   ├── compile.ts            LESS → CSS transformer (palette + math rewrite)
 │   ├── rewrite-less.ts       AST rewriter for value expressions
-│   ├── palette.ts            ricekit palette → Catppuccin tokens
 │   ├── build.ts              compile every upstream userstyle
 │   ├── generate-import.ts    produce Stylus bulk-import JSON
-│   ├── host.ts               native messaging host (pushes CSS to addon)
-│   ├── install.ts            compile host binary + register native-messaging manifest
 │   └── ...                   dev helpers (try-compile, pinpoint, dump-rewritten)
 ├── styles/                   ricekit-native userstyles (non-catppuccin)
 ├── build/                    (gitignored) compiled .user.css + import.json
-└── deno.json                 tasks: build, install, preview, test
+└── deno.json                 tasks: build, test
 ```
 
 ## Usage
 
 ```bash
-# One-time: compile the native host, register messaging manifest, build CSS bundle
-deno task install
 deno task build
-
-# Load the addon (unified — lives in the sibling extensions/firefox/ dir):
-#   about:debugging → This Firefox → Load Temporary Add-on →
-#   ../extensions/firefox/manifest.json
+# produces build/import.json
 #
-# Bulk-install the userstyles in Stylus:
-#   Stylus → Manage → Backup (↕) → Import → build/import.json
+# Stylus → Manage → Backup (↕) → Import → build/import.json
 ```
 
-After that, `ricekit apply <any-theme>` instantly re-themes every open tab.
+Runtime live-reload (pushing fresh `:root` values on every `ricekit apply`) is owned by ricekit main: run `ricekit browser setup` to install the addon + native-messaging host. The addon ships the `userstyles` config that renders `~/.config/ricekit/active/userstyles/rk-vars.css`, which the host hot-reloads into every document.
 
 ## Keeping upstream in sync
 
@@ -104,7 +70,7 @@ git commit -m "chore(userstyles): bump upstream catppuccin"
 
 ## Adding a ricekit-native userstyle
 
-Drop `styles/<site-slug>/ricekit.user.less` (or `.user.css`). The build loop picks it up automatically and includes it in `build/import.json`. These aren't transformed the way Catppuccin userstyles are — write them directly against the `--rk-*` variables the addon installs at `:root`.
+Drop `styles/<site-slug>/ricekit.user.less` (or `.user.css`). The build loop picks it up automatically and includes it in `build/import.json`. These aren't transformed the way Catppuccin userstyles are — write them directly against the `--rk-*` variables ricekit installs at `:root`.
 
 ## Status
 

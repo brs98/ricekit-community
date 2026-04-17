@@ -2,8 +2,6 @@
   "license": "MIT",
   "tasks": {
     "build": "deno run -A src/build.ts && deno run -A src/generate-import.ts",
-    "install": "deno run -A src/install.ts",
-    "preview": "deno run -A src/preview.ts",
     "test": "deno test -A src/rewrite-less.test.ts"
   },
   "fmt": {
