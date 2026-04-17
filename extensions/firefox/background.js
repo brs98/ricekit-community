@@ -1,11 +1,13 @@
 // Ricekit — live browser + web-page theming via native messaging.
 //
-// Single native host (`ricekit`, registered by ricekit main), three message
-// types:
+// Single native host (`ricekit`, registered by ricekit main) emits one generic
+// message per rendered file under ~/.config/ricekit/active/:
 //
-//   theme_update              → browser.theme.update()              (Firefox chrome)
-//   stylesheet_update         → browser.stylesheet.reload(fileUri)  (Zen userChrome.css)
-//   content_stylesheet_update → browser.sheet.loadGlobal(fileUri)   (global, incl. content)
+//   file_update { config, fileName, fileUri, content }
+//     → routed by `config` name in handleFileUpdate():
+//         config === "userstyles"  → browser.sheet.loadGlobal(fileUri)
+//         config === "firefox"     → browser.theme.update(JSON.parse(content).colors)
+//         config === "zen-colors"  → browser.stylesheet.reload(fileUri)
 //
 // One port, one reconnect loop.
 
@@ -28,12 +30,8 @@ function connect() {
 
     port.onMessage.addListener((msg) => {
       if (!msg || typeof msg !== "object") return;
-      if (msg.type === "theme_update" && msg.colors) {
-        applyFirefoxTheme(msg.colors);
-      } else if (msg.type === "stylesheet_update" && msg.fileUri) {
-        reloadChromeSheet(msg.fileUri);
-      } else if (msg.type === "content_stylesheet_update" && msg.fileUri) {
-        loadGlobalSheet(msg.fileUri);
+      if (msg.type === "file_update") {
+        handleFileUpdate(msg);
       }
     });
 
@@ -48,7 +46,25 @@ function connect() {
   }
 }
 
-function applyFirefoxTheme(colors) {
+function handleFileUpdate(msg) {
+  if (msg.config === "userstyles" && msg.fileUri) {
+    loadGlobalSheet(msg.fileUri);
+  } else if (msg.config === "firefox" && msg.content) {
+    applyFirefoxTheme(msg.content);
+  } else if (msg.config === "zen-colors" && msg.fileUri) {
+    reloadChromeSheet(msg.fileUri);
+  }
+}
+
+function applyFirefoxTheme(colorsJson) {
+  let colors;
+  try {
+    colors = JSON.parse(colorsJson).colors;
+  } catch (e) {
+    console.error(`[${HOST_NAME}] Firefox theme colors parse failed:`, e);
+    return;
+  }
+  if (!colors) return;
   browser.theme.update({ colors }).then(
     () => console.log(`[${HOST_NAME}] Firefox theme applied`),
     (err) => console.error(`[${HOST_NAME}] Firefox theme failed:`, err),
