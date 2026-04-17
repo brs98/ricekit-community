@@ -1,0 +1,27 @@
+[metadata]
+name = "wezterm-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "WezTerm color table for dofile() integration with existing configs"
+setup_instructions = """Add to your .wezterm.lua:
+
+local ricekit = dofile(wezterm.config_dir .. '/ricekit-colors.lua')
+ricekit.add_to_config_reload_watch_list(config)"""
+app = "wezterm"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.config/wezterm/ricekit-colors.lua"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/wezterm/ricekit-colors.lua"
+strategy = "symlink"
+
+[reload.macos]
+command = "[ -f ~/.wezterm.lua ] && touch ~/.wezterm.lua; [ -f ~/.config/wezterm/wezterm.lua ] && touch ~/.config/wezterm/wezterm.lua; true"
+[reload.linux]
+command = "[ -f ~/.wezterm.lua ] && touch ~/.wezterm.lua; [ -f ~/.config/wezterm/wezterm.lua ] && touch ~/.config/wezterm/wezterm.lua; true"
+
+[requires]
+colors = ["ansi"]

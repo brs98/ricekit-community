@@ -1,0 +1,29 @@
+[metadata]
+name = "Kanagawa"
+author = "rebelot"
+version = "1.0.0"
+variant = "dark"
+description = "A dark color scheme inspired by the famous painting by Katsushika Hokusai"
+
+[colors.ansi]
+foreground = "#dcd7ba"
+background = "#1f1f28"
+black = "#090618"
+red = "#c34043"
+green = "#76946a"
+yellow = "#c0a36e"
+blue = "#7e9cd8"
+magenta = "#957fb8"
+cyan = "#6a9589"
+white = "#c8c093"
+bright_black = "#727169"
+bright_red = "#e82424"
+bright_green = "#98bb6c"
+bright_yellow = "#e6c384"
+bright_blue = "#7fb4ca"
+bright_magenta = "#938aa9"
+bright_cyan = "#7aa89f"
+bright_white = "#dcd7ba"
+
+[colors.semantic]
+accent = "#7e9cd8"

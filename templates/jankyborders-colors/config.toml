@@ -1,0 +1,27 @@
+[metadata]
+name = "jankyborders-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "JankyBorders themed window border colors"
+setup_instructions = """JankyBorders must be installed: brew install FelixKratz/formulae/borders
+
+If using AeroSpace, add to your aerospace.toml:
+
+after-startup-command = [
+  'exec-and-forget source ~/.config/borders/borders.sh'
+]
+
+Otherwise, source this script from your shell profile or WM startup."""
+app = "jankyborders"
+category = "wm"
+type = "colors"
+
+[target.macos]
+path = "~/.config/borders/borders.sh"
+strategy = "symlink"
+
+[reload.macos]
+command = "bash ~/.config/borders/borders.sh"
+
+[requires]
+colors = ["ansi", "semantic"]

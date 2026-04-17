@@ -1,0 +1,29 @@
+[metadata]
+name = "Hackerman"
+author = "Omarchy"
+version = "1.0.0"
+variant = "dark"
+description = "A green-tinted cyberpunk hacker theme"
+
+[colors.ansi]
+foreground = "#ddf7ff"
+background = "#0b0c16"
+black = "#0b0c16"
+red = "#50f872"
+green = "#4fe88f"
+yellow = "#50f7d4"
+blue = "#829dd4"
+magenta = "#86a7df"
+cyan = "#7cf8f7"
+white = "#85e1fb"
+bright_black = "#6a6e95"
+bright_red = "#85ff9d"
+bright_green = "#9cf7c2"
+bright_yellow = "#a4ffec"
+bright_blue = "#c4d2ed"
+bright_magenta = "#cddbf4"
+bright_cyan = "#d1fffe"
+bright_white = "#ddf7ff"
+
+[colors.semantic]
+accent = "#82fb9c"

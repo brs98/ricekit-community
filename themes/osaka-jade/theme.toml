@@ -1,0 +1,29 @@
+[metadata]
+name = "Osaka Jade"
+author = "Omarchy"
+version = "1.0.0"
+variant = "dark"
+description = "A deep green theme inspired by Japanese jade"
+
+[colors.ansi]
+foreground = "#c1c497"
+background = "#111c18"
+black = "#23372b"
+red = "#ff5345"
+green = "#549e6a"
+yellow = "#459451"
+blue = "#509475"
+magenta = "#d2689c"
+cyan = "#2dd5b7"
+white = "#f6f5dd"
+bright_black = "#53685b"
+bright_red = "#db9f9c"
+bright_green = "#63b07a"
+bright_yellow = "#e5c736"
+bright_blue = "#acd4cf"
+bright_magenta = "#75bbb3"
+bright_cyan = "#8cd3cb"
+bright_white = "#9eebb3"
+
+[colors.semantic]
+accent = "#509475"

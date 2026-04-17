@@ -1,0 +1,29 @@
+[metadata]
+name = "Flexoki Light"
+author = "Steph Ango"
+version = "1.0.0"
+variant = "light"
+description = "An inky color scheme for prose and code"
+
+[colors.ansi]
+foreground = "#100f0f"
+background = "#fffcf0"
+black = "#100f0f"
+red = "#d14d41"
+green = "#879a39"
+yellow = "#d0a215"
+blue = "#205ea6"
+magenta = "#ce5d97"
+cyan = "#3aa99f"
+white = "#fffcf0"
+bright_black = "#100f0f"
+bright_red = "#d14d41"
+bright_green = "#879a39"
+bright_yellow = "#d0a215"
+bright_blue = "#4385be"
+bright_magenta = "#ce5d97"
+bright_cyan = "#3aa99f"
+bright_white = "#fffcf0"
+
+[colors.semantic]
+accent = "#205ea6"

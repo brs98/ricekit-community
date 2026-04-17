@@ -1,0 +1,27 @@
+[metadata]
+name = "aerospace-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "AeroSpace themed window borders via JankyBorders"
+setup_instructions = """JankyBorders must be installed: brew install FelixKratz/formulae/borders
+
+Add to your .aerospace.toml:
+
+after-startup-command = [
+  'exec-and-forget source ~/.config/aerospace/ricekit-borders.sh'
+]
+
+NOTE: This template conflicts with jankyborders-colors — enable one or the other, not both."""
+app = "aerospace"
+category = "wm"
+type = "colors"
+
+[target.macos]
+path = "~/.config/aerospace/ricekit-borders.sh"
+strategy = "symlink"
+
+[reload.macos]
+command = "bash ~/.config/aerospace/ricekit-borders.sh"
+
+[requires]
+colors = ["ansi", "semantic"]

@@ -1,0 +1,26 @@
+[metadata]
+name = "tmux-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Tmux status bar and pane border color configuration"
+setup_instructions = """Add to your .tmux.conf:
+
+source-file ~/.config/tmux/ricekit-colors.conf"""
+app = "tmux"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.config/tmux/ricekit-colors.conf"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/tmux/ricekit-colors.conf"
+strategy = "symlink"
+
+[reload.macos]
+command = "tmux source-file ~/.config/tmux/ricekit-colors.conf 2>/dev/null; true"
+[reload.linux]
+command = "tmux source-file ~/.config/tmux/ricekit-colors.conf 2>/dev/null; true"
+
+[requires]
+colors = ["ansi", "semantic"]
