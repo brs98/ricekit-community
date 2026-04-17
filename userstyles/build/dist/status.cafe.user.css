@@ -1,0 +1,183 @@
+/* ==UserStyle==
+@name status.cafe Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/status.cafe.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for status.cafe
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document regexp("https://status\\.cafe/(?!users).*"), domain("forum.status.cafe") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      background-color: var(--rk-background);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root textarea {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-black);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 2px;
+      padding: 3px;
+    }
+    :root input {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-black);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    :root input :hover {
+      background-color: hsl(from var(--rk-mantle) h s calc(l - 2));
+    }
+    :root input :active {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-surface0);
+    }
+    :root textarea:hover,
+    :root input:hover {
+      border-color: hsl(from var(--rk-black) h s calc(l - 5));
+    }
+    :root .flash {
+      background-color: var(--rk-green);
+    }
+    :root a:not(.flash a) {
+      color: var(--rk-accent);
+    }
+    :root a:visited:not(.flash a) {
+      color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root table,
+    :root th,
+    :root td {
+      border-color: var(--rk-black) !important;
+    }
+    :root thead {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .forum {
+      background-color: var(--rk-yellow);
+    }
+    :root .forum a {
+      color: hsl(from var(--rk-blue) h s calc(l - 10)) !important;
+    }
+    :root tbody,
+    :root .topic > tbody > tr:nth-child(2n) {
+      background-color: var(--rk-mantle);
+    }
+    :root hr {
+      background-color: var(--rk-black);
+    }
+    :root .signature {
+      border-top-color: var(--rk-surface0);
+    }
+    :root a:visited:not(.flash a) {
+      color: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root input:active {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-bright-black);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      background-color: var(--rk-background);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root textarea {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-black);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 2px;
+      padding: 3px;
+    }
+    :root input {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-black);
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      padding: 2px 5px;
+    }
+    :root input :hover {
+      background-color: hsl(from var(--rk-mantle) h s calc(l - 2));
+    }
+    :root input :active {
+      background-color: var(--rk-crust);
+      border-color: var(--rk-surface0);
+    }
+    :root textarea:hover,
+    :root input:hover {
+      border-color: hsl(from var(--rk-black) h s calc(l - 5));
+    }
+    :root .flash {
+      background-color: var(--rk-green);
+    }
+    :root a:not(.flash a) {
+      color: var(--rk-accent);
+    }
+    :root a:visited:not(.flash a) {
+      color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root table,
+    :root th,
+    :root td {
+      border-color: var(--rk-black) !important;
+    }
+    :root thead {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .forum {
+      background-color: var(--rk-yellow);
+    }
+    :root .forum a {
+      color: hsl(from var(--rk-blue) h s calc(l - 10)) !important;
+    }
+    :root tbody,
+    :root .topic > tbody > tr:nth-child(2n) {
+      background-color: var(--rk-mantle);
+    }
+    :root hr {
+      background-color: var(--rk-black);
+    }
+    :root .signature {
+      border-top-color: var(--rk-surface0);
+    }
+  }
+}

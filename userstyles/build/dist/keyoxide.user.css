@@ -1,0 +1,338 @@
+/* ==UserStyle==
+@name Keyoxide Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/keyoxide.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Keyoxide
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document url-prefix("https://keyoxide.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      --primary-color: var(--rk-accent);
+      --primary-color-subtle: hsl(from var(--rk-accent) h s calc(l + 5));
+      --body-background-color: var(--rk-mantle);
+      --section-background-color: var(--rk-background);
+      --text-color: var(--rk-foreground);
+      --text-color-subtle: var(--rk-bright-white);
+      --text-color-inverse: var(--rk-crust);
+      --link-color: var(--rk-blue);
+      --link-color-subtle: var(--text-color);
+      --link-color-hover: hsl(from var(--rk-blue) h s calc(l + 5));
+      --line-color-subtle: var(--rk-black);
+      --button-text-color: var(--text-color);
+      --button-text-color-hover: var(--text-color);
+      --button-border-color: var(--rk-surface0);
+      --button-border-color-hover: var(--rk-surface0);
+      --button-background-color: var(--rk-surface0);
+      --button-background-color-hover: var(--rk-black);
+      --input-text-color: var(--text-color);
+      --input-text-color-hover: var(--text-color);
+      --input-border-color: var(--rk-surface0);
+      --input-border-color-hover: var(--rk-surface0);
+      --input-background-color: var(--rk-mantle);
+      --input-background-color-hover: var(--rk-mantle);
+      --footer-text-color: var(--text-color-subtle);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .kx-item details summary .info img,
+    :root .kx-item details .subsection > img {
+      filter: none;
+    }
+    :root kx-claim,
+    :root kx-key {
+      --loader-color: var(--rk-bright-white);
+      --success-color: var(--rk-green);
+      --failure-color: var(--rk-red);
+      --background-color: var(--rk-surface0);
+      --header-background-color: var(--rk-black);
+    }
+    :root a.button.button--donate.button--opencollective {
+      background-color: var(--rk-blue);
+      color: var(--rk-crust);
+    }
+    :root a.button.button--donate.button--opencollective:hover {
+      background-color: hsl(from var(--rk-blue) h s calc(l + 5));
+    }
+    :root a.button.button--donate.button--opencollective svg {
+      fill: var(--rk-crust);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --primary-color: var(--rk-accent);
+      --primary-color-subtle: hsl(from var(--rk-accent) h s calc(l + 5));
+      --body-background-color: var(--rk-mantle);
+      --section-background-color: var(--rk-background);
+      --text-color: var(--rk-foreground);
+      --text-color-subtle: var(--rk-bright-white);
+      --text-color-inverse: var(--rk-crust);
+      --link-color: var(--rk-blue);
+      --link-color-subtle: var(--text-color);
+      --link-color-hover: hsl(from var(--rk-blue) h s calc(l + 5));
+      --line-color-subtle: var(--rk-black);
+      --button-text-color: var(--text-color);
+      --button-text-color-hover: var(--text-color);
+      --button-border-color: var(--rk-surface0);
+      --button-border-color-hover: var(--rk-surface0);
+      --button-background-color: var(--rk-surface0);
+      --button-background-color-hover: var(--rk-black);
+      --input-text-color: var(--text-color);
+      --input-text-color-hover: var(--text-color);
+      --input-border-color: var(--rk-surface0);
+      --input-border-color-hover: var(--rk-surface0);
+      --input-background-color: var(--rk-mantle);
+      --input-background-color-hover: var(--rk-mantle);
+      --footer-text-color: var(--text-color-subtle);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .kx-item details summary .info img,
+    :root .kx-item details .subsection > img {
+      filter: none;
+    }
+    :root kx-claim,
+    :root kx-key {
+      --loader-color: var(--rk-bright-white);
+      --success-color: var(--rk-green);
+      --failure-color: var(--rk-red);
+      --background-color: var(--rk-surface0);
+      --header-background-color: var(--rk-black);
+    }
+    :root a.button.button--donate.button--opencollective {
+      background-color: var(--rk-blue);
+      color: var(--rk-crust);
+    }
+    :root a.button.button--donate.button--opencollective:hover {
+      background-color: hsl(from var(--rk-blue) h s calc(l + 5));
+    }
+    :root a.button.button--donate.button--opencollective svg {
+      fill: var(--rk-crust);
+    }
+  }
+}
+@-moz-document domain("docs.keyoxide.org"), domain("blog.keyoxide.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      background-color: var(--rk-background);
+      --clr-primary-100: var(--rk-crust);
+      --clr-primary-99: var(--rk-crust);
+      --clr-primary-98: var(--rk-mantle);
+      --clr-primary-95: var(--rk-background);
+      --clr-primary-90: hsl(from var(--rk-accent) h s calc(l + 30));
+      --clr-primary-80: hsl(from var(--rk-accent) h s calc(l + 20));
+      --clr-primary-70: hsl(from var(--rk-accent) h s calc(l + 10));
+      --clr-primary-60: var(--rk-accent);
+      --clr-primary-50: hsl(from var(--rk-accent) h s calc(l - 5));
+      --clr-primary-40: hsl(from var(--rk-accent) h s calc(l - 10));
+      --clr-primary-35: hsl(from var(--rk-accent) h s calc(l - 15));
+      --clr-primary-30: hsl(from var(--rk-accent) h s calc(l - 20));
+      --clr-primary-25: hsl(from var(--rk-accent) h s calc(l - 25));
+      --clr-primary-20: hsl(from var(--rk-accent) h s calc(l - 30));
+      --clr-primary-10: hsl(from var(--rk-accent) h s calc(l - 35));
+      --clr-primary-0: var(--rk-foreground);
+      --clr-primary: var(--rk-accent);
+      --clr-header: var(--rk-foreground);
+      --clr-header-subtle: var(--rk-bright-white);
+      --clr-text: var(--rk-foreground);
+      --clr-text-subtle: var(--rk-bright-white);
+      --clr-bg: var(--rk-mantle);
+      --clr-bg-alt: var(--rk-crust);
+      --clr-border: var(--rk-surface0);
+      --clr-link: var(--rk-blue);
+      --clr-secondary-20: var(--rk-bright-white);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root nav a.active {
+      color: var(--rk-crust);
+    }
+    :root .quick-links img,
+    :root [src="/chevron-up.svg"],
+    :root [src="/chevron-down.svg"] {
+      filter: brightness(0) saturate(100%) invert(43%) sepia(43%) saturate(515%) hue-rotate(196deg) brightness(49%) contrast(68%);
+    }
+    :root img[title="Keyoxide logo"] {
+      content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2035%2035%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2235%22%20height%3D%2235%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M15.852%200a1.225%201.225%200%200%200-1.214%201.214c0%20.663.549%201.214%201.214%201.214a1.225%201.225%200%200%200%201.214-1.214A1.225%201.225%200%200%200%2015.852%200m2.698.427a1.52%201.52%200%200%200-1.512%201.512c0%20.346.116.667.317.923a2.046%202.046%200%200%200-2.292%202.021c0%201.12.919%202.041%202.039%202.041a2.04%202.04%200%200%200%201.422-.58%203%203%200%200%200-.024.326c0%20.875.457%201.649%201.127%202.159l-3.771%202.934v-.168a4.82%204.82%200%200%200-4.811-4.811%204.82%204.82%200%200%200-4.811%204.813v9.956c0-.02-.003-.015-.003.051v8.579A4.82%204.82%200%200%200%2011.044%2035c2.523%200%204.543-1.975%204.74-4.448l5.46%203.636a4.82%204.82%200%200%200%206.67-1.333%204.82%204.82%200%200%200-1.333-6.67l-7.312-4.876%207.598-5.911a4.81%204.81%200%200%200%201.327-6.001l-.034-.064a2.3%202.3%200%200%200%20.604-1.555%202.32%202.32%200%200%200-2.31-2.31%202.32%202.32%200%200%200-2.098%201.341%206%206%200%200%200-.37-.02c.003-.044.006-.059.006-.116a2.756%202.756%200%200%200-2.749-2.749c-.844%200-1.6.388-2.104.991v-.031c0-.557-.225-1.065-.589-1.433.829%200%201.512-.684%201.512-1.512S19.379.426%2018.55.426zm-2.698.615c.101%200%20.171.07.171.171s-.069.172-.171.172-.171-.07-.171-.171.07-.171.171-.171m2.698.427c.265%200%20.47.204.47.47s-.204.47-.47.47a.464.464%200%200%201-.47-.47c0-.265.204-.47.47-.47M17.1%203.888c.557%200%20.996.439.996.996a.99.99%200%200%201-.996%201%20.99.99%200%200%201-.997-.999c0-.558.44-.997.997-.997m4.145%201.079a1.7%201.7%200%200%201%201.706%201.706c0%20.083-.007.16-.009.278%200%20.12.015.306.116.48a.85.85%200%200%200%20.445.35%201.1%201.1%200%200%200%20.382.045c.088%200%20.175.009.263.015a2.32%202.32%200%200%200%201.827%202.199l.018.003.031.006q.099.019.197.031h.006a2.4%202.4%200%200%200%20.633-.025h.011l.015-.003q.19-.038.365-.102l.02-.007.009-.003a3.754%203.754%200%200%201-1.05%204.635l-8.171%206.354a.52.52%200%200%200%20.031.846l7.916%205.274a3.76%203.76%200%200%201%201.046%205.226%203.76%203.76%200%200%201-5.226%201.046l-6.198-4.13a.521.521%200%200%200-.808.433v.562a3.76%203.76%200%200%201-3.771%203.771%203.76%203.76%200%200%201-3.775-3.769v-8.579l.002-.045v-9.966a3.76%203.76%200%200%201%203.769-3.769%203.76%203.76%200%200%201%203.769%203.769v1.234a.521.521%200%200%200%20.842.413l4.677-3.64s.109-.073.216-.19a.77.77%200%200%200%20.239-.659.92.92%200%200%200-.27-.516c-.125-.105-.19-.127-.242-.165a1.7%201.7%200%200%201-.732-1.402c0-.948.754-1.706%201.704-1.706zm5.212%201.542a1.26%201.26%200%200%201%201.267%201.27%201.27%201.27%200%200%201-.768%201.171h-.003l-.051.018a2%202%200%200%201-.208.059l-.009.004h-.018a1.23%201.23%200%200%201-.921-.197%201.25%201.25%200%200%201-.558-1.054l.003-.066.003-.066a1.263%201.263%200%200%201%201.264-1.137%22/%3E%3C/svg%3E");
+    }
+    :root table,
+    :root table td {
+      border-color: var(--rk-surface0);
+    }
+    :root pre {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root pre span[style="color:#c82728;"] {
+      color: var(--rk-blue) !important;
+    }
+    :root pre span[style="color:#4271ae;"],
+    :root pre span[style="color:#f07219;"] {
+      color: var(--rk-green) !important;
+    }
+    :root pre span[style="color:#8e908c;"] {
+      color: var(--rk-overlay0) !important;
+    }
+    :root pre span[style="color:#8959a8;"] {
+      color: var(--rk-accent) !important;
+    }
+    :root pre span[style="color:#839c00;"] {
+      color: var(--rk-green) !important;
+    }
+    :root pre span[style="color:#3e999f;"] {
+      color: var(--rk-cyan) !important;
+    }
+    :root .info {
+      background-color: var(--rk-mantle);
+    }
+    :root .info::before {
+      background-color: var(--rk-sky);
+      color: var(--rk-crust);
+    }
+    :root .warning {
+      background-color: var(--rk-mantle);
+    }
+    :root .warning::before {
+      background-color: var(--rk-yellow);
+      color: var(--rk-crust);
+    }
+    :root .widget {
+      background-color: rgb(from var(--rk-accent) r g b / 0.6);
+      border-color: var(--rk-accent);
+    }
+    :root .widget .title {
+      color: var(--rk-foreground);
+    }
+    :root .widget input,
+    :root .widget select {
+      background-color: var(--rk-mantle);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      background-color: var(--rk-background);
+      --clr-primary-100: var(--rk-crust);
+      --clr-primary-99: var(--rk-crust);
+      --clr-primary-98: var(--rk-mantle);
+      --clr-primary-95: var(--rk-background);
+      --clr-primary-90: hsl(from var(--rk-accent) h s calc(l + 30));
+      --clr-primary-80: hsl(from var(--rk-accent) h s calc(l + 20));
+      --clr-primary-70: hsl(from var(--rk-accent) h s calc(l + 10));
+      --clr-primary-60: var(--rk-accent);
+      --clr-primary-50: hsl(from var(--rk-accent) h s calc(l - 5));
+      --clr-primary-40: hsl(from var(--rk-accent) h s calc(l - 10));
+      --clr-primary-35: hsl(from var(--rk-accent) h s calc(l - 15));
+      --clr-primary-30: hsl(from var(--rk-accent) h s calc(l - 20));
+      --clr-primary-25: hsl(from var(--rk-accent) h s calc(l - 25));
+      --clr-primary-20: hsl(from var(--rk-accent) h s calc(l - 30));
+      --clr-primary-10: hsl(from var(--rk-accent) h s calc(l - 35));
+      --clr-primary-0: var(--rk-foreground);
+      --clr-primary: var(--rk-accent);
+      --clr-header: var(--rk-foreground);
+      --clr-header-subtle: var(--rk-bright-white);
+      --clr-text: var(--rk-foreground);
+      --clr-text-subtle: var(--rk-bright-white);
+      --clr-bg: var(--rk-mantle);
+      --clr-bg-alt: var(--rk-crust);
+      --clr-border: var(--rk-surface0);
+      --clr-link: var(--rk-blue);
+      --clr-secondary-20: var(--rk-bright-white);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root nav a.active {
+      color: var(--rk-crust);
+    }
+    :root .quick-links img,
+    :root [src="/chevron-up.svg"],
+    :root [src="/chevron-down.svg"] {
+      filter: brightness(0) saturate(100%) invert(75%) sepia(82%) saturate(1008%) hue-rotate(189deg) brightness(120%) contrast(90%);
+    }
+    :root img[title="Keyoxide logo"] {
+      content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2035%2035%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2235%22%20height%3D%2235%22%3E%3Cpath%20fill%3D%22%23cba6f7%22%20d%3D%22M15.852%200a1.225%201.225%200%200%200-1.214%201.214c0%20.663.549%201.214%201.214%201.214a1.225%201.225%200%200%200%201.214-1.214A1.225%201.225%200%200%200%2015.852%200m2.698.427a1.52%201.52%200%200%200-1.512%201.512c0%20.346.116.667.317.923a2.046%202.046%200%200%200-2.292%202.021c0%201.12.919%202.041%202.039%202.041a2.04%202.04%200%200%200%201.422-.58%203%203%200%200%200-.024.326c0%20.875.457%201.649%201.127%202.159l-3.771%202.934v-.168a4.82%204.82%200%200%200-4.811-4.811%204.82%204.82%200%200%200-4.811%204.813v9.956c0-.02-.003-.015-.003.051v8.579A4.82%204.82%200%200%200%2011.044%2035c2.523%200%204.543-1.975%204.74-4.448l5.46%203.636a4.82%204.82%200%200%200%206.67-1.333%204.82%204.82%200%200%200-1.333-6.67l-7.312-4.876%207.598-5.911a4.81%204.81%200%200%200%201.327-6.001l-.034-.064a2.3%202.3%200%200%200%20.604-1.555%202.32%202.32%200%200%200-2.31-2.31%202.32%202.32%200%200%200-2.098%201.341%206%206%200%200%200-.37-.02c.003-.044.006-.059.006-.116a2.756%202.756%200%200%200-2.749-2.749c-.844%200-1.6.388-2.104.991v-.031c0-.557-.225-1.065-.589-1.433.829%200%201.512-.684%201.512-1.512S19.379.426%2018.55.426zm-2.698.615c.101%200%20.171.07.171.171s-.069.172-.171.172-.171-.07-.171-.171.07-.171.171-.171m2.698.427c.265%200%20.47.204.47.47s-.204.47-.47.47a.464.464%200%200%201-.47-.47c0-.265.204-.47.47-.47M17.1%203.888c.557%200%20.996.439.996.996a.99.99%200%200%201-.996%201%20.99.99%200%200%201-.997-.999c0-.558.44-.997.997-.997m4.145%201.079a1.7%201.7%200%200%201%201.706%201.706c0%20.083-.007.16-.009.278%200%20.12.015.306.116.48a.85.85%200%200%200%20.445.35%201.1%201.1%200%200%200%20.382.045c.088%200%20.175.009.263.015a2.32%202.32%200%200%200%201.827%202.199l.018.003.031.006q.099.019.197.031h.006a2.4%202.4%200%200%200%20.633-.025h.011l.015-.003q.19-.038.365-.102l.02-.007.009-.003a3.754%203.754%200%200%201-1.05%204.635l-8.171%206.354a.52.52%200%200%200%20.031.846l7.916%205.274a3.76%203.76%200%200%201%201.046%205.226%203.76%203.76%200%200%201-5.226%201.046l-6.198-4.13a.521.521%200%200%200-.808.433v.562a3.76%203.76%200%200%201-3.771%203.771%203.76%203.76%200%200%201-3.775-3.769v-8.579l.002-.045v-9.966a3.76%203.76%200%200%201%203.769-3.769%203.76%203.76%200%200%201%203.769%203.769v1.234a.521.521%200%200%200%20.842.413l4.677-3.64s.109-.073.216-.19a.77.77%200%200%200%20.239-.659.92.92%200%200%200-.27-.516c-.125-.105-.19-.127-.242-.165a1.7%201.7%200%200%201-.732-1.402c0-.948.754-1.706%201.704-1.706zm5.212%201.542a1.26%201.26%200%200%201%201.267%201.27%201.27%201.27%200%200%201-.768%201.171h-.003l-.051.018a2%202%200%200%201-.208.059l-.009.004h-.018a1.23%201.23%200%200%201-.921-.197%201.25%201.25%200%200%201-.558-1.054l.003-.066.003-.066a1.263%201.263%200%200%201%201.264-1.137%22/%3E%3C/svg%3E");
+    }
+    :root table,
+    :root table td {
+      border-color: var(--rk-surface0);
+    }
+    :root pre {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root pre span[style="color:#c82728;"] {
+      color: var(--rk-blue) !important;
+    }
+    :root pre span[style="color:#4271ae;"],
+    :root pre span[style="color:#f07219;"] {
+      color: var(--rk-green) !important;
+    }
+    :root pre span[style="color:#8e908c;"] {
+      color: var(--rk-overlay0) !important;
+    }
+    :root pre span[style="color:#8959a8;"] {
+      color: var(--rk-accent) !important;
+    }
+    :root pre span[style="color:#839c00;"] {
+      color: var(--rk-green) !important;
+    }
+    :root pre span[style="color:#3e999f;"] {
+      color: var(--rk-cyan) !important;
+    }
+    :root .info {
+      background-color: var(--rk-mantle);
+    }
+    :root .info::before {
+      background-color: var(--rk-sky);
+      color: var(--rk-crust);
+    }
+    :root .warning {
+      background-color: var(--rk-mantle);
+    }
+    :root .warning::before {
+      background-color: var(--rk-yellow);
+      color: var(--rk-crust);
+    }
+    :root .widget {
+      background-color: rgb(from var(--rk-accent) r g b / 0.6);
+      border-color: var(--rk-accent);
+    }
+    :root .widget .title {
+      color: var(--rk-foreground);
+    }
+    :root .widget input,
+    :root .widget select {
+      background-color: var(--rk-mantle);
+    }
+  }
+}

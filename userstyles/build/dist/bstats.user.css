@@ -1,0 +1,1360 @@
+/* ==UserStyle==
+@name bStats Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/bstats.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for bStats
+@author Catppuccin
+@license MIT
+
+
+@var checkbox graphUseAccentColor "Graphs Use Accent" 0
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("bstats.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* slide out nav text & icons */
+      /* code box */
+      /* discord logo on homepage */
+      /* checkbox */
+      /* table hover */
+      /* nav hover */
+      /* search unfocused */
+      /* search focused */
+      /* valid input */
+      /* modals found in custom chart settings */
+      /* custom chart dropdown menu */
+      /* custom chart lever */
+      /* custom chart filter data */
+      /* HIGHCHARTS "let's hope this does'nt break"-section */
+      /* all the charts */
+      /* "shadow" area below graph in time navigator */
+      /* charts background */
+      /* map blends in with background on latte flavor */
+      /* graph chart grid */
+      /* bottom timeline line */
+      /* bottom timeline & y axis text text */
+      /* vertical line on graph hover */
+      /* circle marker on graph */
+      /* time navigator on bottom */
+      /* active time span */
+      /* navigator handles on the left & right */
+      /* vertical timestamp lines */
+      /* time navigator timestamp text */
+      /* scrollbar */
+      /* buttons */
+      /* normal state */
+      /* hover state */
+      /* pressed state */
+      /* disabled state */
+      /* "Load full data" button */
+      /* pie text "shadow" */
+      /* pie text */
+      /* drilldown pie text */
+      /* pie subtitle */
+      /* pie hover text */
+      /* hover text */
+      /* hover text red dot */
+      /* map hover text */
+      /* "No data to display" */
+      /* axis label */
+      /* hover text background */
+      /* legend */
+      /* legend title */
+      /* legend labels */
+      /* vertical lines */
+      /* background only for bar chart legend */
+      /* bar chart entries */
+      /* bar chart circle outline */
+      /* disabled bar chart circle */
+      /* bar & pie chart colors */
+      /* color 0 */
+      /* color 1 */
+      /* color 2 */
+      /* color 3 */
+      /* color 4 */
+      /* color 5 */
+      /* color 6 */
+      /* color 7 */
+      /* color 8 */
+      /* color 9 */
+      /* color 10 */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body,
+    :root .collection-header,
+    :root .collection-item,
+    :root .grey.lighten-4,
+    :root .page-footer .footer-copyright {
+      background: var(--rk-background) !important;
+    }
+    :root .teal.darken-3,
+    :root .teal.darken-2,
+    :root .dropdown-content,
+    :root .side-nav {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root .teal {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .subheader,
+    :root .left {
+      color: var(--rk-foreground) !important;
+    }
+    :root .collection {
+      border-color: var(--rk-surface0);
+    }
+    :root .collection.with-header .collection-header,
+    :root .collection .collection-item {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .collapsible {
+      border-top-color: var(--rk-black);
+      border-right-color: var(--rk-black);
+      border-left-color: var(--rk-black);
+    }
+    :root .collapsible-body {
+      border-bottom-color: var(--rk-black);
+    }
+    :root .collapsible-header {
+      background-color: var(--rk-surface0) !important;
+      border-bottom-color: var(--rk-black);
+    }
+    :root blockquote {
+      border-left-color: var(--rk-maroon);
+    }
+    :root .prettyprint,
+    :root .withBox,
+    :root .prettyprinted {
+      background-color: var(--rk-mantle) !important;
+      outline-color: var(--rk-mantle);
+      color: var(--rk-overlay2);
+    }
+    :root .tag,
+    :root .boolean {
+      color: var(--rk-blue);
+    }
+    :root .pln {
+      color: var(--rk-foreground);
+    }
+    :root .com {
+      color: var(--rk-overlay0);
+    }
+    :root .key {
+      color: var(--rk-red);
+    }
+    :root .clo,
+    :root .opn,
+    :root .pun {
+      color: var(--rk-yellow);
+    }
+    :root .str,
+    :root .string,
+    :root .atv {
+      color: var(--rk-green);
+    }
+    :root .atn {
+      color: var(--rk-accent);
+    }
+    :root .number {
+      color: var(--rk-peach);
+    }
+    :root p,
+    :root h5,
+    :root b,
+    :root table,
+    :root th,
+    :root td,
+    :root .white-text,
+    :root nav .brand-logo,
+    :root nav a,
+    :root div.material-table .table-title,
+    :root div.material-table table th,
+    :root .card-title,
+    :root .card-content,
+    :root .container,
+    :root .center {
+      color: var(--rk-foreground) !important;
+    }
+    :root html,
+    :root div.material-table table tr td,
+    :root .grey-text.text-lighten-4,
+    :root .page-footer .footer-copyright {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .grey-text,
+    :root .grey-text.text-darken-2,
+    :root .input-field label,
+    :root div.material-table .table-footer label,
+    :root div.material-table .table-footer,
+    :root label {
+      color: var(--rk-white) !important;
+    }
+    :root .blue-text {
+      color: var(--rk-blue) !important;
+    }
+    :root .red-text {
+      color: var(--rk-red) !important;
+    }
+    :root .red {
+      background-color: var(--rk-red);
+    }
+    :root img[src="/images/discord.svg"] {
+      filter: saturate(210%) hue-rotate(-20deg) brightness(82%);
+    }
+    :root [type="checkbox"] + label::before,
+    :root [type="checkbox"]:not(.filled-in) + label::after {
+      border-color: var(--rk-white);
+    }
+    :root [type="checkbox"]:checked + label::before {
+      border-color: rgba(0, 0, 0, 0);
+      border-right-color: var(--rk-green);
+      border-bottom-color: var(--rk-green);
+    }
+    :root div.material-table table tbody tr:hover {
+      background-color: rgb(from var(--rk-bright-black) r g b / 0.4);
+    }
+    :root nav ul a:hover {
+      background-color: rgb(from var(--rk-bright-black) r g b / 0.4);
+    }
+    :root .dropdown-content li:hover,
+    :root .dropdown-content li.active,
+    :root .dropdown-content li.selected {
+      background-color: rgb(from var(--rk-bright-black) r g b / 0.05);
+    }
+    :root .input-field label {
+      color: var(--rk-accent) !important;
+    }
+    :root input:not([type]),
+    :root input[type="text"],
+    :root input[type="password"],
+    :root input[type="email"],
+    :root input[type="url"],
+    :root input[type="time"],
+    :root input[type="date"],
+    :root input[type="datetime"],
+    :root input[type="datetime-local"],
+    :root input[type="tel"],
+    :root input[type="number"],
+    :root input[type="search"],
+    :root textarea.materialize-textarea {
+      border-bottom-color: var(--rk-white);
+      box-shadow: 1 1px 0 0 var(--rk-white);
+    }
+    :root input:not([type]):focus:not([readonly]),
+    :root input[type="text"]:focus:not([readonly]),
+    :root input[type="password"]:focus:not([readonly]),
+    :root input[type="email"]:focus:not([readonly]),
+    :root input[type="url"]:focus:not([readonly]),
+    :root input[type="time"]:focus:not([readonly]),
+    :root input[type="date"]:focus:not([readonly]),
+    :root input[type="datetime"]:focus:not([readonly]),
+    :root input[type="datetime-local"]:focus:not([readonly]),
+    :root input[type="tel"]:focus:not([readonly]),
+    :root input[type="number"]:focus:not([readonly]),
+    :root input[type="search"]:focus:not([readonly]),
+    :root textarea.materialize-textarea:focus:not([readonly]) {
+      border-bottom-color: var(--rk-accent);
+      box-shadow: 0 1px 0 0 var(--rk-accent);
+    }
+    :root input:not([type]).valid,
+    :root input:not([type]):focus.valid,
+    :root input[type="text"].valid,
+    :root input[type="text"]:focus.valid,
+    :root input[type="password"].valid,
+    :root input[type="password"]:focus.valid,
+    :root input[type="email"].valid,
+    :root input[type="email"]:focus.valid,
+    :root input[type="url"].valid,
+    :root input[type="url"]:focus.valid,
+    :root input[type="time"].valid,
+    :root input[type="time"]:focus.valid,
+    :root input[type="date"].valid,
+    :root input[type="date"]:focus.valid,
+    :root input[type="datetime"].valid,
+    :root input[type="datetime"]:focus.valid,
+    :root input[type="datetime-local"].valid,
+    :root input[type="datetime-local"]:focus.valid,
+    :root input[type="tel"].valid,
+    :root input[type="tel"]:focus.valid,
+    :root input[type="number"].valid,
+    :root input[type="number"]:focus.valid,
+    :root input[type="search"].valid,
+    :root input[type="search"]:focus.valid,
+    :root textarea.materialize-textarea.valid,
+    :root textarea.materialize-textarea:focus.valid {
+      border-bottom-color: var(--rk-green);
+      box-shadow: 0 1px 0 0 var(--rk-green);
+    }
+    :root .teal-text,
+    :root .teal-text.text-darken-2,
+    :root .teal-text.text-lighten-3,
+    :root a {
+      color: var(--rk-accent) !important;
+    }
+    :root .btn,
+    :root .btn-large {
+      color: var(--rk-foreground) !important;
+    }
+    :root .btn.disabled,
+    :root .disabled.btn-large,
+    :root .btn-floating.disabled,
+    :root .btn-large.disabled,
+    :root .btn-flat.disabled,
+    :root .btn:disabled,
+    :root .btn-floating:disabled,
+    :root .btn-large:disabled,
+    :root .btn-flat:disabled,
+    :root .btn[disabled],
+    :root [disabled].btn-large,
+    :root .btn-floating[disabled],
+    :root .btn-large[disabled],
+    :root .btn-flat[disabled],
+    :root .btn-large.red[disabled],
+    :root .btn-large.red.disabled[id="delete_button"] {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-white) !important;
+    }
+    :root .btn-large.red[id="delete_button"] {
+      color: var(--rk-mantle) !important;
+      background-color: var(--rk-red) !important;
+    }
+    :root .card {
+      background-color: var(--rk-background);
+      border-color: var(--rk-surface0);
+    }
+    :root thead,
+    :root div.material-table table tr td,
+    :root div.material-table .table-header {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .modal .modal-content,
+    :root .modal .modal-footer {
+      background-color: var(--rk-surface0);
+    }
+    :root .select-wrapper input.select-dropdown {
+      border-bottom-color: var(--rk-white);
+    }
+    :root .select-dropdown li.optgroup {
+      border-top-color: var(--rk-black);
+    }
+    :root .select-dropdown li.disabled,
+    :root .select-dropdown li.disabled > span,
+    :root .select-dropdown li.optgroup {
+      color: var(--rk-foreground);
+    }
+    :root .select-dropdown li.optgroup > span {
+      color: var(--rk-bright-white);
+    }
+    :root .dropdown-content li > a,
+    :root .dropdown-content li > span {
+      color: var(--rk-accent);
+    }
+    :root .divider {
+      background-color: var(--rk-black);
+    }
+    :root .caret {
+      color: var(--rk-overlay1) !important;
+    }
+    :root .switch label .lever {
+      background-color: var(--rk-overlay0);
+    }
+    :root .switch label .lever::after {
+      background-color: var(--rk-overlay2);
+    }
+    :root .switch label input[type="checkbox"]:checked + .lever {
+      background-color: hsl(from hsl(from var(--rk-accent) h s calc(l - 25)) h calc(s - 50) l);
+      background-color: hsl(from hsl(from var(--rk-accent) h s calc(l + 12)) h calc(s - 30) l);
+    }
+    :root .switch label input[type="checkbox"]:checked + .lever::after {
+      background-color: var(--rk-accent);
+    }
+    :root .chip {
+      color: var(--rk-foreground);
+      background-color: var(--rk-black);
+    }
+    :root .chips .chip.selected {
+      background-color: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root .chips.focus {
+      border-bottom-color: var(--rk-accent);
+      box-shadow: 0 1px 0 0 var(--rk-accent);
+    }
+    :root .chips .input {
+      color: var(--rk-foreground);
+    }
+    :root input[placeholder="Add an other value"] {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .highcharts-graph {
+      stroke: var(--rk-red);
+    }
+    :root .highcharts-area {
+      fill: rgb(from var(--rk-red) r g b / 0.05) !important;
+    }
+    :root .highcharts-container {
+      background: var(--rk-background) !important;
+    }
+    :root .highcharts-map-series .highcharts-point {
+      stroke: var(--rk-background) !important;
+      stroke: var(--rk-overlay0) !important;
+    }
+    :root .highcharts-grid.highcharts-yaxis-grid .highcharts-grid-line {
+      stroke: var(--rk-surface0);
+    }
+    :root .highcharts-tick,
+    :root .highcharts-xaxis .highcharts-axis-line {
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-axis-labels.highcharts-xaxis-labels text,
+    :root .highcharts-axis-labels.highcharts-yaxis-labels text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-crosshair,
+    :root .highcharts-crosshair-thin {
+      stroke: var(--rk-overlay2);
+    }
+    :root .highcharts-markers .highcharts-halo.highcharts-color-0 {
+      fill: var(--rk-red) !important;
+      stroke: none !important;
+    }
+    :root .highcharts-markers path {
+      fill: var(--rk-red) !important;
+      stroke: var(--rk-background) !important;
+    }
+    :root .highcharts-navigator,
+    :root .highcharts-navigator-mask-inside {
+      fill: rgb(from var(--rk-black) r g b / 0.33);
+    }
+    :root .highcharts-navigator .highcharts-navigator-outline {
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-navigator .highcharts-navigator-handle {
+      fill: var(--rk-surface0);
+      stroke: var(--rk-overlay1);
+    }
+    :root .highcharts-grid.highcharts-xaxis-grid.highcharts-navigator-xaxis .highcharts-grid-line {
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-xaxis-labels.highcharts-navigator-xaxis tspan {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-scrollbar,
+    :root .highcharts-scrollbar-track {
+      fill: var(--rk-surface0);
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-scrollbar,
+    :root .highcharts-scrollbar-thumb {
+      fill: var(--rk-overlay1);
+      stroke: var(--rk-overlay1);
+    }
+    :root .highcharts-scrollbar .highcharts-scrollbar-rifles {
+      stroke: var(--rk-mantle);
+    }
+    :root .highcharts-scrollbar-button {
+      fill: var(--rk-overlay1);
+      stroke: var(--rk-overlay1);
+    }
+    :root .highcharts-scrollbar-arrow {
+      fill: var(--rk-mantle);
+    }
+    :root .highcharts-button text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-button-box {
+      fill: var(--rk-surface0) !important;
+      stroke: var(--rk-surface0) !important;
+    }
+    :root .highcharts-button-symbol {
+      fill: var(--rk-white) !important;
+      stroke: var(--rk-white) !important;
+    }
+    :root .highcharts-button.highcharts-button-normal text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-button.highcharts-button-normal .highcharts-button-box {
+      fill: var(--rk-surface0) !important;
+      stroke: var(--rk-surface0) !important;
+    }
+    :root .highcharts-button.highcharts-button-hover text {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .highcharts-button.highcharts-button-hover .highcharts-button-box {
+      fill: var(--rk-bright-black) !important;
+      stroke: var(--rk-bright-black) !important;
+    }
+    :root .highcharts-button.highcharts-button-pressed text {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .highcharts-button.highcharts-button-pressed .highcharts-button-box {
+      fill: var(--rk-bright-black) !important;
+      stroke: var(--rk-bright-black) !important;
+    }
+    :root .highcharts-button.highcharts-button-disabled text {
+      fill: var(--rk-overlay0) !important;
+    }
+    :root .highcharts-button.highcharts-button-disabled .highcharts-button-box {
+      fill: var(--rk-background) !important;
+      stroke: var(--rk-surface0) !important;
+    }
+    :root .highcharts-menu {
+      background: var(--rk-surface0) !important;
+      border-color: var(--rk-black) !important;
+      box-shadow: var(--rk-mantle) 3px 3px 10px !important;
+    }
+    :root .highcharts-menu-item {
+      color: var(--rk-foreground) !important;
+    }
+    :root .highcharts-menu-item:hover {
+      color: var(--rk-background) !important;
+      background: var(--rk-accent) !important;
+    }
+    :root .highcharts-text-outline {
+      stroke: var(--rk-mantle);
+      stroke-width: 2px;
+    }
+    :root .highcharts-label.highcharts-data-label tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-label.highcharts-data-label.highcharts-drilldown-data-label tspan {
+      fill: var(--rk-blue);
+    }
+    :root .highcharts-label.highcharts-data-label.highcharts-drilldown-data-label text {
+      fill: var(--rk-blue) !important;
+      color: var(--rk-blue) !important;
+    }
+    :root .highcharts-subtitle tspan {
+      fill: var(--rk-white);
+    }
+    :root .highcharts-label.highcharts-tooltip text {
+      fill: var(--rk-bright-white) !important;
+      color: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-label.highcharts-tooltip-box tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-label.highcharts-tooltip-box tspan[style="fill:#F44336"] {
+      fill: var(--rk-red) !important;
+    }
+    :root .highcharts-label.highcharts-tooltip span:not(div.highcharts-label > span:nth-child(1) > span:nth-child(1)) {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-label.highcharts-no-data tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-axis-title tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-label-box,
+    :root .highcharts-tooltip-box {
+      fill: var(--rk-surface0);
+    }
+    :root .highcharts-label.highcharts-legend-title text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-axis-labels,
+    :root .highcharts-coloraxis-labels text {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-legend-item .highcharts-grid.highcharts-coloraxis-grid .highcharts-grid-line {
+      stroke: var(--rk-background);
+    }
+    :root .highcharts-legend .highcharts-legend-box[fill="#FFFFFF"][stroke="#999999"] {
+      fill: var(--rk-surface0) !important;
+      stroke: var(--rk-black) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series tspan {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series tspan:hover {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series.highcharts-legend-item-hidden tspan {
+      fill: var(--rk-overlay2) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series.highcharts-legend-item-hidden tspan:hover {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-point {
+      stroke: var(--rk-background) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series rect {
+      stroke: none !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series.highcharts-legend-item-hidden rect {
+      fill: var(--rk-overlay0) !important;
+      stroke: none !important;
+    }
+    :root .highcharts-point.highcharts-color-0,
+    :root .highcharts-halo.highcharts-color-0,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-0 rect {
+      fill: var(--rk-red) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-0 {
+      stroke: var(--rk-red) !important;
+    }
+    :root .highcharts-point.highcharts-color-1,
+    :root .highcharts-halo.highcharts-color-1,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-1 rect {
+      fill: var(--rk-green) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-1 {
+      stroke: var(--rk-green) !important;
+    }
+    :root .highcharts-point.highcharts-color-2,
+    :root .highcharts-halo.highcharts-color-2,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-2 rect {
+      fill: var(--rk-sky) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-2 {
+      stroke: var(--rk-sky) !important;
+    }
+    :root .highcharts-point.highcharts-color-3,
+    :root .highcharts-halo.highcharts-color-3,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-3 rect {
+      fill: var(--rk-peach) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-3 {
+      stroke: var(--rk-peach) !important;
+    }
+    :root .highcharts-point.highcharts-color-4,
+    :root .highcharts-halo.highcharts-color-4,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-4 rect {
+      fill: var(--rk-yellow) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-4 {
+      stroke: var(--rk-yellow) !important;
+    }
+    :root .highcharts-point.highcharts-color-5,
+    :root .highcharts-halo.highcharts-color-5,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-5 rect {
+      fill: var(--rk-cyan) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-5 {
+      stroke: var(--rk-cyan) !important;
+    }
+    :root .highcharts-point.highcharts-color-6,
+    :root .highcharts-halo.highcharts-color-6,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-6 rect {
+      fill: var(--rk-magenta) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-6 {
+      stroke: var(--rk-magenta) !important;
+    }
+    :root .highcharts-point.highcharts-color-7,
+    :root .highcharts-halo.highcharts-color-7,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-7 rect {
+      fill: var(--rk-flamingo) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-7 {
+      stroke: var(--rk-flamingo) !important;
+    }
+    :root .highcharts-point.highcharts-color-8,
+    :root .highcharts-halo.highcharts-color-8,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-8 rect {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-8 {
+      stroke: var(--rk-white) !important;
+    }
+    :root .highcharts-point.highcharts-color-9,
+    :root .highcharts-halo.highcharts-color-9,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-9 rect {
+      fill: var(--rk-blue) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-9 {
+      stroke: var(--rk-blue) !important;
+    }
+    :root .highcharts-point.highcharts-color-10,
+    :root .highcharts-halo.highcharts-color-10,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-10 rect {
+      fill: var(--rk-accent) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-10 {
+      stroke: var(--rk-accent) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* slide out nav text & icons */
+      /* code box */
+      /* discord logo on homepage */
+      /* checkbox */
+      /* table hover */
+      /* nav hover */
+      /* search unfocused */
+      /* search focused */
+      /* valid input */
+      /* modals found in custom chart settings */
+      /* custom chart dropdown menu */
+      /* custom chart lever */
+      /* custom chart filter data */
+      /* HIGHCHARTS "let's hope this does'nt break"-section */
+      /* all the charts */
+      /* "shadow" area below graph in time navigator */
+      /* charts background */
+      /* map blends in with background on latte flavor */
+      /* graph chart grid */
+      /* bottom timeline line */
+      /* bottom timeline & y axis text text */
+      /* vertical line on graph hover */
+      /* circle marker on graph */
+      /* time navigator on bottom */
+      /* active time span */
+      /* navigator handles on the left & right */
+      /* vertical timestamp lines */
+      /* time navigator timestamp text */
+      /* scrollbar */
+      /* buttons */
+      /* normal state */
+      /* hover state */
+      /* pressed state */
+      /* disabled state */
+      /* "Load full data" button */
+      /* pie text "shadow" */
+      /* pie text */
+      /* drilldown pie text */
+      /* pie subtitle */
+      /* pie hover text */
+      /* hover text */
+      /* hover text red dot */
+      /* map hover text */
+      /* "No data to display" */
+      /* axis label */
+      /* hover text background */
+      /* legend */
+      /* legend title */
+      /* legend labels */
+      /* vertical lines */
+      /* background only for bar chart legend */
+      /* bar chart entries */
+      /* bar chart circle outline */
+      /* disabled bar chart circle */
+      /* bar & pie chart colors */
+      /* color 0 */
+      /* color 1 */
+      /* color 2 */
+      /* color 3 */
+      /* color 4 */
+      /* color 5 */
+      /* color 6 */
+      /* color 7 */
+      /* color 8 */
+      /* color 9 */
+      /* color 10 */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body,
+    :root .collection-header,
+    :root .collection-item,
+    :root .grey.lighten-4,
+    :root .page-footer .footer-copyright {
+      background: var(--rk-background) !important;
+    }
+    :root .teal.darken-3,
+    :root .teal.darken-2,
+    :root .dropdown-content,
+    :root .side-nav {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root .teal {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .subheader,
+    :root .left {
+      color: var(--rk-foreground) !important;
+    }
+    :root .collection {
+      border-color: var(--rk-surface0);
+    }
+    :root .collection.with-header .collection-header,
+    :root .collection .collection-item {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .collapsible {
+      border-top-color: var(--rk-black);
+      border-right-color: var(--rk-black);
+      border-left-color: var(--rk-black);
+    }
+    :root .collapsible-body {
+      border-bottom-color: var(--rk-black);
+    }
+    :root .collapsible-header {
+      background-color: var(--rk-surface0) !important;
+      border-bottom-color: var(--rk-black);
+    }
+    :root blockquote {
+      border-left-color: var(--rk-maroon);
+    }
+    :root .prettyprint,
+    :root .withBox,
+    :root .prettyprinted {
+      background-color: var(--rk-mantle) !important;
+      outline-color: var(--rk-mantle);
+      color: var(--rk-overlay2);
+    }
+    :root .tag,
+    :root .boolean {
+      color: var(--rk-blue);
+    }
+    :root .pln {
+      color: var(--rk-foreground);
+    }
+    :root .com {
+      color: var(--rk-overlay0);
+    }
+    :root .key {
+      color: var(--rk-red);
+    }
+    :root .clo,
+    :root .opn,
+    :root .pun {
+      color: var(--rk-yellow);
+    }
+    :root .str,
+    :root .string,
+    :root .atv {
+      color: var(--rk-green);
+    }
+    :root .atn {
+      color: var(--rk-accent);
+    }
+    :root .number {
+      color: var(--rk-peach);
+    }
+    :root p,
+    :root h5,
+    :root b,
+    :root table,
+    :root th,
+    :root td,
+    :root .white-text,
+    :root nav .brand-logo,
+    :root nav a,
+    :root div.material-table .table-title,
+    :root div.material-table table th,
+    :root .card-title,
+    :root .card-content,
+    :root .container,
+    :root .center {
+      color: var(--rk-foreground) !important;
+    }
+    :root html,
+    :root div.material-table table tr td,
+    :root .grey-text.text-lighten-4,
+    :root .page-footer .footer-copyright {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .grey-text,
+    :root .grey-text.text-darken-2,
+    :root .input-field label,
+    :root div.material-table .table-footer label,
+    :root div.material-table .table-footer,
+    :root label {
+      color: var(--rk-white) !important;
+    }
+    :root .blue-text {
+      color: var(--rk-blue) !important;
+    }
+    :root .red-text {
+      color: var(--rk-red) !important;
+    }
+    :root .red {
+      background-color: var(--rk-red);
+    }
+    :root img[src="/images/discord.svg"] {
+      filter: saturate(38%) hue-rotate(-25deg) brightness(153%) sepia(6%);
+    }
+    :root [type="checkbox"] + label::before,
+    :root [type="checkbox"]:not(.filled-in) + label::after {
+      border-color: var(--rk-white);
+    }
+    :root [type="checkbox"]:checked + label::before {
+      border-color: rgba(0, 0, 0, 0);
+      border-right-color: var(--rk-green);
+      border-bottom-color: var(--rk-green);
+    }
+    :root div.material-table table tbody tr:hover {
+      background-color: rgb(from var(--rk-bright-black) r g b / 0.4);
+    }
+    :root nav ul a:hover {
+      background-color: rgb(from var(--rk-bright-black) r g b / 0.4);
+    }
+    :root .dropdown-content li:hover,
+    :root .dropdown-content li.active,
+    :root .dropdown-content li.selected {
+      background-color: rgb(from var(--rk-bright-black) r g b / 0.05);
+    }
+    :root .input-field label {
+      color: var(--rk-accent) !important;
+    }
+    :root input:not([type]),
+    :root input[type="text"],
+    :root input[type="password"],
+    :root input[type="email"],
+    :root input[type="url"],
+    :root input[type="time"],
+    :root input[type="date"],
+    :root input[type="datetime"],
+    :root input[type="datetime-local"],
+    :root input[type="tel"],
+    :root input[type="number"],
+    :root input[type="search"],
+    :root textarea.materialize-textarea {
+      border-bottom-color: var(--rk-white);
+      box-shadow: 1 1px 0 0 var(--rk-white);
+    }
+    :root input:not([type]):focus:not([readonly]),
+    :root input[type="text"]:focus:not([readonly]),
+    :root input[type="password"]:focus:not([readonly]),
+    :root input[type="email"]:focus:not([readonly]),
+    :root input[type="url"]:focus:not([readonly]),
+    :root input[type="time"]:focus:not([readonly]),
+    :root input[type="date"]:focus:not([readonly]),
+    :root input[type="datetime"]:focus:not([readonly]),
+    :root input[type="datetime-local"]:focus:not([readonly]),
+    :root input[type="tel"]:focus:not([readonly]),
+    :root input[type="number"]:focus:not([readonly]),
+    :root input[type="search"]:focus:not([readonly]),
+    :root textarea.materialize-textarea:focus:not([readonly]) {
+      border-bottom-color: var(--rk-accent);
+      box-shadow: 0 1px 0 0 var(--rk-accent);
+    }
+    :root input:not([type]).valid,
+    :root input:not([type]):focus.valid,
+    :root input[type="text"].valid,
+    :root input[type="text"]:focus.valid,
+    :root input[type="password"].valid,
+    :root input[type="password"]:focus.valid,
+    :root input[type="email"].valid,
+    :root input[type="email"]:focus.valid,
+    :root input[type="url"].valid,
+    :root input[type="url"]:focus.valid,
+    :root input[type="time"].valid,
+    :root input[type="time"]:focus.valid,
+    :root input[type="date"].valid,
+    :root input[type="date"]:focus.valid,
+    :root input[type="datetime"].valid,
+    :root input[type="datetime"]:focus.valid,
+    :root input[type="datetime-local"].valid,
+    :root input[type="datetime-local"]:focus.valid,
+    :root input[type="tel"].valid,
+    :root input[type="tel"]:focus.valid,
+    :root input[type="number"].valid,
+    :root input[type="number"]:focus.valid,
+    :root input[type="search"].valid,
+    :root input[type="search"]:focus.valid,
+    :root textarea.materialize-textarea.valid,
+    :root textarea.materialize-textarea:focus.valid {
+      border-bottom-color: var(--rk-green);
+      box-shadow: 0 1px 0 0 var(--rk-green);
+    }
+    :root .teal-text,
+    :root .teal-text.text-darken-2,
+    :root .teal-text.text-lighten-3,
+    :root a {
+      color: var(--rk-accent) !important;
+    }
+    :root .btn,
+    :root .btn-large {
+      color: var(--rk-foreground) !important;
+    }
+    :root .btn.disabled,
+    :root .disabled.btn-large,
+    :root .btn-floating.disabled,
+    :root .btn-large.disabled,
+    :root .btn-flat.disabled,
+    :root .btn:disabled,
+    :root .btn-floating:disabled,
+    :root .btn-large:disabled,
+    :root .btn-flat:disabled,
+    :root .btn[disabled],
+    :root [disabled].btn-large,
+    :root .btn-floating[disabled],
+    :root .btn-large[disabled],
+    :root .btn-flat[disabled],
+    :root .btn-large.red[disabled],
+    :root .btn-large.red.disabled[id="delete_button"] {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-white) !important;
+    }
+    :root .btn-large.red[id="delete_button"] {
+      color: var(--rk-mantle) !important;
+      background-color: var(--rk-red) !important;
+    }
+    :root .card {
+      background-color: var(--rk-background);
+      border-color: var(--rk-surface0);
+    }
+    :root thead,
+    :root div.material-table table tr td,
+    :root div.material-table .table-header {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root .modal .modal-content,
+    :root .modal .modal-footer {
+      background-color: var(--rk-surface0);
+    }
+    :root .select-wrapper input.select-dropdown {
+      border-bottom-color: var(--rk-white);
+    }
+    :root .select-dropdown li.optgroup {
+      border-top-color: var(--rk-black);
+    }
+    :root .select-dropdown li.disabled,
+    :root .select-dropdown li.disabled > span,
+    :root .select-dropdown li.optgroup {
+      color: var(--rk-foreground);
+    }
+    :root .select-dropdown li.optgroup > span {
+      color: var(--rk-bright-white);
+    }
+    :root .dropdown-content li > a,
+    :root .dropdown-content li > span {
+      color: var(--rk-accent);
+    }
+    :root .divider {
+      background-color: var(--rk-black);
+    }
+    :root .caret {
+      color: var(--rk-overlay1) !important;
+    }
+    :root .switch label .lever {
+      background-color: var(--rk-overlay0);
+    }
+    :root .switch label .lever::after {
+      background-color: var(--rk-overlay2);
+    }
+    :root .switch label input[type="checkbox"]:checked + .lever {
+      background-color: hsl(from hsl(from var(--rk-accent) h s calc(l - 25)) h calc(s - 50) l);
+    }
+    :root .switch label input[type="checkbox"]:checked + .lever::after {
+      background-color: var(--rk-accent);
+    }
+    :root .chip {
+      color: var(--rk-foreground);
+      background-color: var(--rk-black);
+    }
+    :root .chips .chip.selected {
+      background-color: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root .chips.focus {
+      border-bottom-color: var(--rk-accent);
+      box-shadow: 0 1px 0 0 var(--rk-accent);
+    }
+    :root .chips .input {
+      color: var(--rk-foreground);
+    }
+    :root input[placeholder="Add an other value"] {
+      border-bottom-color: var(--rk-overlay2);
+    }
+    :root .highcharts-graph {
+      stroke: var(--rk-red);
+    }
+    :root .highcharts-area {
+      fill: rgb(from var(--rk-red) r g b / 0.05) !important;
+    }
+    :root .highcharts-container {
+      background: var(--rk-background) !important;
+    }
+    :root .highcharts-map-series .highcharts-point {
+      stroke: var(--rk-background) !important;
+    }
+    :root .highcharts-grid.highcharts-yaxis-grid .highcharts-grid-line {
+      stroke: var(--rk-surface0);
+    }
+    :root .highcharts-tick,
+    :root .highcharts-xaxis .highcharts-axis-line {
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-axis-labels.highcharts-xaxis-labels text,
+    :root .highcharts-axis-labels.highcharts-yaxis-labels text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-crosshair,
+    :root .highcharts-crosshair-thin {
+      stroke: var(--rk-overlay2);
+    }
+    :root .highcharts-markers .highcharts-halo.highcharts-color-0 {
+      fill: var(--rk-red) !important;
+      stroke: none !important;
+    }
+    :root .highcharts-markers path {
+      fill: var(--rk-red) !important;
+      stroke: var(--rk-background) !important;
+    }
+    :root .highcharts-navigator,
+    :root .highcharts-navigator-mask-inside {
+      fill: rgb(from var(--rk-black) r g b / 0.33);
+    }
+    :root .highcharts-navigator .highcharts-navigator-outline {
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-navigator .highcharts-navigator-handle {
+      fill: var(--rk-surface0);
+      stroke: var(--rk-overlay1);
+    }
+    :root .highcharts-grid.highcharts-xaxis-grid.highcharts-navigator-xaxis .highcharts-grid-line {
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-xaxis-labels.highcharts-navigator-xaxis tspan {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-scrollbar,
+    :root .highcharts-scrollbar-track {
+      fill: var(--rk-surface0);
+      stroke: var(--rk-black);
+    }
+    :root .highcharts-scrollbar,
+    :root .highcharts-scrollbar-thumb {
+      fill: var(--rk-overlay1);
+      stroke: var(--rk-overlay1);
+    }
+    :root .highcharts-scrollbar .highcharts-scrollbar-rifles {
+      stroke: var(--rk-mantle);
+    }
+    :root .highcharts-scrollbar-button {
+      fill: var(--rk-overlay1);
+      stroke: var(--rk-overlay1);
+    }
+    :root .highcharts-scrollbar-arrow {
+      fill: var(--rk-mantle);
+    }
+    :root .highcharts-button text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-button-box {
+      fill: var(--rk-surface0) !important;
+      stroke: var(--rk-surface0) !important;
+    }
+    :root .highcharts-button-symbol {
+      fill: var(--rk-white) !important;
+      stroke: var(--rk-white) !important;
+    }
+    :root .highcharts-button.highcharts-button-normal text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-button.highcharts-button-normal .highcharts-button-box {
+      fill: var(--rk-surface0) !important;
+      stroke: var(--rk-surface0) !important;
+    }
+    :root .highcharts-button.highcharts-button-hover text {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .highcharts-button.highcharts-button-hover .highcharts-button-box {
+      fill: var(--rk-bright-black) !important;
+      stroke: var(--rk-bright-black) !important;
+    }
+    :root .highcharts-button.highcharts-button-pressed text {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .highcharts-button.highcharts-button-pressed .highcharts-button-box {
+      fill: var(--rk-bright-black) !important;
+      stroke: var(--rk-bright-black) !important;
+    }
+    :root .highcharts-button.highcharts-button-disabled text {
+      fill: var(--rk-overlay0) !important;
+    }
+    :root .highcharts-button.highcharts-button-disabled .highcharts-button-box {
+      fill: var(--rk-background) !important;
+      stroke: var(--rk-surface0) !important;
+    }
+    :root .highcharts-menu {
+      background: var(--rk-surface0) !important;
+      border-color: var(--rk-black) !important;
+      box-shadow: var(--rk-mantle) 3px 3px 10px !important;
+    }
+    :root .highcharts-menu-item {
+      color: var(--rk-foreground) !important;
+    }
+    :root .highcharts-menu-item:hover {
+      color: var(--rk-background) !important;
+      background: var(--rk-accent) !important;
+    }
+    :root .highcharts-text-outline {
+      stroke: var(--rk-mantle);
+      stroke-width: 2px;
+    }
+    :root .highcharts-label.highcharts-data-label tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-label.highcharts-data-label.highcharts-drilldown-data-label tspan {
+      fill: var(--rk-blue);
+    }
+    :root .highcharts-label.highcharts-data-label.highcharts-drilldown-data-label text {
+      fill: var(--rk-blue) !important;
+      color: var(--rk-blue) !important;
+    }
+    :root .highcharts-subtitle tspan {
+      fill: var(--rk-white);
+    }
+    :root .highcharts-label.highcharts-tooltip text {
+      fill: var(--rk-bright-white) !important;
+      color: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-label.highcharts-tooltip-box tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-label.highcharts-tooltip-box tspan[style="fill:#F44336"] {
+      fill: var(--rk-red) !important;
+    }
+    :root .highcharts-label.highcharts-tooltip span:not(div.highcharts-label > span:nth-child(1) > span:nth-child(1)) {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-label.highcharts-no-data tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-axis-title tspan {
+      fill: var(--rk-bright-white);
+    }
+    :root .highcharts-label-box,
+    :root .highcharts-tooltip-box {
+      fill: var(--rk-surface0);
+    }
+    :root .highcharts-label.highcharts-legend-title text {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-axis-labels,
+    :root .highcharts-coloraxis-labels text {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-legend-item .highcharts-grid.highcharts-coloraxis-grid .highcharts-grid-line {
+      stroke: var(--rk-background);
+    }
+    :root .highcharts-legend .highcharts-legend-box[fill="#FFFFFF"][stroke="#999999"] {
+      fill: var(--rk-surface0) !important;
+      stroke: var(--rk-black) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series tspan {
+      fill: var(--rk-bright-white) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series tspan:hover {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series.highcharts-legend-item-hidden tspan {
+      fill: var(--rk-overlay2) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series.highcharts-legend-item-hidden tspan:hover {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-point {
+      stroke: var(--rk-background) !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series rect {
+      stroke: none !important;
+    }
+    :root .highcharts-legend .highcharts-legend-item.highcharts-bar-series.highcharts-legend-item-hidden rect {
+      fill: var(--rk-overlay0) !important;
+      stroke: none !important;
+    }
+    :root .highcharts-point.highcharts-color-0,
+    :root .highcharts-halo.highcharts-color-0,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-0 rect {
+      fill: var(--rk-red) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-0 {
+      stroke: var(--rk-red) !important;
+    }
+    :root .highcharts-point.highcharts-color-1,
+    :root .highcharts-halo.highcharts-color-1,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-1 rect {
+      fill: var(--rk-green) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-1 {
+      stroke: var(--rk-green) !important;
+    }
+    :root .highcharts-point.highcharts-color-2,
+    :root .highcharts-halo.highcharts-color-2,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-2 rect {
+      fill: var(--rk-sky) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-2 {
+      stroke: var(--rk-sky) !important;
+    }
+    :root .highcharts-point.highcharts-color-3,
+    :root .highcharts-halo.highcharts-color-3,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-3 rect {
+      fill: var(--rk-peach) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-3 {
+      stroke: var(--rk-peach) !important;
+    }
+    :root .highcharts-point.highcharts-color-4,
+    :root .highcharts-halo.highcharts-color-4,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-4 rect {
+      fill: var(--rk-yellow) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-4 {
+      stroke: var(--rk-yellow) !important;
+    }
+    :root .highcharts-point.highcharts-color-5,
+    :root .highcharts-halo.highcharts-color-5,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-5 rect {
+      fill: var(--rk-cyan) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-5 {
+      stroke: var(--rk-cyan) !important;
+    }
+    :root .highcharts-point.highcharts-color-6,
+    :root .highcharts-halo.highcharts-color-6,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-6 rect {
+      fill: var(--rk-magenta) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-6 {
+      stroke: var(--rk-magenta) !important;
+    }
+    :root .highcharts-point.highcharts-color-7,
+    :root .highcharts-halo.highcharts-color-7,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-7 rect {
+      fill: var(--rk-flamingo) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-7 {
+      stroke: var(--rk-flamingo) !important;
+    }
+    :root .highcharts-point.highcharts-color-8,
+    :root .highcharts-halo.highcharts-color-8,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-8 rect {
+      fill: var(--rk-white) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-8 {
+      stroke: var(--rk-white) !important;
+    }
+    :root .highcharts-point.highcharts-color-9,
+    :root .highcharts-halo.highcharts-color-9,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-9 rect {
+      fill: var(--rk-blue) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-9 {
+      stroke: var(--rk-blue) !important;
+    }
+    :root .highcharts-point.highcharts-color-10,
+    :root .highcharts-halo.highcharts-color-10,
+    :root .highcharts-legend-item.highcharts-bar-series.highcharts-color-10 rect {
+      fill: var(--rk-accent) !important;
+    }
+    :root .highcharts-data-label-connector.highcharts-color-10 {
+      stroke: var(--rk-accent) !important;
+    }
+  }
+}

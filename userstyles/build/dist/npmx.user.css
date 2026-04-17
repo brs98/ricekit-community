@@ -1,0 +1,104 @@
+/* ==UserStyle==
+@name npmx Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.04.13.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/npmx.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for npmx
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("npmx.dev") {
+  :root[data-theme="dark"][data-bg-theme] {
+    color-scheme: dark;
+    --bg: var(--rk-background);
+    --bg-subtle: var(--rk-mantle);
+    --bg-muted: var(--rk-crust);
+    --bg-elevated: var(--rk-surface0);
+    --fg: var(--rk-foreground);
+    --fg-subtle: var(--rk-overlay1);
+    --fg-muted: var(--rk-white);
+    --fg-elevated: var(--rk-white);
+    --accent: var(--rk-accent);
+    --accent-muted: var(--rk-accent);
+    --border: var(--rk-black);
+    --border-subtle: var(--rk-surface0);
+    --border-hover: var(--rk-overlay0);
+    --swatch-sky: var(--rk-sky);
+    --swatch-coral: var(--rk-peach);
+    --swatch-amber: var(--rk-yellow);
+    --swatch-emerald: var(--rk-green);
+    --swatch-violet: var(--rk-accent);
+    --swatch-magenta: var(--rk-magenta);
+    --swatch-neutral: var(--rk-foreground);
+    --badge-orange: var(--rk-peach);
+    --badge-yellow: var(--rk-yellow);
+    --badge-green: var(--rk-green);
+    --badge-cyan: var(--rk-cyan);
+    --badge-blue: var(--rk-blue);
+    --badge-indigo: var(--rk-lavender);
+    --badge-purple: var(--rk-accent);
+    --badge-pink: var(--rk-magenta);
+    --colors-red-500: var(--rk-red);
+    --colors-emerald-500: var(--rk-green);
+    --colors-yellow-600: var(--rk-yellow);
+    --colors-amber-500: var(--rk-peach);
+    --colors-emerald-400: var(--rk-green);
+    --colors-orange-500: var(--rk-peach);
+  }
+  :root[data-theme="dark"][data-bg-theme] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-theme="dark"][data-bg-theme] input::placeholder,
+  :root[data-theme="dark"][data-bg-theme] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-theme="light"][data-bg-theme] {
+    color-scheme: dark;
+    --bg: var(--rk-background);
+    --bg-subtle: var(--rk-mantle);
+    --bg-muted: var(--rk-crust);
+    --bg-elevated: var(--rk-surface0);
+    --fg: var(--rk-foreground);
+    --fg-subtle: var(--rk-overlay1);
+    --fg-muted: var(--rk-white);
+    --fg-elevated: var(--rk-white);
+    --accent: var(--rk-accent);
+    --accent-muted: var(--rk-accent);
+    --border: var(--rk-black);
+    --border-subtle: var(--rk-surface0);
+    --border-hover: var(--rk-overlay0);
+    --swatch-sky: var(--rk-sky);
+    --swatch-coral: var(--rk-peach);
+    --swatch-amber: var(--rk-yellow);
+    --swatch-emerald: var(--rk-green);
+    --swatch-violet: var(--rk-accent);
+    --swatch-magenta: var(--rk-magenta);
+    --swatch-neutral: var(--rk-foreground);
+    --badge-orange: var(--rk-peach);
+    --badge-yellow: var(--rk-yellow);
+    --badge-green: var(--rk-green);
+    --badge-cyan: var(--rk-cyan);
+    --badge-blue: var(--rk-blue);
+    --badge-indigo: var(--rk-lavender);
+    --badge-purple: var(--rk-accent);
+    --badge-pink: var(--rk-magenta);
+    --colors-red-500: var(--rk-red);
+    --colors-emerald-500: var(--rk-green);
+    --colors-yellow-600: var(--rk-yellow);
+    --colors-amber-500: var(--rk-peach);
+    --colors-emerald-400: var(--rk-green);
+    --colors-orange-500: var(--rk-peach);
+  }
+  :root[data-theme="light"][data-bg-theme] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-theme="light"][data-bg-theme] input::placeholder,
+  :root[data-theme="light"][data-bg-theme] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+}

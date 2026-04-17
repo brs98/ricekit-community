@@ -1,0 +1,373 @@
+/* ==UserStyle==
+@name Vercel/Next.js Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.02.25.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/vercel.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Vercel/Next.js
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("vercel.com"), domain("nextjs.org") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+  :root.dark-theme {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --geist-foreground: var(--rk-foreground);
+    --geist-background: var(--rk-mantle);
+    --accents-1: var(--rk-background);
+    --accents-2: var(--rk-surface0);
+    --accents-3: var(--rk-black);
+    --accents-4: var(--rk-bright-black);
+    --accents-5: var(--rk-overlay0);
+    --accents-6: var(--rk-overlay1);
+    --accents-7: var(--rk-overlay2);
+    --accents-8: var(--rk-white);
+    --geist-link-color: var(--rk-accent);
+    --geist-selection: var(--rk-white);
+    --geist-success: var(--rk-accent);
+    --geist-error: var(--rk-red);
+    --geist-cyan: var(--rk-cyan);
+    --ds-background-100: var(--rk-background);
+    --ds-background-200: var(--rk-mantle);
+    --ds-gray-100: var(--rk-mantle);
+    --ds-gray-200: var(--rk-surface0);
+    --ds-gray-300: var(--rk-black);
+    --ds-gray-400: var(--rk-black);
+    --ds-gray-600: var(--rk-white);
+    --ds-gray-700: var(--rk-bright-white);
+    --ds-gray-800: var(--rk-bright-white);
+    --ds-gray-900: var(--rk-white);
+    --ds-gray-900-value: 166, 173, 200;
+    --ds-gray-1000: var(--rk-foreground);
+    --ds-gray-1000-value: 205, 214, 244;
+    --ds-gray-alpha-100: rgb(from var(--rk-foreground) r g b / 0.06);
+    --ds-gray-alpha-200: rgb(from var(--rk-foreground) r g b / 0.09);
+    --ds-gray-alpha-400: var(--rk-surface0);
+    --ds-gray-alpha-900: rgb(from var(--rk-foreground) r g b / 0.61);
+    --themed-hover-bg: var(--rk-bright-white);
+    --ds-red-400: var(--rk-red);
+    --ds-red-800: var(--rk-red);
+    --ds-red-900: hsl(from var(--rk-red) h s calc(l + 5));
+    --ds-blue-200: rgb(from var(--rk-accent) r g b / 0.3);
+    --ds-blue-300: rgb(from var(--rk-accent) r g b / 0.4);
+    --ds-blue-400: rgb(from var(--rk-accent) r g b / 0.5);
+    --ds-blue-700: var(--rk-accent);
+    --ds-blue-900: var(--rk-accent);
+    --tw-gradient-top: transparent;
+  }
+  :root.dark-theme ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.dark-theme input::placeholder,
+  :root.dark-theme textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.dark-theme svg {
+    --geist-stroke: var(--geist-background) !important;
+  }
+  :root.dark-theme .geist-disabled img,
+  :root.dark-theme .geist-disabled svg {
+    filter: none;
+  }
+  :root.dark-theme .styled-scrollbar {
+    scrollbar-color: var(--rk-accent) transparent;
+  }
+  :root.dark-theme .dark\:from-black,
+  :root.dark-theme .from-white {
+    --tw-gradient-from: var(--rk-mantle);
+  }
+  :root.dark-theme .shadow,
+  :root.dark-theme .shadow-md,
+  :root.dark-theme .shadow-sm {
+    box-shadow: none !important;
+  }
+  :root.dark-theme .card-grid_card__S85BZ {
+    background: linear-gradient(180deg, #1e1e2e 0%, #11111b 100%);
+  }
+  :root.dark-theme .card-grid_card__S85BZ:hover {
+    background: linear-gradient(180deg, #1e1e2e 0%, #181825 100%);
+  }
+  :root.dark-theme [class*="fieldset_footer"] {
+    background-color: var(--rk-background);
+  }
+  :root.light-theme {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --geist-foreground: var(--rk-foreground);
+    --geist-background: var(--rk-mantle);
+    --accents-1: var(--rk-background);
+    --accents-2: var(--rk-surface0);
+    --accents-3: var(--rk-black);
+    --accents-4: var(--rk-bright-black);
+    --accents-5: var(--rk-overlay0);
+    --accents-6: var(--rk-overlay1);
+    --accents-7: var(--rk-overlay2);
+    --accents-8: var(--rk-white);
+    --geist-link-color: var(--rk-accent);
+    --geist-selection: var(--rk-white);
+    --geist-success: var(--rk-accent);
+    --geist-error: var(--rk-red);
+    --geist-cyan: var(--rk-cyan);
+    --ds-background-100: var(--rk-background);
+    --ds-background-200: var(--rk-mantle);
+    --ds-gray-100: var(--rk-mantle);
+    --ds-gray-200: var(--rk-surface0);
+    --ds-gray-300: var(--rk-black);
+    --ds-gray-400: var(--rk-black);
+    --ds-gray-600: var(--rk-white);
+    --ds-gray-700: var(--rk-bright-white);
+    --ds-gray-800: var(--rk-bright-white);
+    --ds-gray-900: var(--rk-white);
+    --ds-gray-900-value: 166, 173, 200;
+    --ds-gray-1000: var(--rk-foreground);
+    --ds-gray-1000-value: 205, 214, 244;
+    --ds-gray-alpha-100: rgb(from var(--rk-foreground) r g b / 0.06);
+    --ds-gray-alpha-200: rgb(from var(--rk-foreground) r g b / 0.09);
+    --ds-gray-alpha-400: var(--rk-surface0);
+    --ds-gray-alpha-900: rgb(from var(--rk-foreground) r g b / 0.61);
+    --themed-hover-bg: var(--rk-bright-white);
+    --ds-red-400: var(--rk-red);
+    --ds-red-800: var(--rk-red);
+    --ds-red-900: hsl(from var(--rk-red) h s calc(l + 5));
+    --ds-blue-200: rgb(from var(--rk-accent) r g b / 0.3);
+    --ds-blue-300: rgb(from var(--rk-accent) r g b / 0.4);
+    --ds-blue-400: rgb(from var(--rk-accent) r g b / 0.5);
+    --ds-blue-700: var(--rk-accent);
+    --ds-blue-900: var(--rk-accent);
+    --tw-gradient-top: transparent;
+  }
+  :root.light-theme ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.light-theme input::placeholder,
+  :root.light-theme textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.light-theme svg {
+    --geist-stroke: var(--geist-background) !important;
+  }
+  :root.light-theme .geist-disabled img,
+  :root.light-theme .geist-disabled svg {
+    filter: none;
+  }
+  :root.light-theme .styled-scrollbar {
+    scrollbar-color: var(--rk-accent) transparent;
+  }
+  :root.light-theme .dark\:from-black,
+  :root.light-theme .from-white {
+    --tw-gradient-from: var(--rk-mantle);
+  }
+  :root.light-theme .shadow,
+  :root.light-theme .shadow-md,
+  :root.light-theme .shadow-sm {
+    box-shadow: none !important;
+  }
+  :root.light-theme .card-grid_card__S85BZ {
+    background: linear-gradient(180deg, #1e1e2e 0%, #11111b 100%);
+  }
+  :root.light-theme .card-grid_card__S85BZ:hover {
+    background: linear-gradient(180deg, #1e1e2e 0%, #181825 100%);
+  }
+  :root.light-theme [class*="fieldset_footer"] {
+    background-color: var(--rk-background);
+  }
+}
+@-moz-document domain("nextjs.org") {
+  :root.dark-theme {
+    /* Syntax higlighting */
+    /* Footer social media icons */
+  }
+  :root.dark-theme article :not(h1, h2, h3, h4) > a {
+    color: var(--rk-accent);
+  }
+  :root.dark-theme article a:hover {
+    color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root.dark-theme nav {
+    /* Vertical line to the left of links */
+  }
+  :root.dark-theme nav a > div.bg-blue-600 {
+    background-color: var(--rk-accent);
+  }
+  :root.dark-theme button[role="combobox"],
+  :root.dark-theme [data-radix-popper-content-wrapper] {
+    --ds-blue-400: var(--rk-background);
+    --ds-purple-400: var(--rk-background);
+    /* App Router icon */
+    --ds-blue-700: var(--rk-blue);
+    /* Pages Router icon */
+    --ds-purple-700: var(--rk-accent);
+  }
+  :root.dark-theme [class*="code-block_pre"] {
+    --shiki-token-punctuation: var(--rk-overlay2);
+    --shiki-token-constant: var(--rk-peach);
+    --shiki-token-string: var(--rk-green);
+    --shiki-token-string-expression: var(--rk-green);
+    --shiki-token-comment: var(--rk-overlay2);
+    --shiki-token-keyword: var(--rk-accent);
+    --shiki-token-parameter: var(--rk-maroon);
+    --shiki-token-function: var(--rk-blue);
+  }
+  :root.dark-theme img[src="/icons/github.svg"] {
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2215.673%22%20viewBox%3D%220%200%2016%2015.673%22%3E%3Cpath%20fill%3D%22%23a6adc8%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.976%200C3.566%200%200%203.592%200%208.035a8.03%208.03%200%200%200%205.454%207.623c.396.08.541-.173.541-.386%200-.186-.013-.825-.013-1.49-2.219.479-2.681-.958-2.681-.958-.357-.931-.885-1.171-.885-1.171-.726-.492.053-.492.053-.492.806.053%201.228.825%201.228.825.713%201.224%201.862.878%202.324.665.066-.519.277-.878.502-1.078-1.77-.186-3.632-.878-3.632-3.965%200-.878.317-1.596.819-2.155-.079-.2-.357-1.024.079-2.129%200%200%20.673-.213%202.192.825a7.7%207.7%200%200%201%201.994-.266c.673%200%201.36.093%201.994.266%201.519-1.038%202.192-.825%202.192-.825.436%201.104.158%201.929.079%202.129.515.559.819%201.277.819%202.155%200%203.087-1.862%203.765-3.645%203.965.291.253.541.732.541%201.49%200%201.078-.013%201.942-.013%202.208%200%20.213.145.466.541.386a8.03%208.03%200%200%200%205.454-7.623C15.952%203.592%2012.374%200%207.976%200%22%20clip-rule%3D%22evenodd%22/%3E%3C/svg%3E");
+  }
+  :root.dark-theme img[src="/icons/x.svg"] {
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20height%3D%2216%22%20shape-rendering%3D%22geometricPrecision%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2216%22%3E%3Cpath%20fill%3D%22%23a6adc8%22%20d%3D%22M16.99%200h3.308l-7.227%208.26%208.502%2011.24h-6.657l-5.214-6.817L3.736%2019.5H.426l7.73-8.835L0%200h6.826l4.713%206.231zm-1.161%2017.52h1.833L5.83%201.876H3.863z%22%20stroke%3D%22none%22/%3E%3C/svg%3E");
+  }
+  :root.dark-theme .group:hover .dark\:group-hover\:bg-white {
+    background-color: var(--rk-bright-white);
+  }
+  :root.dark-theme .group:hover .dark\:group-hover\:text-black {
+    color: var(--rk-crust);
+  }
+  :root.dark-theme [data-docs-container] code:not(pre code),
+  :root.dark-theme [data-docs-table-of-contents] code:not(pre code) {
+    border-color: var(--rk-surface0) !important;
+    background-color: var(--rk-mantle) !important;
+  }
+  :root.dark-theme td a {
+    color: var(--rk-accent);
+  }
+  :root.dark-theme .animated-optimizations_window__CjM85 {
+    background: var(--rk-mantle) !important;
+  }
+  :root.dark-theme .features_card__xYla9,
+  :root.dark-theme .foundation_root__wm0ez,
+  :root.dark-theme .foundation_card__v7VKB {
+    background: var(--rk-background);
+  }
+  :root.dark-theme .foundation_cpu__ciXpm {
+    background: var(--rk-mantle);
+  }
+  :root.dark-theme .header_header__zJOD0 {
+    background: var(--rk-background);
+  }
+  :root.dark-theme .mute,
+  :root.dark-theme .subtitle {
+    color: var(--rk-white);
+  }
+  :root.dark-theme .mobile-menu_mobileMenu__xqbOP a.mobile-menu_selected__G55UL {
+    color: var(--geist-background);
+  }
+  :root.dark-theme .dark-theme .dark\:bg-black\/50 {
+    background-color: var(--geist-background);
+  }
+  :root.dark-theme .gradient,
+  :root.dark-theme .gradient-text {
+    --text-gradient: var(--rk-foreground);
+  }
+  :root.dark-theme .bg-background-200,
+  :root.dark-theme .bg-vercel-100 {
+    background-color: var(--rk-mantle);
+  }
+  :root.dark-theme .guides_book__j9vP8 {
+    background: var(--rk-background) !important;
+  }
+  :root.dark-theme .guides_bind__9COxI {
+    background: var(--rk-overlay0) !important;
+  }
+  :root.dark-theme .bg-gray-50 {
+    background-color: var(--rk-mantle);
+  }
+  :root.light-theme {
+    /* Syntax higlighting */
+    /* Footer social media icons */
+  }
+  :root.light-theme article :not(h1, h2, h3, h4) > a {
+    color: var(--rk-accent);
+  }
+  :root.light-theme article a:hover {
+    color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root.light-theme nav {
+    /* Vertical line to the left of links */
+  }
+  :root.light-theme nav a > div.bg-blue-600 {
+    background-color: var(--rk-accent);
+  }
+  :root.light-theme button[role="combobox"],
+  :root.light-theme [data-radix-popper-content-wrapper] {
+    --ds-blue-400: var(--rk-background);
+    --ds-purple-400: var(--rk-background);
+    /* App Router icon */
+    --ds-blue-700: var(--rk-blue);
+    /* Pages Router icon */
+    --ds-purple-700: var(--rk-accent);
+  }
+  :root.light-theme [class*="code-block_pre"] {
+    --shiki-token-punctuation: var(--rk-overlay2);
+    --shiki-token-constant: var(--rk-peach);
+    --shiki-token-string: var(--rk-green);
+    --shiki-token-string-expression: var(--rk-green);
+    --shiki-token-comment: var(--rk-overlay2);
+    --shiki-token-keyword: var(--rk-accent);
+    --shiki-token-parameter: var(--rk-maroon);
+    --shiki-token-function: var(--rk-blue);
+  }
+  :root.light-theme img[src="/icons/github.svg"] {
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2215.673%22%20viewBox%3D%220%200%2016%2015.673%22%3E%3Cpath%20fill%3D%22%23a6adc8%22%20fill-rule%3D%22evenodd%22%20d%3D%22M7.976%200C3.566%200%200%203.592%200%208.035a8.03%208.03%200%200%200%205.454%207.623c.396.08.541-.173.541-.386%200-.186-.013-.825-.013-1.49-2.219.479-2.681-.958-2.681-.958-.357-.931-.885-1.171-.885-1.171-.726-.492.053-.492.053-.492.806.053%201.228.825%201.228.825.713%201.224%201.862.878%202.324.665.066-.519.277-.878.502-1.078-1.77-.186-3.632-.878-3.632-3.965%200-.878.317-1.596.819-2.155-.079-.2-.357-1.024.079-2.129%200%200%20.673-.213%202.192.825a7.7%207.7%200%200%201%201.994-.266c.673%200%201.36.093%201.994.266%201.519-1.038%202.192-.825%202.192-.825.436%201.104.158%201.929.079%202.129.515.559.819%201.277.819%202.155%200%203.087-1.862%203.765-3.645%203.965.291.253.541.732.541%201.49%200%201.078-.013%201.942-.013%202.208%200%20.213.145.466.541.386a8.03%208.03%200%200%200%205.454-7.623C15.952%203.592%2012.374%200%207.976%200%22%20clip-rule%3D%22evenodd%22/%3E%3C/svg%3E");
+  }
+  :root.light-theme img[src="/icons/x.svg"] {
+    content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20fill%3D%22none%22%20height%3D%2216%22%20shape-rendering%3D%22geometricPrecision%22%20stroke%3D%22currentColor%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%221.5%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2216%22%3E%3Cpath%20fill%3D%22%23a6adc8%22%20d%3D%22M16.99%200h3.308l-7.227%208.26%208.502%2011.24h-6.657l-5.214-6.817L3.736%2019.5H.426l7.73-8.835L0%200h6.826l4.713%206.231zm-1.161%2017.52h1.833L5.83%201.876H3.863z%22%20stroke%3D%22none%22/%3E%3C/svg%3E");
+  }
+  :root.light-theme .group:hover .dark\:group-hover\:bg-white {
+    background-color: var(--rk-bright-white);
+  }
+  :root.light-theme .group:hover .dark\:group-hover\:text-black {
+    color: var(--rk-crust);
+  }
+  :root.light-theme [data-docs-container] code:not(pre code),
+  :root.light-theme [data-docs-table-of-contents] code:not(pre code) {
+    border-color: var(--rk-surface0) !important;
+    background-color: var(--rk-mantle) !important;
+  }
+  :root.light-theme td a {
+    color: var(--rk-accent);
+  }
+  :root.light-theme .animated-optimizations_window__CjM85 {
+    background: var(--rk-mantle) !important;
+  }
+  :root.light-theme .features_card__xYla9,
+  :root.light-theme .foundation_root__wm0ez,
+  :root.light-theme .foundation_card__v7VKB {
+    background: var(--rk-background);
+  }
+  :root.light-theme .foundation_cpu__ciXpm {
+    background: var(--rk-mantle);
+  }
+  :root.light-theme .header_header__zJOD0 {
+    background: var(--rk-background);
+  }
+  :root.light-theme .mute,
+  :root.light-theme .subtitle {
+    color: var(--rk-white);
+  }
+  :root.light-theme .mobile-menu_mobileMenu__xqbOP a.mobile-menu_selected__G55UL {
+    color: var(--geist-background);
+  }
+  :root.light-theme .dark-theme .dark\:bg-black\/50 {
+    background-color: var(--geist-background);
+  }
+  :root.light-theme .gradient,
+  :root.light-theme .gradient-text {
+    --text-gradient: var(--rk-foreground);
+  }
+  :root.light-theme .bg-background-200,
+  :root.light-theme .bg-vercel-100 {
+    background-color: var(--rk-mantle);
+  }
+  :root.light-theme .guides_book__j9vP8 {
+    background: var(--rk-background) !important;
+  }
+  :root.light-theme .guides_bind__9COxI {
+    background: var(--rk-overlay0) !important;
+  }
+  :root.light-theme .bg-gray-50 {
+    background-color: var(--rk-mantle);
+  }
+}

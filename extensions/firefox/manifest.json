@@ -24,6 +24,14 @@
         "paths": [["stylesheet"]],
         "script": "api.js"
       }
+    },
+    "sheet": {
+      "schema": "schema-sheet.json",
+      "parent": {
+        "scopes": ["addon_parent"],
+        "paths": [["sheet"]],
+        "script": "api-sheet.js"
+      }
     }
   }
 }

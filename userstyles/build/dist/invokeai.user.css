@@ -1,0 +1,152 @@
+/* ==UserStyle==
+@name InvokeAI Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/invokeai.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for InvokeAI
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document regexp("http:\\/\\/(127\\.0\\.0\\.1|localhost):9090(.*)") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :root,
+    :root [data-theme]:root {
+      --accent-color-dim: hsl(from var(--rk-accent) h s calc(l + -10));
+      --accent-color: var(--rk-accent);
+      --accent-color-bright: hsl(from var(--rk-accent) h s calc(l + 10));
+      --accent-color-hover: var(--accent-color-bright);
+      --root-bg-color: var(--rk-mantle);
+      --background-color: var(--rk-background);
+      --background-color-light: var(--rk-surface0);
+      --background-color-secondary: var(--rk-background);
+      --text-color: var(--rk-foreground);
+      --text-color-secondary: var(--rk-white);
+      --subtext-color: var(--rk-bright-white);
+      --subtext-color-bright: var(--rk-white);
+      --border-color: var(--rk-black);
+      --border-color-light: var(--rk-bright-black);
+      --tab-color: var(--rk-accent);
+      --tab-list-bg: var(--rk-accent);
+      --btn-delete-image: var(--rk-red);
+      --status-good-color: var(--rk-green);
+      --status-good-color-glow: hsl(from var(--rk-green) h s calc(l + 10));
+      --border-color-invalid: var(--rk-red);
+      --box-shadow-color-invalid: hsl(from var(--rk-red) h s calc(l + 5));
+      --tab-panel-bg: var(--background-color-light);
+      --tab-hover-color: var(--background-color-secondary);
+      --tab-list-text: white;
+      --prompt-bg-color: var(--background-color-light);
+      --switch-bg-color: var(--background-color-secondary);
+      --btn-base-color: var(--background-color-light);
+      --btn-base-color-hover: var(--background-color-secondary);
+      --destructive-color: var(--rk-red);
+      --slider-color: var(--rk-lavender);
+      --slider-mark-color: var(--slider-color);
+      --switch-bg-active-color: var(--accent-color);
+      --console-icon-button-bg-color: var(--btn-base-color);
+      --console-icon-button-bg-color-hover: var(--btn-base-color-hover);
+      --console-bg-color: var(--background-color-light);
+      --svg-color: var(--text-color);
+      --btn-load-more: var(--background-color-light);
+      --tab-list-text-inactive: var(--text-color-secondary);
+    }
+    :root .invokeai-style-cache-1m5jnul {
+      --number-input-color: var(--text-color-secondary) !important;
+    }
+    :root .invoke-btn,
+    :root .invokeai__button[data-active],
+    :root .site-header-right-side .lang-select-btn[data-selected="true"],
+    :root .site-header-right-side .lang-select-btn[data-selected="true"]:hover,
+    :root button.chakra-button.invokeai__icon-button[data-selected="true"] {
+      --svg-color: var(--root-bg-color);
+      color: var(--root-bg-color) !important;
+    }
+    :root .invokeai-style-cache-vs1g06,
+    :root .invokeai-style-cache-vs1g06:hover {
+      background-color: var(--background-color-light);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :root,
+    :root [data-theme]:root {
+      --accent-color-dim: hsl(from var(--rk-accent) h s calc(l + -10));
+      --accent-color: var(--rk-accent);
+      --accent-color-bright: hsl(from var(--rk-accent) h s calc(l + 10));
+      --accent-color-hover: var(--accent-color-bright);
+      --root-bg-color: var(--rk-mantle);
+      --background-color: var(--rk-background);
+      --background-color-light: var(--rk-surface0);
+      --background-color-secondary: var(--rk-background);
+      --text-color: var(--rk-foreground);
+      --text-color-secondary: var(--rk-white);
+      --subtext-color: var(--rk-bright-white);
+      --subtext-color-bright: var(--rk-white);
+      --border-color: var(--rk-black);
+      --border-color-light: var(--rk-bright-black);
+      --tab-color: var(--rk-accent);
+      --tab-list-bg: var(--rk-accent);
+      --btn-delete-image: var(--rk-red);
+      --status-good-color: var(--rk-green);
+      --status-good-color-glow: hsl(from var(--rk-green) h s calc(l + 10));
+      --border-color-invalid: var(--rk-red);
+      --box-shadow-color-invalid: hsl(from var(--rk-red) h s calc(l + 5));
+      --tab-panel-bg: var(--background-color-light);
+      --tab-hover-color: var(--background-color-secondary);
+      --tab-list-text: white;
+      --prompt-bg-color: var(--background-color-light);
+      --switch-bg-color: var(--background-color-secondary);
+      --btn-base-color: var(--background-color-light);
+      --btn-base-color-hover: var(--background-color-secondary);
+      --destructive-color: var(--rk-red);
+      --slider-color: var(--rk-lavender);
+      --slider-mark-color: var(--slider-color);
+      --switch-bg-active-color: var(--accent-color);
+      --console-icon-button-bg-color: var(--btn-base-color);
+      --console-icon-button-bg-color-hover: var(--btn-base-color-hover);
+      --console-bg-color: var(--background-color-light);
+      --svg-color: var(--text-color);
+      --btn-load-more: var(--background-color-light);
+      --tab-list-text-inactive: var(--text-color-secondary);
+    }
+    :root .invokeai-style-cache-1m5jnul {
+      --number-input-color: var(--text-color-secondary) !important;
+    }
+    :root .invoke-btn,
+    :root .invokeai__button[data-active],
+    :root .site-header-right-side .lang-select-btn[data-selected="true"],
+    :root .site-header-right-side .lang-select-btn[data-selected="true"]:hover,
+    :root button.chakra-button.invokeai__icon-button[data-selected="true"] {
+      --svg-color: var(--root-bg-color);
+      color: var(--root-bg-color) !important;
+    }
+    :root .invokeai-style-cache-vs1g06,
+    :root .invokeai-style-cache-vs1g06:hover {
+      background-color: var(--background-color-light);
+    }
+  }
+}

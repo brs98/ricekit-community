@@ -1,0 +1,524 @@
+/* ==UserStyle==
+@name Vikunja Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/vikunja.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Vikunja
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("try.vikunja.io") {
+  :root.dark {
+    color-scheme: dark;
+    --primary-h: 267.40740741 !important;
+    --primary-s: 83.50515464% !important;
+    --primary-l: 80.98039216% !important;
+    --primary-light-l: 80.98039216% !important;
+    --primary-dark-l: 80.98039216% !important;
+    --primary-invert-l: 80.98039216% !important;
+    --grey-100-hsl: 240 21.31147541% 11.96078431%;
+    --site-background: var(--rk-mantle);
+    --content-heading-color: var(--rk-foreground);
+    --card-header-color: var(--rk-foreground);
+    --card-color: var(--rk-foreground);
+    --body-color: var(--rk-foreground);
+    --label-color: var(--rk-foreground);
+    --strong-color: var(--rk-foreground);
+    --primary: var(--rk-accent);
+    --primary-invert: var(--rk-background);
+    --switch-view-color: var(--rk-background);
+    --input-background-color: var(--rk-background);
+    --input-icon-color: var(--rk-foreground);
+    --table-row-hover-background-color: var(--rk-mantle);
+    --table-head-cell-color: var(--rk-foreground);
+    --input-border-color: var(--rk-overlay0);
+    --link-hover: var(--rk-accent);
+    --white: var(--rk-background);
+    --grey: var(--rk-overlay0);
+    --card-content-background-color: var(--rk-background);
+    --success: var(--rk-green);
+    --danger: var(--rk-red);
+    --warning: var(--rk-yellow);
+    --text: var(--rk-foreground);
+    --text-strong: var(--rk-foreground);
+    --button-text-hover-background-color: var(--rk-background);
+    --table-striped-row-even-background-color: var(--rk-mantle);
+    --code-background: var(--rk-mantle);
+    --code: var(--rk-foreground);
+    /* Gantt */
+    /* Kaban */
+    /* Command Palette */
+    /* Keyboard Shortcuts modal */
+    /* Popups */
+    /* Vue Notifications */
+  }
+  :root.dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.dark input::placeholder,
+  :root.dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.dark body,
+  :root.dark div#app,
+  :root.dark header,
+  :root.dark aside.menu-container,
+  :root.dark footer.card-footer {
+    background: var(--rk-mantle) !important;
+  }
+  :root.dark svg.llama-cool > circle,
+  :root.dark svg.logo > path[fill="#196aff"] {
+    fill: var(--rk-accent);
+  }
+  :root.dark svg.logo,
+  :root.dark h1,
+  :root.dark .action-heading,
+  :root.dark .subtitle a,
+  :root.dark .project-menu-title {
+    color: var(--rk-foreground) !important;
+  }
+  :root.dark p.nothing,
+  :root.dark .has-text-grey-light {
+    color: var(--rk-white) !important;
+  }
+  :root.dark h1.title.task-id,
+  :root.dark div.detail-title,
+  :root.dark div.detail-title span {
+    color: var(--rk-overlay0);
+  }
+  :root.dark button {
+    box-shadow: none !important;
+  }
+  :root.dark button.is-danger {
+    color: var(--rk-red) !important;
+    background: none;
+  }
+  :root.dark button.is-danger:hover {
+    background: var(--rk-red) !important;
+    color: var(--rk-surface0) !important;
+  }
+  :root.dark button.is-danger:active {
+    background: hsl(from var(--rk-red) h s calc(l - 10)) !important;
+    color: var(--rk-surface0) !important;
+  }
+  :root.dark .has-text-danger {
+    --has-text-hover-color: var(--rk-red);
+  }
+  :root.dark button.is-success {
+    color: var(--rk-green);
+  }
+  :root.dark button.is-success:hover {
+    background: var(--rk-green) !important;
+    color: var(--rk-surface0) !important;
+  }
+  :root.dark button.is-success:active {
+    background: hsl(from var(--rk-green) h s calc(l - 10)) !important;
+  }
+  :root.dark .base-button.is-primary {
+    color: var(--rk-background);
+  }
+  :root.dark .base-button.is-primary:hover {
+    background: var(--rk-accent);
+  }
+  :root.dark .base-button.is-primary:active {
+    background: hsl(from var(--rk-accent) h s calc(l - 10));
+  }
+  :root.dark .base-button.is-primary span.icon {
+    color: var(--rk-background) !important;
+  }
+  :root.dark button.base-button:not(.is-primary) {
+    color: var(--rk-foreground);
+  }
+  :root.dark div.action-buttons > button:hover,
+  :root.dark button.search-result-button:hover,
+  :root.dark .button.is-text:active,
+  :root.dark .single-task:hover {
+    background: var(--rk-mantle);
+  }
+  :root.dark p.is-editor-empty::before {
+    color: var(--rk-overlay0);
+  }
+  :root.dark header > button.base-button.menu-button::before,
+  :root.dark header > button.base-button.menu-button::after {
+    background: var(--rk-foreground);
+  }
+  :root.dark .menu .menu-list li > a,
+  :root.dark .menu .menu-list li > a > span {
+    color: var(--rk-foreground);
+  }
+  :root.dark .menu .menu-list li > a.router-link-active {
+    color: var(--rk-accent);
+  }
+  :root.dark .menu .menu-list li:hover {
+    background: var(--rk-mantle);
+  }
+  :root.dark a.base-button.menu-bottom-link {
+    color: var(--rk-overlay0);
+  }
+  :root.dark a.base-button.menu-bottom-link:hover {
+    color: var(--rk-overlay2);
+  }
+  :root.dark div.is-done {
+    background: var(--rk-green);
+    color: var(--rk-surface0);
+  }
+  :root.dark div.tiptap__editor a {
+    color: var(--rk-accent);
+  }
+  :root.dark div.tiptap__editor pre,
+  :root.dark div.tiptap__editor code {
+    background: var(--rk-surface0);
+    color: var(--rk-foreground);
+  }
+  :root.dark blockquote,
+  :root.dark hr {
+    background: var(--rk-surface0);
+  }
+  :root.dark emoji-picker {
+    --background: var(--rk-surface0);
+    --border-color: var(--rk-overlay0);
+    --button-hover-background: var(--rk-overlay0);
+    --input-border-color: var(--rk-overlay0);
+    scrollbar-color: var(--rk-overlay0) var(--rk-surface0) !important;
+  }
+  :root.dark .reaction-button.current-user-has-reacted {
+    border-color: var(--rk-accent);
+    background: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.dark p.created {
+    color: var(--rk-overlay0);
+  }
+  :root.dark .progress-bar {
+    --progress-bar-background-color: var(--rk-crust);
+    --progress-value-background-color: var(--rk-accent);
+  }
+  :root.dark .loader-container.is-loading::after {
+    --loader-border-color: var(--rk-accent);
+  }
+  :root.dark div.gantt-container {
+    --grey-300: var(--rk-surface0);
+  }
+  :root.dark div.g-gantt-chart .g-upper-timeunit,
+  :root.dark div.g-gantt-chart .g-timeunit {
+    color: var(--rk-foreground) !important;
+  }
+  :root.dark div.g-gantt-chart .g-timeunit .today {
+    color: var(--rk-surface0);
+  }
+  :root.dark div.g-gantt-chart .g-gantt-row {
+    background: var(--rk-background);
+  }
+  :root.dark div.g-gantt-chart div.g-gantt-bar div.g-gantt-bar-label > div {
+    color: var(--rk-surface0);
+  }
+  :root.dark div.g-gantt-chart div.g-gantt-bar .g-gantt-bar-handle-left,
+  :root.dark div.g-gantt-chart div.g-gantt-bar .g-gantt-bar-handle-right {
+    background: hsl(from var(--rk-accent) h s calc(l - 10));
+  }
+  :root.dark div.bucket-header,
+  :root.dark div.task-item,
+  :root.dark div.bucket-footer,
+  :root.dark div.bucket > button.base-button {
+    background: var(--rk-background);
+  }
+  :root.dark div.task-item > .task {
+    background: var(--rk-mantle);
+  }
+  :root.dark div.task-item > .task span.priority-label {
+    background: var(--rk-surface0);
+  }
+  :root.dark span.result-title,
+  :root.dark div.active-cmd.tag {
+    background: var(--rk-background);
+  }
+  :root.dark kbd {
+    color: var(--rk-foreground);
+    border-color: var(--rk-overlay0);
+    background: var(--rk-background);
+  }
+  :root.dark div.message-wrapper > div.message.info {
+    background: var(--rk-background);
+  }
+  :root.dark div.v-popper__inner {
+    background: var(--rk-mantle);
+    color: var(--rk-foreground);
+  }
+  :root.dark div.v-popper__arrow-outer {
+    border-color: var(--rk-mantle);
+  }
+  :root.dark .modal-mask span,
+  :root.dark .modal-mask p,
+  :root.dark .modal-mask strong {
+    color: var(--rk-foreground) !important;
+  }
+  :root.dark .vue-notification {
+    color: var(--rk-surface0) !important;
+  }
+  :root.dark .vue-notification button {
+    background: none;
+    color: var(--rk-overlay0) !important;
+  }
+  :root.dark .vue-notification.success {
+    background: var(--rk-green);
+    border-left-color: hsl(from var(--rk-green) h s calc(l - 5));
+  }
+  :root.light {
+    color-scheme: dark;
+    --primary-h: 267.40740741 !important;
+    --primary-s: 83.50515464% !important;
+    --primary-l: 80.98039216% !important;
+    --primary-light-l: 80.98039216% !important;
+    --primary-dark-l: 80.98039216% !important;
+    --primary-invert-l: 80.98039216% !important;
+    --grey-100-hsl: 240 21.31147541% 11.96078431%;
+    --site-background: var(--rk-mantle);
+    --content-heading-color: var(--rk-foreground);
+    --card-header-color: var(--rk-foreground);
+    --card-color: var(--rk-foreground);
+    --body-color: var(--rk-foreground);
+    --label-color: var(--rk-foreground);
+    --strong-color: var(--rk-foreground);
+    --primary: var(--rk-accent);
+    --primary-invert: var(--rk-background);
+    --switch-view-color: var(--rk-background);
+    --input-background-color: var(--rk-background);
+    --input-icon-color: var(--rk-foreground);
+    --table-row-hover-background-color: var(--rk-mantle);
+    --table-head-cell-color: var(--rk-foreground);
+    --input-border-color: var(--rk-overlay0);
+    --link-hover: var(--rk-accent);
+    --white: var(--rk-background);
+    --grey: var(--rk-overlay0);
+    --card-content-background-color: var(--rk-background);
+    --success: var(--rk-green);
+    --danger: var(--rk-red);
+    --warning: var(--rk-yellow);
+    --text: var(--rk-foreground);
+    --text-strong: var(--rk-foreground);
+    --button-text-hover-background-color: var(--rk-background);
+    --table-striped-row-even-background-color: var(--rk-mantle);
+    --code-background: var(--rk-mantle);
+    --code: var(--rk-foreground);
+    /* Gantt */
+    /* Kaban */
+    /* Command Palette */
+    /* Keyboard Shortcuts modal */
+    /* Popups */
+    /* Vue Notifications */
+  }
+  :root.light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.light input::placeholder,
+  :root.light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.light body,
+  :root.light div#app,
+  :root.light header,
+  :root.light aside.menu-container,
+  :root.light footer.card-footer {
+    background: var(--rk-mantle) !important;
+  }
+  :root.light svg.llama-cool > circle,
+  :root.light svg.logo > path[fill="#196aff"] {
+    fill: var(--rk-accent);
+  }
+  :root.light svg.logo,
+  :root.light h1,
+  :root.light .action-heading,
+  :root.light .subtitle a,
+  :root.light .project-menu-title {
+    color: var(--rk-foreground) !important;
+  }
+  :root.light p.nothing,
+  :root.light .has-text-grey-light {
+    color: var(--rk-white) !important;
+  }
+  :root.light h1.title.task-id,
+  :root.light div.detail-title,
+  :root.light div.detail-title span {
+    color: var(--rk-overlay0);
+  }
+  :root.light button {
+    box-shadow: none !important;
+  }
+  :root.light button.is-danger {
+    color: var(--rk-red) !important;
+    background: none;
+  }
+  :root.light button.is-danger:hover {
+    background: var(--rk-red) !important;
+    color: var(--rk-surface0) !important;
+  }
+  :root.light button.is-danger:active {
+    background: hsl(from var(--rk-red) h s calc(l - 10)) !important;
+    color: var(--rk-surface0) !important;
+  }
+  :root.light .has-text-danger {
+    --has-text-hover-color: var(--rk-red);
+  }
+  :root.light button.is-success {
+    color: var(--rk-green);
+  }
+  :root.light button.is-success:hover {
+    background: var(--rk-green) !important;
+    color: var(--rk-surface0) !important;
+  }
+  :root.light button.is-success:active {
+    background: hsl(from var(--rk-green) h s calc(l - 10)) !important;
+  }
+  :root.light .base-button.is-primary {
+    color: var(--rk-background);
+  }
+  :root.light .base-button.is-primary:hover {
+    background: var(--rk-accent);
+  }
+  :root.light .base-button.is-primary:active {
+    background: hsl(from var(--rk-accent) h s calc(l - 10));
+  }
+  :root.light .base-button.is-primary span.icon {
+    color: var(--rk-background) !important;
+  }
+  :root.light button.base-button:not(.is-primary) {
+    color: var(--rk-foreground);
+  }
+  :root.light div.action-buttons > button:hover,
+  :root.light button.search-result-button:hover,
+  :root.light .button.is-text:active,
+  :root.light .single-task:hover {
+    background: var(--rk-mantle);
+  }
+  :root.light p.is-editor-empty::before {
+    color: var(--rk-overlay0);
+  }
+  :root.light header > button.base-button.menu-button::before,
+  :root.light header > button.base-button.menu-button::after {
+    background: var(--rk-foreground);
+  }
+  :root.light .menu .menu-list li > a,
+  :root.light .menu .menu-list li > a > span {
+    color: var(--rk-foreground);
+  }
+  :root.light .menu .menu-list li > a.router-link-active {
+    color: var(--rk-accent);
+  }
+  :root.light .menu .menu-list li:hover {
+    background: var(--rk-mantle);
+  }
+  :root.light a.base-button.menu-bottom-link {
+    color: var(--rk-overlay0);
+  }
+  :root.light a.base-button.menu-bottom-link:hover {
+    color: var(--rk-overlay2);
+  }
+  :root.light div.is-done {
+    background: var(--rk-green);
+    color: var(--rk-surface0);
+  }
+  :root.light div.tiptap__editor a {
+    color: var(--rk-accent);
+  }
+  :root.light div.tiptap__editor pre,
+  :root.light div.tiptap__editor code {
+    background: var(--rk-surface0);
+    color: var(--rk-foreground);
+  }
+  :root.light blockquote,
+  :root.light hr {
+    background: var(--rk-surface0);
+  }
+  :root.light emoji-picker {
+    --background: var(--rk-surface0);
+    --border-color: var(--rk-overlay0);
+    --button-hover-background: var(--rk-overlay0);
+    --input-border-color: var(--rk-overlay0);
+    scrollbar-color: var(--rk-overlay0) var(--rk-surface0) !important;
+  }
+  :root.light .reaction-button.current-user-has-reacted {
+    border-color: var(--rk-accent);
+    background: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.light p.created {
+    color: var(--rk-overlay0);
+  }
+  :root.light .progress-bar {
+    --progress-bar-background-color: var(--rk-crust);
+    --progress-value-background-color: var(--rk-accent);
+  }
+  :root.light .loader-container.is-loading::after {
+    --loader-border-color: var(--rk-accent);
+  }
+  :root.light div.gantt-container {
+    --grey-300: var(--rk-surface0);
+  }
+  :root.light div.g-gantt-chart .g-upper-timeunit,
+  :root.light div.g-gantt-chart .g-timeunit {
+    color: var(--rk-foreground) !important;
+  }
+  :root.light div.g-gantt-chart .g-timeunit .today {
+    color: var(--rk-surface0);
+  }
+  :root.light div.g-gantt-chart .g-gantt-row {
+    background: var(--rk-background);
+  }
+  :root.light div.g-gantt-chart div.g-gantt-bar div.g-gantt-bar-label > div {
+    color: var(--rk-surface0);
+  }
+  :root.light div.g-gantt-chart div.g-gantt-bar .g-gantt-bar-handle-left,
+  :root.light div.g-gantt-chart div.g-gantt-bar .g-gantt-bar-handle-right {
+    background: hsl(from var(--rk-accent) h s calc(l - 10));
+  }
+  :root.light div.bucket-header,
+  :root.light div.task-item,
+  :root.light div.bucket-footer,
+  :root.light div.bucket > button.base-button {
+    background: var(--rk-background);
+  }
+  :root.light div.task-item > .task {
+    background: var(--rk-mantle);
+  }
+  :root.light div.task-item > .task span.priority-label {
+    background: var(--rk-surface0);
+  }
+  :root.light span.result-title,
+  :root.light div.active-cmd.tag {
+    background: var(--rk-background);
+  }
+  :root.light kbd {
+    color: var(--rk-foreground);
+    border-color: var(--rk-overlay0);
+    background: var(--rk-background);
+  }
+  :root.light div.message-wrapper > div.message.info {
+    background: var(--rk-background);
+  }
+  :root.light div.v-popper__inner {
+    background: var(--rk-mantle);
+    color: var(--rk-foreground);
+  }
+  :root.light div.v-popper__arrow-outer {
+    border-color: var(--rk-mantle);
+  }
+  :root.light .modal-mask span,
+  :root.light .modal-mask p,
+  :root.light .modal-mask strong {
+    color: var(--rk-foreground) !important;
+  }
+  :root.light .vue-notification {
+    color: var(--rk-surface0) !important;
+  }
+  :root.light .vue-notification button {
+    background: none;
+    color: var(--rk-overlay0) !important;
+  }
+  :root.light .vue-notification.success {
+    background: var(--rk-green);
+    border-left-color: hsl(from var(--rk-green) h s calc(l - 5));
+  }
+}

@@ -1,0 +1,142 @@
+/* ==UserStyle==
+@name Lingva Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lingva.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Lingva
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("lingva.ml"), domain("translate.plausibility.cloud"), domain("lingva.lunar.icu"), domain("translate.projectsegfau.lt"), domain("lingva.garudalinux.org") {
+  .chakra-ui-light {
+    color-scheme: dark;
+  }
+  .chakra-ui-light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .chakra-ui-light input::placeholder,
+  .chakra-ui-light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .chakra-ui-light body {
+    background: var(--rk-background);
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-light header {
+    background-color: var(--rk-accent);
+  }
+  .chakra-ui-light header .chakra-button {
+    color: hsl(from var(--rk-accent) h s calc(l - 50));
+    background: hsl(from var(--rk-accent) h s calc(l + 5));
+  }
+  .chakra-ui-light header .chakra-button:hover {
+    background: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  .chakra-ui-light footer {
+    background-color: var(--rk-accent);
+    color: hsl(from var(--rk-accent) h s calc(l - 50));
+  }
+  .chakra-ui-light #__next > div {
+    background: var(--rk-background);
+  }
+  .chakra-ui-light main {
+    background: var(--rk-background);
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-light main select {
+    border-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-light main .chakra-select__icon {
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-light main .chakra-button {
+    color: var(--rk-accent);
+    border-color: var(--rk-accent);
+  }
+  .chakra-ui-light main .chakra-button:hover:not(:disabled) {
+    background-color: rgb(from var(--rk-accent) r g b / 0.12);
+  }
+  .chakra-ui-light main .chakra-button.css-1huvcr7,
+  .chakra-ui-light main .chakra-button.css-q22xb2 {
+    background: var(--rk-accent);
+    color: var(--rk-crust);
+  }
+  .chakra-ui-light main .chakra-stack {
+    border-color: var(--rk-accent);
+  }
+  .chakra-ui-light main textarea {
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-light main .chakra-text {
+    color: var(--rk-bright-white);
+  }
+  .chakra-ui-dark {
+    color-scheme: dark;
+  }
+  .chakra-ui-dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .chakra-ui-dark input::placeholder,
+  .chakra-ui-dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .chakra-ui-dark body {
+    background: var(--rk-background);
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-dark header {
+    background-color: var(--rk-accent);
+  }
+  .chakra-ui-dark header .chakra-button {
+    color: hsl(from var(--rk-accent) h s calc(l - 50));
+    background: hsl(from var(--rk-accent) h s calc(l + 5));
+  }
+  .chakra-ui-dark header .chakra-button:hover {
+    background: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  .chakra-ui-dark footer {
+    background-color: var(--rk-accent);
+    color: hsl(from var(--rk-accent) h s calc(l - 50));
+  }
+  .chakra-ui-dark #__next > div {
+    background: var(--rk-background);
+  }
+  .chakra-ui-dark main {
+    background: var(--rk-background);
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-dark main select {
+    border-color: var(--rk-accent);
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-dark main .chakra-select__icon {
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-dark main .chakra-button {
+    color: var(--rk-accent);
+    border-color: var(--rk-accent);
+  }
+  .chakra-ui-dark main .chakra-button:hover:not(:disabled) {
+    background-color: rgb(from var(--rk-accent) r g b / 0.12);
+  }
+  .chakra-ui-dark main .chakra-button.css-1huvcr7,
+  .chakra-ui-dark main .chakra-button.css-q22xb2 {
+    background: var(--rk-accent);
+    color: var(--rk-crust);
+  }
+  .chakra-ui-dark main .chakra-stack {
+    border-color: var(--rk-accent);
+  }
+  .chakra-ui-dark main textarea {
+    color: var(--rk-foreground);
+  }
+  .chakra-ui-dark main .chakra-text {
+    color: var(--rk-bright-white);
+  }
+}

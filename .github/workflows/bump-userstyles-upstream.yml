@@ -1,0 +1,91 @@
+# Daily check: if catppuccin/userstyles has new commits, open a PR that bumps
+# the submodule pin and runs the full build to catch any breakage introduced
+# by new LESS idioms. Review-required — we never auto-merge these.
+name: bump-userstyles-upstream
+
+on:
+  schedule:
+    # 09:00 UTC daily. catppuccin/userstyles merges land irregularly through
+    # the day; a single morning check picks up everything with minimal noise.
+    - cron: "0 9 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          # peter-evans/create-pull-request needs full history to push a branch
+          fetch-depth: 0
+
+      - name: Fetch latest upstream main
+        id: fetch
+        run: |
+          cd userstyles/upstream/catppuccin
+          before=$(git rev-parse HEAD)
+          git fetch origin main
+          after=$(git rev-parse origin/main)
+          echo "before=$before" >> "$GITHUB_OUTPUT"
+          echo "after=$after"   >> "$GITHUB_OUTPUT"
+          if [ "$before" = "$after" ]; then
+            echo "up_to_date=true" >> "$GITHUB_OUTPUT"
+          else
+            git checkout "$after"
+            echo "up_to_date=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Exit early if already up to date
+        if: steps.fetch.outputs.up_to_date == 'true'
+        run: echo "submodule already at upstream main — nothing to do"
+
+      - name: Setup Deno
+        if: steps.fetch.outputs.up_to_date != 'true'
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Build (verifies the bump compiles)
+        if: steps.fetch.outputs.up_to_date != 'true'
+        working-directory: userstyles
+        run: deno task build
+
+      - name: Summarise upstream changes
+        if: steps.fetch.outputs.up_to_date != 'true'
+        id: changelog
+        working-directory: userstyles/upstream/catppuccin
+        run: |
+          {
+            echo "body<<BODY_EOF"
+            echo "Bumps \`userstyles/upstream/catppuccin\` from"
+            echo "\`${{ steps.fetch.outputs.before }}\` to \`${{ steps.fetch.outputs.after }}\`."
+            echo ""
+            echo "### Upstream commits"
+            echo ""
+            git log --pretty="- %s (%h)" "${{ steps.fetch.outputs.before }}..${{ steps.fetch.outputs.after }}" | head -n 50
+            echo ""
+            echo "### Build result"
+            echo ""
+            echo "\`deno task build\` ran in the previous step. If the job is green, every upstream userstyle still compiles."
+            echo "BODY_EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open pull request
+        if: steps.fetch.outputs.up_to_date != 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: bump/userstyles-upstream
+          base: main
+          commit-message: "chore(userstyles): bump upstream catppuccin"
+          title: "chore(userstyles): bump upstream catppuccin"
+          body: ${{ steps.changelog.outputs.body }}
+          labels: dependencies, userstyles
+          add-paths: |
+            userstyles/upstream/catppuccin
+            userstyles/build

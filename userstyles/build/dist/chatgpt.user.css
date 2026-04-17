@@ -1,0 +1,532 @@
+/* ==UserStyle==
+@name ChatGPT Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.04.14.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/chatgpt.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for ChatGPT
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("chatgpt.com") {
+  .light {
+    color-scheme: dark;
+  }
+  .light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .light input::placeholder,
+  .light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .light,
+  .light .popover {
+    --text-primary: var(--rk-foreground);
+    --text-secondary: var(--rk-bright-white);
+    --text-tertiary: var(--rk-white);
+    --text-quaternary: var(--rk-overlay2);
+    --bg-primary: var(--rk-background);
+    --bg-secondary: var(--rk-surface0);
+    --bg-tertiary: var(--rk-black);
+    --bg-secondary-surface: var(--rk-mantle);
+    --bg-elevated-primary: var(--rk-background);
+    --bg-elevated-secondary: var(--rk-mantle);
+    --bg-tooltip: var(--rk-crust);
+    --main-surface-primary: var(--rk-background);
+    --main-surface-secondary: var(--rk-surface0);
+    --main-surface-tertiary: var(--rk-black);
+    --interactive-bg-secondary-hover: var(--rk-black);
+    --interactive-bg-secondary-press: var(--rk-surface0);
+    --interactive-label-accent-default: var(--rk-accent);
+    --border-light: var(--rk-surface0);
+    --border-default: var(--rk-black);
+    --border-medium: var(--rk-bright-black);
+    --interactive-border-focus: var(--rk-overlay0);
+    --theme-user-msg-bg: var(--rk-surface0);
+    --theme-submit-btn-bg: var(--rk-accent);
+    --theme-submit-btn-text: var(--rk-background);
+    --theme-secondary-btn-bg: var(--rk-black);
+    --theme-secondary-btn-text: var(--rk-foreground);
+    --sidebar-surface: var(--rk-mantle);
+    --sidebar-surface-primary: var(--rk-mantle);
+    --surface-hover: var(--rk-surface0);
+    --icon-tertiary: var(--rk-overlay2);
+    --text-status-error: var(--rk-red);
+    --shadow-color-1: rgb(from var(--rk-mantle) r g b / 0.5);
+    --shadow-color-2: rgb(from var(--rk-foreground) r g b / 0.8);
+    /* Markdown */
+    /* Components */
+    /* Dark Overrides */
+    /* Tailwind Utilities */
+  }
+  .light .__menu-item[data-color="danger"],
+  .light .popover .__menu-item[data-color="danger"] {
+    --menu-item-highlighted: rgb(from var(--rk-red) r g b / 0.2);
+    --menu-item-active: rgb(from var(--rk-red) r g b / 0.3);
+    --menu-item-open: rgb(from var(--rk-red) r g b / 0.3);
+  }
+  .light code:not([class]),
+  .light .popover code:not([class]) {
+    background-color: var(--rk-surface0);
+  }
+  .light code[class*="language-"],
+  .light .popover code[class*="language-"],
+  .light pre[class*="language-"],
+  .light .popover pre[class*="language-"],
+  .light code.hljs,
+  .light .popover code.hljs {
+    color: var(--rk-foreground) !important;
+  }
+  .light .btn-primary,
+  .light .popover .btn-primary {
+    background-color: var(--rk-foreground);
+    color: var(--rk-background);
+  }
+  .light .btn-purple,
+  .light .popover .btn-purple {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  .light .btn-purple:hover,
+  .light .popover .btn-purple:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l + 5));
+  }
+  .light .btn-purple:focus,
+  .light .popover .btn-purple:focus,
+  .light .btn-purple:active,
+  .light .popover .btn-purple:active {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  .light .btn-danger-outline,
+  .light .popover .btn-danger-outline {
+    color: var(--rk-red);
+    border-color: var(--rk-red);
+  }
+  .light .btn-ghost:not(:disabled):hover,
+  .light .popover .btn-ghost:not(:disabled):hover {
+    background-color: var(--rk-surface0);
+  }
+  .light .bg-token-bg-primary,
+  .light .popover .bg-token-bg-primary {
+    background-color: var(--bg-primary);
+  }
+  .light .bg-token-main-surface-primary,
+  .light .popover .bg-token-main-surface-primary {
+    background-color: var(--main-surface-primary);
+  }
+  .light .bg-token-sidebar-surface,
+  .light .popover .bg-token-sidebar-surface {
+    background-color: var(--sidebar-surface);
+  }
+  .light .text-green-600,
+  .light .popover .text-green-600,
+  .light .dark\:text-green-600,
+  .light .popover .dark\:text-green-600 {
+    color: #a6e3a1;
+  }
+  .light .bg-green-600,
+  .light .popover .bg-green-600,
+  .light .dark\:bg-green-600,
+  .light .popover .dark\:bg-green-600 {
+    background-color: #a6e3a1;
+  }
+  .light .border-green-600,
+  .light .popover .border-green-600 {
+    border-color: #a6e3a1;
+  }
+  .light .radix-state-checked\:bg-green-600[data-state="checked"],
+  .light .popover .radix-state-checked\:bg-green-600[data-state="checked"] {
+    background-color: #a6e3a1;
+  }
+  .light .text-red-500,
+  .light .popover .text-red-500,
+  .light .dark\:text-red-500,
+  .light .popover .dark\:text-red-500 {
+    color: #f38ba8;
+  }
+  .light .bg-red-500,
+  .light .popover .bg-red-500,
+  .light .dark\:bg-red-500,
+  .light .popover .dark\:bg-red-500 {
+    background-color: #f38ba8;
+  }
+  .light .border-red-500,
+  .light .popover .border-red-500 {
+    border-color: #f38ba8;
+  }
+  .light .radix-state-checked\:bg-red-500[data-state="checked"],
+  .light .popover .radix-state-checked\:bg-red-500[data-state="checked"] {
+    background-color: #f38ba8;
+  }
+  .light .text-blue-400,
+  .light .popover .text-blue-400,
+  .light .dark\:text-blue-400,
+  .light .popover .dark\:text-blue-400 {
+    color: #cba6f7;
+  }
+  .light .bg-blue-400,
+  .light .popover .bg-blue-400,
+  .light .dark\:bg-blue-400,
+  .light .popover .dark\:bg-blue-400 {
+    background-color: #cba6f7;
+  }
+  .light .border-blue-400,
+  .light .popover .border-blue-400 {
+    border-color: #cba6f7;
+  }
+  .light .radix-state-checked\:bg-blue-400[data-state="checked"],
+  .light .popover .radix-state-checked\:bg-blue-400[data-state="checked"] {
+    background-color: #cba6f7;
+  }
+  .light .text-gray-600,
+  .light .popover .text-gray-600,
+  .light .dark\:text-gray-600,
+  .light .popover .dark\:text-gray-600 {
+    color: #6c7086;
+  }
+  .light .bg-gray-600,
+  .light .popover .bg-gray-600,
+  .light .dark\:bg-gray-600,
+  .light .popover .dark\:bg-gray-600 {
+    background-color: #6c7086;
+  }
+  .light .border-gray-600,
+  .light .popover .border-gray-600 {
+    border-color: #6c7086;
+  }
+  .light .radix-state-checked\:bg-gray-600[data-state="checked"],
+  .light .popover .radix-state-checked\:bg-gray-600[data-state="checked"] {
+    background-color: #6c7086;
+  }
+  .light .text-gray-500,
+  .light .popover .text-gray-500,
+  .light .dark\:text-gray-500,
+  .light .popover .dark\:text-gray-500 {
+    color: #9399b2;
+  }
+  .light .bg-gray-500,
+  .light .popover .bg-gray-500,
+  .light .dark\:bg-gray-500,
+  .light .popover .dark\:bg-gray-500 {
+    background-color: #9399b2;
+  }
+  .light .border-gray-500,
+  .light .popover .border-gray-500 {
+    border-color: #9399b2;
+  }
+  .light .radix-state-checked\:bg-gray-500[data-state="checked"],
+  .light .popover .radix-state-checked\:bg-gray-500[data-state="checked"] {
+    background-color: #9399b2;
+  }
+  .light .text-white,
+  .light .popover .text-white {
+    color: var(--rk-background);
+  }
+  .light .bg-black,
+  .light .popover .bg-black {
+    background-color: var(--rk-mantle);
+  }
+  .dark {
+    color-scheme: dark;
+  }
+  .dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .dark,
+  .dark .popover {
+    --text-primary: var(--rk-foreground);
+    --text-secondary: var(--rk-bright-white);
+    --text-tertiary: var(--rk-white);
+    --text-quaternary: var(--rk-overlay2);
+    --bg-primary: var(--rk-background);
+    --bg-secondary: var(--rk-surface0);
+    --bg-tertiary: var(--rk-black);
+    --bg-secondary-surface: var(--rk-mantle);
+    --bg-elevated-primary: var(--rk-background);
+    --bg-elevated-secondary: var(--rk-mantle);
+    --bg-tooltip: var(--rk-crust);
+    --main-surface-primary: var(--rk-background);
+    --main-surface-secondary: var(--rk-surface0);
+    --main-surface-tertiary: var(--rk-black);
+    --interactive-bg-secondary-hover: var(--rk-black);
+    --interactive-bg-secondary-press: var(--rk-surface0);
+    --interactive-label-accent-default: var(--rk-accent);
+    --border-light: var(--rk-surface0);
+    --border-default: var(--rk-black);
+    --border-medium: var(--rk-bright-black);
+    --interactive-border-focus: var(--rk-overlay0);
+    --theme-user-msg-bg: var(--rk-surface0);
+    --theme-submit-btn-bg: var(--rk-accent);
+    --theme-submit-btn-text: var(--rk-background);
+    --theme-secondary-btn-bg: var(--rk-black);
+    --theme-secondary-btn-text: var(--rk-foreground);
+    --sidebar-surface: var(--rk-mantle);
+    --sidebar-surface-primary: var(--rk-mantle);
+    --surface-hover: var(--rk-surface0);
+    --icon-tertiary: var(--rk-overlay2);
+    --text-status-error: var(--rk-red);
+    --shadow-color-1: rgb(from var(--rk-mantle) r g b / 0.5);
+    --shadow-color-2: rgb(from var(--rk-foreground) r g b / 0.8);
+    /* Markdown */
+    /* Components */
+    /* Dark Overrides */
+    /* Tailwind Utilities */
+  }
+  .dark .__menu-item[data-color="danger"],
+  .dark .popover .__menu-item[data-color="danger"] {
+    --menu-item-highlighted: rgb(from var(--rk-red) r g b / 0.2);
+    --menu-item-active: rgb(from var(--rk-red) r g b / 0.3);
+    --menu-item-open: rgb(from var(--rk-red) r g b / 0.3);
+  }
+  .dark code:not([class]),
+  .dark .popover code:not([class]) {
+    background-color: var(--rk-surface0);
+  }
+  .dark code[class*="language-"],
+  .dark .popover code[class*="language-"],
+  .dark pre[class*="language-"],
+  .dark .popover pre[class*="language-"],
+  .dark code.hljs,
+  .dark .popover code.hljs {
+    color: var(--rk-foreground) !important;
+  }
+  .dark .btn-primary,
+  .dark .popover .btn-primary {
+    background-color: var(--rk-foreground);
+    color: var(--rk-background);
+  }
+  .dark .btn-purple,
+  .dark .popover .btn-purple {
+    color: var(--rk-background);
+    background-color: var(--rk-accent);
+  }
+  .dark .btn-purple:hover,
+  .dark .popover .btn-purple:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l + 5));
+  }
+  .dark .btn-purple:focus,
+  .dark .popover .btn-purple:focus,
+  .dark .btn-purple:active,
+  .dark .popover .btn-purple:active {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  .dark .btn-danger-outline,
+  .dark .popover .btn-danger-outline {
+    color: var(--rk-red);
+    border-color: var(--rk-red);
+  }
+  .dark .btn-ghost:not(:disabled):hover,
+  .dark .popover .btn-ghost:not(:disabled):hover {
+    background-color: var(--rk-surface0);
+  }
+  .dark .bg-token-bg-primary,
+  .dark .popover .bg-token-bg-primary {
+    background-color: var(--bg-primary);
+  }
+  .dark .bg-token-main-surface-primary,
+  .dark .popover .bg-token-main-surface-primary {
+    background-color: var(--main-surface-primary);
+  }
+  .dark .bg-token-sidebar-surface,
+  .dark .popover .bg-token-sidebar-surface {
+    background-color: var(--sidebar-surface);
+  }
+  .dark .text-green-600,
+  .dark .popover .text-green-600,
+  .dark .dark\:text-green-600,
+  .dark .popover .dark\:text-green-600 {
+    color: #a6e3a1;
+  }
+  .dark .bg-green-600,
+  .dark .popover .bg-green-600,
+  .dark .dark\:bg-green-600,
+  .dark .popover .dark\:bg-green-600 {
+    background-color: #a6e3a1;
+  }
+  .dark .border-green-600,
+  .dark .popover .border-green-600 {
+    border-color: #a6e3a1;
+  }
+  .dark .radix-state-checked\:bg-green-600[data-state="checked"],
+  .dark .popover .radix-state-checked\:bg-green-600[data-state="checked"] {
+    background-color: #a6e3a1;
+  }
+  .dark .text-red-500,
+  .dark .popover .text-red-500,
+  .dark .dark\:text-red-500,
+  .dark .popover .dark\:text-red-500 {
+    color: #f38ba8;
+  }
+  .dark .bg-red-500,
+  .dark .popover .bg-red-500,
+  .dark .dark\:bg-red-500,
+  .dark .popover .dark\:bg-red-500 {
+    background-color: #f38ba8;
+  }
+  .dark .border-red-500,
+  .dark .popover .border-red-500 {
+    border-color: #f38ba8;
+  }
+  .dark .radix-state-checked\:bg-red-500[data-state="checked"],
+  .dark .popover .radix-state-checked\:bg-red-500[data-state="checked"] {
+    background-color: #f38ba8;
+  }
+  .dark .text-blue-400,
+  .dark .popover .text-blue-400,
+  .dark .dark\:text-blue-400,
+  .dark .popover .dark\:text-blue-400 {
+    color: #cba6f7;
+  }
+  .dark .bg-blue-400,
+  .dark .popover .bg-blue-400,
+  .dark .dark\:bg-blue-400,
+  .dark .popover .dark\:bg-blue-400 {
+    background-color: #cba6f7;
+  }
+  .dark .border-blue-400,
+  .dark .popover .border-blue-400 {
+    border-color: #cba6f7;
+  }
+  .dark .radix-state-checked\:bg-blue-400[data-state="checked"],
+  .dark .popover .radix-state-checked\:bg-blue-400[data-state="checked"] {
+    background-color: #cba6f7;
+  }
+  .dark .text-gray-600,
+  .dark .popover .text-gray-600,
+  .dark .dark\:text-gray-600,
+  .dark .popover .dark\:text-gray-600 {
+    color: #6c7086;
+  }
+  .dark .bg-gray-600,
+  .dark .popover .bg-gray-600,
+  .dark .dark\:bg-gray-600,
+  .dark .popover .dark\:bg-gray-600 {
+    background-color: #6c7086;
+  }
+  .dark .border-gray-600,
+  .dark .popover .border-gray-600 {
+    border-color: #6c7086;
+  }
+  .dark .radix-state-checked\:bg-gray-600[data-state="checked"],
+  .dark .popover .radix-state-checked\:bg-gray-600[data-state="checked"] {
+    background-color: #6c7086;
+  }
+  .dark .text-gray-500,
+  .dark .popover .text-gray-500,
+  .dark .dark\:text-gray-500,
+  .dark .popover .dark\:text-gray-500 {
+    color: #9399b2;
+  }
+  .dark .bg-gray-500,
+  .dark .popover .bg-gray-500,
+  .dark .dark\:bg-gray-500,
+  .dark .popover .dark\:bg-gray-500 {
+    background-color: #9399b2;
+  }
+  .dark .border-gray-500,
+  .dark .popover .border-gray-500 {
+    border-color: #9399b2;
+  }
+  .dark .radix-state-checked\:bg-gray-500[data-state="checked"],
+  .dark .popover .radix-state-checked\:bg-gray-500[data-state="checked"] {
+    background-color: #9399b2;
+  }
+  .dark .text-white,
+  .dark .popover .text-white {
+    color: var(--rk-background);
+  }
+  .dark .bg-black,
+  .dark .popover .bg-black {
+    background-color: var(--rk-mantle);
+  }
+}
+@-moz-document domain("auth.openai.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+      --main-page-background: var(--rk-background);
+      --text-primary: var(--rk-foreground);
+      --text-secondary: var(--rk-bright-white);
+      --text-tertiary: var(--rk-white);
+      --text-placeholder: var(--rk-white);
+      --accent-blue: var(--rk-accent);
+      --link: var(--rk-accent);
+      --border-medium: var(--rk-bright-black);
+      --button-primary-background: var(--rk-foreground);
+      --button-primary-hover: var(--rk-bright-white);
+      --button-text-on-primary: var(--rk-background);
+      --button-outline-hover: var(--rk-surface0);
+      --gray-100: var(--rk-bright-black);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root a[href="https://chatgpt.com"] > svg {
+      filter: none;
+    }
+    :root input {
+      color: var(--rk-foreground);
+    }
+    :root [class*="_toggleVisibilityButton"]:where(:hover, :focus-visible)::before {
+      background-color: var(--rk-surface0);
+    }
+    :root [data-overlay-container] [class*="_tooltip"] {
+      --tooltip-background-color: var(--rk-mantle) !important;
+      --tooltip-color: var(--rk-foreground) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+      --main-page-background: var(--rk-background);
+      --text-primary: var(--rk-foreground);
+      --text-secondary: var(--rk-bright-white);
+      --text-tertiary: var(--rk-white);
+      --text-placeholder: var(--rk-white);
+      --accent-blue: var(--rk-accent);
+      --link: var(--rk-accent);
+      --border-medium: var(--rk-bright-black);
+      --button-primary-background: var(--rk-foreground);
+      --button-primary-hover: var(--rk-bright-white);
+      --button-text-on-primary: var(--rk-background);
+      --button-outline-hover: var(--rk-surface0);
+      --gray-100: var(--rk-bright-black);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root a[href="https://chatgpt.com"] > svg {
+      filter: none;
+    }
+    :root input {
+      color: var(--rk-foreground);
+    }
+    :root [class*="_toggleVisibilityButton"]:where(:hover, :focus-visible)::before {
+      background-color: var(--rk-surface0);
+    }
+    :root [data-overlay-container] [class*="_tooltip"] {
+      --tooltip-background-color: var(--rk-mantle) !important;
+      --tooltip-color: var(--rk-foreground) !important;
+    }
+  }
+}

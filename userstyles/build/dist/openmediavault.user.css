@@ -1,0 +1,344 @@
+/* ==UserStyle==
+@name openmediavault Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/openmediavault.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for openmediavault
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("openmediavault.example.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .omv-dark-theme {
+      --mat-color-text: var(--rk-foreground);
+      --mat-color-secondary-text: var(--rk-white);
+      --mat-color-disabled-text: var(--rk-red);
+      --mat-color-hint-text: var(--rk-blue);
+      --mat-background-color-hover: var(--rk-accent);
+      --mat-background-color-selected-button: var(--rk-accent);
+      --mat-background-color-card: var(--rk-crust);
+      --mat-background-color-background: var(--rk-crust);
+      --mat-primary-color-text: var(--rk-accent);
+      --mat-background-color-body: var(--rk-background);
+    }
+    :root .omv-dark-theme .mat-toolbar.mat-primary {
+      background: var(--rk-accent);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-drawer-container {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-card {
+      background: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-flat-button,
+    :root .mat-fab,
+    :root .mat-mini-fab {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+    }
+    :root .omv-dark-theme .mat-flat-button.mat-button-disabled.mat-button-disabled {
+      background-color: var(--rk-mantle);
+    }
+    :root .omv-dark-theme .mat-input-element:disabled {
+      color: var(--rk-white);
+    }
+    :root .omv-dark-theme .mat-select-placeholder,
+    :root .omv-dark-theme .mat-select-disabled .mat-select-value {
+      color: var(--rk-white);
+    }
+    :root .omv-dark-theme .mat-form-field-appearance-legacy .mat-form-field-label,
+    :root .omv-dark-theme .mat-form-field-appearance-legacy .mat-hint {
+      color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-toolbar {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .omv-top-bar[_ngcontent-ydq-c112] button[_ngcontent-ydq-c112] .mat-icon[_ngcontent-ydq-c112] {
+      color: var(--rk-crust);
+    }
+    :root .omv-top-bar[_ngcontent-ydq-c112] .hostname[_ngcontent-ydq-c112] {
+      color: var(--rk-crust);
+    }
+    :root .omv-dark-theme .mat-icon-button.mat-button-disabled.mat-button-disabled {
+      color: var(--rk-overlay0);
+    }
+    :root .omv-dark-theme .mat-chip.omv-background-color-pair-green {
+      color: var(--rk-mantle);
+      background-color: var(--rk-green);
+    }
+    :root .omv-scrollable-xy,
+    :root .omv-scrollable-y {
+      scrollbar-color: var(--rk-accent) transparent;
+      --scrollbar-thumb-color: var(--rk-accent) !important;
+      --scrollbar-thumb-hover-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-button,
+    :root .omv-dark-theme .mat-icon-button,
+    :root .omv-dark-theme .mat-stroked-button {
+      color: var(--rk-accent);
+      background: inherit;
+    }
+    :root .omv-dark-theme .mat-pseudo-checkbox-checked,
+    :root .omv-dark-theme .mat-pseudo-checkbox-indeterminate,
+    :root .omv-dark-theme .mat-accent .mat-pseudo-checkbox-checked,
+    :root .omv-dark-theme .mat-accent .mat-pseudo-checkbox-indeterminate {
+      background: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    :root .omv-dark-theme .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+      background-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+      background-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-badge-accent .mat-badge-content {
+      background: var(--rk-crust);
+      color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-select-panel {
+      scrollbar-color: var(--rk-accent) transparent;
+      --scrollbar-thumb-color: var(--rk-accent) !important;
+      --scrollbar-thumb-hover-color: var(--rk-accent) !important;
+      background: var(--rk-crust);
+    }
+    :root .omv-background-color-pair-success {
+      color: var(--rk-mantle);
+      background-color: var(--rk-green);
+    }
+    :root .omv-dark-theme .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+      color: var(--rk-accent);
+    }
+    :root .ngx-datatable.single-selection .datatable-body-row.active,
+    :root .ngx-datatable.single-selection .datatable-body-row.active .datatable-row-group,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active .datatable-row-group,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active .datatable-row-group {
+      color: var(--rk-accent);
+      background-color: var(--rk-crust);
+    }
+    :root .ngx-datatable:not(.cell-selection) .datatable-body-row:hover,
+    :root .ngx-datatable:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+      color: var(--rk-crust);
+      background-color: var(--rk-blue);
+    }
+    :root .ngx-datatable.single-selection .datatable-body-row.active:hover,
+    :root .ngx-datatable.single-selection .datatable-body-row.active:hover .datatable-row-group,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active:hover,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active:hover .datatable-row-group,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active:hover,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+      color: var(--rk-crust);
+      background-color: var(--rk-green);
+    }
+    :root .omv-dark-theme .mat-menu-item {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-menu-panel {
+      background: var(--rk-crust);
+    }
+    :root [_nghost-ckr-c138] .content[_ngcontent-ckr-c138] omv-intuition-form-page[_ngcontent-ckr-c138] .mat-card {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+    }
+    :root .mat-flat-button.omv-background-color-pair-primary {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+    }
+    :root .omv-dark-theme .mat-dialog-container {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .omv-background-color-pair-terminal {
+      color: var(--rk-green);
+      background-color: var(--rk-mantle);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .omv-dark-theme {
+      --mat-color-text: var(--rk-foreground);
+      --mat-color-secondary-text: var(--rk-white);
+      --mat-color-disabled-text: var(--rk-red);
+      --mat-color-hint-text: var(--rk-blue);
+      --mat-background-color-hover: var(--rk-accent);
+      --mat-background-color-selected-button: var(--rk-accent);
+      --mat-background-color-card: var(--rk-crust);
+      --mat-background-color-background: var(--rk-crust);
+      --mat-primary-color-text: var(--rk-accent);
+      --mat-background-color-body: var(--rk-background);
+    }
+    :root .omv-dark-theme .mat-toolbar.mat-primary {
+      background: var(--rk-accent);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-drawer-container {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-card {
+      background: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-flat-button,
+    :root .mat-fab,
+    :root .mat-mini-fab {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+    }
+    :root .omv-dark-theme .mat-flat-button.mat-button-disabled.mat-button-disabled {
+      background-color: var(--rk-mantle);
+    }
+    :root .omv-dark-theme .mat-input-element:disabled {
+      color: var(--rk-white);
+    }
+    :root .omv-dark-theme .mat-select-placeholder,
+    :root .omv-dark-theme .mat-select-disabled .mat-select-value {
+      color: var(--rk-white);
+    }
+    :root .omv-dark-theme .mat-form-field-appearance-legacy .mat-form-field-label,
+    :root .omv-dark-theme .mat-form-field-appearance-legacy .mat-hint {
+      color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-toolbar {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .omv-top-bar[_ngcontent-ydq-c112] button[_ngcontent-ydq-c112] .mat-icon[_ngcontent-ydq-c112] {
+      color: var(--rk-crust);
+    }
+    :root .omv-top-bar[_ngcontent-ydq-c112] .hostname[_ngcontent-ydq-c112] {
+      color: var(--rk-crust);
+    }
+    :root .omv-dark-theme .mat-icon-button.mat-button-disabled.mat-button-disabled {
+      color: var(--rk-overlay0);
+    }
+    :root .omv-dark-theme .mat-chip.omv-background-color-pair-green {
+      color: var(--rk-mantle);
+      background-color: var(--rk-green);
+    }
+    :root .omv-scrollable-xy,
+    :root .omv-scrollable-y {
+      scrollbar-color: var(--rk-accent) transparent;
+      --scrollbar-thumb-color: var(--rk-accent) !important;
+      --scrollbar-thumb-hover-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-button,
+    :root .omv-dark-theme .mat-icon-button,
+    :root .omv-dark-theme .mat-stroked-button {
+      color: var(--rk-accent);
+      background: inherit;
+    }
+    :root .omv-dark-theme .mat-pseudo-checkbox-checked,
+    :root .omv-dark-theme .mat-pseudo-checkbox-indeterminate,
+    :root .omv-dark-theme .mat-accent .mat-pseudo-checkbox-checked,
+    :root .omv-dark-theme .mat-accent .mat-pseudo-checkbox-indeterminate {
+      background: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+    :root .omv-dark-theme .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+      background-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+      background-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+      background-color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-badge-accent .mat-badge-content {
+      background: var(--rk-crust);
+      color: var(--rk-accent);
+    }
+    :root .omv-dark-theme .mat-select-panel {
+      scrollbar-color: var(--rk-accent) transparent;
+      --scrollbar-thumb-color: var(--rk-accent) !important;
+      --scrollbar-thumb-hover-color: var(--rk-accent) !important;
+      background: var(--rk-crust);
+    }
+    :root .omv-background-color-pair-success {
+      color: var(--rk-mantle);
+      background-color: var(--rk-green);
+    }
+    :root .omv-dark-theme .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+      color: var(--rk-accent);
+    }
+    :root .ngx-datatable.single-selection .datatable-body-row.active,
+    :root .ngx-datatable.single-selection .datatable-body-row.active .datatable-row-group,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active .datatable-row-group,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active .datatable-row-group {
+      color: var(--rk-accent);
+      background-color: var(--rk-crust);
+    }
+    :root .ngx-datatable:not(.cell-selection) .datatable-body-row:hover,
+    :root .ngx-datatable:not(.cell-selection) .datatable-body-row:hover .datatable-row-group {
+      color: var(--rk-crust);
+      background-color: var(--rk-blue);
+    }
+    :root .ngx-datatable.single-selection .datatable-body-row.active:hover,
+    :root .ngx-datatable.single-selection .datatable-body-row.active:hover .datatable-row-group,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active:hover,
+    :root .ngx-datatable.multi-selection .datatable-body-row.active:hover .datatable-row-group,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active:hover,
+    :root .ngx-datatable.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+      color: var(--rk-crust);
+      background-color: var(--rk-green);
+    }
+    :root .omv-dark-theme .mat-menu-item {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .omv-dark-theme .mat-menu-panel {
+      background: var(--rk-crust);
+    }
+    :root [_nghost-ckr-c138] .content[_ngcontent-ckr-c138] omv-intuition-form-page[_ngcontent-ckr-c138] .mat-card {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+    }
+    :root .mat-flat-button.omv-background-color-pair-primary {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+    }
+    :root .omv-dark-theme .mat-dialog-container {
+      background: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .omv-background-color-pair-terminal {
+      color: var(--rk-green);
+      background-color: var(--rk-mantle);
+    }
+  }
+}

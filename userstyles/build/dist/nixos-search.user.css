@@ -1,0 +1,110 @@
+/* ==UserStyle==
+@name NixOS Search Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.03.10.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/nixos-search.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for NixOS Search
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("search.nixos.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      --background-color: var(--rk-background);
+      --badge-background: var(--rk-bright-black);
+      --button-active-background: var(--rk-black);
+      --button-active-hover-background: var(--rk-bright-black);
+      --button-background: var(--rk-surface0);
+      --button-hover-background: var(--rk-bright-black);
+      --color-active-hover-tab: var(--rk-black);
+      --color-active-tab: var(--rk-surface0);
+      --color-hover-tab: var(--rk-black);
+      --headerbar-background-color: var(--rk-mantle);
+      --hover-background: var(--rk-surface0);
+      --link-color: var(--rk-accent);
+      --info-label-background: var(--rk-accent);
+      --dark-blue: var(--rk-accent);
+      --light-blue: var(--rk-accent);
+      --line-color: var(--rk-surface0);
+      --search-result-short-details-color: var(--rk-bright-white);
+      --search-result-divider-line-color: var(--rk-surface0);
+      --search-result-title-color: var(--rk-accent);
+      --search-sidebar-link-color: var(--rk-foreground);
+      --search-sidebar-selected-link-background: var(--rk-accent);
+      --search-sidebar-selected-link-color: var(--rk-crust);
+      --terminal-background: var(--rk-surface0);
+      --terminal-color: var(--rk-foreground);
+      --text-color: var(--rk-foreground);
+      --text-color-light: var(--rk-foreground);
+      --text-color-warning: var(--rk-yellow);
+      /* Experimental Flakes label */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .badge {
+      color: var(--rk-foreground);
+    }
+    :root .label {
+      color: var(--rk-background);
+      text-shadow: none;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --background-color: var(--rk-background);
+      --badge-background: var(--rk-bright-black);
+      --button-active-background: var(--rk-black);
+      --button-active-hover-background: var(--rk-bright-black);
+      --button-background: var(--rk-surface0);
+      --button-hover-background: var(--rk-bright-black);
+      --color-active-hover-tab: var(--rk-black);
+      --color-active-tab: var(--rk-surface0);
+      --color-hover-tab: var(--rk-black);
+      --headerbar-background-color: var(--rk-mantle);
+      --hover-background: var(--rk-surface0);
+      --link-color: var(--rk-accent);
+      --info-label-background: var(--rk-accent);
+      --dark-blue: var(--rk-accent);
+      --light-blue: var(--rk-accent);
+      --line-color: var(--rk-surface0);
+      --search-result-short-details-color: var(--rk-bright-white);
+      --search-result-divider-line-color: var(--rk-surface0);
+      --search-result-title-color: var(--rk-accent);
+      --search-sidebar-link-color: var(--rk-foreground);
+      --search-sidebar-selected-link-background: var(--rk-accent);
+      --search-sidebar-selected-link-color: var(--rk-crust);
+      --terminal-background: var(--rk-surface0);
+      --terminal-color: var(--rk-foreground);
+      --text-color: var(--rk-foreground);
+      --text-color-light: var(--rk-foreground);
+      --text-color-warning: var(--rk-yellow);
+      /* Experimental Flakes label */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root .badge {
+      color: var(--rk-foreground);
+    }
+    :root .label {
+      color: var(--rk-background);
+      text-shadow: none;
+    }
+  }
+}

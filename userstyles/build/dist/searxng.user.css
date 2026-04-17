@@ -1,0 +1,467 @@
+/* ==UserStyle==
+@name SearXNG Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.02.28.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/searxng.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for SearXNG
+@author Catppuccin
+@license MIT
+
+
+@var checkbox additions "Additional Tweaks" 0
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+/* Domains picked from https://searx.space/. */
+@-moz-document domain("search.bus-hit.me"), domain("search.inetol.net") {
+  @media (prefers-color-scheme: light) {
+    :root.theme-auto {
+      color-scheme: dark;
+      --color-base-font: var(--rk-foreground);
+      --color-base-background: var(--rk-background);
+      --color-base-background-mobile: var(--rk-background);
+      --color-url-font: var(--rk-accent);
+      --color-url-visited-font: var(--rk-accent);
+      --color-header-background: var(--rk-mantle);
+      --color-header-border: var(--rk-mantle);
+      --color-footer-background: var(--rk-mantle);
+      --color-footer-border: var(--rk-mantle);
+      --color-sidebar-border: var(--rk-background);
+      --color-sidebar-font: var(--rk-foreground);
+      --color-sidebar-background: var(--rk-background);
+      --color-backtotop-font: var(--rk-bright-white);
+      --color-backtotop-border: var(--rk-surface0);
+      --color-backtotop-background: var(--rk-surface0);
+      --color-btn-background: var(--rk-accent);
+      --color-btn-font: var(--rk-background);
+      --color-show-btn-background: var(--rk-accent);
+      --color-show-btn-font: var(--rk-background);
+      --color-search-border: var(--rk-surface0);
+      --color-search-shadow: 0 2px 8px var(--rk-crust);
+      --color-search-background: var(--rk-surface0);
+      --color-search-font: var(--rk-foreground);
+      --color-search-background-hover: var(--rk-accent);
+      --color-error: var(--rk-red);
+      --color-error-background: var(--rk-surface0);
+      --color-warning: var(--rk-yellow);
+      --color-warning-background: var(--rk-surface0);
+      --color-success: var(--rk-green);
+      --color-success-background: var(--rk-surface0);
+      --color-categories-item-selected-font: var(--rk-foreground);
+      --color-categories-item-border-selected: var(--rk-accent);
+      --color-autocomplete-font: var(--rk-bright-white);
+      --color-autocomplete-border: var(--rk-surface0);
+      --color-autocomplete-shadow: 0 2px 8px var(--rk-crust);
+      --color-autocomplete-background: var(--rk-surface0);
+      --color-autocomplete-background-hover: var(--rk-black);
+      --color-answer-font: var(--rk-foreground);
+      --color-answer-background: var(--rk-mantle);
+      --color-result-background: var(--rk-mantle);
+      --color-result-border: var(--rk-background);
+      --color-result-url-font: var(--rk-bright-white);
+      --color-result-vim-selected: var(--rk-surface0);
+      --color-result-vim-arrow: var(--rk-accent);
+      --color-result-description-highlight-font: var(--rk-foreground);
+      --color-result-link-font: var(--rk-accent);
+      --color-result-link-font-highlight: var(--rk-accent);
+      --color-result-link-visited-font: var(--rk-accent);
+      --color-result-publishdate-font: var(--rk-bright-black);
+      --color-result-engines-font: var(--rk-bright-black);
+      --color-result-search-url-border: var(--rk-bright-black);
+      --color-result-search-url-font: var(--rk-foreground);
+      --color-result-detail-font: var(--rk-foreground);
+      --color-result-detail-label-font: var(--rk-white);
+      --color-result-detail-background: var(--rk-background);
+      --color-result-detail-hr: var(--rk-background);
+      --color-result-detail-link: var(--rk-accent);
+      --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
+      --color-result-detail-loader-borderleft: var(--rk-crust);
+      --color-result-image-span-font: var(--rk-foreground);
+      --color-result-image-span-font-selected: var(--rk-background);
+      --color-result-image-background: var(--rk-mantle);
+      --color-settings-tr-hover: var(--rk-surface0);
+      --color-settings-engine-description-font: var(--rk-foreground);
+      --color-settings-engine-group-background: var(--rk-surface0);
+      --color-toolkit-badge-font: var(--rk-foreground);
+      --color-toolkit-badge-background: var(--rk-surface0);
+      --color-toolkit-kbd-font: var(--rk-foreground);
+      --color-toolkit-kbd-background: var(--rk-mantle);
+      --color-toolkit-dialog-border: var(--rk-mantle);
+      --color-toolkit-dialog-background: var(--rk-mantle);
+      --color-toolkit-tabs-label-border: var(--rk-background);
+      --color-toolkit-tabs-section-border: var(--rk-background);
+      --color-toolkit-select-background: var(--rk-surface0);
+      --color-toolkit-select-border: var(--rk-surface0);
+      --color-toolkit-select-background-hover: var(--rk-black);
+      --color-toolkit-input-text-font: var(--rk-foreground);
+      --color-toolkit-checkbox-onoff-off-background: var(--rk-surface0);
+      --color-toolkit-checkbox-onoff-on-background: var(--rk-surface0);
+      --color-toolkit-checkbox-onoff-on-mark-background: var(--rk-green);
+      --color-toolkit-checkbox-onoff-on-mark-color: var(--rk-mantle);
+      --color-toolkit-checkbox-onoff-off-mark-background: var(--rk-red);
+      --color-toolkit-checkbox-onoff-off-mark-color: var(--rk-mantle);
+      --color-toolkit-checkbox-label-background: var(--rk-background);
+      --color-toolkit-checkbox-label-border: var(--rk-mantle);
+      --color-toolkit-checkbox-input-border: var(--rk-accent);
+      --color-toolkit-engine-tooltip-border: var(--rk-surface0);
+      --color-toolkit-engine-tooltip-background: var(--rk-surface0);
+      --color-toolkit-loader-border: rgba(255, 255, 255, 0.2);
+      --color-toolkit-loader-borderleft: var(--rk-crust);
+      --color-doc-code: var(--rk-rosewater);
+      --color-doc-code-background: var(--rk-mantle);
+    }
+    :root.theme-auto ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root.theme-auto input::placeholder,
+    :root.theme-auto textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root.theme-auto #search_logo svg :not([fill="none"]) {
+      fill: var(--rk-accent);
+    }
+    :root.theme-auto #search_logo svg :not([stroke="none"]) {
+      stroke: var(--rk-accent);
+    }
+    :root.theme-auto .index .title {
+      filter: none;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root.theme-auto {
+      color-scheme: dark;
+      --color-base-font: var(--rk-foreground);
+      --color-base-background: var(--rk-background);
+      --color-base-background-mobile: var(--rk-background);
+      --color-url-font: var(--rk-accent);
+      --color-url-visited-font: var(--rk-accent);
+      --color-header-background: var(--rk-mantle);
+      --color-header-border: var(--rk-mantle);
+      --color-footer-background: var(--rk-mantle);
+      --color-footer-border: var(--rk-mantle);
+      --color-sidebar-border: var(--rk-background);
+      --color-sidebar-font: var(--rk-foreground);
+      --color-sidebar-background: var(--rk-background);
+      --color-backtotop-font: var(--rk-bright-white);
+      --color-backtotop-border: var(--rk-surface0);
+      --color-backtotop-background: var(--rk-surface0);
+      --color-btn-background: var(--rk-accent);
+      --color-btn-font: var(--rk-background);
+      --color-show-btn-background: var(--rk-accent);
+      --color-show-btn-font: var(--rk-background);
+      --color-search-border: var(--rk-surface0);
+      --color-search-shadow: 0 2px 8px var(--rk-crust);
+      --color-search-background: var(--rk-surface0);
+      --color-search-font: var(--rk-foreground);
+      --color-search-background-hover: var(--rk-accent);
+      --color-error: var(--rk-red);
+      --color-error-background: var(--rk-surface0);
+      --color-warning: var(--rk-yellow);
+      --color-warning-background: var(--rk-surface0);
+      --color-success: var(--rk-green);
+      --color-success-background: var(--rk-surface0);
+      --color-categories-item-selected-font: var(--rk-foreground);
+      --color-categories-item-border-selected: var(--rk-accent);
+      --color-autocomplete-font: var(--rk-bright-white);
+      --color-autocomplete-border: var(--rk-surface0);
+      --color-autocomplete-shadow: 0 2px 8px var(--rk-crust);
+      --color-autocomplete-background: var(--rk-surface0);
+      --color-autocomplete-background-hover: var(--rk-black);
+      --color-answer-font: var(--rk-foreground);
+      --color-answer-background: var(--rk-mantle);
+      --color-result-background: var(--rk-mantle);
+      --color-result-border: var(--rk-background);
+      --color-result-url-font: var(--rk-bright-white);
+      --color-result-vim-selected: var(--rk-surface0);
+      --color-result-vim-arrow: var(--rk-accent);
+      --color-result-description-highlight-font: var(--rk-foreground);
+      --color-result-link-font: var(--rk-accent);
+      --color-result-link-font-highlight: var(--rk-accent);
+      --color-result-link-visited-font: var(--rk-accent);
+      --color-result-publishdate-font: var(--rk-bright-black);
+      --color-result-engines-font: var(--rk-bright-black);
+      --color-result-search-url-border: var(--rk-bright-black);
+      --color-result-search-url-font: var(--rk-foreground);
+      --color-result-detail-font: var(--rk-foreground);
+      --color-result-detail-label-font: var(--rk-white);
+      --color-result-detail-background: var(--rk-background);
+      --color-result-detail-hr: var(--rk-background);
+      --color-result-detail-link: var(--rk-accent);
+      --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
+      --color-result-detail-loader-borderleft: var(--rk-crust);
+      --color-result-image-span-font: var(--rk-foreground);
+      --color-result-image-span-font-selected: var(--rk-background);
+      --color-result-image-background: var(--rk-mantle);
+      --color-settings-tr-hover: var(--rk-surface0);
+      --color-settings-engine-description-font: var(--rk-foreground);
+      --color-settings-engine-group-background: var(--rk-surface0);
+      --color-toolkit-badge-font: var(--rk-foreground);
+      --color-toolkit-badge-background: var(--rk-surface0);
+      --color-toolkit-kbd-font: var(--rk-foreground);
+      --color-toolkit-kbd-background: var(--rk-mantle);
+      --color-toolkit-dialog-border: var(--rk-mantle);
+      --color-toolkit-dialog-background: var(--rk-mantle);
+      --color-toolkit-tabs-label-border: var(--rk-background);
+      --color-toolkit-tabs-section-border: var(--rk-background);
+      --color-toolkit-select-background: var(--rk-surface0);
+      --color-toolkit-select-border: var(--rk-surface0);
+      --color-toolkit-select-background-hover: var(--rk-black);
+      --color-toolkit-input-text-font: var(--rk-foreground);
+      --color-toolkit-checkbox-onoff-off-background: var(--rk-surface0);
+      --color-toolkit-checkbox-onoff-on-background: var(--rk-surface0);
+      --color-toolkit-checkbox-onoff-on-mark-background: var(--rk-green);
+      --color-toolkit-checkbox-onoff-on-mark-color: var(--rk-mantle);
+      --color-toolkit-checkbox-onoff-off-mark-background: var(--rk-red);
+      --color-toolkit-checkbox-onoff-off-mark-color: var(--rk-mantle);
+      --color-toolkit-checkbox-label-background: var(--rk-background);
+      --color-toolkit-checkbox-label-border: var(--rk-mantle);
+      --color-toolkit-checkbox-input-border: var(--rk-accent);
+      --color-toolkit-engine-tooltip-border: var(--rk-surface0);
+      --color-toolkit-engine-tooltip-background: var(--rk-surface0);
+      --color-toolkit-loader-border: rgba(255, 255, 255, 0.2);
+      --color-toolkit-loader-borderleft: var(--rk-crust);
+      --color-doc-code: var(--rk-rosewater);
+      --color-doc-code-background: var(--rk-mantle);
+    }
+    :root.theme-auto ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root.theme-auto input::placeholder,
+    :root.theme-auto textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root.theme-auto #search_logo svg :not([fill="none"]) {
+      fill: var(--rk-accent);
+    }
+    :root.theme-auto #search_logo svg :not([stroke="none"]) {
+      stroke: var(--rk-accent);
+    }
+    :root.theme-auto .index .title {
+      filter: none;
+    }
+  }
+  :root.theme-dark {
+    color-scheme: dark;
+    --color-base-font: var(--rk-foreground);
+    --color-base-background: var(--rk-background);
+    --color-base-background-mobile: var(--rk-background);
+    --color-url-font: var(--rk-accent);
+    --color-url-visited-font: var(--rk-accent);
+    --color-header-background: var(--rk-mantle);
+    --color-header-border: var(--rk-mantle);
+    --color-footer-background: var(--rk-mantle);
+    --color-footer-border: var(--rk-mantle);
+    --color-sidebar-border: var(--rk-background);
+    --color-sidebar-font: var(--rk-foreground);
+    --color-sidebar-background: var(--rk-background);
+    --color-backtotop-font: var(--rk-bright-white);
+    --color-backtotop-border: var(--rk-surface0);
+    --color-backtotop-background: var(--rk-surface0);
+    --color-btn-background: var(--rk-accent);
+    --color-btn-font: var(--rk-background);
+    --color-show-btn-background: var(--rk-accent);
+    --color-show-btn-font: var(--rk-background);
+    --color-search-border: var(--rk-surface0);
+    --color-search-shadow: 0 2px 8px var(--rk-crust);
+    --color-search-background: var(--rk-surface0);
+    --color-search-font: var(--rk-foreground);
+    --color-search-background-hover: var(--rk-accent);
+    --color-error: var(--rk-red);
+    --color-error-background: var(--rk-surface0);
+    --color-warning: var(--rk-yellow);
+    --color-warning-background: var(--rk-surface0);
+    --color-success: var(--rk-green);
+    --color-success-background: var(--rk-surface0);
+    --color-categories-item-selected-font: var(--rk-foreground);
+    --color-categories-item-border-selected: var(--rk-accent);
+    --color-autocomplete-font: var(--rk-bright-white);
+    --color-autocomplete-border: var(--rk-surface0);
+    --color-autocomplete-shadow: 0 2px 8px var(--rk-crust);
+    --color-autocomplete-background: var(--rk-surface0);
+    --color-autocomplete-background-hover: var(--rk-black);
+    --color-answer-font: var(--rk-foreground);
+    --color-answer-background: var(--rk-mantle);
+    --color-result-background: var(--rk-mantle);
+    --color-result-border: var(--rk-background);
+    --color-result-url-font: var(--rk-bright-white);
+    --color-result-vim-selected: var(--rk-surface0);
+    --color-result-vim-arrow: var(--rk-accent);
+    --color-result-description-highlight-font: var(--rk-foreground);
+    --color-result-link-font: var(--rk-accent);
+    --color-result-link-font-highlight: var(--rk-accent);
+    --color-result-link-visited-font: var(--rk-accent);
+    --color-result-publishdate-font: var(--rk-bright-black);
+    --color-result-engines-font: var(--rk-bright-black);
+    --color-result-search-url-border: var(--rk-bright-black);
+    --color-result-search-url-font: var(--rk-foreground);
+    --color-result-detail-font: var(--rk-foreground);
+    --color-result-detail-label-font: var(--rk-white);
+    --color-result-detail-background: var(--rk-background);
+    --color-result-detail-hr: var(--rk-background);
+    --color-result-detail-link: var(--rk-accent);
+    --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
+    --color-result-detail-loader-borderleft: var(--rk-crust);
+    --color-result-image-span-font: var(--rk-foreground);
+    --color-result-image-span-font-selected: var(--rk-background);
+    --color-result-image-background: var(--rk-mantle);
+    --color-settings-tr-hover: var(--rk-surface0);
+    --color-settings-engine-description-font: var(--rk-foreground);
+    --color-settings-engine-group-background: var(--rk-surface0);
+    --color-toolkit-badge-font: var(--rk-foreground);
+    --color-toolkit-badge-background: var(--rk-surface0);
+    --color-toolkit-kbd-font: var(--rk-foreground);
+    --color-toolkit-kbd-background: var(--rk-mantle);
+    --color-toolkit-dialog-border: var(--rk-mantle);
+    --color-toolkit-dialog-background: var(--rk-mantle);
+    --color-toolkit-tabs-label-border: var(--rk-background);
+    --color-toolkit-tabs-section-border: var(--rk-background);
+    --color-toolkit-select-background: var(--rk-surface0);
+    --color-toolkit-select-border: var(--rk-surface0);
+    --color-toolkit-select-background-hover: var(--rk-black);
+    --color-toolkit-input-text-font: var(--rk-foreground);
+    --color-toolkit-checkbox-onoff-off-background: var(--rk-surface0);
+    --color-toolkit-checkbox-onoff-on-background: var(--rk-surface0);
+    --color-toolkit-checkbox-onoff-on-mark-background: var(--rk-green);
+    --color-toolkit-checkbox-onoff-on-mark-color: var(--rk-mantle);
+    --color-toolkit-checkbox-onoff-off-mark-background: var(--rk-red);
+    --color-toolkit-checkbox-onoff-off-mark-color: var(--rk-mantle);
+    --color-toolkit-checkbox-label-background: var(--rk-background);
+    --color-toolkit-checkbox-label-border: var(--rk-mantle);
+    --color-toolkit-checkbox-input-border: var(--rk-accent);
+    --color-toolkit-engine-tooltip-border: var(--rk-surface0);
+    --color-toolkit-engine-tooltip-background: var(--rk-surface0);
+    --color-toolkit-loader-border: rgba(255, 255, 255, 0.2);
+    --color-toolkit-loader-borderleft: var(--rk-crust);
+    --color-doc-code: var(--rk-rosewater);
+    --color-doc-code-background: var(--rk-mantle);
+  }
+  :root.theme-dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.theme-dark input::placeholder,
+  :root.theme-dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.theme-dark #search_logo svg :not([fill="none"]) {
+    fill: var(--rk-accent);
+  }
+  :root.theme-dark #search_logo svg :not([stroke="none"]) {
+    stroke: var(--rk-accent);
+  }
+  :root.theme-dark .index .title {
+    filter: none;
+  }
+  :root.theme-light {
+    color-scheme: dark;
+    --color-base-font: var(--rk-foreground);
+    --color-base-background: var(--rk-background);
+    --color-base-background-mobile: var(--rk-background);
+    --color-url-font: var(--rk-accent);
+    --color-url-visited-font: var(--rk-accent);
+    --color-header-background: var(--rk-mantle);
+    --color-header-border: var(--rk-mantle);
+    --color-footer-background: var(--rk-mantle);
+    --color-footer-border: var(--rk-mantle);
+    --color-sidebar-border: var(--rk-background);
+    --color-sidebar-font: var(--rk-foreground);
+    --color-sidebar-background: var(--rk-background);
+    --color-backtotop-font: var(--rk-bright-white);
+    --color-backtotop-border: var(--rk-surface0);
+    --color-backtotop-background: var(--rk-surface0);
+    --color-btn-background: var(--rk-accent);
+    --color-btn-font: var(--rk-background);
+    --color-show-btn-background: var(--rk-accent);
+    --color-show-btn-font: var(--rk-background);
+    --color-search-border: var(--rk-surface0);
+    --color-search-shadow: 0 2px 8px var(--rk-crust);
+    --color-search-background: var(--rk-surface0);
+    --color-search-font: var(--rk-foreground);
+    --color-search-background-hover: var(--rk-accent);
+    --color-error: var(--rk-red);
+    --color-error-background: var(--rk-surface0);
+    --color-warning: var(--rk-yellow);
+    --color-warning-background: var(--rk-surface0);
+    --color-success: var(--rk-green);
+    --color-success-background: var(--rk-surface0);
+    --color-categories-item-selected-font: var(--rk-foreground);
+    --color-categories-item-border-selected: var(--rk-accent);
+    --color-autocomplete-font: var(--rk-bright-white);
+    --color-autocomplete-border: var(--rk-surface0);
+    --color-autocomplete-shadow: 0 2px 8px var(--rk-crust);
+    --color-autocomplete-background: var(--rk-surface0);
+    --color-autocomplete-background-hover: var(--rk-black);
+    --color-answer-font: var(--rk-foreground);
+    --color-answer-background: var(--rk-mantle);
+    --color-result-background: var(--rk-mantle);
+    --color-result-border: var(--rk-background);
+    --color-result-url-font: var(--rk-bright-white);
+    --color-result-vim-selected: var(--rk-surface0);
+    --color-result-vim-arrow: var(--rk-accent);
+    --color-result-description-highlight-font: var(--rk-foreground);
+    --color-result-link-font: var(--rk-accent);
+    --color-result-link-font-highlight: var(--rk-accent);
+    --color-result-link-visited-font: var(--rk-accent);
+    --color-result-publishdate-font: var(--rk-bright-black);
+    --color-result-engines-font: var(--rk-bright-black);
+    --color-result-search-url-border: var(--rk-bright-black);
+    --color-result-search-url-font: var(--rk-foreground);
+    --color-result-detail-font: var(--rk-foreground);
+    --color-result-detail-label-font: var(--rk-white);
+    --color-result-detail-background: var(--rk-background);
+    --color-result-detail-hr: var(--rk-background);
+    --color-result-detail-link: var(--rk-accent);
+    --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
+    --color-result-detail-loader-borderleft: var(--rk-crust);
+    --color-result-image-span-font: var(--rk-foreground);
+    --color-result-image-span-font-selected: var(--rk-background);
+    --color-result-image-background: var(--rk-mantle);
+    --color-settings-tr-hover: var(--rk-surface0);
+    --color-settings-engine-description-font: var(--rk-foreground);
+    --color-settings-engine-group-background: var(--rk-surface0);
+    --color-toolkit-badge-font: var(--rk-foreground);
+    --color-toolkit-badge-background: var(--rk-surface0);
+    --color-toolkit-kbd-font: var(--rk-foreground);
+    --color-toolkit-kbd-background: var(--rk-mantle);
+    --color-toolkit-dialog-border: var(--rk-mantle);
+    --color-toolkit-dialog-background: var(--rk-mantle);
+    --color-toolkit-tabs-label-border: var(--rk-background);
+    --color-toolkit-tabs-section-border: var(--rk-background);
+    --color-toolkit-select-background: var(--rk-surface0);
+    --color-toolkit-select-border: var(--rk-surface0);
+    --color-toolkit-select-background-hover: var(--rk-black);
+    --color-toolkit-input-text-font: var(--rk-foreground);
+    --color-toolkit-checkbox-onoff-off-background: var(--rk-surface0);
+    --color-toolkit-checkbox-onoff-on-background: var(--rk-surface0);
+    --color-toolkit-checkbox-onoff-on-mark-background: var(--rk-green);
+    --color-toolkit-checkbox-onoff-on-mark-color: var(--rk-mantle);
+    --color-toolkit-checkbox-onoff-off-mark-background: var(--rk-red);
+    --color-toolkit-checkbox-onoff-off-mark-color: var(--rk-mantle);
+    --color-toolkit-checkbox-label-background: var(--rk-background);
+    --color-toolkit-checkbox-label-border: var(--rk-mantle);
+    --color-toolkit-checkbox-input-border: var(--rk-accent);
+    --color-toolkit-engine-tooltip-border: var(--rk-surface0);
+    --color-toolkit-engine-tooltip-background: var(--rk-surface0);
+    --color-toolkit-loader-border: rgba(255, 255, 255, 0.2);
+    --color-toolkit-loader-borderleft: var(--rk-crust);
+    --color-doc-code: var(--rk-rosewater);
+    --color-doc-code-background: var(--rk-mantle);
+  }
+  :root.theme-light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.theme-light input::placeholder,
+  :root.theme-light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.theme-light #search_logo svg :not([fill="none"]) {
+    fill: var(--rk-accent);
+  }
+  :root.theme-light #search_logo svg :not([stroke="none"]) {
+    stroke: var(--rk-accent);
+  }
+  :root.theme-light .index .title {
+    filter: none;
+  }
+}

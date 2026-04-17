@@ -1,0 +1,386 @@
+/* ==UserStyle==
+@name Holodex Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/holodex.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Holodex
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("holodex.net") {
+  :root:has(.theme--dark) {
+    color-scheme: dark;
+    --v-anchor-base: var(--rk-accent);
+    --v-primary-base: var(--rk-accent);
+    --v-primary-lighten1: hsl(from var(--rk-accent) h s calc(l + 4));
+    --v-primary-lighten2: hsl(from var(--rk-accent) h s calc(l + 8));
+    --v-primary-lighten3: hsl(from var(--rk-accent) h s calc(l + 9));
+    --v-primary-lighten4: hsl(from var(--rk-accent) h s calc(l + 18));
+    --v-primary-lighten5: hsl(from var(--rk-accent) h s calc(l + 19));
+    --v-primary-darken1: hsl(from var(--rk-accent) h s calc(l - 14));
+    --v-primary-darken2: hsl(from var(--rk-accent) h s calc(l - 31));
+    --v-primary-darken3: hsl(from var(--rk-accent) h s calc(l - 35));
+    --v-primary-darken4: hsl(from var(--rk-accent) h s calc(l - 43));
+    --v-accent-base: var(--rk-accent);
+    --v-accent-lighten1: hsl(from var(--rk-accent) h s calc(l + 4));
+    --v-accent-lighten2: hsl(from var(--rk-accent) h s calc(l + 8));
+    --v-accent-lighten3: hsl(from var(--rk-accent) h s calc(l + 9));
+    --v-accent-lighten4: hsl(from var(--rk-accent) h s calc(l + 18));
+    --v-accent-lighten5: hsl(from var(--rk-accent) h s calc(l + 19));
+    --v-accent-darken1: hsl(from var(--rk-accent) h s calc(l - 14));
+    --v-accent-darken2: hsl(from var(--rk-accent) h s calc(l - 31));
+    --v-accent-darken3: hsl(from var(--rk-accent) h s calc(l - 35));
+    --v-accent-darken4: hsl(from var(--rk-accent) h s calc(l - 43));
+    --v-secondary-base: var(--rk-accent);
+    --v-secondary-lighten1: hsl(from var(--rk-accent) h s calc(l + 4));
+    --v-secondary-lighten2: hsl(from var(--rk-accent) h s calc(l + 8));
+    --v-secondary-lighten3: hsl(from var(--rk-accent) h s calc(l + 9));
+    --v-secondary-lighten4: hsl(from var(--rk-accent) h s calc(l + 18));
+    --v-secondary-lighten5: hsl(from var(--rk-accent) h s calc(l + 19));
+    --v-secondary-darken1: hsl(from var(--rk-accent) h s calc(l - 14));
+    --v-secondary-darken2: hsl(from var(--rk-accent) h s calc(l - 31));
+    --v-secondary-darken3: hsl(from var(--rk-accent) h s calc(l - 35));
+    --v-secondary-darken4: hsl(from var(--rk-accent) h s calc(l - 43));
+    --v-error-base: var(--rk-red);
+    --v-error-lighten1: hsl(from var(--rk-red) h s calc(l + 4));
+    --v-error-lighten2: hsl(from var(--rk-red) h s calc(l + 8));
+    --v-error-lighten3: hsl(from var(--rk-red) h s calc(l + 9));
+    --v-error-lighten4: hsl(from var(--rk-red) h s calc(l + 18));
+    --v-error-lighten5: hsl(from var(--rk-red) h s calc(l + 19));
+    --v-error-darken1: hsl(from var(--rk-red) h s calc(l - 14));
+    --v-error-darken2: hsl(from var(--rk-red) h s calc(l - 31));
+    --v-error-darken3: hsl(from var(--rk-red) h s calc(l - 35));
+    --v-error-darken4: hsl(from var(--rk-red) h s calc(l - 43));
+    --v-info-base: var(--rk-blue);
+    --v-info-lighten1: hsl(from var(--rk-blue) h s calc(l + 4));
+    --v-info-lighten2: hsl(from var(--rk-blue) h s calc(l + 8));
+    --v-info-lighten3: hsl(from var(--rk-blue) h s calc(l + 9));
+    --v-info-lighten4: hsl(from var(--rk-blue) h s calc(l + 18));
+    --v-info-lighten5: hsl(from var(--rk-blue) h s calc(l + 19));
+    --v-info-darken1: hsl(from var(--rk-blue) h s calc(l - 14));
+    --v-info-darken2: hsl(from var(--rk-blue) h s calc(l - 31));
+    --v-info-darken3: hsl(from var(--rk-blue) h s calc(l - 35));
+    --v-info-darken4: hsl(from var(--rk-blue) h s calc(l - 43));
+    --v-success-base: var(--rk-green);
+    --v-success-lighten1: hsl(from var(--rk-green) h s calc(l + 4));
+    --v-success-lighten2: hsl(from var(--rk-green) h s calc(l + 8));
+    --v-success-lighten3: hsl(from var(--rk-green) h s calc(l + 9));
+    --v-success-lighten4: hsl(from var(--rk-green) h s calc(l + 18));
+    --v-success-lighten5: hsl(from var(--rk-green) h s calc(l + 19));
+    --v-success-darken1: hsl(from var(--rk-green) h s calc(l - 14));
+    --v-success-darken2: hsl(from var(--rk-green) h s calc(l - 31));
+    --v-success-darken3: hsl(from var(--rk-green) h s calc(l - 35));
+    --v-success-darken4: hsl(from var(--rk-green) h s calc(l - 43));
+    --v-warning-base: var(--rk-yellow);
+    --v-warning-lighten1: hsl(from var(--rk-yellow) h s calc(l + 4));
+    --v-warning-lighten2: hsl(from var(--rk-yellow) h s calc(l + 8));
+    --v-warning-lighten3: hsl(from var(--rk-yellow) h s calc(l + 9));
+    --v-warning-lighten4: hsl(from var(--rk-yellow) h s calc(l + 18));
+    --v-warning-lighten5: hsl(from var(--rk-yellow) h s calc(l + 19));
+    --v-warning-darken1: hsl(from var(--rk-yellow) h s calc(l - 14));
+    --v-warning-darken2: hsl(from var(--rk-yellow) h s calc(l - 31));
+    --v-warning-darken3: hsl(from var(--rk-yellow) h s calc(l - 35));
+    --v-warning-darken4: hsl(from var(--rk-yellow) h s calc(l - 43));
+    --v-background-base: var(--rk-background);
+    --v-background-lighten1: hsl(from var(--rk-background) h s calc(l + 4));
+    --v-background-lighten2: hsl(from var(--rk-background) h s calc(l + 8));
+    --v-background-lighten3: hsl(from var(--rk-background) h s calc(l + 9));
+    --v-background-lighten4: hsl(from var(--rk-background) h s calc(l + 18));
+    --v-background-lighten5: hsl(from var(--rk-background) h s calc(l + 19));
+    --v-background-darken1: hsl(from var(--rk-background) h s calc(l - 14));
+    --v-background-darken2: hsl(from var(--rk-background) h s calc(l - 31));
+    --v-background-darken3: hsl(from var(--rk-background) h s calc(l - 35));
+    --v-background-darken4: hsl(from var(--rk-background) h s calc(l - 43));
+  }
+  :root:has(.theme--dark) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:has(.theme--dark) input::placeholder,
+  :root:has(.theme--dark) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root:has(.theme--dark) div.v-application {
+    background: var(--rk-background) !important;
+    color: var(--rk-foreground);
+  }
+  :root:has(.theme--dark) header#top-bar,
+  :root:has(.theme--dark) header.v-toolbar,
+  :root:has(.theme--dark) div.v-navigation-drawer__content,
+  :root:has(.theme--dark) div#bottom-bar,
+  :root:has(.theme--dark) div.v-main__wrap > div,
+  :root:has(.theme--dark) div.v-select__selections,
+  :root:has(.theme--dark) div.v-slide-group__wrapper,
+  :root:has(.theme--dark) div.v-bottom-navigation,
+  :root:has(.theme--dark) div.v-select__slot,
+  :root:has(.theme--dark) div.v-input__slot,
+  :root:has(.theme--dark) div.v-overlay__scrim {
+    background: var(--rk-background) !important;
+  }
+  :root:has(.theme--dark) div.v-sheet {
+    background: var(--rk-background);
+    border-color: var(--rk-background);
+  }
+  :root:has(.theme--dark) .v-btn.v-btn--has-bg:not(.nav-btn) {
+    background-color: var(--rk-surface0) !important;
+  }
+  :root:has(.theme--dark) .v-list,
+  :root:has(.theme--dark) .v-list-item,
+  :root:has(.theme--dark) .v-card,
+  :root:has(.theme--dark) .v-sheet,
+  :root:has(.theme--dark) .v-select__selections,
+  :root:has(.theme--dark) .v-label,
+  :root:has(.theme--dark) .text--secondary,
+  :root:has(.theme--dark) .v-input__slot input {
+    color: var(--rk-foreground) !important;
+  }
+  :root:has(.theme--dark) .v-list path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .v-list-item path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .v-card path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .v-sheet path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .v-select__selections path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .v-label path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .text--secondary path:not([fill*="iid-1"]),
+  :root:has(.theme--dark) .v-input__slot input path:not([fill*="iid-1"]) {
+    fill: var(--rk-foreground);
+  }
+  :root:has(.theme--dark) .v-messages,
+  :root:has(.theme--dark) .v-list-item__subtitle,
+  :root:has(.theme--dark) .v-tab:not(.v-tab--active) {
+    color: var(--rk-white) !important;
+  }
+  :root:has(.theme--dark) svg.logo path {
+    fill: hsl(from var(--rk-accent) h s calc(l - 2)) !important;
+  }
+  :root:has(.theme--dark) svg.logo path:last-child {
+    fill: hsl(from var(--rk-blue) h s calc(l - 8)) !important;
+  }
+  :root:has(.theme--dark) .v-chip {
+    background: var(--rk-blue);
+  }
+  :root:has(.theme--dark) .primary--text,
+  :root:has(.theme--dark) .name-vtuber {
+    color: var(--rk-accent) !important;
+  }
+  :root:has(.theme--dark) .text-live {
+    color: var(--rk-red);
+  }
+  :root:has(.theme--dark) .stream-count-chip {
+    color: var(--rk-crust) !important;
+  }
+  :root:has(.theme--dark) .nav-btn.v-btn--active {
+    color: var(--rk-accent) !important;
+  }
+  :root:has(.theme--dark) div.v-sheet.v-alert {
+    background: none !important;
+    color: var(--rk-yellow) !important;
+  }
+  :root:has(.theme--dark) div.v-sheet.v-alert .v-icon path {
+    fill: var(--rk-yellow) !important;
+  }
+  :root:has(.theme--dark) hr {
+    border-color: var(--rk-background);
+  }
+  :root:has(.theme--dark) div.v-snack {
+    color: var(--rk-foreground);
+  }
+  :root:has(.theme--dark) div.v-snack div.v-sheet {
+    background: var(--rk-surface0) !important;
+  }
+  :root:has(.theme--dark) div.v-snack button.v-btn--text {
+    color: var(--rk-foreground) !important;
+  }
+  :root:has(.theme--dark) div.v-snack button.v-btn--is-elevated.v-btn--has-bg {
+    background: var(--rk-accent) !important;
+    color: var(--rk-background);
+  }
+  :root:has(.theme--light) {
+    color-scheme: dark;
+    --v-anchor-base: var(--rk-accent);
+    --v-primary-base: var(--rk-accent);
+    --v-primary-lighten1: hsl(from var(--rk-accent) h s calc(l + 4));
+    --v-primary-lighten2: hsl(from var(--rk-accent) h s calc(l + 8));
+    --v-primary-lighten3: hsl(from var(--rk-accent) h s calc(l + 9));
+    --v-primary-lighten4: hsl(from var(--rk-accent) h s calc(l + 18));
+    --v-primary-lighten5: hsl(from var(--rk-accent) h s calc(l + 19));
+    --v-primary-darken1: hsl(from var(--rk-accent) h s calc(l - 14));
+    --v-primary-darken2: hsl(from var(--rk-accent) h s calc(l - 31));
+    --v-primary-darken3: hsl(from var(--rk-accent) h s calc(l - 35));
+    --v-primary-darken4: hsl(from var(--rk-accent) h s calc(l - 43));
+    --v-accent-base: var(--rk-accent);
+    --v-accent-lighten1: hsl(from var(--rk-accent) h s calc(l + 4));
+    --v-accent-lighten2: hsl(from var(--rk-accent) h s calc(l + 8));
+    --v-accent-lighten3: hsl(from var(--rk-accent) h s calc(l + 9));
+    --v-accent-lighten4: hsl(from var(--rk-accent) h s calc(l + 18));
+    --v-accent-lighten5: hsl(from var(--rk-accent) h s calc(l + 19));
+    --v-accent-darken1: hsl(from var(--rk-accent) h s calc(l - 14));
+    --v-accent-darken2: hsl(from var(--rk-accent) h s calc(l - 31));
+    --v-accent-darken3: hsl(from var(--rk-accent) h s calc(l - 35));
+    --v-accent-darken4: hsl(from var(--rk-accent) h s calc(l - 43));
+    --v-secondary-base: var(--rk-accent);
+    --v-secondary-lighten1: hsl(from var(--rk-accent) h s calc(l + 4));
+    --v-secondary-lighten2: hsl(from var(--rk-accent) h s calc(l + 8));
+    --v-secondary-lighten3: hsl(from var(--rk-accent) h s calc(l + 9));
+    --v-secondary-lighten4: hsl(from var(--rk-accent) h s calc(l + 18));
+    --v-secondary-lighten5: hsl(from var(--rk-accent) h s calc(l + 19));
+    --v-secondary-darken1: hsl(from var(--rk-accent) h s calc(l - 14));
+    --v-secondary-darken2: hsl(from var(--rk-accent) h s calc(l - 31));
+    --v-secondary-darken3: hsl(from var(--rk-accent) h s calc(l - 35));
+    --v-secondary-darken4: hsl(from var(--rk-accent) h s calc(l - 43));
+    --v-error-base: var(--rk-red);
+    --v-error-lighten1: hsl(from var(--rk-red) h s calc(l + 4));
+    --v-error-lighten2: hsl(from var(--rk-red) h s calc(l + 8));
+    --v-error-lighten3: hsl(from var(--rk-red) h s calc(l + 9));
+    --v-error-lighten4: hsl(from var(--rk-red) h s calc(l + 18));
+    --v-error-lighten5: hsl(from var(--rk-red) h s calc(l + 19));
+    --v-error-darken1: hsl(from var(--rk-red) h s calc(l - 14));
+    --v-error-darken2: hsl(from var(--rk-red) h s calc(l - 31));
+    --v-error-darken3: hsl(from var(--rk-red) h s calc(l - 35));
+    --v-error-darken4: hsl(from var(--rk-red) h s calc(l - 43));
+    --v-info-base: var(--rk-blue);
+    --v-info-lighten1: hsl(from var(--rk-blue) h s calc(l + 4));
+    --v-info-lighten2: hsl(from var(--rk-blue) h s calc(l + 8));
+    --v-info-lighten3: hsl(from var(--rk-blue) h s calc(l + 9));
+    --v-info-lighten4: hsl(from var(--rk-blue) h s calc(l + 18));
+    --v-info-lighten5: hsl(from var(--rk-blue) h s calc(l + 19));
+    --v-info-darken1: hsl(from var(--rk-blue) h s calc(l - 14));
+    --v-info-darken2: hsl(from var(--rk-blue) h s calc(l - 31));
+    --v-info-darken3: hsl(from var(--rk-blue) h s calc(l - 35));
+    --v-info-darken4: hsl(from var(--rk-blue) h s calc(l - 43));
+    --v-success-base: var(--rk-green);
+    --v-success-lighten1: hsl(from var(--rk-green) h s calc(l + 4));
+    --v-success-lighten2: hsl(from var(--rk-green) h s calc(l + 8));
+    --v-success-lighten3: hsl(from var(--rk-green) h s calc(l + 9));
+    --v-success-lighten4: hsl(from var(--rk-green) h s calc(l + 18));
+    --v-success-lighten5: hsl(from var(--rk-green) h s calc(l + 19));
+    --v-success-darken1: hsl(from var(--rk-green) h s calc(l - 14));
+    --v-success-darken2: hsl(from var(--rk-green) h s calc(l - 31));
+    --v-success-darken3: hsl(from var(--rk-green) h s calc(l - 35));
+    --v-success-darken4: hsl(from var(--rk-green) h s calc(l - 43));
+    --v-warning-base: var(--rk-yellow);
+    --v-warning-lighten1: hsl(from var(--rk-yellow) h s calc(l + 4));
+    --v-warning-lighten2: hsl(from var(--rk-yellow) h s calc(l + 8));
+    --v-warning-lighten3: hsl(from var(--rk-yellow) h s calc(l + 9));
+    --v-warning-lighten4: hsl(from var(--rk-yellow) h s calc(l + 18));
+    --v-warning-lighten5: hsl(from var(--rk-yellow) h s calc(l + 19));
+    --v-warning-darken1: hsl(from var(--rk-yellow) h s calc(l - 14));
+    --v-warning-darken2: hsl(from var(--rk-yellow) h s calc(l - 31));
+    --v-warning-darken3: hsl(from var(--rk-yellow) h s calc(l - 35));
+    --v-warning-darken4: hsl(from var(--rk-yellow) h s calc(l - 43));
+    --v-background-base: var(--rk-background);
+    --v-background-lighten1: hsl(from var(--rk-background) h s calc(l + 4));
+    --v-background-lighten2: hsl(from var(--rk-background) h s calc(l + 8));
+    --v-background-lighten3: hsl(from var(--rk-background) h s calc(l + 9));
+    --v-background-lighten4: hsl(from var(--rk-background) h s calc(l + 18));
+    --v-background-lighten5: hsl(from var(--rk-background) h s calc(l + 19));
+    --v-background-darken1: hsl(from var(--rk-background) h s calc(l - 14));
+    --v-background-darken2: hsl(from var(--rk-background) h s calc(l - 31));
+    --v-background-darken3: hsl(from var(--rk-background) h s calc(l - 35));
+    --v-background-darken4: hsl(from var(--rk-background) h s calc(l - 43));
+  }
+  :root:has(.theme--light) ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root:has(.theme--light) input::placeholder,
+  :root:has(.theme--light) textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root:has(.theme--light) div.v-application {
+    background: var(--rk-background) !important;
+    color: var(--rk-foreground);
+  }
+  :root:has(.theme--light) header#top-bar,
+  :root:has(.theme--light) header.v-toolbar,
+  :root:has(.theme--light) div.v-navigation-drawer__content,
+  :root:has(.theme--light) div#bottom-bar,
+  :root:has(.theme--light) div.v-main__wrap > div,
+  :root:has(.theme--light) div.v-select__selections,
+  :root:has(.theme--light) div.v-slide-group__wrapper,
+  :root:has(.theme--light) div.v-bottom-navigation,
+  :root:has(.theme--light) div.v-select__slot,
+  :root:has(.theme--light) div.v-input__slot,
+  :root:has(.theme--light) div.v-overlay__scrim {
+    background: var(--rk-background) !important;
+  }
+  :root:has(.theme--light) div.v-sheet {
+    background: var(--rk-background);
+    border-color: var(--rk-background);
+  }
+  :root:has(.theme--light) .v-btn.v-btn--has-bg:not(.nav-btn) {
+    background-color: var(--rk-surface0) !important;
+  }
+  :root:has(.theme--light) .v-list,
+  :root:has(.theme--light) .v-list-item,
+  :root:has(.theme--light) .v-card,
+  :root:has(.theme--light) .v-sheet,
+  :root:has(.theme--light) .v-select__selections,
+  :root:has(.theme--light) .v-label,
+  :root:has(.theme--light) .text--secondary,
+  :root:has(.theme--light) .v-input__slot input {
+    color: var(--rk-foreground) !important;
+  }
+  :root:has(.theme--light) .v-list path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .v-list-item path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .v-card path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .v-sheet path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .v-select__selections path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .v-label path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .text--secondary path:not([fill*="iid-1"]),
+  :root:has(.theme--light) .v-input__slot input path:not([fill*="iid-1"]) {
+    fill: var(--rk-foreground);
+  }
+  :root:has(.theme--light) .v-messages,
+  :root:has(.theme--light) .v-list-item__subtitle,
+  :root:has(.theme--light) .v-tab:not(.v-tab--active) {
+    color: var(--rk-white) !important;
+  }
+  :root:has(.theme--light) svg.logo path {
+    fill: hsl(from var(--rk-accent) h s calc(l - 2)) !important;
+  }
+  :root:has(.theme--light) svg.logo path:last-child {
+    fill: hsl(from var(--rk-blue) h s calc(l - 8)) !important;
+  }
+  :root:has(.theme--light) .v-chip {
+    background: var(--rk-blue);
+  }
+  :root:has(.theme--light) .primary--text,
+  :root:has(.theme--light) .name-vtuber {
+    color: var(--rk-accent) !important;
+  }
+  :root:has(.theme--light) .text-live {
+    color: var(--rk-red);
+  }
+  :root:has(.theme--light) .stream-count-chip {
+    color: var(--rk-crust) !important;
+  }
+  :root:has(.theme--light) .nav-btn.v-btn--active {
+    color: var(--rk-accent) !important;
+  }
+  :root:has(.theme--light) div.v-sheet.v-alert {
+    background: none !important;
+    color: var(--rk-yellow) !important;
+  }
+  :root:has(.theme--light) div.v-sheet.v-alert .v-icon path {
+    fill: var(--rk-yellow) !important;
+  }
+  :root:has(.theme--light) hr {
+    border-color: var(--rk-background);
+  }
+  :root:has(.theme--light) div.v-snack {
+    color: var(--rk-foreground);
+  }
+  :root:has(.theme--light) div.v-snack div.v-sheet {
+    background: var(--rk-surface0) !important;
+  }
+  :root:has(.theme--light) div.v-snack button.v-btn--text {
+    color: var(--rk-foreground) !important;
+  }
+  :root:has(.theme--light) div.v-snack button.v-btn--is-elevated.v-btn--has-bg {
+    background: var(--rk-accent) !important;
+    color: var(--rk-background);
+  }
+}

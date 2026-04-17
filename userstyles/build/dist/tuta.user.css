@@ -1,0 +1,272 @@
+/* ==UserStyle==
+@name Tuta Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/tuta.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Tuta
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("app.tuta.com"), domain("mail.tutanota.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* logo */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body,
+    :root drawer-menu,
+    :root .list-bg {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground);
+    }
+    :root .list-row {
+      background-color: var(--rk-background);
+    }
+    :root .odd-row {
+      background-color: var(--rk-surface0);
+    }
+    :root .header-nav {
+      background-color: var(--rk-background);
+    }
+    :root .elevated-bg,
+    :root .folder-column,
+    :root div[aria-modal] {
+      background-color: var(--rk-background) !important;
+    }
+    :root .icon[style*="fill: rgb(78, 78, 78);"] {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .icon[style*="fill: rgb(174, 174, 174);"] {
+      fill: var(--rk-white) !important;
+    }
+    :root .icon[style*="fill: rgb(255, 83, 83);"] {
+      fill: var(--rk-accent) !important;
+    }
+    :root .h2 {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .bottom-nav {
+      background: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-button,
+    :root .dropdown-button div {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-button:hover {
+      background-color: var(--rk-black) !important;
+    }
+    :root path[style*="fill: #00d2a7;"] {
+      fill: var(--rk-accent) !important;
+    }
+    :root path[style*="fill: #c5c7c7;"] {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .row-selected {
+      border-color: var(--rk-accent) !important;
+      color: var(--rk-accent) !important;
+    }
+    :root .row-selected > .nav-button {
+      color: var(--rk-accent) !important;
+    }
+    :root .row-selected > .nav-button > .icon {
+      fill: var(--rk-accent) !important;
+    }
+    :root .secondary {
+      color: var(--rk-accent) !important;
+    }
+    :root .nav-button,
+    :root .sidebar-section.mb {
+      color: var(--rk-white) !important;
+    }
+    :root .bubble {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root :where(.mouse-nav) .state-bg:hover,
+    :root :where(.keyboard-nav) .state-bg:hover,
+    :root [style*="background: rgba(139, 139, 139, 0.22)"] {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .nav-bg,
+    :root .content-bg,
+    :root [style*="background-color: rgb(35, 35, 35)"] {
+      background-color: var(--rk-background) !important;
+    }
+    :root [style*="background-color: rgb(17, 17, 17);"] {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root [style*="background-color: rgba(139, 139, 139, 0.22);"] {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root [style*="background-color: rgba(139, 139, 139, 0.38);"] {
+      background-color: var(--rk-black) !important;
+    }
+    :root [style*="color: rgb(221, 221, 221);"] {
+      color: var(--rk-foreground) !important;
+    }
+    :root [style*="color: rgb(174, 174, 174);"] {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .teamLabel {
+      background-color: var(--rk-accent);
+      color: var(--rk-mantle);
+    }
+    :root [style*="border: 2px solid rgb(255, 83, 83);"] {
+      border-color: var(--rk-accent) !important;
+    }
+    :root [style*="color: rgb(255, 83, 83);"],
+    :root .content-accent-fg {
+      color: var(--rk-accent) !important;
+    }
+    :root button.expander {
+      color: var(--rk-white) !important;
+    }
+    :root .logo-height > svg:nth-child(1) > path:nth-child(2) {
+      fill: var(--rk-accent) !important;
+    }
+    :root ::-webkit-scrollbar-thumb {
+      background-color: var(--rk-black);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* logo */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body,
+    :root drawer-menu,
+    :root .list-bg {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground);
+    }
+    :root .list-row {
+      background-color: var(--rk-background);
+    }
+    :root .odd-row {
+      background-color: var(--rk-surface0);
+    }
+    :root .header-nav {
+      background-color: var(--rk-background);
+    }
+    :root .elevated-bg,
+    :root .folder-column,
+    :root div[aria-modal] {
+      background-color: var(--rk-background) !important;
+    }
+    :root .icon[style*="fill: rgb(78, 78, 78);"] {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .icon[style*="fill: rgb(174, 174, 174);"] {
+      fill: var(--rk-white) !important;
+    }
+    :root .icon[style*="fill: rgb(255, 83, 83);"] {
+      fill: var(--rk-accent) !important;
+    }
+    :root .h2 {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .bottom-nav {
+      background: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-button,
+    :root .dropdown-button div {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-button:hover {
+      background-color: var(--rk-black) !important;
+    }
+    :root path[style*="fill: #00d2a7;"] {
+      fill: var(--rk-accent) !important;
+    }
+    :root path[style*="fill: #c5c7c7;"] {
+      fill: var(--rk-foreground) !important;
+    }
+    :root .row-selected {
+      border-color: var(--rk-accent) !important;
+      color: var(--rk-accent) !important;
+    }
+    :root .row-selected > .nav-button {
+      color: var(--rk-accent) !important;
+    }
+    :root .row-selected > .nav-button > .icon {
+      fill: var(--rk-accent) !important;
+    }
+    :root .secondary {
+      color: var(--rk-accent) !important;
+    }
+    :root .nav-button,
+    :root .sidebar-section.mb {
+      color: var(--rk-white) !important;
+    }
+    :root .bubble {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root :where(.mouse-nav) .state-bg:hover,
+    :root :where(.keyboard-nav) .state-bg:hover,
+    :root [style*="background: rgba(139, 139, 139, 0.22)"] {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root .nav-bg,
+    :root .content-bg,
+    :root [style*="background-color: rgb(35, 35, 35)"] {
+      background-color: var(--rk-background) !important;
+    }
+    :root [style*="background-color: rgb(17, 17, 17);"] {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root [style*="background-color: rgba(139, 139, 139, 0.22);"] {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root [style*="background-color: rgba(139, 139, 139, 0.38);"] {
+      background-color: var(--rk-black) !important;
+    }
+    :root [style*="color: rgb(221, 221, 221);"] {
+      color: var(--rk-foreground) !important;
+    }
+    :root [style*="color: rgb(174, 174, 174);"] {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .teamLabel {
+      background-color: var(--rk-accent);
+      color: var(--rk-mantle);
+    }
+    :root [style*="border: 2px solid rgb(255, 83, 83);"] {
+      border-color: var(--rk-accent) !important;
+    }
+    :root [style*="color: rgb(255, 83, 83);"],
+    :root .content-accent-fg {
+      color: var(--rk-accent) !important;
+    }
+    :root button.expander {
+      color: var(--rk-white) !important;
+    }
+    :root .logo-height > svg:nth-child(1) > path:nth-child(2) {
+      fill: var(--rk-accent) !important;
+    }
+    :root ::-webkit-scrollbar-thumb {
+      background-color: var(--rk-black);
+    }
+  }
+}

@@ -1,0 +1,212 @@
+/* ==UserStyle==
+@name Startpage Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/startpage.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Startpage
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("startpage.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* fonts */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root,
+    :root body {
+      --sx-accent: var(--rk-accent);
+      --sx-background: var(--rk-background);
+      --sx-border: var(--rk-surface0);
+      --sx-tabLinkHover: var(--rk-cyan);
+      --sx-foreground: var(--rk-foreground);
+      --sx-foregroundAlt: var(--rk-bright-white);
+      --sx-foregroundEmphasis: hsl(from var(--rk-foreground) h s calc(l + 10));
+      --sx-popupBackground: var(--rk-surface0);
+      --sx-popupForeground: var(--rk-foreground);
+      --sx-popupForegroundEm: var(--rk-foreground);
+      --sx-popupUrl: var(--rk-blue);
+      --sx-buttonHighlight: var(--rk-accent);
+      --sx-loadingBars: var(--rk-mantle);
+      --sx-darkIcons: var(--rk-crust);
+      --sx-arrowButtonBackground: var(--rk-foreground);
+      --sx-arrowButtonForeground: var(--rk-foreground);
+    }
+    :root .css-nguon6 button {
+      color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .css-fg9wif,
+    :root .header,
+    :root .wp-qi-sb__result,
+    :root .linkHover,
+    :root .footer__container {
+      background: var(--rk-mantle) !important;
+    }
+    :root body {
+      color: var(--rk-foreground);
+    }
+    :root body,
+    :root .layout-web,
+    :root .layout-web__body,
+    :root .ex-qi-kp:not(.ex-qi-kp--light, .ex-qi-kp--night, .ex-qi-kp--air) .sx-kp-infobox-wrap .sx-infobox tr:not(.sx-heading-row) > *,
+    :root .w-gl {
+      background: var(--rk-background) !important;
+    }
+    :root .wp-qi-sb__result {
+      border-color: var(--rk-mantle) !important;
+    }
+    :root .wp-qi-sb__top-square-img {
+      border-bottom-color: var(--rk-mantle) !important;
+    }
+    :root .w-gl__result-title,
+    :root .inline-nav-menu__link,
+    :root .wp-qi-sb__title {
+      color: var(--rk-foreground) !important;
+    }
+    :root .w-gl__result,
+    :root .search-filter-time__dropdown,
+    :root .search-filter-region__dropdown,
+    :root .search-filter-family__field-label,
+    :root .wp-qi-sb__extract {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .w-gl__result-url {
+      color: var(--rk-accent) !important;
+    }
+    :root .wp-qi-sb__expand-text,
+    :root .inline-nav-menu__link__active,
+    :root .inline-nav-menu__link:hover {
+      color: var(--rk-green) !important;
+    }
+    :root .inline-nav-menu__link__active,
+    :root .inline-nav-menu__link__post-link:hover {
+      border-bottom-color: var(--rk-green) !important;
+    }
+    :root .pagination .num--active {
+      background: var(--rk-flamingo) !important;
+      border-color: var(--rk-flamingo) !important;
+    }
+    :root .pagination__num:hover,
+    :root .pagination__next-prev-button:hover {
+      background: var(--rk-blue) !important;
+      border-color: var(--rk-blue) !important;
+    }
+    :root header {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root .w-gl__result-title:visited {
+      color: var(--rk-lavender) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* fonts */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root,
+    :root body {
+      --sx-accent: var(--rk-accent);
+      --sx-background: var(--rk-background);
+      --sx-border: var(--rk-surface0);
+      --sx-tabLinkHover: var(--rk-cyan);
+      --sx-foreground: var(--rk-foreground);
+      --sx-foregroundAlt: var(--rk-bright-white);
+      --sx-foregroundEmphasis: hsl(from var(--rk-foreground) h s calc(l + 10));
+      --sx-popupBackground: var(--rk-surface0);
+      --sx-popupForeground: var(--rk-foreground);
+      --sx-popupForegroundEm: var(--rk-foreground);
+      --sx-popupUrl: var(--rk-blue);
+      --sx-buttonHighlight: var(--rk-accent);
+      --sx-loadingBars: var(--rk-mantle);
+      --sx-darkIcons: var(--rk-crust);
+      --sx-arrowButtonBackground: var(--rk-foreground);
+      --sx-arrowButtonForeground: var(--rk-foreground);
+    }
+    :root .css-nguon6 button {
+      color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root .css-fg9wif,
+    :root .header,
+    :root .wp-qi-sb__result,
+    :root .linkHover,
+    :root .footer__container {
+      background: var(--rk-mantle) !important;
+    }
+    :root body {
+      color: var(--rk-foreground);
+    }
+    :root body,
+    :root .layout-web,
+    :root .layout-web__body,
+    :root .ex-qi-kp:not(.ex-qi-kp--light, .ex-qi-kp--night, .ex-qi-kp--air) .sx-kp-infobox-wrap .sx-infobox tr:not(.sx-heading-row) > *,
+    :root .w-gl {
+      background: var(--rk-background) !important;
+    }
+    :root .wp-qi-sb__result {
+      border-color: var(--rk-mantle) !important;
+    }
+    :root .wp-qi-sb__top-square-img {
+      border-bottom-color: var(--rk-mantle) !important;
+    }
+    :root .w-gl__result-title,
+    :root .inline-nav-menu__link,
+    :root .wp-qi-sb__title {
+      color: var(--rk-foreground) !important;
+    }
+    :root .w-gl__result,
+    :root .search-filter-time__dropdown,
+    :root .search-filter-region__dropdown,
+    :root .search-filter-family__field-label,
+    :root .wp-qi-sb__extract {
+      color: var(--rk-bright-white) !important;
+    }
+    :root .w-gl__result-url {
+      color: var(--rk-accent) !important;
+    }
+    :root .wp-qi-sb__expand-text,
+    :root .inline-nav-menu__link__active,
+    :root .inline-nav-menu__link:hover {
+      color: var(--rk-green) !important;
+    }
+    :root .inline-nav-menu__link__active,
+    :root .inline-nav-menu__link__post-link:hover {
+      border-bottom-color: var(--rk-green) !important;
+    }
+    :root .pagination .num--active {
+      background: var(--rk-flamingo) !important;
+      border-color: var(--rk-flamingo) !important;
+    }
+    :root .pagination__num:hover,
+    :root .pagination__next-prev-button:hover {
+      background: var(--rk-blue) !important;
+      border-color: var(--rk-blue) !important;
+    }
+    :root header {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root .w-gl__result-title:visited {
+      color: var(--rk-lavender) !important;
+    }
+  }
+}

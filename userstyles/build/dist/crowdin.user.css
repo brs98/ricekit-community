@@ -1,0 +1,188 @@
+/* ==UserStyle==
+@name Crowdin Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/crowdin.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Crowdin
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document regexp("https://crowdin.com(?!/translate).*") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :root:root:root:root:root {
+      --app-bg: var(--rk-mantle);
+      --body-bg: var(--rk-background);
+      --light-bg: var(--rk-surface0);
+      --search-bg: var(--rk-surface0);
+      --super-light-bg: var(--rk-black);
+      --body-color: var(--rk-foreground);
+      --link-hover: var(--rk-green);
+      --primary: var(--rk-green);
+      --secondary: var(--rk-rosewater);
+      --tertiary: var(--rk-magenta);
+      --primary-btn: var(--rk-green);
+      --primary-btn-hover: var(--rk-cyan);
+      --warning-content: var(--rk-yellow);
+      --info: var(--rk-blue);
+      --crowdin-primary-blue-gray-05: var(--rk-black);
+      --crowdin-primary-blue-gray: var(--rk-overlay0);
+    }
+    :root .btn-primary,
+    :root .btn-primary:hover {
+      color: var(--rk-background);
+    }
+    :root .btn-outline-primary,
+    :root .btn-outline-primary:hover {
+      color: var(--rk-green);
+      border-color: var(--rk-green);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :root:root:root:root:root {
+      --app-bg: var(--rk-mantle);
+      --body-bg: var(--rk-background);
+      --light-bg: var(--rk-surface0);
+      --search-bg: var(--rk-surface0);
+      --super-light-bg: var(--rk-black);
+      --body-color: var(--rk-foreground);
+      --link-hover: var(--rk-green);
+      --primary: var(--rk-green);
+      --secondary: var(--rk-rosewater);
+      --tertiary: var(--rk-magenta);
+      --primary-btn: var(--rk-green);
+      --primary-btn-hover: var(--rk-cyan);
+      --warning-content: var(--rk-yellow);
+      --info: var(--rk-blue);
+      --crowdin-primary-blue-gray-05: var(--rk-black);
+      --crowdin-primary-blue-gray: var(--rk-overlay0);
+    }
+    :root .btn-primary,
+    :root .btn-primary:hover {
+      color: var(--rk-background);
+    }
+    :root .btn-outline-primary,
+    :root .btn-outline-primary:hover {
+      color: var(--rk-green);
+      border-color: var(--rk-green);
+    }
+  }
+}
+@-moz-document regexp("https://crowdin.com/translate/.*") {
+  @media (prefers-color-scheme: light) {
+    color-scheme: dark;
+    ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    body {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    #left_panel,
+    .nav-tabs,
+    .navbar-inner.editor-navbar,
+    #discussions_control,
+    #main_menu {
+      background-color: var(--rk-surface0) !important;
+    }
+    #editor-center-layout,
+    .editor-pane-inner,
+    #translation_wrapper,
+    #translation_text_container,
+    .texts-to-translate-header,
+    #right_panel,
+    .texts-to-translate-paging,
+    #asset_preview_wrapper.no-preview,
+    .editor-pane-title-and-buttons-helper {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+    }
+    .body.dark-theme #main_menu .nav-pills > li.active > a {
+      background-color: var(--rk-blue);
+    }
+    .progress .bar-validate {
+      background-color: var(--rk-lavender);
+    }
+    .progress .bar-translate {
+      background-color: var(--rk-sapphire);
+    }
+    a,
+    .btn-link {
+      color: var(--rk-rosewater) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+    ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    body {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+    #left_panel,
+    .nav-tabs,
+    .navbar-inner.editor-navbar,
+    #discussions_control,
+    #main_menu {
+      background-color: var(--rk-surface0) !important;
+    }
+    #editor-center-layout,
+    .editor-pane-inner,
+    #translation_wrapper,
+    #translation_text_container,
+    .texts-to-translate-header,
+    #right_panel,
+    .texts-to-translate-paging,
+    #asset_preview_wrapper.no-preview,
+    .editor-pane-title-and-buttons-helper {
+      background-color: var(--rk-background) !important;
+      color: var(--rk-foreground) !important;
+    }
+    .body.dark-theme #main_menu .nav-pills > li.active > a {
+      background-color: var(--rk-blue);
+    }
+    .progress .bar-validate {
+      background-color: var(--rk-lavender);
+    }
+    .progress .bar-translate {
+      background-color: var(--rk-sapphire);
+    }
+    a,
+    .btn-link {
+      color: var(--rk-rosewater) !important;
+    }
+  }
+}

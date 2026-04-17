@@ -1,0 +1,87 @@
+# Refresh the userstyles status badges whenever code under userstyles/ changes
+# on main. Reads `deno task build` output for the compile count, walks
+# userstyles/styles/ for the custom count, and writes shields.io endpoint
+# JSON files that the READMEs reference.
+name: userstyles-stats
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "userstyles/**"
+      - ".github/workflows/userstyles-stats.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-badges:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (with submodules)
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Build userstyles and capture counts
+        id: counts
+        working-directory: userstyles
+        run: |
+          set -o pipefail
+          # Run the build; tee to stderr so the full log still appears in Actions.
+          output=$(deno task build 2>&1 | tee /dev/stderr)
+          # Parse "=== build complete: <ok>/<total> ok, <fail> failed ==="
+          line=$(echo "$output" | grep -oE 'build complete: [0-9]+/[0-9]+ ok' | head -n1)
+          ok=$(echo "$line" | grep -oE '[0-9]+/[0-9]+' | cut -d/ -f1)
+          total=$(echo "$line" | grep -oE '[0-9]+/[0-9]+' | cut -d/ -f2)
+          # Custom count = subdirectories of userstyles/styles/.
+          custom=$(find styles -maxdepth 1 -mindepth 1 -type d | wc -l | tr -d ' ')
+          echo "ok=$ok"         >> "$GITHUB_OUTPUT"
+          echo "total=$total"   >> "$GITHUB_OUTPUT"
+          echo "custom=$custom" >> "$GITHUB_OUTPUT"
+
+      - name: Write badge JSON
+        env:
+          OK: ${{ steps.counts.outputs.ok }}
+          TOTAL: ${{ steps.counts.outputs.total }}
+          CUSTOM: ${{ steps.counts.outputs.custom }}
+        run: |
+          if [ "$OK" = "$TOTAL" ]; then color=success
+          elif [ "$OK" -gt 0 ]; then color=yellow
+          else color=critical
+          fi
+          cat > .github/badges/userstyles-upstream.json <<JSON
+          {
+            "schemaVersion": 1,
+            "label": "upstream compiling",
+            "message": "$OK/$TOTAL",
+            "color": "$color"
+          }
+          JSON
+          cat > .github/badges/userstyles-custom.json <<JSON
+          {
+            "schemaVersion": 1,
+            "label": "custom userstyles",
+            "message": "$CUSTOM",
+            "color": "informational"
+          }
+          JSON
+
+      - name: Commit badges if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet .github/badges/; then
+            echo "badges unchanged — nothing to commit"
+          else
+            git add .github/badges/
+            git commit -m "chore(userstyles): refresh stats badges [skip ci]"
+            git push
+          fi

@@ -1,0 +1,172 @@
+/* ==UserStyle==
+@name Ecosia Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/ecosia.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Ecosia
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("ecosia.org") {
+  :root.light {
+    color-scheme: dark;
+    --color-brand-primary: var(--rk-accent) !important;
+    --color-brand-secondary: var(--rk-crust) !important;
+    --color-error: var(--rk-red) !important;
+    --color-success: var(--rk-green) !important;
+    --color-disabled: var(--rk-overlay1) !important;
+    --color-button-background-primary: var(--rk-accent) !important;
+    --color-button-background-primary-active: var(--rk-accent) !important;
+    --color-button-background-primary-hover: var(--rk-accent);
+    --color-button-background-secondary: var(--rk-surface0) !important;
+    --color-button-background-secondary-active: var(--rk-bright-black) !important;
+    --color-button-background-secondary-hover: var(--rk-black) !important;
+    --color-button-content-primary: var(--rk-background) !important;
+    --color-button-content-secondary: var(--rk-foreground) !important;
+    --color-button-content-tertiary: var(--rk-accent) !important;
+    --color-button-border: var(--rk-surface0) !important;
+    --color-button-background-transparent-hover: var(--rk-black);
+    --color-button-background-transparent-active: var(--rk-bright-black);
+    --color-background-primary: var(--rk-background) !important;
+    --color-background-secondary: var(--rk-crust) !important;
+    --color-background-tertiary: var(--rk-mantle) !important;
+    --color-background-quaternary: var(--rk-surface0);
+    --color-background-elevation-1: var(--rk-mantle) !important;
+    --color-highlighter: var(--rk-surface0) !important;
+    --color-highlight-primary: var(--rk-surface0) !important;
+    --color-overlay-primary: var(--rk-overlay0) !important;
+    --color-overlay-secondary: var(--rk-overlay1) !important;
+    --color-text-primary: var(--rk-foreground) !important;
+    --color-text-secondary: var(--rk-white) !important;
+    --color-text-tertiary: var(--rk-foreground) !important;
+    --color-link-primary: var(--rk-sapphire) !important;
+    --color-link-secondary: var(--rk-sky) !important;
+    --color-url: var(--rk-sapphire) !important;
+    --color-link-results-default: var(--rk-sapphire) !important;
+    --color-link-results-visited: var(--rk-cyan) !important;
+    --color-decorative-icon: var(--rk-accent) !important;
+    --color-elevation-layer-1: var(--rk-black);
+    --color-elevation-layer-2: var(--rk-bright-black);
+    --color-decorative-border-1: var(--rk-black) !important;
+    --color-focused: var(--rk-accent) !important;
+    --color-form-border-default: var(--rk-surface0) !important;
+    --color-form-border-hover: var(--rk-black) !important;
+    --color-form-border-primary-active: var(--rk-accent) !important;
+    --color-tripadvisor-rating: var(--rk-white) !important;
+    --color-tree-counter-tree-tall: var(--rk-yellow) !important;
+    --color-green-leaf-icon-color-top: var(--rk-green) !important;
+    --color-green-leaf-icon-color-bottom: var(--rk-green) !important;
+    --color-fossil-fuel-icon-color-top: var(--rk-flamingo) !important;
+    --color-fossil-fuel-icon-color-bottom: var(--rk-maroon) !important;
+    /* search page */
+    --color-above-fold-background: var(--rk-surface0) !important;
+    --color-above-fold-background-addon: var(--rk-overlay1) !important;
+    --color-above-fold-text: var(--rk-foreground) !important;
+    --color-section-wrapper-background-gray: var(--rk-black) !important;
+    --color-section-wrapper-background-dark-green: var(--rk-surface0) !important;
+    --color-section-wrapper-background-light-green: var(--rk-surface0) !important;
+    --color-section-header-title: var(--rk-foreground) !important;
+    --color-projects-title: var(--rk-foreground) !important;
+    --color-projects-description: var(--rk-black);
+    --color-financial-report-total-background: var(--rk-surface0) !important;
+    --color-financial-report-total-text: var(--rk-foreground) !important;
+    --color-forest-background-addon: var(--rk-black) !important;
+    --color-forest-background-secondary: var(--rk-surface0) !important;
+    --color-before-after-text: var(--rk-foreground) !important;
+    /* override color digit on homepage */
+  }
+  :root.light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.light input::placeholder,
+  :root.light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.light .count__digit,
+  :root.light .counter__description {
+    color: var(--rk-foreground) !important;
+  }
+  :root.dark {
+    color-scheme: dark;
+    --color-brand-primary: var(--rk-accent) !important;
+    --color-brand-secondary: var(--rk-crust) !important;
+    --color-error: var(--rk-red) !important;
+    --color-success: var(--rk-green) !important;
+    --color-disabled: var(--rk-overlay1) !important;
+    --color-button-background-primary: var(--rk-accent) !important;
+    --color-button-background-primary-active: var(--rk-accent) !important;
+    --color-button-background-primary-hover: var(--rk-accent);
+    --color-button-background-secondary: var(--rk-surface0) !important;
+    --color-button-background-secondary-active: var(--rk-bright-black) !important;
+    --color-button-background-secondary-hover: var(--rk-black) !important;
+    --color-button-content-primary: var(--rk-background) !important;
+    --color-button-content-secondary: var(--rk-foreground) !important;
+    --color-button-content-tertiary: var(--rk-accent) !important;
+    --color-button-border: var(--rk-surface0) !important;
+    --color-button-background-transparent-hover: var(--rk-black);
+    --color-button-background-transparent-active: var(--rk-bright-black);
+    --color-background-primary: var(--rk-background) !important;
+    --color-background-secondary: var(--rk-crust) !important;
+    --color-background-tertiary: var(--rk-mantle) !important;
+    --color-background-quaternary: var(--rk-surface0);
+    --color-background-elevation-1: var(--rk-mantle) !important;
+    --color-highlighter: var(--rk-surface0) !important;
+    --color-highlight-primary: var(--rk-surface0) !important;
+    --color-overlay-primary: var(--rk-overlay0) !important;
+    --color-overlay-secondary: var(--rk-overlay1) !important;
+    --color-text-primary: var(--rk-foreground) !important;
+    --color-text-secondary: var(--rk-white) !important;
+    --color-text-tertiary: var(--rk-foreground) !important;
+    --color-link-primary: var(--rk-sapphire) !important;
+    --color-link-secondary: var(--rk-sky) !important;
+    --color-url: var(--rk-sapphire) !important;
+    --color-link-results-default: var(--rk-sapphire) !important;
+    --color-link-results-visited: var(--rk-cyan) !important;
+    --color-decorative-icon: var(--rk-accent) !important;
+    --color-elevation-layer-1: var(--rk-black);
+    --color-elevation-layer-2: var(--rk-bright-black);
+    --color-decorative-border-1: var(--rk-black) !important;
+    --color-focused: var(--rk-accent) !important;
+    --color-form-border-default: var(--rk-surface0) !important;
+    --color-form-border-hover: var(--rk-black) !important;
+    --color-form-border-primary-active: var(--rk-accent) !important;
+    --color-tripadvisor-rating: var(--rk-white) !important;
+    --color-tree-counter-tree-tall: var(--rk-yellow) !important;
+    --color-green-leaf-icon-color-top: var(--rk-green) !important;
+    --color-green-leaf-icon-color-bottom: var(--rk-green) !important;
+    --color-fossil-fuel-icon-color-top: var(--rk-flamingo) !important;
+    --color-fossil-fuel-icon-color-bottom: var(--rk-maroon) !important;
+    /* search page */
+    --color-above-fold-background: var(--rk-surface0) !important;
+    --color-above-fold-background-addon: var(--rk-overlay1) !important;
+    --color-above-fold-text: var(--rk-foreground) !important;
+    --color-section-wrapper-background-gray: var(--rk-black) !important;
+    --color-section-wrapper-background-dark-green: var(--rk-surface0) !important;
+    --color-section-wrapper-background-light-green: var(--rk-surface0) !important;
+    --color-section-header-title: var(--rk-foreground) !important;
+    --color-projects-title: var(--rk-foreground) !important;
+    --color-projects-description: var(--rk-black);
+    --color-financial-report-total-background: var(--rk-surface0) !important;
+    --color-financial-report-total-text: var(--rk-foreground) !important;
+    --color-forest-background-addon: var(--rk-black) !important;
+    --color-forest-background-secondary: var(--rk-surface0) !important;
+    --color-before-after-text: var(--rk-foreground) !important;
+    /* override color digit on homepage */
+  }
+  :root.dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root.dark input::placeholder,
+  :root.dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root.dark .count__digit,
+  :root.dark .counter__description {
+    color: var(--rk-foreground) !important;
+  }
+}

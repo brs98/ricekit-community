@@ -1,0 +1,408 @@
+/* ==UserStyle==
+@name Cinny Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/cinny.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Cinny
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("cinny.in") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+  code .token {
+    opacity: 1 !important;
+  }
+  :root,
+  .silver-theme {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    /* Legacy user colors */
+    --mx-uc-1: var(--rk-blue);
+    --mx-uc-2: var(--rk-magenta);
+    --mx-uc-3: var(--rk-cyan);
+    --mx-uc-4: var(--rk-red);
+    --mx-uc-5: var(--rk-peach);
+    --mx-uc-6: var(--rk-sky);
+    --mx-uc-7: var(--rk-accent);
+    --mx-uc-8: var(--rk-green);
+    /* Search results */
+    /* Footer */
+    /* I don't think these actually do anything anymore, but they are
+    still defined in the app. They _might_ be removed in a future release. */
+    /* Backgrounds */
+    --bg-surface: var(--rk-background);
+    --bg-surface-transparent: rgb(from var(--rk-background) r g b / 0);
+    --bg-surface-low: var(--rk-mantle);
+    --bg-surface-low-transparent: rgb(from var(--rk-mantle) r g b / 0);
+    --bg-surface-extra-low: var(--rk-crust);
+    --bg-surface-extra-low-transparent: rgb(from var(--rk-crust) r g b / 0);
+    --bg-surface-border: rgb(from var(--rk-crust) r g b / 0.2);
+    --bg-surface-hover: var(--rk-surface0);
+    --bg-surface-active: var(--rk-black);
+    --bg-overlay: rgb(from var(--rk-crust) r g b / 0.6);
+    --bg-overlay-low: rgb(from var(--rk-crust) r g b / 0.8);
+    --bg-primary: var(--rk-accent);
+    --bg-primary-hover: rgb(from var(--rk-accent) r g b / 0.8);
+    --bg-primary-active: rgb(from var(--rk-accent) r g b / 0.7);
+    --bg-primary-border: rgb(from var(--rk-accent) r g b / 0.38);
+    --bg-tooltip: var(--rk-surface0);
+    --bg-badge: var(--rk-lavender);
+    --bg-positive: var(--rk-green);
+    --bg-positive-hover: rgb(from var(--rk-green) r g b / 0.08);
+    --bg-positive-active: rgb(from var(--rk-green) r g b / 0.15);
+    --bg-positive-border: rgb(from var(--rk-green) r g b / 0.4);
+    --bg-caution: var(--rk-peach);
+    --bg-caution-hover: rgb(from var(--rk-peach) r g b / 0.08);
+    --bg-caution-active: rgb(from var(--rk-peach) r g b / 0.15);
+    --bg-caution-border: rgb(from var(--rk-peach) r g b / 0.4);
+    --bg-danger: var(--rk-maroon);
+    --bg-danger-hover: rgb(from var(--rk-maroon) r g b / 0.05);
+    --bg-danger-active: rgb(from var(--rk-maroon) r g b / 0.1);
+    --bg-danger-border: rgb(from var(--rk-maroon) r g b / 0.2);
+    --bg-ping: rgb(from var(--rk-green) r g b / 0.4);
+    --bg-ping-hover: rgb(from var(--rk-green) r g b / 0.5);
+    /* Texts */
+    --tc-surface-high: var(--rk-foreground);
+    --tc-surface-normal: var(--rk-foreground);
+    --tc-surface-normal-low: var(--rk-bright-white);
+    --tc-surface-low: var(--rk-white);
+    --tc-primary-high: var(--rk-crust);
+    --tc-primary-normal: var(--rk-foreground);
+    --tc-primary-low: var(--rk-bright-white);
+    --tc-tooltip: var(--rk-white);
+    --tc-code: var(--rk-accent);
+    --tc-link: var(--rk-blue);
+    --tc-badge: var(--rk-crust);
+    --tc-positive-high: var(--rk-green);
+    --tc-positive-normal: var(--rk-green);
+    --tc-positive-low: var(--rk-green);
+    --tc-caution-high: var(--rk-peach);
+    --tc-caution-normal: var(--rk-peach);
+    --tc-caution-low: var(--rk-peach);
+    --tc-danger-high: var(--rk-maroon);
+    --tc-danger-normal: var(--rk-maroon);
+    --tc-danger-low: var(--rk-maroon);
+    /* Icons */
+    --ic-surface-high: var(--rk-foreground);
+    --ic-surface-normal: var(--rk-foreground);
+    --ic-surface-low: var(--rk-bright-white);
+    --ic-primary-high: var(--rk-crust);
+    --ic-primary-normal: var(--rk-crust);
+    --ic-primary-low: var(--rk-crust);
+    --ic-positive-high: var(--rk-green);
+    --ic-positive-normal: var(--rk-maroon);
+    --ic-caution-high: var(--rk-peach);
+    --ic-caution-normal: var(--rk-peach);
+    --ic-danger-high: var(--rk-maroon);
+    --ic-danger-normal: var(--rk-maroon);
+  }
+  :root ::selection,
+  .silver-theme ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root input::placeholder,
+  .silver-theme input::placeholder,
+  :root textarea::placeholder,
+  .silver-theme textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root body.oq6d071w,
+  .silver-theme body.oq6d071w,
+  :root._15q3ngn0,
+  .silver-theme._15q3ngn0,
+  :root._15q3ngn1,
+  .silver-theme._15q3ngn1,
+  :root._15q3ngn2,
+  .silver-theme._15q3ngn2 {
+    --oq6d070: var(--rk-mantle);
+    --oq6d071: var(--rk-background);
+    --oq6d072: var(--rk-surface0);
+    --oq6d073: var(--rk-black);
+    --oq6d074: var(--rk-foreground);
+    --oq6d075: var(--rk-background);
+    --oq6d076: var(--rk-surface0);
+    --oq6d077: var(--rk-black);
+    --oq6d078: var(--rk-bright-black);
+    --oq6d079: var(--rk-foreground);
+    --oq6d07a: var(--rk-mantle);
+    --oq6d07b: var(--rk-background);
+    --oq6d07c: var(--rk-surface0);
+    --oq6d07d: var(--rk-black);
+    --oq6d07e: var(--rk-foreground);
+    --oq6d07f: var(--rk-white);
+    --oq6d07g: var(--rk-overlay2);
+    --oq6d07h: var(--rk-overlay1);
+    --oq6d07i: var(--rk-overlay0);
+    --oq6d07j: var(--rk-background);
+    --oq6d07k: rgb(from var(--rk-accent) r g b / 0.5);
+    --oq6d07l: rgb(from var(--rk-accent) r g b / 0.4);
+    --oq6d07m: rgb(from var(--rk-accent) r g b / 0.3);
+    --oq6d07n: rgb(from var(--rk-accent) r g b / 0.2);
+    --oq6d07o: var(--rk-foreground);
+    --oq6d07p: var(--rk-bright-white);
+    --oq6d07q: var(--rk-white);
+    --oq6d07r: var(--rk-overlay2);
+    --oq6d07s: var(--rk-overlay1);
+    --oq6d07t: var(--rk-mantle);
+    --oq6d07u: var(--rk-surface0);
+    --oq6d07v: var(--rk-black);
+    --oq6d07w: var(--rk-bright-black);
+    --oq6d07x: var(--rk-overlay0);
+    --oq6d07y: var(--rk-foreground);
+    --oq6d07z: rgb(from var(--rk-green) r g b / 0.9);
+    --oq6d0710: rgb(from var(--rk-green) r g b / 0.95);
+    --oq6d0711: rgb(from var(--rk-green) r g b / 0.975);
+    --oq6d0712: var(--rk-green);
+    --oq6d0713: var(--rk-surface0);
+    --oq6d0714: rgb(from var(--rk-surface0) r g b / 0.975);
+    --oq6d0715: rgb(from var(--rk-surface0) r g b / 0.95);
+    --oq6d0716: rgb(from var(--rk-surface0) r g b / 0.9);
+    --oq6d0717: rgb(from var(--rk-surface0) r g b / 0.8);
+    --oq6d0718: var(--rk-green);
+    --oq6d0719: rgb(from var(--rk-peach) r g b / 0.9);
+    --oq6d071a: rgb(from var(--rk-peach) r g b / 0.95);
+    --oq6d071b: rgb(from var(--rk-peach) r g b / 0.975);
+    --oq6d071c: var(--rk-peach);
+    --oq6d071d: rgb(from var(--rk-surface0) r g b / 0.975);
+    --oq6d071e: rgb(from var(--rk-surface0) r g b / 0.95);
+    --oq6d071f: rgb(from var(--rk-surface0) r g b / 0.9);
+    --oq6d071g: rgb(from var(--rk-surface0) r g b / 0.8);
+    --oq6d071h: rgb(from var(--rk-surface0) r g b / 0.7);
+    --oq6d071i: rgb(from var(--rk-maroon) r g b / 0.9);
+    --oq6d071j: rgb(from var(--rk-maroon) r g b / 0.95);
+    --oq6d071k: rgb(from var(--rk-maroon) r g b / 0.975);
+    --oq6d071l: var(--rk-maroon);
+    --oq6d071m: rgb(from var(--rk-surface0) r g b / 0.975);
+    --oq6d071n: rgb(from var(--rk-surface0) r g b / 0.95);
+    --oq6d071o: rgb(from var(--rk-surface0) r g b / 0.9);
+    --oq6d071p: rgb(from var(--rk-surface0) r g b / 0.8);
+    --oq6d071q: rgb(from var(--rk-surface0) r g b / 0.7);
+    --oq6d071r: rgb(from var(--rk-surface0) r g b / 0.6);
+    --oq6d071s: rgb(from var(--rk-maroon) r g b / 0.9);
+    --oq6d071t: rgb(from var(--rk-foreground) r g b / 0.5);
+    --oq6d071u: var(--rk-crust);
+    --oq6d071v: rgb(from var(--rk-crust) r g b / 0.6);
+  }
+  :root ._1m2qi7rq,
+  .silver-theme ._1m2qi7rq {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  :root .footer,
+  .silver-theme .footer {
+    background-color: var(--rk-background);
+  }
+  :root .footer .text-s1,
+  .silver-theme .footer .text-s1,
+  :root .footer .text-h2,
+  .silver-theme .footer .text-h2,
+  :root .footer a,
+  .silver-theme .footer a {
+    color: var(--rk-foreground);
+  }
+  :root .footer .footer__creator,
+  .silver-theme .footer .footer__creator,
+  :root .footer .footer__menu-container .text-b3,
+  .silver-theme .footer .footer__menu-container .text-b3 {
+    color: var(--rk-white);
+  }
+  .dark-theme,
+  .butter-theme {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    /* Legacy user colors */
+    --mx-uc-1: var(--rk-blue);
+    --mx-uc-2: var(--rk-magenta);
+    --mx-uc-3: var(--rk-cyan);
+    --mx-uc-4: var(--rk-red);
+    --mx-uc-5: var(--rk-peach);
+    --mx-uc-6: var(--rk-sky);
+    --mx-uc-7: var(--rk-accent);
+    --mx-uc-8: var(--rk-green);
+    /* Search results */
+    /* Footer */
+    /* I don't think these actually do anything anymore, but they are
+    still defined in the app. They _might_ be removed in a future release. */
+    /* Backgrounds */
+    --bg-surface: var(--rk-background);
+    --bg-surface-transparent: rgb(from var(--rk-background) r g b / 0);
+    --bg-surface-low: var(--rk-mantle);
+    --bg-surface-low-transparent: rgb(from var(--rk-mantle) r g b / 0);
+    --bg-surface-extra-low: var(--rk-crust);
+    --bg-surface-extra-low-transparent: rgb(from var(--rk-crust) r g b / 0);
+    --bg-surface-border: rgb(from var(--rk-crust) r g b / 0.2);
+    --bg-surface-hover: var(--rk-surface0);
+    --bg-surface-active: var(--rk-black);
+    --bg-overlay: rgb(from var(--rk-crust) r g b / 0.6);
+    --bg-overlay-low: rgb(from var(--rk-crust) r g b / 0.8);
+    --bg-primary: var(--rk-accent);
+    --bg-primary-hover: rgb(from var(--rk-accent) r g b / 0.8);
+    --bg-primary-active: rgb(from var(--rk-accent) r g b / 0.7);
+    --bg-primary-border: rgb(from var(--rk-accent) r g b / 0.38);
+    --bg-tooltip: var(--rk-surface0);
+    --bg-badge: var(--rk-lavender);
+    --bg-positive: var(--rk-green);
+    --bg-positive-hover: rgb(from var(--rk-green) r g b / 0.08);
+    --bg-positive-active: rgb(from var(--rk-green) r g b / 0.15);
+    --bg-positive-border: rgb(from var(--rk-green) r g b / 0.4);
+    --bg-caution: var(--rk-peach);
+    --bg-caution-hover: rgb(from var(--rk-peach) r g b / 0.08);
+    --bg-caution-active: rgb(from var(--rk-peach) r g b / 0.15);
+    --bg-caution-border: rgb(from var(--rk-peach) r g b / 0.4);
+    --bg-danger: var(--rk-maroon);
+    --bg-danger-hover: rgb(from var(--rk-maroon) r g b / 0.05);
+    --bg-danger-active: rgb(from var(--rk-maroon) r g b / 0.1);
+    --bg-danger-border: rgb(from var(--rk-maroon) r g b / 0.2);
+    --bg-ping: rgb(from var(--rk-green) r g b / 0.4);
+    --bg-ping-hover: rgb(from var(--rk-green) r g b / 0.5);
+    /* Texts */
+    --tc-surface-high: var(--rk-foreground);
+    --tc-surface-normal: var(--rk-foreground);
+    --tc-surface-normal-low: var(--rk-bright-white);
+    --tc-surface-low: var(--rk-white);
+    --tc-primary-high: var(--rk-crust);
+    --tc-primary-normal: var(--rk-foreground);
+    --tc-primary-low: var(--rk-bright-white);
+    --tc-tooltip: var(--rk-white);
+    --tc-code: var(--rk-accent);
+    --tc-link: var(--rk-blue);
+    --tc-badge: var(--rk-crust);
+    --tc-positive-high: var(--rk-green);
+    --tc-positive-normal: var(--rk-green);
+    --tc-positive-low: var(--rk-green);
+    --tc-caution-high: var(--rk-peach);
+    --tc-caution-normal: var(--rk-peach);
+    --tc-caution-low: var(--rk-peach);
+    --tc-danger-high: var(--rk-maroon);
+    --tc-danger-normal: var(--rk-maroon);
+    --tc-danger-low: var(--rk-maroon);
+    /* Icons */
+    --ic-surface-high: var(--rk-foreground);
+    --ic-surface-normal: var(--rk-foreground);
+    --ic-surface-low: var(--rk-bright-white);
+    --ic-primary-high: var(--rk-crust);
+    --ic-primary-normal: var(--rk-crust);
+    --ic-primary-low: var(--rk-crust);
+    --ic-positive-high: var(--rk-green);
+    --ic-positive-normal: var(--rk-maroon);
+    --ic-caution-high: var(--rk-peach);
+    --ic-caution-normal: var(--rk-peach);
+    --ic-danger-high: var(--rk-maroon);
+    --ic-danger-normal: var(--rk-maroon);
+  }
+  .dark-theme ::selection,
+  .butter-theme ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .dark-theme input::placeholder,
+  .butter-theme input::placeholder,
+  .dark-theme textarea::placeholder,
+  .butter-theme textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .dark-theme body.oq6d071w,
+  .butter-theme body.oq6d071w,
+  .dark-theme._15q3ngn0,
+  .butter-theme._15q3ngn0,
+  .dark-theme._15q3ngn1,
+  .butter-theme._15q3ngn1,
+  .dark-theme._15q3ngn2,
+  .butter-theme._15q3ngn2 {
+    --oq6d070: var(--rk-mantle);
+    --oq6d071: var(--rk-background);
+    --oq6d072: var(--rk-surface0);
+    --oq6d073: var(--rk-black);
+    --oq6d074: var(--rk-foreground);
+    --oq6d075: var(--rk-background);
+    --oq6d076: var(--rk-surface0);
+    --oq6d077: var(--rk-black);
+    --oq6d078: var(--rk-bright-black);
+    --oq6d079: var(--rk-foreground);
+    --oq6d07a: var(--rk-mantle);
+    --oq6d07b: var(--rk-background);
+    --oq6d07c: var(--rk-surface0);
+    --oq6d07d: var(--rk-black);
+    --oq6d07e: var(--rk-foreground);
+    --oq6d07f: var(--rk-white);
+    --oq6d07g: var(--rk-overlay2);
+    --oq6d07h: var(--rk-overlay1);
+    --oq6d07i: var(--rk-overlay0);
+    --oq6d07j: var(--rk-background);
+    --oq6d07k: rgb(from var(--rk-accent) r g b / 0.5);
+    --oq6d07l: rgb(from var(--rk-accent) r g b / 0.4);
+    --oq6d07m: rgb(from var(--rk-accent) r g b / 0.3);
+    --oq6d07n: rgb(from var(--rk-accent) r g b / 0.2);
+    --oq6d07o: var(--rk-foreground);
+    --oq6d07p: var(--rk-bright-white);
+    --oq6d07q: var(--rk-white);
+    --oq6d07r: var(--rk-overlay2);
+    --oq6d07s: var(--rk-overlay1);
+    --oq6d07t: var(--rk-mantle);
+    --oq6d07u: var(--rk-surface0);
+    --oq6d07v: var(--rk-black);
+    --oq6d07w: var(--rk-bright-black);
+    --oq6d07x: var(--rk-overlay0);
+    --oq6d07y: var(--rk-foreground);
+    --oq6d07z: rgb(from var(--rk-green) r g b / 0.9);
+    --oq6d0710: rgb(from var(--rk-green) r g b / 0.95);
+    --oq6d0711: rgb(from var(--rk-green) r g b / 0.975);
+    --oq6d0712: var(--rk-green);
+    --oq6d0713: var(--rk-surface0);
+    --oq6d0714: rgb(from var(--rk-surface0) r g b / 0.975);
+    --oq6d0715: rgb(from var(--rk-surface0) r g b / 0.95);
+    --oq6d0716: rgb(from var(--rk-surface0) r g b / 0.9);
+    --oq6d0717: rgb(from var(--rk-surface0) r g b / 0.8);
+    --oq6d0718: var(--rk-green);
+    --oq6d0719: rgb(from var(--rk-peach) r g b / 0.9);
+    --oq6d071a: rgb(from var(--rk-peach) r g b / 0.95);
+    --oq6d071b: rgb(from var(--rk-peach) r g b / 0.975);
+    --oq6d071c: var(--rk-peach);
+    --oq6d071d: rgb(from var(--rk-surface0) r g b / 0.975);
+    --oq6d071e: rgb(from var(--rk-surface0) r g b / 0.95);
+    --oq6d071f: rgb(from var(--rk-surface0) r g b / 0.9);
+    --oq6d071g: rgb(from var(--rk-surface0) r g b / 0.8);
+    --oq6d071h: rgb(from var(--rk-surface0) r g b / 0.7);
+    --oq6d071i: rgb(from var(--rk-maroon) r g b / 0.9);
+    --oq6d071j: rgb(from var(--rk-maroon) r g b / 0.95);
+    --oq6d071k: rgb(from var(--rk-maroon) r g b / 0.975);
+    --oq6d071l: var(--rk-maroon);
+    --oq6d071m: rgb(from var(--rk-surface0) r g b / 0.975);
+    --oq6d071n: rgb(from var(--rk-surface0) r g b / 0.95);
+    --oq6d071o: rgb(from var(--rk-surface0) r g b / 0.9);
+    --oq6d071p: rgb(from var(--rk-surface0) r g b / 0.8);
+    --oq6d071q: rgb(from var(--rk-surface0) r g b / 0.7);
+    --oq6d071r: rgb(from var(--rk-surface0) r g b / 0.6);
+    --oq6d071s: rgb(from var(--rk-maroon) r g b / 0.9);
+    --oq6d071t: rgb(from var(--rk-foreground) r g b / 0.5);
+    --oq6d071u: var(--rk-crust);
+    --oq6d071v: rgb(from var(--rk-crust) r g b / 0.6);
+  }
+  .dark-theme ._1m2qi7rq,
+  .butter-theme ._1m2qi7rq {
+    background-color: var(--rk-accent);
+    color: var(--rk-background);
+  }
+  .dark-theme .footer,
+  .butter-theme .footer {
+    background-color: var(--rk-background);
+  }
+  .dark-theme .footer .text-s1,
+  .butter-theme .footer .text-s1,
+  .dark-theme .footer .text-h2,
+  .butter-theme .footer .text-h2,
+  .dark-theme .footer a,
+  .butter-theme .footer a {
+    color: var(--rk-foreground);
+  }
+  .dark-theme .footer .footer__creator,
+  .butter-theme .footer .footer__creator,
+  .dark-theme .footer .footer__menu-container .text-b3,
+  .butter-theme .footer .footer__menu-container .text-b3 {
+    color: var(--rk-white);
+  }
+}

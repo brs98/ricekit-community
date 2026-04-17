@@ -1,0 +1,271 @@
+/* ==UserStyle==
+@name regex101 Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.01.10.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/regex101.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for regex101
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("regex101.com") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --primary-color: var(--rk-crust);
+    --primary-contrast-color: var(--rk-accent);
+    --app-color: var(--rk-foreground);
+    --app-color-metadata: var(--rk-white);
+    --app-contrast-color: var(--rk-bright-white);
+    --link-color: var(--rk-accent);
+    --highlight-bg: var(--rk-green);
+    --spinner-bg: var(--rk-overlay0);
+    --bg-0: var(--rk-mantle);
+    --bg-1: var(--rk-background);
+    --content-bg: var(--rk-surface0);
+    --content-border-color: var(--rk-black);
+    --sub-content-bg: var(--rk-black);
+    --info-color: var(--rk-white);
+    --success-color: var(--rk-green);
+    --warning-color: var(--rk-yellow);
+    --danger-color: var(--rk-red);
+    --misc-button-icon-color: var(--rk-bright-white);
+    --misc-button-bg: var(--rk-surface0);
+    --misc-button-hover-bg: var(--rk-black);
+    --misc-button-active-bg: var(--rk-bright-black);
+    --misc-button-active-color: var(--rk-background);
+    --misc-button-highlight-bg: rgb(from var(--rk-green) r g b / 0.4);
+    --editor-active-bg: var(--rk-overlay2);
+    --library-active-bg: var(--rk-yellow);
+    --account-active-bg: var(--rk-green);
+    --quiz-active-bg: var(--rk-cyan);
+    --settings-active-bg: var(--rk-magenta);
+    --button-bg-h: 236.84210526;
+    --button-bg-s: 16.23931624%;
+    --button-bg-l: 22.94117647%;
+    --button-ok-bg-h: 240;
+    --button-ok-bg-s: 21.31147541%;
+    --button-ok-bg-l: 11.96078431%;
+    --button-danger-bg-h: 343.26923077;
+    --button-danger-bg-s: 81.25%;
+    --button-danger-bg-l: 74.90196078%;
+    --button-hover-l: 31.17647059%;
+    --backdrop-bg: rgb(from var(--rk-overlay0) r g b / 0.3);
+    --input-bg: var(--rk-background);
+    --input-disabled-bg: var(--rk-mantle);
+    --input-border-color: var(--rk-surface0);
+    --input-focused-border-color: var(--rk-surface0);
+    --label-color: var(--rk-bright-white);
+    --tooltip-color: var(--rk-crust);
+    --tooltip-bg: var(--rk-white);
+    --version-btn-bg: rgb(from var(--rk-green) r g b / 0.3);
+    --match-indicator-no-match: rgb(from var(--rk-blue) r g b / 0.3);
+    --match-indicator-match-bg: rgb(from var(--rk-green) r g b / 0.3);
+    --match-indicator-error-bg: rgb(from var(--rk-red) r g b / 0.3);
+    --debugger-backtrack-bg: rgb(from var(--rk-red) r g b / 0.3);
+    --debugger-regex-bg: rgb(from var(--rk-green) r g b / 0.3);
+    --debugger-slider-bg: var(--rk-bright-black);
+    --header-discord-color: var(--rk-lavender);
+    --header-twitter-color: var(--rk-foreground);
+    --header-donate-color: var(--rk-yellow);
+    --header-contact-color: var(--rk-green);
+    --header-feedback-color: var(--rk-maroon);
+    --header-wiki-color: var(--rk-cyan);
+    --header-whatsnew-color: var(--rk-yellow);
+    --header-sponsor-color: var(--rk-magenta);
+    --header-paypal-color: var(--rk-blue);
+    --header-info-color: var(--rk-sky);
+    --header-social-color: var(--rk-green);
+    --header-stripe-color: var(--rk-blue);
+    --starred-library-entry-bg: rgb(from var(--rk-yellow) r g b / 0.1);
+    --cm-whitespace-color: var(--rk-overlay1);
+    --cm-selected-bg: rgb(from var(--rk-accent) r g b / 0.3);
+    --cm-inactive-selected-bg: rgb(from var(--rk-accent) r g b / 0.3);
+    --match-group-0: #89b4fa;
+    --match-group-0-alt: #5895f8;
+    --match-group-1: #a6e3a1;
+    --match-group-1-alt: #81d77a;
+    --match-group-2: #f9e2af;
+    --match-group-2-alt: #f5d180;
+    --match-group-3: #cba6f7;
+    --match-group-3-alt: #b077f3;
+    --match-group-4: #f5c2e7;
+    --match-group-4-alt: #ee96d6;
+    --match-group-5: #f38ba8;
+    --match-group-5-alt: #ee5d85;
+    --match-group-6: #a6e3a1;
+    --match-group-6-alt: #81d77a;
+    --match-highlight-color: rgb(from var(--rk-yellow) r g b / 0.9);
+    --explanation-keyword-color: var(--rk-green);
+    --explanation-token-bg: rgb(from var(--rk-yellow) r g b / 0.8);
+    --explanation-token-color: var(--rk-background);
+    --explanation-plain-text-bg: rgb(from var(--rk-bright-black) r g b / 0.8);
+    --explanation-flag-color: var(--rk-accent);
+    --token-quote-color: var(--rk-accent);
+    --token-quote-bg: none;
+    --token-escaped-string-color: var(--app-color);
+    --token-escaped-string-bg: rgb(from var(--rk-overlay1) r g b / 0.3);
+    --token-meta-bg: #89b4fa;
+    --token-meta-color: var(--rk-background);
+    --token-char-class-bg: #f5e0dc;
+    --token-char-class-color: var(--rk-background);
+    --token-char-class-meta-bg: #f2cdcd;
+    --token-char-class-meta-color: var(--rk-background);
+    --token-subpattern-reference-bg: #cba6f7;
+    --token-subpattern-reference-color: var(--rk-background);
+    --token-group-0-bg: #a6e3a1;
+    --token-group-0-color: var(--rk-background);
+    --token-group-1-bg: #f9e2af;
+    --token-group-1-color: var(--rk-background);
+    --token-group-2-bg: #fab387;
+    --token-group-2-color: var(--rk-background);
+    --token-group-3-bg: #eba0ac;
+    --token-group-3-color: var(--rk-background);
+    --token-comment-bg: transparent;
+    --token-comment-color: var(--rk-background);
+    --token-error-bg: #f38ba8;
+    --token-error-color: var(--rk-background);
+  }
+  :root[data-theme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-theme="dark"] input::placeholder,
+  :root[data-theme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-theme="dark"] canvas {
+    filter: opacity(0.3);
+  }
+  :root[data-theme="light"] {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --primary-color: var(--rk-crust);
+    --primary-contrast-color: var(--rk-accent);
+    --app-color: var(--rk-foreground);
+    --app-color-metadata: var(--rk-white);
+    --app-contrast-color: var(--rk-bright-white);
+    --link-color: var(--rk-accent);
+    --highlight-bg: var(--rk-green);
+    --spinner-bg: var(--rk-overlay0);
+    --bg-0: var(--rk-mantle);
+    --bg-1: var(--rk-background);
+    --content-bg: var(--rk-surface0);
+    --content-border-color: var(--rk-black);
+    --sub-content-bg: var(--rk-black);
+    --info-color: var(--rk-white);
+    --success-color: var(--rk-green);
+    --warning-color: var(--rk-yellow);
+    --danger-color: var(--rk-red);
+    --misc-button-icon-color: var(--rk-bright-white);
+    --misc-button-bg: var(--rk-surface0);
+    --misc-button-hover-bg: var(--rk-black);
+    --misc-button-active-bg: var(--rk-bright-black);
+    --misc-button-active-color: var(--rk-background);
+    --misc-button-highlight-bg: rgb(from var(--rk-green) r g b / 0.4);
+    --editor-active-bg: var(--rk-overlay2);
+    --library-active-bg: var(--rk-yellow);
+    --account-active-bg: var(--rk-green);
+    --quiz-active-bg: var(--rk-cyan);
+    --settings-active-bg: var(--rk-magenta);
+    --button-bg-h: 236.84210526;
+    --button-bg-s: 16.23931624%;
+    --button-bg-l: 22.94117647%;
+    --button-ok-bg-h: 240;
+    --button-ok-bg-s: 21.31147541%;
+    --button-ok-bg-l: 11.96078431%;
+    --button-danger-bg-h: 343.26923077;
+    --button-danger-bg-s: 81.25%;
+    --button-danger-bg-l: 74.90196078%;
+    --button-hover-l: 31.17647059%;
+    --backdrop-bg: rgb(from var(--rk-overlay0) r g b / 0.3);
+    --input-bg: var(--rk-background);
+    --input-disabled-bg: var(--rk-mantle);
+    --input-border-color: var(--rk-surface0);
+    --input-focused-border-color: var(--rk-surface0);
+    --label-color: var(--rk-bright-white);
+    --tooltip-color: var(--rk-crust);
+    --tooltip-bg: var(--rk-white);
+    --version-btn-bg: rgb(from var(--rk-green) r g b / 0.3);
+    --match-indicator-no-match: rgb(from var(--rk-blue) r g b / 0.3);
+    --match-indicator-match-bg: rgb(from var(--rk-green) r g b / 0.3);
+    --match-indicator-error-bg: rgb(from var(--rk-red) r g b / 0.3);
+    --debugger-backtrack-bg: rgb(from var(--rk-red) r g b / 0.3);
+    --debugger-regex-bg: rgb(from var(--rk-green) r g b / 0.3);
+    --debugger-slider-bg: var(--rk-bright-black);
+    --header-discord-color: var(--rk-lavender);
+    --header-twitter-color: var(--rk-foreground);
+    --header-donate-color: var(--rk-yellow);
+    --header-contact-color: var(--rk-green);
+    --header-feedback-color: var(--rk-maroon);
+    --header-wiki-color: var(--rk-cyan);
+    --header-whatsnew-color: var(--rk-yellow);
+    --header-sponsor-color: var(--rk-magenta);
+    --header-paypal-color: var(--rk-blue);
+    --header-info-color: var(--rk-sky);
+    --header-social-color: var(--rk-green);
+    --header-stripe-color: var(--rk-blue);
+    --starred-library-entry-bg: rgb(from var(--rk-yellow) r g b / 0.1);
+    --cm-whitespace-color: var(--rk-overlay1);
+    --cm-selected-bg: rgb(from var(--rk-accent) r g b / 0.3);
+    --cm-inactive-selected-bg: rgb(from var(--rk-accent) r g b / 0.3);
+    --match-group-0: #89b4fa;
+    --match-group-0-alt: #5895f8;
+    --match-group-1: #a6e3a1;
+    --match-group-1-alt: #81d77a;
+    --match-group-2: #f9e2af;
+    --match-group-2-alt: #f5d180;
+    --match-group-3: #cba6f7;
+    --match-group-3-alt: #b077f3;
+    --match-group-4: #f5c2e7;
+    --match-group-4-alt: #ee96d6;
+    --match-group-5: #f38ba8;
+    --match-group-5-alt: #ee5d85;
+    --match-group-6: #a6e3a1;
+    --match-group-6-alt: #81d77a;
+    --match-highlight-color: rgb(from var(--rk-yellow) r g b / 0.9);
+    --explanation-keyword-color: var(--rk-green);
+    --explanation-token-bg: rgb(from var(--rk-yellow) r g b / 0.8);
+    --explanation-token-color: var(--rk-background);
+    --explanation-plain-text-bg: rgb(from var(--rk-bright-black) r g b / 0.8);
+    --explanation-flag-color: var(--rk-accent);
+    --token-quote-color: var(--rk-accent);
+    --token-quote-bg: none;
+    --token-escaped-string-color: var(--app-color);
+    --token-escaped-string-bg: rgb(from var(--rk-overlay1) r g b / 0.3);
+    --token-meta-bg: #89b4fa;
+    --token-meta-color: var(--rk-background);
+    --token-char-class-bg: #f5e0dc;
+    --token-char-class-color: var(--rk-background);
+    --token-char-class-meta-bg: #f2cdcd;
+    --token-char-class-meta-color: var(--rk-background);
+    --token-subpattern-reference-bg: #cba6f7;
+    --token-subpattern-reference-color: var(--rk-background);
+    --token-group-0-bg: #a6e3a1;
+    --token-group-0-color: var(--rk-background);
+    --token-group-1-bg: #f9e2af;
+    --token-group-1-color: var(--rk-background);
+    --token-group-2-bg: #fab387;
+    --token-group-2-color: var(--rk-background);
+    --token-group-3-bg: #eba0ac;
+    --token-group-3-color: var(--rk-background);
+    --token-comment-bg: transparent;
+    --token-comment-color: var(--rk-background);
+    --token-error-bg: #f38ba8;
+    --token-error-color: var(--rk-background);
+  }
+  :root[data-theme="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-theme="light"] input::placeholder,
+  :root[data-theme="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-theme="light"] canvas {
+    filter: opacity(0.3);
+  }
+}

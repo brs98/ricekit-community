@@ -1,0 +1,389 @@
+/* ==UserStyle==
+@name Learn X in Y Minutes Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/learn-x-in-y-minutes.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Learn X in Y Minutes
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("learnxinyminutes.com") {
+  @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
+  html.light {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+  }
+  html.light ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html.light input::placeholder,
+  html.light textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html.light .highlight {
+    background-color: var(--rk-mantle);
+  }
+  html.light .highlight pre {
+    background-color: var(--rk-mantle) !important;
+  }
+  html.light:not(.dark, .light) p {
+    color: var(--rk-white) !important;
+  }
+  html.light:not(.dark, .light) span {
+    color: var(--rk-foreground);
+  }
+  html.light .share {
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.light .share:hover {
+    background-color: var(--rk-surface0);
+  }
+  html.light .theme-choice button {
+    color: var(--rk-foreground);
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.light .theme-choice button:hover {
+    background-color: var(--rk-surface0);
+  }
+  html.light #lang-select {
+    color: var(--rk-foreground);
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.light td.lang span a {
+    color: var(--rk-foreground);
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.light td.lang span a:hover {
+    background-color: var(--rk-surface0);
+  }
+  html.light,
+  html.light body {
+    background-color: var(--rk-background);
+    color: var(--rk-foreground);
+    border-color: var(--rk-background);
+    box-shadow: none;
+  }
+  html.light td,
+  html.light th {
+    color: var(--rk-foreground);
+    border-bottom-color: var(--rk-surface0);
+  }
+  html.light footer p {
+    color: var(--rk-bright-white);
+  }
+  html.light a {
+    color: var(--rk-accent) !important;
+  }
+  html.light a code {
+    color: var(--rk-accent) !important;
+  }
+  html.light a:visited {
+    color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+  }
+  html.light a.active {
+    color: var(--rk-background) !important;
+    background-color: var(--rk-accent) !important;
+    border-color: hsl(from var(--rk-accent) h s calc(l - 15)) !important;
+  }
+  html.light a.active:visited {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    color: var(--rk-background) !important;
+    border-color: hsl(from var(--rk-accent) h s calc(l - 10)) !important;
+  }
+  html.light hr {
+    border-color: var(--rk-black);
+  }
+  html.light code {
+    background-color: var(--rk-mantle);
+    color: var(--rk-foreground);
+  }
+  html.dark {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+  }
+  html.dark ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html.dark input::placeholder,
+  html.dark textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html.dark .highlight {
+    background-color: var(--rk-mantle);
+  }
+  html.dark .highlight pre {
+    background-color: var(--rk-mantle) !important;
+  }
+  html.dark:not(.dark, .light) p {
+    color: var(--rk-white) !important;
+  }
+  html.dark:not(.dark, .light) span {
+    color: var(--rk-foreground);
+  }
+  html.dark .share {
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.dark .share:hover {
+    background-color: var(--rk-surface0);
+  }
+  html.dark .theme-choice button {
+    color: var(--rk-foreground);
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.dark .theme-choice button:hover {
+    background-color: var(--rk-surface0);
+  }
+  html.dark #lang-select {
+    color: var(--rk-foreground);
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.dark td.lang span a {
+    color: var(--rk-foreground);
+    background-color: var(--rk-mantle);
+    border-color: var(--rk-crust);
+  }
+  html.dark td.lang span a:hover {
+    background-color: var(--rk-surface0);
+  }
+  html.dark,
+  html.dark body {
+    background-color: var(--rk-background);
+    color: var(--rk-foreground);
+    border-color: var(--rk-background);
+    box-shadow: none;
+  }
+  html.dark td,
+  html.dark th {
+    color: var(--rk-foreground);
+    border-bottom-color: var(--rk-surface0);
+  }
+  html.dark footer p {
+    color: var(--rk-bright-white);
+  }
+  html.dark a {
+    color: var(--rk-accent) !important;
+  }
+  html.dark a code {
+    color: var(--rk-accent) !important;
+  }
+  html.dark a:visited {
+    color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+  }
+  html.dark a.active {
+    color: var(--rk-background) !important;
+    background-color: var(--rk-accent) !important;
+    border-color: hsl(from var(--rk-accent) h s calc(l - 15)) !important;
+  }
+  html.dark a.active:visited {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    color: var(--rk-background) !important;
+    border-color: hsl(from var(--rk-accent) h s calc(l - 10)) !important;
+  }
+  html.dark hr {
+    border-color: var(--rk-black);
+  }
+  html.dark code {
+    background-color: var(--rk-mantle);
+    color: var(--rk-foreground);
+  }
+  @media (prefers-color-scheme: light) {
+    html:not(.dark, .light) {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+    }
+    html:not(.dark, .light) ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    html:not(.dark, .light) input::placeholder,
+    html:not(.dark, .light) textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    html:not(.dark, .light) .highlight {
+      background-color: var(--rk-mantle);
+    }
+    html:not(.dark, .light) .highlight pre {
+      background-color: var(--rk-mantle) !important;
+    }
+    html:not(.dark, .light):not(.dark, .light) p {
+      color: var(--rk-white) !important;
+    }
+    html:not(.dark, .light):not(.dark, .light) span {
+      color: var(--rk-foreground);
+    }
+    html:not(.dark, .light) .share {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) .share:hover {
+      background-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light) .theme-choice button {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) .theme-choice button:hover {
+      background-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light) #lang-select {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) td.lang span a {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) td.lang span a:hover {
+      background-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light),
+    html:not(.dark, .light) body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+      border-color: var(--rk-background);
+      box-shadow: none;
+    }
+    html:not(.dark, .light) td,
+    html:not(.dark, .light) th {
+      color: var(--rk-foreground);
+      border-bottom-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light) footer p {
+      color: var(--rk-bright-white);
+    }
+    html:not(.dark, .light) a {
+      color: var(--rk-accent) !important;
+    }
+    html:not(.dark, .light) a code {
+      color: var(--rk-accent) !important;
+    }
+    html:not(.dark, .light) a:visited {
+      color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    }
+    html:not(.dark, .light) a.active {
+      color: var(--rk-background) !important;
+      background-color: var(--rk-accent) !important;
+      border-color: hsl(from var(--rk-accent) h s calc(l - 15)) !important;
+    }
+    html:not(.dark, .light) a.active:visited {
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+      color: var(--rk-background) !important;
+      border-color: hsl(from var(--rk-accent) h s calc(l - 10)) !important;
+    }
+    html:not(.dark, .light) hr {
+      border-color: var(--rk-black);
+    }
+    html:not(.dark, .light) code {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    html:not(.dark, .light) {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+    }
+    html:not(.dark, .light) ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    html:not(.dark, .light) input::placeholder,
+    html:not(.dark, .light) textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    html:not(.dark, .light) .highlight {
+      background-color: var(--rk-mantle);
+    }
+    html:not(.dark, .light) .highlight pre {
+      background-color: var(--rk-mantle) !important;
+    }
+    html:not(.dark, .light):not(.dark, .light) p {
+      color: var(--rk-white) !important;
+    }
+    html:not(.dark, .light):not(.dark, .light) span {
+      color: var(--rk-foreground);
+    }
+    html:not(.dark, .light) .share {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) .share:hover {
+      background-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light) .theme-choice button {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) .theme-choice button:hover {
+      background-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light) #lang-select {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) td.lang span a {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    html:not(.dark, .light) td.lang span a:hover {
+      background-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light),
+    html:not(.dark, .light) body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+      border-color: var(--rk-background);
+      box-shadow: none;
+    }
+    html:not(.dark, .light) td,
+    html:not(.dark, .light) th {
+      color: var(--rk-foreground);
+      border-bottom-color: var(--rk-surface0);
+    }
+    html:not(.dark, .light) footer p {
+      color: var(--rk-bright-white);
+    }
+    html:not(.dark, .light) a {
+      color: var(--rk-accent) !important;
+    }
+    html:not(.dark, .light) a code {
+      color: var(--rk-accent) !important;
+    }
+    html:not(.dark, .light) a:visited {
+      color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+    }
+    html:not(.dark, .light) a.active {
+      color: var(--rk-background) !important;
+      background-color: var(--rk-accent) !important;
+      border-color: hsl(from var(--rk-accent) h s calc(l - 15)) !important;
+    }
+    html:not(.dark, .light) a.active:visited {
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5)) !important;
+      color: var(--rk-background) !important;
+      border-color: hsl(from var(--rk-accent) h s calc(l - 10)) !important;
+    }
+    html:not(.dark, .light) hr {
+      border-color: var(--rk-black);
+    }
+    html:not(.dark, .light) code {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+  }
+}

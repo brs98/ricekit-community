@@ -1,0 +1,784 @@
+/* ==UserStyle==
+@name crates.io Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/crates.io.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for crates.io
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("crates.io") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+  code.hljs {
+    background: none !important;
+  }
+  @media (prefers-color-scheme: light) {
+    :root[data-color-scheme="system"] {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      /* Toasts */
+      /* Tooltips */
+      /* Icons and icon badges */
+      /* Footer links */
+      /* Misc header text */
+      /* Search bar magnifying glass icon */
+      /* Sort by search results */
+      /* Primary buttons */
+      /* User email settings */
+      /* Logged out home page hero */
+      /* User avatar backgrounds */
+      /* Tables in READMEs */
+    }
+    :root[data-color-scheme="system"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root[data-color-scheme="system"] input::placeholder,
+    :root[data-color-scheme="system"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root[data-color-scheme="system"],
+    :root[data-color-scheme="system"] * {
+      --shadow: none !important;
+      --csstools-color-scheme--dark: none;
+      --header-bg-color: var(--rk-mantle);
+      --main-color: var(--rk-foreground);
+      --main-color-light: var(--rk-bright-white);
+      --main-shadow-color: var(--rk-surface0);
+      --main-bg: var(--rk-mantle);
+      --main-bg-dark: var(--rk-background);
+      --gray-border: var(--rk-surface0);
+      --link-color: var(--rk-accent);
+      --link-hover-color: hsl(from var(--rk-accent) h s calc(l - 5));
+      --footer-header-color: var(--rk-foreground);
+      /* Main article/readme background */
+      --csstools-light-dark-toggle--63: var(--rk-background);
+      /* Inline code background */
+      --csstools-light-dark-toggle--92: var(--rk-mantle);
+      /* Code block background */
+      --csstools-light-dark-toggle--91: var(--rk-mantle);
+      /* Copyable text hover */
+      --csstools-light-dark-toggle--78: var(--rk-background);
+      /* Versions cards */
+      --csstools-light-dark-toggle--111: var(--rk-foreground);
+      --csstools-light-dark-toggle--113: var(--rk-background);
+      --csstools-light-dark-toggle--114: rgb(from var(--rk-green) r g b / 0.15);
+      --csstools-light-dark-toggle--117: rgb(from var(--rk-yellow) r g b / 0.15);
+      --csstools-light-dark-toggle--109: var(--rk-surface0);
+      --csstools-light-dark-toggle--110: var(--rk-surface0);
+      --csstools-light-dark-toggle--115: var(--rk-surface0);
+      --csstools-light-dark-toggle--118: var(--rk-surface0);
+      --csstools-light-dark-toggle--126: var(--rk-foreground);
+      /* Dependencies cards */
+      --csstools-light-dark-toggle--83: var(--rk-background);
+      --csstools-light-dark-toggle--79: var(--rk-surface0);
+      --csstools-light-dark-toggle--80: var(--rk-foreground);
+      --csstools-light-dark-toggle--81: var(--rk-foreground);
+      --csstools-light-dark-toggle--84: var(--rk-white);
+      --grey600: var(--rk-white);
+      --grey700: var(--rk-foreground);
+      /* Dependents cards */
+      --csstools-light-dark-toggle--89: var(--rk-background);
+      --csstools-light-dark-toggle--86: var(--rk-surface0);
+      /* Search results cards */
+      --csstools-light-dark-toggle--2: var(--rk-background);
+      /* Homepage cards */
+      --csstools-light-dark-toggle--74: var(--rk-background);
+      --csstools-light-dark-toggle--77: var(--rk-surface0);
+      --csstools-light-dark-toggle--75: var(--rk-bright-white);
+      --csstools-light-dark-toggle--76: var(--rk-foreground);
+      --csstools-light-dark-toggle--19: var(--rk-white);
+      --csstools-light-dark-toggle--20: var(--rk-white);
+      /* Header search bar */
+      --csstools-light-dark-toggle--34: var(--rk-crust);
+      --yellow500: var(--rk-accent);
+      --yellow700: hsl(from var(--rk-accent) h s calc(l - 5));
+      /* Dropdown */
+      --csstools-light-dark-toggle--23: var(--rk-mantle);
+      --csstools-light-dark-toggle--35: var(--rk-mantle);
+      /* Dropdown items */
+    }
+    :root[data-color-scheme="system"] [class*="_new"],
+    :root[data-color-scheme="system"] * [class*="_new"] {
+      color: var(--rk-green);
+    }
+    :root[data-color-scheme="system"] [class*="_item_"] button:hover,
+    :root[data-color-scheme="system"] * [class*="_item_"] button:hover,
+    :root[data-color-scheme="system"] [class*="_item_"] > a:hover,
+    :root[data-color-scheme="system"] * [class*="_item_"] > a:hover,
+    :root[data-color-scheme="system"] [class*="_item_"] [class*="_selected_"],
+    :root[data-color-scheme="system"] * [class*="_item_"] [class*="_selected_"] {
+      background: var(--rk-surface0);
+      color: var(--rk-foreground) !important;
+    }
+    :root[data-color-scheme="system"] .c-notification {
+      --ecn-green: var(--rk-green);
+      --ecn-blue: var(--rk-blue);
+      --ecn-orange: var(--rk-peach);
+      --ecn-red: var(--rk-red);
+    }
+    :root[data-color-scheme="system"] .c-notification,
+    :root[data-color-scheme="system"] .c-notification .c-notification__icon {
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] .ember-tooltip {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] .ember-tooltip[x-placement^="top"] .ember-tooltip-arrow {
+      border-top-color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] [class*="downloads_"] [fill="#FFF"] {
+      fill: var(--rk-surface0) !important;
+    }
+    :root[data-color-scheme="system"] [fill="#B13B89"],
+    :root[data-color-scheme="system"] [fill="#B84D94"],
+    :root[data-color-scheme="system"] svg[class*="_download-icon"] {
+      fill: var(--rk-accent) !important;
+    }
+    :root[data-color-scheme="system"] [stroke="#B84D94"] {
+      stroke: var(--rk-accent) !important;
+    }
+    :root[data-color-scheme="system"] ._content_hautyr h1 {
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] ._content_hautyr a {
+      color: var(--rk-accent);
+    }
+    :root[data-color-scheme="system"] ._content_hautyr a:hover {
+      color: hsl(from var(--rk-accent) h s calc(l - 5));
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] [class*="_header-inner_"],
+    :root[data-color-scheme="system"] [class*="_header-inner_"] a {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-scheme="system"] form[action="/search"] button {
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] ._icon_xsqxju {
+      color: var(--rk-accent);
+    }
+    :root[data-color-scheme="system"] [class*="_tan-button_"],
+    :root[data-color-scheme="system"] [class*="_yellow-button_"] {
+      color: var(--rk-crust) !important;
+      background: var(--rk-accent);
+    }
+    :root[data-color-scheme="system"] [class*="_tan-button_"]:hover,
+    :root[data-color-scheme="system"] [class*="_yellow-button_"]:hover {
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root[data-color-scheme="system"] [class*="_red-button_"] {
+      --bg-color-top: var(--rk-maroon);
+      --bg-color-bottom: var(--rk-maroon);
+      --bg-color-top-dark: var(--rk-red);
+      --bg-color-bottom-dark: var(--rk-red);
+    }
+    :root[data-color-scheme="system"] [class*="_me-email_"] [class*="_row_"] {
+      border-color: var(--rk-surface0);
+    }
+    :root[data-color-scheme="system"] [class*="_me-email_"] [class*="_verified_"] {
+      color: var(--rk-green);
+    }
+    :root[data-color-scheme="system"] [class*="_hero-title_"] {
+      color: var(--rk-foreground);
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] [class*="_hero-button_"] [class*="_icon_"] {
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] [class*="_blurb_"] [class*="_stats-value_"] [class*="_label_"],
+    :root[data-color-scheme="system"] [class*="_blurb_"] [class*="_stats-value_"] svg {
+      color: var(--rk-white);
+    }
+    :root[data-color-scheme="system"] [class*="_avatar_"] {
+      background-color: var(--rk-surface0);
+      box-shadow: none;
+    }
+    :root[data-color-scheme="system"] [class*="_yanked-badge_"] {
+      background-color: var(--rk-red);
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] table th,
+    :root[data-color-scheme="system"] table td {
+      border-color: var(--rk-black);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root[data-color-scheme="system"] {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      /* Toasts */
+      /* Tooltips */
+      /* Icons and icon badges */
+      /* Footer links */
+      /* Misc header text */
+      /* Search bar magnifying glass icon */
+      /* Sort by search results */
+      /* Primary buttons */
+      /* User email settings */
+      /* Logged out home page hero */
+      /* User avatar backgrounds */
+      /* Tables in READMEs */
+    }
+    :root[data-color-scheme="system"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root[data-color-scheme="system"] input::placeholder,
+    :root[data-color-scheme="system"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root[data-color-scheme="system"],
+    :root[data-color-scheme="system"] * {
+      --shadow: none !important;
+      --csstools-color-scheme--dark: none;
+      --header-bg-color: var(--rk-mantle);
+      --main-color: var(--rk-foreground);
+      --main-color-light: var(--rk-bright-white);
+      --main-shadow-color: var(--rk-surface0);
+      --main-bg: var(--rk-mantle);
+      --main-bg-dark: var(--rk-background);
+      --gray-border: var(--rk-surface0);
+      --link-color: var(--rk-accent);
+      --link-hover-color: hsl(from var(--rk-accent) h s calc(l - 5));
+      --footer-header-color: var(--rk-foreground);
+      /* Main article/readme background */
+      --csstools-light-dark-toggle--63: var(--rk-background);
+      /* Inline code background */
+      --csstools-light-dark-toggle--92: var(--rk-mantle);
+      /* Code block background */
+      --csstools-light-dark-toggle--91: var(--rk-mantle);
+      /* Copyable text hover */
+      --csstools-light-dark-toggle--78: var(--rk-background);
+      /* Versions cards */
+      --csstools-light-dark-toggle--111: var(--rk-foreground);
+      --csstools-light-dark-toggle--113: var(--rk-background);
+      --csstools-light-dark-toggle--114: rgb(from var(--rk-green) r g b / 0.15);
+      --csstools-light-dark-toggle--117: rgb(from var(--rk-yellow) r g b / 0.15);
+      --csstools-light-dark-toggle--109: var(--rk-surface0);
+      --csstools-light-dark-toggle--110: var(--rk-surface0);
+      --csstools-light-dark-toggle--115: var(--rk-surface0);
+      --csstools-light-dark-toggle--118: var(--rk-surface0);
+      --csstools-light-dark-toggle--126: var(--rk-foreground);
+      /* Dependencies cards */
+      --csstools-light-dark-toggle--83: var(--rk-background);
+      --csstools-light-dark-toggle--79: var(--rk-surface0);
+      --csstools-light-dark-toggle--80: var(--rk-foreground);
+      --csstools-light-dark-toggle--81: var(--rk-foreground);
+      --csstools-light-dark-toggle--84: var(--rk-white);
+      --grey600: var(--rk-white);
+      --grey700: var(--rk-foreground);
+      /* Dependents cards */
+      --csstools-light-dark-toggle--89: var(--rk-background);
+      --csstools-light-dark-toggle--86: var(--rk-surface0);
+      /* Search results cards */
+      --csstools-light-dark-toggle--2: var(--rk-background);
+      /* Homepage cards */
+      --csstools-light-dark-toggle--74: var(--rk-background);
+      --csstools-light-dark-toggle--77: var(--rk-surface0);
+      --csstools-light-dark-toggle--75: var(--rk-bright-white);
+      --csstools-light-dark-toggle--76: var(--rk-foreground);
+      --csstools-light-dark-toggle--19: var(--rk-white);
+      --csstools-light-dark-toggle--20: var(--rk-white);
+      /* Header search bar */
+      --csstools-light-dark-toggle--34: var(--rk-crust);
+      --yellow500: var(--rk-accent);
+      --yellow700: hsl(from var(--rk-accent) h s calc(l - 5));
+      /* Dropdown */
+      --csstools-light-dark-toggle--23: var(--rk-mantle);
+      --csstools-light-dark-toggle--35: var(--rk-mantle);
+      /* Dropdown items */
+    }
+    :root[data-color-scheme="system"] [class*="_new"],
+    :root[data-color-scheme="system"] * [class*="_new"] {
+      color: var(--rk-green);
+    }
+    :root[data-color-scheme="system"] [class*="_item_"] button:hover,
+    :root[data-color-scheme="system"] * [class*="_item_"] button:hover,
+    :root[data-color-scheme="system"] [class*="_item_"] > a:hover,
+    :root[data-color-scheme="system"] * [class*="_item_"] > a:hover,
+    :root[data-color-scheme="system"] [class*="_item_"] [class*="_selected_"],
+    :root[data-color-scheme="system"] * [class*="_item_"] [class*="_selected_"] {
+      background: var(--rk-surface0);
+      color: var(--rk-foreground) !important;
+    }
+    :root[data-color-scheme="system"] .c-notification {
+      --ecn-green: var(--rk-green);
+      --ecn-blue: var(--rk-blue);
+      --ecn-orange: var(--rk-peach);
+      --ecn-red: var(--rk-red);
+    }
+    :root[data-color-scheme="system"] .c-notification,
+    :root[data-color-scheme="system"] .c-notification .c-notification__icon {
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] .ember-tooltip {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] .ember-tooltip[x-placement^="top"] .ember-tooltip-arrow {
+      border-top-color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] [class*="downloads_"] [fill="#FFF"] {
+      fill: var(--rk-surface0) !important;
+    }
+    :root[data-color-scheme="system"] [fill="#B13B89"],
+    :root[data-color-scheme="system"] [fill="#B84D94"],
+    :root[data-color-scheme="system"] svg[class*="_download-icon"] {
+      fill: var(--rk-accent) !important;
+    }
+    :root[data-color-scheme="system"] [stroke="#B84D94"] {
+      stroke: var(--rk-accent) !important;
+    }
+    :root[data-color-scheme="system"] ._content_hautyr h1 {
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] ._content_hautyr a {
+      color: var(--rk-accent);
+    }
+    :root[data-color-scheme="system"] ._content_hautyr a:hover {
+      color: hsl(from var(--rk-accent) h s calc(l - 5));
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] [class*="_header-inner_"],
+    :root[data-color-scheme="system"] [class*="_header-inner_"] a {
+      color: var(--rk-foreground);
+    }
+    :root[data-color-scheme="system"] form[action="/search"] button {
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] ._icon_xsqxju {
+      color: var(--rk-accent);
+    }
+    :root[data-color-scheme="system"] [class*="_tan-button_"],
+    :root[data-color-scheme="system"] [class*="_yellow-button_"] {
+      color: var(--rk-crust) !important;
+      background: var(--rk-accent);
+    }
+    :root[data-color-scheme="system"] [class*="_tan-button_"]:hover,
+    :root[data-color-scheme="system"] [class*="_yellow-button_"]:hover {
+      background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    }
+    :root[data-color-scheme="system"] [class*="_red-button_"] {
+      --bg-color-top: var(--rk-maroon);
+      --bg-color-bottom: var(--rk-maroon);
+      --bg-color-top-dark: var(--rk-red);
+      --bg-color-bottom-dark: var(--rk-red);
+    }
+    :root[data-color-scheme="system"] [class*="_me-email_"] [class*="_row_"] {
+      border-color: var(--rk-surface0);
+    }
+    :root[data-color-scheme="system"] [class*="_me-email_"] [class*="_verified_"] {
+      color: var(--rk-green);
+    }
+    :root[data-color-scheme="system"] [class*="_hero-title_"] {
+      color: var(--rk-foreground);
+      text-shadow: none;
+    }
+    :root[data-color-scheme="system"] [class*="_hero-button_"] [class*="_icon_"] {
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] [class*="_blurb_"] [class*="_stats-value_"] [class*="_label_"],
+    :root[data-color-scheme="system"] [class*="_blurb_"] [class*="_stats-value_"] svg {
+      color: var(--rk-white);
+    }
+    :root[data-color-scheme="system"] [class*="_avatar_"] {
+      background-color: var(--rk-surface0);
+      box-shadow: none;
+    }
+    :root[data-color-scheme="system"] [class*="_yanked-badge_"] {
+      background-color: var(--rk-red);
+      color: var(--rk-crust);
+    }
+    :root[data-color-scheme="system"] table th,
+    :root[data-color-scheme="system"] table td {
+      border-color: var(--rk-black);
+    }
+  }
+  :root[data-color-scheme="dark"] {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    /* Toasts */
+    /* Tooltips */
+    /* Icons and icon badges */
+    /* Footer links */
+    /* Misc header text */
+    /* Search bar magnifying glass icon */
+    /* Sort by search results */
+    /* Primary buttons */
+    /* User email settings */
+    /* Logged out home page hero */
+    /* User avatar backgrounds */
+    /* Tables in READMEs */
+  }
+  :root[data-color-scheme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-color-scheme="dark"] input::placeholder,
+  :root[data-color-scheme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-color-scheme="dark"],
+  :root[data-color-scheme="dark"] * {
+    --shadow: none !important;
+    --csstools-color-scheme--dark: none;
+    --header-bg-color: var(--rk-mantle);
+    --main-color: var(--rk-foreground);
+    --main-color-light: var(--rk-bright-white);
+    --main-shadow-color: var(--rk-surface0);
+    --main-bg: var(--rk-mantle);
+    --main-bg-dark: var(--rk-background);
+    --gray-border: var(--rk-surface0);
+    --link-color: var(--rk-accent);
+    --link-hover-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    --footer-header-color: var(--rk-foreground);
+    /* Main article/readme background */
+    --csstools-light-dark-toggle--63: var(--rk-background);
+    /* Inline code background */
+    --csstools-light-dark-toggle--92: var(--rk-mantle);
+    /* Code block background */
+    --csstools-light-dark-toggle--91: var(--rk-mantle);
+    /* Copyable text hover */
+    --csstools-light-dark-toggle--78: var(--rk-background);
+    /* Versions cards */
+    --csstools-light-dark-toggle--111: var(--rk-foreground);
+    --csstools-light-dark-toggle--113: var(--rk-background);
+    --csstools-light-dark-toggle--114: rgb(from var(--rk-green) r g b / 0.15);
+    --csstools-light-dark-toggle--117: rgb(from var(--rk-yellow) r g b / 0.15);
+    --csstools-light-dark-toggle--109: var(--rk-surface0);
+    --csstools-light-dark-toggle--110: var(--rk-surface0);
+    --csstools-light-dark-toggle--115: var(--rk-surface0);
+    --csstools-light-dark-toggle--118: var(--rk-surface0);
+    --csstools-light-dark-toggle--126: var(--rk-foreground);
+    /* Dependencies cards */
+    --csstools-light-dark-toggle--83: var(--rk-background);
+    --csstools-light-dark-toggle--79: var(--rk-surface0);
+    --csstools-light-dark-toggle--80: var(--rk-foreground);
+    --csstools-light-dark-toggle--81: var(--rk-foreground);
+    --csstools-light-dark-toggle--84: var(--rk-white);
+    --grey600: var(--rk-white);
+    --grey700: var(--rk-foreground);
+    /* Dependents cards */
+    --csstools-light-dark-toggle--89: var(--rk-background);
+    --csstools-light-dark-toggle--86: var(--rk-surface0);
+    /* Search results cards */
+    --csstools-light-dark-toggle--2: var(--rk-background);
+    /* Homepage cards */
+    --csstools-light-dark-toggle--74: var(--rk-background);
+    --csstools-light-dark-toggle--77: var(--rk-surface0);
+    --csstools-light-dark-toggle--75: var(--rk-bright-white);
+    --csstools-light-dark-toggle--76: var(--rk-foreground);
+    --csstools-light-dark-toggle--19: var(--rk-white);
+    --csstools-light-dark-toggle--20: var(--rk-white);
+    /* Header search bar */
+    --csstools-light-dark-toggle--34: var(--rk-crust);
+    --yellow500: var(--rk-accent);
+    --yellow700: hsl(from var(--rk-accent) h s calc(l - 5));
+    /* Dropdown */
+    --csstools-light-dark-toggle--23: var(--rk-mantle);
+    --csstools-light-dark-toggle--35: var(--rk-mantle);
+    /* Dropdown items */
+  }
+  :root[data-color-scheme="dark"] [class*="_new"],
+  :root[data-color-scheme="dark"] * [class*="_new"] {
+    color: var(--rk-green);
+  }
+  :root[data-color-scheme="dark"] [class*="_item_"] button:hover,
+  :root[data-color-scheme="dark"] * [class*="_item_"] button:hover,
+  :root[data-color-scheme="dark"] [class*="_item_"] > a:hover,
+  :root[data-color-scheme="dark"] * [class*="_item_"] > a:hover,
+  :root[data-color-scheme="dark"] [class*="_item_"] [class*="_selected_"],
+  :root[data-color-scheme="dark"] * [class*="_item_"] [class*="_selected_"] {
+    background: var(--rk-surface0);
+    color: var(--rk-foreground) !important;
+  }
+  :root[data-color-scheme="dark"] .c-notification {
+    --ecn-green: var(--rk-green);
+    --ecn-blue: var(--rk-blue);
+    --ecn-orange: var(--rk-peach);
+    --ecn-red: var(--rk-red);
+  }
+  :root[data-color-scheme="dark"] .c-notification,
+  :root[data-color-scheme="dark"] .c-notification .c-notification__icon {
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="dark"] .ember-tooltip {
+    color: var(--rk-foreground);
+    background-color: var(--rk-crust);
+    text-shadow: none;
+  }
+  :root[data-color-scheme="dark"] .ember-tooltip[x-placement^="top"] .ember-tooltip-arrow {
+    border-top-color: var(--rk-crust);
+  }
+  :root[data-color-scheme="dark"] [class*="downloads_"] [fill="#FFF"] {
+    fill: var(--rk-surface0) !important;
+  }
+  :root[data-color-scheme="dark"] [fill="#B13B89"],
+  :root[data-color-scheme="dark"] [fill="#B84D94"],
+  :root[data-color-scheme="dark"] svg[class*="_download-icon"] {
+    fill: var(--rk-accent) !important;
+  }
+  :root[data-color-scheme="dark"] [stroke="#B84D94"] {
+    stroke: var(--rk-accent) !important;
+  }
+  :root[data-color-scheme="dark"] ._content_hautyr h1 {
+    text-shadow: none;
+  }
+  :root[data-color-scheme="dark"] ._content_hautyr a {
+    color: var(--rk-accent);
+  }
+  :root[data-color-scheme="dark"] ._content_hautyr a:hover {
+    color: hsl(from var(--rk-accent) h s calc(l - 5));
+    text-shadow: none;
+  }
+  :root[data-color-scheme="dark"] [class*="_header-inner_"],
+  :root[data-color-scheme="dark"] [class*="_header-inner_"] a {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-scheme="dark"] form[action="/search"] button {
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="dark"] ._icon_xsqxju {
+    color: var(--rk-accent);
+  }
+  :root[data-color-scheme="dark"] [class*="_tan-button_"],
+  :root[data-color-scheme="dark"] [class*="_yellow-button_"] {
+    color: var(--rk-crust) !important;
+    background: var(--rk-accent);
+  }
+  :root[data-color-scheme="dark"] [class*="_tan-button_"]:hover,
+  :root[data-color-scheme="dark"] [class*="_yellow-button_"]:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root[data-color-scheme="dark"] [class*="_red-button_"] {
+    --bg-color-top: var(--rk-maroon);
+    --bg-color-bottom: var(--rk-maroon);
+    --bg-color-top-dark: var(--rk-red);
+    --bg-color-bottom-dark: var(--rk-red);
+  }
+  :root[data-color-scheme="dark"] [class*="_me-email_"] [class*="_row_"] {
+    border-color: var(--rk-surface0);
+  }
+  :root[data-color-scheme="dark"] [class*="_me-email_"] [class*="_verified_"] {
+    color: var(--rk-green);
+  }
+  :root[data-color-scheme="dark"] [class*="_hero-title_"] {
+    color: var(--rk-foreground);
+    text-shadow: none;
+  }
+  :root[data-color-scheme="dark"] [class*="_hero-button_"] [class*="_icon_"] {
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="dark"] [class*="_blurb_"] [class*="_stats-value_"] [class*="_label_"],
+  :root[data-color-scheme="dark"] [class*="_blurb_"] [class*="_stats-value_"] svg {
+    color: var(--rk-white);
+  }
+  :root[data-color-scheme="dark"] [class*="_avatar_"] {
+    background-color: var(--rk-surface0);
+    box-shadow: none;
+  }
+  :root[data-color-scheme="dark"] [class*="_yanked-badge_"] {
+    background-color: var(--rk-red);
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="dark"] table th,
+  :root[data-color-scheme="dark"] table td {
+    border-color: var(--rk-black);
+  }
+  :root[data-color-scheme="light"] {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    /* Toasts */
+    /* Tooltips */
+    /* Icons and icon badges */
+    /* Footer links */
+    /* Misc header text */
+    /* Search bar magnifying glass icon */
+    /* Sort by search results */
+    /* Primary buttons */
+    /* User email settings */
+    /* Logged out home page hero */
+    /* User avatar backgrounds */
+    /* Tables in READMEs */
+  }
+  :root[data-color-scheme="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-color-scheme="light"] input::placeholder,
+  :root[data-color-scheme="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-color-scheme="light"],
+  :root[data-color-scheme="light"] * {
+    --shadow: none !important;
+    --csstools-color-scheme--dark: none;
+    --header-bg-color: var(--rk-mantle);
+    --main-color: var(--rk-foreground);
+    --main-color-light: var(--rk-bright-white);
+    --main-shadow-color: var(--rk-surface0);
+    --main-bg: var(--rk-mantle);
+    --main-bg-dark: var(--rk-background);
+    --gray-border: var(--rk-surface0);
+    --link-color: var(--rk-accent);
+    --link-hover-color: hsl(from var(--rk-accent) h s calc(l - 5));
+    --footer-header-color: var(--rk-foreground);
+    /* Main article/readme background */
+    --csstools-light-dark-toggle--63: var(--rk-background);
+    /* Inline code background */
+    --csstools-light-dark-toggle--92: var(--rk-mantle);
+    /* Code block background */
+    --csstools-light-dark-toggle--91: var(--rk-mantle);
+    /* Copyable text hover */
+    --csstools-light-dark-toggle--78: var(--rk-background);
+    /* Versions cards */
+    --csstools-light-dark-toggle--111: var(--rk-foreground);
+    --csstools-light-dark-toggle--113: var(--rk-background);
+    --csstools-light-dark-toggle--114: rgb(from var(--rk-green) r g b / 0.15);
+    --csstools-light-dark-toggle--117: rgb(from var(--rk-yellow) r g b / 0.15);
+    --csstools-light-dark-toggle--109: var(--rk-surface0);
+    --csstools-light-dark-toggle--110: var(--rk-surface0);
+    --csstools-light-dark-toggle--115: var(--rk-surface0);
+    --csstools-light-dark-toggle--118: var(--rk-surface0);
+    --csstools-light-dark-toggle--126: var(--rk-foreground);
+    /* Dependencies cards */
+    --csstools-light-dark-toggle--83: var(--rk-background);
+    --csstools-light-dark-toggle--79: var(--rk-surface0);
+    --csstools-light-dark-toggle--80: var(--rk-foreground);
+    --csstools-light-dark-toggle--81: var(--rk-foreground);
+    --csstools-light-dark-toggle--84: var(--rk-white);
+    --grey600: var(--rk-white);
+    --grey700: var(--rk-foreground);
+    /* Dependents cards */
+    --csstools-light-dark-toggle--89: var(--rk-background);
+    --csstools-light-dark-toggle--86: var(--rk-surface0);
+    /* Search results cards */
+    --csstools-light-dark-toggle--2: var(--rk-background);
+    /* Homepage cards */
+    --csstools-light-dark-toggle--74: var(--rk-background);
+    --csstools-light-dark-toggle--77: var(--rk-surface0);
+    --csstools-light-dark-toggle--75: var(--rk-bright-white);
+    --csstools-light-dark-toggle--76: var(--rk-foreground);
+    --csstools-light-dark-toggle--19: var(--rk-white);
+    --csstools-light-dark-toggle--20: var(--rk-white);
+    /* Header search bar */
+    --csstools-light-dark-toggle--34: var(--rk-crust);
+    --yellow500: var(--rk-accent);
+    --yellow700: hsl(from var(--rk-accent) h s calc(l - 5));
+    /* Dropdown */
+    --csstools-light-dark-toggle--23: var(--rk-mantle);
+    --csstools-light-dark-toggle--35: var(--rk-mantle);
+    /* Dropdown items */
+  }
+  :root[data-color-scheme="light"] [class*="_new"],
+  :root[data-color-scheme="light"] * [class*="_new"] {
+    color: var(--rk-green);
+  }
+  :root[data-color-scheme="light"] [class*="_item_"] button:hover,
+  :root[data-color-scheme="light"] * [class*="_item_"] button:hover,
+  :root[data-color-scheme="light"] [class*="_item_"] > a:hover,
+  :root[data-color-scheme="light"] * [class*="_item_"] > a:hover,
+  :root[data-color-scheme="light"] [class*="_item_"] [class*="_selected_"],
+  :root[data-color-scheme="light"] * [class*="_item_"] [class*="_selected_"] {
+    background: var(--rk-surface0);
+    color: var(--rk-foreground) !important;
+  }
+  :root[data-color-scheme="light"] .c-notification {
+    --ecn-green: var(--rk-green);
+    --ecn-blue: var(--rk-blue);
+    --ecn-orange: var(--rk-peach);
+    --ecn-red: var(--rk-red);
+  }
+  :root[data-color-scheme="light"] .c-notification,
+  :root[data-color-scheme="light"] .c-notification .c-notification__icon {
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="light"] .ember-tooltip {
+    color: var(--rk-foreground);
+    background-color: var(--rk-crust);
+    text-shadow: none;
+  }
+  :root[data-color-scheme="light"] .ember-tooltip[x-placement^="top"] .ember-tooltip-arrow {
+    border-top-color: var(--rk-crust);
+  }
+  :root[data-color-scheme="light"] [class*="downloads_"] [fill="#FFF"] {
+    fill: var(--rk-surface0) !important;
+  }
+  :root[data-color-scheme="light"] [fill="#B13B89"],
+  :root[data-color-scheme="light"] [fill="#B84D94"],
+  :root[data-color-scheme="light"] svg[class*="_download-icon"] {
+    fill: var(--rk-accent) !important;
+  }
+  :root[data-color-scheme="light"] [stroke="#B84D94"] {
+    stroke: var(--rk-accent) !important;
+  }
+  :root[data-color-scheme="light"] ._content_hautyr h1 {
+    text-shadow: none;
+  }
+  :root[data-color-scheme="light"] ._content_hautyr a {
+    color: var(--rk-accent);
+  }
+  :root[data-color-scheme="light"] ._content_hautyr a:hover {
+    color: hsl(from var(--rk-accent) h s calc(l - 5));
+    text-shadow: none;
+  }
+  :root[data-color-scheme="light"] [class*="_header-inner_"],
+  :root[data-color-scheme="light"] [class*="_header-inner_"] a {
+    color: var(--rk-foreground);
+  }
+  :root[data-color-scheme="light"] form[action="/search"] button {
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="light"] ._icon_xsqxju {
+    color: var(--rk-accent);
+  }
+  :root[data-color-scheme="light"] [class*="_tan-button_"],
+  :root[data-color-scheme="light"] [class*="_yellow-button_"] {
+    color: var(--rk-crust) !important;
+    background: var(--rk-accent);
+  }
+  :root[data-color-scheme="light"] [class*="_tan-button_"]:hover,
+  :root[data-color-scheme="light"] [class*="_yellow-button_"]:hover {
+    background-color: hsl(from var(--rk-accent) h s calc(l - 5));
+  }
+  :root[data-color-scheme="light"] [class*="_red-button_"] {
+    --bg-color-top: var(--rk-maroon);
+    --bg-color-bottom: var(--rk-maroon);
+    --bg-color-top-dark: var(--rk-red);
+    --bg-color-bottom-dark: var(--rk-red);
+  }
+  :root[data-color-scheme="light"] [class*="_me-email_"] [class*="_row_"] {
+    border-color: var(--rk-surface0);
+  }
+  :root[data-color-scheme="light"] [class*="_me-email_"] [class*="_verified_"] {
+    color: var(--rk-green);
+  }
+  :root[data-color-scheme="light"] [class*="_hero-title_"] {
+    color: var(--rk-foreground);
+    text-shadow: none;
+  }
+  :root[data-color-scheme="light"] [class*="_hero-button_"] [class*="_icon_"] {
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="light"] [class*="_blurb_"] [class*="_stats-value_"] [class*="_label_"],
+  :root[data-color-scheme="light"] [class*="_blurb_"] [class*="_stats-value_"] svg {
+    color: var(--rk-white);
+  }
+  :root[data-color-scheme="light"] [class*="_avatar_"] {
+    background-color: var(--rk-surface0);
+    box-shadow: none;
+  }
+  :root[data-color-scheme="light"] [class*="_yanked-badge_"] {
+    background-color: var(--rk-red);
+    color: var(--rk-crust);
+  }
+  :root[data-color-scheme="light"] table th,
+  :root[data-color-scheme="light"] table td {
+    border-color: var(--rk-black);
+  }
+}

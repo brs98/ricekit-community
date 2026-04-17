@@ -1,0 +1,398 @@
+/* ==UserStyle==
+@name Modrinth Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.04.13.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/modrinth.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Modrinth
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("modrinth.com") {
+  .light,
+  .light-mode,
+  .light-properties,
+  html {
+    color-scheme: dark;
+    --text-color: var(--rk-foreground) !important;
+    --color-base: var(--rk-foreground) !important;
+    --color-bg: var(--rk-crust) !important;
+    --color-secondary: var(--rk-white) !important;
+    --color-ad-raised: var(--rk-bright-black) !important;
+    --color-ad: var(--rk-black) !important;
+    --color-ad-highlight: var(--rk-cyan) !important;
+    --color-brand: var(--rk-accent) !important;
+    --color-brand-green: var(--rk-green) !important;
+    --color-button-bg-active: var(--rk-overlay0) !important;
+    --color-button-bg-selected: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-button-bg-hover: var(--rk-black) !important;
+    --color-button-bg: var(--rk-surface0) !important;
+    --color-button-text-hover: var(--rk-foreground) !important;
+    --color-button-text: var(--rk-bright-white) !important;
+    --color-button-text-active: var(--rk-foreground) !important;
+    --color-button-text-selected: var(--rk-accent) !important;
+    --color-divider: var(--rk-surface0) !important;
+    --color-divider-dark: var(--rk-bright-black) !important;
+    --color-heading: var(--rk-foreground) !important;
+    --color-icon: var(--rk-foreground) !important;
+    --color-link-active: var(--rk-sapphire) !important;
+    --color-link-hover: var(--rk-sky) !important;
+    --color-link: var(--rk-blue) !important;
+    --color-raised-bg: var(--rk-background) !important;
+    --color-blue: var(--rk-sapphire) !important;
+    --color-special-blue: var(--rk-sapphire) !important;
+    --color-orange: var(--rk-peach) !important;
+    --color-special-orange: var(--rk-peach) !important;
+    --color-purple: var(--rk-accent) !important;
+    --color-special-purple: var(--rk-accent) !important;
+    --color-red: var(--rk-red) !important;
+    --color-gray: var(--rk-white) !important;
+    --color-special-gray: var(--rk-white) !important;
+    --color-green: var(--rk-green) !important;
+    --color-text: var(--rk-bright-white) !important;
+    --color-text-dark: var(--rk-foreground) !important;
+    --color-text-inactive: var(--rk-overlay1) !important;
+    --color-brand-highlight: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-brand-inverted: #dbdfef !important;
+    --color-table-alternate-row: var(--rk-crust) !important;
+    --color-table-border: var(--rk-overlay0) !important;
+    --color-contrast: var(--rk-foreground) !important;
+    --color-accent-contrast: var(--rk-mantle) !important;
+    --color-red-highlight: rgb(from var(--rk-red) r g b / 0.25) !important;
+    --color-orange-highlight: rgb(from var(--rk-peach) r g b / 0.25) !important;
+    --color-green-highlight: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-blue-highlight: rgb(from var(--rk-blue) r g b / 0.25) !important;
+    --color-purple-highlight: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-gray-highlight: rgb(from var(--rk-foreground) r g b / 0.25) !important;
+    --color-red-bg: rgb(from var(--rk-red) r g b / 0.2) !important;
+    --color-orange-bg: rgb(from var(--rk-peach) r g b / 0.25) !important;
+    --color-green-bg: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-blue-bg: rgb(from var(--rk-blue) r g b / 0.25) !important;
+    --color-purple-bg: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-brand-shadow: var(--rk-accent) !important;
+    --color-warning-banner-side: var(--rk-red) !important;
+    --color-warning-banner-bg: rgb(from var(--rk-red) r g b / 0.25) !important;
+    --color-warning-banner-text: var(--rk-foreground) !important;
+    --color-platform-fabric: var(--rk-rosewater) !important;
+    --color-platform-quilt: var(--rk-accent) !important;
+    --color-platform-forge: var(--rk-lavender) !important;
+    --color-platform-neoforge: var(--rk-peach) !important;
+    --color-platform-liteloader: var(--rk-sky) !important;
+    --color-platform-bukkit: var(--rk-peach) !important;
+    --color-platform-bungeecord: var(--rk-yellow) !important;
+    --color-platform-folia: var(--rk-green) !important;
+    --color-platform-paper: var(--rk-red) !important;
+    --color-platform-purpur: var(--rk-accent) !important;
+    --color-platform-spigot: var(--rk-yellow) !important;
+    --color-platform-velocity: var(--rk-cyan) !important;
+    --color-platform-waterfall: var(--rk-blue) !important;
+    --color-platform-sponge: var(--rk-yellow) !important;
+    --color-platform-ornithe: var(--rk-cyan) !important;
+    --color-platform-bta-babric: var(--rk-green) !important;
+    --color-platform-legacy-fabric: var(--rk-lavender) !important;
+    --color-platform-nilloader: var(--rk-magenta) !important;
+    --color-button-border: rgb(from var(--rk-crust) r g b / 0.2) !important;
+    --color-tooltip-bg: var(--rk-black) !important;
+    --color-tooltip-text: var(--rk-bright-white) !important;
+    --landing-green-label: var(--rk-accent) !important;
+    --landing-green-label-bg: rgb(from var(--rk-accent) r g b / 0.1) !important;
+    --landing-blue-label: var(--rk-blue) !important;
+    --landing-color-heading: var(--rk-foreground) !important;
+    --landing-color-subheading: var(--rk-white) !important;
+    --landing-border-color: var(--rk-overlay0) !important;
+    --landing-blue-label-bg: rgb(from var(--rk-blue) r g b / 0.1) !important;
+    --landing-border-gradient: linear-gradient(to bottom right, #6c7086, #585b70) !important;
+    --brand-gradient-strong-bg: linear-gradient(270deg, rgba(203, 166, 247, 0.05) 10%, rgba(203, 166, 247, 0.15)) !important;
+    --brand-gradient-border: rgb(from var(--rk-accent) r g b / 0.1) !important;
+    --surface-1: var(--rk-crust) !important;
+    --surface-1-5: color-mix(in srgb, var(--rk-crust) 50%, var(--rk-mantle)) !important;
+    --surface-2: var(--rk-mantle) !important;
+    --surface-2-5: color-mix(in srgb, var(--rk-mantle) 50%, var(--rk-background)) !important;
+    --surface-3: var(--rk-background) !important;
+    --surface-4: var(--rk-surface0) !important;
+    --surface-5: var(--rk-bright-black) !important;
+    --color-text-primary: var(--rk-foreground) !important;
+    --color-text-default: var(--rk-bright-white) !important;
+    --color-text-tertiary: var(--rk-white) !important;
+  }
+  .light ::selection,
+  .light-mode ::selection,
+  .light-properties ::selection,
+  html ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .light input::placeholder,
+  .light-mode input::placeholder,
+  .light-properties input::placeholder,
+  html input::placeholder,
+  .light textarea::placeholder,
+  .light-mode textarea::placeholder,
+  .light-properties textarea::placeholder,
+  html textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .light .blob-demonstration,
+  .light-mode .blob-demonstration,
+  .light-properties .blob-demonstration,
+  html .blob-demonstration,
+  .light .blob-demonstration::after,
+  .light-mode .blob-demonstration::after,
+  .light-properties .blob-demonstration::after,
+  html .blob-demonstration::after {
+    background: linear-gradient(0deg, rgba(203, 166, 247, 0.2), rgba(30, 30, 46, 0.1)) !important;
+  }
+  .light .logo-banner path,
+  .light-mode .logo-banner path,
+  .light-properties .logo-banner path,
+  html .logo-banner path {
+    fill: var(--rk-accent) !important;
+  }
+  .light .logo-banner > svg > g > rect,
+  .light-mode .logo-banner > svg > g > rect,
+  .light-properties .logo-banner > svg > g > rect,
+  html .logo-banner > svg > g > rect {
+    display: none;
+  }
+  .light [tabindex="0"]:focus-visible,
+  .light-mode [tabindex="0"]:focus-visible,
+  .light-properties [tabindex="0"]:focus-visible,
+  html [tabindex="0"]:focus-visible,
+  .light a:focus-visible,
+  .light-mode a:focus-visible,
+  .light-properties a:focus-visible,
+  html a:focus-visible,
+  .light button:focus-visible,
+  .light-mode button:focus-visible,
+  .light-properties button:focus-visible,
+  html button:focus-visible {
+    outline-color: var(--rk-accent);
+  }
+  .light .BDVE3s9MFQttmbMUeYup-2 a b,
+  .light-mode .BDVE3s9MFQttmbMUeYup-2 a b,
+  .light-properties .BDVE3s9MFQttmbMUeYup-2 a b,
+  html .BDVE3s9MFQttmbMUeYup-2 a b,
+  .light .BDVE3s9MFQttmbMUeYup-2 a strong,
+  .light-mode .BDVE3s9MFQttmbMUeYup-2 a strong,
+  .light-properties .BDVE3s9MFQttmbMUeYup-2 a strong,
+  html .BDVE3s9MFQttmbMUeYup-2 a strong {
+    color: var(--rk-accent);
+  }
+  .light .multiselect__select::before,
+  .light-mode .multiselect__select::before,
+  .light-properties .multiselect__select::before,
+  html .multiselect__select::before {
+    border-color: var(--rk-foreground) transparent transparent;
+    color: var(--rk-foreground);
+  }
+  .light .btn-wrapper:hover a,
+  .light-mode .btn-wrapper:hover a,
+  .light-properties .btn-wrapper:hover a,
+  html .btn-wrapper:hover a,
+  .light .btn-wrapper:hover button,
+  .light-mode .btn-wrapper:hover button,
+  .light-properties .btn-wrapper:hover button,
+  html .btn-wrapper:hover button {
+    --tw-brightness: none !important;
+  }
+  .light .nuxt-loading-indicator,
+  .light-mode .nuxt-loading-indicator,
+  .light-properties .nuxt-loading-indicator,
+  html .nuxt-loading-indicator {
+    background: var(--rk-accent) !important;
+  }
+  .dark,
+  .dark-mode,
+  .oled-mode,
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --text-color: var(--rk-foreground) !important;
+    --color-base: var(--rk-foreground) !important;
+    --color-bg: var(--rk-crust) !important;
+    --color-secondary: var(--rk-white) !important;
+    --color-ad-raised: var(--rk-bright-black) !important;
+    --color-ad: var(--rk-black) !important;
+    --color-ad-highlight: var(--rk-cyan) !important;
+    --color-brand: var(--rk-accent) !important;
+    --color-brand-green: var(--rk-green) !important;
+    --color-button-bg-active: var(--rk-overlay0) !important;
+    --color-button-bg-selected: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-button-bg-hover: var(--rk-black) !important;
+    --color-button-bg: var(--rk-surface0) !important;
+    --color-button-text-hover: var(--rk-foreground) !important;
+    --color-button-text: var(--rk-bright-white) !important;
+    --color-button-text-active: var(--rk-foreground) !important;
+    --color-button-text-selected: var(--rk-accent) !important;
+    --color-divider: var(--rk-surface0) !important;
+    --color-divider-dark: var(--rk-bright-black) !important;
+    --color-heading: var(--rk-foreground) !important;
+    --color-icon: var(--rk-foreground) !important;
+    --color-link-active: var(--rk-sapphire) !important;
+    --color-link-hover: var(--rk-sky) !important;
+    --color-link: var(--rk-blue) !important;
+    --color-raised-bg: var(--rk-background) !important;
+    --color-blue: var(--rk-sapphire) !important;
+    --color-special-blue: var(--rk-sapphire) !important;
+    --color-orange: var(--rk-peach) !important;
+    --color-special-orange: var(--rk-peach) !important;
+    --color-purple: var(--rk-accent) !important;
+    --color-special-purple: var(--rk-accent) !important;
+    --color-red: var(--rk-red) !important;
+    --color-gray: var(--rk-white) !important;
+    --color-special-gray: var(--rk-white) !important;
+    --color-green: var(--rk-green) !important;
+    --color-text: var(--rk-bright-white) !important;
+    --color-text-dark: var(--rk-foreground) !important;
+    --color-text-inactive: var(--rk-overlay1) !important;
+    --color-brand-highlight: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-brand-inverted: #010409 !important;
+    --color-table-alternate-row: var(--rk-crust) !important;
+    --color-table-border: var(--rk-overlay0) !important;
+    --color-contrast: var(--rk-foreground) !important;
+    --color-accent-contrast: var(--rk-mantle) !important;
+    --color-red-highlight: rgb(from var(--rk-red) r g b / 0.25) !important;
+    --color-orange-highlight: rgb(from var(--rk-peach) r g b / 0.25) !important;
+    --color-green-highlight: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-blue-highlight: rgb(from var(--rk-blue) r g b / 0.25) !important;
+    --color-purple-highlight: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-gray-highlight: rgb(from var(--rk-foreground) r g b / 0.25) !important;
+    --color-red-bg: rgb(from var(--rk-red) r g b / 0.2) !important;
+    --color-orange-bg: rgb(from var(--rk-peach) r g b / 0.25) !important;
+    --color-green-bg: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-blue-bg: rgb(from var(--rk-blue) r g b / 0.25) !important;
+    --color-purple-bg: rgb(from var(--rk-accent) r g b / 0.25) !important;
+    --color-brand-shadow: var(--rk-accent) !important;
+    --color-warning-banner-side: var(--rk-red) !important;
+    --color-warning-banner-bg: rgb(from var(--rk-red) r g b / 0.25) !important;
+    --color-warning-banner-text: var(--rk-foreground) !important;
+    --color-platform-fabric: var(--rk-rosewater) !important;
+    --color-platform-quilt: var(--rk-accent) !important;
+    --color-platform-forge: var(--rk-lavender) !important;
+    --color-platform-neoforge: var(--rk-peach) !important;
+    --color-platform-liteloader: var(--rk-sky) !important;
+    --color-platform-bukkit: var(--rk-peach) !important;
+    --color-platform-bungeecord: var(--rk-yellow) !important;
+    --color-platform-folia: var(--rk-green) !important;
+    --color-platform-paper: var(--rk-red) !important;
+    --color-platform-purpur: var(--rk-accent) !important;
+    --color-platform-spigot: var(--rk-yellow) !important;
+    --color-platform-velocity: var(--rk-cyan) !important;
+    --color-platform-waterfall: var(--rk-blue) !important;
+    --color-platform-sponge: var(--rk-yellow) !important;
+    --color-platform-ornithe: var(--rk-cyan) !important;
+    --color-platform-bta-babric: var(--rk-green) !important;
+    --color-platform-legacy-fabric: var(--rk-lavender) !important;
+    --color-platform-nilloader: var(--rk-magenta) !important;
+    --color-button-border: rgb(from var(--rk-crust) r g b / 0.2) !important;
+    --color-tooltip-bg: var(--rk-black) !important;
+    --color-tooltip-text: var(--rk-bright-white) !important;
+    --landing-green-label: var(--rk-accent) !important;
+    --landing-green-label-bg: rgb(from var(--rk-accent) r g b / 0.1) !important;
+    --landing-blue-label: var(--rk-blue) !important;
+    --landing-color-heading: var(--rk-foreground) !important;
+    --landing-color-subheading: var(--rk-white) !important;
+    --landing-border-color: var(--rk-overlay0) !important;
+    --landing-blue-label-bg: rgb(from var(--rk-blue) r g b / 0.1) !important;
+    --landing-border-gradient: linear-gradient(to bottom right, #6c7086, #585b70) !important;
+    --brand-gradient-strong-bg: linear-gradient(270deg, rgba(203, 166, 247, 0.05) 10%, rgba(203, 166, 247, 0.15)) !important;
+    --brand-gradient-border: rgb(from var(--rk-accent) r g b / 0.1) !important;
+    --surface-1: var(--rk-crust) !important;
+    --surface-1-5: color-mix(in srgb, var(--rk-crust) 50%, var(--rk-mantle)) !important;
+    --surface-2: var(--rk-mantle) !important;
+    --surface-2-5: color-mix(in srgb, var(--rk-mantle) 50%, var(--rk-background)) !important;
+    --surface-3: var(--rk-background) !important;
+    --surface-4: var(--rk-surface0) !important;
+    --surface-5: var(--rk-bright-black) !important;
+    --color-text-primary: var(--rk-foreground) !important;
+    --color-text-default: var(--rk-bright-white) !important;
+    --color-text-tertiary: var(--rk-white) !important;
+  }
+  .dark ::selection,
+  .dark-mode ::selection,
+  .oled-mode ::selection,
+  :root[data-theme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .dark input::placeholder,
+  .dark-mode input::placeholder,
+  .oled-mode input::placeholder,
+  :root[data-theme="dark"] input::placeholder,
+  .dark textarea::placeholder,
+  .dark-mode textarea::placeholder,
+  .oled-mode textarea::placeholder,
+  :root[data-theme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .dark .blob-demonstration,
+  .dark-mode .blob-demonstration,
+  .oled-mode .blob-demonstration,
+  :root[data-theme="dark"] .blob-demonstration,
+  .dark .blob-demonstration::after,
+  .dark-mode .blob-demonstration::after,
+  .oled-mode .blob-demonstration::after,
+  :root[data-theme="dark"] .blob-demonstration::after {
+    background: linear-gradient(0deg, rgba(203, 166, 247, 0.2), rgba(30, 30, 46, 0.1)) !important;
+  }
+  .dark .logo-banner path,
+  .dark-mode .logo-banner path,
+  .oled-mode .logo-banner path,
+  :root[data-theme="dark"] .logo-banner path {
+    fill: var(--rk-accent) !important;
+  }
+  .dark .logo-banner > svg > g > rect,
+  .dark-mode .logo-banner > svg > g > rect,
+  .oled-mode .logo-banner > svg > g > rect,
+  :root[data-theme="dark"] .logo-banner > svg > g > rect {
+    display: none;
+  }
+  .dark [tabindex="0"]:focus-visible,
+  .dark-mode [tabindex="0"]:focus-visible,
+  .oled-mode [tabindex="0"]:focus-visible,
+  :root[data-theme="dark"] [tabindex="0"]:focus-visible,
+  .dark a:focus-visible,
+  .dark-mode a:focus-visible,
+  .oled-mode a:focus-visible,
+  :root[data-theme="dark"] a:focus-visible,
+  .dark button:focus-visible,
+  .dark-mode button:focus-visible,
+  .oled-mode button:focus-visible,
+  :root[data-theme="dark"] button:focus-visible {
+    outline-color: var(--rk-accent);
+  }
+  .dark .BDVE3s9MFQttmbMUeYup-2 a b,
+  .dark-mode .BDVE3s9MFQttmbMUeYup-2 a b,
+  .oled-mode .BDVE3s9MFQttmbMUeYup-2 a b,
+  :root[data-theme="dark"] .BDVE3s9MFQttmbMUeYup-2 a b,
+  .dark .BDVE3s9MFQttmbMUeYup-2 a strong,
+  .dark-mode .BDVE3s9MFQttmbMUeYup-2 a strong,
+  .oled-mode .BDVE3s9MFQttmbMUeYup-2 a strong,
+  :root[data-theme="dark"] .BDVE3s9MFQttmbMUeYup-2 a strong {
+    color: var(--rk-accent);
+  }
+  .dark .multiselect__select::before,
+  .dark-mode .multiselect__select::before,
+  .oled-mode .multiselect__select::before,
+  :root[data-theme="dark"] .multiselect__select::before {
+    border-color: var(--rk-foreground) transparent transparent;
+    color: var(--rk-foreground);
+  }
+  .dark .btn-wrapper:hover a,
+  .dark-mode .btn-wrapper:hover a,
+  .oled-mode .btn-wrapper:hover a,
+  :root[data-theme="dark"] .btn-wrapper:hover a,
+  .dark .btn-wrapper:hover button,
+  .dark-mode .btn-wrapper:hover button,
+  .oled-mode .btn-wrapper:hover button,
+  :root[data-theme="dark"] .btn-wrapper:hover button {
+    --tw-brightness: none !important;
+  }
+  .dark .nuxt-loading-indicator,
+  .dark-mode .nuxt-loading-indicator,
+  .oled-mode .nuxt-loading-indicator,
+  :root[data-theme="dark"] .nuxt-loading-indicator {
+    background: var(--rk-accent) !important;
+  }
+}

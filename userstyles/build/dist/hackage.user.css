@@ -1,0 +1,1192 @@
+/* ==UserStyle==
+@name Hackage Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.03.14.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/hackage.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Hackage
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("hackage.haskell.org"), domain("hackage-content.haskell.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /*
+     * Headers
+     */
+      /*
+     * Style selectors (for old packages)
+     */
+      /*
+     * Versions
+     */
+      /*
+     * Readme style
+     */
+      /*
+     * Contents & synopsis
+     */
+      /*
+     * Quick jump
+     */
+      /*
+     * Dropdown
+     */
+      /*
+     * Tables
+     */
+      /*
+     * Source links
+     */
+      /*
+     * Paginator
+     */
+      /*
+     * Search query
+     */
+      /*
+     * Upload
+     */
+      /*
+     * Others
+     */
+      /*
+     * MathJax
+     */
+      /*
+     * Sources
+     */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root,
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root a:hover {
+      background-color: inherit;
+    }
+    :root a[href]:link {
+      color: var(--rk-accent);
+    }
+    :root a[href]:visited {
+      color: #afa0d5;
+    }
+    :root a[href].def:link,
+    :root a[href].def:visited {
+      color: var(--rk-white);
+    }
+    :root a[href].def:hover {
+      color: #9ca3bd;
+    }
+    :root button {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root button:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .caption,
+    :root h1,
+    :root h2,
+    :root h3,
+    :root h4,
+    :root h5,
+    :root h6,
+    :root summary,
+    :root .section1,
+    :root .section2,
+    :root .section3,
+    :root .section4,
+    :root .section5,
+    :root .section6 {
+      color: var(--rk-foreground);
+      filter: none;
+    }
+    :root .collapser::before,
+    :root .expander::before,
+    :root .noexpander::before {
+      color: var(--rk-accent);
+    }
+    :root pre {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-black);
+    }
+    :root blockquote {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-accent);
+    }
+    :root .src,
+    :root .decl,
+    :root .declname,
+    :root .declbut,
+    :root .topdecl,
+    :root .arg,
+    :root .inline-code {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .declbut {
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root .declbut a {
+      color: var(--rk-overlay2) !important;
+    }
+    :root #page-header,
+    :root #package-header {
+      background-color: var(--rk-accent);
+      color: var(--rk-black);
+      border-color: color-mix(in srgb, black 25%, var(--rk-accent));
+    }
+    :root #page-header .caption,
+    :root #package-header .caption,
+    :root #page-header a:link,
+    :root #page-header a:visited {
+      color: var(--rk-background) !important;
+    }
+    :root #module-header .caption,
+    :root .modulebar {
+      color: var(--rk-accent);
+      border-color: var(--rk-black);
+    }
+    :root #module-header {
+      background-color: inherit;
+    }
+    :root #package-header a:link,
+    :root #package-header #page-menu a:link,
+    :root #package-header a:visited,
+    :root #package-header #page-menu a:visited {
+      color: var(--rk-background);
+    }
+    :root #package-header a:hover {
+      background-color: transparent;
+    }
+    :root #package-header ul.links li {
+      border-color: var(--rk-overlay0);
+    }
+    :root #package-header ul.links li:hover {
+      background-color: transparent;
+    }
+    :root ul.links li form input,
+    :root ul.links li form button {
+      color: var(--rk-background);
+    }
+    :root ul.links li form button {
+      background-color: transparent;
+    }
+    :root .topbar {
+      background-color: var(--rk-accent);
+    }
+    :root .topbar .topbut {
+      border-color: var(--rk-overlay0);
+    }
+    :root .topbar .topbut a {
+      background-color: transparent;
+      color: var(--rk-background);
+    }
+    :root .topbar .title {
+      color: var(--rk-background);
+    }
+    :root .botbar {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root #style-menu {
+      background-color: var(--rk-mantle);
+    }
+    :root #style-menu li,
+    :root #style-menu li a {
+      color: var(--rk-foreground) !important;
+    }
+    :root #style-menu li + li {
+      border-color: var(--rk-overlay2);
+    }
+    :root a.unpreferred[href]:link,
+    :root a.unpreferred[href]:visited {
+      color: var(--rk-yellow);
+    }
+    :root a.deprecated[href]:link,
+    :root a.deprecated[href]:visited {
+      color: var(--rk-red);
+    }
+    :root .versions a.normal[href]:link,
+    :root .versions a.normal[href]:visited {
+      color: var(--rk-green);
+    }
+    :root .embedded-author-content {
+      border-color: var(--rk-accent);
+    }
+    :root #contents-list {
+      background-color: var(--rk-mantle);
+    }
+    :root h2#table-of-contents {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root div#table-of-contents {
+      background-color: var(--rk-background);
+      border-color: var(--rk-black);
+    }
+    :root #synopsis summary,
+    :root #synopsis #control\.syn {
+      background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22128%22%20height%3D%22104%22%20viewBox%3D%220%200%20128%20104%22%20xml%3Aspace%3D%22preserve%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22a%22%20x%3D%22-.06%22%20y%3D%22-.03%22%20width%3D%221.14%22%20height%3D%221.07%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-color%3D%22%23000%22%20flood-opacity%3D%22.498%22%20result%3D%22flood%22/%3E%3CfeGaussianBlur%20in%3D%22SourceGraphic%22%20result%3D%22blur%22%20stdDeviation%3D%221%22/%3E%3CfeOffset%20dx%3D%221%22%20dy%3D%221%22%20in%3D%22blur%22%20result%3D%22offset%22/%3E%3CfeComposite%20in%3D%22flood%22%20in2%3D%22offset%22%20operator%3D%22in%22%20result%3D%22comp1%22/%3E%3CfeComposite%20in%3D%22SourceGraphic%22%20in2%3D%22comp1%22%20result%3D%22comp2%22/%3E%3C/filter%3E%3Cfilter%20id%3D%22b%22%20x%3D%22-.06%22%20y%3D%22-.03%22%20width%3D%221.14%22%20height%3D%221.07%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-color%3D%22%23000%22%20flood-opacity%3D%22.498%22%20result%3D%22flood%22/%3E%3CfeGaussianBlur%20in%3D%22SourceGraphic%22%20result%3D%22blur%22%20stdDeviation%3D%221%22/%3E%3CfeOffset%20dx%3D%221%22%20dy%3D%221%22%20in%3D%22blur%22%20result%3D%22offset%22/%3E%3CfeComposite%20in%3D%22flood%22%20in2%3D%22offset%22%20operator%3D%22in%22%20result%3D%22comp1%22/%3E%3CfeComposite%20in%3D%22SourceGraphic%22%20in2%3D%22comp1%22%20result%3D%22comp2%22/%3E%3C/filter%3E%3C/defs%3E%3Cg%20transform%3D%22translate%2864%29%22%20filter%3D%22url%28%23a%29%22%3E%3Crect%20x%3D%228.5%22%20y%3D%228.5%22%20width%3D%2240%22%20height%3D%2280%22%20rx%3D%224%22%20ry%3D%224%22%20fill%3D%22%23313244%22/%3E%3Ctext%20transform%3D%22matrix%280%20-.995%201%200%200%200%29%22%20x%3D%22-86.188%22%20y%3D%2223.735%22%20fill%3D%22%23bac2de%22%20xml%3Aspace%3D%22preserve%22%3E%3Ctspan%20x%3D%22-86.188%22%20y%3D%2223.735%22%20font-family%3D%22&quot%3BPT%20Sans&quot%3B,-apple-system,BlinkMacSystemFont,&quot%3BSegoe%20UI&quot%3B,Roboto,Oxygen-Sans,Cantarell,&quot%3BHelvetica%20Neue&quot%3B,sans-serif%22%20font-size%3D%2214px%22%20font-weight%3D%22400%22%3ESynopsis%3C/tspan%3E%3C/text%3E%3Cg%20fill%3D%22%236c7086%22%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-28.7%22%20y%3D%22-6.53%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%22-1.47%22%20y%3D%2226.3%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-23.7%22%20y%3D%22-1.58%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%22-6.42%22%20y%3D%2221.4%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3C/g%3E%3C/g%3E%3Cg%20filter%3D%22url%28%23b%29%22%3E%3Crect%20x%3D%228.5%22%20y%3D%228.5%22%20width%3D%2240%22%20height%3D%2280%22%20rx%3D%224%22%20ry%3D%224%22%20fill%3D%22%23313244%22/%3E%3Ctext%20transform%3D%22matrix%280%20-.995%201%200%200%200%29%22%20x%3D%22-86.188%22%20y%3D%2223.735%22%20fill%3D%22%23bac2de%22%20xml%3Aspace%3D%22preserve%22%3E%3Ctspan%20x%3D%22-86.188%22%20y%3D%2223.735%22%20font-family%3D%22&quot%3BPT%20Sans&quot%3B,-apple-system,BlinkMacSystemFont,&quot%3BSegoe%20UI&quot%3B,Roboto,Oxygen-Sans,Cantarell,&quot%3BHelvetica%20Neue&quot%3B,sans-serif%22%20font-size%3D%2214px%22%20font-weight%3D%22400%22%3ESynopsis%3C/tspan%3E%3C/text%3E%3Cg%20fill%3D%22%236c7086%22%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%22-3.59%22%20y%3D%2218.6%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-26.6%22%20y%3D%221.24%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%221.36%22%20y%3D%2223.5%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-31.5%22%20y%3D%22-3.71%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") !important;
+    }
+    :root #synopsis ul,
+    :root #synopsis ul li.src {
+      background-color: var(--rk-surface0);
+    }
+    :root #search p.error {
+      color: var(--rk-red);
+    }
+    :root #search-form,
+    :root #search-results {
+      box-shadow: 2px 2px 6px rgb(from var(--rk-mantle) r g b / 0.2);
+    }
+    :root #search-form input {
+      border-color: var(--rk-accent);
+    }
+    :root #search-results {
+      border-color: var(--rk-accent);
+    }
+    :root #search-results > ul > li {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root .search-module > ul > li > a[href].active-link {
+      background-color: var(--rk-bright-black);
+    }
+    :root .search-result ul.subs::after {
+      color: var(--rk-bright-white);
+    }
+    :root .more-results,
+    :root .more-results::before {
+      color: var(--rk-white);
+    }
+    :root .keyboard-shortcuts th {
+      color: var(--rk-accent);
+    }
+    :root .key {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-mantle);
+    }
+    :root .dropdown-menu {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-surface0);
+    }
+    :root .dropdown-menu button {
+      background-color: var(--rk-accent);
+      color: var(--rk-mantle);
+      border-color: var(--rk-bright-black);
+    }
+    :root .dropdown-menu button:hover,
+    :root .dropdown-menu button:active {
+      background-color: var(--rk-accent);
+      color: var(--rk-mantle);
+    }
+    :root table.info {
+      background-color: var(--rk-background);
+      color: var(--rk-bright-white);
+      border-color: var(--rk-black);
+    }
+    :root table.fancy,
+    :root table.fancy tr {
+      border-color: var(--rk-black);
+    }
+    :root table.fancy tr.even td {
+      background-color: var(--rk-mantle);
+    }
+    :root table.fancy th,
+    :root table.properties th,
+    :root table.dataTable.compact.fancy tbody th,
+    :root table.fancy td,
+    :root table.properties td,
+    :root table.dataTable.compact.fancy tbody td {
+      background-color: var(--rk-background);
+    }
+    :root .doc th,
+    :root .doc td {
+      border-color: var(--rk-black);
+    }
+    :root .doc th {
+      background-color: var(--rk-mantle);
+    }
+    :root .infohead,
+    :root .infoval {
+      color: var(--rk-bright-white);
+    }
+    :root div#table_length.dataTables_length,
+    :root div#table_filter.dataTables_filter {
+      color: var(--rk-foreground);
+    }
+    :root div #description table,
+    :root div #description table tr td {
+      border-color: var(--rk-black);
+    }
+    :root div #description table th {
+      background-color: var(--rk-mantle);
+    }
+    :root #interface .src .link,
+    :root #interface .src .selflink {
+      color: var(--rk-overlay2) !important;
+      background-color: transparent !important;
+    }
+    :root #interface p.src .link {
+      background-color: transparent;
+      color: var(--rk-overlay2);
+      border-color: var(--rk-overlay1);
+    }
+    :root #interface span.fixity,
+    :root #interface span.rightedge {
+      color: var(--rk-overlay1);
+      border-left-color: var(--rk-overlay1);
+    }
+    :root #interface span.fixity {
+      color: var(--rk-overlay1);
+    }
+    :root .paginator span {
+      color: var(--rk-foreground);
+    }
+    :root .paginator a {
+      color: var(--rk-overlay1);
+    }
+    :root .paginator a[href]:link,
+    :root .paginator a:link:hover {
+      color: var(--rk-accent);
+    }
+    :root .paginator a:visited,
+    :root .paginator a:visited:hover {
+      color: #afa0d5;
+    }
+    :root .paginator a:link:hover,
+    :root .paginator a:visited:hover {
+      background-image: none;
+      background-color: var(--rk-mantle);
+      border-color: transparent;
+    }
+    :root .paginator .current {
+      background-image: none;
+      background-color: var(--rk-mantle);
+      color: var(--rk-accent);
+      border-color: transparent;
+    }
+    :root .paginator .current:hover {
+      background-color: var(--rk-crust) !important;
+    }
+    :root .paginate_button {
+      background-color: var(--rk-overlay0);
+    }
+    :root #browseTable th {
+      border-color: var(--rk-black);
+    }
+    :root #fatalError {
+      color: var(--rk-red);
+    }
+    :root input:invalid {
+      border-color: var(--rk-yellow);
+      box-shadow: 0 0 10px var(--rk-yellow);
+    }
+    :root input {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-style: solid;
+      border-color: var(--rk-surface0);
+      border-radius: 4px;
+    }
+    :root input[type="range"] {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: var(--rk-mantle);
+      height: 0.2em !important;
+    }
+    :root input[type="range"]::-moz-range-thumb,
+    :root input[type="range"]::-webkit-slider-thumb {
+      background-color: var(--rk-foreground);
+      border-color: var(--rk-surface0);
+      height: 1em !important;
+    }
+    :root input[type="range"]:hover,
+    :root input[type="submit"]:hover {
+      background-color: var(--rk-crust);
+    }
+    :root input[type="file"] {
+      background-color: transparent;
+    }
+    :root input[type="file"]::file-selector-button {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .candidate-warn {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-red);
+    }
+    :root .candidate-info {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-blue);
+    }
+    :root .box {
+      background-color: var(--rk-background);
+      border-color: var(--rk-background);
+    }
+    :root div#modal #content,
+    :root #search-results {
+      background-color: var(--rk-surface0);
+    }
+    :root .subs,
+    :root .top > .doc,
+    :root .subs > .doc {
+      border-left-color: var(--rk-black);
+    }
+    :root .subs .subs p.src {
+      background-color: var(--rk-mantle);
+    }
+    :root .top p.src {
+      border-color: var(--rk-surface0);
+    }
+    :root .warning,
+    :root strong.warning {
+      color: var(--rk-red);
+    }
+    :root small.info,
+    :root .flags-table .flag-disabled {
+      color: var(--rk-white);
+    }
+    :root .text-button {
+      color: var(--rk-accent);
+    }
+    :root p.registration-email {
+      border-color: var(--rk-accent);
+    }
+    :root :target {
+      background-image: linear-gradient(to bottom, transparent 0%, transparent 65%, #958a7a 60%, #958a7a 100%);
+    }
+    :root :target:hover {
+      background-image: linear-gradient(to bottom, #60595d 0%, #60595d 100%);
+    }
+    :root #footer {
+      background-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+      border-color: var(--rk-overlay0);
+    }
+    :root #MathJax_Message {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root #MathJax_About,
+    :root #MathJax_Help,
+    :root .MathJax_Menu {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-accent);
+      box-shadow: 0 10px 20px var(--rk-mantle);
+      -webkit-box-shadow: 0 10px 20px var(--rk-mantle);
+      -moz-box-shadow: 0 10px 20px var(--rk-mantle);
+    }
+    :root #MathJax_About > span,
+    :root #MathJax_HelpContent {
+      background-color: var(--rk-black) !important;
+      color: var(--rk-bright-white) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root .MathJax_MenuArrow {
+      color: var(--rk-bright-white);
+    }
+    :root .MathJax_MenuRule {
+      border-top-color: var(--rk-overlay0);
+    }
+    :root .MathJax_MenuActive {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .MathJax_MenuDisabled {
+      color: var(--rk-overlay2);
+    }
+    :root .MathJax_MenuDisabled:focus,
+    :root .MathJax_MenuLabel:focus {
+      background-color: var(--rk-black);
+    }
+    :root #MathJax_AboutClose,
+    :root #MathJax_HelpClose {
+      border-color: var(--rk-bright-black);
+      color: var(--rk-white);
+    }
+    :root #MathJax_AboutClose span,
+    :root #MathJax_HelpClose span {
+      background-color: var(--rk-bright-black);
+    }
+    :root #MathJax_AboutClose:hover,
+    :root #MathJax_HelpClose:hover {
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root #MathJax_AboutClose:hover span,
+    :root #MathJax_HelpClose:hover span {
+      background-color: var(--rk-overlay0) !important;
+    }
+    :root span.mathjax img {
+      filter: none;
+    }
+    :root span.definition,
+    :root .hs-identifier {
+      color: var(--rk-blue);
+    }
+    :root .hs-identifier.hs-type {
+      color: var(--rk-yellow);
+    }
+    :root span.keyword,
+    :root .hs-keyword {
+      color: var(--rk-accent);
+    }
+    :root span.str,
+    :root span.char,
+    :root .hs-string,
+    :root .hs-char,
+    :root .hs-str,
+    :root .hs-chr {
+      color: var(--rk-green);
+    }
+    :root .hs-number {
+      color: var(--rk-peach);
+    }
+    :root .hs-operator {
+      color: var(--rk-sky);
+    }
+    :root span.keyglyph,
+    :root span.layout,
+    :root span.conop,
+    :root .hs-keyglyph,
+    :root .hs-layout,
+    :root .hs-glyph,
+    :root .hs-special {
+      color: var(--rk-overlay2);
+    }
+    :root span.comment,
+    :root .hs-comment,
+    :root .hs-comment a {
+      color: var(--rk-overlay0);
+    }
+    :root span.cpp,
+    :root .hs-pragma,
+    :root .hs-cpp {
+      color: var(--rk-magenta);
+    }
+    :root pre a:link,
+    :root pre a:visited {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root pre a:hover,
+    :root pre a.hover-highlight {
+      background-color: var(--rk-surface0);
+    }
+    :root span.annot {
+      color: var(--rk-foreground);
+    }
+    :root span.annot:hover {
+      background-color: var(--rk-black);
+    }
+    :root span.annot span.annottext {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-accent);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /*
+     * Headers
+     */
+      /*
+     * Style selectors (for old packages)
+     */
+      /*
+     * Versions
+     */
+      /*
+     * Readme style
+     */
+      /*
+     * Contents & synopsis
+     */
+      /*
+     * Quick jump
+     */
+      /*
+     * Dropdown
+     */
+      /*
+     * Tables
+     */
+      /*
+     * Source links
+     */
+      /*
+     * Paginator
+     */
+      /*
+     * Search query
+     */
+      /*
+     * Upload
+     */
+      /*
+     * Others
+     */
+      /*
+     * MathJax
+     */
+      /*
+     * Sources
+     */
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root,
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root a:hover {
+      background-color: inherit;
+    }
+    :root a[href]:link {
+      color: var(--rk-accent);
+    }
+    :root a[href]:visited {
+      color: #afa0d5;
+    }
+    :root a[href].def:link,
+    :root a[href].def:visited {
+      color: var(--rk-white);
+    }
+    :root a[href].def:hover {
+      color: #9ca3bd;
+    }
+    :root button {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root button:hover {
+      background-color: var(--rk-crust);
+    }
+    :root .caption,
+    :root h1,
+    :root h2,
+    :root h3,
+    :root h4,
+    :root h5,
+    :root h6,
+    :root summary,
+    :root .section1,
+    :root .section2,
+    :root .section3,
+    :root .section4,
+    :root .section5,
+    :root .section6 {
+      color: var(--rk-foreground);
+      filter: none;
+    }
+    :root .collapser::before,
+    :root .expander::before,
+    :root .noexpander::before {
+      color: var(--rk-accent);
+    }
+    :root pre {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-black);
+    }
+    :root blockquote {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-accent);
+    }
+    :root .src,
+    :root .decl,
+    :root .declname,
+    :root .declbut,
+    :root .topdecl,
+    :root .arg,
+    :root .inline-code {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .declbut {
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root .declbut a {
+      color: var(--rk-overlay2) !important;
+    }
+    :root #page-header,
+    :root #package-header {
+      background-color: var(--rk-accent);
+      color: var(--rk-black);
+      border-color: color-mix(in srgb, black 25%, var(--rk-accent));
+    }
+    :root #page-header .caption,
+    :root #package-header .caption,
+    :root #page-header a:link,
+    :root #page-header a:visited {
+      color: var(--rk-background) !important;
+    }
+    :root #module-header .caption,
+    :root .modulebar {
+      color: var(--rk-accent);
+      border-color: var(--rk-black);
+    }
+    :root #module-header {
+      background-color: inherit;
+    }
+    :root #package-header a:link,
+    :root #package-header #page-menu a:link,
+    :root #package-header a:visited,
+    :root #package-header #page-menu a:visited {
+      color: var(--rk-background);
+    }
+    :root #package-header a:hover {
+      background-color: transparent;
+    }
+    :root #package-header ul.links li {
+      border-color: var(--rk-overlay0);
+    }
+    :root #package-header ul.links li:hover {
+      background-color: transparent;
+    }
+    :root ul.links li form input,
+    :root ul.links li form button {
+      color: var(--rk-background);
+    }
+    :root ul.links li form button {
+      background-color: transparent;
+    }
+    :root .topbar {
+      background-color: var(--rk-accent);
+    }
+    :root .topbar .topbut {
+      border-color: var(--rk-overlay0);
+    }
+    :root .topbar .topbut a {
+      background-color: transparent;
+      color: var(--rk-background);
+    }
+    :root .topbar .title {
+      color: var(--rk-background);
+    }
+    :root .botbar {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root #style-menu {
+      background-color: var(--rk-mantle);
+    }
+    :root #style-menu li,
+    :root #style-menu li a {
+      color: var(--rk-foreground) !important;
+    }
+    :root #style-menu li + li {
+      border-color: var(--rk-overlay2);
+    }
+    :root a.unpreferred[href]:link,
+    :root a.unpreferred[href]:visited {
+      color: var(--rk-yellow);
+    }
+    :root a.deprecated[href]:link,
+    :root a.deprecated[href]:visited {
+      color: var(--rk-red);
+    }
+    :root .versions a.normal[href]:link,
+    :root .versions a.normal[href]:visited {
+      color: var(--rk-green);
+    }
+    :root .embedded-author-content {
+      border-color: var(--rk-accent);
+    }
+    :root #contents-list {
+      background-color: var(--rk-mantle);
+    }
+    :root h2#table-of-contents {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root div#table-of-contents {
+      background-color: var(--rk-background);
+      border-color: var(--rk-black);
+    }
+    :root #synopsis summary,
+    :root #synopsis #control\.syn {
+      background-image: url("data:image/svg+xml,%3Csvg%20width%3D%22128%22%20height%3D%22104%22%20viewBox%3D%220%200%20128%20104%22%20xml%3Aspace%3D%22preserve%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22a%22%20x%3D%22-.06%22%20y%3D%22-.03%22%20width%3D%221.14%22%20height%3D%221.07%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-color%3D%22%23000%22%20flood-opacity%3D%22.498%22%20result%3D%22flood%22/%3E%3CfeGaussianBlur%20in%3D%22SourceGraphic%22%20result%3D%22blur%22%20stdDeviation%3D%221%22/%3E%3CfeOffset%20dx%3D%221%22%20dy%3D%221%22%20in%3D%22blur%22%20result%3D%22offset%22/%3E%3CfeComposite%20in%3D%22flood%22%20in2%3D%22offset%22%20operator%3D%22in%22%20result%3D%22comp1%22/%3E%3CfeComposite%20in%3D%22SourceGraphic%22%20in2%3D%22comp1%22%20result%3D%22comp2%22/%3E%3C/filter%3E%3Cfilter%20id%3D%22b%22%20x%3D%22-.06%22%20y%3D%22-.03%22%20width%3D%221.14%22%20height%3D%221.07%22%20color-interpolation-filters%3D%22sRGB%22%3E%3CfeFlood%20flood-color%3D%22%23000%22%20flood-opacity%3D%22.498%22%20result%3D%22flood%22/%3E%3CfeGaussianBlur%20in%3D%22SourceGraphic%22%20result%3D%22blur%22%20stdDeviation%3D%221%22/%3E%3CfeOffset%20dx%3D%221%22%20dy%3D%221%22%20in%3D%22blur%22%20result%3D%22offset%22/%3E%3CfeComposite%20in%3D%22flood%22%20in2%3D%22offset%22%20operator%3D%22in%22%20result%3D%22comp1%22/%3E%3CfeComposite%20in%3D%22SourceGraphic%22%20in2%3D%22comp1%22%20result%3D%22comp2%22/%3E%3C/filter%3E%3C/defs%3E%3Cg%20transform%3D%22translate%2864%29%22%20filter%3D%22url%28%23a%29%22%3E%3Crect%20x%3D%228.5%22%20y%3D%228.5%22%20width%3D%2240%22%20height%3D%2280%22%20rx%3D%224%22%20ry%3D%224%22%20fill%3D%22%23313244%22/%3E%3Ctext%20transform%3D%22matrix%280%20-.995%201%200%200%200%29%22%20x%3D%22-86.188%22%20y%3D%2223.735%22%20fill%3D%22%23bac2de%22%20xml%3Aspace%3D%22preserve%22%3E%3Ctspan%20x%3D%22-86.188%22%20y%3D%2223.735%22%20font-family%3D%22&quot%3BPT%20Sans&quot%3B,-apple-system,BlinkMacSystemFont,&quot%3BSegoe%20UI&quot%3B,Roboto,Oxygen-Sans,Cantarell,&quot%3BHelvetica%20Neue&quot%3B,sans-serif%22%20font-size%3D%2214px%22%20font-weight%3D%22400%22%3ESynopsis%3C/tspan%3E%3C/text%3E%3Cg%20fill%3D%22%236c7086%22%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-28.7%22%20y%3D%22-6.53%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%22-1.47%22%20y%3D%2226.3%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-23.7%22%20y%3D%22-1.58%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%22-6.42%22%20y%3D%2221.4%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3C/g%3E%3C/g%3E%3Cg%20filter%3D%22url%28%23b%29%22%3E%3Crect%20x%3D%228.5%22%20y%3D%228.5%22%20width%3D%2240%22%20height%3D%2280%22%20rx%3D%224%22%20ry%3D%224%22%20fill%3D%22%23313244%22/%3E%3Ctext%20transform%3D%22matrix%280%20-.995%201%200%200%200%29%22%20x%3D%22-86.188%22%20y%3D%2223.735%22%20fill%3D%22%23bac2de%22%20xml%3Aspace%3D%22preserve%22%3E%3Ctspan%20x%3D%22-86.188%22%20y%3D%2223.735%22%20font-family%3D%22&quot%3BPT%20Sans&quot%3B,-apple-system,BlinkMacSystemFont,&quot%3BSegoe%20UI&quot%3B,Roboto,Oxygen-Sans,Cantarell,&quot%3BHelvetica%20Neue&quot%3B,sans-serif%22%20font-size%3D%2214px%22%20font-weight%3D%22400%22%3ESynopsis%3C/tspan%3E%3C/text%3E%3Cg%20fill%3D%22%236c7086%22%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%22-3.59%22%20y%3D%2218.6%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-26.6%22%20y%3D%221.24%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%28-45%29%22%20x%3D%221.36%22%20y%3D%2223.5%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3Crect%20transform%3D%22rotate%2845%29scale%28-1%201%29%22%20x%3D%22-31.5%22%20y%3D%22-3.71%22%20width%3D%227.88%22%20height%3D%222.46%22%20rx%3D%22.985%22%20ry%3D%22.985%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") !important;
+    }
+    :root #synopsis ul,
+    :root #synopsis ul li.src {
+      background-color: var(--rk-surface0);
+    }
+    :root #search p.error {
+      color: var(--rk-red);
+    }
+    :root #search-form,
+    :root #search-results {
+      box-shadow: 2px 2px 6px rgb(from var(--rk-mantle) r g b / 0.2);
+    }
+    :root #search-form input {
+      border-color: var(--rk-accent);
+    }
+    :root #search-results {
+      border-color: var(--rk-accent);
+    }
+    :root #search-results > ul > li {
+      border-bottom-color: var(--rk-overlay0);
+    }
+    :root .search-module > ul > li > a[href].active-link {
+      background-color: var(--rk-bright-black);
+    }
+    :root .search-result ul.subs::after {
+      color: var(--rk-bright-white);
+    }
+    :root .more-results,
+    :root .more-results::before {
+      color: var(--rk-white);
+    }
+    :root .keyboard-shortcuts th {
+      color: var(--rk-accent);
+    }
+    :root .key {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-color: var(--rk-mantle);
+    }
+    :root .dropdown-menu {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-surface0);
+    }
+    :root .dropdown-menu button {
+      background-color: var(--rk-accent);
+      color: var(--rk-mantle);
+      border-color: var(--rk-bright-black);
+    }
+    :root .dropdown-menu button:hover,
+    :root .dropdown-menu button:active {
+      background-color: var(--rk-accent);
+      color: var(--rk-mantle);
+    }
+    :root table.info {
+      background-color: var(--rk-background);
+      color: var(--rk-bright-white);
+      border-color: var(--rk-black);
+    }
+    :root table.fancy,
+    :root table.fancy tr {
+      border-color: var(--rk-black);
+    }
+    :root table.fancy tr.even td {
+      background-color: var(--rk-mantle);
+    }
+    :root table.fancy th,
+    :root table.properties th,
+    :root table.dataTable.compact.fancy tbody th,
+    :root table.fancy td,
+    :root table.properties td,
+    :root table.dataTable.compact.fancy tbody td {
+      background-color: var(--rk-background);
+    }
+    :root .doc th,
+    :root .doc td {
+      border-color: var(--rk-black);
+    }
+    :root .doc th {
+      background-color: var(--rk-mantle);
+    }
+    :root .infohead,
+    :root .infoval {
+      color: var(--rk-bright-white);
+    }
+    :root div#table_length.dataTables_length,
+    :root div#table_filter.dataTables_filter {
+      color: var(--rk-foreground);
+    }
+    :root div #description table,
+    :root div #description table tr td {
+      border-color: var(--rk-black);
+    }
+    :root div #description table th {
+      background-color: var(--rk-mantle);
+    }
+    :root #interface .src .link,
+    :root #interface .src .selflink {
+      color: var(--rk-overlay2) !important;
+      background-color: transparent !important;
+    }
+    :root #interface p.src .link {
+      background-color: transparent;
+      color: var(--rk-overlay2);
+      border-color: var(--rk-overlay1);
+    }
+    :root #interface span.fixity,
+    :root #interface span.rightedge {
+      color: var(--rk-overlay1);
+      border-left-color: var(--rk-overlay1);
+    }
+    :root #interface span.fixity {
+      color: var(--rk-overlay1);
+    }
+    :root .paginator span {
+      color: var(--rk-foreground);
+    }
+    :root .paginator a {
+      color: var(--rk-overlay1);
+    }
+    :root .paginator a[href]:link,
+    :root .paginator a:link:hover {
+      color: var(--rk-accent);
+    }
+    :root .paginator a:visited,
+    :root .paginator a:visited:hover {
+      color: #afa0d5;
+    }
+    :root .paginator a:link:hover,
+    :root .paginator a:visited:hover {
+      background-image: none;
+      background-color: var(--rk-mantle);
+      border-color: transparent;
+    }
+    :root .paginator .current {
+      background-image: none;
+      background-color: var(--rk-mantle);
+      color: var(--rk-accent);
+      border-color: transparent;
+    }
+    :root .paginator .current:hover {
+      background-color: var(--rk-crust) !important;
+    }
+    :root .paginate_button {
+      background-color: var(--rk-overlay0);
+    }
+    :root #browseTable th {
+      border-color: var(--rk-black);
+    }
+    :root #fatalError {
+      color: var(--rk-red);
+    }
+    :root input:invalid {
+      border-color: var(--rk-yellow);
+      box-shadow: 0 0 10px var(--rk-yellow);
+    }
+    :root input {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+      border-style: solid;
+      border-color: var(--rk-surface0);
+      border-radius: 4px;
+    }
+    :root input[type="range"] {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      background-color: var(--rk-mantle);
+      height: 0.2em !important;
+    }
+    :root input[type="range"]::-moz-range-thumb,
+    :root input[type="range"]::-webkit-slider-thumb {
+      background-color: var(--rk-foreground);
+      border-color: var(--rk-surface0);
+      height: 1em !important;
+    }
+    :root input[type="range"]:hover,
+    :root input[type="submit"]:hover {
+      background-color: var(--rk-crust);
+    }
+    :root input[type="file"] {
+      background-color: transparent;
+    }
+    :root input[type="file"]::file-selector-button {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root .candidate-warn {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-red);
+    }
+    :root .candidate-info {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-blue);
+    }
+    :root .box {
+      background-color: var(--rk-background);
+      border-color: var(--rk-background);
+    }
+    :root div#modal #content,
+    :root #search-results {
+      background-color: var(--rk-surface0);
+    }
+    :root .subs,
+    :root .top > .doc,
+    :root .subs > .doc {
+      border-left-color: var(--rk-black);
+    }
+    :root .subs .subs p.src {
+      background-color: var(--rk-mantle);
+    }
+    :root .top p.src {
+      border-color: var(--rk-surface0);
+    }
+    :root .warning,
+    :root strong.warning {
+      color: var(--rk-red);
+    }
+    :root small.info,
+    :root .flags-table .flag-disabled {
+      color: var(--rk-white);
+    }
+    :root .text-button {
+      color: var(--rk-accent);
+    }
+    :root p.registration-email {
+      border-color: var(--rk-accent);
+    }
+    :root :target {
+      background-image: linear-gradient(to bottom, transparent 0%, transparent 65%, #958a7a 60%, #958a7a 100%);
+    }
+    :root :target:hover {
+      background-image: linear-gradient(to bottom, #60595d 0%, #60595d 100%);
+    }
+    :root #footer {
+      background-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+      border-color: var(--rk-overlay0);
+    }
+    :root #MathJax_Message {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root #MathJax_About,
+    :root #MathJax_Help,
+    :root .MathJax_Menu {
+      background-color: var(--rk-surface0);
+      color: var(--rk-foreground);
+      border-color: var(--rk-accent);
+      box-shadow: 0 10px 20px var(--rk-mantle);
+      -webkit-box-shadow: 0 10px 20px var(--rk-mantle);
+      -moz-box-shadow: 0 10px 20px var(--rk-mantle);
+    }
+    :root #MathJax_About > span,
+    :root #MathJax_HelpContent {
+      background-color: var(--rk-black) !important;
+      color: var(--rk-bright-white) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root .MathJax_MenuArrow {
+      color: var(--rk-bright-white);
+    }
+    :root .MathJax_MenuRule {
+      border-top-color: var(--rk-overlay0);
+    }
+    :root .MathJax_MenuActive {
+      background-color: var(--rk-black);
+      color: var(--rk-foreground);
+    }
+    :root .MathJax_MenuDisabled {
+      color: var(--rk-overlay2);
+    }
+    :root .MathJax_MenuDisabled:focus,
+    :root .MathJax_MenuLabel:focus {
+      background-color: var(--rk-black);
+    }
+    :root #MathJax_AboutClose,
+    :root #MathJax_HelpClose {
+      border-color: var(--rk-bright-black);
+      color: var(--rk-white);
+    }
+    :root #MathJax_AboutClose span,
+    :root #MathJax_HelpClose span {
+      background-color: var(--rk-bright-black);
+    }
+    :root #MathJax_AboutClose:hover,
+    :root #MathJax_HelpClose:hover {
+      color: var(--rk-foreground) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root #MathJax_AboutClose:hover span,
+    :root #MathJax_HelpClose:hover span {
+      background-color: var(--rk-overlay0) !important;
+    }
+    :root span.mathjax img {
+      filter: none;
+    }
+    :root span.definition,
+    :root .hs-identifier {
+      color: var(--rk-blue);
+    }
+    :root .hs-identifier.hs-type {
+      color: var(--rk-yellow);
+    }
+    :root span.keyword,
+    :root .hs-keyword {
+      color: var(--rk-accent);
+    }
+    :root span.str,
+    :root span.char,
+    :root .hs-string,
+    :root .hs-char,
+    :root .hs-str,
+    :root .hs-chr {
+      color: var(--rk-green);
+    }
+    :root .hs-number {
+      color: var(--rk-peach);
+    }
+    :root .hs-operator {
+      color: var(--rk-sky);
+    }
+    :root span.keyglyph,
+    :root span.layout,
+    :root span.conop,
+    :root .hs-keyglyph,
+    :root .hs-layout,
+    :root .hs-glyph,
+    :root .hs-special {
+      color: var(--rk-overlay2);
+    }
+    :root span.comment,
+    :root .hs-comment,
+    :root .hs-comment a {
+      color: var(--rk-overlay0);
+    }
+    :root span.cpp,
+    :root .hs-pragma,
+    :root .hs-cpp {
+      color: var(--rk-magenta);
+    }
+    :root pre a:link,
+    :root pre a:visited {
+      border-bottom-color: var(--rk-surface0);
+    }
+    :root pre a:hover,
+    :root pre a.hover-highlight {
+      background-color: var(--rk-surface0);
+    }
+    :root span.annot {
+      color: var(--rk-foreground);
+    }
+    :root span.annot:hover {
+      background-color: var(--rk-black);
+    }
+    :root span.annot span.annottext {
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-accent);
+    }
+  }
+}

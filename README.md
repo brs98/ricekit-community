@@ -9,6 +9,7 @@ This repo is the public home for all community-contributable Ricekit content. Th
 | Directory | Status | What it is |
 | --- | --- | --- |
 | `extensions/firefox/` | Accepting PRs | Firefox / Zen Browser extension source |
+| `userstyles/` | Accepting PRs | Catppuccin-to-ricekit userstyle compiler + Stylus-importable bundle |
 | `themes/` | Accepting PRs | Bundled theme definitions (TOML + optional wallpapers) |
 | `templates/` | Accepting PRs | Config templates (terminal emulators, editors, status bars, etc.) |
 | `playground/` | Upcoming | Vite-built WASM web playground for previewing themes |

@@ -1,0 +1,235 @@
+/* ==UserStyle==
+@name Wikiwand Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/wikiwand.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Wikiwand
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("wikiwand.com") {
+  @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
+  @media (prefers-color-scheme: light) {
+    .theme-system {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --color-bg: var(--rk-background) !important;
+      --color-text: var(--rk-foreground) !important;
+      --color-grey: var(--rk-bright-white) !important;
+      --color-accent: var(--rk-accent) !important;
+      --color-highlight: var(--rk-bright-black) !important;
+      --color-ash: var(--rk-bright-black) !important;
+      --color-border: var(--rk-bright-black) !important;
+      --color-blue-bg: var(--rk-black) !important;
+      --color-blue-text: var(--rk-blue) !important;
+      --color-purple-bg: var(--rk-black) !important;
+      --color-purple-text: var(--rk-accent) !important;
+      --color-green-bg: var(--rk-black) !important;
+      --color-green-text: var(--rk-green) !important;
+      --color-orange-bg: var(--rk-black) !important;
+      --color-orange-text: var(--rk-peach) !important;
+      --color-table: var(--rk-surface0) !important;
+      --color-link: var(--rk-accent) !important;
+      --color-score-A: var(--rk-green) !important;
+      --color-score-B: var(--rk-accent) !important;
+      --color-score-C: var(--rk-peach) !important;
+      --color-score-F: var(--rk-red) !important;
+      --color-score-NA: var(--color-grey) !important;
+      --grad: linear-gradient(-45deg, #fab387, #89b4fa, #f5c2e7, #f9e2af) !important;
+      --box-shadow: 0px 1px 4px 1px var(--rk-crust) !important;
+      --box-shadow-dark: 0px 0px 1px 1px var(--rk-crust), 0px 1px 5px 2px var(--rk-crust) !important;
+      --box-shadow-strong: 0px 1px 5px 2px var(--rk-crust) !important;
+      --backdrop-bg: var(--rk-background) !important;
+      --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
+    }
+    .theme-system ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    .theme-system input::placeholder,
+    .theme-system textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    .theme-system .mw-no-invert * {
+      color: var(--rk-crust) !important;
+    }
+    .theme-system .notheme * {
+      --color-text: auto;
+      --color-link: auto;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .theme-system {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --color-bg: var(--rk-background) !important;
+      --color-text: var(--rk-foreground) !important;
+      --color-grey: var(--rk-bright-white) !important;
+      --color-accent: var(--rk-accent) !important;
+      --color-highlight: var(--rk-bright-black) !important;
+      --color-ash: var(--rk-bright-black) !important;
+      --color-border: var(--rk-bright-black) !important;
+      --color-blue-bg: var(--rk-black) !important;
+      --color-blue-text: var(--rk-blue) !important;
+      --color-purple-bg: var(--rk-black) !important;
+      --color-purple-text: var(--rk-accent) !important;
+      --color-green-bg: var(--rk-black) !important;
+      --color-green-text: var(--rk-green) !important;
+      --color-orange-bg: var(--rk-black) !important;
+      --color-orange-text: var(--rk-peach) !important;
+      --color-table: var(--rk-surface0) !important;
+      --color-link: var(--rk-accent) !important;
+      --color-score-A: var(--rk-green) !important;
+      --color-score-B: var(--rk-accent) !important;
+      --color-score-C: var(--rk-peach) !important;
+      --color-score-F: var(--rk-red) !important;
+      --color-score-NA: var(--color-grey) !important;
+      --grad: linear-gradient(-45deg, #fab387, #89b4fa, #f5c2e7, #f9e2af) !important;
+      --box-shadow: 0px 1px 4px 1px var(--rk-crust) !important;
+      --box-shadow-dark: 0px 0px 1px 1px var(--rk-crust), 0px 1px 5px 2px var(--rk-crust) !important;
+      --box-shadow-strong: 0px 1px 5px 2px var(--rk-crust) !important;
+      --backdrop-bg: var(--rk-background) !important;
+      --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
+    }
+    .theme-system ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    .theme-system input::placeholder,
+    .theme-system textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    .theme-system .mw-no-invert * {
+      color: var(--rk-crust) !important;
+    }
+    .theme-system .notheme * {
+      --color-text: auto;
+      --color-link: auto;
+    }
+  }
+  .theme-light,
+  .theme-desert,
+  .theme-calmness {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --color-bg: var(--rk-background) !important;
+    --color-text: var(--rk-foreground) !important;
+    --color-grey: var(--rk-bright-white) !important;
+    --color-accent: var(--rk-accent) !important;
+    --color-highlight: var(--rk-bright-black) !important;
+    --color-ash: var(--rk-bright-black) !important;
+    --color-border: var(--rk-bright-black) !important;
+    --color-blue-bg: var(--rk-black) !important;
+    --color-blue-text: var(--rk-blue) !important;
+    --color-purple-bg: var(--rk-black) !important;
+    --color-purple-text: var(--rk-accent) !important;
+    --color-green-bg: var(--rk-black) !important;
+    --color-green-text: var(--rk-green) !important;
+    --color-orange-bg: var(--rk-black) !important;
+    --color-orange-text: var(--rk-peach) !important;
+    --color-table: var(--rk-surface0) !important;
+    --color-link: var(--rk-accent) !important;
+    --color-score-A: var(--rk-green) !important;
+    --color-score-B: var(--rk-accent) !important;
+    --color-score-C: var(--rk-peach) !important;
+    --color-score-F: var(--rk-red) !important;
+    --color-score-NA: var(--color-grey) !important;
+    --grad: linear-gradient(-45deg, #fab387, #89b4fa, #f5c2e7, #f9e2af) !important;
+    --box-shadow: 0px 1px 4px 1px var(--rk-crust) !important;
+    --box-shadow-dark: 0px 0px 1px 1px var(--rk-crust), 0px 1px 5px 2px var(--rk-crust) !important;
+    --box-shadow-strong: 0px 1px 5px 2px var(--rk-crust) !important;
+    --backdrop-bg: var(--rk-background) !important;
+    --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
+  }
+  .theme-light ::selection,
+  .theme-desert ::selection,
+  .theme-calmness ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .theme-light input::placeholder,
+  .theme-desert input::placeholder,
+  .theme-calmness input::placeholder,
+  .theme-light textarea::placeholder,
+  .theme-desert textarea::placeholder,
+  .theme-calmness textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .theme-light .mw-no-invert *,
+  .theme-desert .mw-no-invert *,
+  .theme-calmness .mw-no-invert * {
+    color: var(--rk-crust) !important;
+  }
+  .theme-light .notheme *,
+  .theme-desert .notheme *,
+  .theme-calmness .notheme * {
+    --color-text: auto;
+    --color-link: auto;
+  }
+  .theme-dark,
+  .theme-black,
+  .theme-deepOcean,
+  .theme-nature {
+    color-scheme: dark;
+    /* no-op — runtime :root override handles this */
+    --color-bg: var(--rk-background) !important;
+    --color-text: var(--rk-foreground) !important;
+    --color-grey: var(--rk-bright-white) !important;
+    --color-accent: var(--rk-accent) !important;
+    --color-highlight: var(--rk-bright-black) !important;
+    --color-ash: var(--rk-bright-black) !important;
+    --color-border: var(--rk-bright-black) !important;
+    --color-blue-bg: var(--rk-black) !important;
+    --color-blue-text: var(--rk-blue) !important;
+    --color-purple-bg: var(--rk-black) !important;
+    --color-purple-text: var(--rk-accent) !important;
+    --color-green-bg: var(--rk-black) !important;
+    --color-green-text: var(--rk-green) !important;
+    --color-orange-bg: var(--rk-black) !important;
+    --color-orange-text: var(--rk-peach) !important;
+    --color-table: var(--rk-surface0) !important;
+    --color-link: var(--rk-accent) !important;
+    --color-score-A: var(--rk-green) !important;
+    --color-score-B: var(--rk-accent) !important;
+    --color-score-C: var(--rk-peach) !important;
+    --color-score-F: var(--rk-red) !important;
+    --color-score-NA: var(--color-grey) !important;
+    --grad: linear-gradient(-45deg, #fab387, #89b4fa, #f5c2e7, #f9e2af) !important;
+    --box-shadow: 0px 1px 4px 1px var(--rk-crust) !important;
+    --box-shadow-dark: 0px 0px 1px 1px var(--rk-crust), 0px 1px 5px 2px var(--rk-crust) !important;
+    --box-shadow-strong: 0px 1px 5px 2px var(--rk-crust) !important;
+    --backdrop-bg: var(--rk-background) !important;
+    --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
+  }
+  .theme-dark ::selection,
+  .theme-black ::selection,
+  .theme-deepOcean ::selection,
+  .theme-nature ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  .theme-dark input::placeholder,
+  .theme-black input::placeholder,
+  .theme-deepOcean input::placeholder,
+  .theme-nature input::placeholder,
+  .theme-dark textarea::placeholder,
+  .theme-black textarea::placeholder,
+  .theme-deepOcean textarea::placeholder,
+  .theme-nature textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  .theme-dark .mw-no-invert *,
+  .theme-black .mw-no-invert *,
+  .theme-deepOcean .mw-no-invert *,
+  .theme-nature .mw-no-invert * {
+    color: var(--rk-crust) !important;
+  }
+  .theme-dark .notheme *,
+  .theme-black .notheme *,
+  .theme-deepOcean .notheme *,
+  .theme-nature .notheme * {
+    --color-text: auto;
+    --color-link: auto;
+  }
+}

@@ -1,0 +1,103 @@
+/* ==UserStyle==
+@name NixOS Manual/Nixpkgs Manual Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/nixos-manual.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for NixOS Manual/Nixpkgs Manual
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document url-prefix("https://nixos.org/manual/"), url-prefix("https://nix-darwin.github.io/nix-darwin/manual/") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --background: var(--rk-background);
+      --main-text-color: var(--rk-foreground);
+      --link-color: var(--rk-accent);
+      --heading-color: var(--rk-accent);
+      --small-heading-color: rgb(from var(--rk-accent) r g b / 0.85);
+      --note-text-color: var(--rk-blue);
+      --note-background: var(--rk-background);
+      --warning-text-color: var(--rk-red);
+      --warning-background: var(--rk-background);
+      --codeblock-background: var(--rk-surface0);
+      --codeblock-text-color: var(--rk-foreground);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root div.book .programlisting,
+    :root div.appendix .programlisting {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root hr,
+    :root div.toc {
+      border-top-color: transparent;
+      border-bottom-color: var(--rk-overlay1) !important;
+    }
+    :root div[style^="background: #333333;color: #FFFFFF;"] {
+      background-color: var(--rk-crust) !important;
+    }
+    :root div[style^="background: #333333;color: #FFFFFF;"],
+    :root div[style^="background: #333333;color: #FFFFFF;"] dt {
+      color: var(--rk-foreground) !important;
+    }
+    :root div[style^="background: #333333;color: #FFFFFF;"] a {
+      color: var(--rk-accent) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --background: var(--rk-background);
+      --main-text-color: var(--rk-foreground);
+      --link-color: var(--rk-accent);
+      --heading-color: var(--rk-accent);
+      --small-heading-color: rgb(from var(--rk-accent) r g b / 0.85);
+      --note-text-color: var(--rk-blue);
+      --note-background: var(--rk-background);
+      --warning-text-color: var(--rk-red);
+      --warning-background: var(--rk-background);
+      --codeblock-background: var(--rk-surface0);
+      --codeblock-text-color: var(--rk-foreground);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root div.book .programlisting,
+    :root div.appendix .programlisting {
+      background-color: var(--rk-surface0) !important;
+    }
+    :root hr,
+    :root div.toc {
+      border-top-color: transparent;
+      border-bottom-color: var(--rk-overlay1) !important;
+    }
+    :root div[style^="background: #333333;color: #FFFFFF;"] {
+      background-color: var(--rk-crust) !important;
+    }
+    :root div[style^="background: #333333;color: #FFFFFF;"],
+    :root div[style^="background: #333333;color: #FFFFFF;"] dt {
+      color: var(--rk-foreground) !important;
+    }
+    :root div[style^="background: #333333;color: #FFFFFF;"] a {
+      color: var(--rk-accent) !important;
+    }
+  }
+}

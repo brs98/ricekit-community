@@ -1,0 +1,297 @@
+/* ==UserStyle==
+@name ChatReplay Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/chatreplay.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for ChatReplay
+@author Catppuccin
+@license MIT
+
+
+@var range bg-opacity "Background Opacity" [0.2 , -0.05 , 1 , 0.05]
+@var range bg-blur "Background Blur" [20, 0, 100, 1, 'px']
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("chatreplay.stream") {
+  :root[dark] #chat-container {
+    color-scheme: dark;
+    color: var(--rk-foreground);
+    --text-color: var(--rk-foreground);
+    --timestamp-color: var(--rk-bright-white);
+    --bg-color: var(--rk-background);
+    --bg-color-transparent: rgb(from var(--rk-background) r g b / 0.1);
+    --settings-bg-color: var(--rk-mantle);
+    --btn-bg-color: var(--rk-surface0);
+    --bg-color-highlight: var(--rk-surface0);
+    --scrollbar-thumb: var(--rk-surface0);
+    --btn-hover-bg: var(--rk-black);
+    --link-color: var(--rk-accent);
+    --border-color: var(--rk-surface0);
+    --settings-shadow: 0 4px 8px rgb(from var(--rk-crust) r g b / 0.4), 0 0 4px rgb(from var(--rk-crust) r g b / 0.4);
+  }
+  :root[dark] #chat-container ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[dark] #chat-container input::placeholder,
+  :root[dark] #chat-container textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[dark] #chat-container a:not(.username),
+  :root[dark] #chat-container i {
+    color: var(--rk-accent);
+  }
+  :root[dark] #chat-container .message-notice {
+    border-left-color: var(--rk-accent);
+  }
+  :root[dark] #chat-container .message--highlighted a {
+    color: var(--rk-accent);
+  }
+  :root[dark] #chat-container .message--highlighted {
+    background: var(--rk-accent);
+    border-color: var(--rk-accent);
+    color: var(--rk-background);
+    text-shadow: none;
+  }
+  :root[dark] #chat-container .red-dot::after {
+    background: var(--rk-red);
+  }
+  :root[dark] #chat-container[overlay] {
+    --bg-color: rgba(#1e1e2e, var(--overlay-opacity));
+    --bg-color-highlight: rgba(#1e1e2e, max(0.4, calc(var(--overlay-opacity) * 1.2)));
+    --text-shadow: -1px -1px 0px var(--rk-background), 0px -1px 0px var(--rk-background), 1px -1px 0px var(--rk-background), -1px 0px 0px var(--rk-background), 1px 0px 0px var(--rk-background), -1px 1px 0px var(--rk-background), 0px 1px 0px var(--rk-background), 1px 1px 0px var(--rk-background);
+    --text-color: var(--rk-foreground);
+  }
+  :root[dark] #chat-container .resume-scroll {
+    background-color: var(--rk-surface0);
+  }
+  @keyframes rotating {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+      scale: 1.5;
+      fill: var(--rk-red);
+    }
+  }
+  :root #chat-container {
+    color-scheme: dark;
+    color: var(--rk-foreground);
+    --text-color: var(--rk-foreground);
+    --timestamp-color: var(--rk-bright-white);
+    --bg-color: var(--rk-background);
+    --bg-color-transparent: rgb(from var(--rk-background) r g b / 0.1);
+    --settings-bg-color: var(--rk-mantle);
+    --btn-bg-color: var(--rk-surface0);
+    --bg-color-highlight: var(--rk-surface0);
+    --scrollbar-thumb: var(--rk-surface0);
+    --btn-hover-bg: var(--rk-black);
+    --link-color: var(--rk-accent);
+    --border-color: var(--rk-surface0);
+    --settings-shadow: 0 4px 8px rgb(from var(--rk-crust) r g b / 0.4), 0 0 4px rgb(from var(--rk-crust) r g b / 0.4);
+  }
+  :root #chat-container ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root #chat-container input::placeholder,
+  :root #chat-container textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root #chat-container a:not(.username),
+  :root #chat-container i {
+    color: var(--rk-accent);
+  }
+  :root #chat-container .message-notice {
+    border-left-color: var(--rk-accent);
+  }
+  :root #chat-container .message--highlighted a {
+    color: var(--rk-accent);
+  }
+  :root #chat-container .message--highlighted {
+    background: var(--rk-accent);
+    border-color: var(--rk-accent);
+    color: var(--rk-background);
+    text-shadow: none;
+  }
+  :root #chat-container .red-dot::after {
+    background: var(--rk-red);
+  }
+  :root #chat-container[overlay] {
+    --bg-color: rgba(#1e1e2e, var(--overlay-opacity));
+    --bg-color-highlight: rgba(#1e1e2e, max(0.4, calc(var(--overlay-opacity) * 1.2)));
+    --text-shadow: -1px -1px 0px var(--rk-background), 0px -1px 0px var(--rk-background), 1px -1px 0px var(--rk-background), -1px 0px 0px var(--rk-background), 1px 0px 0px var(--rk-background), -1px 1px 0px var(--rk-background), 0px 1px 0px var(--rk-background), 1px 1px 0px var(--rk-background);
+    --text-color: var(--rk-foreground);
+  }
+  :root #chat-container .resume-scroll {
+    background-color: var(--rk-surface0);
+  }
+  @keyframes rotating {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+      scale: 1.5;
+      fill: var(--rk-red);
+    }
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    @keyframes rotating {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+        scale: 1.5;
+        fill: var(--rk-red);
+      }
+    }
+    :root body {
+      color: var(--rk-foreground);
+    }
+    :root .card {
+      background: rgb(from var(--rk-crust) r g b / 0.8);
+    }
+    :root .card.c1cw4bqg.c1cw4bqg {
+      color: var(--rk-white);
+    }
+    :root a,
+    :root i {
+      color: var(--rk-accent);
+    }
+    :root button.gradient,
+    :root .btn.gradient {
+      background: linear-gradient(45deg, #cba6f7, #f7a6e6);
+      color: var(--rk-background);
+      text-shadow: none;
+    }
+    :root button:not(.custom),
+    :root .btn {
+      background: var(--rk-surface0);
+      text-shadow: none;
+      color: var(--rk-foreground);
+    }
+    :root .item.zmyc33:hover,
+    :root .item.active.zmyc33 {
+      background-color: var(--rk-surface0);
+    }
+    :root .video-title.damcrq,
+    :root .logo-text.c1j5psx1.c1j5psx1 {
+      color: var(--rk-foreground);
+    }
+    :root [d="M 4,0 1,3 v 10 h 4 v 3 l 3,-3 h 2 L 15,8 V 0 Z m 10,7 -3,3 H 9 L 7,12 V 10 H 5 V 1 h 9 z"],
+    :root [d="m 8.5,3 3,2 -3,2 z"] {
+      fill: var(--rk-accent);
+    }
+    :root [d="m 4,1 h 10 v 7 l -4,4 H 4 Z"] {
+      fill: var(--rk-background);
+    }
+    :root .delete.c19loos5.c19loos5 {
+      border-color: var(--rk-red);
+    }
+    :root .mark.z8oy0d.z8oy0d {
+      background: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root .bg.c1ejz165.c1ejz165 {
+      opacity: 0.2;
+      filter: blur(20);
+    }
+    :root #inner-a.tmgko.tmgko {
+      background: var(--rk-mantle);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    @keyframes rotating {
+      0% {
+        transform: rotate(0);
+      }
+      100% {
+        transform: rotate(360deg);
+        scale: 1.5;
+        fill: var(--rk-red);
+      }
+    }
+    :root body {
+      color: var(--rk-foreground);
+    }
+    :root .card {
+      background: rgb(from var(--rk-crust) r g b / 0.8);
+    }
+    :root .card.c1cw4bqg.c1cw4bqg {
+      color: var(--rk-white);
+    }
+    :root a,
+    :root i {
+      color: var(--rk-accent);
+    }
+    :root button.gradient,
+    :root .btn.gradient {
+      background: linear-gradient(45deg, #cba6f7, #f7a6e6);
+      color: var(--rk-background);
+      text-shadow: none;
+    }
+    :root button:not(.custom),
+    :root .btn {
+      background: var(--rk-surface0);
+      text-shadow: none;
+      color: var(--rk-foreground);
+    }
+    :root .item.zmyc33:hover,
+    :root .item.active.zmyc33 {
+      background-color: var(--rk-surface0);
+    }
+    :root .video-title.damcrq,
+    :root .logo-text.c1j5psx1.c1j5psx1 {
+      color: var(--rk-foreground);
+    }
+    :root [d="M 4,0 1,3 v 10 h 4 v 3 l 3,-3 h 2 L 15,8 V 0 Z m 10,7 -3,3 H 9 L 7,12 V 10 H 5 V 1 h 9 z"],
+    :root [d="m 8.5,3 3,2 -3,2 z"] {
+      fill: var(--rk-accent);
+    }
+    :root [d="m 4,1 h 10 v 7 l -4,4 H 4 Z"] {
+      fill: var(--rk-background);
+    }
+    :root .delete.c19loos5.c19loos5 {
+      border-color: var(--rk-red);
+    }
+    :root .mark.z8oy0d.z8oy0d {
+      background: var(--rk-accent);
+      color: var(--rk-background);
+    }
+    :root .bg.c1ejz165.c1ejz165 {
+      opacity: 0.2;
+      filter: blur(20);
+    }
+    :root #inner-a.tmgko.tmgko {
+      background: var(--rk-mantle);
+    }
+  }
+}

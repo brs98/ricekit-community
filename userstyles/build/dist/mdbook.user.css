@@ -1,0 +1,167 @@
+/* ==UserStyle==
+@name mdBook Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.04.09.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/mdbook.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for mdBook
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("rust-lang.github.io"), domain("doc.rust-lang.org"), domain("rust-book.cs.brown.edu"), domain("rustc-dev-guide.rust-lang.org"), domain("forge.rust-lang.org"), domain("lang-team.rust-lang.org"), domain("doc.redox-os.org"), url-prefix("https://lukaswirth.dev/tlborm/") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.css");
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --bg: var(--rk-background);
+      --fg: var(--rk-foreground);
+      --sidebar-bg: var(--rk-mantle);
+      --sidebar-fg: var(--rk-foreground);
+      --sidebar-non-existant: var(--rk-overlay0);
+      --sidebar-active: var(--rk-blue);
+      --sidebar-spacer: var(--rk-overlay0);
+      --scrollbar: var(--rk-overlay0);
+      --icons: var(--rk-overlay0);
+      --icons-hover: var(--rk-overlay2);
+      --links: var(--rk-blue);
+      --inline-code-color: var(--rk-foreground);
+      --theme-popup-bg: var(--rk-mantle);
+      --theme-popup-border: var(--rk-overlay0);
+      --theme-hover: var(--rk-overlay0);
+      --quote-bg: var(--rk-mantle);
+      --quote-border: var(--rk-crust);
+      --table-border-color: var(--rk-surface0);
+      --table-header-bg: color-mix(in srgb, var(--rk-accent) 30%, var(--rk-background));
+      --table-alternate-bg: var(--rk-mantle);
+      --searchbar-border-color: var(--rk-surface0);
+      --searchbar-bg: var(--rk-mantle);
+      --searchbar-fg: var(--rk-foreground);
+      --searchbar-shadow-color: var(--rk-crust);
+      --searchresults-header-fg: var(--rk-foreground);
+      --searchresults-border-color: var(--rk-bright-black);
+      --searchresults-li-bg: var(--rk-background);
+      --sidebar-header-border-color: var(--rk-lavender);
+      --search-mark-bg: var(--rk-peach);
+      --warning-border: var(--rk-peach);
+      --copy-button-filter: none;
+      --copy-button-filter-hover: none;
+      --blockquote-note-color: var(--rk-blue);
+      --blockquote-tip-color: var(--rk-green);
+      --blockquote-important-color: var(--rk-accent);
+      --blockquote-warning-color: var(--rk-yellow);
+      --blockquote-caution-color: var(--rk-red);
+      /* https://github.com/cognitive-engineering-lab/mdbook-quiz */
+      --mdbook-incorrect: var(--rk-red);
+      --mdbook-correct: var(--rk-green);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root code.hljs {
+      color: var(--rk-foreground);
+      background: var(--rk-mantle);
+    }
+    :root blockquote blockquote {
+      border-top-color: var(--rk-bright-black);
+      border-bottom-color: var(--rk-bright-black);
+    }
+    :root hr {
+      color: var(--rk-bright-black);
+    }
+    :root del {
+      color: var(--rk-overlay2);
+    }
+    :root .ace_gutter {
+      color: var(--rk-overlay1);
+      background: var(--rk-mantle);
+    }
+    :root .ace_gutter-active-line.ace_gutter-cell {
+      color: var(--rk-magenta);
+      background: var(--rk-mantle);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --bg: var(--rk-background);
+      --fg: var(--rk-foreground);
+      --sidebar-bg: var(--rk-mantle);
+      --sidebar-fg: var(--rk-foreground);
+      --sidebar-non-existant: var(--rk-overlay0);
+      --sidebar-active: var(--rk-blue);
+      --sidebar-spacer: var(--rk-overlay0);
+      --scrollbar: var(--rk-overlay0);
+      --icons: var(--rk-overlay0);
+      --icons-hover: var(--rk-overlay2);
+      --links: var(--rk-blue);
+      --inline-code-color: var(--rk-foreground);
+      --theme-popup-bg: var(--rk-mantle);
+      --theme-popup-border: var(--rk-overlay0);
+      --theme-hover: var(--rk-overlay0);
+      --quote-bg: var(--rk-mantle);
+      --quote-border: var(--rk-crust);
+      --table-border-color: var(--rk-surface0);
+      --table-header-bg: color-mix(in srgb, var(--rk-accent) 30%, var(--rk-background));
+      --table-alternate-bg: var(--rk-mantle);
+      --searchbar-border-color: var(--rk-surface0);
+      --searchbar-bg: var(--rk-mantle);
+      --searchbar-fg: var(--rk-foreground);
+      --searchbar-shadow-color: var(--rk-crust);
+      --searchresults-header-fg: var(--rk-foreground);
+      --searchresults-border-color: var(--rk-bright-black);
+      --searchresults-li-bg: var(--rk-background);
+      --sidebar-header-border-color: var(--rk-lavender);
+      --search-mark-bg: var(--rk-peach);
+      --warning-border: var(--rk-peach);
+      --copy-button-filter: none;
+      --copy-button-filter-hover: none;
+      --blockquote-note-color: var(--rk-blue);
+      --blockquote-tip-color: var(--rk-green);
+      --blockquote-important-color: var(--rk-accent);
+      --blockquote-warning-color: var(--rk-yellow);
+      --blockquote-caution-color: var(--rk-red);
+      /* https://github.com/cognitive-engineering-lab/mdbook-quiz */
+      --mdbook-incorrect: var(--rk-red);
+      --mdbook-correct: var(--rk-green);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root code.hljs {
+      color: var(--rk-foreground);
+      background: var(--rk-mantle);
+    }
+    :root blockquote blockquote {
+      border-top-color: var(--rk-bright-black);
+      border-bottom-color: var(--rk-bright-black);
+    }
+    :root hr {
+      color: var(--rk-bright-black);
+    }
+    :root del {
+      color: var(--rk-overlay2);
+    }
+    :root .ace_gutter {
+      color: var(--rk-overlay1);
+      background: var(--rk-mantle);
+    }
+    :root .ace_gutter-active-line.ace_gutter-cell {
+      color: var(--rk-magenta);
+      background: var(--rk-mantle);
+    }
+  }
+}

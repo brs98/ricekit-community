@@ -1,0 +1,328 @@
+/* ==UserStyle==
+@name keybr.com Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/keybr.com.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for keybr.com
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("keybr.com") {
+  html[data-color="dark"] {
+    color-scheme: dark;
+    --primary-d2: var(--rk-overlay0);
+    --primary-d1: var(--rk-overlay0);
+    --primary: var(--rk-background);
+    --primary-l1: var(--rk-crust);
+    --primary-l2: var(--rk-mantle);
+    --secondary-d1: var(--rk-white);
+    --secondary: var(--rk-foreground);
+    --secondary-l1: var(--rk-white);
+    --secondary-l2: var(--rk-accent);
+    --secondary-f1: var(--rk-white);
+    --secondary-f2: var(--rk-white);
+    --accent-d2: var(--rk-accent);
+    --accent-d1: var(--rk-accent);
+    --accent: var(--rk-accent);
+    --accent-l1: var(--rk-accent);
+    --accent-l2: var(--rk-accent);
+    --error-d1: var(--rk-red);
+    --error: var(--rk-red);
+    --error-l1: var(--rk-red);
+    --shadow-color: rgb(from var(--rk-crust) r g b / 0.88);
+    --slow-key-color: var(--rk-red);
+    --fast-key-color: var(--rk-green);
+    --Chart-speed__color: var(--rk-green);
+    --Chart-accuracy__color: var(--rk-peach);
+    --Chart-complexity__color: var(--rk-magenta);
+    --Chart-threshold__color: var(--rk-maroon);
+    --Chart-hist-h__color: var(--rk-lavender);
+    --Chart-hist-m__color: var(--rk-maroon);
+    --Chart-hist-r__color: var(--rk-accent);
+    --KeyboardKey-pointer__color: var(--rk-accent);
+    --KeyboardKey-symbol__color: var(--rk-crust);
+    --pinky-zone-color: var(--rk-green);
+    --ring-zone-color: var(--rk-cyan);
+    --middle-zone-color: var(--rk-yellow);
+    --left-index-zone-color: var(--rk-blue);
+    --right-index-zone-color: var(--rk-maroon);
+    --thumb-zone-color: var(--rk-accent);
+    --effort-0-color: var(--rk-crust);
+    --effort-1-color: var(--rk-crust);
+    --effort-2-color: var(--rk-accent);
+    --effort-3-color: var(--rk-accent);
+    --Value--more__color: var(--rk-green);
+    --Value--less__color: var(--rk-red);
+    --KeyboardKey-button--depressed__color: var(--rk-accent);
+    --LessonKey--included__color: var(--rk-crust);
+    --LessonKey--uncalibrated__background-color: var(--rk-surface0);
+    --LessonKey--excluded__background-color: var(--rk-surface0);
+    --LessonKey--excluded__color: var(--rk-overlay0);
+    --DailyGoal-bar__color: var(--rk-accent);
+    --KeyboardKey-button__color: var(--rk-accent);
+    --textinput__color: var(--rk-foreground);
+    --textinput--special__color: var(--rk-bright-white);
+    --textinput--hit__color: var(--rk-white);
+    --textinput--miss__color: var(--rk-red);
+    --syntax-keyword: var(--rk-accent);
+    --syntax-string: var(--rk-green);
+    --syntax-number: var(--rk-peach);
+    --syntax-comment: var(--rk-overlay2);
+    --MenuItem__background-color: var(--rk-mantle);
+    --MenuItem__color: var(--rk-foreground);
+    --MenuItem--hover__background-color: var(--rk-surface0);
+    --MenuItem--hover__color: var(--rk-foreground);
+    --KeyboardKey-symbol--dead__color: var(--rk-red);
+    --KeyboardKey-symbol--ligature__color: var(--rk-blue);
+    --Name-color: var(--rk-white);
+    --Value-color: var(--rk-accent);
+    --effort-color: var(--rk-accent);
+  }
+  html[data-color="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html[data-color="dark"] input::placeholder,
+  html[data-color="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  html[data-color="light"] {
+    color-scheme: dark;
+    --primary-d2: var(--rk-overlay0);
+    --primary-d1: var(--rk-overlay0);
+    --primary: var(--rk-background);
+    --primary-l1: var(--rk-crust);
+    --primary-l2: var(--rk-mantle);
+    --secondary-d1: var(--rk-white);
+    --secondary: var(--rk-foreground);
+    --secondary-l1: var(--rk-white);
+    --secondary-l2: var(--rk-accent);
+    --secondary-f1: var(--rk-white);
+    --secondary-f2: var(--rk-white);
+    --accent-d2: var(--rk-accent);
+    --accent-d1: var(--rk-accent);
+    --accent: var(--rk-accent);
+    --accent-l1: var(--rk-accent);
+    --accent-l2: var(--rk-accent);
+    --error-d1: var(--rk-red);
+    --error: var(--rk-red);
+    --error-l1: var(--rk-red);
+    --shadow-color: rgb(from var(--rk-crust) r g b / 0.88);
+    --slow-key-color: var(--rk-red);
+    --fast-key-color: var(--rk-green);
+    --Chart-speed__color: var(--rk-green);
+    --Chart-accuracy__color: var(--rk-peach);
+    --Chart-complexity__color: var(--rk-magenta);
+    --Chart-threshold__color: var(--rk-maroon);
+    --Chart-hist-h__color: var(--rk-lavender);
+    --Chart-hist-m__color: var(--rk-maroon);
+    --Chart-hist-r__color: var(--rk-accent);
+    --KeyboardKey-pointer__color: var(--rk-accent);
+    --KeyboardKey-symbol__color: var(--rk-crust);
+    --pinky-zone-color: var(--rk-green);
+    --ring-zone-color: var(--rk-cyan);
+    --middle-zone-color: var(--rk-yellow);
+    --left-index-zone-color: var(--rk-blue);
+    --right-index-zone-color: var(--rk-maroon);
+    --thumb-zone-color: var(--rk-accent);
+    --effort-0-color: var(--rk-crust);
+    --effort-1-color: var(--rk-crust);
+    --effort-2-color: var(--rk-accent);
+    --effort-3-color: var(--rk-accent);
+    --Value--more__color: var(--rk-green);
+    --Value--less__color: var(--rk-red);
+    --KeyboardKey-button--depressed__color: var(--rk-accent);
+    --LessonKey--included__color: var(--rk-crust);
+    --LessonKey--uncalibrated__background-color: var(--rk-surface0);
+    --LessonKey--excluded__background-color: var(--rk-surface0);
+    --LessonKey--excluded__color: var(--rk-overlay0);
+    --DailyGoal-bar__color: var(--rk-accent);
+    --KeyboardKey-button__color: var(--rk-accent);
+    --textinput__color: var(--rk-foreground);
+    --textinput--special__color: var(--rk-bright-white);
+    --textinput--hit__color: var(--rk-white);
+    --textinput--miss__color: var(--rk-red);
+    --syntax-keyword: var(--rk-accent);
+    --syntax-string: var(--rk-green);
+    --syntax-number: var(--rk-peach);
+    --syntax-comment: var(--rk-overlay2);
+    --MenuItem__background-color: var(--rk-mantle);
+    --MenuItem__color: var(--rk-foreground);
+    --MenuItem--hover__background-color: var(--rk-surface0);
+    --MenuItem--hover__color: var(--rk-foreground);
+    --KeyboardKey-symbol--dead__color: var(--rk-red);
+    --KeyboardKey-symbol--ligature__color: var(--rk-blue);
+    --Name-color: var(--rk-white);
+    --Value-color: var(--rk-accent);
+    --effort-color: var(--rk-accent);
+  }
+  html[data-color="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  html[data-color="light"] input::placeholder,
+  html[data-color="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  @media (prefers-color-scheme: light) {
+    html[data-color="system"] {
+      color-scheme: dark;
+      --primary-d2: var(--rk-overlay0);
+      --primary-d1: var(--rk-overlay0);
+      --primary: var(--rk-background);
+      --primary-l1: var(--rk-crust);
+      --primary-l2: var(--rk-mantle);
+      --secondary-d1: var(--rk-white);
+      --secondary: var(--rk-foreground);
+      --secondary-l1: var(--rk-white);
+      --secondary-l2: var(--rk-accent);
+      --secondary-f1: var(--rk-white);
+      --secondary-f2: var(--rk-white);
+      --accent-d2: var(--rk-accent);
+      --accent-d1: var(--rk-accent);
+      --accent: var(--rk-accent);
+      --accent-l1: var(--rk-accent);
+      --accent-l2: var(--rk-accent);
+      --error-d1: var(--rk-red);
+      --error: var(--rk-red);
+      --error-l1: var(--rk-red);
+      --shadow-color: rgb(from var(--rk-crust) r g b / 0.88);
+      --slow-key-color: var(--rk-red);
+      --fast-key-color: var(--rk-green);
+      --Chart-speed__color: var(--rk-green);
+      --Chart-accuracy__color: var(--rk-peach);
+      --Chart-complexity__color: var(--rk-magenta);
+      --Chart-threshold__color: var(--rk-maroon);
+      --Chart-hist-h__color: var(--rk-lavender);
+      --Chart-hist-m__color: var(--rk-maroon);
+      --Chart-hist-r__color: var(--rk-accent);
+      --KeyboardKey-pointer__color: var(--rk-accent);
+      --KeyboardKey-symbol__color: var(--rk-crust);
+      --pinky-zone-color: var(--rk-green);
+      --ring-zone-color: var(--rk-cyan);
+      --middle-zone-color: var(--rk-yellow);
+      --left-index-zone-color: var(--rk-blue);
+      --right-index-zone-color: var(--rk-maroon);
+      --thumb-zone-color: var(--rk-accent);
+      --effort-0-color: var(--rk-crust);
+      --effort-1-color: var(--rk-crust);
+      --effort-2-color: var(--rk-accent);
+      --effort-3-color: var(--rk-accent);
+      --Value--more__color: var(--rk-green);
+      --Value--less__color: var(--rk-red);
+      --KeyboardKey-button--depressed__color: var(--rk-accent);
+      --LessonKey--included__color: var(--rk-crust);
+      --LessonKey--uncalibrated__background-color: var(--rk-surface0);
+      --LessonKey--excluded__background-color: var(--rk-surface0);
+      --LessonKey--excluded__color: var(--rk-overlay0);
+      --DailyGoal-bar__color: var(--rk-accent);
+      --KeyboardKey-button__color: var(--rk-accent);
+      --textinput__color: var(--rk-foreground);
+      --textinput--special__color: var(--rk-bright-white);
+      --textinput--hit__color: var(--rk-white);
+      --textinput--miss__color: var(--rk-red);
+      --syntax-keyword: var(--rk-accent);
+      --syntax-string: var(--rk-green);
+      --syntax-number: var(--rk-peach);
+      --syntax-comment: var(--rk-overlay2);
+      --MenuItem__background-color: var(--rk-mantle);
+      --MenuItem__color: var(--rk-foreground);
+      --MenuItem--hover__background-color: var(--rk-surface0);
+      --MenuItem--hover__color: var(--rk-foreground);
+      --KeyboardKey-symbol--dead__color: var(--rk-red);
+      --KeyboardKey-symbol--ligature__color: var(--rk-blue);
+      --Name-color: var(--rk-white);
+      --Value-color: var(--rk-accent);
+      --effort-color: var(--rk-accent);
+    }
+    html[data-color="system"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    html[data-color="system"] input::placeholder,
+    html[data-color="system"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    html[data-color="system"] {
+      color-scheme: dark;
+      --primary-d2: var(--rk-overlay0);
+      --primary-d1: var(--rk-overlay0);
+      --primary: var(--rk-background);
+      --primary-l1: var(--rk-crust);
+      --primary-l2: var(--rk-mantle);
+      --secondary-d1: var(--rk-white);
+      --secondary: var(--rk-foreground);
+      --secondary-l1: var(--rk-white);
+      --secondary-l2: var(--rk-accent);
+      --secondary-f1: var(--rk-white);
+      --secondary-f2: var(--rk-white);
+      --accent-d2: var(--rk-accent);
+      --accent-d1: var(--rk-accent);
+      --accent: var(--rk-accent);
+      --accent-l1: var(--rk-accent);
+      --accent-l2: var(--rk-accent);
+      --error-d1: var(--rk-red);
+      --error: var(--rk-red);
+      --error-l1: var(--rk-red);
+      --shadow-color: rgb(from var(--rk-crust) r g b / 0.88);
+      --slow-key-color: var(--rk-red);
+      --fast-key-color: var(--rk-green);
+      --Chart-speed__color: var(--rk-green);
+      --Chart-accuracy__color: var(--rk-peach);
+      --Chart-complexity__color: var(--rk-magenta);
+      --Chart-threshold__color: var(--rk-maroon);
+      --Chart-hist-h__color: var(--rk-lavender);
+      --Chart-hist-m__color: var(--rk-maroon);
+      --Chart-hist-r__color: var(--rk-accent);
+      --KeyboardKey-pointer__color: var(--rk-accent);
+      --KeyboardKey-symbol__color: var(--rk-crust);
+      --pinky-zone-color: var(--rk-green);
+      --ring-zone-color: var(--rk-cyan);
+      --middle-zone-color: var(--rk-yellow);
+      --left-index-zone-color: var(--rk-blue);
+      --right-index-zone-color: var(--rk-maroon);
+      --thumb-zone-color: var(--rk-accent);
+      --effort-0-color: var(--rk-crust);
+      --effort-1-color: var(--rk-crust);
+      --effort-2-color: var(--rk-accent);
+      --effort-3-color: var(--rk-accent);
+      --Value--more__color: var(--rk-green);
+      --Value--less__color: var(--rk-red);
+      --KeyboardKey-button--depressed__color: var(--rk-accent);
+      --LessonKey--included__color: var(--rk-crust);
+      --LessonKey--uncalibrated__background-color: var(--rk-surface0);
+      --LessonKey--excluded__background-color: var(--rk-surface0);
+      --LessonKey--excluded__color: var(--rk-overlay0);
+      --DailyGoal-bar__color: var(--rk-accent);
+      --KeyboardKey-button__color: var(--rk-accent);
+      --textinput__color: var(--rk-foreground);
+      --textinput--special__color: var(--rk-bright-white);
+      --textinput--hit__color: var(--rk-white);
+      --textinput--miss__color: var(--rk-red);
+      --syntax-keyword: var(--rk-accent);
+      --syntax-string: var(--rk-green);
+      --syntax-number: var(--rk-peach);
+      --syntax-comment: var(--rk-overlay2);
+      --MenuItem__background-color: var(--rk-mantle);
+      --MenuItem__color: var(--rk-foreground);
+      --MenuItem--hover__background-color: var(--rk-surface0);
+      --MenuItem--hover__color: var(--rk-foreground);
+      --KeyboardKey-symbol--dead__color: var(--rk-red);
+      --KeyboardKey-symbol--ligature__color: var(--rk-blue);
+      --Name-color: var(--rk-white);
+      --Value-color: var(--rk-accent);
+      --effort-color: var(--rk-accent);
+    }
+    html[data-color="system"] ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    html[data-color="system"] input::placeholder,
+    html[data-color="system"] textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+  }
+}

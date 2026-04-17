@@ -1,0 +1,168 @@
+/* ==UserStyle==
+@name freedesktop.org Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/freedesktop.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for freedesktop.org
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("www.freedesktop.org"), domain("specifications.freedesktop.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root #content h1,
+    :root #content h2,
+    :root #content h3,
+    :root #content h4,
+    :root #content h5,
+    :root #content h6 {
+      color: var(--rk-accent);
+    }
+    :root .pageheader {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+    }
+    :root .pageheader .actions ul li a,
+    :root input[type="submit"] {
+      background-color: transparent;
+      color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root input#searchbox {
+      color: var(--rk-bright-white);
+      background-color: var(--rk-overlay0);
+      border-color: var(--rk-overlay1);
+      box-shadow: none;
+    }
+    :root input#searchbox:focus {
+      border-color: var(--rk-accent);
+      outline-color: none;
+      outline-style: none;
+    }
+    :root .headerpath .title {
+      color: var(--rk-bright-white);
+    }
+    :root a:link {
+      color: var(--rk-blue);
+    }
+    :root a:visited {
+      color: var(--rk-lavender);
+    }
+    :root code {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root pre {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-surface0);
+    }
+    :root pre code {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root hr {
+      border-style: solid;
+      border-color: var(--rk-black);
+    }
+    :root .topnav,
+    :root tr:nth-child(2n+1) {
+      border-color: var(--rk-surface0);
+      background-color: var(--rk-mantle);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background-color: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root #content h1,
+    :root #content h2,
+    :root #content h3,
+    :root #content h4,
+    :root #content h5,
+    :root #content h6 {
+      color: var(--rk-accent);
+    }
+    :root .pageheader {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+      color: var(--rk-bright-white);
+    }
+    :root .pageheader .actions ul li a,
+    :root input[type="submit"] {
+      background-color: transparent;
+      color: var(--rk-accent);
+      border-color: var(--rk-accent);
+    }
+    :root input#searchbox {
+      color: var(--rk-bright-white);
+      background-color: var(--rk-overlay0);
+      border-color: var(--rk-overlay1);
+      box-shadow: none;
+    }
+    :root input#searchbox:focus {
+      border-color: var(--rk-accent);
+      outline-color: none;
+      outline-style: none;
+    }
+    :root .headerpath .title {
+      color: var(--rk-bright-white);
+    }
+    :root a:link {
+      color: var(--rk-blue);
+    }
+    :root a:visited {
+      color: var(--rk-lavender);
+    }
+    :root code {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root pre {
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-surface0);
+    }
+    :root pre code {
+      background-color: var(--rk-mantle);
+      color: var(--rk-foreground);
+    }
+    :root hr {
+      border-style: solid;
+      border-color: var(--rk-black);
+    }
+    :root .topnav,
+    :root tr:nth-child(2n+1) {
+      border-color: var(--rk-surface0);
+      background-color: var(--rk-mantle);
+    }
+  }
+}

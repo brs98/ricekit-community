@@ -1,0 +1,33 @@
+[metadata]
+name = "userstyles"
+author = "ricekit"
+version = "1.0.0"
+description = "Global :root CSS variables (--rk-*) for Catppuccin userstyles and custom site theming"
+setup_instructions = """
+This config renders ~/.config/ricekit/active/userstyles/rk-vars.css containing the 22 ricekit ANSI+semantic tokens and 13 OKLCH-derived Catppuccin slots as CSS custom properties.
+
+Option A — live reload via Ricekit Firefox addon:
+  1. Run: ricekit browser setup  (registers the ricekit native-messaging host)
+  2. Install the Ricekit addon from this repo:
+       - XPI:  extensions/firefox/dist/ricekit-theme-<version>.xpi
+       - Or for dev: about:debugging#/runtime/this-firefox → Load Temporary Add-on → extensions/firefox/manifest.json
+  3. Install the Stylus userstyles bundle: build/import.json → Stylus → Manage → Import. Stylus auto-updates each style via @updateURL on its 24h poll.
+
+Option B — static fallback (no addon):
+  @import url("file:///Users/<you>/.config/ricekit/active/userstyles/rk-vars.css");
+  in your userContent.css, or paste the file contents into a Stylus userstyle with 'Applies to: All URLs'.
+"""
+app = "userstyles"
+category = "browser"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/userstyles/rk-vars.css"
+strategy = "direct"
+
+[target.linux]
+path = "~/.config/ricekit/active/userstyles/rk-vars.css"
+strategy = "direct"
+
+[requires]
+colors = ["ansi", "semantic"]

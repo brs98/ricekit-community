@@ -1,0 +1,362 @@
+/* ==UserStyle==
+@name Lemmy Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lemmy.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Lemmy
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("lemmy.ml"), domain("lemmy.world") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root [data-bs-theme="dark"] {
+      --bs-body-color: var(--rk-foreground);
+      --bs-body-bg: var(--rk-background);
+      --bs-emphasis-color: var(--rk-bright-white);
+      --bs-secondary-color: var(--rk-white);
+      --bs-secondary-bg: var(--rk-mantle);
+      --bs-tertiary-color: var(--rk-crust);
+      --bs-tertiary-bg: var(--rk-crust);
+      --bs-primary-text-emphasis: var(--rk-overlay0);
+      --bs-secondary-text-emphasis: var(--rk-overlay1);
+      --bs-success-text-emphasis: var(--rk-green);
+      --bs-info-text-emphasis: var(--rk-sky);
+      --bs-warning-text-emphasis: var(--rk-yellow);
+      --bs-danger-text-emphasis: var(--rk-red);
+      --bs-light-text-emphasis: var(--rk-overlay2);
+      --bs-dark-text-emphasis: var(--rk-overlay2);
+      --bs-primary-bg-subtle: var(--rk-background);
+      --bs-secondary-bg-subtle: var(--rk-mantle);
+      --bs-success-bg-subtle: var(--rk-green);
+      --bs-info-bg-subtle: var(--rk-accent);
+      --bs-warning-bg-subtle: var(--rk-yellow);
+      --bs-danger-bg-subtle: var(--rk-red);
+      --bs-light-bg-subtle: var(--rk-background);
+      --bs-dark-bg-subtle: var(--rk-background);
+      --bs-primary-border-subtle: var(--rk-accent);
+      --bs-secondary-border-subtle: var(--rk-accent);
+      --bs-success-border-subtle: var(--rk-green);
+      --bs-info-border-subtle: var(--rk-accent);
+      --bs-warning-border-subtle: var(--rk-yellow);
+      --bs-danger-border-subtle: var(--rk-red);
+      --bs-light-border-subtle: var(--rk-crust);
+      --bs-dark-border-subtle: var(--rk-crust);
+      --bs-heading-color: var(--rk-foreground);
+      --bs-card-border-color: var(--rk-crust);
+      --bs-link-color: var(--rk-blue);
+      --bs-link-hover-color: var(--rk-maroon);
+      --bs-code-color: var(--rk-lavender);
+      --bs-highlight-color: var(--rk-accent);
+      --bs-highlight-bg: var(--rk-mantle);
+      --bs-border-color: var(--rk-crust);
+      --bs-form-valid-color: var(--rk-green);
+      --bs-form-valid-border-color: var(--rk-green);
+      --bs-form-invalid-color: var(--rk-red);
+      --bs-form-invalid-border-color: var(--rk-red);
+      --bs-dark-rgb: var(--rk-accent);
+      --bs-btn-bg: var(--rk-background);
+    }
+    :root body {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+    }
+    :root .nav-link {
+      color: var(--rk-accent);
+    }
+    :root .card {
+      --bs-card-cap-bg: var(--rk-mantle);
+      --bs-card-title-color: var(--rk-foreground);
+      --bs-card-subtitle-color: var(--rk-bright-white);
+      --bs-card-color: var(--rk-foreground);
+      --bs-card-cap-color: var(--rk-mantle);
+      --bs-card-bg: var(--rk-crust);
+    }
+    :root .form-control {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+      border-color: var(--rk-crust);
+    }
+    :root .btn-secondary {
+      --bs-btn-color: var(--rk-foreground);
+      --bs-btn-bg: var(--rk-background);
+      --bs-btn-border-color: var(--rk-overlay1);
+      --bs-btn-hover-color: var(--rk-accent);
+      --bs-btn-hover-bg: var(--rk-crust);
+      --bs-btn-hover-border-color: var(--rk-overlay2);
+      --bs-btn-active-color: var(--rk-foreground);
+      --bs-btn-active-bg: var(--rk-accent);
+      --bs-btn-active-border-color: var(--rk-crust);
+      --bs-btn-active-shadow: inset 0 3px 5px var(--rk-crust);
+      --bs-btn-disabled-color: var(--rk-red);
+      --bs-btn-disabled-bg: var(--rk-crust);
+      --bs-btn-disabled-border-color: var(--rk-mantle);
+    }
+    :root .table > :not(caption) > * > * {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+    }
+    :root .dropdown-menu-dark {
+      --bs-dropdown-color: var(--rk-foreground);
+      --bs-dropdown-bg: var(--rk-crust);
+      --bs-dropdown-border-color: var(--rk-mantle);
+      --bs-dropdown-box-shadow: var(--rk-mantle);
+      --bs-dropdown-link-color: var(--rk-blue);
+      --bs-dropdown-link-hover-color: var(--rk-accent);
+      --bs-dropdown-divider-bg: var(--rk-overlay0);
+      --bs-dropdown-link-hover-bg: var(--rk-crust);
+      --bs-dropdown-link-active-color: var(--rk-accent);
+      --bs-dropdown-link-active-bg: var(--rk-mantle);
+      --bs-dropdown-link-disabled-color: var(--rk-red);
+      --bs-dropdown-header-color: var(--rk-foreground);
+    }
+    :root .form-select {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .btn-outline-secondary {
+      --bs-btn-color: var(--rk-foreground);
+      --bs-btn-border-color: var(--rk-mantle);
+      --bs-btn-hover-color: var(--rk-accent);
+      --bs-btn-hover-bg: var(--rk-crust);
+      --bs-btn-hover-border-color: var(--rk-overlay0);
+      --bs-btn-active-color: var(--rk-accent);
+      --bs-btn-active-bg: var(--rk-crust);
+      --bs-btn-active-border-color: var(--rk-crust);
+      --bs-btn-active-shadow: inset 0 3px 5px var(--rk-crust);
+      --bs-btn-disabled-color: var(--rk-red);
+      --bs-btn-disabled-border-color: var(--rk-mantle);
+    }
+    :root .nav-tabs .nav-link.active,
+    :root .nav-tabs .nav-item.show .nav-link {
+      color: var(--rk-accent);
+      background-color: var(--rk-crust);
+      border-color: var(--rk-mantle);
+    }
+    :root .dropdown-item {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+    }
+    :root .dropdown-menu {
+      --bs-dropdown-color: var(--rk-foreground);
+      --bs-dropdown-bg: var(--rk-crust);
+      --bs-dropdown-border-color: var(--rk-mantle);
+      --bs-dropdown-box-shadow: var(--rk-mantle);
+      --bs-dropdown-link-color: var(--rk-blue);
+      --bs-dropdown-link-hover-color: var(--rk-accent);
+      --bs-dropdown-divider-bg: var(--rk-overlay0);
+      --bs-dropdown-link-hover-bg: var(--rk-crust);
+      --bs-dropdown-link-active-color: var(--rk-accent);
+      --bs-dropdown-link-active-bg: var(--rk-mantle);
+      --bs-dropdown-link-disabled-color: var(--rk-red);
+      --bs-dropdown-header-color: var(--rk-foreground);
+    }
+    :root a {
+      color: var(--rk-accent);
+    }
+    :root .text-bg-primary {
+      color: var(--rk-foreground);
+    }
+    :root .text-muted {
+      color: var(--rk-accent);
+    }
+    :root .text-bg-light {
+      color: var(--rk-foreground) !important;
+      background-color: rgba(24, 24, 37, 1) !important;
+    }
+    :root .alert-info,
+    :root .alert-warning {
+      background-color: var(--rk-mantle) !important;
+      border-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root [data-bs-theme="dark"] {
+      --bs-body-color: var(--rk-foreground);
+      --bs-body-bg: var(--rk-background);
+      --bs-emphasis-color: var(--rk-bright-white);
+      --bs-secondary-color: var(--rk-white);
+      --bs-secondary-bg: var(--rk-mantle);
+      --bs-tertiary-color: var(--rk-crust);
+      --bs-tertiary-bg: var(--rk-crust);
+      --bs-primary-text-emphasis: var(--rk-overlay0);
+      --bs-secondary-text-emphasis: var(--rk-overlay1);
+      --bs-success-text-emphasis: var(--rk-green);
+      --bs-info-text-emphasis: var(--rk-sky);
+      --bs-warning-text-emphasis: var(--rk-yellow);
+      --bs-danger-text-emphasis: var(--rk-red);
+      --bs-light-text-emphasis: var(--rk-overlay2);
+      --bs-dark-text-emphasis: var(--rk-overlay2);
+      --bs-primary-bg-subtle: var(--rk-background);
+      --bs-secondary-bg-subtle: var(--rk-mantle);
+      --bs-success-bg-subtle: var(--rk-green);
+      --bs-info-bg-subtle: var(--rk-accent);
+      --bs-warning-bg-subtle: var(--rk-yellow);
+      --bs-danger-bg-subtle: var(--rk-red);
+      --bs-light-bg-subtle: var(--rk-background);
+      --bs-dark-bg-subtle: var(--rk-background);
+      --bs-primary-border-subtle: var(--rk-accent);
+      --bs-secondary-border-subtle: var(--rk-accent);
+      --bs-success-border-subtle: var(--rk-green);
+      --bs-info-border-subtle: var(--rk-accent);
+      --bs-warning-border-subtle: var(--rk-yellow);
+      --bs-danger-border-subtle: var(--rk-red);
+      --bs-light-border-subtle: var(--rk-crust);
+      --bs-dark-border-subtle: var(--rk-crust);
+      --bs-heading-color: var(--rk-foreground);
+      --bs-card-border-color: var(--rk-crust);
+      --bs-link-color: var(--rk-blue);
+      --bs-link-hover-color: var(--rk-maroon);
+      --bs-code-color: var(--rk-lavender);
+      --bs-highlight-color: var(--rk-accent);
+      --bs-highlight-bg: var(--rk-mantle);
+      --bs-border-color: var(--rk-crust);
+      --bs-form-valid-color: var(--rk-green);
+      --bs-form-valid-border-color: var(--rk-green);
+      --bs-form-invalid-color: var(--rk-red);
+      --bs-form-invalid-border-color: var(--rk-red);
+      --bs-dark-rgb: var(--rk-accent);
+      --bs-btn-bg: var(--rk-background);
+    }
+    :root body {
+      color: var(--rk-foreground);
+      background-color: var(--rk-background);
+    }
+    :root .nav-link {
+      color: var(--rk-accent);
+    }
+    :root .card {
+      --bs-card-cap-bg: var(--rk-mantle);
+      --bs-card-title-color: var(--rk-foreground);
+      --bs-card-subtitle-color: var(--rk-bright-white);
+      --bs-card-color: var(--rk-foreground);
+      --bs-card-cap-color: var(--rk-mantle);
+      --bs-card-bg: var(--rk-crust);
+    }
+    :root .form-control {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+      border-color: var(--rk-crust);
+    }
+    :root .btn-secondary {
+      --bs-btn-color: var(--rk-foreground);
+      --bs-btn-bg: var(--rk-background);
+      --bs-btn-border-color: var(--rk-overlay1);
+      --bs-btn-hover-color: var(--rk-accent);
+      --bs-btn-hover-bg: var(--rk-crust);
+      --bs-btn-hover-border-color: var(--rk-overlay2);
+      --bs-btn-active-color: var(--rk-foreground);
+      --bs-btn-active-bg: var(--rk-accent);
+      --bs-btn-active-border-color: var(--rk-crust);
+      --bs-btn-active-shadow: inset 0 3px 5px var(--rk-crust);
+      --bs-btn-disabled-color: var(--rk-red);
+      --bs-btn-disabled-bg: var(--rk-crust);
+      --bs-btn-disabled-border-color: var(--rk-mantle);
+    }
+    :root .table > :not(caption) > * > * {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+    }
+    :root .dropdown-menu-dark {
+      --bs-dropdown-color: var(--rk-foreground);
+      --bs-dropdown-bg: var(--rk-crust);
+      --bs-dropdown-border-color: var(--rk-mantle);
+      --bs-dropdown-box-shadow: var(--rk-mantle);
+      --bs-dropdown-link-color: var(--rk-blue);
+      --bs-dropdown-link-hover-color: var(--rk-accent);
+      --bs-dropdown-divider-bg: var(--rk-overlay0);
+      --bs-dropdown-link-hover-bg: var(--rk-crust);
+      --bs-dropdown-link-active-color: var(--rk-accent);
+      --bs-dropdown-link-active-bg: var(--rk-mantle);
+      --bs-dropdown-link-disabled-color: var(--rk-red);
+      --bs-dropdown-header-color: var(--rk-foreground);
+    }
+    :root .form-select {
+      color: var(--rk-foreground);
+      background-color: var(--rk-mantle);
+      border-color: var(--rk-crust);
+    }
+    :root .btn-outline-secondary {
+      --bs-btn-color: var(--rk-foreground);
+      --bs-btn-border-color: var(--rk-mantle);
+      --bs-btn-hover-color: var(--rk-accent);
+      --bs-btn-hover-bg: var(--rk-crust);
+      --bs-btn-hover-border-color: var(--rk-overlay0);
+      --bs-btn-active-color: var(--rk-accent);
+      --bs-btn-active-bg: var(--rk-crust);
+      --bs-btn-active-border-color: var(--rk-crust);
+      --bs-btn-active-shadow: inset 0 3px 5px var(--rk-crust);
+      --bs-btn-disabled-color: var(--rk-red);
+      --bs-btn-disabled-border-color: var(--rk-mantle);
+    }
+    :root .nav-tabs .nav-link.active,
+    :root .nav-tabs .nav-item.show .nav-link {
+      color: var(--rk-accent);
+      background-color: var(--rk-crust);
+      border-color: var(--rk-mantle);
+    }
+    :root .dropdown-item {
+      color: var(--rk-foreground);
+      background-color: var(--rk-crust);
+    }
+    :root .dropdown-menu {
+      --bs-dropdown-color: var(--rk-foreground);
+      --bs-dropdown-bg: var(--rk-crust);
+      --bs-dropdown-border-color: var(--rk-mantle);
+      --bs-dropdown-box-shadow: var(--rk-mantle);
+      --bs-dropdown-link-color: var(--rk-blue);
+      --bs-dropdown-link-hover-color: var(--rk-accent);
+      --bs-dropdown-divider-bg: var(--rk-overlay0);
+      --bs-dropdown-link-hover-bg: var(--rk-crust);
+      --bs-dropdown-link-active-color: var(--rk-accent);
+      --bs-dropdown-link-active-bg: var(--rk-mantle);
+      --bs-dropdown-link-disabled-color: var(--rk-red);
+      --bs-dropdown-header-color: var(--rk-foreground);
+    }
+    :root a {
+      color: var(--rk-accent);
+    }
+    :root .text-bg-primary {
+      color: var(--rk-foreground);
+    }
+    :root .text-muted {
+      color: var(--rk-accent);
+    }
+    :root .text-bg-light {
+      color: var(--rk-foreground) !important;
+      background-color: rgba(24, 24, 37, 1) !important;
+    }
+    :root .alert-info,
+    :root .alert-warning {
+      background-color: var(--rk-mantle) !important;
+      border-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground) !important;
+    }
+  }
+}

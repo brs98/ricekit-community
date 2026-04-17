@@ -1,0 +1,151 @@
+/* ==UserStyle==
+@name neovim.io Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.19.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/neovim.io.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for neovim.io
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("neovim.io") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --fg-color: var(--rk-foreground);
+      --inverse-fg-color: var(--rk-surface0);
+      --bg-color: var(--rk-background);
+      --accent-bg-color: var(--rk-mantle);
+      --link-color: var(--rk-blue);
+      --accent-color: var(--rk-accent);
+      --border-color: var(--rk-accent);
+      --code-color: var(--rk-accent);
+      --bs-btn-active-color: var(--rk-background);
+      --tag-color: var(--rk-accent);
+      --docsearch-container-background: rgb(from var(--rk-background) r g b / 0.3);
+      --docsearch-modal-background: var(--rk-mantle);
+      --docsearch-highlight-color: var(--rk-accent);
+      --docsearch-logo-color: var(--rk-accent);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root a:not([class]) {
+      text-decoration-color: var(--link-color);
+    }
+    :root a:not([class]):hover,
+    :root a:not([class]):focus {
+      color: var(--link-color);
+    }
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] path[fill="url(#a)"] {
+      fill: var(--rk-blue);
+    }
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] path[fill="url(#b)"],
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] path[fill="url(#c)"] {
+      fill: var(--rk-green);
+    }
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] g[fill="#444"] path {
+      fill: var(--rk-blue);
+    }
+    :root .btn {
+      color: var(--rk-background);
+      background: linear-gradient(#cba6f7 0% 95%, #b077f3 95% 100%);
+    }
+    :root .btn:hover,
+    :root .btn:focus {
+      box-shadow: 0 0 10px var(--rk-accent);
+      outline-color: var(--rk-foreground);
+    }
+    :root code,
+    :root code.hljs,
+    :root pre,
+    :root samp {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground);
+    }
+    :root .generator-stats {
+      color: var(--rk-white);
+    }
+    :root .DocSearch-Logo .cls-1,
+    :root .DocSearch-Logo .cls-2 {
+      fill: var(--docsearch-logo-color);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      /* no-op — runtime :root override handles this */
+      --fg-color: var(--rk-foreground);
+      --inverse-fg-color: var(--rk-surface0);
+      --bg-color: var(--rk-background);
+      --accent-bg-color: var(--rk-mantle);
+      --link-color: var(--rk-blue);
+      --accent-color: var(--rk-accent);
+      --border-color: var(--rk-accent);
+      --code-color: var(--rk-accent);
+      --bs-btn-active-color: var(--rk-background);
+      --tag-color: var(--rk-accent);
+      --docsearch-container-background: rgb(from var(--rk-background) r g b / 0.3);
+      --docsearch-modal-background: var(--rk-mantle);
+      --docsearch-highlight-color: var(--rk-accent);
+      --docsearch-logo-color: var(--rk-accent);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root a:not([class]) {
+      text-decoration-color: var(--link-color);
+    }
+    :root a:not([class]):hover,
+    :root a:not([class]):focus {
+      color: var(--link-color);
+    }
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] path[fill="url(#a)"] {
+      fill: var(--rk-blue);
+    }
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] path[fill="url(#b)"],
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] path[fill="url(#c)"] {
+      fill: var(--rk-green);
+    }
+    :root a[aria-label="logo"] svg[aria-label="Neovim"] g[fill="#444"] path {
+      fill: var(--rk-blue);
+    }
+    :root .btn {
+      color: var(--rk-background);
+      background: linear-gradient(#cba6f7 0% 95%, #b077f3 95% 100%);
+    }
+    :root .btn:hover,
+    :root .btn:focus {
+      box-shadow: 0 0 10px var(--rk-accent);
+      outline-color: var(--rk-foreground);
+    }
+    :root code,
+    :root code.hljs,
+    :root pre,
+    :root samp {
+      background-color: var(--rk-mantle) !important;
+      color: var(--rk-foreground);
+    }
+    :root .generator-stats {
+      color: var(--rk-white);
+    }
+    :root .DocSearch-Logo .cls-1,
+    :root .DocSearch-Logo .cls-2 {
+      fill: var(--docsearch-logo-color);
+    }
+  }
+}

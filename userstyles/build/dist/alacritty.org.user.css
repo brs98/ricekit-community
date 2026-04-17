@@ -1,0 +1,136 @@
+/* ==UserStyle==
+@name alacritty.org Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.11.07.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/alacritty.org.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for alacritty.org
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("alacritty.org") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      color: var(--rk-foreground) !important;
+      background-color: var(--rk-background) !important;
+    }
+    :root a {
+      color: var(--rk-accent) !important;
+    }
+    :root header {
+      background-color: var(--rk-mantle) !important;
+      border-bottom-color: var(--rk-surface0) !important;
+    }
+    :root header nav > a {
+      color: var(--rk-foreground) !important;
+    }
+    :root em {
+      color: var(--rk-green) !important;
+    }
+    :root strong,
+    :root strong > a {
+      color: var(--rk-blue) !important;
+    }
+    :root #pick-version select {
+      color: var(--rk-foreground) !important;
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-overlay0);
+    }
+    :root h1 {
+      color: var(--rk-accent) !important;
+    }
+    :root a:not([name]) {
+      text-shadow: none !important;
+    }
+    :root code {
+      background-color: var(--rk-surface0);
+    }
+    :root video {
+      background-color: var(--rk-overlay0) !important;
+    }
+    :root img:not(img#logo-img) {
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root img#logo-img {
+      border-color: var(--rk-mantle) !important;
+    }
+    :root kbd {
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      color: var(--rk-foreground) !important;
+      background-color: var(--rk-background) !important;
+    }
+    :root a {
+      color: var(--rk-accent) !important;
+    }
+    :root header {
+      background-color: var(--rk-mantle) !important;
+      border-bottom-color: var(--rk-surface0) !important;
+    }
+    :root header nav > a {
+      color: var(--rk-foreground) !important;
+    }
+    :root em {
+      color: var(--rk-green) !important;
+    }
+    :root strong,
+    :root strong > a {
+      color: var(--rk-blue) !important;
+    }
+    :root #pick-version select {
+      color: var(--rk-foreground) !important;
+      background-color: var(--rk-surface0);
+      border-color: var(--rk-overlay0);
+    }
+    :root h1 {
+      color: var(--rk-accent) !important;
+    }
+    :root a:not([name]) {
+      text-shadow: none !important;
+    }
+    :root code {
+      background-color: var(--rk-surface0);
+    }
+    :root video {
+      background-color: var(--rk-overlay0) !important;
+    }
+    :root img:not(img#logo-img) {
+      border-color: var(--rk-overlay0) !important;
+    }
+    :root img#logo-img {
+      border-color: var(--rk-mantle) !important;
+    }
+    :root kbd {
+      background-color: var(--rk-black) !important;
+      border-color: var(--rk-overlay0) !important;
+    }
+  }
+}

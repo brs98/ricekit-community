@@ -1,0 +1,326 @@
+/* ==UserStyle==
+@name Advent Of Code Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/advent-of-code.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Advent Of Code
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("adventofcode.com") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root body header h1 a,
+    :root body header h1 span {
+      color: var(--rk-green);
+      text-shadow: 0 0 2px var(--rk-green), 0 0 5px var(--rk-green);
+    }
+    :root body a {
+      color: var(--rk-green);
+    }
+    :root body .star-count {
+      color: var(--rk-yellow);
+    }
+    :root body .quiet {
+      color: var(--rk-white);
+      opacity: 1;
+    }
+    :root body .share,
+    :root body .share:hover,
+    :root body input[type="submit"] {
+      color: var(--rk-green);
+    }
+    :root body main article em {
+      color: var(--rk-foreground);
+      text-shadow: 0 0 5px var(--rk-foreground);
+    }
+    :root body main article h2 {
+      color: var(--rk-foreground);
+    }
+    :root body main article input[type="radio"]:checked ~ span,
+    :root body main article input[type="checkbox"]:checked ~ span {
+      color: var(--rk-foreground);
+    }
+    :root body main article input[type="radio"] ~ span:hover,
+    :root body main article input[type="radio"] ~ span:focus,
+    :root body main article input[type="checkbox"]:hover ~ span,
+    :root body main article input[type="checkbox"]:focus ~ span {
+      background-color: var(--rk-crust);
+    }
+    :root body main .supporter-badge {
+      color: var(--rk-yellow);
+    }
+    :root body main .supporter-badge:hover {
+      color: var(--rk-yellow);
+      text-shadow: 0 0 5px var(--rk-yellow);
+    }
+    :root body main .sponsor-badge {
+      color: var(--rk-blue);
+    }
+    :root body main .sponsor-badge:hover,
+    :root body main .sponsor-badge:focus {
+      color: var(--rk-blue);
+      text-shadow: 0 0 5px var(--rk-blue);
+    }
+    :root body main .leaderboard-entry .leaderboard-position {
+      color: var(--rk-bright-white);
+    }
+    :root body main .leaderboard-entry .leaderboard-totalscore {
+      color: var(--rk-foreground);
+    }
+    :root body main .leaderboard-daylinks-selected {
+      color: var(--rk-foreground);
+      text-shadow: 0 0 5px var(--rk-foreground);
+    }
+    :root body main .leaderboard-daylinks-selected:hover {
+      color: var(--rk-green);
+    }
+    :root body main .leaderboard-anon {
+      opacity: 1;
+      color: var(--rk-white);
+    }
+    :root body main .calendar .calendar-color-w {
+      color: var(--rk-foreground);
+    }
+    :root body main .calendar .calendar-color-s {
+      color: var(--rk-yellow);
+    }
+    :root body main .calendar .calendar-color-c {
+      color: var(--rk-bright-white);
+    }
+    :root body main .calendar .calendar-color-g3 {
+      color: hsl(from var(--rk-green) h s calc(l - 3));
+    }
+    :root body main .calendar .calendar-color-g2 {
+      color: var(--rk-green);
+    }
+    :root body main .calendar .calendar-color-g4 {
+      color: hsl(from var(--rk-green) h s calc(l - 3.5));
+    }
+    :root body main .calendar .calendar-color-u {
+      color: var(--rk-sky);
+    }
+    :root body main .calendar .calendar-color-a {
+      color: var(--rk-white);
+    }
+    :root body main .calendar .calendar-color-g1 {
+      color: hsl(from var(--rk-green) h s calc(l - 2.5));
+    }
+    :root body main .calendar .calendar-color-g0 {
+      color: hsl(from var(--rk-green) h s calc(l - 2));
+    }
+    :root body main .calendar .calendar-color-l {
+      color: var(--rk-red);
+    }
+    :root body main .calendar .calendar-mark-complete {
+      color: var(--rk-yellow);
+    }
+    :root body main .calendar .calendar-mark-verycomplete {
+      color: var(--rk-yellow);
+    }
+    :root body main .calendar .calendar-day {
+      color: var(--rk-bright-white);
+    }
+    :root body main .calendar #calendar-countdown {
+      color: var(--rk-bright-white);
+    }
+    :root body main .calendar span {
+      color: var(--rk-surface0);
+    }
+    :root body main .calendar a {
+      color: var(--rk-bright-black);
+    }
+    :root body main .day-success {
+      color: var(--rk-yellow);
+      text-shadow: 0 0 5px var(--rk-yellow);
+    }
+    :root body main .stats-both {
+      color: var(--rk-yellow);
+    }
+    :root body main .stats-firstonly {
+      color: var(--rk-overlay0);
+    }
+    :root body main a:hover {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root body main input[type="text"],
+    :root body main textarea,
+    :root body main code::before {
+      border-color: var(--rk-surface0);
+      background: var(--rk-crust);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root body {
+      background: var(--rk-background);
+      color: var(--rk-foreground);
+    }
+    :root body header h1 a,
+    :root body header h1 span {
+      color: var(--rk-green);
+      text-shadow: 0 0 2px var(--rk-green), 0 0 5px var(--rk-green);
+    }
+    :root body a {
+      color: var(--rk-green);
+    }
+    :root body .star-count {
+      color: var(--rk-yellow);
+    }
+    :root body .quiet {
+      color: var(--rk-white);
+      opacity: 1;
+    }
+    :root body .share,
+    :root body .share:hover,
+    :root body input[type="submit"] {
+      color: var(--rk-green);
+    }
+    :root body main article em {
+      color: var(--rk-foreground);
+      text-shadow: 0 0 5px var(--rk-foreground);
+    }
+    :root body main article h2 {
+      color: var(--rk-foreground);
+    }
+    :root body main article input[type="radio"]:checked ~ span,
+    :root body main article input[type="checkbox"]:checked ~ span {
+      color: var(--rk-foreground);
+    }
+    :root body main article input[type="radio"] ~ span:hover,
+    :root body main article input[type="radio"] ~ span:focus,
+    :root body main article input[type="checkbox"]:hover ~ span,
+    :root body main article input[type="checkbox"]:focus ~ span {
+      background-color: var(--rk-crust);
+    }
+    :root body main .supporter-badge {
+      color: var(--rk-yellow);
+    }
+    :root body main .supporter-badge:hover {
+      color: var(--rk-yellow);
+      text-shadow: 0 0 5px var(--rk-yellow);
+    }
+    :root body main .sponsor-badge {
+      color: var(--rk-blue);
+    }
+    :root body main .sponsor-badge:hover,
+    :root body main .sponsor-badge:focus {
+      color: var(--rk-blue);
+      text-shadow: 0 0 5px var(--rk-blue);
+    }
+    :root body main .leaderboard-entry .leaderboard-position {
+      color: var(--rk-bright-white);
+    }
+    :root body main .leaderboard-entry .leaderboard-totalscore {
+      color: var(--rk-foreground);
+    }
+    :root body main .leaderboard-daylinks-selected {
+      color: var(--rk-foreground);
+      text-shadow: 0 0 5px var(--rk-foreground);
+    }
+    :root body main .leaderboard-daylinks-selected:hover {
+      color: var(--rk-green);
+    }
+    :root body main .leaderboard-anon {
+      opacity: 1;
+      color: var(--rk-white);
+    }
+    :root body main .calendar .calendar-color-w {
+      color: var(--rk-foreground);
+    }
+    :root body main .calendar .calendar-color-s {
+      color: var(--rk-yellow);
+    }
+    :root body main .calendar .calendar-color-c {
+      color: var(--rk-bright-white);
+    }
+    :root body main .calendar .calendar-color-g3 {
+      color: hsl(from var(--rk-green) h s calc(l - 3));
+    }
+    :root body main .calendar .calendar-color-g2 {
+      color: var(--rk-green);
+    }
+    :root body main .calendar .calendar-color-g4 {
+      color: hsl(from var(--rk-green) h s calc(l - 3.5));
+    }
+    :root body main .calendar .calendar-color-u {
+      color: var(--rk-sky);
+    }
+    :root body main .calendar .calendar-color-a {
+      color: var(--rk-white);
+    }
+    :root body main .calendar .calendar-color-g1 {
+      color: hsl(from var(--rk-green) h s calc(l - 2.5));
+    }
+    :root body main .calendar .calendar-color-g0 {
+      color: hsl(from var(--rk-green) h s calc(l - 2));
+    }
+    :root body main .calendar .calendar-color-l {
+      color: var(--rk-red);
+    }
+    :root body main .calendar .calendar-mark-complete {
+      color: var(--rk-yellow);
+    }
+    :root body main .calendar .calendar-mark-verycomplete {
+      color: var(--rk-yellow);
+    }
+    :root body main .calendar .calendar-day {
+      color: var(--rk-bright-white);
+    }
+    :root body main .calendar #calendar-countdown {
+      color: var(--rk-bright-white);
+    }
+    :root body main .calendar span {
+      color: var(--rk-surface0);
+    }
+    :root body main .calendar a {
+      color: var(--rk-bright-black);
+    }
+    :root body main .day-success {
+      color: var(--rk-yellow);
+      text-shadow: 0 0 5px var(--rk-yellow);
+    }
+    :root body main .stats-both {
+      color: var(--rk-yellow);
+    }
+    :root body main .stats-firstonly {
+      color: var(--rk-overlay0);
+    }
+    :root body main a:hover {
+      background-color: var(--rk-mantle) !important;
+    }
+    :root body main input[type="text"],
+    :root body main textarea,
+    :root body main code::before {
+      border-color: var(--rk-surface0);
+      background: var(--rk-crust);
+    }
+  }
+}

@@ -1,0 +1,214 @@
+/* ==UserStyle==
+@name homepage Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/homepage.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for homepage
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("homepage.example.com"), regexp("https?://homepage\\..*") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :is(.dark .dark\:bg-theme-800) {
+      --tw-bg-opacity: 1;
+      background-color: var(--rk-background);
+    }
+    :root .dark {
+      --bg-color: var(--rk-background);
+      --scrollbar-thumb: var(--rk-accent);
+      --scrollbar-track: var(--rk-mantle);
+    }
+    :root :is(.dark .dark\:bg-theme-200\/20) {
+      background-color: var(--rk-overlay0);
+    }
+    :root :is(.dark .dark\:bg-theme-200\/50) {
+      background-color: var(--rk-foreground);
+    }
+    :root .border-theme-300 {
+      --tw-border-opacity: 1;
+      border-color: var(--rk-surface0) !important;
+    }
+    :root :is(.dark .dark\:bg-white\/10) {
+      background-color: var(--rk-background);
+    }
+    :root :is(.dark .dark\:focus\:ring-white\/50:focus) {
+      --tw-ring-color: var(--rk-foreground);
+    }
+    :root :is(.dark .dark\:text-white) {
+      --tw-text-opacity: 1;
+      color: var(--rk-accent);
+    }
+    :root :is(.dark .dark\:bg-white\/5) {
+      background-color: var(--rk-mantle);
+    }
+    :root :is(.dark .dark\:shadow-theme-900\/20) {
+      --tw-shadow-color: var(--rk-mantle);
+      --tw-shadow: var(--tw-shadow-colored);
+    }
+    :root :is(.dark .dark\:hover\:bg-white\/10:hover) {
+      background-color: var(--rk-black);
+    }
+    :root :is(.dark .dark\:bg-theme-900\/50) {
+      background-color: var(--rk-crust);
+    }
+    :root :is(.dark .dark\:bg-theme-900\/20) {
+      background-color: var(--rk-surface0);
+    }
+    :root :is(.dark .dark\:bg-theme-900\/40) {
+      background-color: var(--rk-accent);
+    }
+    :root :is(.dark .dark\:text-theme-300) {
+      color: var(--rk-foreground);
+    }
+    :root .text-theme-900 {
+      --tw-border-opacity: 1;
+      color: var(--rk-background);
+    }
+    :root .bg-rose-900\/80 {
+      --tw-border-opacity: 1;
+      background-color: var(--rk-red);
+    }
+    :root :is(.dark .dark\:text-theme-400) {
+      --tw-border-opacity: 1;
+      color: var(--rk-foreground);
+    }
+    :root .text-white {
+      color: var(--rk-bright-white);
+    }
+    :root :is(.dark .dark\:border-theme-200\/50) {
+      --tw-border-opacity: 1;
+      border-color: var(--rk-bright-black);
+    }
+    :root :is(.dark .dark\:hover\:text-theme-300:hover) {
+      --tw-text-opacity: 1;
+      color: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root :is(.dark .dark\:text-theme-200) {
+      --tw-text-opacity: 1;
+      color: var(--rk-foreground);
+    }
+    :root .text-emerald-500\/80 {
+      color: hsl(from var(--rk-green) h s calc(l + 10));
+    }
+    :root .text-orange-400\/50 {
+      color: hsl(from var(--rk-yellow) h s calc(l + 10));
+    }
+    :root .text-rose-500\/80 {
+      color: hsl(from var(--rk-red) h s calc(l - 10));
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root :is(.dark .dark\:bg-theme-800) {
+      --tw-bg-opacity: 1;
+      background-color: var(--rk-background);
+    }
+    :root .dark {
+      --bg-color: var(--rk-background);
+      --scrollbar-thumb: var(--rk-accent);
+      --scrollbar-track: var(--rk-mantle);
+    }
+    :root :is(.dark .dark\:bg-theme-200\/20) {
+      background-color: var(--rk-overlay0);
+    }
+    :root :is(.dark .dark\:bg-theme-200\/50) {
+      background-color: var(--rk-foreground);
+    }
+    :root .border-theme-300 {
+      --tw-border-opacity: 1;
+      border-color: var(--rk-surface0) !important;
+    }
+    :root :is(.dark .dark\:bg-white\/10) {
+      background-color: var(--rk-background);
+    }
+    :root :is(.dark .dark\:focus\:ring-white\/50:focus) {
+      --tw-ring-color: var(--rk-foreground);
+    }
+    :root :is(.dark .dark\:text-white) {
+      --tw-text-opacity: 1;
+      color: var(--rk-accent);
+    }
+    :root :is(.dark .dark\:bg-white\/5) {
+      background-color: var(--rk-mantle);
+    }
+    :root :is(.dark .dark\:shadow-theme-900\/20) {
+      --tw-shadow-color: var(--rk-mantle);
+      --tw-shadow: var(--tw-shadow-colored);
+    }
+    :root :is(.dark .dark\:hover\:bg-white\/10:hover) {
+      background-color: var(--rk-black);
+    }
+    :root :is(.dark .dark\:bg-theme-900\/50) {
+      background-color: var(--rk-crust);
+    }
+    :root :is(.dark .dark\:bg-theme-900\/20) {
+      background-color: var(--rk-surface0);
+    }
+    :root :is(.dark .dark\:bg-theme-900\/40) {
+      background-color: var(--rk-accent);
+    }
+    :root :is(.dark .dark\:text-theme-300) {
+      color: var(--rk-foreground);
+    }
+    :root .text-theme-900 {
+      --tw-border-opacity: 1;
+      color: var(--rk-background);
+    }
+    :root .bg-rose-900\/80 {
+      --tw-border-opacity: 1;
+      background-color: var(--rk-red);
+    }
+    :root :is(.dark .dark\:text-theme-400) {
+      --tw-border-opacity: 1;
+      color: var(--rk-foreground);
+    }
+    :root .text-white {
+      color: var(--rk-bright-white);
+    }
+    :root :is(.dark .dark\:border-theme-200\/50) {
+      --tw-border-opacity: 1;
+      border-color: var(--rk-bright-black);
+    }
+    :root :is(.dark .dark\:hover\:text-theme-300:hover) {
+      --tw-text-opacity: 1;
+      color: hsl(from var(--rk-accent) h s calc(l - 10));
+    }
+    :root :is(.dark .dark\:text-theme-200) {
+      --tw-text-opacity: 1;
+      color: var(--rk-foreground);
+    }
+    :root .text-emerald-500\/80 {
+      color: hsl(from var(--rk-green) h s calc(l + 10));
+    }
+    :root .text-orange-400\/50 {
+      color: hsl(from var(--rk-yellow) h s calc(l + 10));
+    }
+    :root .text-rose-500\/80 {
+      color: hsl(from var(--rk-red) h s calc(l - 10));
+    }
+  }
+}

@@ -1,0 +1,68 @@
+/* ==UserStyle==
+@name Searchix Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.12.05.202604171638
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/searchix.user.css
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Searchix
+@author Catppuccin
+@license MIT
+
+==/UserStyle== */
+/* deno-fmt-ignore */
+/* deno-fmt-ignore */
+@-moz-document domain("searchix.ovh") {
+  @media (prefers-color-scheme: light) {
+    :root {
+      color-scheme: dark;
+      --bg: var(--rk-background);
+      --accent-bg: var(--rk-mantle);
+      --text: var(--rk-foreground);
+      --text-light: var(--rk-white);
+      --accent: var(--rk-accent);
+      --accent-hover: var(--rk-accent);
+      --accent-error: rgb(from var(--rk-red) r g b / 0.2);
+      --border: var(--rk-overlay0);
+      --code: var(--rk-lavender);
+      --preformatted: var(--rk-foreground);
+      --disabled: var(--rk-crust);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root dialog {
+      color: var(--text);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --bg: var(--rk-background);
+      --accent-bg: var(--rk-mantle);
+      --text: var(--rk-foreground);
+      --text-light: var(--rk-white);
+      --accent: var(--rk-accent);
+      --accent-hover: var(--rk-accent);
+      --accent-error: rgb(from var(--rk-red) r g b / 0.2);
+      --border: var(--rk-overlay0);
+      --code: var(--rk-lavender);
+      --preformatted: var(--rk-foreground);
+      --disabled: var(--rk-crust);
+    }
+    :root ::selection {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: var(--rk-white) !important;
+    }
+    :root dialog {
+      color: var(--text);
+    }
+  }
+}
