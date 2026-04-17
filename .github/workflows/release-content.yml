@@ -54,8 +54,8 @@ jobs:
       - name: Build manifest.json
         run: |
           set -euo pipefail
-          THEMES=$(ls -1 themes/ | jq -R . | jq -cs .)
-          CONFIGS=$(ls -1 templates/ | jq -R . | jq -cs .)
+          THEMES=$(find themes -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
+          CONFIGS=$(find templates -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
           PUBLISHED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           cat > manifest.json <<EOF
           {
