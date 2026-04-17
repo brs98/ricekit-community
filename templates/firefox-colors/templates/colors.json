@@ -1,0 +1,31 @@
+{
+  "colors": {
+    "frame": "{{surface}}",
+    "frame_inactive": "{{darken(surface, 5%)}}",
+    "tab_background_text": "{{foreground}}",
+    "toolbar": "{{background}}",
+    "toolbar_text": "{{foreground}}",
+    "toolbar_field": "{{darken(background, 5%)}}",
+    "toolbar_field_text": "{{foreground}}",
+    "toolbar_field_border": "{{border}}",
+    "toolbar_field_focus": "{{accent}}",
+    "tab_selected": "{{accent}}",
+    "tab_text": "{{contrast(accent)}}",
+    "tab_line": "{{accent}}",
+    "sidebar": "{{surface}}",
+    "sidebar_text": "{{foreground}}",
+    "sidebar_border": "{{border}}",
+    "popup": "{{surface}}",
+    "popup_text": "{{foreground}}",
+    "popup_border": "{{border}}",
+    "ntp_background": "{{background}}",
+    "ntp_text": "{{foreground}}",
+    "icons": "{{muted}}",
+    "toolbar_top_separator": "{{border}}",
+    "toolbar_bottom_separator": "{{border}}"
+  },
+  "meta": {
+    "version": 1,
+    "generator": "ricekit"
+  }
+}

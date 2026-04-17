@@ -1,0 +1,26 @@
+[metadata]
+name = "ghostty-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Ghostty terminal theme colors"
+setup_instructions = """Add to your Ghostty config (~/.config/ghostty/config):
+
+config-file = ?~/.config/ghostty/ricekit-theme"""
+app = "ghostty"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ghostty/ricekit-theme"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/ghostty/ricekit-theme"
+strategy = "symlink"
+
+[reload.macos]
+command = "[ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
+[reload.linux]
+command = "[ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
+
+[requires]
+colors = ["ansi"]

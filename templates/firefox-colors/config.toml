@@ -1,0 +1,30 @@
+[metadata]
+name = "firefox-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Firefox/Zen browser theme colors via Ricekit extension"
+setup_instructions = """
+1. Register the native messaging host:
+     ricekit browser setup
+
+2. Install the Ricekit extension:
+     - Open about:debugging#/runtime/this-firefox in your browser
+     - Click "Load Temporary Add-on"
+     - Select manifest.json from ~/.config/ricekit/extensions/firefox/
+
+   Note: Temporary add-ons are removed on browser restart.
+   Re-load the extension after each restart, or install from AMO once available."""
+app = "firefox"
+category = "browser"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/firefox/colors.json"
+strategy = "direct"
+
+[target.linux]
+path = "~/.config/ricekit/active/firefox/colors.json"
+strategy = "direct"
+
+[requires]
+colors = ["ansi", "semantic"]

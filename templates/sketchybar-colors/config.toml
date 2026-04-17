@@ -1,0 +1,23 @@
+[metadata]
+name = "sketchybar-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "SketchyBar color palette as shell variables"
+setup_instructions = """Add to your sketchybarrc:
+
+source "$CONFIG_DIR/colors.sh"
+
+Then use variables like: --bar color=$BAR_COLOR border_color=$BAR_BORDER_COLOR"""
+app = "sketchybar"
+category = "statusbar"
+type = "colors"
+
+[target.macos]
+path = "~/.config/sketchybar/colors.sh"
+strategy = "symlink"
+
+[reload.macos]
+command = "sketchybar --reload"
+
+[requires]
+colors = ["ansi", "semantic"]

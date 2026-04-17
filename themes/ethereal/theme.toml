@@ -1,0 +1,29 @@
+[metadata]
+name = "Ethereal"
+author = "Omarchy"
+version = "1.0.0"
+variant = "dark"
+description = "A dreamy, atmospheric dark theme with warm peachy tones"
+
+[colors.ansi]
+foreground = "#ffcead"
+background = "#060b1e"
+black = "#060b1e"
+red = "#ed5b5a"
+green = "#92a593"
+yellow = "#e9bb4f"
+blue = "#7d82d9"
+magenta = "#c89dc1"
+cyan = "#a3bfd1"
+white = "#f99957"
+bright_black = "#6d7db6"
+bright_red = "#faaaa9"
+bright_green = "#c4cfc4"
+bright_yellow = "#f7dc9c"
+bright_blue = "#c2c4f0"
+bright_magenta = "#ead7e7"
+bright_cyan = "#dfeaf0"
+bright_white = "#ffcead"
+
+[colors.semantic]
+accent = "#7d82d9"

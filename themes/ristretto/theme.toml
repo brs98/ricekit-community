@@ -1,0 +1,29 @@
+[metadata]
+name = "Ristretto"
+author = "Monokai"
+version = "1.0.0"
+variant = "dark"
+description = "A warm, coffee-inspired dark theme"
+
+[colors.ansi]
+foreground = "#e6d9db"
+background = "#2c2525"
+black = "#72696a"
+red = "#fd6883"
+green = "#adda78"
+yellow = "#f9cc6c"
+blue = "#f38d70"
+magenta = "#a8a9eb"
+cyan = "#85dacc"
+white = "#e6d9db"
+bright_black = "#948a8b"
+bright_red = "#ff8297"
+bright_green = "#c8e292"
+bright_yellow = "#fcd675"
+bright_blue = "#f8a788"
+bright_magenta = "#bebffd"
+bright_cyan = "#9bf1e1"
+bright_white = "#f1e5e7"
+
+[colors.semantic]
+accent = "#f38d70"

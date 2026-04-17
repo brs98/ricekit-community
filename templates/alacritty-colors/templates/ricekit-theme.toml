@@ -1,0 +1,59 @@
+# Ricekit generated Alacritty theme
+# Do not edit — regenerated on theme apply
+# Import in alacritty.toml: [general] import = ["~/.config/alacritty/ricekit-theme.toml"]
+
+[colors.primary]
+background = "{{background}}"
+foreground = "{{foreground}}"
+
+[colors.cursor]
+text = "{{background}}"
+cursor = "{{accent}}"
+
+[colors.vi_mode_cursor]
+text = "{{background}}"
+cursor = "{{accent}}"
+
+[colors.selection]
+text = "CellForeground"
+background = "{{blend(background, blue, 30%)}}"
+
+[colors.search.matches]
+foreground = "{{background}}"
+background = "{{yellow}}"
+
+[colors.search.focused_match]
+foreground = "{{background}}"
+background = "{{accent}}"
+
+[colors.hints.start]
+foreground = "{{background}}"
+background = "{{yellow}}"
+
+[colors.hints.end]
+foreground = "{{background}}"
+background = "{{muted}}"
+
+[colors.footer_bar]
+foreground = "{{foreground}}"
+background = "{{surface}}"
+
+[colors.normal]
+black = "{{black}}"
+red = "{{red}}"
+green = "{{green}}"
+yellow = "{{yellow}}"
+blue = "{{blue}}"
+magenta = "{{magenta}}"
+cyan = "{{cyan}}"
+white = "{{white}}"
+
+[colors.bright]
+black = "{{bright_black}}"
+red = "{{bright_red}}"
+green = "{{bright_green}}"
+yellow = "{{bright_yellow}}"
+blue = "{{bright_blue}}"
+magenta = "{{bright_magenta}}"
+cyan = "{{bright_cyan}}"
+white = "{{bright_white}}"

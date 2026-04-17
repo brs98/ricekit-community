@@ -1,0 +1,27 @@
+[metadata]
+name = "alacritty-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Alacritty v0.13+ theme colors (TOML format)"
+setup_instructions = """Add to your alacritty.toml:
+
+[general]
+import = ["~/.config/alacritty/ricekit-theme.toml"]"""
+app = "alacritty"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.config/alacritty/ricekit-theme.toml"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/alacritty/ricekit-theme.toml"
+strategy = "symlink"
+
+[reload.macos]
+command = "[ -f ~/.config/alacritty/alacritty.toml ] && touch ~/.config/alacritty/alacritty.toml; true"
+[reload.linux]
+command = "[ -f ~/.config/alacritty/alacritty.toml ] && touch ~/.config/alacritty/alacritty.toml; true"
+
+[requires]
+colors = ["ansi"]

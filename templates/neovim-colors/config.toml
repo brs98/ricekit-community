@@ -1,0 +1,21 @@
+[metadata]
+name = "neovim-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Neovim colorscheme with full Treesitter support"
+setup_instructions = """Add to your init.lua:
+
+require('ricekit')"""
+app = "neovim"
+category = "editor"
+type = "colors"
+
+[target.macos]
+path = "~/.config/nvim/colors/ricekit.lua"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/nvim/colors/ricekit.lua"
+strategy = "symlink"
+
+[requires]
+colors = ["ansi"]

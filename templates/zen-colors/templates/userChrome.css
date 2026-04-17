@@ -1,0 +1,103 @@
+/* Ricekit theme for Zen Browser */
+
+:root {
+  --zen-primary-color: {{accent}} !important;
+  --zen-colors-primary: {{surface}} !important;
+  --zen-colors-secondary: {{surface}} !important;
+  --zen-colors-tertiary: {{darken(background, 5%)}} !important;
+  --zen-colors-border: {{accent}} !important;
+  --zen-main-browser-background: {{darken(background, 5%)}} !important;
+  --zen-themed-toolbar-bg: {{darken(background, 5%)}} !important;
+  --toolbar-bgcolor: {{surface}} !important;
+  --toolbar-color: {{foreground}} !important;
+  --toolbar-field-color: {{foreground}} !important;
+  --toolbar-field-focus-color: {{foreground}} !important;
+  --toolbarbutton-icon-fill: {{accent}} !important;
+  --toolbox-bgcolor-inactive: {{darken(background, 5%)}} !important;
+  --lwt-text-color: {{foreground}} !important;
+  --tab-selected-textcolor: {{contrast(accent)}} !important;
+  --newtab-background-color: {{background}} !important;
+  --newtab-text-primary-color: {{foreground}} !important;
+  --arrowpanel-background: {{background}} !important;
+  --arrowpanel-color: {{foreground}} !important;
+  --sidebar-text-color: {{foreground}} !important;
+  --lwt-sidebar-text-color: {{foreground}} !important;
+  --lwt-sidebar-background-color: {{darken(background, 8%)}} !important;
+}
+
+.sidebar-placesTree {
+  background-color: {{background}} !important;
+}
+
+#zen-workspaces-button {
+  background-color: {{background}} !important;
+}
+
+#TabsToolbar {
+  background-color: {{darken(background, 5%)}} !important;
+}
+
+.urlbar-background {
+  background-color: {{background}} !important;
+}
+
+.content-shortcuts {
+  background-color: {{background}} !important;
+  border-color: {{accent}} !important;
+}
+
+.urlbarView-url {
+  color: {{accent}} !important;
+}
+
+#zenEditBookmarkPanelFaviconContainer {
+  background: {{darken(background, 8%)}} !important;
+}
+
+hbox#titlebar {
+  background-color: {{darken(background, 5%)}} !important;
+}
+
+#zen-appcontent-navbar-container {
+  background-color: {{darken(background, 5%)}} !important;
+}
+
+.identity-color-blue {
+  --identity-tab-color: {{blue}} !important;
+  --identity-icon-color: {{blue}} !important;
+}
+
+.identity-color-turquoise {
+  --identity-tab-color: {{cyan}} !important;
+  --identity-icon-color: {{cyan}} !important;
+}
+
+.identity-color-green {
+  --identity-tab-color: {{green}} !important;
+  --identity-icon-color: {{green}} !important;
+}
+
+.identity-color-yellow {
+  --identity-tab-color: {{yellow}} !important;
+  --identity-icon-color: {{yellow}} !important;
+}
+
+.identity-color-orange {
+  --identity-tab-color: {{lighten(red, 10%)}} !important;
+  --identity-icon-color: {{lighten(red, 10%)}} !important;
+}
+
+.identity-color-red {
+  --identity-tab-color: {{red}} !important;
+  --identity-icon-color: {{red}} !important;
+}
+
+.identity-color-pink {
+  --identity-tab-color: {{magenta}} !important;
+  --identity-icon-color: {{magenta}} !important;
+}
+
+.identity-color-purple {
+  --identity-tab-color: {{bright_magenta}} !important;
+  --identity-icon-color: {{bright_magenta}} !important;
+}

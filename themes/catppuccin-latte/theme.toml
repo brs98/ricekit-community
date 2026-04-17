@@ -1,0 +1,29 @@
+[metadata]
+name = "Catppuccin Latte"
+author = "catppuccin"
+version = "1.0.0"
+variant = "light"
+description = "Soothing pastel theme — light variant"
+
+[colors.ansi]
+foreground = "#4c4f69"
+background = "#eff1f5"
+black = "#bcc0cc"
+red = "#d20f39"
+green = "#40a02b"
+yellow = "#df8e1d"
+blue = "#1e66f5"
+magenta = "#ea76cb"
+cyan = "#179299"
+white = "#5c5f77"
+bright_black = "#acb0be"
+bright_red = "#d20f39"
+bright_green = "#40a02b"
+bright_yellow = "#df8e1d"
+bright_blue = "#1e66f5"
+bright_magenta = "#ea76cb"
+bright_cyan = "#179299"
+bright_white = "#6c6f85"
+
+[colors.semantic]
+accent = "#1e66f5"
