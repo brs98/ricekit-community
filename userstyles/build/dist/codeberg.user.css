@@ -1,17 +1,14 @@
 /* ==UserStyle==
-@name Codeberg Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/codeberg
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/codeberg
-@version 2026.04.16.202604171629
+@name Codeberg Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.04.16.202604171638
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/codeberg.user.css
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Acodeberg
-@description Soothing pastel theme for Codeberg
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Codeberg
 @author Catppuccin
 @license MIT
 
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 /* deno-fmt-ignore */
 /* deno-fmt-ignore */

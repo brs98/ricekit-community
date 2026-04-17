@@ -1,17 +1,14 @@
 /* ==UserStyle==
-@name docs.rs Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/docs.rs
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/docs.rs
-@version 2026.01.16.202604171629
+@name docs.rs Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.01.16.202604171638
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/docs.rs.user.css
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Adocs.rs
-@description Soothing pastel theme for docs.rs
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for docs.rs
 @author Catppuccin
 @license MIT
 
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 /* deno-fmt-ignore */
 /* deno-fmt-ignore */

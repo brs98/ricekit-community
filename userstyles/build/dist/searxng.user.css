@@ -1,17 +1,14 @@
 /* ==UserStyle==
-@name SearXNG Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/searxng
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/searxng
-@version 2026.02.28.202604171629
+@name SearXNG Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.02.28.202604171638
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/searxng.user.css
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Asearxng
-@description Soothing pastel theme for SearXNG
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for SearXNG
 @author Catppuccin
 @license MIT
 
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 
 @var checkbox additions "Additional Tweaks" 0
 ==/UserStyle== */

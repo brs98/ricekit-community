@@ -1,17 +1,14 @@
 /* ==UserStyle==
-@name NixOS Wiki Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/wiki.nixos.org
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/wiki.nixos.org
-@version 2025.09.06.202604171629
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Awiki.nixos.org
+@name NixOS Wiki Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
+@supportURL https://github.com/brs98/ricekit-community/issues
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/wiki.nixos.org.user.css
-@description Soothing pastel theme for NixOS Wiki
+@description Ricekit version of Catppuccin for NixOS Wiki
 @author Catppuccin
 @license MIT
 
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 @var checkbox highlight-redirect "Highlight redirect links" 0
 ==/UserStyle== */
 /* deno-fmt-ignore */

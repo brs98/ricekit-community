@@ -1,17 +1,14 @@
 /* ==UserStyle==
-@name Home Manager Options Search Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/home-manager-options-search
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/home-manager-options-search
-@version 2025.09.06.202604171629
+@name Home Manager Options Search Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/home-manager-options-search.user.css
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ahome-manager-options-search
-@description Soothing pastel theme for Home Manager Options Search
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Home Manager Options Search
 @author Catppuccin
 @license MIT
 
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 /* deno-fmt-ignore */
 /* deno-fmt-ignore */

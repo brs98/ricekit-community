@@ -1,17 +1,14 @@
 /* ==UserStyle==
-@name Have I Been Pwned Catppuccin
-@namespace github.com/catppuccin/userstyles/styles/have-i-been-pwned
-@homepageURL https://github.com/catppuccin/userstyles/tree/main/styles/have-i-been-pwned
-@version 2025.09.06.202604171629
+@name Have I Been Pwned Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202604171638
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/have-i-been-pwned.user.css
-@supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Ahave-i-been-pwned
-@description Soothing pastel theme for Have I Been Pwned
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Have I Been Pwned
 @author Catppuccin
 @license MIT
 
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha"]
-@var select darkFlavor "Dark Flavor" ["latte:Latte", "frappe:Frappé", "macchiato:Macchiato", "mocha:Mocha*"]
-@var select accentColor "Accent" ["rosewater:Rosewater", "flamingo:Flamingo", "pink:Pink", "mauve:Mauve*", "red:Red", "maroon:Maroon", "peach:Peach", "yellow:Yellow", "green:Green", "teal:Teal", "blue:Blue", "sapphire:Sapphire", "sky:Sky", "lavender:Lavender", "subtext0:Gray"]
 ==/UserStyle== */
 /* deno-fmt-ignore */
 /* deno-fmt-ignore */

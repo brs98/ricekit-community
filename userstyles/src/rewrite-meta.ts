@@ -1,12 +1,24 @@
-// Rewrite @updateURL and @version inside a userstyle's ==UserStyle== metadata
-// block. If either directive is missing, insert it just before the closing
-// ==/UserStyle== marker. Everything outside the metadata block is untouched.
+// Rewrite directives inside a userstyle's ==UserStyle== metadata block:
+//   - @updateURL and @version are always rewritten (required fields).
+//   - @name, @namespace, @homepageURL, @supportURL, @description are rewritten
+//     if the caller provides a value; left alone otherwise.
+//   - @var select / @var dropdown lines are stripped entirely when
+//     stripVarSelects is true (they're dead weight once the palette is rewritten
+//     to var(--rk-*) — Stylus's UI dropdowns no longer control anything).
+// Missing directives are inserted just before ==/UserStyle==. Everything outside
+// the metadata block is untouched.
 //
 // Pure function, no I/O. Used by stamp-meta.ts to batch-process build/dist.
 
 export type MetaRewrite = {
   updateUrl: string;
   version: string;
+  name?: string;
+  namespace?: string;
+  homepageURL?: string;
+  supportURL?: string;
+  description?: string;
+  stripVarSelects?: boolean;
 };
 
 const OPEN_MARKER = "==UserStyle==";
@@ -18,7 +30,13 @@ function directiveLineRegex(name: string): RegExp {
   return new RegExp(`^([ \\t]*\\*?[ \\t]*)@${name}[ \\t]+[^\\n]*$`, "m");
 }
 
-export function rewriteMeta(source: string, { updateUrl, version }: MetaRewrite): string {
+// Match @var select / @var dropdown lines. These are the Stylus UI selectors
+// Catppuccin uses for lightFlavor / darkFlavor / accentColor — once our
+// compile step bakes the palette out to var(--rk-*), they do nothing. Strip
+// them to declutter the Stylus style editor.
+const VAR_SELECT_LINE_RE = /^[ \t]*\*?[ \t]*@var[ \t]+(?:select|dropdown)[ \t]+[^\n]*\n?/gm;
+
+export function rewriteMeta(source: string, opts: MetaRewrite): string {
   const openIdx = source.indexOf(OPEN_MARKER);
   const closeIdx = source.indexOf(CLOSE_MARKER);
   if (openIdx === -1 || closeIdx === -1 || closeIdx < openIdx) {
@@ -26,22 +44,31 @@ export function rewriteMeta(source: string, { updateUrl, version }: MetaRewrite)
   }
 
   const before = source.slice(0, openIdx);
-  const meta = source.slice(openIdx, closeIdx);
+  let meta = source.slice(openIdx, closeIdx);
   const after = source.slice(closeIdx);
 
-  let nextMeta = meta;
-  const urlRe = directiveLineRegex("updateURL");
-  const verRe = directiveLineRegex("version");
+  if (opts.stripVarSelects) {
+    meta = meta.replace(VAR_SELECT_LINE_RE, "");
+  }
 
-  nextMeta = urlRe.test(nextMeta)
-    ? nextMeta.replace(urlRe, `$1@updateURL ${updateUrl}`)
-    : insertDirective(nextMeta, `@updateURL ${updateUrl}`);
+  const rewrites: [string, string | undefined][] = [
+    ["updateURL", opts.updateUrl],
+    ["version", opts.version],
+    ["name", opts.name],
+    ["namespace", opts.namespace],
+    ["homepageURL", opts.homepageURL],
+    ["supportURL", opts.supportURL],
+    ["description", opts.description],
+  ];
+  for (const [directive, value] of rewrites) {
+    if (value === undefined) continue;
+    const re = directiveLineRegex(directive);
+    meta = re.test(meta)
+      ? meta.replace(re, `$1@${directive} ${value}`)
+      : insertDirective(meta, `@${directive} ${value}`);
+  }
 
-  nextMeta = verRe.test(nextMeta)
-    ? nextMeta.replace(verRe, `$1@version ${version}`)
-    : insertDirective(nextMeta, `@version ${version}`);
-
-  return before + nextMeta + after;
+  return before + meta + after;
 }
 
 // Insert a `@foo value` line at the end of the metadata block (just before
