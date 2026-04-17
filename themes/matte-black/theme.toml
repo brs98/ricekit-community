@@ -1,0 +1,29 @@
+[metadata]
+name = "Matte Black"
+author = "Omarchy"
+version = "1.0.0"
+variant = "dark"
+description = "A sleek, minimal dark theme with amber accents"
+
+[colors.ansi]
+foreground = "#bebebe"
+background = "#121212"
+black = "#333333"
+red = "#d35f5f"
+green = "#ffc107"
+yellow = "#b91c1c"
+blue = "#e68e0d"
+magenta = "#d35f5f"
+cyan = "#bebebe"
+white = "#bebebe"
+bright_black = "#8a8a8d"
+bright_red = "#b91c1c"
+bright_green = "#ffc107"
+bright_yellow = "#b90a0a"
+bright_blue = "#f59e0b"
+bright_magenta = "#b91c1c"
+bright_cyan = "#eaeaea"
+bright_white = "#ffffff"
+
+[colors.semantic]
+accent = "#e68e0d"

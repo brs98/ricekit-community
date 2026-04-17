@@ -1,0 +1,92 @@
+name: Release Content
+
+on:
+  push:
+    tags:
+      - 'content-v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and publish content tarball
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#content-v}"
+          MAJOR="$(echo "$VERSION" | cut -d. -f1)"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "major=$MAJOR" >> "$GITHUB_OUTPUT"
+          echo "Publishing content version $VERSION (schema major $MAJOR)"
+
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: validator -> target
+
+      - name: Build validator
+        working-directory: validator
+        run: cargo build --release
+
+      - name: Validate all themes and templates
+        run: |
+          set -euo pipefail
+          VALIDATOR="./validator/target/release/ricekit-validate"
+          for dir in themes/*/; do
+            echo "::group::Validating ${dir%/}"
+            "$VALIDATOR" "$dir"
+            echo "::endgroup::"
+          done
+          for dir in templates/*/; do
+            echo "::group::Validating ${dir%/}"
+            "$VALIDATOR" "$dir"
+            echo "::endgroup::"
+          done
+
+      - name: Build manifest.json
+        run: |
+          set -euo pipefail
+          THEMES=$(ls -1 themes/ | jq -R . | jq -cs .)
+          CONFIGS=$(ls -1 templates/ | jq -R . | jq -cs .)
+          PUBLISHED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          cat > manifest.json <<EOF
+          {
+            "version": "${{ steps.version.outputs.version }}",
+            "schema_major": ${{ steps.version.outputs.major }},
+            "themes": ${THEMES},
+            "configs": ${CONFIGS},
+            "published_at": "${PUBLISHED}"
+          }
+          EOF
+          jq . manifest.json
+
+      - name: Build tarball and checksum
+        run: |
+          set -euo pipefail
+          TAR="ricekit-content-v${{ steps.version.outputs.version }}.tar.gz"
+          tar --sort=name --owner=0 --group=0 --numeric-owner \
+            -czf "$TAR" themes/ templates/ manifest.json
+          sha256sum "$TAR" | awk '{print $1}' > "$TAR.sha256"
+          echo "Tarball: $(du -h "$TAR" | cut -f1)"
+          echo "SHA256: $(cat "$TAR.sha256")"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Ricekit Content ${{ steps.version.outputs.tag }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          files: |
+            ricekit-content-v*.tar.gz
+            ricekit-content-v*.tar.gz.sha256
+            manifest.json

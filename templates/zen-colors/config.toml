@@ -1,0 +1,29 @@
+[metadata]
+name = "zen-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Zen Browser theme colors via userChrome.css"
+setup_instructions = """
+1. Enable custom stylesheets in Zen:
+     - Open about:config in Zen Browser
+     - Search for toolkit.legacyUserProfileCustomizations.stylesheets
+     - Set it to true
+
+2. Link the generated CSS to your Zen profile:
+     ricekit browser setup
+
+3. Restart Zen Browser to apply the theme."""
+app = "zen"
+category = "browser"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/zen-colors/userChrome.css"
+strategy = "direct"
+
+[target.linux]
+path = "~/.config/ricekit/active/zen-colors/userChrome.css"
+strategy = "direct"
+
+[requires]
+colors = ["ansi", "semantic"]

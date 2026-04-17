@@ -1,0 +1,27 @@
+[metadata]
+name = "wezterm-config"
+author = "ricekit"
+version = "1.0.0"
+description = "WezTerm UI and appearance settings as an importable module"
+setup_instructions = """Add to your .wezterm.lua:
+
+local ricekit_config = dofile(wezterm.config_dir .. '/ricekit-config.lua')
+ricekit_config.apply_to_config(config)"""
+app = "wezterm"
+category = "terminal"
+type = "config"
+
+[target.macos]
+path = "~/.config/wezterm/ricekit-config.lua"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/wezterm/ricekit-config.lua"
+strategy = "symlink"
+
+[reload.macos]
+command = "[ -f ~/.wezterm.lua ] && touch ~/.wezterm.lua; [ -f ~/.config/wezterm/wezterm.lua ] && touch ~/.config/wezterm/wezterm.lua; true"
+[reload.linux]
+command = "[ -f ~/.wezterm.lua ] && touch ~/.wezterm.lua; [ -f ~/.config/wezterm/wezterm.lua ] && touch ~/.config/wezterm/wezterm.lua; true"
+
+[requires]
+colors = ["ansi", "semantic"]

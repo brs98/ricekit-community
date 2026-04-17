@@ -1,0 +1,32 @@
+# >>> ricekit:starship-colors
+# Do not edit — regenerated on theme apply
+# Add `palette = "ricekit"` to your starship.toml
+
+[palettes.ricekit]
+foreground = "{{foreground}}"
+background = "{{background}}"
+black = "{{black}}"
+red = "{{red}}"
+green = "{{green}}"
+yellow = "{{yellow}}"
+blue = "{{blue}}"
+magenta = "{{magenta}}"
+cyan = "{{cyan}}"
+white = "{{white}}"
+bright_black = "{{bright_black}}"
+bright_red = "{{bright_red}}"
+bright_green = "{{bright_green}}"
+bright_yellow = "{{bright_yellow}}"
+bright_blue = "{{bright_blue}}"
+bright_magenta = "{{bright_magenta}}"
+bright_cyan = "{{bright_cyan}}"
+bright_white = "{{bright_white}}"
+accent = "{{accent}}"
+error = "{{error}}"
+warning = "{{warning}}"
+success = "{{success}}"
+info = "{{info}}"
+surface = "{{surface}}"
+border = "{{border}}"
+muted = "{{muted}}"
+# <<< ricekit:starship-colors

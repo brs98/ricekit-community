@@ -1,0 +1,29 @@
+[metadata]
+name = "Tokyo Night"
+author = "enkia"
+version = "1.0.0"
+variant = "dark"
+description = "A clean dark theme inspired by Tokyo city lights"
+
+[colors.ansi]
+foreground = "#a9b1d6"
+background = "#1a1b26"
+black = "#32344a"
+red = "#f7768e"
+green = "#9ece6a"
+yellow = "#e0af68"
+blue = "#7aa2f7"
+magenta = "#ad8ee6"
+cyan = "#449dab"
+white = "#787c99"
+bright_black = "#444b6a"
+bright_red = "#ff7a93"
+bright_green = "#b9f27c"
+bright_yellow = "#ff9e64"
+bright_blue = "#7da6ff"
+bright_magenta = "#bb9af7"
+bright_cyan = "#0db9d7"
+bright_white = "#acb0d0"
+
+[colors.semantic]
+accent = "#7aa2f7"

@@ -1,0 +1,33 @@
+[metadata]
+name = "starship-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Starship prompt color palette"
+setup_instructions = """Add to your starship.toml:
+
+palette = "ricekit"
+
+Then use palette color names in your format strings:
+[character]
+success_symbol = "[❯](accent)"
+error_symbol = "[❯](error)"
+
+Ricekit will manage the [palettes.ricekit] section automatically."""
+app = "starship"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.config/starship-colors.toml"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/starship-colors.toml"
+strategy = "symlink"
+
+[reload.macos]
+command = "f=$(perl -MCwd -e 'print Cwd::realpath($ARGV[0])' ~/.config/starship.toml 2>/dev/null || echo ~/.config/starship.toml); perl -0777 -i -pe 's/\\n*# >>> ricekit:starship-colors\\n.*?# <<< ricekit:starship-colors\\n?//s; s/\\n*# Ricekit generated.*\\[palettes\\.ricekit\\].*?(?=\\n\\[|\\z)//s' \"$f\" 2>/dev/null; perl -i -pe 'chomp if eof' \"$f\" 2>/dev/null; printf '\\n\\n' >> \"$f\"; cat ~/.config/starship-colors.toml >> \"$f\" 2>/dev/null; true"
+[reload.linux]
+command = "f=$(readlink -f ~/.config/starship.toml 2>/dev/null || echo ~/.config/starship.toml); perl -0777 -i -pe 's/\\n*# >>> ricekit:starship-colors\\n.*?# <<< ricekit:starship-colors\\n?//s; s/\\n*# Ricekit generated.*\\[palettes\\.ricekit\\].*?(?=\\n\\[|\\z)//s' \"$f\" 2>/dev/null; perl -i -pe 'chomp if eof' \"$f\" 2>/dev/null; printf '\\n\\n' >> \"$f\"; cat ~/.config/starship-colors.toml >> \"$f\" 2>/dev/null; true"
+
+[requires]
+colors = ["ansi", "semantic"]
