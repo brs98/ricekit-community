@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
   "label": "upstream compiling",
-  "message": "—",
-  "color": "lightgrey"
+  "message": "134/134",
+  "color": "success"
 }
