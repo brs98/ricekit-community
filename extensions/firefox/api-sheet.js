@@ -1,20 +1,45 @@
-// WebExtension experiment API: register a single user-origin stylesheet via
+// WebExtension experiment API: register named user-origin stylesheets via
 // nsIStyleSheetService.loadAndRegisterSheet, applied globally across all
-// documents (chrome + content). Calling loadGlobal() again unregisters the
-// previous sheet and registers the new one — full repaint, no reload.
+// documents (chrome + content). Multiple sheets can coexist by name —
+// re-registering the same name unregisters the previous sheet first.
 //
-// Accepts a file URI, reads it in parent process, registers as a data: URI.
-// file:// URIs load via loadAndRegisterSheet silently don't cascade into
-// https:// content documents (USER_SHEET security gate). data: URIs do.
-//
-// The sibling `stylesheet` API handles userChrome.css reloads via windowUtils
-// — different scopes, different XPCOM calls.
+// loadGlobal(fileUri)  — read file, register as data: URI (name: "global")
+// loadCSS(name, css)   — register raw CSS text as data: URI by name
 
 "use strict";
 
 /* global ExtensionAPI, ExtensionError, Cc, Ci, Services, IOUtils */
 
-let currentUri = null;
+const registeredSheets = new Map();
+
+function getSSS() {
+  return Cc["@mozilla.org/content/style-sheet-service;1"]
+    .getService(Ci.nsIStyleSheetService);
+}
+
+function unregisterByName(name) {
+  const prev = registeredSheets.get(name);
+  if (!prev) return;
+  try {
+    const sss = getSSS();
+    if (sss.sheetRegistered(prev, sss.USER_SHEET)) {
+      sss.unregisterSheet(prev, sss.USER_SHEET);
+    }
+  } catch (_e) {
+    // Best-effort — a broken unregister must not block the new load.
+  }
+  registeredSheets.delete(name);
+}
+
+function registerCSS(name, cssText) {
+  const sss = getSSS();
+  unregisterByName(name);
+  const dataUri = "data:text/css;charset=utf-8," + encodeURIComponent(cssText);
+  const uri = Services.io.newURI(dataUri);
+  sss.loadAndRegisterSheet(uri, sss.USER_SHEET);
+  registeredSheets.set(name, uri);
+  return uri;
+}
 
 this.sheet = class extends ExtensionAPI {
   getAPI(_context) {
@@ -22,30 +47,25 @@ this.sheet = class extends ExtensionAPI {
       sheet: {
         async loadGlobal(fileUri) {
           try {
-            const sss = Cc["@mozilla.org/content/style-sheet-service;1"]
-              .getService(Ci.nsIStyleSheetService);
-
-            if (currentUri) {
-              try {
-                if (sss.sheetRegistered(currentUri, sss.USER_SHEET)) {
-                  sss.unregisterSheet(currentUri, sss.USER_SHEET);
-                }
-              } catch (_e) {
-                // Best-effort — a broken unregister must not block the new load.
-              }
-            }
-
-            const path = Services.io.newURI(fileUri).QueryInterface(Ci.nsIFileURL).file.path;
+            const path = Services.io.newURI(fileUri)
+              .QueryInterface(Ci.nsIFileURL).file.path;
             const css = await IOUtils.readUTF8(path);
-            const dataUri = "data:text/css;charset=utf-8," + encodeURIComponent(css);
-            const uri = Services.io.newURI(dataUri);
-
-            sss.loadAndRegisterSheet(uri, sss.USER_SHEET);
-            currentUri = uri;
+            registerCSS("global", css);
             return { applied: true, bytes: css.length };
           } catch (e) {
             throw new ExtensionError(
               `sheet.loadGlobal failed: ${e && e.message ? e.message : e}`,
+            );
+          }
+        },
+
+        async loadCSS(name, cssText) {
+          try {
+            registerCSS(name, cssText);
+            return { applied: true, bytes: cssText.length };
+          } catch (e) {
+            throw new ExtensionError(
+              `sheet.loadCSS failed: ${e && e.message ? e.message : e}`,
             );
           }
         },

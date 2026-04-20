@@ -1,15 +1,25 @@
 [
   {
     "namespace": "sheet",
-    "description": "Register a single user-origin stylesheet globally from a file URI, hot-swappable.",
+    "description": "Register named user-origin stylesheets globally, hot-swappable by name.",
     "functions": [
       {
         "name": "loadGlobal",
         "type": "function",
-        "description": "Unregister any previously-loaded global user sheet, then loadAndRegisterSheet at the given file URI. Applies to every open document (chrome + content) and every document opened afterwards.",
+        "description": "Read a CSS file and register it globally as the 'global' sheet. Replaces any previous 'global' sheet.",
         "async": true,
         "parameters": [
           { "name": "fileUri", "type": "string" }
+        ]
+      },
+      {
+        "name": "loadCSS",
+        "type": "function",
+        "description": "Register raw CSS text globally under the given name. Replaces any previous sheet with the same name.",
+        "async": true,
+        "parameters": [
+          { "name": "name", "type": "string" },
+          { "name": "cssText", "type": "string" }
         ]
       }
     ]
