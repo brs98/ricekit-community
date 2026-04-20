@@ -44,6 +44,17 @@
     "icons_attention": "{{accent}}",
     "button_background_active": "{{border}}"
   },
+  "tab_group_colors": {
+    "blue": { "base": "{{blue}}", "invert": "{{darken(blue, 20%)}}", "pale": "{{lighten(blue, 40%)}}" },
+    "purple": { "base": "{{magenta}}", "invert": "{{darken(magenta, 20%)}}", "pale": "{{lighten(magenta, 40%)}}" },
+    "cyan": { "base": "{{cyan}}", "invert": "{{darken(cyan, 20%)}}", "pale": "{{lighten(cyan, 40%)}}" },
+    "orange": { "base": "{{lighten(red, 15%)}}", "invert": "{{darken(red, 5%)}}", "pale": "{{lighten(red, 50%)}}" },
+    "yellow": { "base": "{{yellow}}", "invert": "{{darken(yellow, 20%)}}", "pale": "{{lighten(yellow, 40%)}}" },
+    "pink": { "base": "{{bright_magenta}}", "invert": "{{darken(bright_magenta, 20%)}}", "pale": "{{lighten(bright_magenta, 40%)}}" },
+    "green": { "base": "{{green}}", "invert": "{{darken(green, 20%)}}", "pale": "{{lighten(green, 40%)}}" },
+    "red": { "base": "{{red}}", "invert": "{{darken(red, 20%)}}", "pale": "{{lighten(red, 40%)}}" },
+    "gray": { "base": "{{border}}", "invert": "{{darken(border, 20%)}}", "pale": "{{lighten(border, 40%)}}" }
+  },
   "meta": {
     "version": 1,
     "generator": "ricekit"

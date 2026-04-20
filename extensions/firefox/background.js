@@ -6,7 +6,7 @@
 //   file_update { config, fileName, fileUri, content }
 //     → routed by `config` name in handleFileUpdate():
 //         config === "userstyles"  → browser.sheet.loadGlobal(fileUri)
-//         config === "firefox"     → browser.theme.update(JSON.parse(content).colors)
+//         config === "firefox"     → browser.theme.update(colors) + tab group CSS via sheet.loadCSS
 //         config === "zen-colors"  → browser.stylesheet.reload(fileUri)
 //
 // One port, one reconnect loop.
@@ -57,17 +57,48 @@ function handleFileUpdate(msg) {
 }
 
 function applyFirefoxTheme(colorsJson) {
-  let colors;
+  let parsed;
   try {
-    colors = JSON.parse(colorsJson).colors;
+    parsed = JSON.parse(colorsJson);
   } catch (e) {
     console.error(`[${HOST_NAME}] Firefox theme colors parse failed:`, e);
     return;
   }
-  if (!colors) return;
-  browser.theme.update({ colors }).then(
-    () => console.log(`[${HOST_NAME}] Firefox theme applied`),
-    (err) => console.error(`[${HOST_NAME}] Firefox theme failed:`, err),
+
+  if (parsed.colors) {
+    browser.theme.update({ colors: parsed.colors }).then(
+      () => console.log(`[${HOST_NAME}] Firefox theme applied`),
+      (err) => console.error(`[${HOST_NAME}] Firefox theme failed:`, err),
+    );
+  }
+
+  if (parsed.tab_group_colors) {
+    applyTabGroupColors(parsed.tab_group_colors);
+  }
+}
+
+function applyTabGroupColors(colors) {
+  const rootRules = [];
+  const groupRules = [];
+
+  for (const [name, v] of Object.entries(colors)) {
+    rootRules.push(`  --tab-group-color-${name}: ${v.base} !important;`);
+    rootRules.push(`  --tab-group-color-${name}-invert: ${v.invert} !important;`);
+    rootRules.push(`  --tab-group-color-${name}-pale: ${v.pale} !important;`);
+
+    groupRules.push(
+      `tab-group[color="${name}"] {\n` +
+      `  --tab-group-color: ${v.base} !important;\n` +
+      `  --tab-group-color-invert: ${v.invert} !important;\n` +
+      `  --tab-group-color-pale: ${v.pale} !important;\n` +
+      `}`,
+    );
+  }
+
+  const css = `:root {\n${rootRules.join("\n")}\n}\n\n${groupRules.join("\n\n")}`;
+  browser.sheet.loadCSS("tab-group-colors", css).then(
+    () => console.log(`[${HOST_NAME}] tab group colors applied`),
+    (err) => console.error(`[${HOST_NAME}] tab group colors failed:`, err),
   );
 }
 
