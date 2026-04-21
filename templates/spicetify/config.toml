@@ -11,8 +11,8 @@ setup_instructions = """One-time setup:
      spicetify config current_theme ricekit color_scheme ricekit always_enable_devtools 1
   3. Apply:
      spicetify apply
-  4. For live-reload on theme changes, run once:
-     spicetify watch -s
+  Note: spicetify watch -s is auto-managed by the reload command —
+  it starts automatically on theme changes if not already running.
 """
 app = "spicetify"
 category = "system"
