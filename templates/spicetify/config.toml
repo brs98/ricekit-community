@@ -7,12 +7,12 @@ setup_instructions = """One-time setup:
   1. Copy user.css to your spicetify theme directory:
      mkdir -p ~/.config/spicetify/Themes/ricekit
      cp ~/.config/ricekit/custom-configs/spicetify/user.css ~/.config/spicetify/Themes/ricekit/
-  2. Configure spicetify:
-     spicetify config current_theme ricekit color_scheme ricekit always_enable_devtools 1
-  3. Apply:
+  2. Copy the live-reload extension:
+     cp ~/.config/ricekit/custom-configs/spicetify/ricekit-live-reload.js ~/.config/spicetify/Extensions/
+  3. Configure spicetify:
+     spicetify config current_theme ricekit color_scheme ricekit extensions ricekit-live-reload.js
+  4. Apply:
      spicetify apply
-  Note: spicetify watch -s is auto-managed by the reload command —
-  it starts automatically on theme changes if not already running.
 """
 app = "spicetify"
 category = "system"
@@ -26,9 +26,9 @@ path = "~/.config/spicetify/Themes/ricekit/color.ini"
 strategy = "direct"
 
 [reload.macos]
-command = "sed -i '' 's/= #\\([0-9a-fA-F]\\)/= \\1/g' ~/.config/spicetify/Themes/ricekit/color.ini 2>/dev/null; pgrep -f 'spicetify watch' >/dev/null 2>&1 || (spicetify watch -s &>/dev/null &); true"
+command = "sed -i '' 's/= #\\([0-9a-fA-F]\\)/= \\1/g' ~/.config/spicetify/Themes/ricekit/color.ini 2>/dev/null; CSS=/Applications/Spotify.app/Contents/Resources/Apps/xpui/ricekit-live.css; printf ':root {\\n' > \"$CSS\"; awk -F'=' '!/^\\[/ && NF==2 { gsub(/[[:space:]]/, \"\", $1); gsub(/[[:space:]]/, \"\", $2); if ($2 != \"\") printf \"  --spice-%s: #%s !important;\\n\", $1, $2 }' ~/.config/spicetify/Themes/ricekit/color.ini >> \"$CSS\"; printf '}\\n' >> \"$CSS\"; true"
 [reload.linux]
-command = "sed -i 's/= #\\([0-9a-fA-F]\\)/= \\1/g' ~/.config/spicetify/Themes/ricekit/color.ini 2>/dev/null; pgrep -f 'spicetify watch' >/dev/null 2>&1 || (spicetify watch -s &>/dev/null &); true"
+command = "sed -i 's/= #\\([0-9a-fA-F]\\)/= \\1/g' ~/.config/spicetify/Themes/ricekit/color.ini 2>/dev/null; CSS=$(find /usr -path '*/spotify*/Apps/xpui' -type d 2>/dev/null | head -1)/ricekit-live.css; printf ':root {\\n' > \"$CSS\"; awk -F'=' '!/^\\[/ && NF==2 { gsub(/[[:space:]]/, \"\", $1); gsub(/[[:space:]]/, \"\", $2); if ($2 != \"\") printf \"  --spice-%s: #%s !important;\\n\", $1, $2 }' ~/.config/spicetify/Themes/ricekit/color.ini >> \"$CSS\"; printf '}\\n' >> \"$CSS\"; true"
 
 [requires]
 colors = ["ansi", "semantic"]
