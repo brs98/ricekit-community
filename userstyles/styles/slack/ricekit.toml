@@ -1,0 +1,5 @@
+name = "Slack Ricekit"
+description = "Ricekit theme for Slack"
+author = "ricekit"
+domains = ["app.slack.com", "slack.com"]
+desktop_targets = ["../templates/slack-desktop/ricekit-app.css"]

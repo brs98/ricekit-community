@@ -1,0 +1,81 @@
+:root {
+  --sk_primary_background: var(--rk-background);
+  --sk_primary_foreground: var(--rk-foreground);
+  --sk_foreground_max_solid: var(--rk-foreground);
+  --sk_foreground_high: var(--rk-foreground);
+  --sk_foreground_mid: var(--rk-muted);
+  --sk_foreground_low: var(--rk-overlay1);
+  --sk_foreground_min: var(--rk-overlay0);
+  --sk_highlight: var(--rk-accent);
+  --sk_highlight_hover: oklch(from var(--rk-accent) calc(l + 0.05) c h);
+  --sk_highlight_accent: var(--rk-accent);
+  --sk_secondary_highlight: rgb(from var(--rk-accent) r g b / 0.18);
+  --sk_border: var(--rk-border);
+  --p-channel_sidebar__column-bg: var(--rk-mantle);
+  --p-channel_sidebar__nav-bg: var(--rk-crust);
+  --p-channel_sidebar__badge-bg: var(--rk-red);
+  --p-channel_sidebar__badge-text: var(--rk-background);
+}
+
+body,
+.p-client,
+.p-workspace,
+.p-view_contents,
+.c-message_kit__background,
+.c-virtual_list__item {
+  background: var(--rk-background) !important;
+  color: var(--rk-foreground) !important;
+}
+
+.p-channel_sidebar,
+.p-channel_sidebar__static_list,
+.p-channel_sidebar__list,
+.p-channel_sidebar__section_heading {
+  background: var(--rk-mantle) !important;
+  color: var(--rk-foreground) !important;
+}
+
+.p-channel_sidebar__channel--selected,
+.p-channel_sidebar__link--selected,
+.p-channel_sidebar__channel:hover,
+.p-channel_sidebar__link:hover {
+  background: rgb(from var(--rk-accent) r g b / 0.18) !important;
+  color: var(--rk-foreground) !important;
+}
+
+.c-message_kit__message,
+.c-message_kit__gutter,
+.c-message_kit__blocks {
+  color: var(--rk-foreground) !important;
+}
+
+.c-message_kit__message:hover,
+.c-message_kit__hover {
+  background: var(--rk-surface0) !important;
+}
+
+.c-texty_input,
+.ql-editor,
+.p-message_input_field,
+.c-basic_container,
+.c-menu,
+.c-popover,
+.c-modal,
+.c-sk-modal {
+  background: var(--rk-surface0) !important;
+  color: var(--rk-foreground) !important;
+  border-color: var(--rk-border) !important;
+}
+
+.c-link,
+a,
+button[data-qa*="primary"],
+.c-button--primary {
+  color: var(--rk-accent) !important;
+}
+
+.c-button--primary {
+  background: var(--rk-accent) !important;
+  color: var(--rk-background) !important;
+  border-color: var(--rk-accent) !important;
+}
