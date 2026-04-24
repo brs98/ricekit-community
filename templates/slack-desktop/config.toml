@@ -1,0 +1,29 @@
+[metadata]
+name = "slack-desktop"
+author = "ricekit"
+version = "0.1.0"
+description = "Slack desktop theme variables for Electron CSS injection"
+setup_instructions = """macOS setup:
+  1. Enable this template and apply your Ricekit theme.
+  2. Run:
+       node ~/.config/ricekit/custom-configs/slack-desktop/patch.mjs install
+  3. Restart Slack.
+
+Recovery:
+  Run:
+       node ~/.config/ricekit/custom-configs/slack-desktop/patch.mjs restore
+
+Slack from /Applications is often root-owned. The patch helper will print the exact sudo command if elevated permissions are required."""
+app = "slack"
+category = "productivity"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/slack-desktop/ricekit-vars.css"
+strategy = "direct"
+
+[reload.macos]
+command = "osascript -e 'tell application \"Slack\" to quit' >/dev/null 2>&1; for i in 1 2 3 4 5; do pgrep -x Slack >/dev/null || break; sleep 1; done; open -a Slack; true"
+
+[requires]
+colors = ["ansi", "semantic"]
