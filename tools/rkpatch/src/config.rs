@@ -44,7 +44,7 @@ fn default_encode() -> Encode {
 impl AppConfig {
     pub fn load(path: &Path, template_base: &Path) -> Result<Self> {
         let s = std::fs::read_to_string(path)
-            .with_context(|| format!("reading {}", path.display()))?;
+            .with_context(|| format!("Couldn't read {}.", path.display()))?;
         let mut cfg: AppConfig = toml::from_str(&s)?;
         cfg.template_dir = template_base.join(&cfg.template);
         cfg.app_path = expand_tilde(&cfg.app_path);

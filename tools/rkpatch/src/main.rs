@@ -1,5 +1,5 @@
 use anyhow::{Context, Result};
-use rkpatch::{cmd, config};
+use rkpatch::{cmd, config, ui};
 use clap::{Parser, Subcommand};
 use std::path::{Path, PathBuf};
 
@@ -39,7 +39,7 @@ enum Cmd {
 
 fn main() {
     if let Err(e) = run() {
-        eprintln!("error: {:#}", e);
+        ui::print_error(&e);
         std::process::exit(1);
     }
 }
@@ -50,7 +50,7 @@ fn run() -> Result<()> {
     let template_base = resolve_template_base(cli.templates.as_deref())?;
     let cfg_path = cfg_dir.join(format!("{}.toml", cli.app));
     let app_cfg = config::AppConfig::load(&cfg_path, &template_base)
-        .with_context(|| format!("loading {}", cfg_path.display()))?;
+        .with_context(|| format!("Couldn't load the {} config.", cli.app))?;
     match cli.command {
         Cmd::Status => cmd::status(&app_cfg),
         Cmd::Install => cmd::install(&app_cfg),
@@ -72,7 +72,7 @@ fn resolve_configs_dir(override_dir: Option<&Path>) -> Result<PathBuf> {
     if baked.is_dir() {
         return Ok(baked);
     }
-    anyhow::bail!("no config dir found; set RKPATCH_CONFIGS or pass --configs <dir>")
+    anyhow::bail!("Couldn't find a config directory. Set RKPATCH_CONFIGS or pass --configs <dir>.")
 }
 
 fn resolve_template_base(override_dir: Option<&Path>) -> Result<PathBuf> {
@@ -82,7 +82,7 @@ fn resolve_template_base(override_dir: Option<&Path>) -> Result<PathBuf> {
     if let Ok(s) = std::env::var("RKPATCH_TEMPLATE_DIR") {
         return Ok(expand_tilde(Path::new(&s)));
     }
-    let home = dirs::home_dir().context("could not resolve home directory")?;
+    let home = dirs::home_dir().context("Couldn't find your home directory.")?;
     Ok(home.join(".config/ricekit/custom-configs"))
 }
 
