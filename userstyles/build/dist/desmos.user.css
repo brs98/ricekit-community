@@ -2,7 +2,7 @@
 @name Desmos Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202604171638
+@version 2026.04.20.202604272043
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/desmos.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Desmos
@@ -30,6 +30,12 @@
       --input-border-color: var(--rk-surface0);
       --input-focus-border-color: var(--rk-accent);
       /* Blog */
+      /* Exams & Testing Pages (desmos.com/testing/default/{fourfunction,graphing,scientific}) */
+      /* Login/sign up modal */
+      /* Account button/dropdown (displays username) */
+      /* Account settings modal */
+      /* Desmos Professional (desmos.com/professional) */
+      /* "powered by" text above logo */
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -206,7 +212,8 @@
     }
     :root .dcg-header,
     :root .dcg-main-header-container,
-    :root .navbar-inner {
+    :root .navbar-inner,
+    :root .dcg-practice-header-view {
       background: var(--rk-crust) !important;
       border-bottom-color: var(--rk-surface0) !important;
     }
@@ -225,6 +232,13 @@
         .dcg-help-menu-title
       ),
     :root .navbar-inner *:not(
+        .dcg-btn-blue,
+        .dcg-dropdown-popover__title,
+        .dcg-copy-button > span,
+        .dcg-copy-button,
+        .dcg-help-menu-title
+      ),
+    :root .dcg-practice-header-view *:not(
         .dcg-btn-blue,
         .dcg-dropdown-popover__title,
         .dcg-copy-button > span,
@@ -486,6 +500,7 @@
       background: var(--rk-mantle) !important;
       box-shadow: none !important;
       border-color: var(--rk-foreground) !important;
+      color: var(--rk-foreground) !important;
     }
     :root .spa-header {
       background: var(--rk-green) !important;
@@ -1010,6 +1025,65 @@
     }
     :root .btn-blue-outline:hover {
       box-shadow: 0 0 0 1px var(--rk-accent) !important;
+    }
+    :root .dcg-frontpage-landing__announcement {
+      background: var(--rk-accent);
+      color: var(--rk-foreground);
+    }
+    :root .dcg-frontpage-landing__announcement-interior {
+      background-color: rgb(from var(--rk-crust) r g b / 0.5);
+    }
+    :root .spa-sample-calculator-view .dcg-sample-calculator__header i.dcg-icon-desmos {
+      color: var(--rk-background) !important;
+    }
+    :root .spa-sample-calculator-view .dcg-sample-calculator__header {
+      background-color: var(--rk-accent) !important;
+      color: var(--rk-background) !important;
+    }
+    :root .spa-sample-calculator-view .dcg-sample-calculator__calculator-name,
+    :root .spa-sample-calculator-view .dcg-sample-calculator__state-name {
+      border-color: var(--rk-background);
+    }
+    :root .dcg-shared-modal-dialog {
+      color: var(--rk-foreground);
+      --dcg-modal-background-color: var(--rk-background);
+      /* Account signup welcome */
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__sublabel {
+      color: var(--rk-white);
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__tag {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__tag:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__tag.dcg-authentication-modal__tag--selected {
+      border-color: var(--rk-accent);
+    }
+    :root .dcg-header-bar__account-menu.dcg-hovered,
+    :root .dcg-header-bar__account-menu[aria-expanded="true"] {
+      background-color: var(--rk-surface0);
+    }
+    :root .dcg-shared-account-dialog {
+      color: var(--rk-foreground);
+    }
+    :root .dcg-professional-hero {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .dcg-section__beta-button {
+      color: var(--rk-background);
+      background-color: var(--rk-foreground);
+    }
+    :root .dcg-section__beta-button.dcg-hovered {
+      background-color: var(--rk-bright-white);
+    }
+    :root .dcg-section__beta-button.dcg-depressed {
+      background-color: var(--rk-white);
+    }
+    :root .dcg-powered-by {
+      color: var(--rk-foreground) !important;
     }
   }
   @media (prefers-color-scheme: dark) {
@@ -1028,6 +1102,12 @@
       --input-border-color: var(--rk-surface0);
       --input-focus-border-color: var(--rk-accent);
       /* Blog */
+      /* Exams & Testing Pages (desmos.com/testing/default/{fourfunction,graphing,scientific}) */
+      /* Login/sign up modal */
+      /* Account button/dropdown (displays username) */
+      /* Account settings modal */
+      /* Desmos Professional (desmos.com/professional) */
+      /* "powered by" text above logo */
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1204,7 +1284,8 @@
     }
     :root .dcg-header,
     :root .dcg-main-header-container,
-    :root .navbar-inner {
+    :root .navbar-inner,
+    :root .dcg-practice-header-view {
       background: var(--rk-crust) !important;
       border-bottom-color: var(--rk-surface0) !important;
     }
@@ -1223,6 +1304,13 @@
         .dcg-help-menu-title
       ),
     :root .navbar-inner *:not(
+        .dcg-btn-blue,
+        .dcg-dropdown-popover__title,
+        .dcg-copy-button > span,
+        .dcg-copy-button,
+        .dcg-help-menu-title
+      ),
+    :root .dcg-practice-header-view *:not(
         .dcg-btn-blue,
         .dcg-dropdown-popover__title,
         .dcg-copy-button > span,
@@ -1484,6 +1572,7 @@
       background: var(--rk-mantle) !important;
       box-shadow: none !important;
       border-color: var(--rk-foreground) !important;
+      color: var(--rk-foreground) !important;
     }
     :root .spa-header {
       background: var(--rk-green) !important;
@@ -2008,6 +2097,65 @@
     }
     :root .btn-blue-outline:hover {
       box-shadow: 0 0 0 1px var(--rk-accent) !important;
+    }
+    :root .dcg-frontpage-landing__announcement {
+      background: var(--rk-accent);
+      color: var(--rk-foreground);
+    }
+    :root .dcg-frontpage-landing__announcement-interior {
+      background-color: rgb(from var(--rk-crust) r g b / 0.5);
+    }
+    :root .spa-sample-calculator-view .dcg-sample-calculator__header i.dcg-icon-desmos {
+      color: var(--rk-background) !important;
+    }
+    :root .spa-sample-calculator-view .dcg-sample-calculator__header {
+      background-color: var(--rk-accent) !important;
+      color: var(--rk-background) !important;
+    }
+    :root .spa-sample-calculator-view .dcg-sample-calculator__calculator-name,
+    :root .spa-sample-calculator-view .dcg-sample-calculator__state-name {
+      border-color: var(--rk-background);
+    }
+    :root .dcg-shared-modal-dialog {
+      color: var(--rk-foreground);
+      --dcg-modal-background-color: var(--rk-background);
+      /* Account signup welcome */
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__sublabel {
+      color: var(--rk-white);
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__tag {
+      background-color: rgb(from var(--rk-accent) r g b / 0.2);
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__tag:hover {
+      background-color: rgb(from var(--rk-accent) r g b / 0.3);
+    }
+    :root .dcg-shared-modal-dialog .dcg-authentication-modal__tag.dcg-authentication-modal__tag--selected {
+      border-color: var(--rk-accent);
+    }
+    :root .dcg-header-bar__account-menu.dcg-hovered,
+    :root .dcg-header-bar__account-menu[aria-expanded="true"] {
+      background-color: var(--rk-surface0);
+    }
+    :root .dcg-shared-account-dialog {
+      color: var(--rk-foreground);
+    }
+    :root .dcg-professional-hero {
+      background-color: var(--rk-crust);
+      color: var(--rk-foreground);
+    }
+    :root .dcg-section__beta-button {
+      color: var(--rk-background);
+      background-color: var(--rk-foreground);
+    }
+    :root .dcg-section__beta-button.dcg-hovered {
+      background-color: var(--rk-bright-white);
+    }
+    :root .dcg-section__beta-button.dcg-depressed {
+      background-color: var(--rk-white);
+    }
+    :root .dcg-powered-by {
+      color: var(--rk-foreground) !important;
     }
   }
 }
