@@ -1,0 +1,13 @@
+app_path = "/Applications/Slack.app"
+bundle_id = "com.tinyspeck.slackmacgap"
+asar_candidates = [
+    "Contents/Resources/app-arm64.asar",
+    "Contents/Resources/app-x64.asar",
+]
+template = "slack-desktop"
+inject_file = "ricekit-inject.js"
+
+[[substitutions]]
+placeholder = "__RICEKIT_THEME_JS__"
+file = "ricekit-theme.user.js"
+encode = "json"

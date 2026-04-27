@@ -1,5 +1,0 @@
-name = "Linear Ricekit"
-description = "Ricekit theme for Linear"
-author = "ricekit"
-domains = ["linear.app"]
-desktop_targets = ["../templates/linear-desktop/ricekit-app.css"]
