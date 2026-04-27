@@ -47,12 +47,12 @@ rkpatch linear restore
 
 If the app's bundle in `/Applications` is root-owned, prefix with `sudo`.
 
-## Build
+## Install
 
 ```bash
 cd tools/rkpatch
-cargo build --release
-# binary at target/release/rkpatch — add to PATH for dev use
+cargo install --path .
+# binary at ~/.cargo/bin/rkpatch (assumes that's on your PATH)
 ```
 
 ## How it resolves paths
