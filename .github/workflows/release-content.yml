@@ -9,8 +9,8 @@ permissions:
   contents: write
 
 jobs:
-  release:
-    name: Build and publish content tarball
+  content:
+    name: Build content tarball + XPI
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -93,6 +93,101 @@ jobs:
           echo "XPI: $(du -h "$XPI" | cut -f1)"
           echo "SHA256: $(cat "$XPI.sha256")"
 
+      - name: Stage release files
+        # Flatten the XPI alongside the tarball + manifest so the download step
+        # can dump everything into a single dir without nested paths.
+        run: |
+          set -euo pipefail
+          cp extensions/firefox/dist/ricekit-theme-*.xpi .
+          cp extensions/firefox/dist/ricekit-theme-*.xpi.sha256 .
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: content
+          path: |
+            ricekit-content-v*.tar.gz
+            ricekit-content-v*.tar.gz.sha256
+            manifest.json
+            ricekit-theme-*.xpi
+            ricekit-theme-*.xpi.sha256
+
+  rkpatch_test:
+    name: Test rkpatch on ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: tools/rkpatch
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: cargo test --locked
+
+  rkpatch_build:
+    name: Build rkpatch ${{ matrix.target }}
+    needs: rkpatch_test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            target: aarch64-apple-darwin
+          - os: macos-latest
+            target: x86_64-apple-darwin
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: tools/rkpatch
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust target
+        run: rustup target add ${{ matrix.target }}
+
+      - name: Build
+        run: cargo build --release --locked --target ${{ matrix.target }}
+
+      - name: Package
+        run: |
+          set -euo pipefail
+          ARCHIVE="rkpatch-${{ matrix.target }}.tar.gz"
+          tar -C target/${{ matrix.target }}/release -czf "$ARCHIVE" rkpatch
+          shasum -a 256 "$ARCHIVE" | awk '{print $1}' > "$ARCHIVE.sha256"
+          echo "Built: $(du -h "$ARCHIVE" | cut -f1)"
+          echo "SHA256: $(cat "$ARCHIVE.sha256")"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rkpatch-${{ matrix.target }}
+          path: |
+            tools/rkpatch/rkpatch-${{ matrix.target }}.tar.gz
+            tools/rkpatch/rkpatch-${{ matrix.target }}.tar.gz.sha256
+
+  release:
+    name: Publish release
+    needs: [content, rkpatch_build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract version from tag
+        id: version
+        run: |
+          set -euo pipefail
+          TAG="${GITHUB_REF_NAME}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: List artifacts
+        run: ls -la artifacts/
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -102,8 +197,10 @@ jobs:
           prerelease: false
           generate_release_notes: true
           files: |
-            ricekit-content-v*.tar.gz
-            ricekit-content-v*.tar.gz.sha256
-            manifest.json
-            extensions/firefox/dist/ricekit-theme-*.xpi
-            extensions/firefox/dist/ricekit-theme-*.xpi.sha256
+            artifacts/ricekit-content-v*.tar.gz
+            artifacts/ricekit-content-v*.tar.gz.sha256
+            artifacts/manifest.json
+            artifacts/ricekit-theme-*.xpi
+            artifacts/ricekit-theme-*.xpi.sha256
+            artifacts/rkpatch-*.tar.gz
+            artifacts/rkpatch-*.tar.gz.sha256
