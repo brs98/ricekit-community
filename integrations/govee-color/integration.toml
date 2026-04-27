@@ -1,0 +1,38 @@
+[metadata]
+name = "govee-color"
+author = "ricekit"
+version = "2.0.0"
+description = "Set a Govee strip/bulb to the active theme accent color via the Govee v2 Smart Home Open Platform API. Works with RGBIC and segment-based devices that the legacy v1 API cannot control."
+setup_instructions = """
+1. Apply for a Govee API key in the Govee Home app:
+   Settings → About Us → Apply for API Key
+2. List your devices via the v2 API:
+   curl -H 'Govee-API-Key: YOUR_KEY' https://openapi.api.govee.com/router/api/v1/user/devices | python3 -m json.tool
+3. Find the device's `device` (MAC) and `sku` (model) and confirm
+   `devices.capabilities.color_setting` / `colorRgb` is in its capabilities array.
+4. Store the secrets:
+   ricekit secrets set govee-color api_key
+   ricekit secrets set govee-color device
+   ricekit secrets set govee-color model
+5. Enable the integration:
+   ricekit integration enable govee-color
+"""
+app = "govee"
+category = "lighting"
+type = "integration"
+
+[secrets]
+api_key = { keychain = "api_key", prompt = "Govee API key (Govee Home → Settings → About Us → Apply for API Key)" }
+device  = { keychain = "device",  prompt = "Govee device MAC address (e.g. AA:BB:CC:DD:EE:FF:GG:HH)" }
+model   = { keychain = "model",   prompt = "Govee device SKU/model (e.g. H6047, H6159) — sent as the v2 'sku' field" }
+
+[on_apply]
+method = "POST"
+url = "https://openapi.api.govee.com/router/api/v1/device/control"
+headers = { "Govee-API-Key" = "@@secret:api_key@@", "Content-Type" = "application/json" }
+body = "body/payload.json.tmpl"
+timeout_ms = 5000
+retry = { attempts = 2, backoff_ms = 500 }
+
+[requires]
+colors = ["semantic"]

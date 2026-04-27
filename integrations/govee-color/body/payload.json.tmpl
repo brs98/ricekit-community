@@ -1,0 +1,12 @@
+{
+  "requestId": "ricekit-apply-{{now_millis()}}",
+  "payload": {
+    "sku": "@@secret:model@@",
+    "device": "@@secret:device@@",
+    "capability": {
+      "type": "devices.capabilities.color_setting",
+      "instance": "colorRgb",
+      "value": {{rgb_int(accent)}}
+    }
+  }
+}
