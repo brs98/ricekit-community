@@ -1,6 +1,4 @@
-app_path = "/Applications/Linear.app"
 bundle_id = "com.linear"
-asar_candidates = ["Contents/Resources/app.asar"]
 template = "linear-desktop"
 inject_file = "ricekit-inject.js"
 
@@ -8,3 +6,15 @@ inject_file = "ricekit-inject.js"
 placeholder = "__RICEKIT_THEME_JS__"
 file = "ricekit-theme.user.js"
 encode = "json"
+
+[macos]
+app_path = "/Applications/Linear.app"
+asar_candidates = ["Contents/Resources/app.asar"]
+
+[linux]
+# Linear has no official Linux build at time of writing. Paths below cover
+# common community packagings; extend as official builds materialize.
+app_path_candidates = ["/opt/Linear", "/usr/lib/linear"]
+asar_candidates = ["resources/app.asar"]
+process_name = "linear"
+display_name = "Linear"

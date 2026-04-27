@@ -1,9 +1,4 @@
-app_path = "/Applications/Slack.app"
 bundle_id = "com.tinyspeck.slackmacgap"
-asar_candidates = [
-    "Contents/Resources/app-arm64.asar",
-    "Contents/Resources/app-x64.asar",
-]
 template = "slack-desktop"
 inject_file = "ricekit-inject.js"
 
@@ -11,3 +6,18 @@ inject_file = "ricekit-inject.js"
 placeholder = "__RICEKIT_THEME_JS__"
 file = "ricekit-theme.user.js"
 encode = "json"
+
+[macos]
+app_path = "/Applications/Slack.app"
+asar_candidates = [
+    "Contents/Resources/app-arm64.asar",
+    "Contents/Resources/app-x64.asar",
+]
+
+[linux]
+# Slack's official deb/rpm packages install to /usr/lib/slack. Snap installs
+# are read-only squashfs and not supported. /opt/slack covers manual installs.
+app_path_candidates = ["/usr/lib/slack", "/opt/slack"]
+asar_candidates = ["resources/app.asar"]
+process_name = "slack"
+display_name = "Slack"
