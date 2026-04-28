@@ -43,19 +43,25 @@ colors = ["semantic"]
 # more saturated and brighter than a calibrated monitor — same integer,
 # different physical color.
 #
-# This profile keeps the sRGB primaries (we don't have measured chromaticities
-# for any specific Govee model and individual RGBIC LEDs vary along a strip)
-# but switches the transfer to Linear, so palette colors traverse the CIE
-# pipeline as: sRGB-encoded → linear sRGB → linear device-RGB → bytes.
-# The LED then drives PWM linearly from those bytes, which closes most of
-# the visible mismatch with no per-device measurement.
+# Profile values are from a four-theme visual-match calibration session
+# against a Govee H6047 (the issue #113 reference device): ristretto,
+# hackerman, catppuccin-latte, and tokyo-night were each rendered through
+# the integration and compared to the same hex on a calibrated monitor.
+# Three of four landed acceptable with no manual dial intervention; the
+# tokyo-night mid-tone case landed close-enough but not exact, indicating
+# that single-profile chromaticity tuning has limits for some hues. A
+# follow-up that adds the per-channel `compensation` block from #113
+# (saturation/brightness scaling) should close the residual gap.
 #
-# Refining the chromaticities via visual-match against a reference card is
-# a follow-up — author per-model variants (`govee-color-h6047`,
-# `govee-color-h6072`) once measurements are in.
+# Why green is more spectral than sRGB green: Govee RGBIC green LEDs peak
+# closer to 525nm than sRGB-equivalent 550nm, so declaring a more spectral
+# green tells the pipeline to allocate less green PWM for any target — net
+# effect is less cyan cast on mid-saturation cool colors. The values
+# below were tuned empirically until visual-match passed; they are not a
+# spectroradiometer measurement.
 [device_profile]
 red   = { x = 0.6400, y = 0.3300 }
-green = { x = 0.3000, y = 0.6000 }
+green = { x = 0.2100, y = 0.7100 }
 blue  = { x = 0.1500, y = 0.0600 }
 white = { x = 0.3127, y = 0.3290 }
 transfer = "linear"
