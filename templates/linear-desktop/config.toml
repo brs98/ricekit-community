@@ -1,0 +1,26 @@
+[metadata]
+name = "linear-desktop"
+author = "ricekit"
+version = "0.1.0"
+description = "Linear desktop theme variables for Electron CSS injection"
+setup_instructions = """macOS setup:
+  1. Enable this template and apply your Ricekit theme.
+  2. Run:
+       rkpatch linear install
+  3. Restart Linear.
+
+Recovery:
+  Run:
+       rkpatch linear restore
+
+Requires the `rkpatch` binary built from `tools/rkpatch/` in the ricekit-community repo and added to PATH."""
+app = "linear"
+category = "system"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/linear-desktop/ricekit-vars.css"
+strategy = "direct"
+
+[requires]
+colors = ["ansi", "semantic"]
