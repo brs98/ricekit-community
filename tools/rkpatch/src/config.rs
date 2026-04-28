@@ -115,20 +115,31 @@ impl AppConfig {
         self.template_dir.join(&sub.file)
     }
 
-    /// Resolve the first asar candidate that exists on disk, returning the
-    /// relative path (as configured) and the absolute path.
-    pub fn find_asar(&self) -> Result<(String, PathBuf)> {
-        for rel in &self.asar_candidates {
-            let abs = self.app_path.join(rel);
-            if abs.exists() {
-                return Ok((rel.clone(), abs));
-            }
+    /// Resolve every asar candidate that exists on disk, returning each as
+    /// `(relative_path, absolute_path)`. Errors if none exist.
+    ///
+    /// Callers should treat all returned asars as equally authoritative — for
+    /// example, Slack on macOS ships both `app-arm64.asar` and `app-x64.asar`
+    /// and Electron picks one at launch based on the running process arch.
+    /// Patching only the first match leaves the other unmodified, so under
+    /// Rosetta the wrong slice gets used and the theme silently disappears.
+    pub fn find_all_asars(&self) -> Result<Vec<(String, PathBuf)>> {
+        let found: Vec<(String, PathBuf)> = self
+            .asar_candidates
+            .iter()
+            .filter_map(|rel| {
+                let abs = self.app_path.join(rel);
+                abs.exists().then_some((rel.clone(), abs))
+            })
+            .collect();
+        if found.is_empty() {
+            return Err(anyhow!(
+                "Couldn't find the app's bundle inside {}. Tried: {}.",
+                self.app_path.display(),
+                self.asar_candidates.join(", ")
+            ));
         }
-        Err(anyhow!(
-            "Couldn't find the app's bundle inside {}. Tried: {}.",
-            self.app_path.display(),
-            self.asar_candidates.join(", ")
-        ))
+        Ok(found)
     }
 }
 

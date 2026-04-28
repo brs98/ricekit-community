@@ -28,9 +28,13 @@ pub fn app_version(cfg: &AppConfig) -> Result<String> {
     // version string, so we read the version straight from the asar's
     // package.json. (The same field exists on macOS bundles too, but Info.plist
     // is the authoritative source there.)
-    let (_, abs) = cfg.find_asar()?;
-    let header = asar::read_header(&abs)?;
-    let pkg_bytes = asar::read_file_from_archive(&abs, &header, "package.json")?;
+    //
+    // For multi-asar bundles all slices ship the same `version`, so the first
+    // existing one is fine here.
+    let asars = cfg.find_all_asars()?;
+    let (_, abs) = &asars[0];
+    let header = asar::read_header(abs)?;
+    let pkg_bytes = asar::read_file_from_archive(abs, &header, "package.json")?;
     let pkg: serde_json::Value = serde_json::from_slice(&pkg_bytes)
         .context("Couldn't parse the app's package.json.")?;
     pkg.get("version")
