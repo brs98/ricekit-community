@@ -9,11 +9,13 @@ setup_instructions = """macOS setup:
        rkpatch slack install
   3. Restart Slack.
 
+On macOS Sequoia (15+), the first install prints a one-line "macOS is blocking in-place edits — relocating to staging" notice. That's expected — rkpatch transparently copies the bundle aside, patches the copy, and atomically swaps it into /Applications. Subsequent installs go in place.
+
 Recovery:
   Run:
        rkpatch slack restore
 
-Requires the `rkpatch` binary built from `tools/rkpatch/` in the ricekit-community repo and added to PATH. Slack from /Applications is often root-owned; if rkpatch reports a permission error, retry with sudo."""
+Requires the `rkpatch` binary built from `tools/rkpatch/` in the ricekit-community repo and added to PATH (`cd tools/rkpatch && cargo install --path .`). If install fails with a filesystem permission error, retry with `sudo rkpatch slack install`."""
 app = "slack"
 category = "system"
 type = "colors"

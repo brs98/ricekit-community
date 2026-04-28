@@ -21,15 +21,33 @@ Tampermonkey, no extra config.
 
 ## Setup
 
-Patching is handled by the standalone `rkpatch` binary (built from
-`tools/rkpatch/` in this repo). Build it once and put it on `PATH`, then:
+Patching is handled by the `rkpatch` binary in this repo. Build and install
+it once:
+
+```bash
+cd tools/rkpatch && cargo install --path .
+# binary lands at ~/.cargo/bin/rkpatch — make sure that's on PATH
+```
+
+Then enable the `linear-desktop` template in Ricekit and apply your theme so
+`~/.config/ricekit/active/linear-desktop/ricekit-vars.css` exists. After that:
 
 ```bash
 rkpatch linear status
 rkpatch linear install
-# If status printed a permission error:
-sudo rkpatch linear install
 ```
+
+That's it for the common case. Two notes:
+
+- **macOS Sequoia (15) and later:** the first `install` against a fresh
+  Apple-notarized Linear will print a "macOS is blocking in-place edits —
+  relocating to staging" notice. That's the AMFI fallback — rkpatch copies
+  the bundle to a same-volume staging dir, patches the copy, and atomically
+  swaps it into `/Applications`. Subsequent runs go in place. See
+  `tools/rkpatch/README.md` for the full mechanism.
+- **Permission errors:** if `install` fails with a filesystem permission
+  error (root-owned `/Applications/Linear.app`, IT-managed machine), retry
+  with `sudo rkpatch linear install`.
 
 `rkpatch linear install` reads `ricekit-theme.user.js`, embeds its content as
 a JSON-stringified literal into `ricekit-inject.js` (substituting the
