@@ -20,7 +20,7 @@ More integrations land via PR — see the "Contributing an integration" section 
 
 1. The Ricekit core fetches `integrations/` from the latest community release tarball (or you copy them into `~/.config/ricekit/custom-integrations/`).
 2. You **enable** an integration with `ricekit integration enable <name>`. This flips a flag in `state.toml`.
-3. You **store the integration's secrets** (API keys, device IDs) in your macOS Keychain via `ricekit secrets set <integration> <key>`. Values never touch disk; the rendered-debug copies under `~/.config/ricekit/rendered/` keep `@@secret:KEY@@` markers verbatim and only get substituted at HTTP request time.
+3. You **store the integration's secrets** (API keys, device IDs) in your macOS Keychain via `ricekit secrets set <integration> <key>`. Values never touch disk — the integration's body template is rendered in memory and secrets are substituted only at HTTP request time. (Unlike config templates, integration request bodies are never persisted to `~/.config/ricekit/rendered/`.)
 4. On every `ricekit apply <theme>` (or theme switch from the UI), Ricekit:
    - Renders the integration's body template against the active palette
    - Substitutes secrets into the body, headers, and URL
@@ -151,11 +151,13 @@ Two things to check:
 
 ### Daemon-triggered theme switches don't fire the integration
 
-This is intentional. The Ricekit daemon (the `ricekit-daemon` LaunchAgent that runs your scheduled theme switches) runs under a different bundle ID than the desktop app, and macOS Keychain ACLs would surface as un-parented "allow access" prompts with no UI to dismiss them. So when the daemon runs an apply it sets `RICEKIT_DAEMON=1` and Ricekit skips Phase B (integrations) with a log line:
+This is intentional. The Ricekit daemon (the `ricekit-daemon` LaunchAgent that runs your scheduled theme switches) runs under a different bundle ID than the desktop app, and macOS Keychain ACLs would surface as un-parented "allow access" prompts with no UI to dismiss them. So when the daemon runs an apply it sets `RICEKIT_DAEMON=1` and Ricekit skips Phase B (integrations) with a log line that looks roughly like:
 
 ```
-INFO ricekit_core::apply: Skipping integrations phase (RICEKIT_DAEMON=1)
+INFO ricekit_core::apply: skipping integration phase under daemon (keychain access deferred to follow-up) count=1
 ```
+
+Each skipped integration also lands in the apply result's `integrations_skipped` list with `reason = "skipped under daemon (keychain access deferred)"`.
 
 Configs still apply normally — your terminal, editor, status bar, etc. all retheme on schedule. Only the HTTP integrations are skipped. A future daemon-IPC channel will route secret access through the desktop app and re-enable scheduled integration runs (see the closed-repo roadmap for status).
 
@@ -190,8 +192,9 @@ The integration will appear in the apply output as a `dry-run` line so you can v
 | `~/.config/ricekit/installed-integrations/` | Integrations from the community release tarball |
 | `~/.config/ricekit/custom-integrations/` | Your own un-published integrations (never overwritten) |
 | `~/.config/ricekit/state.toml` | `[[active_configs]]` entries with `kind = "integration"` |
-| `~/.config/ricekit/rendered/` | Last rendered request body (with `@@secret:…@@` markers, **never** real secret values) |
 | macOS Keychain | Secret values, stored as `ricekit.<integration>.<key>` items under your login keychain |
+
+Integration request bodies are rendered in memory and never persisted to disk. The `~/.config/ricekit/rendered/` directory only contains config-template output (terminal/editor configs, etc.) — there's nothing to inspect there for an integration.
 
 ---
 
