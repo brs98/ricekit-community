@@ -1,7 +1,7 @@
 [metadata]
 name = "govee-color"
 author = "ricekit"
-version = "2.0.0"
+version = "2.1.0"
 description = "Set a Govee strip/bulb to the active theme accent color via the Govee v2 Smart Home Open Platform API. Works with RGBIC and segment-based devices that the legacy v1 API cannot control."
 setup_instructions = """
 1. Apply for a Govee API key in the Govee Home app:
@@ -36,3 +36,32 @@ retry = { attempts = 2, backoff_ms = 500 }
 
 [requires]
 colors = ["semantic"]
+
+# Govee RGBIC strips and bulbs map RGB bytes directly to LED PWM duty cycles
+# without applying gamma correction. Sending sRGB-encoded bytes (the legacy
+# `rgb_int(accent)` shape) makes a Govee device render the same hex visibly
+# more saturated and brighter than a calibrated monitor — same integer,
+# different physical color.
+#
+# Profile values are from a four-theme visual-match calibration session
+# against a Govee H6047 (the issue #113 reference device): ristretto,
+# hackerman, catppuccin-latte, and tokyo-night were each rendered through
+# the integration and compared to the same hex on a calibrated monitor.
+# Three of four landed acceptable with no manual dial intervention; the
+# tokyo-night mid-tone case landed close-enough but not exact, indicating
+# that single-profile chromaticity tuning has limits for some hues. A
+# follow-up that adds the per-channel `compensation` block from #113
+# (saturation/brightness scaling) should close the residual gap.
+#
+# Why green is more spectral than sRGB green: Govee RGBIC green LEDs peak
+# closer to 525nm than sRGB-equivalent 550nm, so declaring a more spectral
+# green tells the pipeline to allocate less green PWM for any target — net
+# effect is less cyan cast on mid-saturation cool colors. The values
+# below were tuned empirically until visual-match passed; they are not a
+# spectroradiometer measurement.
+[device_profile]
+red   = { x = 0.6400, y = 0.3300 }
+green = { x = 0.2100, y = 0.7100 }
+blue  = { x = 0.1500, y = 0.0600 }
+white = { x = 0.3127, y = 0.3290 }
+transfer = "linear"

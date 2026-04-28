@@ -84,10 +84,46 @@ Body templates use the same `{{...}}` engine as config templates with these extr
 
 - `{{r(color)}}`, `{{g(color)}}`, `{{b(color)}}` — return the 0-255 RGB component as a JSON-safe integer (great for smart-light APIs that take RGB ints, e.g., `{"r": 122, "g": 162, "b": 247}`)
 - `{{rgb_int(color)}}` — pack the RGB triple into a single 24-bit integer `(r << 16) | (g << 8) | b`. Govee's v2 API expects this shape for `colorRgb`; many other smart-light cloud APIs do too.
+- `{{rgb_int_for(color, @profile)}}` — like `rgb_int` but translates the color through a device color profile first (see [Device color profiles](#device-color-profiles)). `@self` resolves to the integration's own `[device_profile]` block; `@srgb` is identity passthrough (byte-equal to `rgb_int`).
+- `{{rgb_for(color, @profile)}}` — same as `rgb_int_for` but emits a `#rrggbb` hex string. Useful for APIs that take hex (Hue) rather than int24 (Govee).
 - `{{to_json_string(color)}}` — emit a hex color as a JSON-quoted string (e.g., `"#7aa2f7"`)
 - `{{now_millis()}}` — current Unix time in milliseconds. Useful for `requestId` / idempotency-key fields that some APIs require to dedupe replays.
 
 After templating, `@@secret:<key>@@` markers in the body, headers, and url are substituted with secret values from the keychain. **Secrets never appear in rendered debug copies on disk** — the substitution happens only at HTTP request time.
+
+### Device color profiles
+
+Smart-light devices don't share a color space with monitors — a Govee LED strip's `#ff9c91` looks visibly more saturated and brighter than the same hex on a calibrated screen because the LED maps bytes straight to PWM duty cycles without sRGB decoding. An optional `[device_profile]` block on your integration tells Ricekit to translate palette colors through CIE 1931 XYZ before emission so the device output matches what users see on their monitor.
+
+Skeleton (sRGB primaries — adjust for your device after visual-match):
+
+```toml
+[device_profile]
+red   = { x = 0.6400, y = 0.3300 }
+green = { x = 0.3000, y = 0.6000 }
+blue  = { x = 0.1500, y = 0.0600 }
+white = { x = 0.3127, y = 0.3290 }
+transfer = "linear"
+```
+
+The bundled `govee-color/integration.toml` ships values calibrated against a Govee H6047 (notably `green = { x = 0.21, y = 0.71 }` rather than sRGB green) — see its inline comment for the calibration session details. Use it as a reference when authoring profiles for adjacent vendors (Hue, LIFX, Nanoleaf), but expect your own device to need its own visual-match pass.
+
+Fields:
+
+- `red`, `green`, `blue` — CIE 1931 chromaticity coordinates of the device's RGB primaries. Use the device datasheet, vendor-published values, or visual-match against a reference monitor. If you don't have measurements, the sRGB primaries above are a reasonable starting point — the largest perceptual win comes from the transfer function, the chromaticities are a refinement on top.
+- `white` — chromaticity of the device's reference white. **Must be D65** (`x = 0.3127, y = 0.3290`) in the current Ricekit release. Bradford chromatic adaptation for non-D65 illuminants is a future feature.
+- `transfer` — how the device interprets RGB bytes. Three forms accepted:
+  - `transfer = "linear"` — bytes map proportionally to LED PWM duty (no gamma). The right choice in our visual-match testing for Govee RGBIC; should also work for most "dumb" LED strips and bulbs that don't advertise color management.
+  - `transfer = "srgb"` — the device internally applies sRGB decoding. Rare; usually only displays.
+  - `transfer = { kind = "gamma", value = 2.2 }` — fixed-gamma chains, for legacy hardware that documents a specific curve.
+
+The block is optional. Without it, `rgb_int(color)` and `rgb_int_for(color, @srgb)` both emit unmodified palette bytes — fully backward-compatible.
+
+When you reference `@self` in a body template, the manifest **must** declare a `[device_profile]` or the apply will fail with a clear error before any HTTP request fires. Manifest typos (out-of-range chromaticities, collinear primaries, non-D65 white, non-positive gamma) are rejected at install time so they surface during `ricekit integration install`, not partway through a theme apply.
+
+#### Limits of single-profile chromaticity tuning
+
+Chromaticity-only profiles can hit a wall on mid-tone colors that mix all three channels heavily — the matrix changes all output channels in a coupled way, and some hues need *per-channel* scaling (boost red, suppress green, etc.) that no chromaticity choice can express. The bundled `govee-color` profile's calibration session passed three of four test themes no-touch but landed close-enough-not-exact on a mid-saturation cool blue. If your device exhibits the same pattern, the per-channel `compensation` block (saturation/brightness scaling) tracked in [brs98/ricekit#113](https://github.com/brs98/ricekit/issues/113) is the next-needed feature; please file follow-up issues with concrete byte data so we can size the impact.
 
 ### Submission requirements
 
