@@ -46,7 +46,7 @@ author = "your-name"
 version = "1.0.0"
 description = "..."
 app = "..."          # short identifier, e.g. "govee", "hass"
-category = "..."     # open string — known values surface first in UI: lighting, smarthome, presence, audio
+category = "..."     # open string; pick from the known list below or coin a new one
 type = "integration"
 
 # Secrets reference OS-keychain entries. Users set values via `ricekit secrets set <name> <key>`.
@@ -65,12 +65,27 @@ retry = { attempts = 2, backoff_ms = 500 }   # optional; default {2, 500}
 colors = ["semantic"]                # same shape as templates
 ```
 
+#### Known categories
+
+The `category` field is an open string — Ricekit accepts any value so new integration shapes don't need a core release to land. The well-known values below sort first in UI and have established conventions:
+
+| Category | Use for |
+| --- | --- |
+| `lighting` | Smart bulbs, strips, panels (Govee, Hue, LIFX, Nanoleaf) |
+| `smarthome` | Scene controllers, hubs, multi-device automations (Home Assistant, HomeKit bridges) |
+| `presence` | Status surfaces (Slack status, Discord rich presence, status pages) |
+| `audio` | Audio-visual sync targets, spatial-audio room state |
+
+If your integration genuinely doesn't fit any of these, coin a new short kebab-case identifier — but flag it in your PR so we can either standardize or fold it into an existing bucket.
+
 ### Body template syntax
 
-Body templates use the same `{{...}}` engine as config templates with two extra integration-specific functions:
+Body templates use the same `{{...}}` engine as config templates with these extra integration-specific functions:
 
-- `{{r(color)}}`, `{{g(color)}}`, `{{b(color)}}` — return the 0-255 RGB component as a JSON-safe integer (great for smart-light APIs that take RGB ints)
+- `{{r(color)}}`, `{{g(color)}}`, `{{b(color)}}` — return the 0-255 RGB component as a JSON-safe integer (great for smart-light APIs that take RGB ints, e.g., `{"r": 122, "g": 162, "b": 247}`)
+- `{{rgb_int(color)}}` — pack the RGB triple into a single 24-bit integer `(r << 16) | (g << 8) | b`. Govee's v2 API expects this shape for `colorRgb`; many other smart-light cloud APIs do too.
 - `{{to_json_string(color)}}` — emit a hex color as a JSON-quoted string (e.g., `"#7aa2f7"`)
+- `{{now_millis()}}` — current Unix time in milliseconds. Useful for `requestId` / idempotency-key fields that some APIs require to dedupe replays.
 
 After templating, `@@secret:<key>@@` markers in the body, headers, and url are substituted with secret values from the keychain. **Secrets never appear in rendered debug copies on disk** — the substitution happens only at HTTP request time.
 
@@ -80,6 +95,34 @@ After templating, `@@secret:<key>@@` markers in the body, headers, and url are s
 - Document the setup steps in `metadata.setup_instructions` (multi-line OK)
 - Test with at least one real device/account before opening the PR — and mention what you tested in the PR description
 - Don't commit secrets, tokens, or device identifiers in any file (use `@@secret:...@@` markers everywhere)
+
+### Testing your integration locally
+
+The community-repo release workflow only runs a TOML parse-check, so the schema authority is the desktop app itself. To round-trip an integration end-to-end before opening the PR:
+
+1. Copy your integration directory into `~/.config/ricekit/custom-integrations/<your-integration>/`
+2. Confirm it's discovered:
+   ```bash
+   ricekit integration list
+   ricekit integration info <your-integration>
+   ```
+3. Store the secrets the manifest declares:
+   ```bash
+   ricekit secrets set <your-integration> <key>
+   ```
+   Hit each declared `[secrets]` entry in turn — `secrets list` shows which keys are still missing.
+4. Enable it and apply a theme:
+   ```bash
+   ricekit integration enable <your-integration>
+   ricekit apply tokyo-night
+   ```
+5. Watch the `Integrations:` section of the apply output. Three lines you might see:
+   - `✓ <name> 200 (412ms)` — clean success.
+   - `⚠ <name> 200 (412ms) → app code 400: Device is offline` — HTTP succeeded but the app reported a failure inside the response body. Ricekit detects common shapes (`{"code": <non-200>, "msg|message": "..."}`) and surfaces them inline. **Make sure your integration's happy path doesn't false-trigger this** — if your API uses a `code` field with non-200 success values, the `⚠` indicator will fire. Either reshape the response (rare, since you don't control the upstream) or document the false-positive in your PR.
+   - `✗ <name> [HTTP 503] → ... (after 2 attempts)` — request actually failed, full retry budget exhausted.
+6. Try a dry run: `RICEKIT_DRY_RUN=1 ricekit apply tokyo-night`. The integration should show as `dry-run` and no real HTTP call should fire.
+
+The desktop app (`npx --prefix ui tauri dev` from a clone of [brs98/ricekit](https://github.com/brs98/ricekit)) reads from the same `custom-integrations/` directory, so you can sanity-check that the metadata renders cleanly in the UI's integration manager (when that surface lands — Phase 2).
 
 ## Contributing a Firefox extension change
 

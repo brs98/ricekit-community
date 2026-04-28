@@ -12,7 +12,7 @@ This repo is the public home for all community-contributable Ricekit content. Th
 | `userstyles/` | Accepting PRs | Catppuccin-to-ricekit userstyle compiler + Stylus-importable bundle |
 | `themes/` | Accepting PRs | Bundled theme definitions (TOML + optional wallpapers) |
 | `templates/` | Accepting PRs | Config templates (terminal emulators, editors, status bars, etc.) |
-| `integrations/` | Accepting PRs | HTTP integrations — smart lights (Govee, Hue, LIFX), home automation (Home Assistant), and other endpoints that respond to theme changes |
+| `integrations/` | Accepting PRs | HTTP integrations — smart lights (Govee, Hue, LIFX), home automation (Home Assistant), and other endpoints that respond to theme changes. See [`integrations/README.md`](./integrations/README.md) for the user-facing setup guide. |
 | `playground/` | Upcoming | Vite-built WASM web playground for previewing themes |
 
 The main Ricekit app fetches `themes/` and `templates/` at runtime from this repo's tagged release tarballs (`content-v*`), with a minimal snapshot embedded in the binary as an offline fallback. Each release produces `ricekit-content-v{N}.tar.gz`, a matching `.sha256` checksum file, and a `manifest.json` listing the included content.
