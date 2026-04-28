@@ -19,23 +19,42 @@ Tampermonkey, no extra config.
 
 ## Setup
 
-Patching is handled by the standalone `rkpatch` binary (built from
-`tools/rkpatch/` in this repo). Build it once and put it on `PATH`, then:
+Patching is handled by the `rkpatch` binary in this repo. Build and install
+it once:
+
+```bash
+cd tools/rkpatch && cargo install --path .
+# binary lands at ~/.cargo/bin/rkpatch — make sure that's on PATH
+```
+
+Then enable the `slack-desktop` template in Ricekit and apply your theme so
+`~/.config/ricekit/active/slack-desktop/ricekit-vars.css` exists. After that:
 
 ```bash
 rkpatch slack status
 rkpatch slack install
-# If status printed a permission error:
-sudo rkpatch slack install
 ```
+
+That's it for the common case. Two notes:
+
+- **macOS Sequoia (15) and later:** the first `install` against a fresh
+  Apple-notarized Slack will print a "macOS is blocking in-place edits —
+  relocating to staging" notice. That's the AMFI fallback — rkpatch copies
+  the bundle to a same-volume staging dir, patches the copy, and atomically
+  swaps it into `/Applications`. Subsequent runs go in place. See
+  `tools/rkpatch/README.md` for the full mechanism.
+- **Permission errors:** if `install` fails with a filesystem permission
+  error (root-owned `/Applications/Slack.app`, IT-managed machine), retry
+  with `sudo rkpatch slack install`.
 
 `rkpatch slack install` reads `ricekit-theme.user.js`, embeds its content as a
 JSON-stringified literal into `ricekit-inject.js` (substituting the
 `__RICEKIT_THEME_JS__` placeholder declared in `tools/rkpatch/configs/slack.toml`),
-and writes the combined payload into Slack's `app-{arm64,x64}.asar`. At
-runtime the injector calls `frame.executeJavaScript` with the embedded script
-on every `frame-created` event so the userscript runs before Slack's bundle
-adds its own stylesheets.
+and writes the combined payload into Slack's asar — `app-arm64.asar` and/or
+`app-x64.asar` for universal-binary downloads, or `app.asar` for per-arch
+downloads. At runtime the injector calls `frame.executeJavaScript` with the
+embedded script on every `frame-created` event so the userscript runs before
+Slack's bundle adds its own stylesheets.
 
 ## Recovery
 

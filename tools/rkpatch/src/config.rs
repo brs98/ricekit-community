@@ -10,7 +10,7 @@ use anyhow::{anyhow, Context, Result};
 use serde::Deserialize;
 use std::path::{Path, PathBuf};
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct AppConfig {
     pub bundle_id: String,
     pub template: String,
@@ -29,7 +29,7 @@ pub struct AppConfig {
     pub linux: Option<LinuxFields>,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct LinuxFields {
     /// Name pgrep/pkill match against (e.g. "linear", "slack").
     pub process_name: String,

@@ -81,8 +81,17 @@ pub fn install(cfg: &AppConfig) -> Result<()> {
 }
 
 fn install_inner(cfg: &AppConfig, app_name: &str) -> Result<()> {
-    let asars = cfg.find_all_asars()?;
+    // Build the payload up front so a missing template fails BEFORE we touch
+    // the bundle (and before we possibly relocate it to staging) — much
+    // friendlier than failing mid-write.
+    let payload = build_payload(cfg)?;
 
+    // Back up the unpatched bundle from its real location, regardless of
+    // whether the upcoming writes happen in place or via the relocate path.
+    // The backup keys on the on-disk asars at `cfg.app_path`, not the
+    // staging copy — that way `restore` can find them later by the canonical
+    // bundle path even though the inodes will have changed after a swap.
+    let asars = cfg.find_all_asars()?;
     ui::step(&format!("Backing up the original {}", app_name));
     let bak = backup_dir(cfg)?;
     fs::create_dir_all(&bak)?;
@@ -111,6 +120,16 @@ fn install_inner(cfg: &AppConfig, app_name: &str) -> Result<()> {
         ui::done(&format!("Reusing existing backup of {}", app_name));
     }
 
+    // `run_writes` is a passthrough on Linux and on macOS bundles where AMFI
+    // doesn't engage. On macOS Sequoia+ against a launched, Apple-notarized
+    // bundle, it transparently relocates the bundle to a same-volume staging
+    // dir, runs the closure against a cfg pointing there, then atomic-swaps
+    // the patched copy back into place. The closure sees a normal cfg
+    // either way — it doesn't need to know which path was taken.
+    platform::run_writes(cfg, |target| do_install_writes(target, app_name, &payload))
+}
+
+fn do_install_writes(cfg: &AppConfig, app_name: &str, payload: &str) -> Result<()> {
     // Read each asar's main entry straight from the archive, splice the
     // Ricekit payload in, then surgically rewrite just that one file. We avoid
     // a full extract → repack because that path drops `unpacked: true` entries
@@ -119,8 +138,8 @@ fn install_inner(cfg: &AppConfig, app_name: &str) -> Result<()> {
     //
     // Bundles that ship multiple asars (e.g. Slack's arm64 + x64) are patched
     // in lockstep so whichever slice Electron picks at launch ends up themed.
+    let asars = cfg.find_all_asars()?;
     ui::step("Applying Ricekit theme");
-    let payload = build_payload(cfg)?;
     for (rel, abs) in &asars {
         let header = asar::read_header(abs)?;
         let main = main_entry(abs, &header)?;
@@ -131,7 +150,7 @@ fn install_inner(cfg: &AppConfig, app_name: &str) -> Result<()> {
 
         let mut next = stripped;
         next.push('\n');
-        next.push_str(&payload);
+        next.push_str(payload);
         next.push('\n');
 
         // `replace_file_using` takes the header we already have and returns
@@ -183,18 +202,29 @@ pub fn restore(cfg: &AppConfig) -> Result<()> {
 }
 
 fn restore_inner(cfg: &AppConfig, app_name: &str) -> Result<()> {
+    // Validate backups against the on-disk bundle BEFORE handing off to
+    // `run_writes` — if there's nothing to restore we don't want to pay for
+    // an AMFI relocate just to error out.
     let bak = backup_dir(cfg)?;
-    let asars = cfg.find_all_asars()?;
-    let pairs: Vec<(PathBuf, PathBuf)> = asars
+    let real_asars = cfg.find_all_asars()?;
+    let any_backup = real_asars
         .iter()
-        .map(|(rel, abs)| (abs.clone(), bak.join(backup_name_for(rel))))
-        .collect();
-    if pairs.iter().all(|(_, b)| !b.exists()) {
+        .any(|(rel, _)| bak.join(backup_name_for(rel)).exists());
+    if !any_backup {
         return Err(anyhow!(
             "No backup found at {}. There's nothing to restore.",
             ui::display_path(&bak)
         ));
     }
+    platform::run_writes(cfg, |target| do_restore_writes(target, app_name, &bak))
+}
+
+fn do_restore_writes(cfg: &AppConfig, app_name: &str, bak: &std::path::Path) -> Result<()> {
+    let asars = cfg.find_all_asars()?;
+    let pairs: Vec<(PathBuf, PathBuf)> = asars
+        .iter()
+        .map(|(rel, abs)| (abs.clone(), bak.join(backup_name_for(rel))))
+        .collect();
     ui::step(&format!("Restoring the original {}", app_name));
     for (abs, bak_path) in &pairs {
         if bak_path.exists() {
