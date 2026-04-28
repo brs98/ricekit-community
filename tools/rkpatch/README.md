@@ -52,7 +52,20 @@ on disk is from the new version).
 
 ### macOS caveats
 
-If the app's bundle in `/Applications` is root-owned, prefix with `sudo`.
+- **Sequoia (15) and later — AMFI launch provenance.** The first time you
+  patch an app whose bundle is still under its original Apple-issued
+  signature, the kernel refuses in-place writes to files inside the bundle
+  (even for root, even after `xattr -d com.apple.provenance`). rkpatch
+  detects this with a write-mode probe on the asar; on EPERM it copies the
+  bundle to a same-volume staging directory next to it
+  (`.rkpatch-staging-<pid>/`), patches the copy, and atomically swaps it
+  into place. Once the bundle has been ad-hoc resigned, AMFI no longer
+  engages and subsequent runs patch in place. You'll see a "macOS is
+  blocking in-place edits — relocating to staging" notice in the install
+  output the first time.
+- **Bundle ownership.** If the app's bundle in `/Applications` is
+  root-owned, prefix with `sudo`. The relocate path doesn't help with this
+  — that's a filesystem permission issue, not an AMFI one.
 
 ## Install
 
@@ -68,9 +81,13 @@ cargo install --path .
   `configs/` directory baked in at compile time (i.e. this repo's
   `tools/rkpatch/configs/`).
 - **Template dir** — `--templates <dir>`, then `$RKPATCH_TEMPLATE_DIR`, then
-  `~/.config/ricekit/custom-configs/`. The template-specific files
+  the first of `~/.config/ricekit/custom-configs/` and
+  `~/.config/ricekit/installed-configs/` that contains the template named
+  in the per-app config. The template-specific files
   (`ricekit-inject.js`, `ricekit-theme.user.js`, …) are read from
-  `<template_base>/<template>/`, where `template` is set in the per-app config.
+  `<template_base>/<template>/`. The dual default lets templates fetched
+  from Ricekit's marketplace (which lands them in `installed-configs/`) and
+  hand-rolled ones (in `custom-configs/`) both work without a flag.
 
 For dev against the in-repo template sources, point `--templates` at
 `<repo>/templates`.

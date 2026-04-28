@@ -9,9 +9,14 @@ encode = "json"
 
 [macos]
 app_path = "/Applications/Slack.app"
+# Slack's macOS distribution layout varies: the universal-binary download ships
+# both `app-arm64.asar` and `app-x64.asar` (Electron picks one at launch by
+# arch). Per-arch downloads (currently the default Apple Silicon DMG) ship a
+# single `app.asar` instead. List all three so either layout matches.
 asar_candidates = [
     "Contents/Resources/app-arm64.asar",
     "Contents/Resources/app-x64.asar",
+    "Contents/Resources/app.asar",
 ]
 
 [linux]

@@ -3,11 +3,26 @@
 // The integrity manifest lives in the app's `Contents/Info.plist`, which is
 // also why we back it up alongside the asar. Re-signing is required because
 // editing the asar invalidates the bundle's existing signature.
+//
+// macOS Sequoia (15) and later: AMFI's launch-provenance policy refuses
+// in-place writes to files inside an Apple-notarized, launched bundle in
+// `/Applications/`. Even root gets EPERM; even removing the
+// `com.apple.provenance` xattr is blocked. The escape hatch is a fresh-inode
+// copy of the bundle: `cp -R` produces inodes AMFI doesn't track, so writes
+// to the copy succeed. Once we ad-hoc resign the copy and swap it into
+// place, the new bundle is no longer Apple-notarized, AMFI no longer
+// engages, and subsequent rkpatch runs can mutate it in place.
+//
+// `run_writes` below picks the path: probe the asar with an
+// open-for-write; on EPERM, relocate to a same-volume staging dir, run the
+// caller's mutations against a cfg pointing there, then atomic-swap the
+// modified bundle into the original location.
 
 use crate::asar;
 use crate::config::AppConfig;
 use anyhow::{anyhow, Context, Result};
-use std::path::PathBuf;
+use std::ffi::OsString;
+use std::path::{Path, PathBuf};
 use std::process::Command;
 
 /// Whether to emit a "re-signing the app" step during install/restore.
@@ -130,6 +145,179 @@ pub fn extra_backup_files(cfg: &AppConfig) -> Vec<(PathBuf, &'static str)> {
 
 fn escape_applescript(s: &str) -> String {
     s.replace('\\', "\\\\").replace('"', "\\\"")
+}
+
+/// Run a closure that mutates the bundle. On macOS Sequoia 15+ where AMFI
+/// blocks in-place writes to launched, Apple-notarized bundles, this
+/// transparently relocates the bundle to a same-volume staging dir, runs the
+/// closure against a cfg pointing there, then atomic-swaps the mutated copy
+/// back into the original location.
+///
+/// On bundles that have already been ad-hoc resigned (i.e. patched once
+/// before, by this tool or a predecessor like the old `patch.mjs`), AMFI
+/// does not engage and the closure runs in place — no relocate needed.
+pub fn run_writes<F, R>(cfg: &AppConfig, mutate: F) -> Result<R>
+where
+    F: FnOnce(&AppConfig) -> Result<R>,
+{
+    if writes_allowed_in_place(cfg)? {
+        return mutate(cfg);
+    }
+    crate::ui::warn(
+        "macOS is blocking in-place edits to this bundle (AMFI launch provenance). \
+         Relocating it to staging — the bundle will be replaced atomically when done.",
+    );
+    relocate_and_mutate(cfg, mutate)
+}
+
+/// Probe whether writes to the bundle's asars are allowed in place. AMFI's
+/// open policy denies `O_WRONLY` at open time on protected bundles, so a
+/// zero-byte open-and-drop is enough to detect the block — nothing is
+/// written.
+fn writes_allowed_in_place(cfg: &AppConfig) -> Result<bool> {
+    let asars = cfg.find_all_asars()?;
+    let (_, probe_target) = asars
+        .first()
+        .ok_or_else(|| anyhow!("Couldn't find any asar to probe."))?;
+    // POSIX: 1 = EPERM, 13 = EACCES. AMFI's launch-provenance policy returns
+    // EPERM at open(2) on protected bundles; classic Unix permission failures
+    // return EACCES. We only relocate for EPERM — EACCES means the user
+    // needs sudo, which the relocate dance won't fix.
+    const EPERM: i32 = 1;
+    const EACCES: i32 = 13;
+    match std::fs::OpenOptions::new()
+        .write(true)
+        .open(probe_target)
+    {
+        Ok(_) => Ok(true),
+        Err(e) if e.raw_os_error() == Some(EPERM) => Ok(false),
+        Err(e) if e.raw_os_error() == Some(EACCES) => Ok(true),
+        Err(e) => Err(e).with_context(|| {
+            format!(
+                "Couldn't probe write access to {}.",
+                probe_target.display()
+            )
+        }),
+    }
+}
+
+fn relocate_and_mutate<F, R>(cfg: &AppConfig, mutate: F) -> Result<R>
+where
+    F: FnOnce(&AppConfig) -> Result<R>,
+{
+    let bundle_parent = cfg
+        .app_path
+        .parent()
+        .ok_or_else(|| anyhow!("Bundle path {} has no parent.", cfg.app_path.display()))?
+        .to_path_buf();
+    let bundle_name = cfg
+        .app_path
+        .file_name()
+        .ok_or_else(|| anyhow!("Bundle path {} has no file name.", cfg.app_path.display()))?
+        .to_owned();
+    let staging = staging_dir(&bundle_parent)?;
+    // Always clean staging on exit (success OR failure) so we don't leak the
+    // copy or the moved-aside original.
+    let guard = StagingGuard {
+        path: staging.clone(),
+    };
+    let staged_bundle = staging.join(&bundle_name);
+    let aside_name = {
+        let mut n: OsString = bundle_name.clone();
+        n.push(".rkpatch-original");
+        n
+    };
+    let aside_bundle = staging.join(&aside_name);
+
+    crate::ui::step("Copying the bundle to staging");
+    cp_recursive(&cfg.app_path, &staged_bundle)?;
+    crate::ui::done("Copied the bundle to staging");
+
+    let staged_cfg = AppConfig {
+        app_path: staged_bundle.clone(),
+        ..cfg.clone()
+    };
+
+    let result = mutate(&staged_cfg)?;
+
+    crate::ui::step("Swapping the patched bundle into place");
+    // Atomic-ish: rename original aside (succeeds — AMFI allows renaming the
+    // bundle root, just not modifying contents), then rename modified copy
+    // into the canonical path. Both renames are same-volume, so each is a
+    // single rename(2) syscall.
+    std::fs::rename(&cfg.app_path, &aside_bundle).with_context(|| {
+        format!(
+            "Couldn't move the original bundle aside to {}.",
+            aside_bundle.display()
+        )
+    })?;
+    if let Err(e) = std::fs::rename(&staged_bundle, &cfg.app_path) {
+        // Try to put the original back so the user isn't left with no app.
+        let _ = std::fs::rename(&aside_bundle, &cfg.app_path);
+        return Err(e).with_context(|| {
+            format!(
+                "Couldn't move the patched bundle into {}. Original restored from staging.",
+                cfg.app_path.display()
+            )
+        });
+    }
+    crate::ui::done("Swapped the patched bundle into place");
+
+    drop(guard);
+    Ok(result)
+}
+
+/// Pick a hidden staging directory next to the bundle, on the same volume so
+/// rename(2) stays atomic. We include the pid so concurrent rkpatch runs
+/// against different apps don't collide.
+fn staging_dir(parent: &Path) -> Result<PathBuf> {
+    let dir = parent.join(format!(".rkpatch-staging-{}", std::process::id()));
+    if dir.exists() {
+        std::fs::remove_dir_all(&dir).with_context(|| {
+            format!("Couldn't clear stale staging dir at {}.", dir.display())
+        })?;
+    }
+    std::fs::create_dir(&dir)
+        .with_context(|| format!("Couldn't create staging dir at {}.", dir.display()))?;
+    Ok(dir)
+}
+
+struct StagingGuard {
+    path: PathBuf,
+}
+
+impl Drop for StagingGuard {
+    fn drop(&mut self) {
+        // Best-effort cleanup. If something inside is still in use the rm
+        // will fail; that's fine — staging dirs are pid-scoped so leftovers
+        // get cleaned on the next run with the same pid (extremely unlikely)
+        // or are easy to spot for manual cleanup (`.rkpatch-staging-*`).
+        let _ = std::fs::remove_dir_all(&self.path);
+    }
+}
+
+/// Copy a directory tree using the system `cp -R`. We shell out rather than
+/// implement directory walking ourselves so symlinks, executable bits,
+/// extended attributes, and resource forks all come along verbatim — same
+/// as a Finder-level duplicate. The `-c` flag asks APFS for clonefile-based
+/// copy, so the operation is near-instant and consumes no extra space until
+/// COW.
+fn cp_recursive(src: &Path, dest: &Path) -> Result<()> {
+    let status = Command::new("cp")
+        .args(["-Rc"])
+        .arg(src)
+        .arg(dest)
+        .status()
+        .with_context(|| format!("Couldn't run `cp` to stage {}.", src.display()))?;
+    if !status.success() {
+        return Err(anyhow!(
+            "`cp -Rc {} {}` failed (exit {}).",
+            src.display(),
+            dest.display(),
+            status
+        ));
+    }
+    Ok(())
 }
 
 fn run(cmd: &str, args: &[&str]) -> Result<String> {

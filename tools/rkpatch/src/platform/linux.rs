@@ -143,3 +143,13 @@ pub fn re_sign(_cfg: &AppConfig) -> Result<()> {
 pub fn extra_backup_files(_cfg: &AppConfig) -> Vec<(PathBuf, &'static str)> {
     Vec::new()
 }
+
+/// Linux has no AMFI analog — Electron bundles on disk are plain files
+/// gated only by filesystem permissions, so writes either succeed in place
+/// or fail with EACCES (telling the user to use sudo). No relocate needed.
+pub fn run_writes<F, R>(cfg: &AppConfig, mutate: F) -> Result<R>
+where
+    F: FnOnce(&AppConfig) -> Result<R>,
+{
+    mutate(cfg)
+}

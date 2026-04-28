@@ -1,4 +1,4 @@
-use anyhow::{Context, Result};
+use anyhow::{anyhow, Context, Result};
 use rkpatch::config::expand_tilde;
 use rkpatch::{cmd, config, ui};
 use clap::{Parser, Subcommand};
@@ -23,7 +23,9 @@ struct Cli {
     #[arg(long, global = true)]
     configs: Option<PathBuf>,
 
-    /// Override template base directory. Default: $RKPATCH_TEMPLATE_DIR, then ~/.config/ricekit/custom-configs.
+    /// Override template base directory. Default: $RKPATCH_TEMPLATE_DIR, then the first of
+    /// `~/.config/ricekit/custom-configs` and `~/.config/ricekit/installed-configs` that
+    /// contains the template.
     #[arg(long, global = true)]
     templates: Option<PathBuf>,
 }
@@ -50,8 +52,13 @@ fn main() {
 fn run() -> Result<()> {
     let cli = Cli::parse();
     let cfg_dir = resolve_configs_dir(cli.configs.as_deref())?;
-    let template_base = resolve_template_base(cli.templates.as_deref())?;
     let cfg_path = cfg_dir.join(format!("{}.toml", cli.app));
+    // We need the template name to pick between candidate template bases below.
+    // Reading the toml twice (once here, once inside `AppConfig::load`) keeps
+    // config.rs's interface narrow — the cost is one extra ~1KB parse.
+    let template_name = read_template_name(&cfg_path)
+        .with_context(|| format!("Couldn't load the {} config.", cli.app))?;
+    let template_base = resolve_template_base(cli.templates.as_deref(), &template_name)?;
     let app_cfg = config::AppConfig::load(&cfg_path, &template_base)
         .with_context(|| format!("Couldn't load the {} config.", cli.app))?;
     match cli.command {
@@ -60,6 +67,18 @@ fn run() -> Result<()> {
         Cmd::Restore => cmd::restore(&app_cfg),
         Cmd::Prune => cmd::prune(&app_cfg),
     }
+}
+
+fn read_template_name(cfg_path: &Path) -> Result<String> {
+    let s = std::fs::read_to_string(cfg_path)
+        .with_context(|| format!("Couldn't read {}.", cfg_path.display()))?;
+    let value: toml::Value = toml::from_str(&s)
+        .with_context(|| format!("Couldn't parse {}.", cfg_path.display()))?;
+    value
+        .get("template")
+        .and_then(|v| v.as_str())
+        .map(String::from)
+        .ok_or_else(|| anyhow!("config is missing top-level `template` field."))
 }
 
 fn resolve_configs_dir(override_dir: Option<&Path>) -> Result<PathBuf> {
@@ -79,7 +98,7 @@ fn resolve_configs_dir(override_dir: Option<&Path>) -> Result<PathBuf> {
     anyhow::bail!("Couldn't find a config directory. Set RKPATCH_CONFIGS or pass --configs <dir>.")
 }
 
-fn resolve_template_base(override_dir: Option<&Path>) -> Result<PathBuf> {
+fn resolve_template_base(override_dir: Option<&Path>, template_name: &str) -> Result<PathBuf> {
     if let Some(d) = override_dir {
         return Ok(expand_tilde(d));
     }
@@ -87,6 +106,20 @@ fn resolve_template_base(override_dir: Option<&Path>) -> Result<PathBuf> {
         return Ok(expand_tilde(Path::new(&s)));
     }
     let home = dirs::home_dir().context("Couldn't find your home directory.")?;
-    Ok(home.join(".config/ricekit/custom-configs"))
+    // Two locations Ricekit puts templates: `custom-configs` for hand-rolled
+    // / template-author content, `installed-configs` for marketplace installs.
+    // Probe in author-first order so a local edit overrides the marketplace
+    // copy when both exist with the same template name. If neither contains
+    // the template, fall back to `custom-configs` so the downstream
+    // "Couldn't read injection template at …" error points at a path the
+    // user is most likely to recognize.
+    let primary = home.join(".config/ricekit/custom-configs");
+    let secondary = home.join(".config/ricekit/installed-configs");
+    for base in [&primary, &secondary] {
+        if base.join(template_name).is_dir() {
+            return Ok(base.clone());
+        }
+    }
+    Ok(primary)
 }
 
