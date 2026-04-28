@@ -134,9 +134,10 @@ fn install_inner(cfg: &AppConfig, app_name: &str) -> Result<()> {
         next.push_str(&payload);
         next.push('\n');
 
-        asar::replace_file(abs, &main, next.as_bytes())?;
-
-        let new_header = asar::read_header(abs)?;
+        // `replace_file_using` takes the header we already have and returns
+        // the post-write header, sparing us two re-reads (one inside the old
+        // `replace_file`, one for compute_integrity below).
+        let new_header = asar::replace_file_using(abs, &header, &main, next.as_bytes())?;
         let integrity = asar::compute_integrity(abs, &new_header)?;
         platform::write_integrity(cfg, rel, &integrity)?;
     }

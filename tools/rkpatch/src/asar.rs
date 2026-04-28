@@ -25,6 +25,20 @@ use std::path::Path;
 /// directory — completely alone, which a full extract → repack does not.
 pub fn replace_file(archive: &Path, file_path: &str, new_content: &[u8]) -> Result<()> {
     let header = read_header(archive)?;
+    replace_file_using(archive, &header, file_path, new_content).map(|_| ())
+}
+
+/// Same as `replace_file` but takes a pre-loaded header in and returns the
+/// post-write header out. Lets callers that already have the header (e.g.
+/// because they read package.json from it) skip two header reads per asar:
+/// the implicit one at the top of `replace_file` and a follow-up
+/// `read_header` to compute integrity over the rewritten archive.
+pub fn replace_file_using(
+    archive: &Path,
+    header: &Header,
+    file_path: &str,
+    new_content: &[u8],
+) -> Result<Header> {
     let entry = lookup_entry(&header.root, file_path)
         .ok_or_else(|| anyhow!("not found in archive: {}", file_path))?;
     if entry.get("unpacked").and_then(|v| v.as_bool()).unwrap_or(false) {
@@ -74,7 +88,20 @@ pub fn replace_file(archive: &Path, file_path: &str, new_content: &[u8]) -> Resu
 
     let new_header_string = serde_json::to_string(&new_root)?;
     write_archive(archive, &new_header_string, &new_content_blob)?;
-    Ok(())
+
+    // Reconstruct the post-write Header in memory rather than re-reading from
+    // disk. `header_size` is determined by the same padding rules as
+    // `write_archive`: 8-byte outer pickle prefix + the inner pickle (4-byte
+    // string-size + the string itself + padding to 4-byte alignment).
+    let s_len = new_header_string.len();
+    let inner_unpadded = 4 + s_len;
+    let inner_padded = (inner_unpadded + 3) & !3;
+    let header_size = 8 + inner_padded as u64;
+    Ok(Header {
+        header_string: new_header_string,
+        header_size,
+        root: new_root,
+    })
 }
 
 fn update_entry_size_and_integrity(
@@ -354,9 +381,22 @@ fn write_archive(path: &Path, header_string: &str, content: &[u8]) -> Result<()>
     Ok(())
 }
 
+/// Asar-archive-level integrity descriptor written to macOS Info.plist under
+/// `ElectronAsarIntegrity.<archive>`. Electron's bundle-load check verifies
+/// `algorithm` + `hash` (the SHA-256 of the asar header pickle's JSON string)
+/// and currently ignores `blockSize` / `blocks`. The block fields are emitted
+/// here for forward-compat with future Electron versions that may opt into
+/// chunked verification — extra plist keys are harmless either way.
+///
+/// Per-file integrity blocks (the ones inside the asar header on each
+/// individual file) are a separate mechanism handled in `replace_file`; that
+/// path uses 4 MiB blocks (Electron's default) and IS verified at file-read
+/// time on Slack-style builds.
 pub struct Integrity {
     pub algorithm: &'static str,
     pub hash: String,
+    /// 4 KiB. Historical convention for the top-level integrity entry;
+    /// Electron does not currently re-validate against it (see struct doc).
     pub block_size: u32,
     pub blocks: Vec<String>,
 }

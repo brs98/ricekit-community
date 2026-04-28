@@ -326,6 +326,12 @@
     );
 
   // ─── 5. selector skip-list (decorative content we never repaint) ──────────
+  // Each entry is matched as a substring against the full selector text, so
+  // 'preview' will skip any selector containing the literal string 'preview'
+  // (e.g. `.p-link_preview`, `.gif-preview`, `[data-preview]`). The coarseness
+  // is intentional — Slack's class names rotate often enough that a precise
+  // boundary match would go stale, and a false-positive skip here is much
+  // less noticeable than a recolored emoji or filetype glyph.
   const SKIP = [
     'skin_tone', 'skin-tone', 'filetype', 'file-type',
     'c-icon--file', 'c-icon__file', 'c-icon--figma', 'c-icon--photoshop',
