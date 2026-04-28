@@ -17,9 +17,13 @@
 //   2) walk every CSSStyleSheet (incl. adoptedStyleSheets, incl. nested
 //      @media/@supports), classify each declaration, and emit a palette-driven
 //      override into a singleton <style id="ricekit-slack"> tag.
-//   3) MutationObserver on <head> re-runs the harvest when Slack lazy-loads a
-//      chunk (emoji picker, huddle UI, etc.).
-//   4) palette poll re-runs when --rk-* vars change (Stylus theme switch, or
+//   3) MutationObserver on the whole document tree re-runs the harvest when
+//      Slack lazy-loads a chunk (emoji picker, huddle UI, etc.). Styles can
+//      land anywhere — head chunks, body portals, deeply nested wrappers.
+//   4) sheet-count poll catches mutations the DOM doesn't expose: insertRule
+//      on existing sheets (emotion/styled-components), adoptedStyleSheets
+//      pushes, late-bind cssRules after an async <link> finishes loading.
+//   5) palette poll re-runs when --rk-* vars change (Stylus theme switch, or
 //      ricekit-vars.css hot-reload from the desktop integration).
 //
 // Transparency preservation rules (the reason this exists, not a static dump):
@@ -332,11 +336,17 @@
   // is intentional — Slack's class names rotate often enough that a precise
   // boundary match would go stale, and a false-positive skip here is much
   // less noticeable than a recolored emoji or filetype glyph.
+  //
+  // Note on emoji entries: we skip `c-emoji` (the glyph component block + its
+  // BEM children: `c-emoji__image`, `c-emoji--small`, etc.) but NOT a generic
+  // `emoji` substring. The latter would also skip the picker chrome
+  // (`p-emoji_picker__*`), which we want themed. Different BEM prefix —
+  // `c-` (component glyph) vs `p-` (page chrome) — keeps the two apart.
   const SKIP = [
     'skin_tone', 'skin-tone', 'filetype', 'file-type',
     'c-icon--file', 'c-icon__file', 'c-icon--figma', 'c-icon--photoshop',
     'c-icon--illustrator', 'c-icon--pdf', 'c-icon--sketch', 'c-icon--adobe',
-    'c-icon--indesign', 'emoji', 'p-emoji',
+    'c-icon--indesign', 'c-emoji',
     'brand-', 'brand_',
     'animation', 'p-shouty', 'p-rooster', 'gif_picker', 'c-gif',
     'preview', 'p-pillow_file', 'p-sales_dashboard',
@@ -545,16 +555,46 @@ a { color: var(--rk-accent) !important; }
   // ─── 8. start ─────────────────────────────────────────────────────────────
   const start = () => {
     runHarvest();
-    // <head> mutation observer: catches lazy-loaded chunks (emoji picker etc).
+    // Style-node observer: catches <style>/<link rel="stylesheet"> inserted
+    // anywhere in the tree — head chunks, body portals (emoji picker, menus,
+    // huddle), deeply nested React-rendered wrappers. The 200ms scheduleHarvest
+    // debounce absorbs bursty inserts so subtree:true stays cheap.
     const mo = new MutationObserver((muts) => {
       for (const m of muts) {
         for (const n of m.addedNodes) {
           if (n.nodeName === 'STYLE' && n.id !== 'ricekit-slack') return scheduleHarvest();
           if (n.nodeName === 'LINK' && n.rel === 'stylesheet') return scheduleHarvest();
+          if (n.nodeType === 1 && n.querySelector
+              && n.querySelector('style:not(#ricekit-slack), link[rel="stylesheet"]')) {
+            return scheduleHarvest();
+          }
         }
       }
     });
-    mo.observe(document.head || document.documentElement, { childList: true, subtree: false });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+    // Sheet-signature poll: catches mutations a MutationObserver can't see.
+    // adoptedStyleSheets pushes are property writes (no DOM event); insertRule
+    // calls from emotion/styled-components mutate the CSSOM in place; an async
+    // <link> fires the insert mutation before its cssRules populate. A length
+    // diff across document.styleSheets + adoptedStyleSheets + per-sheet rule
+    // counts triggers a re-harvest on any of these.
+    const sheetSig = () => {
+      const parts = [];
+      try { parts.push(`s${document.styleSheets.length}`); } catch {}
+      try { parts.push(`a${(document.adoptedStyleSheets || []).length}`); } catch {}
+      for (const s of document.styleSheets) {
+        try { parts.push(s.cssRules ? s.cssRules.length : -1); }
+        catch { parts.push(-2); }
+      }
+      return parts.join('|');
+    };
+    let lastSheetSig = sheetSig();
+    setInterval(() => {
+      const sig = sheetSig();
+      if (sig === lastSheetSig) return;
+      lastSheetSig = sig;
+      scheduleHarvest();
+    }, 1500);
     // Palette poll: re-harvest when --rk-* on :root changes (Stylus theme
     // switch, or ricekit-vars.css hot-reload from the desktop integration).
     let lastHash = paletteHash(readPalette());
