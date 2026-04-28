@@ -67,7 +67,14 @@
     // Slack's bundle adds its own stylesheets. `did-frame-navigate` re-runs
     // the script in the post-navigation document context (the first one
     // actually under https://app.slack.com), where Slack's stylesheets exist.
-    wc.on("frame-created", (_e, { frame }) => injectTheme(frame));
+    //
+    // Restrict to the top frame only. `frame.parent !== null` means a
+    // subframe — Slack loads cross-origin iframes (OAuth, link previews)
+    // that don't need our observers running inside them.
+    wc.on("frame-created", (_e, { frame }) => {
+      if (frame.parent !== null) return;
+      injectTheme(frame);
+    });
     wc.on("did-frame-navigate", (_e, _url, _code, _status, isMainFrame) => {
       if (isMainFrame) injectTheme(wc);
     });

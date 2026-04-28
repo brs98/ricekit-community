@@ -374,16 +374,33 @@ impl Integrity {
 
 pub fn compute_integrity(archive: &Path, header: &Header) -> Result<Integrity> {
     let header_hash = sha256_hex(header.header_string.as_bytes());
-    let mut f = File::open(archive)?;
+    let f = File::open(archive)?;
+    // 4 KiB block hashing × ~80 MB asar = ~20k reads. Wrap in a 64 KiB
+    // BufReader so the kernel hop happens once per 16 blocks instead of
+    // once per block.
+    let mut f = std::io::BufReader::with_capacity(64 * 1024, f);
     f.seek(SeekFrom::Start(header.header_size))?;
     let mut blocks = Vec::new();
     let mut buf = [0u8; 4096];
     loop {
-        let n = f.read(&mut buf)?;
-        if n == 0 {
+        // `read_exact` would error on the trailing short read at EOF; manually
+        // loop `read` until we've filled the block or hit EOF, so the final
+        // partial block still gets hashed.
+        let mut filled = 0;
+        while filled < buf.len() {
+            let n = f.read(&mut buf[filled..])?;
+            if n == 0 {
+                break;
+            }
+            filled += n;
+        }
+        if filled == 0 {
             break;
         }
-        blocks.push(sha256_hex(&buf[..n]));
+        blocks.push(sha256_hex(&buf[..filled]));
+        if filled < buf.len() {
+            break;
+        }
     }
     Ok(Integrity {
         algorithm: "SHA256",

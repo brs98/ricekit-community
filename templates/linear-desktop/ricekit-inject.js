@@ -66,7 +66,14 @@
     // module bundle. `did-frame-navigate` then re-runs the script in the
     // post-navigation document context (the first one that's actually
     // https://linear.app), where the bundle constructs UserSettings.
-    wc.on("frame-created", (_e, { frame }) => injectTheme(frame));
+    //
+    // Restrict to the top frame only. `frame.parent !== null` means a
+    // subframe — typically a third-party iframe (auth callbacks, embeds)
+    // we don't want to perturb with the Object.prototype sentinel.
+    wc.on("frame-created", (_e, { frame }) => {
+      if (frame.parent !== null) return;
+      injectTheme(frame);
+    });
     wc.on("did-frame-navigate", (_e, _url, _code, _status, isMainFrame) => {
       if (isMainFrame) injectTheme(wc);
     });

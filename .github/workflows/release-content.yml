@@ -170,6 +170,12 @@ jobs:
 
   release:
     name: Publish release
+    # Fan-in: requires every upstream job to succeed. With `fail-fast: false`
+    # on the rkpatch_build matrix, a single bad target (e.g. x86_64-darwin
+    # toolchain hiccup) lets the other targets keep building, but the release
+    # job still won't run. That's the intentional policy — partial releases
+    # would silently ship missing binaries, which is worse than a no-op
+    # release the maintainer can re-trigger after the fix.
     needs: [content, rkpatch_build]
     runs-on: ubuntu-latest
     steps:

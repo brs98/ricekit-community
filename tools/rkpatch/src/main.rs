@@ -1,4 +1,5 @@
 use anyhow::{Context, Result};
+use rkpatch::config::expand_tilde;
 use rkpatch::{cmd, config, ui};
 use clap::{Parser, Subcommand};
 use std::path::{Path, PathBuf};
@@ -9,7 +10,7 @@ use std::path::{Path, PathBuf};
     about = "Patch Electron apps with ricekit injections",
     long_about = "rkpatch <app> <command>\n\n\
         <app>     name of a config file under the configs dir (e.g. `linear` for `configs/linear.toml`)\n\
-        <command> one of: status, install, restore"
+        <command> one of: status, install, restore, prune"
 )]
 struct Cli {
     /// App config name (e.g. `linear` resolves to `<configs>/linear.toml`).
@@ -35,6 +36,8 @@ enum Cmd {
     Install,
     /// Restore the most recent backup made by `install`.
     Restore,
+    /// Delete backups for app versions other than the one currently installed.
+    Prune,
 }
 
 fn main() {
@@ -55,6 +58,7 @@ fn run() -> Result<()> {
         Cmd::Status => cmd::status(&app_cfg),
         Cmd::Install => cmd::install(&app_cfg),
         Cmd::Restore => cmd::restore(&app_cfg),
+        Cmd::Prune => cmd::prune(&app_cfg),
     }
 }
 
@@ -86,17 +90,3 @@ fn resolve_template_base(override_dir: Option<&Path>) -> Result<PathBuf> {
     Ok(home.join(".config/ricekit/custom-configs"))
 }
 
-fn expand_tilde(p: &Path) -> PathBuf {
-    let s = p.to_string_lossy();
-    if let Some(rest) = s.strip_prefix("~/") {
-        if let Some(home) = dirs::home_dir() {
-            return home.join(rest);
-        }
-    }
-    if s == "~" {
-        if let Some(home) = dirs::home_dir() {
-            return home;
-        }
-    }
-    p.to_path_buf()
-}

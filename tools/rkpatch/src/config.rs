@@ -261,11 +261,16 @@ fn resolve_linux(raw: Raw, template_base: &Path) -> Result<AppConfig> {
     })
 }
 
-fn expand_tilde(p: &Path) -> PathBuf {
+pub fn expand_tilde(p: &Path) -> PathBuf {
     let s = p.to_string_lossy();
     if let Some(rest) = s.strip_prefix("~/") {
         if let Some(home) = dirs::home_dir() {
             return home.join(rest);
+        }
+    }
+    if s == "~" {
+        if let Some(home) = dirs::home_dir() {
+            return home;
         }
     }
     p.to_path_buf()

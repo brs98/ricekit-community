@@ -223,6 +223,11 @@
   const start = async () => {
     dbg.state = 'waiting';
     if (!(await waitForReady())) {
+      // Tidy up the Object.prototype sentinels so we don't leave setters
+      // installed on every object for the rest of the renderer's life.
+      // (When an anchor IS captured, `cleanupSentinels` runs from inside the
+      // setter; this branch covers the timeout case where it never fires.)
+      cleanupSentinels.forEach((fn) => fn());
       dbg.state = 'timed-out';
       dbg.timedOut = { hasAnchor: !!anchor, hasLive: !!anchor?.store?.user?.settings, rkBg: readVarColor('--rk-background') };
       console.warn('[ricekit-linear] timed out waiting for store / rk vars', dbg.timedOut);

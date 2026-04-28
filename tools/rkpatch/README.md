@@ -12,10 +12,17 @@ rkpatch linear status
 rkpatch linear install
 rkpatch slack install
 rkpatch linear restore
+rkpatch linear prune       # delete backups for older app versions
 ```
 
 `<app>` matches a config file under `configs/` (e.g. `linear` →
-`configs/linear.toml`). `<command>` is `status`, `install`, or `restore`.
+`configs/linear.toml`). `<command>` is `status`, `install`, `restore`, or
+`prune`.
+
+`prune` keeps the backup directory for the currently-installed app version
+and deletes the rest. Useful after an app self-updates: the old version's
+backup becomes orphaned (you can no longer `restore` to it because the asar
+on disk is from the new version).
 
 ## Platform support
 

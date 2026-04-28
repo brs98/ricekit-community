@@ -235,11 +235,59 @@ fn backup_name_for(rel: &str) -> String {
 }
 
 fn backup_dir(cfg: &AppConfig) -> Result<PathBuf> {
+    Ok(bundle_backup_root(cfg)?.join(platform::app_version(cfg)?))
+}
+
+fn bundle_backup_root(cfg: &AppConfig) -> Result<PathBuf> {
     let home = dirs::home_dir().ok_or_else(|| anyhow!("Couldn't find your home directory."))?;
     Ok(home
         .join(".config/ricekit/backups/electron-apps")
-        .join(&cfg.bundle_id)
-        .join(platform::app_version(cfg)?))
+        .join(&cfg.bundle_id))
+}
+
+pub fn prune(cfg: &AppConfig) -> Result<()> {
+    let app_name = platform::display_name(cfg)?;
+    let current = platform::app_version(cfg)?;
+    ui::header(&format!("Pruning old backups of {} (keeping v{})", app_name, current));
+
+    let root = bundle_backup_root(cfg)?;
+    if !root.exists() {
+        ui::done_final("No backups directory yet — nothing to prune.");
+        return Ok(());
+    }
+
+    let mut removed = 0usize;
+    let mut kept_current = false;
+    for entry in fs::read_dir(&root)
+        .with_context(|| format!("Couldn't list backups under {}.", root.display()))?
+    {
+        let entry = entry?;
+        if !entry.file_type()?.is_dir() {
+            // Stray file in the bundle dir — leave it alone, only touch
+            // version directories we recognize as our own.
+            continue;
+        }
+        let name = entry.file_name();
+        let name = name.to_string_lossy();
+        if name == current {
+            kept_current = true;
+            continue;
+        }
+        ui::step(&format!("Removing old backup v{}", name));
+        fs::remove_dir_all(entry.path()).with_context(|| {
+            format!("Couldn't remove {}.", entry.path().display())
+        })?;
+        removed += 1;
+    }
+
+    let summary = match (kept_current, removed) {
+        (false, 0) => "Nothing to prune.".to_string(),
+        (true, 0) => format!("Only the current v{} backup is present.", current),
+        (false, n) => format!("Removed {} old backup(s). No backup for the current version.", n),
+        (true, n) => format!("Removed {} old backup(s). Kept v{}.", n, current),
+    };
+    ui::done_final(&summary);
+    Ok(())
 }
 
 fn main_entry(abs: &std::path::Path, header: &asar::Header) -> Result<String> {
@@ -307,4 +355,148 @@ fn strip_existing(mut src: String) -> String {
         src.replace_range(s..e, "");
     }
     src
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use crate::config::{AppConfig, Encode, Substitution};
+    use std::path::PathBuf;
+
+    fn fake_cfg(template_dir: PathBuf, app_path: PathBuf, subs: Vec<Substitution>) -> AppConfig {
+        AppConfig {
+            bundle_id: "test".into(),
+            template: "test".into(),
+            inject_file: PathBuf::from("inject.js"),
+            substitutions: subs,
+            template_dir,
+            app_path,
+            asar_candidates: vec![],
+            linux: None,
+        }
+    }
+
+    #[test]
+    fn strip_existing_passes_through_when_no_markers() {
+        let src = "console.log('hi');\n".to_string();
+        assert_eq!(strip_existing(src.clone()), src);
+    }
+
+    #[test]
+    fn strip_existing_removes_single_block_with_surrounding_newlines() {
+        // strip_existing eats BOTH the newline immediately before BEGIN and the
+        // one immediately after END, so the surrounding text joins. install
+        // re-adds those newlines around the new payload, keeping the round-trip
+        // idempotent.
+        let src = format!("before\n{}payload{}\nafter", BEGIN, END);
+        assert_eq!(strip_existing(src), "beforeafter");
+    }
+
+    #[test]
+    fn strip_existing_removes_consecutive_blocks() {
+        let src = format!(
+            "head\n{}one{}\n{}two{}\ntail",
+            BEGIN, END, BEGIN, END
+        );
+        assert_eq!(strip_existing(src), "headtail");
+    }
+
+    #[test]
+    fn strip_existing_leaves_unterminated_begin_alone() {
+        // No END after BEGIN: the loop breaks on the inner find and the source
+        // is returned as-is rather than truncating to EOF.
+        let src = format!("a\n{}orphan\nb", BEGIN);
+        assert_eq!(strip_existing(src.clone()), src);
+    }
+
+    #[test]
+    fn strip_existing_ignores_lone_end_marker() {
+        // END without BEGIN never satisfies the outer find — nothing happens.
+        let src = format!("a {} b", END);
+        assert_eq!(strip_existing(src.clone()), src);
+    }
+
+    #[test]
+    fn strip_existing_is_idempotent() {
+        let src = format!("x\n{}p{}\ny", BEGIN, END);
+        let once = strip_existing(src);
+        let twice = strip_existing(once.clone());
+        assert_eq!(once, twice);
+    }
+
+    #[test]
+    fn build_payload_substitutes_json_encoded() {
+        let dir = tempfile::tempdir().unwrap();
+        std::fs::write(dir.path().join("inject.js"), "const T = __PLACEHOLDER__;").unwrap();
+        std::fs::write(dir.path().join("theme.js"), "alert('x')\n\"quoted\"").unwrap();
+        let cfg = fake_cfg(
+            dir.path().to_path_buf(),
+            dir.path().to_path_buf(),
+            vec![Substitution {
+                placeholder: "__PLACEHOLDER__".into(),
+                file: PathBuf::from("theme.js"),
+                encode: Encode::Json,
+            }],
+        );
+        let payload = build_payload(&cfg).unwrap();
+        // Json encode wraps in a string literal so the userscript is safe to
+        // splice into JS source verbatim — quotes and newlines escape.
+        assert_eq!(payload, r#"const T = "alert('x')\n\"quoted\"";"#);
+    }
+
+    #[test]
+    fn build_payload_substitutes_raw_inline() {
+        let dir = tempfile::tempdir().unwrap();
+        std::fs::write(dir.path().join("inject.js"), "do(__P__);").unwrap();
+        std::fs::write(dir.path().join("snippet.js"), "1+1").unwrap();
+        let cfg = fake_cfg(
+            dir.path().to_path_buf(),
+            dir.path().to_path_buf(),
+            vec![Substitution {
+                placeholder: "__P__".into(),
+                file: PathBuf::from("snippet.js"),
+                encode: Encode::Raw,
+            }],
+        );
+        assert_eq!(build_payload(&cfg).unwrap(), "do(1+1);");
+    }
+
+    #[test]
+    fn build_payload_errors_when_placeholder_missing() {
+        let dir = tempfile::tempdir().unwrap();
+        std::fs::write(dir.path().join("inject.js"), "no placeholder here").unwrap();
+        std::fs::write(dir.path().join("x.js"), "x").unwrap();
+        let cfg = fake_cfg(
+            dir.path().to_path_buf(),
+            dir.path().to_path_buf(),
+            vec![Substitution {
+                placeholder: "__MISSING__".into(),
+                file: PathBuf::from("x.js"),
+                encode: Encode::Raw,
+            }],
+        );
+        let err = build_payload(&cfg).unwrap_err().to_string();
+        assert!(err.contains("missing"), "expected 'missing' in: {}", err);
+        assert!(err.contains("__MISSING__"), "expected placeholder name in: {}", err);
+    }
+
+    #[test]
+    fn build_payload_errors_when_placeholder_appears_more_than_once() {
+        let dir = tempfile::tempdir().unwrap();
+        // Two literal occurrences — exactly the failure mode #8 was about.
+        std::fs::write(dir.path().join("inject.js"), "a __DUP__ b __DUP__ c").unwrap();
+        std::fs::write(dir.path().join("x.js"), "x").unwrap();
+        let cfg = fake_cfg(
+            dir.path().to_path_buf(),
+            dir.path().to_path_buf(),
+            vec![Substitution {
+                placeholder: "__DUP__".into(),
+                file: PathBuf::from("x.js"),
+                encode: Encode::Raw,
+            }],
+        );
+        let err = build_payload(&cfg).unwrap_err().to_string();
+        assert!(err.contains("__DUP__"), "expected placeholder name in: {}", err);
+        assert!(err.contains("2 times") || err.contains("twice"), "expected count in: {}", err);
+    }
 }
