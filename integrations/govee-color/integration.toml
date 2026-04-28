@@ -1,7 +1,7 @@
 [metadata]
 name = "govee-color"
 author = "ricekit"
-version = "2.0.0"
+version = "2.1.0"
 description = "Set a Govee strip/bulb to the active theme accent color via the Govee v2 Smart Home Open Platform API. Works with RGBIC and segment-based devices that the legacy v1 API cannot control."
 setup_instructions = """
 1. Apply for a Govee API key in the Govee Home app:
@@ -36,3 +36,26 @@ retry = { attempts = 2, backoff_ms = 500 }
 
 [requires]
 colors = ["semantic"]
+
+# Govee RGBIC strips and bulbs map RGB bytes directly to LED PWM duty cycles
+# without applying gamma correction. Sending sRGB-encoded bytes (the legacy
+# `rgb_int(accent)` shape) makes a Govee device render the same hex visibly
+# more saturated and brighter than a calibrated monitor — same integer,
+# different physical color.
+#
+# This profile keeps the sRGB primaries (we don't have measured chromaticities
+# for any specific Govee model and individual RGBIC LEDs vary along a strip)
+# but switches the transfer to Linear, so palette colors traverse the CIE
+# pipeline as: sRGB-encoded → linear sRGB → linear device-RGB → bytes.
+# The LED then drives PWM linearly from those bytes, which closes most of
+# the visible mismatch with no per-device measurement.
+#
+# Refining the chromaticities via visual-match against a reference card is
+# a follow-up — author per-model variants (`govee-color-h6047`,
+# `govee-color-h6072`) once measurements are in.
+[device_profile]
+red   = { x = 0.6400, y = 0.3300 }
+green = { x = 0.3000, y = 0.6000 }
+blue  = { x = 0.1500, y = 0.0600 }
+white = { x = 0.3127, y = 0.3290 }
+transfer = "linear"

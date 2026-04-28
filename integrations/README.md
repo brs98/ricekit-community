@@ -165,12 +165,15 @@ If you want a scheduled apply to fire integrations too, schedule a `ricekit appl
 
 ### Light is on but color "looks wrong" compared to the screen
 
-Smart bulbs and strips don't perform CIE-aware color management — they take a 0-255 RGB triple and dump it through their own (usually proprietary, often non-linear) gamma curve. So the same `accent` color that looks like a bright slate-blue on a calibrated monitor can look noticeably more saturated, more cyan, or more magenta on a strip.
+The `govee-color` integration uses Ricekit's CIE-aware color pipeline (introduced in [brs98/ricekit#113](https://github.com/brs98/ricekit/issues/113)) to translate palette colors through CIE 1931 XYZ before emission. The bundled profile assumes Govee RGBIC strips drive PWM linearly — sending sRGB-encoded bytes (the legacy behavior) caused most of the visible mismatch on those devices.
 
-This is a hardware/firmware limitation of the lights, not a Ricekit bug — proper CIE-aware colorimetry is tracked in [brs98/ricekit#113](https://github.com/brs98/ricekit/issues/113). Workarounds today:
+If colors still look off:
 
-- Use `accent` for small, accent-only fixtures and let larger surfaces (ceiling lights, etc.) stay theme-neutral
-- Pick themes whose accent already lands somewhere these devices reproduce well (warm/saturated accents tend to translate better than narrow blues)
+- **Specific hues drift** (reds saturated, blues shifted): Govee RGBIC LEDs vary by model and even along a single strip. The bundled profile uses sRGB primaries as a reasonable default; per-model variants with measured chromaticities can land in a follow-up. File an issue with the model SKU, the palette color you applied, and a phone photo of the strip next to your monitor showing the same hex.
+- **Everything looks too dim or too bright**: the device might apply its own gamma even though most Govee firmware doesn't. Try a custom integration with `transfer = "srgb"` or `transfer = { kind = "gamma", value = 2.2 }` instead of the bundled `"linear"` and see if it improves.
+- **Theme accents land in the device's weak gamut region**: even with the right pipeline, no LED reproduces every sRGB color faithfully — narrow blues and deep reds are common weak spots. Picking themes with accents in mid-warm or mid-saturation tends to translate better.
+
+If you want to author a per-device profile (e.g. `govee-color-h6047`), see the **Device color profiles** section in [CONTRIBUTING.md](../CONTRIBUTING.md).
 
 ### I want to test my edits without a real device
 
