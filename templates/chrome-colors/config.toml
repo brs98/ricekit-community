@@ -1,0 +1,46 @@
+[metadata]
+name = "chrome-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Google Chrome browser theme color via managed-policy BrowserThemeColor"
+setup_instructions = """Chrome reads enterprise policy from a different store on each OS. Setup is per-OS; the rendered file is the same on both. Both setups need a one-time sudo step — Chrome's policy mechanism only honors values from a system-managed location (Mandatory level). User-domain writes show up in chrome://policy as Recommended and don't actually theme the UI.
+
+macOS — one-time setup (requires sudo):
+  sudo mkdir -p "/Library/Managed Preferences/$USER"
+  sudo touch "/Library/Managed Preferences/$USER/com.google.Chrome.plist"
+  sudo chown "$USER" "/Library/Managed Preferences/$USER" "/Library/Managed Preferences/$USER/com.google.Chrome.plist"
+
+  After ownership flips to your user, every reload writes BrowserThemeColor through `defaults` (no sudo) and asks the running Chrome to refresh. Chrome reads from /Library/Managed Preferences via CFPreferences and treats values there as Mandatory.
+
+Linux — one-time symlink (requires sudo):
+  sudo mkdir -p /etc/opt/chrome/policies/managed
+  sudo ln -sf ~/.config/ricekit/active/chrome-colors/policy.json /etc/opt/chrome/policies/managed/ricekit.json
+
+  After the symlink is in place, every reload re-renders the file in your home dir; Chrome re-reads it through the symlink when --refresh-platform-policy fires. No further sudo needed.
+
+Verifying:
+  Open chrome://policy and look for BrowserThemeColor. The Level column should read "Mandatory" with status "OK". If it says "Recommended", the macOS one-time setup hasn't been applied (or chown didn't take). If the row is missing, Chrome hasn't reloaded policy yet — try `--refresh-platform-policy` from the chrome://policy page.
+
+Notes:
+  - This makes Chrome show "Managed by your organization" in the menu (any policy does). That's expected.
+  - Per-page theming (Catppuccin userstyles) is owned by the userstyles config + Stylus. This template only colors Chrome's own UI."""
+app = "chrome"
+category = "browser"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/chrome-colors/policy.json"
+strategy = "direct"
+
+[target.linux]
+path = "~/.config/ricekit/active/chrome-colors/policy.json"
+strategy = "direct"
+
+[reload.macos]
+command = "HEX=$(plutil -extract BrowserThemeColor raw -o - ~/.config/ricekit/active/chrome-colors/policy.json 2>/dev/null); PLIST=\"/Library/Managed Preferences/$USER/com.google.Chrome.plist\"; if [ -n \"$HEX\" ] && [ -w \"$PLIST\" ]; then [ ! -s \"$PLIST\" ] && plutil -create xml1 \"$PLIST\" 2>/dev/null; plutil -replace BrowserThemeColor -string \"$HEX\" \"$PLIST\" 2>/dev/null; fi; defaults delete com.google.Chrome BrowserThemeColor 2>/dev/null; defaults write com.google.Chrome __ricekit_invalidator -date \"$(date)\" 2>/dev/null; defaults delete com.google.Chrome __ricekit_invalidator 2>/dev/null; for PID in $(pgrep -l 'Google Chrome' | awk '/^[0-9]+ Google Chrome$/ {print $1}'); do CHROME=$(ps -p \"$PID\" -o comm=); UDD=$(ps -p \"$PID\" -o command= | grep -oE -- '--user-data-dir=[^ ]+'); \"$CHROME\" $UDD --refresh-platform-policy --no-startup-window >/dev/null 2>&1 & done; true"
+
+[reload.linux]
+command = "for B in google-chrome google-chrome-stable; do command -v \"$B\" >/dev/null 2>&1 && \"$B\" --refresh-platform-policy --no-startup-window >/dev/null 2>&1 && break; done; true"
+
+[requires]
+colors = ["semantic"]
