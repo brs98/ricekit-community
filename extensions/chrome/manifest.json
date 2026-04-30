@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Ricekit",
+  "version": "1.0.0",
+  "description": "Live page theming powered by Ricekit. Injects --rk-* CSS variables into every page so Stylus userstyles (Catppuccin Ricekit bundle) render with your active theme.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAs8YE6UhbXFpBiLgLiQgTAy434By/v5c6rWJ07BlIEqZ760stnzCpSA7i77yFX80oE2Luq9AyVDGQBUkKAwQZv9qneDpLDJtMJuFqgTfceYvXF81Zq+w0pUZkfIinB6+M9ysOOdP5Vien6ssSJVZ+3iYWthhQ0j9QZF41oNnahOH4RvD7Zl7KsRoBWwJlmZ81VX/Zp+vStz27i3uRCgWrDBm9ky8Bjsj9zuovhpdOLu+du86FTzQpwNNUSxrF3zvWq8+28PTYZuIWJsYPTRJpMmy+aGL2HEpkbb0h2TQeQ+d6BIPAj9/TtGqVgsiRHq/Elz4Oq2LHZzlqmGqzahn+twIDAQAB",
+  "permissions": [
+    "nativeMessaging",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ]
+}
