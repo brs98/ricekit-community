@@ -1,0 +1,33 @@
+[metadata]
+name = "obsidian-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Obsidian theme colors via per-vault CSS snippet (--rk-* vars + body.theme-{dark,light} overrides)"
+setup_instructions = """Obsidian stores themes per-vault, not globally. Ricekit renders one canonical CSS file and the reload step fans it out to every vault listed in Obsidian's `obsidian.json`.
+
+One-time per vault:
+  1. Apply your theme: `ricekit apply <theme>`
+  2. Open the vault in Obsidian
+  3. Settings → Appearance → CSS snippets → reload, then toggle `ricekit` on
+  4. Subsequent applies hot-reload automatically (Obsidian watches snippet mtime)
+
+If you add a new vault later, re-run `ricekit apply` to seed `ricekit.css` into it, then enable the snippet once.
+"""
+app = "obsidian"
+category = "editor"
+type = "colors"
+
+[target.macos]
+path = "~/.config/ricekit/active/obsidian/ricekit.css"
+strategy = "direct"
+[target.linux]
+path = "~/.config/ricekit/active/obsidian/ricekit.css"
+strategy = "direct"
+
+[reload.macos]
+command = "SRC=\"$HOME/.config/ricekit/active/obsidian/ricekit.css\"; JSON=\"$HOME/Library/Application Support/obsidian/obsidian.json\"; [ -f \"$SRC\" ] && [ -f \"$JSON\" ] && grep -oE '\"path\"[[:space:]]*:[[:space:]]*\"[^\"]*\"' \"$JSON\" | sed -E 's/.*\"path\"[[:space:]]*:[[:space:]]*\"([^\"]*)\".*/\\1/' | while IFS= read -r vault; do [ -d \"$vault/.obsidian\" ] || continue; mkdir -p \"$vault/.obsidian/snippets\"; cp \"$SRC\" \"$vault/.obsidian/snippets/ricekit.css\"; done; true"
+[reload.linux]
+command = "SRC=\"$HOME/.config/ricekit/active/obsidian/ricekit.css\"; JSON=\"$HOME/.config/obsidian/obsidian.json\"; [ -f \"$SRC\" ] && [ -f \"$JSON\" ] && grep -oE '\"path\"[[:space:]]*:[[:space:]]*\"[^\"]*\"' \"$JSON\" | sed -E 's/.*\"path\"[[:space:]]*:[[:space:]]*\"([^\"]*)\".*/\\1/' | while IFS= read -r vault; do [ -d \"$vault/.obsidian\" ] || continue; mkdir -p \"$vault/.obsidian/snippets\"; cp \"$SRC\" \"$vault/.obsidian/snippets/ricekit.css\"; done; true"
+
+[requires]
+colors = ["ansi", "semantic"]
