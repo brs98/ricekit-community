@@ -5,12 +5,22 @@ INTEGRATION="govee-color"
 BASE_URL="https://raw.githubusercontent.com/brs98/ricekit-community/main/integrations/${INTEGRATION}"
 DEST="${HOME}/.config/ricekit/custom-integrations/${INTEGRATION}"
 
-echo "Installing ${INTEGRATION} integration..."
+command -v ricekit >/dev/null 2>&1 || { echo "Error: ricekit not found. Install it first."; exit 1; }
+
+if [ -d "${DEST}" ]; then
+  echo "Updating existing ${INTEGRATION} integration..."
+else
+  echo "Installing ${INTEGRATION} integration..."
+fi
+
+cleanup() { [ -d "${DEST}" ] && rm -rf "${DEST}"; }
 
 mkdir -p "${DEST}/body"
 
-curl -sfL "${BASE_URL}/integration.toml" -o "${DEST}/integration.toml"
-curl -sfL "${BASE_URL}/body/payload.json.tmpl" -o "${DEST}/body/payload.json.tmpl"
+curl -sfL "${BASE_URL}/integration.toml" -o "${DEST}/integration.toml" \
+  || { echo "Error: Failed to download integration.toml"; cleanup; exit 1; }
+curl -sfL "${BASE_URL}/body/payload.json.tmpl" -o "${DEST}/body/payload.json.tmpl" \
+  || { echo "Error: Failed to download payload template"; cleanup; exit 1; }
 
 echo ""
 echo "Installed to ${DEST}"
@@ -29,3 +39,5 @@ echo "     ricekit secrets set ${INTEGRATION} model"
 echo ""
 echo "  4. Enable the integration:"
 echo "     ricekit integration enable ${INTEGRATION}"
+echo ""
+echo "Done!"
