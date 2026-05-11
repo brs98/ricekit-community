@@ -1,26 +1,35 @@
 [metadata]
 name = "ghostty-colors"
 author = "ricekit"
-version = "1.0.0"
+version = "2.0.0"
 description = "Ghostty terminal theme colors"
-setup_instructions = """Add to your Ghostty config (~/.config/ghostty/config):
+setup_instructions = """Works with Ghostty and Ghostty-based terminals (e.g. cmux).
 
-config-file = ?~/.config/ghostty/ricekit-theme"""
+For cmux, run once to clear any built-in theme override:
+
+cmux themes clear
+
+To preserve Ghostty settings across theme changes (e.g. background-opacity,
+font-family), add them to ~/.config/ghostty/ricekit-overrides:
+
+echo 'background-opacity = 0.7' >> ~/.config/ghostty/ricekit-overrides
+
+The reload command appends this file after each theme apply."""
 app = "ghostty"
 category = "terminal"
 type = "colors"
 
 [target.macos]
-path = "~/.config/ghostty/ricekit-theme"
-strategy = "symlink"
+path = "~/Library/Application Support/com.cmuxterm.app/config.ghostty"
+strategy = "direct"
 [target.linux]
 path = "~/.config/ghostty/ricekit-theme"
-strategy = "symlink"
+strategy = "direct"
 
 [reload.macos]
-command = "[ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
+command = "[ -f ~/.config/ghostty/ricekit-overrides ] && cat ~/.config/ghostty/ricekit-overrides >> ~/Library/Application\\ Support/com.cmuxterm.app/config.ghostty; cmux reload-config 2>/dev/null; [ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
 [reload.linux]
-command = "[ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
+command = "[ -f ~/.config/ghostty/ricekit-overrides ] && cat ~/.config/ghostty/ricekit-overrides >> ~/.config/ghostty/ricekit-theme; [ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
 
 [requires]
 colors = ["ansi"]

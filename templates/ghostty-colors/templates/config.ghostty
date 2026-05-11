@@ -1,6 +1,5 @@
 # Ricekit generated Ghostty theme
 # Do not edit — regenerated on theme apply
-# Import in Ghostty config: config-file = ?~/.config/ghostty/ricekit-theme
 
 background = {{background}}
 foreground = {{foreground}}
