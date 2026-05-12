@@ -1,5 +1,6 @@
-# Ricekit generated Ghostty theme
+# Ricekit generated cmux theme
 # Do not edit — regenerated on theme apply
+# Import in cmux config: config-file = ?~/Library/Application Support/com.cmuxterm.app/ricekit-theme
 
 background = {{background}}
 foreground = {{foreground}}
