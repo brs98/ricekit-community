@@ -70,8 +70,8 @@
     if (name === '--dt_color-theme-content-inv-pry') return 'var(--rk-foreground)';
     if (name === '--dt_color-theme-content-inv-sec') return 'var(--rk-overlay2)';
     if (name === '--dt_color-theme-content-inv-ter') return 'var(--rk-muted)';
-    if (name === '--dt_color-theme-base-inv-pry') return 'var(--rk-foreground)';
-    if (name === '--dt_color-theme-base-inv-sec') return 'var(--rk-overlay2)';
+    if (name === '--dt_color-theme-base-inv-pry') return 'var(--rk-mantle)';
+    if (name === '--dt_color-theme-base-inv-sec') return 'var(--rk-surface0)';
     if (/^--dt_color-theme-surf-inv-(pry|sec|ter)$/.test(name)) {
       const step = name.endsWith('-pry') ? 6 : name.endsWith('-sec') ? 10 : 18;
       return `color-mix(in oklch, var(--rk-foreground) ${step}%, transparent)`;
@@ -123,8 +123,8 @@
     if (name === '--dt_color-otl-hgl-2') return 'var(--rk-green)';
     if (name === '--dt_color-otl-hgl-3') return 'var(--rk-yellow)';
     if (/^--dt_color-otl-inv/.test(name)) return 'color-mix(in oklch, var(--rk-foreground) 20%, transparent)';
-    if (name === '--dt_color-ctr-pry') return 'var(--rk-foreground)';
-    if (name === '--dt_color-ctr-sec') return 'var(--rk-muted)';
+    if (name === '--dt_color-ctr-pry') return 'var(--rk-surface0)';
+    if (name === '--dt_color-ctr-sec') return 'var(--rk-mantle)';
     if (name === '--dt_color-brand-core-slack-green') return 'var(--rk-green)';
     if (name === '--dt_color-brand-core-slack-red') return 'var(--rk-red)';
     if (name === '--dt_color-brand-core-black') return 'var(--rk-crust)';
@@ -205,6 +205,12 @@
     raspberry: '--rk-red', tomato: '--rk-red', rose: '--rk-rosewater',
     cyan: '--rk-cyan', pink: '--rk-magenta',
   };
+  // Maps Slack's `--dt_color-plt-<family>-<scale>` to a CSS color expression.
+  // For chromatic families we preserve hue+chroma from the family rk var and
+  // derive lightness from the scale via `oklch(from <var> L c h)`. This keeps
+  // within-family contrast (e.g. aubergine-20 bubble + aubergine-90 glyph) that
+  // a flat family→rk-var map would collapse to one color. Gray/primary fall
+  // through to the lightness-band SCALE_TO_RK.
   const pltToRk = (name) => {
     const m = name.match(/^--dt_color-plt-([a-z_]+)-(\d+)$/);
     if (!m) return null;
@@ -212,13 +218,16 @@
     const scale = parseInt(m[2], 10);
     if (family in FAMILY_TO_RK) {
       const explicit = FAMILY_TO_RK[family];
-      if (explicit) return explicit;
+      if (explicit) {
+        const L = (0.06 + scale / 100 * 0.88).toFixed(3);
+        return `oklch(from var(${explicit}) ${L} c h)`;
+      }
     }
-    for (const row of SCALE_TO_RK) if (scale <= row.max) return row.rk;
-    return '--rk-foreground';
+    for (const row of SCALE_TO_RK) if (scale <= row.max) return `var(${row.rk})`;
+    return 'var(--rk-foreground)';
   };
   const tokenToRk = (name) => {
-    if (name.startsWith('--sk_')) return skToRk[name] || null;
+    if (name.startsWith('--sk_')) return skToRk[name] ? `var(${skToRk[name]})` : null;
     if (name.startsWith('--dt_color-plt-')) return pltToRk(name);
     return null;
   };
@@ -238,16 +247,16 @@
         const rk = tokenToRk(tok);
         if (!rk) return _;
         changed = true;
-        return `rgb(from var(${rk}) r g b / ${alpha.trim()})`;
+        return `rgb(from ${rk} r g b / ${alpha.trim()})`;
       },
     );
     out = out.replace(
       /rgba?\(\s*var\(\s*(--sk_[a-zA-Z0-9_-]+|--dt_color-plt-[a-zA-Z0-9_-]+)(?:\s*,[^()]*)?\)\s*\)/g,
-      (_, tok) => { const rk = tokenToRk(tok); if (!rk) return _; changed = true; return `var(${rk})`; },
+      (_, tok) => { const rk = tokenToRk(tok); if (!rk) return _; changed = true; return rk; },
     );
     out = out.replace(
       /var\(\s*(--sk_[a-zA-Z0-9_-]+|--dt_color-plt-[a-zA-Z0-9_-]+)(?:\s*,[^)]+)?\)/g,
-      (_, tok) => { const rk = tokenToRk(tok); if (!rk) return _; changed = true; return `var(${rk})`; },
+      (_, tok) => { const rk = tokenToRk(tok); if (!rk) return _; changed = true; return rk; },
     );
     return changed ? out : null;
   };
@@ -483,6 +492,13 @@ a { color: var(--rk-accent) !important; }
     0 8px 24px color-mix(in oklch, var(--rk-crust) 55%, transparent),
     0 0 0 1px color-mix(in oklch, var(--rk-foreground) 10%, transparent) !important;
 }
+.p-theme_background { background-color: var(--rk-background) !important; }
+.c-alert.c-alert--level_info { background-color: color-mix(in oklch, var(--rk-magenta) 20%, var(--rk-mantle)) !important; }
+.c-alert.c-alert--level_info [class*="colorPalettesAubergine"] { color: var(--rk-foreground) !important; }
+[class*="sidebarBannerUnreads"] { background-color: var(--rk-red) !important; color: var(--rk-crust) !important; }
+.c-menu_item__li--highlighted .p-more_menu_icon,
+.c-menu_item__li--highlighted .p-more_menu_icon svg,
+.c-menu_item__li--highlighted .p-more_menu_icon svg path { color: var(--rk-crust) !important; fill: var(--rk-crust) !important; }
 :root, .sk-client-theme--dark {
   --p-team_sidebar__nav-bg: var(--rk-mantle) !important;
   --p-team_sidebar__badge: var(--rk-accent) !important;
