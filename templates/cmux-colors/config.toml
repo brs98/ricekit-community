@@ -3,23 +3,24 @@ name = "cmux-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "cmux terminal multiplexer theme colors"
-setup_instructions = """cmux uses Ghostty's config format, so the theme is imported via
-the same `config-file` directive Ghostty uses.
+setup_instructions = """cmux stores its theme palette in a Ghostty-format file at:
 
-Run once to clear any built-in cmux theme override:
+~/Library/Application Support/com.cmuxterm.app/config.ghostty
+
+Run once to clear any built-in cmux theme override and hand the file over to ricekit:
 
 cmux themes clear
 
-Then add this line to your cmux config (~/Library/Application Support/com.cmuxterm.app/config.ghostty):
-
-config-file = ?~/Library/Application Support/com.cmuxterm.app/ricekit-theme"""
+After that, every `ricekit apply` rewrites the file with the active palette and
+reloads cmux via `cmux reload-config`. Non-color terminal settings (font,
+opacity, keybinds) belong in your regular Ghostty config and are unaffected."""
 app = "cmux"
 category = "terminal"
 type = "colors"
 
 [target.macos]
-path = "~/Library/Application Support/com.cmuxterm.app/ricekit-theme"
-strategy = "symlink"
+path = "~/Library/Application Support/com.cmuxterm.app/config.ghostty"
+strategy = "direct"
 
 [reload.macos]
 command = "cmux reload-config 2>/dev/null; true"

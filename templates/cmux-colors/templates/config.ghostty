@@ -1,6 +1,6 @@
 # Ricekit generated cmux theme
 # Do not edit — regenerated on theme apply
-# Import in cmux config: config-file = ?~/Library/Application Support/com.cmuxterm.app/ricekit-theme
+# Owned by ricekit while cmux-colors is active; run `cmux themes clear` to hand control back.
 
 background = {{background}}
 foreground = {{foreground}}
