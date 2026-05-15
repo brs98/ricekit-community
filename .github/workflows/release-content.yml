@@ -45,11 +45,30 @@ jobs:
               MISSING=$((MISSING + 1))
             fi
           done
+          # `integrations/` is optional — the directory may be absent on a
+          # release branch that predates the integration extension type.
+          # When present, every subdir must carry an integration.toml.
+          if [ -d integrations ]; then
+            for dir in integrations/*/; do
+              [ -d "$dir" ] || continue
+              if [ ! -f "${dir}integration.toml" ]; then
+                echo "::error file=${dir}::missing integration.toml"
+                MISSING=$((MISSING + 1))
+              fi
+            done
+          fi
 
           for f in themes/*/theme.toml templates/*/config.toml; do
             python3 -c "import sys, tomllib; tomllib.load(open(sys.argv[1], 'rb'))" "$f" \
               || { echo "::error file=$f::TOML parse failed"; BROKEN=$((BROKEN + 1)); }
           done
+          if [ -d integrations ]; then
+            for f in integrations/*/integration.toml; do
+              [ -f "$f" ] || continue
+              python3 -c "import sys, tomllib; tomllib.load(open(sys.argv[1], 'rb'))" "$f" \
+                || { echo "::error file=$f::TOML parse failed"; BROKEN=$((BROKEN + 1)); }
+            done
+          fi
 
           if [ $MISSING -gt 0 ] || [ $BROKEN -gt 0 ]; then
             echo "Aborting: $MISSING missing files, $BROKEN parse errors"
@@ -61,6 +80,14 @@ jobs:
           set -euo pipefail
           THEMES=$(find themes -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
           CONFIGS=$(find templates -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
+          # Default to [] when integrations/ is absent so the desktop's
+          # `#[serde(default)] integrations: Vec<String>` parses cleanly on
+          # older release branches.
+          if [ -d integrations ]; then
+            INTEGRATIONS=$(find integrations -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
+          else
+            INTEGRATIONS="[]"
+          fi
           PUBLISHED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
           cat > manifest.json <<EOF
           {
@@ -68,6 +95,7 @@ jobs:
             "schema_major": ${{ steps.version.outputs.major }},
             "themes": ${THEMES},
             "configs": ${CONFIGS},
+            "integrations": ${INTEGRATIONS},
             "published_at": "${PUBLISHED}"
           }
           EOF
@@ -77,8 +105,15 @@ jobs:
         run: |
           set -euo pipefail
           TAR="ricekit-content-v${{ steps.version.outputs.version }}.tar.gz"
+          # Include integrations/ only when it exists, so a release that
+          # predates the integration extension type still packs cleanly.
+          TAR_PATHS=(themes/ templates/)
+          if [ -d integrations ]; then
+            TAR_PATHS+=(integrations/)
+          fi
+          TAR_PATHS+=(manifest.json)
           tar --sort=name --owner=0 --group=0 --numeric-owner \
-            -czf "$TAR" themes/ templates/ manifest.json
+            -czf "$TAR" "${TAR_PATHS[@]}"
           sha256sum "$TAR" | awk '{print $1}' > "$TAR.sha256"
           echo "Tarball: $(du -h "$TAR" | cut -f1)"
           echo "SHA256: $(cat "$TAR.sha256")"
