@@ -1,0 +1,22 @@
+[metadata]
+name = "pi-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Pi coding agent TUI theme generated from the active RiceKit palette"
+setup_instructions = """Enable this template, apply a RiceKit theme, then select the generated Pi theme with `/settings` or set `theme` to `ricekit` in `~/.pi/agent/settings.json`.
+
+RiceKit writes `~/.pi/agent/themes/ricekit.json` as a symlink to the rendered palette file under `~/.config/ricekit/active/pi/ricekit.json`. Pi watches the themes directory, and RiceKit recreates the symlink on every apply so the active Pi theme can hot-reload."""
+app = "pi"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.pi/agent/themes/ricekit.json"
+strategy = "symlink"
+
+[target.linux]
+path = "~/.pi/agent/themes/ricekit.json"
+strategy = "symlink"
+
+[requires]
+colors = ["ansi", "semantic"]
