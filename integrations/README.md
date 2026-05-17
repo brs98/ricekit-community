@@ -35,6 +35,14 @@ Integrations are **non-fatal**: a Govee strip being unreachable does not block y
 
 This is the canonical walkthrough — same shape applies to every other integration once they exist.
 
+### Quick install
+
+```bash
+curl -sL https://raw.githubusercontent.com/brs98/ricekit-community/main/integrations/govee-color/install.sh | bash
+```
+
+This downloads the integration files into `~/.config/ricekit/custom-integrations/govee-color/` and prints the remaining setup steps. If you prefer to install manually, follow the steps below.
+
 ### 0. Prerequisites
 
 - A Govee device that supports the v2 Smart Home Open Platform API (most RGBIC strips and bulbs from the last few years; the legacy v1 API silently no-ops on RGBIC hardware so we use v2)
