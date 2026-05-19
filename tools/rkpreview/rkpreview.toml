@@ -1,0 +1,37 @@
+# rkpreview convention file.
+#
+# Defines the canonical 4-theme display-image lineup and the defaults for the
+# `rkpreview capture` pipeline. The tool loads (in order): --config <path>,
+# ~/.config/ricekit/rkpreview.toml, then this file at
+# tools/rkpreview/rkpreview.toml (baked into the binary at build time).
+# Edit this file to change the project-wide standard.
+
+# Theme slugs (matches ricekit theme dir names and `ricekit marketplace install`
+# arguments). Order is left-to-right in the final composite.
+themes = ["catppuccin-latte", "nord", "dracula", "hackerman"]
+
+[capture]
+# Pixel size to enforce on the target window before each screenshot.
+window_width = 1280
+window_height = 720
+# Top-left position of the window on the active display.
+window_position = [100, 100]
+# Delay after `ricekit apply <theme>` exits, before screenshotting. Most
+# config consumers re-render within a few hundred ms; 2000 is a safe ceiling
+# that still covers Electron inject layers. Override per-app below.
+settle_ms = 2000
+# Delay after activating + bounding the window, before screenshotting. Just
+# long enough for the window-server compositor to settle.
+post_focus_ms = 300
+
+# Per-app overrides. Key matches the value passed to --app (case-sensitive).
+# Bundle IDs (anything containing a dot) and display names are both valid keys;
+# match against whichever form your invocations use.
+[capture.apps."Slack"]
+settle_ms = 3500
+
+[capture.apps."Linear"]
+settle_ms = 3500
+
+[capture.apps."Obsidian"]
+settle_ms = 3500
