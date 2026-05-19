@@ -1,7 +1,9 @@
-<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" /><br />
-<h2 align="center">Ricekit for <a href="https://linear.app" rel="noreferrer noopener" target="_blank">Linear</a></h2>
+<div align="center">
+<img src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" />
+<h2>Ricekit for <a href="https://linear.app" rel="noreferrer noopener" target="_blank">Linear</a></h2>
 
-<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/linear-desktop/preview.png" />
+<img src="https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/linear-desktop/preview.png" />
+</div>
 
 ### Usage
 

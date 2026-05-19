@@ -1,5 +1,7 @@
-<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" /><br />
-<h2 align="center">Ricekit for <a href="https://zen-browser.app" rel="noreferrer noopener" target="_blank">Zen Browser</a></h2>
+<div align="center">
+<img src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" />
+<h2>Ricekit for <a href="https://zen-browser.app" rel="noreferrer noopener" target="_blank">Zen Browser</a></h2>
+</div>
 
 ### Usage
 
