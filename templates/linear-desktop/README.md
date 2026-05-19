@@ -1,105 +1,33 @@
-# Linear Desktop Ricekit Injection
+<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" /><br />
+<h2 align="center">Ricekit for <a href="https://linear.app" rel="noreferrer noopener" target="_blank">Linear</a></h2>
 
-Ricekit themes Linear by driving Linear's own "Custom" interface theme.
-Linear's native theme accepts a JSON shape (`{base, accent, contrast, sidebar}`)
-and derives every internal color variable from it. `ricekit-theme.user.js`
-reads the active rk palette off `:root`, converts it to CIE LCH, and pushes it
-into Linear's MobX store via `setCurrentCustomTheme(...) + save()`. The store
-is located by walking from a sentinel-captured UserSettings instance to
-`instance.store.user.settings`. The persisted theme syncs back from the server
-on every reload, so this only fires when the rk palette differs from what
-Linear already has.
+<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/linear-desktop/preview.png" />
 
-Only `ricekit-vars.css` is injected via `webContents.insertCSS` — it sets the
-`--rk-*` custom properties on `:root` so the userscript can read them. There
-is no fallback CSS: layering a stylesheet on top of Linear's native theme
-fights the theme system and produces worse results than the native path alone.
+### Usage
 
-The same `ricekit-theme.user.js` is also distributed as a Tampermonkey
-userscript for users who run Linear in a regular browser tab — drop it into
-Tampermonkey, no extra config.
+#### macOS setup
 
-## Setup
+1. Enable this template and apply your Ricekit theme.
+2. Run:
 
-Patching is handled by the `rkpatch` binary in this repo. Build and install
-it once:
+   ```bash
+   rkpatch linear install
+   ```
 
-```bash
-cd tools/rkpatch && cargo install --path .
-# binary lands at ~/.cargo/bin/rkpatch — make sure that's on PATH
-```
+3. Restart Linear.
 
-Then enable the `linear-desktop` template in Ricekit and apply your theme so
-`~/.config/ricekit/active/linear-desktop/ricekit-vars.css` exists. After that:
+On macOS Sequoia (15+), the first install prints a one-line "macOS is blocking in-place edits — relocating to staging" notice. That's expected — `rkpatch` transparently copies the bundle aside, patches the copy, and atomically swaps it into `/Applications`. Subsequent installs go in place.
 
-```bash
-rkpatch linear status
-rkpatch linear install
-```
-
-That's it for the common case. Two notes:
-
-- **macOS Sequoia (15) and later:** the first `install` against a fresh
-  Apple-notarized Linear will print a "macOS is blocking in-place edits —
-  relocating to staging" notice. That's the AMFI fallback — rkpatch copies
-  the bundle to a same-volume staging dir, patches the copy, and atomically
-  swaps it into `/Applications`. Subsequent runs go in place. See
-  `tools/rkpatch/README.md` for the full mechanism.
-- **Permission errors:** if `install` fails with a filesystem permission
-  error (root-owned `/Applications/Linear.app`, IT-managed machine), retry
-  with `sudo rkpatch linear install`.
-
-`rkpatch linear install` reads `ricekit-theme.user.js`, embeds its content as
-a JSON-stringified literal into `ricekit-inject.js` (substituting the
-`__RICEKIT_THEME_JS__` placeholder declared in `tools/rkpatch/configs/linear.toml`),
-and writes the combined payload into Linear's `app.asar`. At runtime the
-injector calls `frame.executeJavaScript` with the embedded script on every
-`frame-created` event so the userscript runs at document-start in the renderer.
-
-## Recovery
+#### Recovery
 
 ```bash
 rkpatch linear restore
 ```
 
-## Tampermonkey usage
+Requires the `rkpatch` binary built from `tools/rkpatch/` in the `ricekit-community` repo and added to PATH:
 
-For browser-tab Linear, install `ricekit-theme.user.js` in Tampermonkey
-unchanged. The `@match https://linear.app/*` rule scopes it correctly. A
-global ricekit Stylus userstyle that sets `--rk-*` on `:root` for `linear.app`
-is required so the userscript has colors to read.
+```bash
+cd tools/rkpatch && cargo install --path .
+```
 
-## Known side effects
-
-- **Ad-hoc resigning.** The helper runs `codesign --force --deep --sign -`
-  after modifying the ASAR. This replaces Linear's original Apple Developer
-  signature with an ad-hoc one. Linear's auto-updater may refuse delta updates
-  or silently overwrite the bundle, reverting the patch.
-- **App updates revert the patch.** Every Linear update replaces
-  `/Applications/Linear.app`. Re-run `install` after each update.
-- **First custom-theme application is server-synced.** On a brand-new login,
-  Linear ships with `theme: 'system'`. The userscript switches that to
-  `'custom'` and writes our LCH theme; the change syncs to the server, so it
-  also affects Linear in other browsers / on mobile until you switch back.
-
-## Hook stability
-
-The userscript intentionally avoids hardcoded file names or class hashes —
-Linear rotates its bundle filenames (e.g. `store.8KYjzhdI.js` →
-`store.Db066w_C.js`) on every deploy. Forward-compat strategy:
-
-- **Sentinel via `Object.prototype.toggleNotificationBadge`** — the
-  UserSettings constructor assigns `this.toggleNotificationBadge = ...`, and
-  Linear's minifier preserves this name because MobX persists its action by
-  name string. The sentinel runs at document-start and captures any instance
-  whose prototype chain has `setCurrentCustomTheme`. Backups: a couple of
-  other `toggle*` action names as fallback if Linear ever splits this class.
-- **Live instance via `anchor.store.user.settings`** — the sentinel often
-  catches a bootstrap UserSettings that gets superseded by server hydration.
-  We navigate from any captured instance through stable accessor names
-  (`store`, `user`, `settings`) to the active one.
-
-If a future Linear release renames `setCurrentCustomTheme` or
-`toggleNotificationBadge`, the userscript will silently no-op (it logs to the
-console; check with `window.__ricekitLinearTheme`). At that point, update the
-sentinel name list in `ricekit-theme.user.js`.
+If install fails with a filesystem permission error, retry with `sudo rkpatch linear install`.

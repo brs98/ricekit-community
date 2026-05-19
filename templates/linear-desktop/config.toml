@@ -3,6 +3,7 @@ name = "linear-desktop"
 author = "ricekit"
 version = "0.1.0"
 description = "Linear desktop theme variables for Electron CSS injection"
+icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/linear-desktop/preview.png"
 setup_instructions = """macOS setup:
   1. Enable this template and apply your Ricekit theme.
   2. Run:

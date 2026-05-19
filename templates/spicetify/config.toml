@@ -3,6 +3,7 @@ name = "spicetify"
 author = "ricekit"
 version = "1.0.0"
 description = "Spicetify color theme for Spotify with live reload"
+icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/spicetify/preview.png"
 setup_instructions = """One-time setup:
   1. Copy user.css to your spicetify theme directory:
      mkdir -p ~/.config/spicetify/Themes/ricekit

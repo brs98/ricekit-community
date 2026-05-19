@@ -3,6 +3,7 @@ name = "chrome-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "Google Chrome browser theme color via managed-policy BrowserThemeColor"
+icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/chrome-colors/preview.png"
 setup_instructions = """Chrome reads enterprise policy from a different store on each OS. Setup is per-OS; the rendered file is the same on both. Both setups need a one-time sudo step — Chrome's policy mechanism only honors values from a system-managed location (Mandatory level). User-domain writes show up in chrome://policy as Recommended and don't actually theme the UI.
 
 macOS — one-time setup (requires sudo):
