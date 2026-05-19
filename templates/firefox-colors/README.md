@@ -1,6 +1,8 @@
 <img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" /><br />
 <h2 align="center">Ricekit for <a href="https://www.mozilla.org/firefox/" rel="noreferrer noopener" target="_blank">Firefox</a></h2>
 
+<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/firefox-colors/preview.png" />
+
 ### Usage
 
 1. Register the native messaging host:

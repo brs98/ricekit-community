@@ -1,6 +1,8 @@
 <img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/assets/ricekit.png" width="100" alt="logo" /><br />
 <h2 align="center">Ricekit for <a href="https://www.chromium.org/Home/" rel="noreferrer noopener" target="_blank">Chromium</a></h2>
 
+<img align="center" src="https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/chromium-colors/preview.png" />
+
 ### Usage
 
 Chromium reads enterprise policy from a different store on each OS. Setup is per-OS; the rendered file is the same on both. Both setups need a one-time sudo step — Chromium's policy mechanism only honors values from a system-managed location (Mandatory level). User-domain writes show up in `chrome://policy` as Recommended and don't actually theme the UI.

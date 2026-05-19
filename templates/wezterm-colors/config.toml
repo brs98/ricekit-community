@@ -3,6 +3,7 @@ name = "wezterm-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "WezTerm color table for dofile() integration with existing configs"
+icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/wezterm-colors/preview.png"
 setup_instructions = """Add to your .wezterm.lua:
 
 local ricekit = dofile(wezterm.config_dir .. '/ricekit-colors.lua')

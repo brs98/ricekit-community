@@ -3,6 +3,7 @@ name = "slack-desktop"
 author = "ricekit"
 version = "0.1.0"
 description = "Slack desktop theme variables for Electron CSS injection"
+icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/slack-desktop/preview.png"
 setup_instructions = """macOS setup:
   1. Enable this template and apply your Ricekit theme.
   2. Run:
