@@ -20,11 +20,31 @@ Theme schema essentials: `[metadata]` (name, author, version, variant: `dark`|`l
 2. Add a new directory: `templates/<app-name>/`
 3. Create `config.toml` with the required schema (see any existing template for reference)
 4. Add your template files alongside `config.toml`
-5. Open a pull request against `main`
-6. A maintainer reviews, test-loads the template locally, and merges
-7. Accepted templates ship in the next `content-v*` release tarball
+5. Optionally include a preview screenshot — see [Template previews](#template-previews) below
+6. Open a pull request against `main`
+7. A maintainer reviews, test-loads the template locally, and merges
+8. Accepted templates ship in the next `content-v*` release tarball
 
 Template syntax: `{{variable}}` substitution plus `{{function(args)}}` color operations (`darken`, `lighten`, `alpha`, `blend`, `contrast`). Ricekit provides 26 palette variables at render time. The release workflow does a basic TOML parse-check before shipping.
+
+### Template previews
+
+Templates can ship a preview screenshot that the marketplace card displays — a real image of the rendered config in use, so users can see what they're installing before they commit. The intent is "a wezterm window with the config's color treatment applied," not the app's brand mark.
+
+1. Drop the image alongside `config.toml`, e.g. `templates/wezterm-colors/preview.png`. Allowed extensions: `png`, `jpg`, `jpeg`, `webp`, `gif`, `svg`. No subdirectories — the file must live at the top of the template directory.
+2. Add a single line to the `[metadata]` block:
+
+   ```toml
+   preview = "preview.png"
+   ```
+
+   The value is a relative filename inside the template directory; absolute paths, `..` traversal, and symlinks pointing outside the directory are rejected by the desktop app at load time.
+
+3. Recommended shape: a wide screenshot (~1200×800 PNG works well) showing the target app with a recognizable theme applied. The marketplace card crops to a ~16:9 hero ~112px tall, so the top portion of the image is what users see first — frame accordingly.
+
+The image ships in the release tarball alongside `config.toml` — no special workflow handling. Templates without a `preview` field keep working: the marketplace card falls back to a generic placeholder, and the Configs row uses the existing two-letter monogram derived from `app`.
+
+**Sourcing.** Screenshots are easiest to capture yourself — apply the template against any bundled Ricekit theme, take a window screenshot, crop. If you're including an app window with visible content, avoid PII (open files, account names, terminal history with secrets). Don't lift screenshots from third-party blog posts or app stores without confirming the license permits redistribution.
 
 ## Contributing an integration
 
