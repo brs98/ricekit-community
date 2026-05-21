@@ -2,7 +2,7 @@
 @name NixOS Search Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.03.10.202604272043
+@version 2026.05.14.202605211213
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/nixos-search.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for NixOS Search
@@ -14,7 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("search.nixos.org") {
   @media (prefers-color-scheme: light) {
-    :root {
+    :root:not([data-theme]) {
       color-scheme: dark;
       --background-color: var(--rk-background);
       --badge-background: var(--rk-bright-black);
@@ -45,23 +45,23 @@
       --text-color-warning: var(--rk-yellow);
       /* Experimental Flakes label */
     }
-    :root ::selection {
+    :root:not([data-theme]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
-    :root input::placeholder,
-    :root textarea::placeholder {
+    :root:not([data-theme]) input::placeholder,
+    :root:not([data-theme]) textarea::placeholder {
       color: var(--rk-white) !important;
     }
-    :root .badge {
+    :root:not([data-theme]) .badge {
       color: var(--rk-foreground);
     }
-    :root .label {
+    :root:not([data-theme]) .label {
       color: var(--rk-background);
       text-shadow: none;
     }
   }
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
       color-scheme: dark;
       --background-color: var(--rk-background);
       --badge-background: var(--rk-bright-black);
@@ -92,19 +92,109 @@
       --text-color-warning: var(--rk-yellow);
       /* Experimental Flakes label */
     }
-    :root ::selection {
+    :root:not([data-theme]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
-    :root input::placeholder,
-    :root textarea::placeholder {
+    :root:not([data-theme]) input::placeholder,
+    :root:not([data-theme]) textarea::placeholder {
       color: var(--rk-white) !important;
     }
-    :root .badge {
+    :root:not([data-theme]) .badge {
       color: var(--rk-foreground);
     }
-    :root .label {
+    :root:not([data-theme]) .label {
       color: var(--rk-background);
       text-shadow: none;
     }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --background-color: var(--rk-background);
+    --badge-background: var(--rk-bright-black);
+    --button-active-background: var(--rk-black);
+    --button-active-hover-background: var(--rk-bright-black);
+    --button-background: var(--rk-surface0);
+    --button-hover-background: var(--rk-bright-black);
+    --color-active-hover-tab: var(--rk-black);
+    --color-active-tab: var(--rk-surface0);
+    --color-hover-tab: var(--rk-black);
+    --headerbar-background-color: var(--rk-mantle);
+    --hover-background: var(--rk-surface0);
+    --link-color: var(--rk-accent);
+    --info-label-background: var(--rk-accent);
+    --dark-blue: var(--rk-accent);
+    --light-blue: var(--rk-accent);
+    --line-color: var(--rk-surface0);
+    --search-result-short-details-color: var(--rk-bright-white);
+    --search-result-divider-line-color: var(--rk-surface0);
+    --search-result-title-color: var(--rk-accent);
+    --search-sidebar-link-color: var(--rk-foreground);
+    --search-sidebar-selected-link-background: var(--rk-accent);
+    --search-sidebar-selected-link-color: var(--rk-crust);
+    --terminal-background: var(--rk-surface0);
+    --terminal-color: var(--rk-foreground);
+    --text-color: var(--rk-foreground);
+    --text-color-light: var(--rk-foreground);
+    --text-color-warning: var(--rk-yellow);
+    /* Experimental Flakes label */
+  }
+  :root[data-theme="dark"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-theme="dark"] input::placeholder,
+  :root[data-theme="dark"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-theme="dark"] .badge {
+    color: var(--rk-foreground);
+  }
+  :root[data-theme="dark"] .label {
+    color: var(--rk-background);
+    text-shadow: none;
+  }
+  :root[data-theme="light"] {
+    color-scheme: dark;
+    --background-color: var(--rk-background);
+    --badge-background: var(--rk-bright-black);
+    --button-active-background: var(--rk-black);
+    --button-active-hover-background: var(--rk-bright-black);
+    --button-background: var(--rk-surface0);
+    --button-hover-background: var(--rk-bright-black);
+    --color-active-hover-tab: var(--rk-black);
+    --color-active-tab: var(--rk-surface0);
+    --color-hover-tab: var(--rk-black);
+    --headerbar-background-color: var(--rk-mantle);
+    --hover-background: var(--rk-surface0);
+    --link-color: var(--rk-accent);
+    --info-label-background: var(--rk-accent);
+    --dark-blue: var(--rk-accent);
+    --light-blue: var(--rk-accent);
+    --line-color: var(--rk-surface0);
+    --search-result-short-details-color: var(--rk-bright-white);
+    --search-result-divider-line-color: var(--rk-surface0);
+    --search-result-title-color: var(--rk-accent);
+    --search-sidebar-link-color: var(--rk-foreground);
+    --search-sidebar-selected-link-background: var(--rk-accent);
+    --search-sidebar-selected-link-color: var(--rk-crust);
+    --terminal-background: var(--rk-surface0);
+    --terminal-color: var(--rk-foreground);
+    --text-color: var(--rk-foreground);
+    --text-color-light: var(--rk-foreground);
+    --text-color-warning: var(--rk-yellow);
+    /* Experimental Flakes label */
+  }
+  :root[data-theme="light"] ::selection {
+    background-color: rgb(from var(--rk-accent) r g b / 0.3);
+  }
+  :root[data-theme="light"] input::placeholder,
+  :root[data-theme="light"] textarea::placeholder {
+    color: var(--rk-white) !important;
+  }
+  :root[data-theme="light"] .badge {
+    color: var(--rk-foreground);
+  }
+  :root[data-theme="light"] .label {
+    color: var(--rk-background);
+    text-shadow: none;
   }
 }
