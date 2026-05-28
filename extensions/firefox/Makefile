@@ -1,6 +1,6 @@
 # Build the Ricekit Firefox/Zen extension into a loadable XPI.
 #
-#   make          → dist/ricekit-theme.xpi
+#   make          → dist/ricekit-firefox.xpi
 #   make xpi      → same
 #   make clean    → remove dist/
 #
@@ -10,7 +10,7 @@
 #
 # For stable Firefox, sign via `web-ext sign` (not wired up here).
 
-NAME    := ricekit-theme
+NAME    := ricekit-firefox
 DIST    := dist
 XPI     := $(DIST)/$(NAME).xpi
 

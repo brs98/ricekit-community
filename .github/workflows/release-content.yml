@@ -150,7 +150,7 @@ jobs:
         run: |
           set -euo pipefail
           make xpi
-          XPI="dist/ricekit-theme.xpi"
+          XPI="dist/ricekit-firefox.xpi"
           sha256sum "$XPI" | awk '{print $1}' > "$XPI.sha256"
           echo "XPI: $(du -h "$XPI" | cut -f1)"
           echo "SHA256: $(cat "$XPI.sha256")"
@@ -171,8 +171,8 @@ jobs:
         # paths.
         run: |
           set -euo pipefail
-          cp extensions/firefox/dist/ricekit-theme.xpi .
-          cp extensions/firefox/dist/ricekit-theme.xpi.sha256 .
+          cp extensions/firefox/dist/ricekit-firefox.xpi .
+          cp extensions/firefox/dist/ricekit-firefox.xpi.sha256 .
           cp extensions/chrome/dist/ricekit-chrome.zip .
           cp extensions/chrome/dist/ricekit-chrome.zip.sha256 .
 
@@ -183,8 +183,8 @@ jobs:
             ricekit-content-v*.tar.gz
             ricekit-content-v*.tar.gz.sha256
             manifest.json
-            ricekit-theme.xpi
-            ricekit-theme.xpi.sha256
+            ricekit-firefox.xpi
+            ricekit-firefox.xpi.sha256
             ricekit-chrome.zip
             ricekit-chrome.zip.sha256
 
@@ -306,8 +306,8 @@ jobs:
             artifacts/ricekit-content-v*.tar.gz
             artifacts/ricekit-content-v*.tar.gz.sha256
             artifacts/manifest.json
-            artifacts/ricekit-theme.xpi
-            artifacts/ricekit-theme.xpi.sha256
+            artifacts/ricekit-firefox.xpi
+            artifacts/ricekit-firefox.xpi.sha256
             artifacts/ricekit-chrome.zip
             artifacts/ricekit-chrome.zip.sha256
             artifacts/rkpatch-*.tar.gz
