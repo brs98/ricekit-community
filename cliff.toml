@@ -1,0 +1,37 @@
+# git-cliff configuration
+# https://git-cliff.org/docs/configuration
+
+[changelog]
+# Render one dated section per release. Content releases use date-based tags, so
+# the release timestamp is more useful than repeating the generated tag.
+body = """
+{% if version %}\
+    ## {{ timestamp | date(format="%Y-%m-%d %H %M") }}\
+{% else %}\
+    ## Unreleased\
+{% endif %}\
+{% for group, commits in commits | group_by(attribute="group") %}
+    ### {{ group }}
+    {% for commit in commits %}\
+        - {% if commit.breaking %}[**breaking**] {% endif %}{{ commit.message | split(pat="\n") | first | upper_first }}
+    {% endfor %}\
+{% endfor %}\n
+"""
+
+[git]
+# Parse commits according to the Conventional Commits spec where possible, but
+# keep older non-conventional history so the generated changelog remains
+# complete.
+conventional_commits = true
+filter_unconventional = false
+# Keep the bot changelog commit out of the next release's notes.
+commit_parsers = [
+    { message = "^chore\\(release\\): update changelog", skip = true },
+    { message = "^Merge ", skip = true },
+    { message = "(?i)^([a-z]+(\\([^)]*\\))?!?: )?(remove|delete|drop)\\b", group = "Removed" },
+    { message = "^(feat|add)", group = "Added" },
+    { message = "^(fix|repair)", group = "Fixed" },
+    { message = "^(doc|docs|perf|refactor|style|test|chore|ci|build)", group = "Changed" },
+    { body = ".*security", group = "Security" },
+    { message = ".*", group = "Changed" },
+]

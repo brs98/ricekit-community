@@ -268,6 +268,12 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 0
 
+      - name: Install git-cliff
+        run: |
+          set -euo pipefail
+          cargo install git-cliff --version 2.13.1 --locked
+          git-cliff --version
+
       - uses: actions/download-artifact@v4
         with:
           path: artifacts
@@ -294,6 +300,26 @@ jobs:
           git tag -a "${TAG}" "${GITHUB_SHA}" -m "Release ${TAG}"
           git push origin "refs/tags/${TAG}"
 
+      - name: Generate release notes and changelog
+        run: |
+          set -euo pipefail
+          git-cliff --config cliff.toml --current --strip header --output RELEASE_NOTES.md
+          git-cliff --config cliff.toml --output CHANGELOG.md
+          echo "Release notes:"
+          cat RELEASE_NOTES.md
+
+      - name: Commit changelog to main
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- CHANGELOG.md; then
+            echo "CHANGELOG.md is already up to date"
+            exit 0
+          fi
+          git checkout -B "${GITHUB_REF_NAME}" "${GITHUB_SHA}"
+          git add CHANGELOG.md
+          git commit -m "chore(release): update changelog for ${{ steps.version.outputs.tag }} [skip ci]"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
@@ -301,7 +327,7 @@ jobs:
           name: Ricekit Content ${{ steps.version.outputs.tag }}
           draft: false
           prerelease: false
-          generate_release_notes: true
+          body_path: RELEASE_NOTES.md
           files: |
             artifacts/ricekit-content-v*.tar.gz
             artifacts/ricekit-content-v*.tar.gz.sha256
