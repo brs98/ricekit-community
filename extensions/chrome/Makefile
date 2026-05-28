@@ -1,6 +1,6 @@
 # Build the Ricekit Chrome extension into a loadable .zip (CRX optional).
 #
-#   make          → dist/ricekit-chrome-<version>.zip
+#   make          → dist/ricekit-chrome.zip
 #   make zip      → same
 #   make clean    → remove dist/
 #
@@ -12,9 +12,8 @@
 # allowlist a single chrome-extension://<id>/ origin across all users.
 
 NAME    := ricekit-chrome
-VERSION := $(shell sed -n 's/.*"version": *"\([^"]*\)".*/\1/p' manifest.json | head -1)
 DIST    := dist
-ZIP     := $(DIST)/$(NAME)-$(VERSION).zip
+ZIP     := $(DIST)/$(NAME).zip
 
 SOURCES := manifest.json \
            background.js \
