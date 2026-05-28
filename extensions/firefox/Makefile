@@ -1,11 +1,8 @@
 # Build the Ricekit Firefox/Zen extension into a loadable XPI.
 #
-#   make          → dist/ricekit-theme-<version>.xpi
+#   make          → dist/ricekit-firefox.xpi
 #   make xpi      → same
 #   make clean    → remove dist/
-#
-# Version is pulled from manifest.json so bumping the manifest is the only
-# thing needed for a release.
 #
 # Unsigned XPIs install via:
 #   - about:debugging → Load Temporary Add-on
@@ -13,10 +10,9 @@
 #
 # For stable Firefox, sign via `web-ext sign` (not wired up here).
 
-NAME    := ricekit-theme
-VERSION := $(shell sed -n 's/.*"version": *"\([^"]*\)".*/\1/p' manifest.json | head -1)
+NAME    := ricekit-firefox
 DIST    := dist
-XPI     := $(DIST)/$(NAME)-$(VERSION).xpi
+XPI     := $(DIST)/$(NAME).xpi
 
 SOURCES := manifest.json \
            background.js \

@@ -2,30 +2,57 @@ name: Release Content
 
 on:
   push:
-    tags:
-      - 'content-v*'
+    branches:
+      - main
+    paths:
+      - 'themes/**'
+      - 'templates/**'
+      - 'integrations/**'
+      - 'extensions/**'
+      - 'tools/rkpatch/**'
 
 permissions:
   contents: write
 
 jobs:
+  metadata:
+    name: Compute release metadata
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ steps.release.outputs.tag }}
+      version: ${{ steps.release.outputs.version }}
+      schema_major: ${{ steps.release.outputs.schema_major }}
+    steps:
+      - name: Compute date-based release tag
+        id: release
+        run: |
+          set -euo pipefail
+          VERSION="$(date -u +'%Y.%m.%d.%H%M')"
+          TAG="content-v${VERSION}"
+          SCHEMA_MAJOR="1"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "schema_major=$SCHEMA_MAJOR" >> "$GITHUB_OUTPUT"
+          echo "Publishing content version $VERSION (schema major $SCHEMA_MAJOR)"
+
   content:
-    name: Build content tarball + XPI
+    name: Build content tarball + extensions
+    needs: metadata
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Extract version from tag
+      - name: Load release metadata
         id: version
         run: |
           set -euo pipefail
-          TAG="${GITHUB_REF_NAME}"
-          VERSION="${TAG#content-v}"
-          MAJOR="$(echo "$VERSION" | cut -d. -f1)"
+          TAG="${{ needs.metadata.outputs.tag }}"
+          VERSION="${{ needs.metadata.outputs.version }}"
+          SCHEMA_MAJOR="${{ needs.metadata.outputs.schema_major }}"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
           echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "major=$MAJOR" >> "$GITHUB_OUTPUT"
-          echo "Publishing content version $VERSION (schema major $MAJOR)"
+          echo "schema_major=$SCHEMA_MAJOR" >> "$GITHUB_OUTPUT"
+          echo "Publishing content version $VERSION (schema major $SCHEMA_MAJOR)"
 
       - name: Sanity-check content layout and TOML parse
         run: |
@@ -92,7 +119,7 @@ jobs:
           cat > manifest.json <<EOF
           {
             "version": "${{ steps.version.outputs.version }}",
-            "schema_major": ${{ steps.version.outputs.major }},
+            "schema_major": ${{ steps.version.outputs.schema_major }},
             "themes": ${THEMES},
             "configs": ${CONFIGS},
             "integrations": ${INTEGRATIONS},
@@ -123,18 +150,31 @@ jobs:
         run: |
           set -euo pipefail
           make xpi
-          XPI=$(ls dist/ricekit-theme-*.xpi)
+          XPI="dist/ricekit-firefox.xpi"
           sha256sum "$XPI" | awk '{print $1}' > "$XPI.sha256"
           echo "XPI: $(du -h "$XPI" | cut -f1)"
           echo "SHA256: $(cat "$XPI.sha256")"
 
-      - name: Stage release files
-        # Flatten the XPI alongside the tarball + manifest so the download step
-        # can dump everything into a single dir without nested paths.
+      - name: Build Chrome ZIP and checksum
+        working-directory: extensions/chrome
         run: |
           set -euo pipefail
-          cp extensions/firefox/dist/ricekit-theme-*.xpi .
-          cp extensions/firefox/dist/ricekit-theme-*.xpi.sha256 .
+          make zip
+          ZIP="dist/ricekit-chrome.zip"
+          sha256sum "$ZIP" | awk '{print $1}' > "$ZIP.sha256"
+          echo "ZIP: $(du -h "$ZIP" | cut -f1)"
+          echo "SHA256: $(cat "$ZIP.sha256")"
+
+      - name: Stage release files
+        # Flatten extension artifacts alongside the tarball + manifest so the
+        # download step can dump everything into a single dir without nested
+        # paths.
+        run: |
+          set -euo pipefail
+          cp extensions/firefox/dist/ricekit-firefox.xpi .
+          cp extensions/firefox/dist/ricekit-firefox.xpi.sha256 .
+          cp extensions/chrome/dist/ricekit-chrome.zip .
+          cp extensions/chrome/dist/ricekit-chrome.zip.sha256 .
 
       - uses: actions/upload-artifact@v4
         with:
@@ -143,8 +183,10 @@ jobs:
             ricekit-content-v*.tar.gz
             ricekit-content-v*.tar.gz.sha256
             manifest.json
-            ricekit-theme-*.xpi
-            ricekit-theme-*.xpi.sha256
+            ricekit-firefox.xpi
+            ricekit-firefox.xpi.sha256
+            ricekit-chrome.zip
+            ricekit-chrome.zip.sha256
 
   rkpatch_test:
     name: Test rkpatch on ${{ matrix.os }}
@@ -211,15 +253,20 @@ jobs:
     # job still won't run. That's the intentional policy — partial releases
     # would silently ship missing binaries, which is worse than a no-op
     # release the maintainer can re-trigger after the fix.
-    needs: [content, rkpatch_build]
+    needs: [metadata, content, rkpatch_build]
     runs-on: ubuntu-latest
     steps:
-      - name: Extract version from tag
+      - name: Load release metadata
         id: version
         run: |
           set -euo pipefail
-          TAG="${GITHUB_REF_NAME}"
+          TAG="${{ needs.metadata.outputs.tag }}"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
 
       - uses: actions/download-artifact@v4
         with:
@@ -228,6 +275,24 @@ jobs:
 
       - name: List artifacts
         run: ls -la artifacts/
+
+      - name: Create and push release tag
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.version.outputs.tag }}"
+          git fetch --tags --force
+          if git rev-parse --verify --quiet "refs/tags/${TAG}" >/dev/null; then
+            echo "::error title=Release tag already exists::Tag ${TAG} already exists. Re-run from a later UTC minute or delete the existing tag if it was created by mistake."
+            exit 1
+          fi
+          if git ls-remote --exit-code --tags origin "refs/tags/${TAG}" >/dev/null 2>&1; then
+            echo "::error title=Release tag already exists::Tag ${TAG} already exists on origin. Re-run from a later UTC minute or delete the existing tag if it was created by mistake."
+            exit 1
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git tag -a "${TAG}" "${GITHUB_SHA}" -m "Release ${TAG}"
+          git push origin "refs/tags/${TAG}"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
@@ -241,7 +306,9 @@ jobs:
             artifacts/ricekit-content-v*.tar.gz
             artifacts/ricekit-content-v*.tar.gz.sha256
             artifacts/manifest.json
-            artifacts/ricekit-theme-*.xpi
-            artifacts/ricekit-theme-*.xpi.sha256
+            artifacts/ricekit-firefox.xpi
+            artifacts/ricekit-firefox.xpi.sha256
+            artifacts/ricekit-chrome.zip
+            artifacts/ricekit-chrome.zip.sha256
             artifacts/rkpatch-*.tar.gz
             artifacts/rkpatch-*.tar.gz.sha256
