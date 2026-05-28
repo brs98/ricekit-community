@@ -8,8 +8,7 @@ on:
       - 'themes/**'
       - 'templates/**'
       - 'integrations/**'
-      - 'extensions/chrome/**'
-      - 'extensions/firefox/**'
+      - 'extensions/**'
       - 'tools/rkpatch/**'
 
 permissions:
