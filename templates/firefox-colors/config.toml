@@ -3,7 +3,7 @@ name = "firefox-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "Firefox/Zen browser theme colors via Ricekit extension"
-icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/firefox-colors/preview.png"
+preview = "preview.png"
 setup_instructions = """
 1. Register the native messaging host:
      ricekit browser setup
