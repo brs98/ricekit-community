@@ -1,3 +1,7 @@
+## 2026-05-31 20 11
+### Changed
+- Add setup recipes for terminal configs (#30)
+
 ## 2026-05-31 07 35
 ### Added
 - Add git-cliff release notes (#28)
