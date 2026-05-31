@@ -1,3 +1,8 @@
+## 2026-05-31 07 35
+### Added
+- Add git-cliff release notes (#28)
+- Added Oh My Pi colors (#29)
+
 ## 2026-05-28 17 27
 ### Added
 - Automate content releases and update extension release names
