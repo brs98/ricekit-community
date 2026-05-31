@@ -3,10 +3,7 @@ name = "alacritty-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "Alacritty v0.13+ theme colors (TOML format)"
-setup_instructions = """Add to your alacritty.toml:
-
-[general]
-import = ["~/.config/alacritty/ricekit-theme.toml"]"""
+setup_instructions = "Add `import = [\"~/.config/alacritty/ricekit-theme.toml\"]` under `[general]` in `~/.config/alacritty/alacritty.toml`, then reopen Alacritty."
 app = "alacritty"
 category = "terminal"
 type = "colors"
@@ -18,10 +15,26 @@ strategy = "symlink"
 path = "~/.config/alacritty/ricekit-theme.toml"
 strategy = "symlink"
 
-[reload.macos]
-command = "[ -f ~/.config/alacritty/alacritty.toml ] && touch ~/.config/alacritty/alacritty.toml; true"
-[reload.linux]
-command = "[ -f ~/.config/alacritty/alacritty.toml ] && touch ~/.config/alacritty/alacritty.toml; true"
-
 [requires]
 colors = ["ansi"]
+
+[setup]
+id = "alacritty-colors-setup"
+version = 1
+platforms = ["macos", "linux"]
+manual_fallback = "Add `import = [\"~/.config/alacritty/ricekit-theme.toml\"]` under `[general]` in `~/.config/alacritty/alacritty.toml`, then reopen Alacritty."
+
+[[setup.actions]]
+type = "create_missing_default_config"
+id = "create-default"
+path = ".config/alacritty/alacritty.toml"
+content = "[general]\nimport = [\"~/.config/alacritty/ricekit-theme.toml\"]\n"
+
+[[setup.actions]]
+type = "manual"
+id = "existing-config"
+instructions = "If `~/.config/alacritty/alacritty.toml` already exists, add `import = [\"~/.config/alacritty/ricekit-theme.toml\"]` under `[general]` manually. RiceKit will not guess where to patch an existing TOML section."
+
+[[setup.visibility_hints]]
+kind = "restart_app"
+message = "Reopen Alacritty to load the RiceKit colors."

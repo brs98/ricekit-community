@@ -8,5 +8,7 @@
 Add to your Ghostty config (`~/.config/ghostty/config`):
 
 ```
-config-file = ?~/.config/ghostty/ricekit-theme
+config-file = ?~/.config/ghostty/ricekit-theme.conf
 ```
+
+Then open a new Ghostty window or tab.

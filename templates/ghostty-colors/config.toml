@@ -3,24 +3,40 @@ name = "ghostty-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "Ghostty terminal theme colors"
-setup_instructions = """Add to your Ghostty config (~/.config/ghostty/config):
-
-config-file = ?~/.config/ghostty/ricekit-theme"""
+setup_instructions = "Add `config-file = ?~/.config/ghostty/ricekit-theme.conf` to `~/.config/ghostty/config`, then open a new Ghostty window or tab."
 app = "ghostty"
 category = "terminal"
 type = "colors"
 
 [target.macos]
-path = "~/.config/ghostty/ricekit-theme"
+path = "~/.config/ghostty/ricekit-theme.conf"
 strategy = "symlink"
 [target.linux]
-path = "~/.config/ghostty/ricekit-theme"
+path = "~/.config/ghostty/ricekit-theme.conf"
 strategy = "symlink"
-
-[reload.macos]
-command = "[ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
-[reload.linux]
-command = "[ -f ~/.config/ghostty/config ] && touch ~/.config/ghostty/config; true"
 
 [requires]
 colors = ["ansi"]
+
+[setup]
+id = "ghostty-colors-setup"
+version = 1
+platforms = ["macos", "linux"]
+manual_fallback = "Add `config-file = ?~/.config/ghostty/ricekit-theme.conf` to `~/.config/ghostty/config`, then open a new Ghostty window or tab."
+
+[[setup.actions]]
+type = "managed_block"
+id = "import-colors"
+path = ".config/ghostty/config"
+content = "config-file = ?~/.config/ghostty/ricekit-theme.conf"
+marker_prefix = "#"
+
+[[setup.actions]]
+type = "create_missing_default_config"
+id = "create-default"
+path = ".config/ghostty/config"
+content = "config-file = ?~/.config/ghostty/ricekit-theme.conf\n"
+
+[[setup.visibility_hints]]
+kind = "open_new_window"
+message = "Open a new Ghostty window or tab to see the RiceKit colors."

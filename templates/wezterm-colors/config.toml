@@ -3,11 +3,8 @@ name = "wezterm-colors"
 author = "ricekit"
 version = "1.0.0"
 description = "WezTerm color table for dofile() integration with existing configs"
-preview = "preview.png"
-setup_instructions = """Add to your .wezterm.lua:
-
-local ricekit = dofile(wezterm.config_dir .. '/ricekit-colors.lua')
-ricekit.add_to_config_reload_watch_list(config)"""
+icon_url = "https://raw.githubusercontent.com/brs98/ricekit-community/main/templates/wezterm-colors/preview.png"
+setup_instructions = "Add `local ricekit_colors = dofile(wezterm.config_dir .. '/ricekit-colors.lua')` and `config.colors = ricekit_colors` to your WezTerm config, then open a new window."
 app = "wezterm"
 category = "terminal"
 type = "colors"
@@ -19,10 +16,26 @@ strategy = "symlink"
 path = "~/.config/wezterm/ricekit-colors.lua"
 strategy = "symlink"
 
-[reload.macos]
-command = "[ -f ~/.wezterm.lua ] && touch ~/.wezterm.lua; [ -f ~/.config/wezterm/wezterm.lua ] && touch ~/.config/wezterm/wezterm.lua; true"
-[reload.linux]
-command = "[ -f ~/.wezterm.lua ] && touch ~/.wezterm.lua; [ -f ~/.config/wezterm/wezterm.lua ] && touch ~/.config/wezterm/wezterm.lua; true"
-
 [requires]
 colors = ["ansi"]
+
+[setup]
+id = "wezterm-colors-setup"
+version = 1
+platforms = ["macos", "linux"]
+manual_fallback = "Add `local ricekit_colors = dofile(wezterm.config_dir .. '/ricekit-colors.lua')` and `config.colors = ricekit_colors` to your WezTerm config, then open a new window. If you use `~/.wezterm.lua`, wire it there instead of `~/.config/wezterm/wezterm.lua`."
+
+[[setup.actions]]
+type = "create_missing_default_config"
+id = "create-default"
+path = ".config/wezterm/wezterm.lua"
+content = "local wezterm = require 'wezterm'\nlocal config = wezterm.config_builder and wezterm.config_builder() or {}\nlocal ricekit_colors = dofile(wezterm.config_dir .. '/ricekit-colors.lua')\nconfig.colors = ricekit_colors\nreturn config\n"
+
+[[setup.actions]]
+type = "manual"
+id = "existing-config"
+instructions = "If your WezTerm config already exists, add `local ricekit_colors = dofile(wezterm.config_dir .. '/ricekit-colors.lua')` and `config.colors = ricekit_colors` manually near your existing `config` table builder. RiceKit will not guess how your Lua config is structured."
+
+[[setup.visibility_hints]]
+kind = "open_new_window"
+message = "Open a new WezTerm window to load the RiceKit colors."

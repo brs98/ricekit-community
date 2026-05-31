@@ -7,9 +7,13 @@
 
 ### Usage
 
-Add to your `.wezterm.lua`:
+If `~/.config/wezterm/wezterm.lua` does not exist yet, RiceKit can create a minimal one for you.
+
+Otherwise add this to your WezTerm config (`~/.wezterm.lua` or `~/.config/wezterm/wezterm.lua`):
 
 ```lua
-local ricekit = dofile(wezterm.config_dir .. '/ricekit-colors.lua')
-ricekit.add_to_config_reload_watch_list(config)
+local ricekit_colors = dofile(wezterm.config_dir .. '/ricekit-colors.lua')
+config.colors = ricekit_colors
 ```
+
+Then open a new WezTerm window.

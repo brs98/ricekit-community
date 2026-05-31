@@ -1,0 +1,42 @@
+[metadata]
+name = "kitty-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Kitty terminal theme colors"
+setup_instructions = "Add `include ~/.config/kitty/ricekit-colors.conf` to `~/.config/kitty/kitty.conf`, then open a new Kitty window."
+app = "kitty"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.config/kitty/ricekit-colors.conf"
+strategy = "symlink"
+[target.linux]
+path = "~/.config/kitty/ricekit-colors.conf"
+strategy = "symlink"
+
+[requires]
+colors = ["ansi"]
+
+[setup]
+id = "kitty-colors-setup"
+version = 1
+platforms = ["macos", "linux"]
+manual_fallback = "Add `include ~/.config/kitty/ricekit-colors.conf` to `~/.config/kitty/kitty.conf`, then open a new Kitty window."
+
+[[setup.actions]]
+type = "managed_block"
+id = "include-colors"
+path = ".config/kitty/kitty.conf"
+content = "include ~/.config/kitty/ricekit-colors.conf"
+marker_prefix = "#"
+
+[[setup.actions]]
+type = "create_missing_default_config"
+id = "create-default"
+path = ".config/kitty/kitty.conf"
+content = "include ~/.config/kitty/ricekit-colors.conf\n"
+
+[[setup.visibility_hints]]
+kind = "open_new_window"
+message = "Open a new Kitty window to load the RiceKit colors."
