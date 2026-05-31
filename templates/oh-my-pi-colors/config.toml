@@ -1,0 +1,22 @@
+[metadata]
+name = "oh-my-pi-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "Oh My Pi coding agent TUI theme generated from the active RiceKit palette"
+setup_instructions = """Enable this template, apply a RiceKit theme, then select the generated Oh My Pi theme with `/settings` or set `theme.dark` and/or `theme.light` to `ricekit` in `~/.omp/agent/config.yml`.
+
+RiceKit writes `~/.omp/agent/themes/ricekit.json` as a symlink to the rendered palette file under `~/.config/ricekit/active/oh-my-pi/ricekit.json`. Oh My Pi watches the themes directory, and RiceKit recreates the symlink on every apply so the active Oh My Pi theme can hot-reload."""
+app = "oh-my-pi"
+category = "terminal"
+type = "colors"
+
+[target.macos]
+path = "~/.omp/agent/themes/ricekit.json"
+strategy = "symlink"
+
+[target.linux]
+path = "~/.omp/agent/themes/ricekit.json"
+strategy = "symlink"
+
+[requires]
+colors = ["ansi", "semantic"]
