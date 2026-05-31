@@ -5,9 +5,13 @@
 
 ### Usage
 
-Add to your `alacritty.toml`:
+If `~/.config/alacritty/alacritty.toml` does not exist yet, RiceKit can create it for you.
+
+Otherwise add this under `[general]` in your existing `alacritty.toml`:
 
 ```toml
 [general]
 import = ["~/.config/alacritty/ricekit-theme.toml"]
 ```
+
+Then reopen Alacritty.
