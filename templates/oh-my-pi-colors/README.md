@@ -8,3 +8,8 @@
 Enable this template, apply a RiceKit theme, then select the generated Oh My Pi theme with `/settings` or set `theme.dark` and/or `theme.light` to `ricekit` in `~/.omp/agent/config.yml`.
 
 RiceKit writes `~/.omp/agent/themes/ricekit.json` as a symlink to the rendered palette file under `~/.config/ricekit/active/oh-my-pi/ricekit.json`. Oh My Pi watches the themes directory, and RiceKit recreates the symlink on every apply so the active Oh My Pi theme can hot-reload.
+
+Notes:
+
+- Oh My Pi's prompt border uses a per-session accent by default. Disable Appearance → Session Accent, or set `statusLine.sessionAccent: false`, if you want the prompt border to use the RiceKit theme's thinking/mode colors.
+- Completed todos use the Oh My Pi `success` color. If they stay green across themes, adjust the RiceKit theme's semantic success color.
