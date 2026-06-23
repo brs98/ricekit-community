@@ -63,7 +63,7 @@ Every compiled `.user.css` is stamped at build time with:
 - `@updateURL` → `https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/<site>.user.css`
 - `@version` → `{upstream-version}.{YYYYMMDDHHMM}` (UTC)
 
-Stylus polls `@updateURL` every 24 hours (configurable per user) and refreshes installed styles when it sees a newer `@version`. The daily `bump-userstyles-upstream` workflow rebuilds + commits `build/` as part of each upstream bump PR, so as soon as that PR merges, every Stylus user with the bundle installed auto-updates within 24h.
+Stylus polls `@updateURL` every 24 hours (configurable per user) and refreshes installed styles when it sees a newer `@version`. The daily `bump-userstyles-upstream` workflow rebuilds `build/` as part of each upstream bump PR. Styles whose compiled output is unchanged keep their existing `@version`, so Stylus only refreshes files that actually changed upstream.
 
 If you edit `src/compile.ts` / `src/rewrite-less.ts` / `src/rewrite-meta.ts`, run `deno task build` and commit the result alongside your source change. The `check-userstyles-build` CI workflow enforces this on every PR.
 
