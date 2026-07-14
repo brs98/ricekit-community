@@ -46,6 +46,68 @@ The image ships in the release tarball alongside `config.toml` — no special wo
 
 **Sourcing.** Screenshots are easiest to capture yourself — apply the template against any bundled Ricekit theme, take a window screenshot, crop. If you're including an app window with visible content, avoid PII (open files, account names, terminal history with secrets). Don't lift screenshots from third-party blog posts or app stores without confirming the license permits redistribution.
 
+## Authoring a Rice
+
+Rices are maintainer-curated complete looks. Community Rice submissions are not open yet; this contract documents the layout used for first-party curation.
+
+Create one directory per Rice at `rices/<slug>/`:
+
+```text
+rices/<slug>/
+├── rice.toml
+├── screenshots/
+│   └── desktop.png
+└── wallpapers/
+    └── desktop.jpg
+```
+
+The manifest uses the same stable slug as its directory and references theme and config slugs shipped in the same content release:
+
+```toml
+slug = "focused-terminal"
+name = "Focused Terminal"
+description = "A distraction-free terminal workspace"
+theme = "matte-black"
+wallpaper = "wallpapers/desktop.jpg"
+configs = ["ghostty-colors", "starship-colors"]
+screenshots = ["screenshots/desktop.png"]
+```
+
+`slug`, `name`, and `theme` are required. `description`, `wallpaper`, `configs`, and `screenshots` are optional in the app schema, but first-party Rices should include a useful description and at least one representative screenshot. Asset paths must be relative to the Rice directory; absolute paths, `..` traversal, missing files, and escaping symlinks fail release validation. Referenced themes and configs must exist in `themes/` and `templates/` in the same release.
+
+The content release copies the directory unchanged to `rices/<slug>/` in the tarball and adds the slug to the sorted `manifest.json` `rices` array. RiceKit refreshes that payload into its community cache and lists the manifest entry in the marketplace. Installing a Rice materializes its referenced RiceKit theme and config-template dependencies from that same verified release, but leaves those configs inactive until the user explicitly applies the Rice. It never installs applications or integrations, executes setup recipes, or activates configs as a side effect of installation.
+
+Before opening the maintainer PR, run:
+
+```bash
+python3 scripts/release_content.py validate --root .
+python3 scripts/test_release_content.py
+```
+
+### Release contract
+
+Content tags and manifest versions must contain exactly three numeric segments because current RiceKit clients select releases with `content-vX.Y.Z`. Schema major 1 releases use `1.YYYYMMDD.GITHUB_RUN_NUMBER`; a four-part calendar version is not compatible. `scripts/release_content.py build-release` is the only release packager: it validates references, emits the sorted manifest, packs the optional `rices/` root with the existing content roots, writes the checksum, and verifies the resulting archive. Repositories without `rices/` still produce a manifest with `"rices": []`.
+
+The pull-request workflow also builds `.github/fixtures/rice-contract/` as a release-format tarball. That fixture is outside the top-level content roots and cannot ship in a production archive. To exercise the real application contract from a checkout of merged `brs98/ricekit` main, run:
+
+```bash
+VERSION=1.19700101.1
+OUT="$(mktemp -d)"
+python3 scripts/release_content.py build-release \
+  --root .github/fixtures/rice-contract \
+  --output-dir "$OUT" \
+  --version "$VERSION" \
+  --schema-major 1 \
+  --published-at 1970-01-01T00:00:00Z
+RICEKIT_COMMUNITY_TARBALL="$OUT/ricekit-content-v$VERSION.tar.gz" \
+RICEKIT_COMMUNITY_VERSION="$VERSION" \
+cargo test --manifest-path ../ricekit/Cargo.toml \
+  -p ricekit-core --test community_refresh \
+  real_community_tarball_refresh_install_and_apply_contract -- --ignored --exact
+```
+
+The same final command accepts a production tarball built by the release workflow. Run it against the actual release artifact whenever a top-level production `rices/` directory is added or changed; this proves real refresh, list, dependency install, and apply behavior without reimplementing those operations in this repository.
+
 ## Contributing an integration
 
 Integrations are HTTP-based extensions — Govee strips, Home Assistant scenes, Hue/LIFX bulbs, anything you can hit with a `curl`. Unlike templates, they don't render a config file to disk; they fire an HTTP request as part of `apply_theme` with first-class secret storage.

@@ -8,6 +8,7 @@ on:
       - 'themes/**'
       - 'templates/**'
       - 'integrations/**'
+      - 'rices/**'
       - 'extensions/**'
       - 'tools/rkpatch/**'
 
@@ -27,12 +28,14 @@ jobs:
         id: release
         run: |
           set -euo pipefail
-          VERSION="$(date -u +'%Y.%m.%d.%H%M')"
+          VERSION="1.$(date -u +'%Y%m%d').${GITHUB_RUN_NUMBER}"
           TAG="content-v${VERSION}"
           SCHEMA_MAJOR="1"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "schema_major=$SCHEMA_MAJOR" >> "$GITHUB_OUTPUT"
+          {
+            echo "tag=$TAG"
+            echo "version=$VERSION"
+            echo "schema_major=$SCHEMA_MAJOR"
+          } >> "$GITHUB_OUTPUT"
           echo "Publishing content version $VERSION (schema major $SCHEMA_MAJOR)"
 
   content:
@@ -49,99 +52,32 @@ jobs:
           TAG="${{ needs.metadata.outputs.tag }}"
           VERSION="${{ needs.metadata.outputs.version }}"
           SCHEMA_MAJOR="${{ needs.metadata.outputs.schema_major }}"
-          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
-          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
-          echo "schema_major=$SCHEMA_MAJOR" >> "$GITHUB_OUTPUT"
+          {
+            echo "tag=$TAG"
+            echo "version=$VERSION"
+            echo "schema_major=$SCHEMA_MAJOR"
+          } >> "$GITHUB_OUTPUT"
           echo "Publishing content version $VERSION (schema major $SCHEMA_MAJOR)"
 
-      - name: Sanity-check content layout and TOML parse
+      - name: Test release content contract
+        run: python3 scripts/test_release_content.py
+
+      - name: Sanity-check content layout, references, and TOML parse
         run: |
           set -euo pipefail
-          MISSING=0
-          BROKEN=0
-
-          for dir in themes/*/; do
-            if [ ! -f "${dir}theme.toml" ]; then
-              echo "::error file=${dir}::missing theme.toml"
-              MISSING=$((MISSING + 1))
-            fi
-          done
-          for dir in templates/*/; do
-            if [ ! -f "${dir}config.toml" ]; then
-              echo "::error file=${dir}::missing config.toml"
-              MISSING=$((MISSING + 1))
-            fi
-          done
-          # `integrations/` is optional — the directory may be absent on a
-          # release branch that predates the integration extension type.
-          # When present, every subdir must carry an integration.toml.
-          if [ -d integrations ]; then
-            for dir in integrations/*/; do
-              [ -d "$dir" ] || continue
-              if [ ! -f "${dir}integration.toml" ]; then
-                echo "::error file=${dir}::missing integration.toml"
-                MISSING=$((MISSING + 1))
-              fi
-            done
-          fi
-
-          for f in themes/*/theme.toml templates/*/config.toml; do
-            python3 -c "import sys, tomllib; tomllib.load(open(sys.argv[1], 'rb'))" "$f" \
-              || { echo "::error file=$f::TOML parse failed"; BROKEN=$((BROKEN + 1)); }
-          done
-          if [ -d integrations ]; then
-            for f in integrations/*/integration.toml; do
-              [ -f "$f" ] || continue
-              python3 -c "import sys, tomllib; tomllib.load(open(sys.argv[1], 'rb'))" "$f" \
-                || { echo "::error file=$f::TOML parse failed"; BROKEN=$((BROKEN + 1)); }
-            done
-          fi
-
-          if [ $MISSING -gt 0 ] || [ $BROKEN -gt 0 ]; then
-            echo "Aborting: $MISSING missing files, $BROKEN parse errors"
-            exit 1
-          fi
-
-      - name: Build manifest.json
-        run: |
-          set -euo pipefail
-          THEMES=$(find themes -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
-          CONFIGS=$(find templates -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
-          # Default to [] when integrations/ is absent so the desktop's
-          # `#[serde(default)] integrations: Vec<String>` parses cleanly on
-          # older release branches.
-          if [ -d integrations ]; then
-            INTEGRATIONS=$(find integrations -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort | jq -R . | jq -cs .)
-          else
-            INTEGRATIONS="[]"
-          fi
-          PUBLISHED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
-          cat > manifest.json <<EOF
-          {
-            "version": "${{ steps.version.outputs.version }}",
-            "schema_major": ${{ steps.version.outputs.schema_major }},
-            "themes": ${THEMES},
-            "configs": ${CONFIGS},
-            "integrations": ${INTEGRATIONS},
-            "published_at": "${PUBLISHED}"
-          }
-          EOF
-          jq . manifest.json
+          python3 scripts/release_content.py validate --root .
 
       - name: Build tarball and checksum
         run: |
           set -euo pipefail
           TAR="ricekit-content-v${{ steps.version.outputs.version }}.tar.gz"
-          # Include integrations/ only when it exists, so a release that
-          # predates the integration extension type still packs cleanly.
-          TAR_PATHS=(themes/ templates/)
-          if [ -d integrations ]; then
-            TAR_PATHS+=(integrations/)
-          fi
-          TAR_PATHS+=(manifest.json)
-          tar --sort=name --owner=0 --group=0 --numeric-owner \
-            -czf "$TAR" "${TAR_PATHS[@]}"
-          sha256sum "$TAR" | awk '{print $1}' > "$TAR.sha256"
+          PUBLISHED=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+          python3 scripts/release_content.py build-release \
+            --root . \
+            --output-dir . \
+            --version "${{ steps.version.outputs.version }}" \
+            --schema-major "${{ steps.version.outputs.schema_major }}" \
+            --published-at "$PUBLISHED"
           echo "Tarball: $(du -h "$TAR" | cut -f1)"
           echo "SHA256: $(cat "$TAR.sha256")"
 

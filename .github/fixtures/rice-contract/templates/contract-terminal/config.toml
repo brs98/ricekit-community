@@ -1,0 +1,21 @@
+[metadata]
+name = "contract-terminal"
+author = "RiceKit"
+version = "1.0.0"
+app = "contract-terminal"
+category = "terminal"
+
+[target.macos]
+path = "~/.config/ricekit-contract/theme.conf"
+strategy = "direct"
+
+[target.linux]
+path = "~/.config/ricekit-contract/theme.conf"
+strategy = "direct"
+
+[target.windows]
+path = "C:\\Temp\\ricekit-contract-theme.conf"
+strategy = "direct"
+
+[requires]
+colors = []

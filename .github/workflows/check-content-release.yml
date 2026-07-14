@@ -1,0 +1,50 @@
+# Validates release content on pull requests without publishing a content tag.
+name: check-content-release
+
+on:
+  pull_request:
+    paths:
+      - "themes/**"
+      - "templates/**"
+      - "integrations/**"
+      - "rices/**"
+      - "scripts/release_content.py"
+      - "scripts/test_release_content.py"
+      - ".github/fixtures/rice-contract/**"
+      - ".github/workflows/release-content.yml"
+      - ".github/workflows/check-content-release.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test release content contract
+        run: python3 scripts/test_release_content.py
+
+      - name: Validate content
+        run: python3 scripts/release_content.py validate --root .
+
+      - name: Build and verify release layout
+        run: |
+          set -euo pipefail
+          VERSION="1.19700101.1"
+          python3 scripts/release_content.py build-release \
+            --root . \
+            --output-dir "$RUNNER_TEMP/release" \
+            --version "$VERSION" \
+            --schema-major 1 \
+            --published-at "1970-01-01T00:00:00Z"
+
+      - name: Build and verify RiceKit contract fixture
+        run: |
+          python3 scripts/release_content.py build-release \
+            --root .github/fixtures/rice-contract \
+            --output-dir "$RUNNER_TEMP/rice-contract" \
+            --version "1.19700101.1" \
+            --schema-major 1 \
+            --published-at "1970-01-01T00:00:00Z"

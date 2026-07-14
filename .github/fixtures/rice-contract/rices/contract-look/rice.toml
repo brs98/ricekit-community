@@ -1,0 +1,5 @@
+slug = "contract-look"
+name = "Contract Look"
+description = "CI-only fixture for the community release contract"
+theme = "contract-dark"
+configs = ["contract-terminal"]
