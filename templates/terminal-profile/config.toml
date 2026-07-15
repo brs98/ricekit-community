@@ -1,0 +1,14 @@
+[metadata]
+name = "terminal-profile"
+author = "RiceKit"
+version = "1.0.0"
+description = "Maintains the dedicated RiceKit profile in macOS Terminal.app after explicit consent"
+app = "terminal"
+category = "terminal"
+type = "colors"
+
+[requires]
+colors = ["ansi", "semantic"]
+
+[native_target.macos]
+backend = "terminal_profile"

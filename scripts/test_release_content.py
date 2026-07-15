@@ -57,7 +57,7 @@ class ReleaseContentTests(unittest.TestCase):
     def test_manifest_lists_all_item_kinds_in_sorted_order(self) -> None:
         self._add_tracer()
         data = release_content.manifest_data(
-            self.root, "1.20260714.42", 1, "2026-07-14T00:00:00Z"
+            self.root, "2.20260714.42", 2, "2026-07-14T00:00:00Z"
         )
         self.assertEqual(data["themes"], ["alpha", "zulu"])
         self.assertEqual(data["configs"], ["terminal"])
@@ -66,7 +66,7 @@ class ReleaseContentTests(unittest.TestCase):
 
     def test_manifest_without_rices_keeps_existing_item_arrays(self) -> None:
         data = release_content.manifest_data(
-            self.root, "1.20260714.42", 1, "2026-07-14T00:00:00Z"
+            self.root, "2.20260714.42", 2, "2026-07-14T00:00:00Z"
         )
         self.assertEqual(data["themes"], ["alpha", "zulu"])
         self.assertEqual(data["configs"], ["terminal"])
@@ -141,11 +141,11 @@ class ReleaseContentTests(unittest.TestCase):
         manifest, tarball, checksum = release_content.build_release(
             self.root,
             output,
-            "1.20260714.42",
-            1,
+            "2.20260714.42",
+            2,
             "2026-07-14T00:00:00Z",
         )
-        self.assertEqual(tarball.name, "ricekit-content-v1.20260714.42.tar.gz")
+        self.assertEqual(tarball.name, "ricekit-content-v2.20260714.42.tar.gz")
         self.assertEqual(checksum.name, f"{tarball.name}.sha256")
         release_content.verify_release(self.root, manifest, tarball, checksum)
 
@@ -165,8 +165,8 @@ class ReleaseContentTests(unittest.TestCase):
         manifest, tarball, checksum = release_content.build_release(
             self.root,
             output,
-            "1.20260714.42",
-            1,
+            "2.20260714.42",
+            2,
             "2026-07-14T00:00:00Z",
         )
         with tarfile.open(tarball, "w:gz") as archive:
@@ -184,8 +184,8 @@ class ReleaseContentTests(unittest.TestCase):
         manifest, tarball, checksum = release_content.build_release(
             self.root,
             output,
-            "1.20260714.42",
-            1,
+            "2.20260714.42",
+            2,
             "2026-07-14T00:00:00Z",
         )
         with tarfile.open(tarball, "w:gz") as archive:
@@ -202,8 +202,8 @@ class ReleaseContentTests(unittest.TestCase):
         manifest, tarball, checksum = release_content.build_release(
             self.root,
             output,
-            "1.20260714.42",
-            1,
+            "2.20260714.42",
+            2,
             "2026-07-14T00:00:00Z",
         )
         with tarfile.open(tarball, "w:gz") as archive:
@@ -221,8 +221,8 @@ class ReleaseContentTests(unittest.TestCase):
         manifest, tarball, checksum = release_content.build_release(
             self.root,
             output,
-            "1.20260714.42",
-            1,
+            "2.20260714.42",
+            2,
             "2026-07-14T00:00:00Z",
         )
         with tarfile.open(tarball, "w:gz") as archive:
@@ -238,8 +238,8 @@ class ReleaseContentTests(unittest.TestCase):
         manifest, tarball, checksum = release_content.build_release(
             self.root,
             output,
-            "1.20260714.42",
-            1,
+            "2.20260714.42",
+            2,
             "2026-07-14T00:00:00Z",
         )
         self.assertIn('"rices": []', manifest.read_text())
@@ -247,24 +247,110 @@ class ReleaseContentTests(unittest.TestCase):
 
     def test_version_matches_ricekit_three_segment_selection_contract(self) -> None:
         self.assertEqual(
-            release_content.validate_version("1.20260714.42", 1),
-            (1, 20260714, 42),
+            release_content.validate_version("2.20260714.42", 2),
+            (2, 20260714, 42),
         )
         for version in (
             "2026.07.14.0000",
-            "1.20260714",
-            "1.20260714.42.1",
-            "content-v1.20260714.42",
-            "1.20260714.run",
+            "2.20260714",
+            "2.20260714.42.1",
+            "content-v2.20260714.42",
+            "2.20260714.run",
         ):
             with self.subTest(version=version):
                 with self.assertRaises(release_content.ContentError):
-                    release_content.validate_version(version, 1)
+                    release_content.validate_version(version, 2)
 
         with self.assertRaises(release_content.ContentError):
-            release_content.validate_version("2.20260714.42", 1)
-        with self.assertRaises(release_content.ContentError):
             release_content.validate_version("1.20260714.42", 2)
+        with self.assertRaises(release_content.ContentError):
+            release_content.validate_version("2.20260714.42", 1)
+
+    def test_v1_release_window_ignores_drafts(self) -> None:
+        releases = [
+            {"tag_name": "draft-v9.0.0", "draft": True},
+            {"tag_name": "content-v2.0.0", "draft": False},
+            {"tag_name": "content-v1.9.9", "draft": False},
+        ]
+        self.assertEqual(release_content.check_v1_release_window(releases), 1)
+
+    def test_v1_release_window_accepts_public_index_28(self) -> None:
+        releases = [
+            {"tag_name": f"content-v2.0.{index}", "draft": False}
+            for index in range(28)
+        ]
+        releases.append({"tag_name": "content-v1.9.9", "draft": False})
+        self.assertEqual(release_content.check_v1_release_window(releases), 28)
+
+    def test_v1_release_window_rejects_public_index_29(self) -> None:
+        releases = [
+            {"tag_name": f"content-v2.0.{index}", "draft": False}
+            for index in range(29)
+        ]
+        releases.append({"tag_name": "content-v1.9.9", "draft": False})
+        with self.assertRaises(release_content.ContentError) as error:
+            release_content.check_v1_release_window(releases)
+        self.assertIn("would strand schema-v1 clients", error.exception.message)
+
+    def test_v1_release_window_rejects_missing_v1(self) -> None:
+        releases = [
+            {"tag_name": f"content-v2.0.{index}", "draft": False}
+            for index in range(30)
+        ]
+        with self.assertRaises(release_content.ContentError) as error:
+            release_content.check_v1_release_window(releases)
+        self.assertIn("no schema-v1 content release", error.exception.message)
+
+
+class ProductionTracerTests(unittest.TestCase):
+    def test_kanagawa_wave_native_contract_is_release_ready(self) -> None:
+        root = MODULE_PATH.parent.parent
+        errors = release_content.validate_content(root)
+        self.assertEqual(errors, [])
+
+        rice_dir = root / "rices/kanagawa-wave"
+        rice = release_content.load_toml(rice_dir / "rice.toml")
+        self.assertEqual(rice["slug"], "kanagawa-wave")
+        self.assertEqual(rice["theme"], "kanagawa")
+        self.assertEqual(
+            rice["configs"],
+            ["macos-appearance", "terminal-profile", "ghostty-colors"],
+        )
+        self.assertEqual(rice["screenshots"], ["screenshots/desktop.png"])
+        screenshot = rice_dir / rice["screenshots"][0]
+        self.assertTrue(screenshot.is_file())
+        self.assertFalse(screenshot.is_symlink())
+        self.assertTrue((root / "themes/kanagawa/wallpapers/1-kanagawa.jpg").is_file())
+
+        appearance = release_content.load_toml(
+            root / "templates/macos-appearance/config.toml"
+        )
+        self.assertNotIn("target", appearance)
+        self.assertEqual(
+            appearance["native_target"]["macos"],
+            {
+                "backend": "appearance",
+                "sync_light_dark": True,
+                "sync_accent_color": True,
+                "sync_highlight_color": False,
+            },
+        )
+
+        terminal = release_content.load_toml(
+            root / "templates/terminal-profile/config.toml"
+        )
+        self.assertNotIn("target", terminal)
+        self.assertEqual(
+            terminal["native_target"]["macos"],
+            {"backend": "terminal_profile"},
+        )
+
+        manifest = release_content.manifest_data(
+            root, "2.19700101.1", 2, "1970-01-01T00:00:00Z"
+        )
+        self.assertIn("kanagawa-wave", manifest["rices"])
+        self.assertIn("macos-appearance", manifest["configs"])
+        self.assertIn("terminal-profile", manifest["configs"])
 
 
 if __name__ == "__main__":

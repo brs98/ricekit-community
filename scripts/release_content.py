@@ -22,6 +22,7 @@ CONTENT_KINDS = {
 }
 CONTENT_VERSION = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
 U32_MAX = (1 << 32) - 1
+GITHUB_RELEASE_WINDOW = 30
 
 
 class ContentError(Exception):
@@ -45,19 +46,54 @@ def validate_version(version: str, schema_major: int) -> tuple[int, int, int]:
         raise ContentError(
             "version",
             "content version must contain exactly three numeric segments "
-            "(recommended: 1.YYYYMMDD.GITHUB_RUN_NUMBER)",
+            f"(recommended: {schema_major}.YYYYMMDD.GITHUB_RUN_NUMBER)",
         )
     segments = tuple(int(segment) for segment in match.groups())
     if any(segment > U32_MAX for segment in segments):
         raise ContentError("version", "content version segments must fit in unsigned 32-bit integers")
-    if schema_major != 1:
-        raise ContentError("schema_major", "current RiceKit releases require schema major 1")
+    if schema_major != 2:
+        raise ContentError("schema_major", "current RiceKit releases require schema major 2")
     if segments[0] != schema_major:
         raise ContentError(
             "version",
             f"content version major {segments[0]} must match schema major {schema_major}",
         )
     return segments
+
+
+def check_v1_release_window(releases: Any) -> int:
+    """Return the public v1 index, failing before another release would hide it."""
+    if not isinstance(releases, list):
+        raise ContentError("releases", "GitHub releases response must be an array")
+
+    public_tags: list[str] = []
+    for release in releases:
+        if not isinstance(release, dict):
+            raise ContentError("releases", "each GitHub release must be an object")
+        if release.get("draft") is True:
+            continue
+        tag = release.get("tag_name")
+        if not isinstance(tag, str):
+            raise ContentError("releases", "each public GitHub release must have a tag_name")
+        public_tags.append(tag)
+
+    visible_tags = public_tags[:GITHUB_RELEASE_WINDOW]
+    v1_index = next(
+        (index for index, tag in enumerate(visible_tags) if tag.startswith("content-v1.")),
+        None,
+    )
+    if v1_index is None:
+        raise ContentError(
+            "releases",
+            "no schema-v1 content release is visible in GitHub's first 30 public releases",
+        )
+    if v1_index >= GITHUB_RELEASE_WINDOW - 1:
+        raise ContentError(
+            "releases",
+            "publishing another release would strand schema-v1 clients; prune superseded "
+            "releases or publish a safe v1 keepalive first",
+        )
+    return v1_index
 
 
 def load_toml(path: Path) -> dict[str, Any]:
@@ -402,6 +438,9 @@ def main() -> int:
     verify.add_argument("--tarball", type=Path, required=True)
     verify.add_argument("--checksum", type=Path)
 
+    release_window = subparsers.add_parser("check-v1-release-window")
+    release_window.add_argument("--releases-json", type=Path, required=True)
+
     args = parser.parse_args()
     try:
         if args.command == "validate":
@@ -428,6 +467,16 @@ def main() -> int:
             print(f"Checksum: {checksum}")
         elif args.command == "verify-release":
             verify_release(args.root, args.manifest, args.tarball, args.checksum)
+        elif args.command == "check-v1-release-window":
+            try:
+                releases = json.loads(args.releases_json.read_text())
+            except (OSError, json.JSONDecodeError) as error:
+                raise ContentError(
+                    args.releases_json,
+                    f"GitHub releases JSON parse failed: {error}",
+                ) from error
+            index = check_v1_release_window(releases)
+            print(f"Latest schema-v1 release is at zero-based public release index {index}.")
     except ContentError as error:
         _print_errors([error])
         return 1
