@@ -77,6 +77,13 @@ screenshots = ["screenshots/desktop.png"]
 
 The content release copies the directory unchanged to `rices/<slug>/` in the tarball and adds the slug to the sorted `manifest.json` `rices` array. RiceKit refreshes that payload into its community cache and lists the manifest entry in the marketplace. Installing a Rice materializes its referenced RiceKit theme and config-template dependencies from that same verified release, but leaves those configs inactive until the user explicitly applies the Rice. It never installs applications or integrations, executes setup recipes, or activates configs as a side effect of installation.
 
+When first-party Rices are present but not publication-ready, maintainers add
+`rices/.publication-blocked` with the remaining acceptance work. Pull-request
+archives still build for cross-repository testing, but the main-branch release
+workflow runs `check-publication` and refuses to publish while the marker
+exists. Remove it only in the reviewed change that adds the final screenshots
+and acceptance evidence.
+
 Before opening the maintainer PR, run:
 
 ```bash

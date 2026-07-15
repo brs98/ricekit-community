@@ -274,6 +274,17 @@ class ReleaseContentTests(unittest.TestCase):
         ]
         self.assertEqual(release_content.check_v1_release_window(releases), 1)
 
+    def test_v1_release_window_ignores_malformed_v1_tags(self) -> None:
+        releases = [
+            {"tag_name": "content-v1.backup", "draft": False},
+            {"tag_name": "content-v1.2.3.4", "draft": False},
+            {"tag_name": "content-v1.9.9", "draft": False},
+        ]
+        self.assertEqual(release_content.check_v1_release_window(releases), 2)
+
+        with self.assertRaises(release_content.ContentError):
+            release_content.check_v1_release_window(releases[:2])
+
     def test_v1_release_window_accepts_public_index_28(self) -> None:
         releases = [
             {"tag_name": f"content-v2.0.{index}", "draft": False}
@@ -301,26 +312,73 @@ class ReleaseContentTests(unittest.TestCase):
             release_content.check_v1_release_window(releases)
         self.assertIn("no schema-v1 content release", error.exception.message)
 
+    def test_publication_marker_blocks_release(self) -> None:
+        marker = self.root / "rices/.publication-blocked"
+        marker.parent.mkdir()
+        marker.write_text("screenshots are provisional")
+        with self.assertRaises(release_content.ContentError) as error:
+            release_content.require_publication_ready(self.root)
+        self.assertIn("screenshots are provisional", error.exception.message)
 
-class ProductionTracerTests(unittest.TestCase):
-    def test_kanagawa_wave_native_contract_is_release_ready(self) -> None:
+        marker.unlink()
+        release_content.require_publication_ready(self.root)
+
+
+class ProductionRiceTests(unittest.TestCase):
+    def test_first_party_launch_set_contract(self) -> None:
         root = MODULE_PATH.parent.parent
         errors = release_content.validate_content(root)
         self.assertEqual(errors, [])
 
-        rice_dir = root / "rices/kanagawa-wave"
-        rice = release_content.load_toml(rice_dir / "rice.toml")
-        self.assertEqual(rice["slug"], "kanagawa-wave")
-        self.assertEqual(rice["theme"], "kanagawa")
-        self.assertEqual(
-            rice["configs"],
-            ["macos-appearance", "terminal-profile", "ghostty-colors"],
-        )
-        self.assertEqual(rice["screenshots"], ["screenshots/desktop.png"])
-        screenshot = rice_dir / rice["screenshots"][0]
-        self.assertTrue(screenshot.is_file())
-        self.assertFalse(screenshot.is_symlink())
-        self.assertTrue((root / "themes/kanagawa/wallpapers/1-kanagawa.jpg").is_file())
+        expected = {
+            "flexoki-paper": {
+                "theme": "flexoki-light",
+                "wallpaper": "wallpapers/desktop.png",
+                "theme_wallpaper": "themes/flexoki-light/wallpapers/1-flexoki-light-orb.png",
+                "configs": ["macos-appearance", "terminal-profile"],
+            },
+            "kanagawa-wave": {
+                "theme": "kanagawa",
+                "wallpaper": "wallpapers/desktop.jpg",
+                "theme_wallpaper": "themes/kanagawa/wallpapers/1-kanagawa.jpg",
+                "configs": [
+                    "macos-appearance",
+                    "terminal-profile",
+                    "ghostty-colors",
+                ],
+            },
+            "osaka-jade-night": {
+                "theme": "osaka-jade",
+                "wallpaper": "wallpapers/desktop.jpg",
+                "theme_wallpaper": "themes/osaka-jade/wallpapers/1-osaka-jade-bg.jpg",
+                "configs": ["macos-appearance", "terminal-profile"],
+            },
+        }
+
+        for slug, contract in expected.items():
+            rice_dir = root / "rices" / slug
+            rice = release_content.load_toml(rice_dir / "rice.toml")
+            self.assertEqual(rice["slug"], slug)
+            self.assertEqual(rice["theme"], contract["theme"])
+            self.assertEqual(rice["wallpaper"], contract["wallpaper"])
+            self.assertEqual(rice["configs"], contract["configs"])
+            self.assertEqual(
+                rice["configs"][:2], ["macos-appearance", "terminal-profile"]
+            )
+            self.assertGreaterEqual(len(rice["screenshots"]), 1)
+
+            wallpaper = rice_dir / rice["wallpaper"]
+            theme_wallpaper = root / contract["theme_wallpaper"]
+            self.assertTrue(wallpaper.is_file())
+            self.assertFalse(wallpaper.is_symlink())
+            self.assertEqual(
+                hashlib.sha256(wallpaper.read_bytes()).digest(),
+                hashlib.sha256(theme_wallpaper.read_bytes()).digest(),
+            )
+            for screenshot_path in rice["screenshots"]:
+                screenshot = rice_dir / screenshot_path
+                self.assertTrue(screenshot.is_file())
+                self.assertFalse(screenshot.is_symlink())
 
         appearance = release_content.load_toml(
             root / "templates/macos-appearance/config.toml"
@@ -348,7 +406,7 @@ class ProductionTracerTests(unittest.TestCase):
         manifest = release_content.manifest_data(
             root, "2.19700101.1", 2, "1970-01-01T00:00:00Z"
         )
-        self.assertIn("kanagawa-wave", manifest["rices"])
+        self.assertEqual(manifest["rices"], sorted(expected))
         self.assertIn("macos-appearance", manifest["configs"])
         self.assertIn("terminal-profile", manifest["configs"])
 

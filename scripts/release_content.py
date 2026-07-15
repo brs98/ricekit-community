@@ -21,8 +21,10 @@ CONTENT_KINDS = {
     "rices": "rice.toml",
 }
 CONTENT_VERSION = re.compile(r"^(\d+)\.(\d+)\.(\d+)$")
+CONTENT_TAG = re.compile(r"^content-v(\d+)\.(\d+)\.(\d+)$")
 U32_MAX = (1 << 32) - 1
 GITHUB_RELEASE_WINDOW = 30
+PUBLICATION_BLOCKER = Path("rices/.publication-blocked")
 
 
 class ContentError(Exception):
@@ -78,8 +80,21 @@ def check_v1_release_window(releases: Any) -> int:
         public_tags.append(tag)
 
     visible_tags = public_tags[:GITHUB_RELEASE_WINDOW]
+    def tag_version(tag: str) -> tuple[int, int, int] | None:
+        match = CONTENT_TAG.fullmatch(tag)
+        if match is None:
+            return None
+        segments = tuple(int(segment) for segment in match.groups())
+        if any(segment > U32_MAX for segment in segments):
+            return None
+        return segments
+
     v1_index = next(
-        (index for index, tag in enumerate(visible_tags) if tag.startswith("content-v1.")),
+        (
+            index
+            for index, tag in enumerate(visible_tags)
+            if (version := tag_version(tag)) is not None and version[0] == 1
+        ),
         None,
     )
     if v1_index is None:
@@ -94,6 +109,21 @@ def check_v1_release_window(releases: Any) -> int:
             "releases or publish a safe v1 keepalive first",
         )
     return v1_index
+
+
+def require_publication_ready(root: Path) -> None:
+    marker = root / PUBLICATION_BLOCKER
+    if not marker.exists() and not marker.is_symlink():
+        return
+    try:
+        reason = marker.read_text().strip()
+    except OSError as error:
+        raise ContentError(marker, f"cannot read publication blocker: {error}") from error
+    detail = reason or "acceptance evidence is incomplete"
+    raise ContentError(
+        marker,
+        f"content publication is blocked: {detail}",
+    )
 
 
 def load_toml(path: Path) -> dict[str, Any]:
@@ -441,6 +471,9 @@ def main() -> int:
     release_window = subparsers.add_parser("check-v1-release-window")
     release_window.add_argument("--releases-json", type=Path, required=True)
 
+    publication = subparsers.add_parser("check-publication")
+    publication.add_argument("--root", type=Path, default=Path("."))
+
     args = parser.parse_args()
     try:
         if args.command == "validate":
@@ -477,6 +510,8 @@ def main() -> int:
                 ) from error
             index = check_v1_release_window(releases)
             print(f"Latest schema-v1 release is at zero-based public release index {index}.")
+        elif args.command == "check-publication":
+            require_publication_ready(args.root)
     except ContentError as error:
         _print_errors([error])
         return 1

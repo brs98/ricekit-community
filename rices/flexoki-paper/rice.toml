@@ -1,0 +1,7 @@
+slug = "flexoki-paper"
+name = "Flexoki Paper"
+description = "Warm paper whites across the macOS desktop and Terminal, paired with Flexoki's minimal orb wallpaper"
+theme = "flexoki-light"
+wallpaper = "wallpapers/desktop.png"
+configs = ["macos-appearance", "terminal-profile"]
+screenshots = ["wallpapers/desktop.png"]

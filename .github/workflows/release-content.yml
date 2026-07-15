@@ -62,6 +62,9 @@ jobs:
       - name: Test release content contract
         run: python3 scripts/test_release_content.py
 
+      - name: Ensure content publication is unblocked
+        run: python3 scripts/release_content.py check-publication --root .
+
       - name: Sanity-check content layout, references, and TOML parse
         run: |
           set -euo pipefail
