@@ -1,3 +1,11 @@
+## 2026-07-16 20 44
+### Added
+- Distribute Rice bundles (#33)
+- Curate first-party launch set (#34)
+
+### Fixed
+- Preserve unchanged style versions (#32)
+
 ## 2026-05-31 20 11
 ### Changed
 - Add setup recipes for terminal configs (#30)
