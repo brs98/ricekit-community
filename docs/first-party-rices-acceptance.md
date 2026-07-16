@@ -5,17 +5,16 @@ This gate applies to the initial first-party set: `flexoki-paper`,
 or mark the community pull request ready until every required row has attached
 evidence.
 
-## Test targets
+## Launch test target
 
-Run the matrix on disposable, stock macOS installations:
+Run the launch matrix on the current production macOS release at the time of
+testing, using a disposable Apple Silicon VM or a snapshot-restored physical
+Mac.
 
-1. macOS 11 Big Sur, the oldest version supported by the tested RiceKit build,
-   at its latest available point release. The release operator must provide a
-   snapshot-restored Intel Mac, self-hosted runner, or external Mac provider;
-   Apple Virtualization Framework guests on the current Apple Silicon host do
-   not provide this target.
-2. The current production macOS release at the time of testing, using a
-   disposable Apple Silicon VM or a snapshot-restored physical Mac.
+This launch gate does not change RiceKit's macOS 11+ or Intel support.
+Compatibility of these first-party Rices on Intel macOS 11 Big Sur is
+unverified, not known incompatible, and is tracked as deferred post-launch
+validation in [MAI-61](https://linear.app/devxperience/issue/MAI-61/validate-first-party-rices-on-intel-macos-11-big-sur).
 
 Use a fresh VM snapshot or a fresh local account for each Rice. Do not reuse a
 mutated account between Rices. Do not sign the account into personal services,
@@ -113,7 +112,7 @@ For each Rice, restore the pristine snapshot and then:
 
 ## Evidence bundle
 
-Attach one directory per OS and Rice containing:
+Attach one directory per required launch target and Rice containing:
 
 - `environment.txt` with OS/build/architecture, VM template/snapshot identity,
   and both repository commits;
@@ -156,8 +155,8 @@ Attach one directory per OS and Rice containing:
 ## Publication-only finalization
 
 Clean-account screenshots are outputs of the matrix, so the tested candidate
-archive may contain provisional preview images. After every matrix row passes,
-one publication-only finalization change MAY:
+archive may contain provisional preview images. After every required launch
+matrix row passes, one publication-only finalization change MAY:
 
 - add or replace files beneath `rices/<slug>/screenshots/`;
 - change only the top-level `screenshots` field in
