@@ -1,0 +1,7 @@
+slug = "osaka-jade-night"
+name = "Osaka Jade Night"
+description = "Deep jade greens across the macOS desktop and Terminal, paired with Osaka's glowing city wallpaper"
+theme = "osaka-jade"
+wallpaper = "wallpapers/desktop.jpg"
+configs = ["macos-appearance", "terminal-profile"]
+screenshots = ["screenshots/desktop.png"]

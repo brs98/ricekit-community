@@ -1,0 +1,7 @@
+slug = "kanagawa-wave"
+name = "Kanagawa Wave"
+description = "Hokusai-inspired blues across the macOS desktop and Terminal, with optional Ghostty coverage"
+theme = "kanagawa"
+wallpaper = "wallpapers/desktop.jpg"
+configs = ["macos-appearance", "terminal-profile", "ghostty-colors"]
+screenshots = ["screenshots/desktop.png"]

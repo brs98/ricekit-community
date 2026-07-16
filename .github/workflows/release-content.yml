@@ -28,9 +28,9 @@ jobs:
         id: release
         run: |
           set -euo pipefail
-          VERSION="1.$(date -u +'%Y%m%d').${GITHUB_RUN_NUMBER}"
+          VERSION="2.$(date -u +'%Y%m%d').${GITHUB_RUN_NUMBER}"
           TAG="content-v${VERSION}"
-          SCHEMA_MAJOR="1"
+          SCHEMA_MAJOR="2"
           {
             echo "tag=$TAG"
             echo "version=$VERSION"
@@ -61,6 +61,9 @@ jobs:
 
       - name: Test release content contract
         run: python3 scripts/test_release_content.py
+
+      - name: Ensure content publication is unblocked
+        run: python3 scripts/release_content.py check-publication --root .
 
       - name: Sanity-check content layout, references, and TOML parse
         run: |
@@ -191,6 +194,9 @@ jobs:
     # release the maintainer can re-trigger after the fix.
     needs: [metadata, content, rkpatch_build]
     runs-on: ubuntu-latest
+    concurrency:
+      group: content-publication-${{ github.repository }}
+      cancel-in-progress: false
     steps:
       - name: Load release metadata
         id: version
@@ -217,6 +223,16 @@ jobs:
 
       - name: List artifacts
         run: ls -la artifacts/
+
+      - name: Guard schema-v1 release visibility
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/releases?per_page=100" \
+            > "$RUNNER_TEMP/releases.json"
+          python3 scripts/release_content.py check-v1-release-window \
+            --releases-json "$RUNNER_TEMP/releases.json"
 
       - name: Create and push release tag
         run: |

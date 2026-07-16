@@ -1,0 +1,17 @@
+[metadata]
+name = "macos-appearance"
+author = "RiceKit"
+version = "1.0.0"
+description = "Matches supported macOS Appearance colors to the active RiceKit theme after explicit consent"
+app = "macos"
+category = "system"
+type = "colors"
+
+[requires]
+colors = ["accent"]
+
+[native_target.macos]
+backend = "appearance"
+sync_light_dark = true
+sync_accent_color = true
+sync_highlight_color = false

@@ -77,6 +77,13 @@ screenshots = ["screenshots/desktop.png"]
 
 The content release copies the directory unchanged to `rices/<slug>/` in the tarball and adds the slug to the sorted `manifest.json` `rices` array. RiceKit refreshes that payload into its community cache and lists the manifest entry in the marketplace. Installing a Rice materializes its referenced RiceKit theme and config-template dependencies from that same verified release, but leaves those configs inactive until the user explicitly applies the Rice. It never installs applications or integrations, executes setup recipes, or activates configs as a side effect of installation.
 
+When first-party Rices are present but not publication-ready, maintainers add
+`rices/.publication-blocked` with the remaining acceptance work. Pull-request
+archives still build for cross-repository testing, but the main-branch release
+workflow runs `check-publication` and refuses to publish while the marker
+exists. Remove it only in the reviewed change that adds the final screenshots
+and acceptance evidence.
+
 Before opening the maintainer PR, run:
 
 ```bash
@@ -86,18 +93,24 @@ python3 scripts/test_release_content.py
 
 ### Release contract
 
-Content tags and manifest versions must contain exactly three numeric segments because current RiceKit clients select releases with `content-vX.Y.Z`. Schema major 1 releases use `1.YYYYMMDD.GITHUB_RUN_NUMBER`; a four-part calendar version is not compatible. `scripts/release_content.py build-release` is the only release packager: it validates references, emits the sorted manifest, packs the optional `rices/` root with the existing content roots, writes the checksum, and verifies the resulting archive. Repositories without `rices/` still produce a manifest with `"rices": []`.
+Content tags and manifest versions must contain exactly three numeric segments because RiceKit clients select releases with `content-vX.Y.Z`. Native Rice config backends require schema major 2, so current releases use `2.YYYYMMDD.GITHUB_RUN_NUMBER`. Schema-major-1 clients remain pinned to the last compatible v1 release and never download native Rice packages they cannot install safely. A four-part calendar version is not compatible. `scripts/release_content.py build-release` is the only release packager: it validates references, emits the sorted manifest, packs the optional `rices/` root with the existing content roots, writes the checksum, and verifies the resulting archive. Repositories without `rices/` still produce a manifest with `"rices": []`.
+
+Already-shipped v1 clients inspect only GitHub's first 30 releases. The release
+workflow therefore fails before a new v2 release would push the newest v1
+release out of that window. Do not bypass the guard: prune superseded releases
+or publish a separately reviewed, pre-native v1 keepalive from pinned v1
+content before continuing.
 
 The pull-request workflow also builds `.github/fixtures/rice-contract/` as a release-format tarball. That fixture is outside the top-level content roots and cannot ship in a production archive. To exercise the real application contract from a checkout of merged `brs98/ricekit` main, run:
 
 ```bash
-VERSION=1.19700101.1
+VERSION=2.19700101.1
 OUT="$(mktemp -d)"
 python3 scripts/release_content.py build-release \
-  --root .github/fixtures/rice-contract \
+  --root . \
   --output-dir "$OUT" \
   --version "$VERSION" \
-  --schema-major 1 \
+  --schema-major 2 \
   --published-at 1970-01-01T00:00:00Z
 RICEKIT_COMMUNITY_TARBALL="$OUT/ricekit-content-v$VERSION.tar.gz" \
 RICEKIT_COMMUNITY_VERSION="$VERSION" \
@@ -106,7 +119,7 @@ cargo test --manifest-path ../ricekit/Cargo.toml \
   real_community_tarball_refresh_install_and_apply_contract -- --ignored --exact
 ```
 
-The same final command accepts a production tarball built by the release workflow. Run it against the actual release artifact whenever a top-level production `rices/` directory is added or changed; this proves real refresh, list, dependency install, and apply behavior without reimplementing those operations in this repository.
+This builds and exercises the production archive, including native config targets and every top-level Rice. Run the same final command against the actual release artifact whenever a production `rices/` directory is added or changed; this proves real refresh, list, dependency install, and apply behavior without reimplementing those operations in this repository.
 
 ## Contributing an integration
 
