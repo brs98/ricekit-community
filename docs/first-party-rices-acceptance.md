@@ -78,6 +78,10 @@ For each Rice, restore the pristine snapshot and then:
 4. Apply the Rice. Grant both the one-time Appearance consent and the separate
    Terminal-profile consent, enable **Make the RiceKit profile the default**,
    and wait for the structured result. No terminal command may be required.
+   Capture the structured result before dismissing it. When the desktop
+   screenshot alternative in Evidence bundle is used, the result dialog is
+   the apply result artifact; the later native-state artifacts are its
+   independent corroboration.
 5. Reopen Terminal.app and confirm the dedicated `RiceKit` profile is active.
 6. Confirm the desktop wallpaper, macOS light/dark appearance and accent, and
    Terminal colors all visibly match the selected Rice.
@@ -120,13 +124,62 @@ Attach one directory per OS and Rice containing:
 - a before screenshot from the pristine account;
 - an after screenshot showing the real wallpaper and reopened Terminal.app;
 - an Appearance screenshot showing the applied mode and accent;
-- install, first-apply, repeat-apply, and restore result JSON or redacted logs;
+- install and restore result JSON or redacted logs;
+- first-apply and repeat-apply result evidence. Use result JSON or redacted
+  logs when the tested distribution exposes a supported, non-invasive export.
+  For the desktop one-click path, an unedited screenshot or ordered screenshot
+  series of the complete `What landed` dialog MAY serve as the result artifact
+  when no such export exists on the test target. A series is permitted only
+  when the tested release uses a fixed scroll container that cannot display
+  every outcome row in one frame at the target's supported window and display
+  settings. Every frame in a series MUST show the Rice name, adjacent frames
+  MUST overlap by at least one complete outcome row, and the ordered union MUST
+  show every outcome row, including each status icon and detail, without
+  obstruction. No outcome row may be clipped in its only occurrence. The
+  reviewer MUST record why one frame was impossible and treat the series as
+  one result artifact. Each screenshot alternative MUST be paired with (a)
+  machine-readable pre-consent output, (b) machine-readable first/repeat
+  Terminal ownership snapshots and invariant comparison, (c) visible
+  wallpaper, reopened Terminal palette, and Appearance evidence, (d)
+  machine-readable native restore and cleanup evidence, and (e) a SHA256 entry
+  in the evidence manifest. The reviewer MUST enumerate the visible outcome
+  rows and cross-reference the corresponding side-effect evidence. Do not
+  modify the tested product build, enable private instrumentation, or
+  substitute a CLI apply solely to manufacture result JSON;
 - sorted paths/counts beneath
   `setup/receipts/.terminal-profiles/` and
   `setup/backups/.terminal-profiles/` after first apply, repeat apply, and
   Terminal restore, plus a redacted comparison of the invariant receipt fields
   listed above; and
 - reviewer name, date, and explicit pass/fail for every expected matrix cell.
+
+## Publication-only finalization
+
+Clean-account screenshots are outputs of the matrix, so the tested candidate
+archive may contain provisional preview images. After every matrix row passes,
+one publication-only finalization change MAY:
+
+- add or replace files beneath `rices/<slug>/screenshots/`;
+- change only the top-level `screenshots` field in
+  `rices/<slug>/rice.toml`;
+- add or update attribution/license text solely for those screenshot files;
+  and
+- remove `rices/.publication-blocked` in the reviewed publication change.
+
+No other path, manifest field, file mode, or symlink target may change. In
+particular, themes, wallpapers used by apply, configs, integrations, Rice
+theme/config/wallpaper references, and release tooling must remain
+byte-for-byte identical to the tested candidate.
+
+Before publication, rebuild the final archive with
+`scripts/release_content.py`, verify its generated SHA256, and attach both
+candidate and final commits and archive hashes plus a publication-delta
+report. The report MUST show the complete Git diff and a semantic TOML
+comparison proving that removing the top-level `screenshots` field makes each
+changed Rice manifest identical. It MUST also prove that every
+non-allowlisted file has the same path, mode, and SHA256 in the candidate and
+final archives. Any delta outside this allowlist invalidates the matrix and
+requires a new clean-account run against the rebuilt archive.
 
 Replace provisional previews in the Rice manifests with these
 clean-account screenshots. A failure, missing screenshot, unpinned input, or
