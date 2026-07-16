@@ -4,4 +4,4 @@ description = "Deep jade greens across the macOS desktop and Terminal, paired wi
 theme = "osaka-jade"
 wallpaper = "wallpapers/desktop.jpg"
 configs = ["macos-appearance", "terminal-profile"]
-screenshots = ["wallpapers/desktop.jpg"]
+screenshots = ["screenshots/desktop.png"]

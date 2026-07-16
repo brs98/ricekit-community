@@ -4,4 +4,4 @@ description = "Warm paper whites across the macOS desktop and Terminal, paired w
 theme = "flexoki-light"
 wallpaper = "wallpapers/desktop.png"
 configs = ["macos-appearance", "terminal-profile"]
-screenshots = ["wallpapers/desktop.png"]
+screenshots = ["screenshots/desktop.png"]
