@@ -1,3 +1,7 @@
+## 2026-07-18 09 12
+### Added
+- Add Osaka Jade desktop Rice
+
 ## 2026-07-16 20 44
 ### Added
 - Distribute Rice bundles (#33)
