@@ -3,7 +3,7 @@
 <h2>Ricekit for <a href="https://github.com/FelixKratz/JankyBorders" rel="noreferrer noopener" target="_blank">JankyBorders</a></h2>
 </div>
 
-### Usage
+### Install and setup
 
 JankyBorders must be installed:
 
@@ -11,12 +11,22 @@ JankyBorders must be installed:
 brew install FelixKratz/formulae/borders
 ```
 
-If using AeroSpace, add to your `aerospace.toml`:
+On each theme apply, `borders.sh` resolves the binary from the standard Apple
+Silicon and Intel Homebrew paths (then `PATH`). It updates an existing process
+without killing it, or starts a new process and waits for a bounded readiness
+check. A missing binary, rejected update, early exit, or startup timeout is
+reported as an apply error rather than silently succeeding.
 
-```toml
-after-startup-command = [
-  'exec-and-forget source ~/.config/borders/borders.sh'
-]
-```
+No separate setup is required for visible borders. JankyBorders supports
+macOS 14 and newer. To start it automatically after login, configure the
+upstream `~/.config/borders/bordersrc` and Homebrew service; that optional
+persistence setup is not treated as a prerequisite for a successful Rice
+apply.
 
-Otherwise, source this script from your shell profile or WM startup.
+JankyBorders does not require Accessibility permission in its normal mode.
+The optional `ax_focus=on` compatibility mode uses the slower Accessibility
+API and is only needed for some tools that modify window properties, such as
+yabai. The RiceKit configuration does not enable `ax_focus`.
+
+Upstream references: [JankyBorders usage and bordersrc](https://github.com/FelixKratz/JankyBorders#usage)
+and the [`ax_focus` option](https://github.com/FelixKratz/JankyBorders/wiki/Man-Page).

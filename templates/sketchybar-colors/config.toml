@@ -1,23 +1,87 @@
 [metadata]
 name = "sketchybar-colors"
 author = "ricekit"
-version = "1.0.0"
-description = "SketchyBar color palette as shell variables"
-setup_instructions = """Add to your sketchybarrc:
+version = "1.1.0"
+description = "SketchyBar palette with a safe first-visible starter configuration"
+setup_instructions = """Install SketchyBar with Homebrew, then review and apply RiceKit's setup recipe. It creates a previewed starter only when `~/.config/sketchybar/sketchybarrc` is missing or empty. Existing shell and Lua configurations are never changed automatically.
 
-source "$CONFIG_DIR/colors.sh"
-
-Then use variables like: --bar color=$BAR_COLOR border_color=$BAR_BORDER_COLOR"""
+The starter does not use menu bar aliases and needs no Screen Recording permission. Screen Recording is only needed if you later add SketchyBar alias components."""
 app = "sketchybar"
 category = "statusbar"
 type = "colors"
 
 [target.macos]
-path = "~/.config/sketchybar/colors.sh"
+path = "~/.config/sketchybar"
 strategy = "symlink"
 
 [reload.macos]
-command = "sketchybar --reload"
+command = "bash ~/.config/sketchybar/ricekit-start.sh"
 
 [requires]
 colors = ["ansi", "semantic"]
+
+[setup]
+id = "sketchybar-colors-setup"
+version = 1
+platforms = ["macos"]
+manual_fallback = "If `~/.config/sketchybar/sketchybarrc` already exists, integrate `~/.config/sketchybar/colors.sh` using the configuration's own language. RiceKit will not append shell syntax to an existing shell or Lua configuration."
+
+[[setup.actions]]
+type = "create_missing_default_config"
+id = "create-visible-starter"
+path = ".config/sketchybar/sketchybarrc"
+content = '''CONFIG_DIR="${CONFIG_DIR:-$HOME/.config/sketchybar}"
+. "$CONFIG_DIR/colors.sh"
+
+SKETCHYBAR_BIN=""
+for candidate in /opt/homebrew/bin/sketchybar /usr/local/bin/sketchybar; do
+  if [ -x "$candidate" ]; then
+    SKETCHYBAR_BIN="$candidate"
+    break
+  fi
+done
+if [ -z "$SKETCHYBAR_BIN" ] && command -v sketchybar >/dev/null 2>&1; then
+  SKETCHYBAR_BIN="$(command -v sketchybar)"
+fi
+if [ -z "$SKETCHYBAR_BIN" ]; then
+  echo "RiceKit: SketchyBar is not installed. Run: brew install FelixKratz/formulae/sketchybar" >&2
+  exit 127
+fi
+
+"$SKETCHYBAR_BIN" --bar \
+  drawing=on \
+  position=top \
+  height=34 \
+  color="$BAR_COLOR" \
+  border_width=2 \
+  border_color="$BAR_BORDER_COLOR" \
+  margin=8 \
+  corner_radius=9 \
+  topmost=on
+
+"$SKETCHYBAR_BIN" --default \
+  icon.drawing=off \
+  label.color="$LABEL_COLOR" \
+  label.font="SF Pro:Semibold:13.0" \
+  padding_left=10 \
+  padding_right=10
+
+"$SKETCHYBAR_BIN" --add item ricekit.brand left \
+  --set ricekit.brand label="RiceKit"
+"$SKETCHYBAR_BIN" --add item ricekit.status right \
+  --set ricekit.status label="Theme active" \
+    background.drawing=on \
+    background.color="$ITEM_BG_COLOR" \
+    background.corner_radius=6 \
+    background.height=24
+"$SKETCHYBAR_BIN" --update
+'''
+
+[[setup.actions]]
+type = "manual"
+id = "existing-config"
+instructions = "If `~/.config/sketchybar/sketchybarrc` already exists, keep its current shell or Lua syntax and integrate `~/.config/sketchybar/colors.sh` manually. For shell configs, source the file and pass its variables to SketchyBar. For Lua/SbarLua configs, read or translate the generated color values in Lua rather than inserting shell commands."
+
+[[setup.visibility_hints]]
+kind = "reload_config"
+message = "Reapply the Rice after setup. Setup writes the starter config but does not run reload hooks; reapplying starts or reloads SketchyBar and verifies that its bar is queryable before reporting success."
