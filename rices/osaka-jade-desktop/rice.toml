@@ -1,0 +1,7 @@
+slug = "osaka-jade-desktop"
+name = "Osaka Jade Desktop"
+description = "Osaka Jade across macOS, Terminal, SketchyBar, and JankyBorders, with guided installation for the two optional desktop tools"
+theme = "osaka-jade"
+wallpaper = "wallpapers/desktop.jpg"
+configs = ["macos-appearance", "terminal-profile", "sketchybar-colors", "jankyborders-colors"]
+screenshots = ["screenshots/desktop.jpg"]

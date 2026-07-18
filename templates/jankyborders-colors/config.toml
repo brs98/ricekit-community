@@ -1,17 +1,8 @@
 [metadata]
 name = "jankyborders-colors"
 author = "ricekit"
-version = "1.0.0"
-description = "JankyBorders themed window border colors"
-setup_instructions = """JankyBorders must be installed: brew install FelixKratz/formulae/borders
-
-If using AeroSpace, add to your aerospace.toml:
-
-after-startup-command = [
-  'exec-and-forget source ~/.config/borders/borders.sh'
-]
-
-Otherwise, source this script from your shell profile or WM startup."""
+version = "1.1.0"
+description = "JankyBorders themed window borders with safe startup and live updates"
 app = "jankyborders"
 category = "wm"
 type = "colors"
