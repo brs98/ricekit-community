@@ -2,7 +2,7 @@
 @name SearXNG Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.02.28.202605211213
+@version 2026.07.12.202608061122
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/searxng.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for SearXNG
@@ -22,8 +22,8 @@
       --color-base-font: var(--rk-foreground);
       --color-base-background: var(--rk-background);
       --color-base-background-mobile: var(--rk-background);
-      --color-url-font: var(--rk-accent);
-      --color-url-visited-font: var(--rk-accent);
+      --color-url-font: var(--rk-blue);
+      --color-url-visited-font: var(--rk-lavender);
       --color-header-background: var(--rk-mantle);
       --color-header-border: var(--rk-mantle);
       --color-footer-background: var(--rk-mantle);
@@ -64,9 +64,9 @@
       --color-result-vim-selected: var(--rk-surface0);
       --color-result-vim-arrow: var(--rk-accent);
       --color-result-description-highlight-font: var(--rk-foreground);
-      --color-result-link-font: var(--rk-accent);
-      --color-result-link-font-highlight: var(--rk-accent);
-      --color-result-link-visited-font: var(--rk-accent);
+      --color-result-link-font: var(--rk-blue);
+      --color-result-link-font-highlight: var(--rk-blue);
+      --color-result-link-visited-font: var(--rk-lavender);
       --color-result-publishdate-font: var(--rk-bright-black);
       --color-result-engines-font: var(--rk-bright-black);
       --color-result-search-url-border: var(--rk-bright-black);
@@ -75,7 +75,7 @@
       --color-result-detail-label-font: var(--rk-white);
       --color-result-detail-background: var(--rk-background);
       --color-result-detail-hr: var(--rk-background);
-      --color-result-detail-link: var(--rk-accent);
+      --color-result-detail-link: var(--rk-blue);
       --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
       --color-result-detail-loader-borderleft: var(--rk-crust);
       --color-result-image-span-font: var(--rk-foreground);
@@ -135,8 +135,8 @@
       --color-base-font: var(--rk-foreground);
       --color-base-background: var(--rk-background);
       --color-base-background-mobile: var(--rk-background);
-      --color-url-font: var(--rk-accent);
-      --color-url-visited-font: var(--rk-accent);
+      --color-url-font: var(--rk-blue);
+      --color-url-visited-font: var(--rk-lavender);
       --color-header-background: var(--rk-mantle);
       --color-header-border: var(--rk-mantle);
       --color-footer-background: var(--rk-mantle);
@@ -177,9 +177,9 @@
       --color-result-vim-selected: var(--rk-surface0);
       --color-result-vim-arrow: var(--rk-accent);
       --color-result-description-highlight-font: var(--rk-foreground);
-      --color-result-link-font: var(--rk-accent);
-      --color-result-link-font-highlight: var(--rk-accent);
-      --color-result-link-visited-font: var(--rk-accent);
+      --color-result-link-font: var(--rk-blue);
+      --color-result-link-font-highlight: var(--rk-blue);
+      --color-result-link-visited-font: var(--rk-lavender);
       --color-result-publishdate-font: var(--rk-bright-black);
       --color-result-engines-font: var(--rk-bright-black);
       --color-result-search-url-border: var(--rk-bright-black);
@@ -188,7 +188,7 @@
       --color-result-detail-label-font: var(--rk-white);
       --color-result-detail-background: var(--rk-background);
       --color-result-detail-hr: var(--rk-background);
-      --color-result-detail-link: var(--rk-accent);
+      --color-result-detail-link: var(--rk-blue);
       --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
       --color-result-detail-loader-borderleft: var(--rk-crust);
       --color-result-image-span-font: var(--rk-foreground);
@@ -247,8 +247,8 @@
     --color-base-font: var(--rk-foreground);
     --color-base-background: var(--rk-background);
     --color-base-background-mobile: var(--rk-background);
-    --color-url-font: var(--rk-accent);
-    --color-url-visited-font: var(--rk-accent);
+    --color-url-font: var(--rk-blue);
+    --color-url-visited-font: var(--rk-lavender);
     --color-header-background: var(--rk-mantle);
     --color-header-border: var(--rk-mantle);
     --color-footer-background: var(--rk-mantle);
@@ -289,9 +289,9 @@
     --color-result-vim-selected: var(--rk-surface0);
     --color-result-vim-arrow: var(--rk-accent);
     --color-result-description-highlight-font: var(--rk-foreground);
-    --color-result-link-font: var(--rk-accent);
-    --color-result-link-font-highlight: var(--rk-accent);
-    --color-result-link-visited-font: var(--rk-accent);
+    --color-result-link-font: var(--rk-blue);
+    --color-result-link-font-highlight: var(--rk-blue);
+    --color-result-link-visited-font: var(--rk-lavender);
     --color-result-publishdate-font: var(--rk-bright-black);
     --color-result-engines-font: var(--rk-bright-black);
     --color-result-search-url-border: var(--rk-bright-black);
@@ -300,7 +300,7 @@
     --color-result-detail-label-font: var(--rk-white);
     --color-result-detail-background: var(--rk-background);
     --color-result-detail-hr: var(--rk-background);
-    --color-result-detail-link: var(--rk-accent);
+    --color-result-detail-link: var(--rk-blue);
     --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
     --color-result-detail-loader-borderleft: var(--rk-crust);
     --color-result-image-span-font: var(--rk-foreground);
@@ -358,8 +358,8 @@
     --color-base-font: var(--rk-foreground);
     --color-base-background: var(--rk-background);
     --color-base-background-mobile: var(--rk-background);
-    --color-url-font: var(--rk-accent);
-    --color-url-visited-font: var(--rk-accent);
+    --color-url-font: var(--rk-blue);
+    --color-url-visited-font: var(--rk-lavender);
     --color-header-background: var(--rk-mantle);
     --color-header-border: var(--rk-mantle);
     --color-footer-background: var(--rk-mantle);
@@ -400,9 +400,9 @@
     --color-result-vim-selected: var(--rk-surface0);
     --color-result-vim-arrow: var(--rk-accent);
     --color-result-description-highlight-font: var(--rk-foreground);
-    --color-result-link-font: var(--rk-accent);
-    --color-result-link-font-highlight: var(--rk-accent);
-    --color-result-link-visited-font: var(--rk-accent);
+    --color-result-link-font: var(--rk-blue);
+    --color-result-link-font-highlight: var(--rk-blue);
+    --color-result-link-visited-font: var(--rk-lavender);
     --color-result-publishdate-font: var(--rk-bright-black);
     --color-result-engines-font: var(--rk-bright-black);
     --color-result-search-url-border: var(--rk-bright-black);
@@ -411,7 +411,7 @@
     --color-result-detail-label-font: var(--rk-white);
     --color-result-detail-background: var(--rk-background);
     --color-result-detail-hr: var(--rk-background);
-    --color-result-detail-link: var(--rk-accent);
+    --color-result-detail-link: var(--rk-blue);
     --color-result-detail-loader-border: rgba(255, 255, 255, 0.2);
     --color-result-detail-loader-borderleft: var(--rk-crust);
     --color-result-image-span-font: var(--rk-foreground);

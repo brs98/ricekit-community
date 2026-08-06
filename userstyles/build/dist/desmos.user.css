@@ -2,7 +2,7 @@
 @name Desmos Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.04.20.202605211213
+@version 2026.07.16.202608061122
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/desmos.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Desmos
@@ -36,6 +36,16 @@
       /* Account settings modal */
       /* Desmos Professional (desmos.com/professional) */
       /* "powered by" text above logo */
+      /* saved graph titles */
+      /* saved folders */
+      /* slider bounds */
+      /* tutorial (internally called tour/trip) */
+      /* folders */
+      /* folders search (no items found) */
+      /* new graph button */
+      /* update to new behavior button (write f()=random() then enter/exit text mode) */
+      /* desmodder: intellisense current variable highlight */
+      /* line numbers */
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -172,6 +182,7 @@
       background: var(--rk-overlay1) !important;
     }
     :root .dcg-keypad-btn.dcg-btn-light-on-gray,
+    :root .dcg-keypad-btn.dcg-btn-light-gray,
     :root .dcg-ctrl-toggle-cover {
       background: var(--rk-mantle) !important;
       border-color: var(--rk-surface0) !important;
@@ -496,7 +507,8 @@
     :root .dcg-grapher__error-in-graph-bounds {
       text-shadow: none !important;
     }
-    :root .dcg-btn-light-gray {
+    :root .dcg-btn-light-gray,
+    :root .dcg-btn-light-on-gray {
       background: var(--rk-mantle) !important;
       box-shadow: none !important;
       border-color: var(--rk-foreground) !important;
@@ -523,6 +535,7 @@
     :root .dcg-visual-settings {
       border-bottom-color: var(--rk-overlay2) !important;
     }
+    :root .dcg-checkbox__box,
     :root .dcg-axis-label,
     :root .dcg-clickable-menu-row:has(.dcg-input-label) > .dcg-mathquill-wrapper {
       --dcg-accent-color: var(--rk-accent) !important;
@@ -1084,6 +1097,55 @@
     }
     :root .dcg-powered-by {
       color: var(--rk-foreground) !important;
+    }
+    :root .dcg-checkbox__content {
+      color: var(--rk-accent);
+    }
+    :root .dcg-saved-graphs {
+      --dcg-folder-background-color: var(--rk-mantle);
+    }
+    :root .dcg-slider {
+      --dcg-custom-secondary-text-color: var(--rk-accent);
+    }
+    :root .dcg-trip-interior,
+    :root .dcg-trip-content {
+      background: var(--rk-background) !important;
+      color: var(--rk-foreground);
+    }
+    :root .dcg-folder {
+      --dcg-folder-background-color: var(--rk-mantle) !important;
+    }
+    :root .dcg-folder-item-count {
+      color: var(--rk-bright-white);
+    }
+    :root .dcg-my-graphs-modal__back-btn-text,
+    :root .dcg-folder__name,
+    :root .dcg-my-graphs-modal__folder-header > .dcg-my-graphs-modal-saved-graphs-header,
+    :root .dcg-example-gallery__heading,
+    :root .dcg-saved-graphs-tile__title {
+      color: var(--rk-accent);
+    }
+    :root .dcg-my-graphs-modal-empty-state__heading {
+      color: var(--rk-accent) !important;
+    }
+    :root .dcg-my-graphs-modal-empty-state__no-search-results {
+      color: var(--rk-bright-white);
+    }
+    :root .dcg-new-my-graphs-item__button {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-option-container > .dcg-dropdown-choice[role="menuitem"] {
+      color: var(--rk-foreground);
+    }
+    :root .dcg-update-behavior-btn {
+      border-color: var(--rk-surface0) !important;
+    }
+    :root .pfc-param-selected {
+      background: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root .dcg-num {
+      color: var(--rk-foreground);
     }
   }
   @media (prefers-color-scheme: dark) {
@@ -1108,6 +1170,16 @@
       /* Account settings modal */
       /* Desmos Professional (desmos.com/professional) */
       /* "powered by" text above logo */
+      /* saved graph titles */
+      /* saved folders */
+      /* slider bounds */
+      /* tutorial (internally called tour/trip) */
+      /* folders */
+      /* folders search (no items found) */
+      /* new graph button */
+      /* update to new behavior button (write f()=random() then enter/exit text mode) */
+      /* desmodder: intellisense current variable highlight */
+      /* line numbers */
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1244,6 +1316,7 @@
       background: var(--rk-overlay1) !important;
     }
     :root .dcg-keypad-btn.dcg-btn-light-on-gray,
+    :root .dcg-keypad-btn.dcg-btn-light-gray,
     :root .dcg-ctrl-toggle-cover {
       background: var(--rk-mantle) !important;
       border-color: var(--rk-surface0) !important;
@@ -1568,7 +1641,8 @@
     :root .dcg-grapher__error-in-graph-bounds {
       text-shadow: none !important;
     }
-    :root .dcg-btn-light-gray {
+    :root .dcg-btn-light-gray,
+    :root .dcg-btn-light-on-gray {
       background: var(--rk-mantle) !important;
       box-shadow: none !important;
       border-color: var(--rk-foreground) !important;
@@ -1595,6 +1669,7 @@
     :root .dcg-visual-settings {
       border-bottom-color: var(--rk-overlay2) !important;
     }
+    :root .dcg-checkbox__box,
     :root .dcg-axis-label,
     :root .dcg-clickable-menu-row:has(.dcg-input-label) > .dcg-mathquill-wrapper {
       --dcg-accent-color: var(--rk-accent) !important;
@@ -2156,6 +2231,55 @@
     }
     :root .dcg-powered-by {
       color: var(--rk-foreground) !important;
+    }
+    :root .dcg-checkbox__content {
+      color: var(--rk-accent);
+    }
+    :root .dcg-saved-graphs {
+      --dcg-folder-background-color: var(--rk-mantle);
+    }
+    :root .dcg-slider {
+      --dcg-custom-secondary-text-color: var(--rk-accent);
+    }
+    :root .dcg-trip-interior,
+    :root .dcg-trip-content {
+      background: var(--rk-background) !important;
+      color: var(--rk-foreground);
+    }
+    :root .dcg-folder {
+      --dcg-folder-background-color: var(--rk-mantle) !important;
+    }
+    :root .dcg-folder-item-count {
+      color: var(--rk-bright-white);
+    }
+    :root .dcg-my-graphs-modal__back-btn-text,
+    :root .dcg-folder__name,
+    :root .dcg-my-graphs-modal__folder-header > .dcg-my-graphs-modal-saved-graphs-header,
+    :root .dcg-example-gallery__heading,
+    :root .dcg-saved-graphs-tile__title {
+      color: var(--rk-accent);
+    }
+    :root .dcg-my-graphs-modal-empty-state__heading {
+      color: var(--rk-accent) !important;
+    }
+    :root .dcg-my-graphs-modal-empty-state__no-search-results {
+      color: var(--rk-bright-white);
+    }
+    :root .dcg-new-my-graphs-item__button {
+      color: var(--rk-foreground) !important;
+    }
+    :root .dropdown-option-container > .dcg-dropdown-choice[role="menuitem"] {
+      color: var(--rk-foreground);
+    }
+    :root .dcg-update-behavior-btn {
+      border-color: var(--rk-surface0) !important;
+    }
+    :root .pfc-param-selected {
+      background: var(--rk-surface0) !important;
+      color: var(--rk-foreground) !important;
+    }
+    :root .dcg-num {
+      color: var(--rk-foreground);
     }
   }
 }

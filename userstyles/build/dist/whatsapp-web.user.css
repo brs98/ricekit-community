@@ -2,7 +2,7 @@
 @name WhatsApp Web Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.03.03.202605211213
+@version 2026.07.03.202608061122
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/whatsapp-web.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for WhatsApp Web
@@ -103,6 +103,8 @@
     --WDS-surface-default: #181825;
     --WDS-surface-default-RGB: 24, 24, 37;
     --WDS-surface-default-rgb: 24, 24, 37;
+    --background-default: var(--WDS-surface-default);
+    --search-container-background: var(--WDS-surface-default);
     --WDS-surface-emphasized: #1e1e2e;
     --WDS-surface-emphasized-RGB: 30, 30, 46;
     --WDS-surface-emphasized-rgb: 30, 30, 46;
@@ -424,6 +426,8 @@
     --WDS-surface-default: #181825;
     --WDS-surface-default-RGB: 24, 24, 37;
     --WDS-surface-default-rgb: 24, 24, 37;
+    --background-default: var(--WDS-surface-default);
+    --search-container-background: var(--WDS-surface-default);
     --WDS-surface-emphasized: #1e1e2e;
     --WDS-surface-emphasized-RGB: 30, 30, 46;
     --WDS-surface-emphasized-rgb: 30, 30, 46;

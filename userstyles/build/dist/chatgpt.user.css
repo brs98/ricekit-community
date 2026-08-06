@@ -2,7 +2,7 @@
 @name ChatGPT Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.05.20.202605211213
+@version 2026.07.26.202608061122
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/chatgpt.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for ChatGPT
@@ -46,6 +46,7 @@
     --border-medium: var(--rk-bright-black);
     --interactive-border-focus: var(--rk-overlay0);
     --theme-user-msg-bg: var(--rk-surface0);
+    --theme-user-msg-text: var(--rk-foreground);
     --theme-submit-btn-bg: var(--rk-accent);
     --theme-submit-btn-text: var(--rk-background);
     --theme-secondary-btn-bg: var(--rk-black);
@@ -219,6 +220,7 @@
     --border-medium: var(--rk-bright-black);
     --interactive-border-focus: var(--rk-overlay0);
     --theme-user-msg-bg: var(--rk-surface0);
+    --theme-user-msg-text: var(--rk-foreground);
     --theme-submit-btn-bg: var(--rk-accent);
     --theme-submit-btn-text: var(--rk-background);
     --theme-secondary-btn-bg: var(--rk-black);
