@@ -1,7 +1,7 @@
-// Produce a Stylus backup JSON that installs every compiled userstyle in one
+// Produce a Stylus backup JSON that installs every built userstyle in one
 // click (Stylus → Manage Styles → Import → select this file).
 // Format matches what Stylus's own backup/restore feature writes out, with
-// the compiled .user.css content shipped inline via `sourceCode`.
+// the original LESS or CSS content shipped inline via `sourceCode`.
 import usercssMeta from "npm:usercss-meta@0.12.0";
 import { calcStyleDigest } from "https://github.com/openstyles/stylus/raw/8fe35a4b90d85fb911bd7aa1deab4e4733c31150/src/js/sections-util.js";
 import { join } from "jsr:@std/path@^1.0.8";
@@ -22,7 +22,7 @@ const entries: Record<string, unknown>[] = [settings];
 
 const files: string[] = [];
 for await (const entry of Deno.readDir(DIST_DIR)) {
-  if (entry.isFile && entry.name.endsWith(".user.css")) {
+  if (entry.isFile && /\.user\.(?:css|less)$/.test(entry.name)) {
     files.push(entry.name);
   }
 }

@@ -1,0 +1,102 @@
+/* ==UserStyle==
+@name Elk Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/elk.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Elk
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("elk.zone") {
+  :root.dark {
+    #catppuccin(@darkFlavor);
+  }
+  :root.light {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --c-primary: @accent !important;
+    --c-primary-active: ~"hsl(from var(--rk-accent) h s calc(l + 10))" !important;
+    --c-primary-light: @surface0 !important;
+    --c-border: @surface0 !important;
+    --c-border-dark: @surface1 !important;
+    --c-bg-base: @base !important;
+    --rgb-bg-base: ~"var(--rk-mantle-rgb)" !important;
+    --c-bg-active: @surface0 !important;
+    --c-bg-code: @surface0 !important;
+    --c-bg-selection: @accent !important;
+    --c-bg-fade: @surface0 !important;
+    --c-text-base: @text !important;
+    --c-text-code: @rosewater !important;
+    --c-text-secondary: @subtext0 !important;
+    --c-text-secondary-light: @subtext1 !important;
+    --c-bg-btn-disabled: @surface1 !important;
+    --c-text-btn-disabled: @text !important;
+    --c-text-btn: @text !important;
+    --c-success: @green !important;
+    --c-warning: @yellow !important;
+    --c-error: @red !important;
+    --c-danger: @red !important;
+    --c-danger-active: ~"hsl(from var(--rk-red) h s calc(l + 10))" !important;
+    --c-bg-dm: @surface0 !important;
+
+    .btn-solid,
+    [btn-solid=""] {
+      color: var(--c-bg-base);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ~"rgb(from var(--rk-black) r g b / 0.7)";
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: ~"rgb(from var(--rk-black) r g b / 0.8)";
+    }
+
+    [text-red],
+    [text-red-600],
+    [hover^="text-red"]:hover {
+      color: ~"rgb(from var(--rk-red) r g b / var(--un-text-opacity))";
+    }
+
+    [text-blue],
+    [hover^="text-blue"]:hover {
+      color: ~"rgb(from var(--rk-blue) r g b / var(--un-text-opacity))";
+    }
+
+    [text-green],
+    [hover^="text-green"]:hover {
+      color: ~"rgb(from var(--rk-green) r g b / var(--un-text-opacity))";
+    }
+
+    [text-yellow],
+    [hover^="text-yellow"]:hover {
+      color: ~"rgb(from var(--rk-yellow) r g b / var(--un-text-opacity))";
+    }
+
+    [text-purple],
+    [hover^="text-purple"]:hover {
+      color: ~"rgb(from var(--rk-lavender) r g b / var(--un-text-opacity))";
+    }
+
+    [group-hover^="bg-purple/10"]:hover {
+      background-color: ~"rgb(from var(--rk-lavender) r g b / 0.1)";
+    }
+
+    .filter-saturate-0,
+    [filter-saturate-0=""] {
+      filter: none;
+    }
+  }
+}

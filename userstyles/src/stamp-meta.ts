@@ -1,10 +1,10 @@
-// Walk build/dist/*.user.css, rewrite @updateURL to point at our repo's raw
+// Walk build/dist/*.user.{less,css}, rewrite @updateURL to point at our repo's raw
 // URL for that exact file, and stamp @version with a monotonic build suffix.
 // Files whose stamped output is byte-identical to the committed copy keep their
 // existing @version, so upstream bump PRs only update styles that actually
 // changed.
 //
-// Run after build.ts (which writes the compiled .user.css) and before
+// Run after build.ts and before
 // generate-import.ts (which reads the stamped files to embed in import.json).
 
 import { type MetaRewrite, rewriteMeta } from "./rewrite-meta.ts";
@@ -91,7 +91,6 @@ function rewriteOptions(
     namespace: NAMESPACE,
     homepageURL: HOMEPAGE_URL,
     supportURL: SUPPORT_URL,
-    stripVarSelects: true,
     // Name + description depend on the extracted site name — skip the rebrand
     // for styles that don't match the upstream "{Site} Catppuccin" convention
     // (e.g., ricekit-native styles under userstyles/styles/).
@@ -108,7 +107,9 @@ export function chooseVersion(
   source: string,
   previous: string | null,
   nextVersion: string,
+  force = false,
 ): string {
+  if (force) return nextVersion;
   if (previous === null) return nextVersion;
 
   const previousVersion = extractVersion(previous);
@@ -119,10 +120,10 @@ export function chooseVersion(
     return nextVersion;
   }
 
-  // If the current compiled source, stamped with the previous version, exactly
+  // If the current transformed source, stamped with the previous version, exactly
   // matches the committed file, the user-visible style did not change. Keeping
   // the old version avoids making Stylus update unaffected styles.
-  const fileName = "__comparison__.user.css";
+  const fileName = "__comparison__.user.less";
   const previousFileName = extractUpdateFileName(previous) ?? fileName;
   const candidate = rewriteMeta(
     source,
@@ -192,11 +193,16 @@ export async function main(): Promise<void> {
   // keep their committed versions.
   const stamp = deno.env.get("USERSTYLES_BUILD_STAMP") ?? buildStamp();
   const context = await gitContext();
+  const adapterPath = "./lib/std/v1.less";
+  const adapter = await deno.readTextFile(adapterPath);
+  const committedAdapter = await readCommittedFile(context, adapterPath);
+  const adapterChanged = committedAdapter === null ||
+    committedAdapter !== adapter;
   let stamped = 0;
   let preserved = 0;
 
   for await (const entry of deno.readDir(DIST_DIR)) {
-    if (!entry.isFile || !entry.name.endsWith(".user.css")) continue;
+    if (!entry.isFile || !/\.user\.(?:css|less)$/.test(entry.name)) continue;
 
     const path = joinPath(DIST_DIR, entry.name);
     const src = await deno.readTextFile(path);
@@ -204,7 +210,7 @@ export async function main(): Promise<void> {
     const upstream = extractVersion(src);
     const nextVersion = upstream ? `${upstream}.${stamp}` : stamp;
     const previous = await readCommittedFile(context, path);
-    const version = chooseVersion(src, previous, nextVersion);
+    const version = chooseVersion(src, previous, nextVersion, adapterChanged);
 
     const rewritten = rewriteMeta(
       src,

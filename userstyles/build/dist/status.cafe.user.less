@@ -1,0 +1,125 @@
+/* ==UserStyle==
+@name status.cafe Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/status.cafe.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for status.cafe
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document regexp("https://status\\.cafe/(?!users).*"),
+  domain("forum.status.cafe") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    background-color: @base;
+
+    body {
+      background-color: @base;
+      color: @text;
+    }
+
+    textarea {
+      background-color: @mantle;
+      color: @text;
+      border-color: @surface1;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 2px;
+      padding: 3px;
+    }
+
+    input {
+      background-color: @mantle;
+      color: @text;
+      border-color: @surface1;
+      border-style: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      padding: 2px 5px;
+      :hover {
+        background-color: ~"hsl(from var(--rk-mantle) h s calc(l - 2))";
+      }
+
+      :active {
+        background-color: @crust;
+        border-color: @surface0;
+      }
+    }
+
+    textarea:hover,
+    input:hover {
+      border-color: ~"hsl(from var(--rk-black) h s calc(l - 5))";
+    }
+
+    .flash {
+      background-color: @green;
+    }
+
+    a:not(.flash a) {
+      color: @accent;
+    }
+
+    a:visited:not(.flash a) {
+      color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+    }
+
+    table,
+    th,
+    td {
+      border-color: @surface1 !important;
+    }
+
+    thead {
+      background-color: @surface1;
+      color: @text;
+    }
+
+    .forum {
+      background-color: @yellow;
+      a {
+        color: ~"hsl(from var(--rk-blue) h s calc(l - 10))" !important;
+      }
+    }
+
+    tbody,
+    .topic > tbody > tr:nth-child(2n) {
+      background-color: @mantle;
+    }
+
+    hr {
+      background-color: @surface1;
+    }
+
+    .signature {
+      border-top-color: @surface0;
+    }
+
+    & when (@flavor = latte) {
+      a:visited:not(.flash a) {
+        color: ~"hsl(from var(--rk-accent) h s calc(l - 10))";
+      }
+      input:active {
+        background-color: @surface0;
+        border-color: @surface2;
+      }
+    }
+  }
+}

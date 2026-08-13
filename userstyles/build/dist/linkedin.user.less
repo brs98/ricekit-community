@@ -1,0 +1,493 @@
+/* ==UserStyle==
+@name LinkedIn Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/linkedin.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for LinkedIn
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("www.linkedin.com") {
+  :root:not(.theme--dark, .theme--mercado-dark) {
+    #catppuccin(@lightFlavor);
+  }
+  :root.theme--dark,
+  :root.theme--mercado-dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --black: @crust;
+    --black-a90: @crust;
+    --black-a75: @crust;
+    --black-a60: ~"rgb(from var(--rk-crust) r g b / 0.6)";
+    --black-a45: @crust;
+    --black-a30: @crust;
+    --black-a15: @crust;
+    --black-a12: @crust;
+    --black-a08: @crust;
+    --black-a04: @crust;
+    --black-a100: @crust;
+
+    --white: @text;
+    --white-a06: @surface0;
+    --white-a12: @surface0;
+    --white-a18: @surface0;
+    --white-a25: @surface0;
+    --white-a30: @text;
+    --white-a40: @text;
+    --white-a45: @text;
+    --white-a55: @text;
+    --white-a60: @subtext0;
+    --white-a70: @text;
+    --white-a75: @text;
+    --white-a85: @text;
+    --white-a90: @text;
+    --white-a100: @text;
+
+    --blue-10: @blue;
+    --blue-20: @blue;
+    --blue-30: @blue;
+    --blue-40: @blue;
+    --blue-50: @blue;
+    --blue-60: @blue;
+    --blue-70: @blue;
+    --blue-80: @blue;
+    --blue-90: @blue;
+    --blue-100: @blue;
+    --blue-50-a20: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+    --blue-50-a25: ~"rgb(from var(--rk-blue) r g b / 0.25)";
+    --blue-50-a30: ~"rgb(from var(--rk-blue) r g b / 0.3)";
+    --blue-50-a40: ~"rgb(from var(--rk-blue) r g b / 0.4)";
+    --blue-60-a10: ~"rgb(from var(--rk-blue) r g b / 0.1)";
+    --blue-60-a15: ~"rgb(from var(--rk-blue) r g b / 0.85)";
+    --blue-60-a20: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+    --blue-60-a25: ~"rgb(from var(--rk-blue) r g b / 0.25)";
+    --blue-60-a30: ~"rgb(from var(--rk-blue) r g b / 0.3)";
+    --blue-60-a35: ~"rgb(from var(--rk-blue) r g b / 0.35)";
+    --blue-60-a40: ~"rgb(from var(--rk-blue) r g b / 0.4)";
+    --blue-60-a45: ~"rgb(from var(--rk-blue) r g b / 0.45)";
+    --blue-70-a30: ~"rgb(from var(--rk-sapphire) r g b / 0.3)";
+    --blue-70-a40: ~"rgb(from var(--rk-sapphire) r g b / 0.4)";
+    --blue-70-a50: ~"rgb(from var(--rk-sapphire) r g b / 0.5)";
+
+    --cool-gray-10: @mantle;
+    --cool-gray-20: @surface0;
+    --cool-gray-30: @mantle;
+    --cool-gray-40: @mantle;
+    --cool-gray-50: @mantle;
+    --cool-gray-60: @mantle;
+    --cool-gray-70: @mantle;
+    --cool-gray-80: @surface0;
+    --cool-gray-85: @mantle;
+    --cool-gray-90: @mantle;
+    --cool-gray-100: @mantle;
+    --cool-gray-60-a10: ~"rgb(from var(--rk-mantle) r g b / 0.1)";
+    --cool-gray-60-a15: ~"rgb(from var(--rk-mantle) r g b / 0.15)";
+    --cool-gray-60-a20: ~"rgb(from var(--rk-mantle) r g b / 0.2)";
+    --cool-gray-60-a25: ~"rgb(from var(--rk-mantle) r g b / 0.25)";
+    --cool-gray-60-a30: ~"rgb(from var(--rk-mantle) r g b / 0.3)";
+    --cool-gray-60-a35: ~"rgb(from var(--rk-mantle) r g b / 0.35)";
+
+    --warm-gray-10: @overlay1;
+    --warm-gray-20: @overlay1;
+    --warm-gray-30: @overlay1;
+    --warm-gray-40: @overlay1;
+    --warm-gray-50: @overlay1;
+    --warm-gray-60: @overlay1;
+    --warm-gray-70: @overlay1;
+    --warm-gray-80: @overlay1;
+    --warm-gray-90: @overlay1;
+    --warm-gray-100: @overlay1;
+    --warm-gray-60-a10: ~"rgb(from var(--rk-overlay1) r g b / 0.1)";
+    --warm-gray-60-a15: ~"rgb(from var(--rk-overlay1) r g b / 0.15)";
+    --warm-gray-60-a20: ~"rgb(from var(--rk-overlay1) r g b / 0.2)";
+    --warm-gray-60-a25: ~"rgb(from var(--rk-overlay1) r g b / 0.25)";
+    --warm-gray-60-a30: ~"rgb(from var(--rk-overlay1) r g b / 0.3)";
+    --warm-gray-60-a35: ~"rgb(from var(--rk-overlay1) r g b / 0.35)";
+
+    --warm-red-10: @maroon;
+    --warm-red-20: @maroon;
+    --warm-red-30: @maroon;
+    --warm-red-40: @maroon;
+    --warm-red-50: @maroon;
+    --warm-red-60: @maroon;
+    --warm-red-70: @maroon;
+    --warm-red-80: @maroon;
+    --warm-red-90: @maroon;
+    --warm-red-100: @maroon;
+    --warm-red-60-a10: ~"rgb(from var(--rk-maroon) r g b / 0.1)";
+    --warm-red-60-a15: ~"rgb(from var(--rk-maroon) r g b / 0.15)";
+    --warm-red-60-a20: ~"rgb(from var(--rk-maroon) r g b / 0.2)";
+    --warm-red-60-a25: ~"rgb(from var(--rk-maroon) r g b / 0.25)";
+    --warm-red-60-a30: ~"rgb(from var(--rk-maroon) r g b / 0.3)";
+    --warm-red-60-a35: ~"rgb(from var(--rk-maroon) r g b / 0.35)";
+
+    --teal-10: @teal;
+    --teal-20: @teal;
+    --teal-30: @teal;
+    --teal-40: @teal;
+    --teal-50: @teal;
+    --teal-60: @teal;
+    --teal-70: @teal;
+    --teal-80: @teal;
+    --teal-90: @teal;
+    --teal-100: @teal;
+    --teal-50-a30: ~"rgb(from var(--rk-cyan) r g b / 0.3)";
+    --teal-60-a10: ~"rgb(from var(--rk-cyan) r g b / 0.1)";
+    --teal-60-a15: ~"rgb(from var(--rk-cyan) r g b / 0.15)";
+    --teal-60-a20: ~"rgb(from var(--rk-cyan) r g b / 0.2)";
+    --teal-60-a25: ~"rgb(from var(--rk-cyan) r g b / 0.25)";
+    --teal-60-a30: ~"rgb(from var(--rk-cyan) r g b / 0.3)";
+    --teal-60-a35: ~"rgb(from var(--rk-cyan) r g b / 0.35)";
+
+    --purple-10: @lavender;
+    --purple-20: @lavender;
+    --purple-30: @lavender;
+    --purple-40: @lavender;
+    --purple-50: @lavender;
+    --purple-60: @lavender;
+    --purple-70: @lavender;
+    --purple-80: @lavender;
+    --purple-90: @lavender;
+    --purple-100: @lavender;
+    --purple-40-a15: ~"rgb(from var(--rk-lavender) r g b / 0.15)";
+    --purple-60-a10: ~"rgb(from var(--rk-lavender) r g b / 0.1)";
+    --purple-60-a15: ~"rgb(from var(--rk-lavender) r g b / 0.15)";
+    --purple-60-a20: ~"rgb(from var(--rk-lavender) r g b / 0.2)";
+    --purple-60-a25: ~"rgb(from var(--rk-lavender) r g b / 0.25)";
+    --purple-60-a30: ~"rgb(from var(--rk-lavender) r g b / 0.3)";
+    --purple-60-a35: ~"rgb(from var(--rk-lavender) r g b / 0.35)";
+    --purple-70-a15: ~"rgb(from var(--rk-lavender) r g b / 0.15)";
+
+    --system-red-10: @red;
+    --system-red-20: @red;
+    --system-red-30: @red;
+    --system-red-40: @red;
+    --system-red-50: @red;
+    --system-red-60: @red;
+    --system-red-70: @red;
+    --system-red-80: @red;
+    --system-red-90: @red;
+    --system-red-100: @red;
+    --system-red-60-a10: ~"rgb(from var(--rk-red) r g b / 0.1)";
+    --system-red-60-a15: ~"rgb(from var(--rk-red) r g b / 0.15)";
+    --system-red-60-a20: ~"rgb(from var(--rk-red) r g b / 0.2)";
+    --system-red-60-a25: ~"rgb(from var(--rk-red) r g b / 0.25)";
+    --system-red-60-a30: ~"rgb(from var(--rk-red) r g b / 0.3)";
+    --system-red-60-a35: ~"rgb(from var(--rk-red) r g b / 0.35)";
+
+    --system-green-10: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-20: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-30: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-40: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-50: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-60: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-70: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-80: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-90: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-100: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+    --system-green-60-a10: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 20)) r g b / 0.1)";
+    --system-green-60-a15: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 20)) r g b / 0.15)";
+    --system-green-60-a20: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 20)) r g b / 0.2)";
+    --system-green-60-a25: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 20)) r g b / 0.25)";
+    --system-green-60-a30: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 20)) r g b / 0.3)";
+    --system-green-60-a35: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 20)) r g b / 0.35)";
+
+    --pink-10: @pink;
+    --pink-20: @pink;
+    --pink-30: @pink;
+    --pink-40: @pink;
+    --pink-50: @pink;
+    --pink-60: @pink;
+    --pink-70: @pink;
+    --pink-80: @pink;
+    --pink-90: @pink;
+    --pink-100: @pink;
+    --pink-60-a10: ~"rgb(from var(--rk-magenta) r g b / 0.1)";
+    --pink-60-a15: ~"rgb(from var(--rk-magenta) r g b / 0.15)";
+    --pink-60-a20: ~"rgb(from var(--rk-magenta) r g b / 0.2)";
+    --pink-60-a25: ~"rgb(from var(--rk-magenta) r g b / 0.25)";
+    --pink-60-a30: ~"rgb(from var(--rk-magenta) r g b / 0.3)";
+    --pink-60-a35: ~"rgb(from var(--rk-magenta) r g b / 0.35)";
+
+    --amber-10: @yellow;
+    --amber-20: @yellow;
+    --amber-30: @yellow;
+    --amber-40: @yellow;
+    --amber-50: @yellow;
+    --amber-60: @yellow;
+    --amber-70: @yellow;
+    --amber-80: @yellow;
+    --amber-90: @yellow;
+    --amber-100: @yellow;
+    --amber-30-a50: ~"rgb(from var(--rk-yellow) r g b / 0.5)";
+    --amber-60-a10: ~"rgb(from var(--rk-yellow) r g b / 0.1)";
+    --amber-60-a15: ~"rgb(from var(--rk-yellow) r g b / 0.15)";
+    --amber-60-a20: ~"rgb(from var(--rk-yellow) r g b / 0.2)";
+    --amber-60-a25: ~"rgb(from var(--rk-yellow) r g b / 0.25)";
+    --amber-60-a30: ~"rgb(from var(--rk-yellow) r g b / 0.3)";
+    --amber-60-a35: ~"rgb(from var(--rk-yellow) r g b / 0.35)";
+
+    --copper-10: @rosewater;
+    --copper-20: @rosewater;
+    --copper-30: @rosewater;
+    --copper-40: @rosewater;
+    --copper-50: @rosewater;
+    --copper-60: @rosewater;
+    --copper-70: @rosewater;
+    --copper-80: @rosewater;
+    --copper-90: @rosewater;
+    --copper-100: @rosewater;
+    --copper-60-a10: ~"rgb(from var(--rk-rosewater) r g b / 0.1)";
+    --copper-60-a15: ~"rgb(from var(--rk-rosewater) r g b / 0.15)";
+    --copper-60-a20: ~"rgb(from var(--rk-rosewater) r g b / 0.2)";
+    --copper-60-a25: ~"rgb(from var(--rk-rosewater) r g b / 0.25)";
+    --copper-60-a30: ~"rgb(from var(--rk-rosewater) r g b / 0.3)";
+    --copper-60-a35: ~"rgb(from var(--rk-rosewater) r g b / 0.35)";
+
+    --green-10: @green;
+    --green-20: @green;
+    --green-30: @green;
+    --green-40: @green;
+    --green-50: @green;
+    --green-60: @green;
+    --green-70: @green;
+    --green-80: @green;
+    --green-90: @green;
+    --green-100: @green;
+    --green-60-a10: ~"rgb(from var(--rk-green) r g b / 0.1)";
+    --green-60-a15: ~"rgb(from var(--rk-green) r g b / 0.15)";
+    --green-60-a20: ~"rgb(from var(--rk-green) r g b / 0.2)";
+    --green-60-a25: ~"rgb(from var(--rk-green) r g b / 0.25)";
+    --green-60-a30: ~"rgb(from var(--rk-green) r g b / 0.3)";
+    --green-60-a35: ~"rgb(from var(--rk-green) r g b / 0.35)";
+
+    --sage-10: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-20: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-30: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-40: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-50: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-60: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-70: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-80: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-90: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-100: ~"hsl(from var(--rk-green) h s calc(l - 40))";
+    --sage-60-a10: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 40)) r g b / 0.1)";
+    --sage-60-a15: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 40)) r g b / 0.15)";
+    --sage-60-a20: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 40)) r g b / 0.2)";
+    --sage-60-a25: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 40)) r g b / 0.25)";
+    --sage-60-a30: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 40)) r g b / 0.3)";
+    --sage-60-a35: ~"rgb(from hsl(from var(--rk-green) h s calc(l - 40)) r g b / 0.35)";
+
+    --lime-10: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-20: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-30: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-40: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-50: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-60: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-70: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-80: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-90: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-100: ~"hsl(from var(--rk-green) h s calc(l + 20))";
+    --lime-60-a10: ~"rgb(from hsl(from var(--rk-green) h s calc(l + 20)) r g b / 0.1)";
+    --lime-60-a15: ~"rgb(from hsl(from var(--rk-green) h s calc(l + 20)) r g b / 0.15)";
+    --lime-60-a20: ~"rgb(from hsl(from var(--rk-green) h s calc(l + 20)) r g b / 0.2)";
+    --lime-60-a25: ~"rgb(from hsl(from var(--rk-green) h s calc(l + 20)) r g b / 0.25)";
+    --lime-60-a30: ~"rgb(from hsl(from var(--rk-green) h s calc(l + 20)) r g b / 0.3)";
+    --lime-60-a35: ~"rgb(from hsl(from var(--rk-green) h s calc(l + 20)) r g b / 0.35)";
+
+    --camo-10: @accent;
+    --camo-20: @accent;
+    --camo-30: @accent;
+    --camo-40: @accent;
+    --camo-50: @accent;
+    --camo-60: @accent;
+    --camo-70: @accent;
+    --camo-80: @accent;
+    --camo-90: @accent;
+    --camo-100: @accent;
+    --camo-60-a10: ~"rgb(from var(--rk-accent) r g b / 0.1)";
+    --camo-60-a15: ~"rgb(from var(--rk-accent) r g b / 0.15)";
+    --camo-60-a20: ~"rgb(from var(--rk-accent) r g b / 0.2)";
+    --camo-60-a25: ~"rgb(from var(--rk-accent) r g b / 0.25)";
+    --camo-60-a30: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+    --camo-60-a35: ~"rgb(from var(--rk-accent) r g b / 0.35)";
+
+    --smoke-10: @surface1;
+    --smoke-20: @surface1;
+    --smoke-30: @surface1;
+    --smoke-40: @surface1;
+    --smoke-50: @surface1;
+    --smoke-60: @surface1;
+    --smoke-70: @surface1;
+    --smoke-80: @surface1;
+    --smoke-90: @surface1;
+    --smoke-100: @surface1;
+    --smoke-60-a10: ~"rgb(from var(--rk-black) r g b / 0.1)";
+    --smoke-60-a15: ~"rgb(from var(--rk-black) r g b / 0.15)";
+    --smoke-60-a20: ~"rgb(from var(--rk-black) r g b / 0.2)";
+    --smoke-60-a25: ~"rgb(from var(--rk-black) r g b / 0.25)";
+    --smoke-60-a30: ~"rgb(from var(--rk-black) r g b / 0.3)";
+    --smoke-60-a35: ~"rgb(from var(--rk-black) r g b / 0.35)";
+
+    --lavender-10: @lavender;
+    --lavender-20: @lavender;
+    --lavender-30: @lavender;
+    --lavender-40: @lavender;
+    --lavender-50: @lavender;
+    --lavender-60: @lavender;
+    --lavender-70: @lavender;
+    --lavender-80: @lavender;
+    --lavender-90: @lavender;
+    --lavender-100: @lavender;
+    --lavender-60-a10: ~"rgb(from var(--rk-lavender) r g b / 0.1)";
+    --lavender-60-a15: ~"rgb(from var(--rk-lavender) r g b / 0.15)";
+    --lavender-60-a20: ~"rgb(from var(--rk-lavender) r g b / 0.2)";
+    --lavender-60-a25: ~"rgb(from var(--rk-lavender) r g b / 0.25)";
+    --lavender-60-a30: ~"rgb(from var(--rk-lavender) r g b / 0.3)";
+    --lavender-60-a35: ~"rgb(from var(--rk-lavender) r g b / 0.35)";
+
+    --mauve-10: @mauve;
+    --mauve-20: @mauve;
+    --mauve-30: @mauve;
+    --mauve-40: @mauve;
+    --mauve-50: @mauve;
+    --mauve-60: @mauve;
+    --mauve-70: @mauve;
+    --mauve-80: @mauve;
+    --mauve-90: @mauve;
+    --mauve-100: @mauve;
+    --mauve-60-a10: ~"rgb(from var(--rk-accent) r g b / 0.1)";
+    --mauve-60-a15: ~"rgb(from var(--rk-accent) r g b / 0.15)";
+    --mauve-60-a20: ~"rgb(from var(--rk-accent) r g b / 0.2)";
+    --mauve-60-a25: ~"rgb(from var(--rk-accent) r g b / 0.25)";
+    --mauve-60-a30: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+    --mauve-60-a35: ~"rgb(from var(--rk-accent) r g b / 0.35)";
+    --mauve-80-a50: ~"rgb(from var(--rk-accent) r g b / 0.5)";
+
+    --system-gray-10: @surface0;
+    --system-gray-20: @surface0;
+    --system-gray-30: @surface0;
+    --system-gray-40: @surface0;
+    --system-gray-50: @surface0;
+    --system-gray-60: @surface0;
+    --system-gray-70: @surface0;
+    --system-gray-80: @surface0;
+    --system-gray-90: @surface0;
+    --system-gray-100: @surface0;
+    --system-gray-60-a10: ~"rgb(from var(--rk-surface0) r g b / 0.1)";
+    --system-gray-60-a15: ~"rgb(from var(--rk-surface0) r g b / 0.15)";
+    --system-gray-60-a20: ~"rgb(from var(--rk-surface0) r g b / 0.2)";
+    --system-gray-60-a25: ~"rgb(from var(--rk-surface0) r g b / 0.25)";
+    --system-gray-60-a30: ~"rgb(from var(--rk-surface0) r g b / 0.3)";
+    --system-gray-60-a35: ~"rgb(from var(--rk-surface0) r g b / 0.35)";
+    --system-gray-60-a40: ~"rgb(from var(--rk-surface0) r g b / 0.4)";
+    --system-gray-60-a45: ~"rgb(from var(--rk-surface0) r g b / 0.45)";
+
+    --system-orange-10: @peach;
+    --system-orange-20: @peach;
+    --system-orange-30: @peach;
+    --system-orange-40: @peach;
+    --system-orange-50: @peach;
+    --system-orange-60: @peach;
+    --system-orange-70: @peach;
+    --system-orange-80: @peach;
+    --system-orange-90: @peach;
+    --system-orange-100: @peach;
+    --system-orange-60-a10: ~"rgb(from var(--rk-peach) r g b / 0.1)";
+    --system-orange-60-a15: ~"rgb(from var(--rk-peach) r g b / 0.15)";
+    --system-orange-60-a20: ~"rgb(from var(--rk-peach) r g b / 0.2)";
+    --system-orange-60-a25: ~"rgb(from var(--rk-peach) r g b / 0.25)";
+    --system-orange-60-a30: ~"rgb(from var(--rk-peach) r g b / 0.3)";
+    --system-orange-60-a35: ~"rgb(from var(--rk-peach) r g b / 0.35)";
+
+    /* quality of life changes */
+    --color-border-low-emphasis: @surface0;
+
+    /* Codeblock fixes */
+    pre {
+      --color-text-on-dark: @text;
+      --color-background-container-dark-tint: @crust;
+    }
+
+    /* more accent */
+    --voyager-color-background-badge-notification: @accent;
+    --color-signal-positive: @accent;
+    --color-checked: @accent;
+    --color-checked-hover: @accent;
+    --color-checked-active: @accent;
+
+    /* fix for hover buttons */
+    --artdeco-button-secondary-default-hover-background-color: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+
+    /* text on dark */
+    --color-text-on-dark: @text;
+
+    & when not(@flavor = latte) {
+      --color-element: @crust;
+    }
+
+    & when (@flavor = latte) {
+      --black: @text;
+      --black-a90: @text;
+      --black-a75: @text;
+      --black-a45: @text;
+      --black-a30: @text;
+      --black-a60: @subtext0;
+      --black-a15: @text;
+      --black-a04: @text;
+      --black-a100: @text;
+
+      --color-scrim: ~"rgb(from var(--rk-crust) r g b / 0.4)";
+      --color-icon-on-dark: @text;
+
+      --white: @mantle;
+      --white-a06: @surface0;
+      --white-a12: @surface0;
+      --white-a18: @surface0;
+      --white-a25: @surface0;
+      --white-a30: @mantle;
+      --white-a40: @mantle;
+      --white-a45: @mantle;
+      --white-a55: @mantle;
+      --white-a60: @subtext0;
+      --white-a70: @mantle;
+      --white-a75: @mantle;
+      --white-a85: @mantle;
+      --white-a90: @mantle;
+      --white-a100: @mantle;
+
+      --warm-gray-10: @base;
+      --warm-gray-20: @base;
+      --warm-gray-30: @base;
+      --warm-gray-40: @base;
+      --warm-gray-50: @base;
+      --warm-gray-60: @base;
+      --warm-gray-70: @base;
+      --warm-gray-80: @base;
+      --warm-gray-90: @base;
+      --warm-gray-100: @base;
+      --warm-gray-60-a10: ~"rgb(from var(--rk-background) r g b / 0.1)";
+      --warm-gray-60-a15: ~"rgb(from var(--rk-background) r g b / 0.15)";
+      --warm-gray-60-a20: ~"rgb(from var(--rk-background) r g b / 0.2)";
+      --warm-gray-60-a25: ~"rgb(from var(--rk-background) r g b / 0.25)";
+      --warm-gray-60-a30: ~"rgb(from var(--rk-background) r g b / 0.3)";
+      --warm-gray-60-a35: ~"rgb(from var(--rk-background) r g b / 0.35)";
+    }
+
+    .share-promoted-detour-button-legacy {
+      background-color: @accent !important;
+    }
+  }
+}

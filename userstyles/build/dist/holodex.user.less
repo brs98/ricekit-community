@@ -1,0 +1,226 @@
+/* ==UserStyle==
+@name Holodex Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/holodex.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Holodex
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("holodex.net") {
+  :root:has(.theme--dark) {
+    #catppuccin(@darkFlavor);
+  }
+
+  :root:has(.theme--light) {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --v-anchor-base: @accent;
+    --v-primary-base: @accent;
+    --v-primary-lighten1: ~"hsl(from var(--rk-accent) h s calc(l + 4))";
+    --v-primary-lighten2: ~"hsl(from var(--rk-accent) h s calc(l + 8))";
+    --v-primary-lighten3: ~"hsl(from var(--rk-accent) h s calc(l + 9))";
+    --v-primary-lighten4: ~"hsl(from var(--rk-accent) h s calc(l + 18))";
+    --v-primary-lighten5: ~"hsl(from var(--rk-accent) h s calc(l + 19))";
+    --v-primary-darken1: ~"hsl(from var(--rk-accent) h s calc(l - 14))";
+    --v-primary-darken2: ~"hsl(from var(--rk-accent) h s calc(l - 31))";
+    --v-primary-darken3: ~"hsl(from var(--rk-accent) h s calc(l - 35))";
+    --v-primary-darken4: ~"hsl(from var(--rk-accent) h s calc(l - 43))";
+
+    --v-accent-base: @accent;
+    --v-accent-lighten1: ~"hsl(from var(--rk-accent) h s calc(l + 4))";
+    --v-accent-lighten2: ~"hsl(from var(--rk-accent) h s calc(l + 8))";
+    --v-accent-lighten3: ~"hsl(from var(--rk-accent) h s calc(l + 9))";
+    --v-accent-lighten4: ~"hsl(from var(--rk-accent) h s calc(l + 18))";
+    --v-accent-lighten5: ~"hsl(from var(--rk-accent) h s calc(l + 19))";
+    --v-accent-darken1: ~"hsl(from var(--rk-accent) h s calc(l - 14))";
+    --v-accent-darken2: ~"hsl(from var(--rk-accent) h s calc(l - 31))";
+    --v-accent-darken3: ~"hsl(from var(--rk-accent) h s calc(l - 35))";
+    --v-accent-darken4: ~"hsl(from var(--rk-accent) h s calc(l - 43))";
+
+    --v-secondary-base: @accent;
+    --v-secondary-lighten1: ~"hsl(from var(--rk-accent) h s calc(l + 4))";
+    --v-secondary-lighten2: ~"hsl(from var(--rk-accent) h s calc(l + 8))";
+    --v-secondary-lighten3: ~"hsl(from var(--rk-accent) h s calc(l + 9))";
+    --v-secondary-lighten4: ~"hsl(from var(--rk-accent) h s calc(l + 18))";
+    --v-secondary-lighten5: ~"hsl(from var(--rk-accent) h s calc(l + 19))";
+    --v-secondary-darken1: ~"hsl(from var(--rk-accent) h s calc(l - 14))";
+    --v-secondary-darken2: ~"hsl(from var(--rk-accent) h s calc(l - 31))";
+    --v-secondary-darken3: ~"hsl(from var(--rk-accent) h s calc(l - 35))";
+    --v-secondary-darken4: ~"hsl(from var(--rk-accent) h s calc(l - 43))";
+
+    --v-error-base: @red;
+    --v-error-lighten1: ~"hsl(from var(--rk-red) h s calc(l + 4))";
+    --v-error-lighten2: ~"hsl(from var(--rk-red) h s calc(l + 8))";
+    --v-error-lighten3: ~"hsl(from var(--rk-red) h s calc(l + 9))";
+    --v-error-lighten4: ~"hsl(from var(--rk-red) h s calc(l + 18))";
+    --v-error-lighten5: ~"hsl(from var(--rk-red) h s calc(l + 19))";
+    --v-error-darken1: ~"hsl(from var(--rk-red) h s calc(l - 14))";
+    --v-error-darken2: ~"hsl(from var(--rk-red) h s calc(l - 31))";
+    --v-error-darken3: ~"hsl(from var(--rk-red) h s calc(l - 35))";
+    --v-error-darken4: ~"hsl(from var(--rk-red) h s calc(l - 43))";
+
+    --v-info-base: @blue;
+    --v-info-lighten1: ~"hsl(from var(--rk-blue) h s calc(l + 4))";
+    --v-info-lighten2: ~"hsl(from var(--rk-blue) h s calc(l + 8))";
+    --v-info-lighten3: ~"hsl(from var(--rk-blue) h s calc(l + 9))";
+    --v-info-lighten4: ~"hsl(from var(--rk-blue) h s calc(l + 18))";
+    --v-info-lighten5: ~"hsl(from var(--rk-blue) h s calc(l + 19))";
+    --v-info-darken1: ~"hsl(from var(--rk-blue) h s calc(l - 14))";
+    --v-info-darken2: ~"hsl(from var(--rk-blue) h s calc(l - 31))";
+    --v-info-darken3: ~"hsl(from var(--rk-blue) h s calc(l - 35))";
+    --v-info-darken4: ~"hsl(from var(--rk-blue) h s calc(l - 43))";
+
+    --v-success-base: @green;
+    --v-success-lighten1: ~"hsl(from var(--rk-green) h s calc(l + 4))";
+    --v-success-lighten2: ~"hsl(from var(--rk-green) h s calc(l + 8))";
+    --v-success-lighten3: ~"hsl(from var(--rk-green) h s calc(l + 9))";
+    --v-success-lighten4: ~"hsl(from var(--rk-green) h s calc(l + 18))";
+    --v-success-lighten5: ~"hsl(from var(--rk-green) h s calc(l + 19))";
+    --v-success-darken1: ~"hsl(from var(--rk-green) h s calc(l - 14))";
+    --v-success-darken2: ~"hsl(from var(--rk-green) h s calc(l - 31))";
+    --v-success-darken3: ~"hsl(from var(--rk-green) h s calc(l - 35))";
+    --v-success-darken4: ~"hsl(from var(--rk-green) h s calc(l - 43))";
+
+    --v-warning-base: @yellow;
+    --v-warning-lighten1: ~"hsl(from var(--rk-yellow) h s calc(l + 4))";
+    --v-warning-lighten2: ~"hsl(from var(--rk-yellow) h s calc(l + 8))";
+    --v-warning-lighten3: ~"hsl(from var(--rk-yellow) h s calc(l + 9))";
+    --v-warning-lighten4: ~"hsl(from var(--rk-yellow) h s calc(l + 18))";
+    --v-warning-lighten5: ~"hsl(from var(--rk-yellow) h s calc(l + 19))";
+    --v-warning-darken1: ~"hsl(from var(--rk-yellow) h s calc(l - 14))";
+    --v-warning-darken2: ~"hsl(from var(--rk-yellow) h s calc(l - 31))";
+    --v-warning-darken3: ~"hsl(from var(--rk-yellow) h s calc(l - 35))";
+    --v-warning-darken4: ~"hsl(from var(--rk-yellow) h s calc(l - 43))";
+
+    --v-background-base: @base;
+    --v-background-lighten1: ~"hsl(from var(--rk-background) h s calc(l + 4))";
+    --v-background-lighten2: ~"hsl(from var(--rk-background) h s calc(l + 8))";
+    --v-background-lighten3: ~"hsl(from var(--rk-background) h s calc(l + 9))";
+    --v-background-lighten4: ~"hsl(from var(--rk-background) h s calc(l + 18))";
+    --v-background-lighten5: ~"hsl(from var(--rk-background) h s calc(l + 19))";
+    --v-background-darken1: ~"hsl(from var(--rk-background) h s calc(l - 14))";
+    --v-background-darken2: ~"hsl(from var(--rk-background) h s calc(l - 31))";
+    --v-background-darken3: ~"hsl(from var(--rk-background) h s calc(l - 35))";
+    --v-background-darken4: ~"hsl(from var(--rk-background) h s calc(l - 43))";
+
+    div.v-application {
+      background: @base !important;
+      color: @text;
+    }
+
+    header#top-bar,
+    header.v-toolbar,
+    div.v-navigation-drawer__content,
+    div#bottom-bar,
+    div.v-main__wrap > div,
+    div.v-select__selections,
+    div.v-slide-group__wrapper,
+    div.v-bottom-navigation,
+    div.v-select__slot,
+    div.v-input__slot,
+    div.v-overlay__scrim {
+      background: @base !important;
+    }
+    div.v-sheet {
+      background: @base;
+      border-color: @base;
+    }
+
+    .v-btn.v-btn--has-bg:not(.nav-btn) {
+      background-color: @surface0 !important;
+    }
+
+    .v-list,
+    .v-list-item,
+    .v-card,
+    .v-sheet,
+    .v-select__selections,
+    .v-label,
+    .text--secondary,
+    .v-input__slot input {
+      color: @text !important;
+      path:not([fill*="iid-1"]) {
+        fill: @text;
+      }
+    }
+
+    .v-messages,
+    .v-list-item__subtitle,
+    .v-tab:not(.v-tab--active) {
+      color: @subtext0 !important;
+    }
+
+    svg.logo path {
+      fill: ~"hsl(from var(--rk-accent) h s calc(l - 2))" !important;
+
+      &:last-child {
+        fill: ~"hsl(from var(--rk-blue) h s calc(l - 8))" !important;
+      }
+    }
+
+    .v-chip {
+      background: @blue;
+    }
+
+    .primary--text,
+    .name-vtuber {
+      color: @accent !important;
+    }
+
+    .text-live {
+      color: @red;
+    }
+
+    .stream-count-chip {
+      color: @crust !important;
+    }
+
+    .nav-btn.v-btn--active {
+      color: @accent !important;
+    }
+
+    div.v-sheet.v-alert {
+      background: none !important;
+      color: @yellow !important;
+
+      .v-icon path {
+        fill: @yellow !important;
+      }
+    }
+
+    hr {
+      border-color: @base;
+    }
+
+    // Snack
+    div.v-snack {
+      color: @text;
+
+      div.v-sheet {
+        background: @surface0 !important;
+      }
+
+      button.v-btn--text {
+        color: @text !important;
+      }
+
+      button.v-btn--is-elevated.v-btn--has-bg {
+        background: @accent !important;
+        color: @base;
+      }
+    }
+  }
+}

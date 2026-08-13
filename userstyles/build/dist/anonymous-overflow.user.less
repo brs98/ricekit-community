@@ -1,0 +1,106 @@
+/* ==UserStyle==
+@name Anonymous Overflow Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.01.10.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/anonymous-overflow.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Anonymous Overflow
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+/* Working instances filtered from instance list: https://aohub.httpjames.space/. */
+@-moz-document domain("ao.vern.cc"),
+  domain("overflow.adminforge.de"),
+  domain("overflow.floppa.cloud"),
+  domain("overflow.hostux.net"),
+  domain("ao.bloat.cat"),
+  domain("ao.owo.si"),
+  domain("overflow.r4fo.com"),
+  domain("overflow.ducks.party"),
+  domain("anonymousoverflow.privacyredirect.com"),
+  domain("soflow.nerdvpn.de"),
+  domain("overflow.einfachzocken.eu"),
+  domain("anonymousoverflow.catsarch.com"),
+  domain("overflow.darkness.services"),
+  domain("anonflow.aketawi.space"),
+  domain("o.iii.st"),
+  domain("overflow.canine.tools") {
+  @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
+
+  :root[data-theme="auto"] {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    #catppuccin(@darkFlavor);
+  }
+
+  :root[data-theme="light"] {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --main-bg: @base;
+    --text-color: @text;
+    --muted-text-color: @subtext0;
+    --link-color: @blue;
+    --meta-bg: @surface1;
+    --input-bg: @mantle;
+    --input-bg-hover: @surface1;
+    --divider-color: @overlay0;
+
+    .view-input:focus {
+      border-color: @surface2;
+    }
+
+    .answer-link .icon img {
+      background: none;
+      filter: @text-filter;
+    }
+    .answer-meta.accepted {
+      background-color: @green;
+      color: @base;
+
+      .answer-link .icon img {
+        filter: @crust-filter;
+      }
+    }
+
+    .sorting img[src="/static/icons/sort.svg"] {
+      filter: @subtext0-filter;
+    }
+
+    .logo {
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 49 48"><circle cx="14.5" cy="33.5" r="14.5" fill="@{teal}"/><circle cx="14.5" cy="14.5" r="14.5" fill="@{text}"/><circle cx="34.5" cy="14.5" r="14.5" fill="@{teal}"/><circle cx="34.5" cy="33.5" r="14.5" fill="@{text}"/></svg>'
+      );
+      content: url("data:image/svg+xml,@{svg}");
+    }
+
+    hr {
+      border-color: @overlay0;
+    }
+
+    .error {
+      background-color: @red;
+    }
+    .error, .success {
+      color: @crust;
+    }
+  }
+}

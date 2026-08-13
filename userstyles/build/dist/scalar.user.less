@@ -1,0 +1,82 @@
+/* ==UserStyle==
+@name Scalar Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.01.20.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/scalar.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Scalar
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("scalar.com") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+  code.hljs {
+    background: none !important;
+  }
+
+  .light-mode {
+    #catppuccin(@lightFlavor);
+  }
+
+  .dark-mode {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --scalar-color-1: @text;
+    --scalar-color-2: @subtext1;
+    --scalar-color-3: @subtext0;
+    --scalar-color-accent: @accent;
+    --scalar-background-1: @base;
+    --scalar-background-2: @surface0;
+    --scalar-background-3: @surface1;
+    --scalar-background-accent: ~"rgb(from var(--rk-accent) r g b / 0.12)";
+    --scalar-border-color: @surface1;
+    --scalar-color-green: @green;
+    --scalar-color-red: @red;
+    --scalar-color-yellow: @yellow;
+    --scalar-color-blue: @blue;
+    --scalar-color-orange: @peach;
+    --scalar-color-purple: @mauve;
+    --scalar-selection-1: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+    --scalar-button-1: @accent;
+    --scalar-button-1-hover: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+    --scalar-button-1-color: @base;
+
+    background-color: @base;
+
+    .sidebar {
+      --scalar-sidebar-background-1: @mantle;
+      --scalar-sidebar-item-hover-background: @surface0;
+      --scalar-sidebar-item-active-background: ~"rgb(from var(--rk-accent) r g b / 0.1)";
+      --scalar-sidebar-color-active: @accent;
+    }
+
+    .scalar-code-block, .t-editor__code {
+      background-color: @mantle;
+    }
+
+    .brightness-lifted {
+      filter: none; // remove elevated filter on dropdown modal backgrounds
+    }
+
+    .text-white {
+      color: @base; // danger (delete) button text
+    }
+
+    // https://scalar.com/
+    .logo {
+      filter: @text-filter;
+    }
+  }
+}

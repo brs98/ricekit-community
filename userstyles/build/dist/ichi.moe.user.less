@@ -1,0 +1,318 @@
+/* ==UserStyle==
+@name ichi.moe Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/ichi.moe.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for ichi.moe
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+
+@var checkbox zen "Zen Mode" 0
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("ichi.moe") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    html,
+    body {
+      background: @base;
+      color: @text;
+    }
+
+    footer {
+      color: @subtext1;
+    }
+
+    span.query-word:hover {
+      border-color: @pink;
+    }
+
+    .panel-error {
+      background-color: ~"rgb(from var(--rk-red) r g b / 0.8)";
+    }
+
+    .highlight {
+      background-color: ~"rgb(from var(--rk-yellow) r g b / 0.8)";
+    }
+
+    .gloss {
+      background-color: ~"light-dark(var(--rk-background), var(--rk-surface0))";
+    }
+
+    .gloss,
+    .gloss-rtext {
+      border-color: ~"light-dark(var(--rk-bright-black), var(--rk-overlay0))";
+    }
+
+    .gloss:target {
+      & when (@flavor = "latte") {
+        box-shadow: 0 0 5px @surface2;
+        -webkit-box-shadow: 0 0 5px @surface2;
+        -moz-box-shadow: 0 0 5px @surface2;
+      }
+      box-shadow: 0 0 5px @overlay0;
+      -webkit-box-shadow: 0 0 5px @overlay0;
+      -moz-box-shadow: 0 0 5px @overlay0;
+    }
+
+    a {
+      color: @sapphire;
+    }
+
+    a.wiktionary-link {
+      color: @text;
+    }
+
+    a.info-link {
+      color: @text;
+    }
+
+    a.info-link:hover {
+      border-bottom-color: @sapphire;
+    }
+
+    .note-skipped a {
+      color: @subtext1;
+    }
+
+    .note-skipped a:hover {
+      border-color: @subtext1;
+    }
+
+    .jspDrag {
+      background-color: ~"light-dark(var(--rk-black), var(--rk-bright-black))";
+    }
+
+    .conj-negative {
+      color: @red;
+    }
+
+    .conj-formal {
+      color: @blue;
+    }
+
+    .pos-desc {
+      color: @green;
+    }
+
+    .reading-table tr:nth-of-type(2n),
+    table.kanji-match tr:nth-of-type(2n) {
+      background: ~"rgb(from ~"light-dark(var(--rk-surface0), var(--rk-black))" r g b / 0.5)";
+    }
+
+    .kanji-big a {
+      color: @subtext1;
+    }
+
+    .autocomplete-suggestions {
+      border-color: ~"light-dark(var(--rk-bright-black), var(--rk-overlay0))";
+    }
+
+    .autocomplete-suggestions,
+    .autocomplete-selected {
+      background: ~"light-dark(var(--rk-background), var(--rk-surface0))";
+    }
+
+    .autocomplete-suggestions strong {
+      color: @lavender;
+    }
+
+    .autocomplete-group strong {
+      border-bottom-color: @text;
+    }
+
+    .button {
+      background-color: @sapphire;
+      border-color: @sapphire;
+      color: @base;
+    }
+
+    button:hover,
+    button:focus,
+    .button:hover,
+    .button:focus {
+      background-color: ~"hsl(from var(--rk-sapphire) h s calc(l - 25))";
+      color: @base;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      color: @text;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="month"],
+    input[type="week"],
+    input[type="email"],
+    input[type="number"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="color"],
+    textarea,
+    input[type="file"],
+    input[type="checkbox"],
+    input[type="radio"],
+    select,
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    input[type="date"]:focus,
+    input[type="datetime"]:focus,
+    input[type="datetime-local"]:focus,
+    input[type="month"]:focus,
+    input[type="week"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="time"]:focus,
+    input[type="url"]:focus,
+    input[type="color"]:focus,
+    textarea:focus,
+    input[type="file"]:focus,
+    input[type="checkbox"]:focus,
+    input[type="radio"]:focus,
+    select:focus {
+      & when (@flavor = "latte") {
+        background-color: @base;
+        border-color: @surface0;
+      }
+      background-color: @surface0;
+      border-color: @surface1;
+      color: @text;
+    }
+
+    .header-nav a {
+      color: @pink;
+    }
+
+    .header-nav a:hover {
+      color: ~"hsl(from var(--rk-magenta) h s calc(l - 15))";
+    }
+
+    .jspTrack {
+      background: ~"light-dark(var(--rk-surface0), var(--rk-black))";
+    }
+
+    .f-dropdown {
+      background-color: ~"light-dark(var(--rk-background), var(--rk-surface0))";
+      border-color: @subtext1;
+    }
+
+    .f-dropdown::before {
+      border-color: transparent transparent @subtext1;
+    }
+
+    span.query-pick {
+      color: @text;
+    }
+
+    .has-tip {
+      color: @subtext1;
+      border-color: @overlay1;
+    }
+
+    .has-tip:hover,
+    .has-tip:focus {
+      border-bottom-color: @sapphire;
+      color: @sapphire;
+    }
+
+    label {
+      color: @subtext1;
+    }
+
+    table {
+      background: @base;
+      background-color: ~"light-dark(var(--rk-surface0), var(--rk-black))";
+    }
+
+    table tr th,
+    table tr td {
+      color: @subtext1;
+    }
+
+    table tr.even,
+    table tr.alt,
+    table tr:nth-of-type(2n) {
+      background: ~"rgb(from ~"light-dark(var(--rk-surface0), var(--rk-black))" r g b / 0.5)";
+    }
+
+    .kanji-table td,
+    .reading-table tr ~ tr > td,
+    table.kanji-match td,
+    tr.match-row-kanji,
+    tr.match-row-reading {
+      border-color: ~"light-dark(var(--rk-surface0), var(--rk-black))";
+    }
+
+    img {
+      filter: contrast(1.2) opacity(85%);
+    }
+
+    /* Options */
+    & when (@zen = 1) {
+      .header,
+      footer,
+      .landing-page {
+        display: none;
+      }
+
+      div.wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        place-content: center center;
+        padding: 50px 0;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .gloss-all {
+        width: 100%;
+        padding: 0 10px;
+      }
+
+      #div-ichiran-result {
+        padding: 0 10px;
+      }
+
+      #div-kanji-form,
+      #w-form {
+        width: 100%;
+      }
+
+      #k-form > div > div,
+      #w-form > div > div {
+        width: 100%;
+        max-width: 304px;
+      }
+    }
+  }
+}

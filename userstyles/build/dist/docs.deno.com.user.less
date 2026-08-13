@@ -1,0 +1,300 @@
+/* ==UserStyle==
+@name docs.deno.com Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/docs.deno.com.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for docs.deno.com
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("docs.deno.com") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+
+  :root.dark {
+    #catppuccin(@lightFlavor);
+  }
+  :root.light {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --primary: ~"from var(--rk-accent) h s l";
+    --background-primary: ~"from var(--rk-background) h s l";
+    --background-secondary: ~"from var(--rk-mantle) h s l";
+    --background-tertiary: ~"from var(--rk-crust) h s l";
+    --foreground-primary: ~"from var(--rk-foreground) h s l";
+    --foreground-secondary: ~"from var(--rk-bright-white) h s l";
+    --foreground-tertiary: ~"from var(--rk-overlay0) h s l";
+    --foreground-quaternary: ~"from var(--rk-surface0) h s l";
+    --runtime-background: 124deg, 100%, 3%;
+    --runtime-foreground: 184deg, 100%, 90%;
+    --note: ~"from var(--rk-blue) h s l";
+    --info: ~"from var(--rk-cyan) h s l";
+    --caution: ~"from var(--rk-yellow) h s l";
+    --tip: ~"from var(--rk-green) h s l";
+
+    .banner-runtime {
+      background-color: ~"rgb(from var(--rk-accent) r g b / 0.1)";
+      color: @text;
+      border-color: @accent;
+    }
+    .banner-deploy {
+      background-color: ~"rgb(from var(--rk-sky) r g b / 0.1)";
+      color: @text;
+      border-color: @sky;
+    }
+
+    .runtime-link {
+      color: @accent;
+      text-decoration-color: @accent;
+
+      &:hover {
+        color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+        text-decoration-color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      }
+    }
+    .deploy-link {
+      color: @sky;
+      text-decoration-color: @sky;
+
+      &:hover {
+        color: @sapphire;
+        text-decoration-color: @sapphire;
+      }
+    }
+    .help-link {
+      color: @mauve;
+      text-decoration-color: @mauve;
+
+      &:hover {
+        color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+        text-decoration-color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      }
+    }
+
+    .heading-runtime {
+      text-decoration-color: @accent;
+    }
+    .heading-deploy {
+      text-decoration-color: @sky;
+    }
+    .heading-purple {
+      text-decoration-color: @mauve;
+    }
+
+    .runtime-cta {
+      background-color: @accent;
+      border-color: @accent;
+
+      &:hover {
+        background-color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      }
+    }
+    .jsr-cta {
+      background-color: @yellow;
+      border-color: @yellow;
+      color: @crust;
+
+      &:hover {
+        background-color: ~"hsl(from var(--rk-yellow) h s calc(l - 5))";
+      }
+    }
+    .deploy-cta {
+      background-color: @sky;
+      border-color: @sky;
+      color: @crust;
+
+      &:hover {
+        background-color: @sapphire;
+      }
+    }
+
+    &,
+    [data-color-mode] {
+      --color-fg-default: @text;
+      --color-fg-muted: @subtext1;
+      --color-canvas-default: @base;
+      --color-canvas-subtle: @mantle;
+      --color-border-default: @surface2;
+      --color-border-muted: @surface0;
+      --color-accent-fg: @accent;
+      --color-accent-emphasis: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      --color-danger-fg: @red;
+
+      --color-prettylights-syntax-markup-deleted-bg: ~"rgb(from var(--rk-red) r g b / 0.2)";
+      --color-prettylights-syntax-markup-inserted-bg: ~"rgb(from var(--rk-green) r g b / 0.2)";
+    }
+
+    // Logo
+    .fill-black {
+      fill: @text;
+    }
+
+    &.light {
+      .theme-toggle {
+        @svg: escape(
+          '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="@{text}"><path d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586"/></svg>'
+        );
+        background-image: url("data:image/svg+xml,@{svg}");
+      }
+    }
+    &.dark {
+      .theme-toggle {
+        @svg: escape(
+          '<svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="@{text}" d="M10 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1m4 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0m-.464 4.95.707.707a1 1 0 0 0 1.414-1.414l-.707-.707a1 1 0 0 0-1.414 1.414m2.12-10.607a1 1 0 0 1 0 1.414l-.706.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0zM17 11a1 1 0 1 0 0-2h-1a1 1 0 1 0 0 2zm-7 4a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1M5.05 6.464A1 1 0 1 0 6.465 5.05l-.708-.707a1 1 0 0 0-1.414 1.414zm1.414 8.486-.707.707a1 1 0 0 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 1.414M4 11a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2z"/></svg>'
+        );
+        background-image: url("data:image/svg+xml,@{svg}");
+      }
+    }
+
+    .markdownBlockTitle {
+      background-color: @surface0;
+      border-color: @overlay0;
+      color: @subtext1;
+    }
+    .check-icon [stroke="green"] {
+      stroke: @green !important;
+    }
+    .markdown-body .admonition {
+      &.note {
+        background-color: ~"rgb(from var(--rk-blue) r g b / 0.05)";
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="@{blue}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+      &.tip {
+        background-color: ~"rgb(from var(--rk-green) r g b / 0.05)";
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="@{green}" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6 6 0 0 0 1.5-.189m-1.5.189a6 6 0 0 1-1.5-.189m3.75 7.478a12.1 12.1 0 0 1-4.5 0m3.75 2.383a14.4 14.4 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+      &.caution {
+        background-color: ~"rgb(from var(--rk-yellow) r g b / 0.05)";
+
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="@{yellow}"><path fill-rule="evenodd" d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5zM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75m0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5" clip-rule="evenodd"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+      &.info {
+        background-color: ~"rgb(from var(--rk-cyan) r g b / 0.05)";
+
+        .title::before {
+          @svg: escape(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="@{teal}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4"/></svg>'
+          );
+          background-image: url("data:image/svg+xml,@{svg}");
+        }
+      }
+    }
+
+    // "Did you find what you needed?"
+    .bg-blue-50 {
+      background-color: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+    }
+    .border-blue-100 {
+      border-color: ~"rgb(from var(--rk-blue) r g b / 0.3)";
+    }
+
+    // Breadcrumbs
+    .crumb-link::after {
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" transform="rotate(90)"><path fill="@{overlay1}" d="M7.41 15.41 12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>'
+      );
+      background-image: url("data:image/svg+xml,@{svg}");
+    }
+
+    // Toggle switches (tutorial filters)
+    .slider {
+      background-color: @overlay2;
+    }
+    .filter:checked + .slider {
+      background-color: @accent;
+    }
+    .slider::before {
+      background-color: @surface0;
+    }
+
+    // Download and install tabbed component
+    .deno-tabs > div.deno-tabs-content > div,
+    .deno-tabs > ul.deno-tabs-buttons > li > button[data-active="true"] {
+      background-color: @surface1;
+      color: @text;
+      border-color: @overlay0;
+    }
+    .deno-tabs > ul.deno-tabs-buttons > li > button {
+      background-color: @surface0;
+      color: @subtext0;
+    }
+    .markdown-body .deno-tabs pre {
+      background-color: @mantle;
+      border-color: @overlay0;
+    }
+
+    /* API reference */
+    .ddoc {
+      #ddoc(@token, @color) {
+        .text-@{token} {
+          color: @color;
+        }
+        .bg-@{token}\/15 {
+          background-color: ~"rgb(from @{color} r g b / 0.15)";
+        }
+      }
+
+      #ddoc(
+        Namespace,
+        @yellow,
+      );
+      #ddoc(
+        Interface,
+        @sapphire,
+      );
+      #ddoc(
+        Enum,
+        @teal,
+      );
+      #ddoc(
+        Class,
+        @mauve,
+      );
+      #ddoc(
+        Function,
+        @blue,
+      );
+      #ddoc(
+        Variable,
+        @lavender,
+      );
+      #ddoc(
+        TypeAlias,
+        @pink,
+      );
+    }
+  }
+}
+
+#hsla(@color) {
+  @raw: e(
+    %("%s, %s%, %s%", hue(@color), saturation(@color), lightness(@color))
+  );
+}

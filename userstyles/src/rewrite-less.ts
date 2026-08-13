@@ -12,6 +12,7 @@
 //   shade(c, p%)       → color-mix(in srgb, black p%, c)
 //   mix(a, b)          → color-mix(in srgb, a 50%, b)
 //   mix(a, b, p%)      → color-mix(in srgb, a p%, b)
+//   average(a, b)      → color-mix(in srgb, a 50%, b)
 // Note: the hsl channel keywords (h/s/l) resolve to `<number>` in relative-
 // color form, so we strip `%` and `deg` units off scalar args before adding
 // them inside calc(). color-mix keeps the `%` since its weights are proper
@@ -73,13 +74,19 @@ function stripFilterSuffix(name: string): string {
   return name.endsWith("-filter") ? name.slice(0, -"-filter".length) : name;
 }
 
-function isPaletteVarToken(token: string): boolean {
+function isPaletteVarToken(
+  token: string,
+  aliases: Record<string, string>,
+): boolean {
   if (!token.startsWith("@")) return false;
   const name = stripFilterSuffix(token.slice(1));
-  return name in PALETTE_MAP;
+  return name in PALETTE_MAP || name in aliases;
 }
 
-function paletteVarCssRef(token: string): string {
+function paletteVarCssRef(
+  token: string,
+  aliases: Record<string, string>,
+): string {
   // Filter variants are not colors (they're SVG filter strings), so they pass
   // through unchanged — callers only invoke this after isPaletteVarToken
   // returned true, so we know the base name is in PALETTE_MAP.
@@ -88,7 +95,7 @@ function paletteVarCssRef(token: string): string {
     // Keep filter vars as-is; they're not colors we control via :root CSS vars.
     return token;
   }
-  return PALETTE_MAP[raw];
+  return PALETTE_MAP[raw] ?? aliases[raw];
 }
 
 // Split a function's child nodes into argument groups (separated by commas).
@@ -223,7 +230,10 @@ function numericArg(nodes: Node[]): string {
 // Drop a trailing `%` or `deg` unit so the numeric value can be combined
 // with `<number>`-typed relative-color channel keywords in a calc().
 function stripUnit(s: string): string {
-  return s.replace(/(?:%|deg)$/, "");
+  const variable = s.match(/^@([\w-]+)$/)?.[1];
+  return variable === undefined
+    ? s.replace(/(?:%|deg)$/, "")
+    : `@{${variable}}`;
 }
 
 // Rewrite a value-parser node in place. If `inUnknown` is true we're inside
@@ -233,20 +243,48 @@ function stripUnit(s: string): string {
 // palette vars become `var(--rk-*)` and known ops become `~"<CSS expr>"`
 // (the `~"..."` is LESS's escape-string syntax, which passes the inner text
 // through to the compiled CSS without LESS trying to parse it).
-function rewriteNode(node: Node, inUnknown: boolean): boolean {
+function rewriteNode(
+  node: Node,
+  inUnknown: boolean,
+  rewriteBarePalette: boolean,
+  aliases: Record<string, string>,
+  allowGenericColors: boolean,
+): boolean {
   let changed = false;
 
   if (node.type === "function" && node.nodes) {
     const isKnown = KNOWN_OPS.has(node.value);
-    const childInUnknown = inUnknown || !isKnown;
+    const childInUnknown = isKnown
+      ? false
+      : inUnknown || !CSS_CONTAINER_FUNCTIONS.has(node.value);
     for (const child of node.nodes) {
-      if (rewriteNode(child, childInUnknown)) changed = true;
+      if (
+        rewriteNode(
+          child,
+          childInUnknown,
+          rewriteBarePalette || isKnown,
+          aliases,
+          allowGenericColors,
+        )
+      ) changed = true;
     }
 
-    if (inUnknown || !isKnown) return changed;
+    if (!isKnown) {
+      if (changed && CSS_CONTAINER_FUNCTIONS.has(node.value)) {
+        const content = valueParser.stringify(node.nodes as never).replace(
+          /~"([^"]+)"/g,
+          "$1",
+        );
+        (node as unknown as { type: string; value: string }).type = "word";
+        (node as unknown as { type: string; value: string }).value =
+          `${node.value}(${content})`;
+        delete (node as unknown as { nodes?: Node[] }).nodes;
+      }
+      return changed;
+    }
 
     const args = splitArgs(node.nodes);
-    const cssExpr = tryBuildOp(node.value, args);
+    const cssExpr = tryBuildOp(node.value, args, allowGenericColors);
     if (cssExpr === null) return changed;
 
     // Store raw CSS — no `~"..."` escape. The outermost rewrite adds the
@@ -257,9 +295,9 @@ function rewriteNode(node: Node, inUnknown: boolean): boolean {
     return true;
   }
 
-  if (node.type === "word" && isPaletteVarToken(node.value)) {
-    if (!inUnknown) {
-      node.value = paletteVarCssRef(node.value);
+  if (node.type === "word" && isPaletteVarToken(node.value, aliases)) {
+    if (!inUnknown && rewriteBarePalette) {
+      node.value = paletteVarCssRef(node.value, aliases);
       return true;
     }
   }
@@ -271,16 +309,33 @@ function rewriteNode(node: Node, inUnknown: boolean): boolean {
 // the argument shape isn't one we rewrite. The first arg group is the color
 // expression (already rewritten by post-order walk); subsequent groups are
 // scalar args like percent or degree.
-function tryBuildOp(op: string, args: Node[][]): string | null {
+function tryBuildOp(
+  op: string,
+  args: Node[][],
+  allowGenericColors: boolean,
+): string | null {
   if (args.length === 0) return null;
 
-  const color = stringifyArgRaw(args[0]);
+  const dynamicColor = (value: string) => {
+    const variable = allowGenericColors
+      ? value.match(/^@([\w-]+)$/)?.[1]
+      : undefined;
+    return variable === undefined ? value : `@{${variable}}`;
+  };
+  const color = dynamicColor(stringifyArgRaw(args[0]));
+  const isDynamic = (value: string) =>
+    value.includes("var(--rk-") || /^@\{[\w-]+\}$/.test(value) ||
+    /^(?:rgb|hsl|color-mix)\(/.test(value);
+  if (!isDynamic(color)) return null;
 
   switch (op) {
     case "fade": {
       if (args.length !== 2) return null;
       const pct = numericArg(args[1]).replace(/%$/, "");
-      const alpha = (parseFloat(pct) / 100).toString();
+      const variable = pct.match(/^@([\w-]+)$/)?.[1];
+      const alpha = variable === undefined
+        ? (parseFloat(pct) / 100).toString()
+        : `calc(@{${variable}} / 100%)`;
       return `rgb(from ${color} r g b / ${alpha})`;
     }
     // In CSS relative-color form, `h`/`s`/`l` resolve to plain `<number>`
@@ -322,9 +377,16 @@ function tryBuildOp(op: string, args: Node[][]): string | null {
       // LESS mix(a, b) defaults weight to 50%; 3-arg form takes an explicit
       // percent. Either way we emit CSS color-mix() with the same semantics.
       if (args.length !== 2 && args.length !== 3) return null;
-      const colorB = stringifyArgRaw(args[1]);
-      const weight = args.length === 3 ? numericArg(args[2]) : "50%";
+      const colorB = dynamicColor(stringifyArgRaw(args[1]));
+      const rawWeight = args.length === 3 ? numericArg(args[2]) : "50%";
+      const weightVar = rawWeight.match(/^@([\w-]+)$/)?.[1];
+      const weight = weightVar === undefined ? rawWeight : `@{${weightVar}}`;
       return `color-mix(in srgb, ${color} ${weight}, ${colorB})`;
+    }
+    case "average": {
+      if (args.length !== 2) return null;
+      const colorB = dynamicColor(stringifyArgRaw(args[1]));
+      return `color-mix(in srgb, ${color} 50%, ${colorB})`;
     }
     default:
       return null;
@@ -332,33 +394,80 @@ function tryBuildOp(op: string, args: Node[][]): string | null {
 }
 
 const KNOWN_OPS = new Set([
-  "fade", "lighten", "darken", "saturate", "desaturate",
-  "spin", "shade", "mix",
+  "fade",
+  "lighten",
+  "darken",
+  "saturate",
+  "desaturate",
+  "spin",
+  "shade",
+  "mix",
+  "average",
+]);
+
+const CSS_CONTAINER_FUNCTIONS = new Set([
+  "linear-gradient",
+  "radial-gradient",
+  "conic-gradient",
+  "repeating-linear-gradient",
+  "repeating-radial-gradient",
+  "repeating-conic-gradient",
+  "drop-shadow",
 ]);
 
 // After walking, any word node whose value contains CSS relative-color or
 // color-mix syntax was produced by our rewriter and must be wrapped with
 // LESS escape syntax (`~"..."`) so LESS passes it through untouched.
-const NEEDS_ESCAPE_RE = /^(?:rgb|hsl|color-mix)\(/;
+const NEEDS_ESCAPE_RE =
+  /^(?:rgb|hsl|color-mix|(?:repeating-)?(?:linear|radial|conic)-gradient|drop-shadow)\(/;
 function wrapRewrittenWords(nodes: Node[]): void {
   for (const node of nodes) {
     if (node.type === "word" && NEEDS_ESCAPE_RE.test(node.value)) {
       node.value = `~"${node.value}"`;
+    } else if (node.type === "function" && node.nodes) {
+      wrapRewrittenWords(node.nodes);
     }
   }
 }
 
 /** Rewrite a declaration value string. Safe to call on any LESS declaration. */
-export function rewriteValue(value: string): string {
+function rewrite(
+  value: string,
+  rewriteBarePalette: boolean,
+  aliases: Record<string, string> = {},
+): string {
   // Resolve LESS flavor conditionals first so nested if() calls inside a
   // known color op don't end up inside a `~"..."` escape (which LESS doesn't
   // evaluate) and don't collide with the escape's own double quotes.
-  const resolved = resolveFlavorConditionals(value);
+  const resolved = rewriteBarePalette
+    ? resolveFlavorConditionals(value)
+    : value;
   const parsed = valueParser(resolved);
   let changed = resolved !== value;
   for (const node of parsed.nodes) {
-    if (rewriteNode(node, false)) changed = true;
+    if (
+      rewriteNode(
+        node,
+        false,
+        rewriteBarePalette,
+        aliases,
+        !rewriteBarePalette,
+      )
+    ) changed = true;
   }
   if (changed) wrapRewrittenWords(parsed.nodes);
   return changed ? parsed.toString() : value;
+}
+
+/** Rewrite palette variables and dynamic expressions in a declaration value. */
+export function rewriteValue(value: string): string {
+  return rewrite(value, true);
+}
+
+/** Rewrite only dynamic expressions, leaving direct palette variables intact. */
+export function rewriteDynamicValue(
+  value: string,
+  aliases: Record<string, string> = {},
+): string {
+  return rewrite(value, false, aliases);
 }

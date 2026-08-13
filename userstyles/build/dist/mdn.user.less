@@ -1,0 +1,148 @@
+/* ==UserStyle==
+@name MDN Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/mdn.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for MDN
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+#catppuccin(@flavor) {
+  #lib.palette();
+  #lib.defaults();
+  #lib.css-variables();
+
+  --color-text-primary: @text;
+  --color-text-secondary: @subtext0;
+  --color-background-page: @base;
+  --color-background-primary: @mantle;
+  --color-background-secondary: @surface0;
+  --color-link-normal: @blue;
+  --color-link-visited: @mauve;
+  --color-border-primary: @surface1;
+  --color-border-secondary: @overlay2; // used for icons
+  --color-border-active: @accent;
+  --color-area-background: ~"rgb(from var(--rk-accent) r g b / 0.25)";
+  --color-area-highlight-border: @accent;
+  --color-area-link: @accent;
+  --color-background-red: ~"rgb(from var(--rk-red) r g b / 0.25)";
+  --color-background-orange: ~"rgb(from var(--rk-peach) r g b / 0.25)";
+  --color-background-yellow: ~"rgb(from var(--rk-yellow) r g b / 0.25)";
+  --color-background-green: ~"rgb(from var(--rk-green) r g b / 0.25)";
+  --color-background-blue: ~"rgb(from var(--rk-blue) r g b / 0.25)";
+  --color-background-purple: ~"rgb(from var(--rk-accent) r g b / 0.25)";
+  --color-white: @text;
+  --color-white-alpha-25: ~"rgb(from var(--rk-foreground) r g b / 0.25)";
+  --color-white-alpha-75: ~"rgb(from var(--rk-foreground) r g b / 0.75)";
+  --color-black: @crust;
+  --color-black-alpha-25: ~"rgb(from var(--rk-crust) r g b / 0.25)";
+  --color-black-alpha-75: ~"rgb(from var(--rk-crust) r g b / 0.75)";
+
+  --color-gray-90: ~"hsl(from var(--rk-background) h s 90%)";
+  --color-gray-80: ~"hsl(from var(--rk-background) h s 80%)";
+  --color-gray-60: ~"hsl(from var(--rk-background) h s 60%)";
+  --color-gray-40: ~"hsl(from var(--rk-background) h s 40%)";
+  --color-gray-20: ~"hsl(from var(--rk-background) h s 20%)";
+  --color-gray-10: ~"hsl(from var(--rk-background) h s 10%)";
+  --color-gray-05: ~"hsl(from var(--rk-background) h s 5%)";
+  #__color-scale(@id, @color) {
+    --color-@{id}-90: ~"hsl(from @{color} h s 90%)";
+    --color-@{id}-80: ~"hsl(from @{color} h s 80%)";
+    --color-@{id}-50: ~"hsl(from @{color} h s 50%)";
+    --color-@{id}-20: ~"hsl(from @{color} h s 20%)";
+    --color-@{id}-10: ~"hsl(from @{color} h s 10%)";
+  }
+  #__color-scale(red, @red);
+  #__color-scale(orange, @peach);
+  #__color-scale(yellow, @yellow);
+  #__color-scale(green, @green);
+  #__color-scale(blue, @blue);
+  #__color-scale(purple, @mauve);
+
+  .baseline-indicator {
+    --baseline-bg: @surface0;
+    --baseline-engine-bg: @base;
+    --baseline-check: @green;
+    --baseline-cross: @peach;
+
+    @darker: ~"rgb(from var(--rk-peach) r g b / 0.2)";
+    @svg: escape(
+      '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 111 62"><path fill="@{peach}" d="m30.833 0 18.5 18.6-6.166 6.2-18.5-18.6z"/><path fill="@{darker}" d="M86.333 6.2 111 31 86.333 55.8l-6.166-6.2 18.5-18.6-18.5-18.6z"/><path fill="@{peach}" d="m67.833 37.2-6.166 6.2 18.5 18.6 6.166-6.2z"/><path fill="@{darker}" d="m24.667 6.2 6.166 6.2-18.5 18.6 18.5 18.6-6.166 6.2L0 31z"/><path fill="@{peach}" d="m80.167 0 6.166 6.2-55.5 55.8-6.166-6.2z"/></svg>'
+    );
+    --baseline-img: url("data:image/svg+xml,@{svg}");
+
+    &.high {
+      --baseline-bg: ~"rgb(from var(--rk-green) r g b / 0.2)";
+      --baseline-engine-bg: ~"rgb(from var(--rk-green) r g b / 0.2)";
+      --baseline-check: @green;
+
+      @darker: ~"rgb(from var(--rk-green) r g b / 0.2)";
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 111 62"><path fill="@{darker}" d="m86.333 6.2-6.166 6.2 18.5 18.6-18.5 18.6-12.334-12.4-6.166 6.2 18.5 18.6L111 31zM30.833 0 6.167 24.8l6.166 6.2 18.5-18.6 12.334 12.4 6.166-6.2z"/><path fill="@{green}" d="m80.167 0 6.166 6.2-55.5 55.8L0 31l6.167-6.2 24.666 24.8z"/></svg>'
+      );
+      --baseline-img: url("data:image/svg+xml,@{svg}");
+    }
+
+    &.low {
+      --baseline-bg: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+      --baseline-engine-bg: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+      --baseline-check: @blue;
+      --baseline-pill-bg: @blue;
+      --baseline-pill-color: @base;
+
+      @darker: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+      @svg: escape(
+        '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 111 61"><path fill="@{darker}" d="M30.833 0 37 6.1l-6.167 6.1-6.166-6.1zm12.334 12.2 6.166 6.1-6.166 6.1L37 18.3zm49.333 0 6.167 6.1-6.167 6.1-6.167-6.1zm12.333 12.2L111 30.5l-6.167 6.1-6.166-6.1zM92.5 36.6l6.167 6.1-6.167 6.1-6.167-6.1zM80.167 48.8l6.166 6.1-6.166 6.1L74 54.9zM67.833 36.6 74 42.7l-6.167 6.1-6.166-6.1zM18.5 12.2l6.167 6.1-6.167 6.1-6.167-6.1z"/><path fill="@{blue}" d="m80.167 0 6.166 6.1-55.5 54.9L0 30.5l6.167-6.1 24.666 24.4z"/></svg>'
+      );
+      --baseline-img: url("data:image/svg+xml,@{svg}");
+    }
+  }
+}
+
+@-moz-document domain("developer.mozilla.org") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+
+  .light {
+    #catppuccin(@lightFlavor);
+  }
+
+  .dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  /* stylelint-disable selector-not-notation */
+  :root:not(.light):not(.dark) {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+  /* stylelint-enable selector-not-notation */
+}
+
+@-moz-document domain("interactive-examples.mdn.mozilla.net") {
+  .theme-light {
+    #catppuccin(@lightFlavor);
+  }
+  .theme-dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+}

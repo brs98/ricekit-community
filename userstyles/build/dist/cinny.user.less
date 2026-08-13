@@ -1,0 +1,226 @@
+/* ==UserStyle==
+@name Cinny Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/cinny.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Cinny
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("cinny.in") {
+  @import url("https://prismjs.catppuccin.com/variables.important.css");
+  code .token {
+    opacity: 1 !important;
+  }
+
+  :root,
+  .silver-theme {
+    #catppuccin(@lightFlavor);
+  }
+
+  .dark-theme,
+  .butter-theme {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    /* Legacy user colors */
+    --mx-uc-1: @blue;
+    --mx-uc-2: @pink;
+    --mx-uc-3: @teal;
+    --mx-uc-4: @red;
+    --mx-uc-5: @peach;
+    --mx-uc-6: @sky;
+    --mx-uc-7: @mauve;
+    --mx-uc-8: @green;
+
+    body.oq6d071w,
+    &._15q3ngn0,
+    &._15q3ngn1,
+    &._15q3ngn2 {
+      --oq6d070: @mantle;
+      --oq6d071: @base;
+      --oq6d072: @surface0;
+      --oq6d073: @surface1;
+      --oq6d074: @text;
+      --oq6d075: @base;
+      --oq6d076: @surface0;
+      --oq6d077: @surface1;
+      --oq6d078: @surface2;
+      --oq6d079: @text;
+      --oq6d07a: @mantle;
+      --oq6d07b: @base;
+      --oq6d07c: @surface0;
+      --oq6d07d: @surface1;
+      --oq6d07e: @text;
+
+      --oq6d07f: @subtext0;
+      --oq6d07g: @overlay2;
+      --oq6d07h: @overlay1;
+      --oq6d07i: @overlay0;
+
+      --oq6d07j: @base;
+
+      --oq6d07k: ~"rgb(from var(--rk-accent) r g b / 0.5)";
+      --oq6d07l: ~"rgb(from var(--rk-accent) r g b / 0.4)";
+      --oq6d07m: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+      --oq6d07n: ~"rgb(from var(--rk-accent) r g b / 0.2)";
+
+      --oq6d07o: @text;
+      --oq6d07p: @subtext1;
+      --oq6d07q: @subtext0;
+      --oq6d07r: @overlay2;
+      --oq6d07s: @overlay1;
+
+      --oq6d07t: @mantle;
+      --oq6d07u: @surface0;
+      --oq6d07v: @surface1;
+      --oq6d07w: @surface2;
+      --oq6d07x: @overlay0;
+      --oq6d07y: @text;
+
+      --oq6d07z: ~"rgb(from var(--rk-green) r g b / 0.9)";
+      --oq6d0710: ~"rgb(from var(--rk-green) r g b / 0.95)";
+      --oq6d0711: ~"rgb(from var(--rk-green) r g b / 0.975)";
+      --oq6d0712: @green;
+      --oq6d0713: @surface0;
+      --oq6d0714: ~"rgb(from var(--rk-surface0) r g b / 0.975)";
+      --oq6d0715: ~"rgb(from var(--rk-surface0) r g b / 0.95)";
+      --oq6d0716: ~"rgb(from var(--rk-surface0) r g b / 0.9)";
+      --oq6d0717: ~"rgb(from var(--rk-surface0) r g b / 0.8)";
+
+      --oq6d0718: @green;
+
+      --oq6d0719: ~"rgb(from var(--rk-peach) r g b / 0.9)";
+      --oq6d071a: ~"rgb(from var(--rk-peach) r g b / 0.95)";
+      --oq6d071b: ~"rgb(from var(--rk-peach) r g b / 0.975)";
+      --oq6d071c: @peach;
+      --oq6d071d: ~"rgb(from var(--rk-surface0) r g b / 0.975)";
+      --oq6d071e: ~"rgb(from var(--rk-surface0) r g b / 0.95)";
+      --oq6d071f: ~"rgb(from var(--rk-surface0) r g b / 0.9)";
+      --oq6d071g: ~"rgb(from var(--rk-surface0) r g b / 0.8)";
+      --oq6d071h: ~"rgb(from var(--rk-surface0) r g b / 0.7)";
+
+      --oq6d071i: ~"rgb(from var(--rk-maroon) r g b / 0.9)";
+      --oq6d071j: ~"rgb(from var(--rk-maroon) r g b / 0.95)";
+      --oq6d071k: ~"rgb(from var(--rk-maroon) r g b / 0.975)";
+      --oq6d071l: @maroon;
+      --oq6d071m: ~"rgb(from var(--rk-surface0) r g b / 0.975)";
+      --oq6d071n: ~"rgb(from var(--rk-surface0) r g b / 0.95)";
+      --oq6d071o: ~"rgb(from var(--rk-surface0) r g b / 0.9)";
+      --oq6d071p: ~"rgb(from var(--rk-surface0) r g b / 0.8)";
+      --oq6d071q: ~"rgb(from var(--rk-surface0) r g b / 0.7)";
+      --oq6d071r: ~"rgb(from var(--rk-surface0) r g b / 0.6)";
+      --oq6d071s: ~"rgb(from var(--rk-maroon) r g b / 0.9)";
+
+      --oq6d071t: ~"rgb(from var(--rk-foreground) r g b / 0.5)";
+      --oq6d071u: @crust;
+      --oq6d071v: ~"rgb(from var(--rk-crust) r g b / 0.6)";
+    }
+
+    /* Search results */
+    ._1m2qi7rq {
+      background-color: @accent;
+      color: @base;
+    }
+
+    /* Footer */
+    .footer {
+      .text-s1,
+      .text-h2,
+      a {
+        color: @text;
+      }
+
+      .footer__creator,
+      .footer__menu-container .text-b3 {
+        color: @subtext0;
+      }
+
+      background-color: @base;
+    }
+
+    /* I don't think these actually do anything anymore, but they are
+    still defined in the app. They _might_ be removed in a future release. */
+
+    /* Backgrounds */
+    --bg-surface: @base;
+    --bg-surface-transparent: ~"rgb(from var(--rk-background) r g b / 0)";
+    --bg-surface-low: @mantle;
+    --bg-surface-low-transparent: ~"rgb(from var(--rk-mantle) r g b / 0)";
+    --bg-surface-extra-low: @crust;
+    --bg-surface-extra-low-transparent: ~"rgb(from var(--rk-crust) r g b / 0)";
+    --bg-surface-border: ~"rgb(from var(--rk-crust) r g b / 0.2)";
+    --bg-surface-hover: @surface0;
+    --bg-surface-active: @surface1;
+    --bg-overlay: ~"rgb(from var(--rk-crust) r g b / 0.6)";
+    --bg-overlay-low: ~"rgb(from var(--rk-crust) r g b / 0.8)";
+    --bg-primary: @accent;
+    --bg-primary-hover: ~"rgb(from var(--rk-accent) r g b / 0.8)";
+    --bg-primary-active: ~"rgb(from var(--rk-accent) r g b / 0.7)";
+    --bg-primary-border: ~"rgb(from var(--rk-accent) r g b / 0.38)";
+    --bg-tooltip: @surface0;
+    --bg-badge: @lavender;
+    --bg-positive: @green;
+    --bg-positive-hover: ~"rgb(from var(--rk-green) r g b / 0.08)";
+    --bg-positive-active: ~"rgb(from var(--rk-green) r g b / 0.15)";
+    --bg-positive-border: ~"rgb(from var(--rk-green) r g b / 0.4)";
+    --bg-caution: @peach;
+    --bg-caution-hover: ~"rgb(from var(--rk-peach) r g b / 0.08)";
+    --bg-caution-active: ~"rgb(from var(--rk-peach) r g b / 0.15)";
+    --bg-caution-border: ~"rgb(from var(--rk-peach) r g b / 0.4)";
+    --bg-danger: @maroon;
+    --bg-danger-hover: ~"rgb(from var(--rk-maroon) r g b / 0.05)";
+    --bg-danger-active: ~"rgb(from var(--rk-maroon) r g b / 0.1)";
+    --bg-danger-border: ~"rgb(from var(--rk-maroon) r g b / 0.2)";
+    --bg-ping: ~"rgb(from var(--rk-green) r g b / 0.4)";
+    --bg-ping-hover: ~"rgb(from var(--rk-green) r g b / 0.5)";
+
+    /* Texts */
+    --tc-surface-high: @text;
+    --tc-surface-normal: @text;
+    --tc-surface-normal-low: @subtext1;
+    --tc-surface-low: @subtext0;
+    --tc-primary-high: @crust;
+    --tc-primary-normal: @text;
+    --tc-primary-low: @subtext1;
+    --tc-tooltip: @subtext0;
+    --tc-code: @mauve;
+    --tc-link: @blue;
+    --tc-badge: @crust;
+    --tc-positive-high: @green;
+    --tc-positive-normal: @green;
+    --tc-positive-low: @green;
+    --tc-caution-high: @peach;
+    --tc-caution-normal: @peach;
+    --tc-caution-low: @peach;
+    --tc-danger-high: @maroon;
+    --tc-danger-normal: @maroon;
+    --tc-danger-low: @maroon;
+
+    /* Icons */
+    --ic-surface-high: @text;
+    --ic-surface-normal: @text;
+    --ic-surface-low: @subtext1;
+    --ic-primary-high: @crust;
+    --ic-primary-normal: @crust;
+    --ic-primary-low: @crust;
+    --ic-positive-high: @green;
+    --ic-positive-normal: @maroon;
+    --ic-caution-high: @peach;
+    --ic-caution-normal: @peach;
+    --ic-danger-high: @maroon;
+    --ic-danger-normal: @maroon;
+  }
+}

@@ -1,0 +1,143 @@
+/* ==UserStyle==
+@name Home Manager Options Search Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/home-manager-options-search.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Home Manager Options Search
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("home-manager-options.extranix.com") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    body {
+      background-color: @base;
+      color: @text;
+    }
+
+    header {
+      background-color: @mantle;
+
+      nav.shortcuts li a {
+        color: @text;
+
+        &:hover {
+          background-color: @surface0;
+          color: @text;
+        }
+      }
+    }
+
+    #lastUpdateElement {
+      color: @text;
+    }
+
+    a,
+    a:visited {
+      color: @accent;
+    }
+
+    input,
+    textarea,
+    select {
+      background-color: @mantle;
+      color: @text;
+      caret-color: @text;
+      border-color: @surface0;
+    }
+
+    .progress-bar-striped {
+      background-image: ~"linear-gradient(45deg,
+        rgb(from var(--rk-foreground) r g b / 0.4) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgb(from var(--rk-foreground) r g b / 0.4) 50%,
+        rgb(from var(--rk-foreground) r g b / 0.4) 75%,
+        transparent 75%,
+        transparent)";
+      background-color: @accent;
+      color: @crust;
+    }
+
+    .form-control:focus {
+      border-color: @accent;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px @accent;
+    }
+
+    .table-striped > tbody > tr:nth-of-type(2n+1) {
+      background-color: @surface0;
+    }
+
+    table#indexedOptionsTable tr td,
+    .table > thead > tr > th {
+      border-color: @surface2 !important;
+    }
+
+    table tr.optrow:focus-visible,
+    table tr.optrow:hover {
+      background-color: @surface1 !important;
+    }
+
+    .modal-content {
+      background-color: @base;
+
+      .modal-header,
+      .modal-footer {
+        border-color: @surface0 !important;
+      }
+
+      .close {
+        color: @text;
+        text-shadow: 0 1px 0 @text;
+      }
+
+      pre {
+        color: @text;
+        background-color: @mantle;
+        border-color: @surface0;
+      }
+    }
+
+    .btn-default {
+      background: @surface0;
+      color: @text;
+      text-shadow: none;
+      box-shadow: none;
+      border-color: @surface0;
+
+      &:hover,
+      &:focus,
+      &:active,
+      .focus,
+      .active {
+        background-color: @surface1;
+        color: @text;
+        border-color: @surface0;
+      }
+    }
+
+    footer {
+      background-color: @mantle;
+      color: @text;
+      border-color: @surface2;
+    }
+  }
+}

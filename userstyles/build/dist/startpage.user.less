@@ -1,0 +1,137 @@
+/* ==UserStyle==
+@name Startpage Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/startpage.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Startpage
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("startpage.com") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    &,
+    body {
+      --sx-accent: @accent;
+      --sx-background: @base;
+      --sx-border: @surface0;
+      --sx-tabLinkHover: @teal;
+      --sx-foreground: @text;
+      --sx-foregroundAlt: @subtext1;
+      --sx-foregroundEmphasis: ~"hsl(from var(--rk-foreground) h s calc(l + 10))";
+      --sx-popupBackground: @surface0;
+      --sx-popupForeground: @text;
+      --sx-popupForegroundEm: @text;
+      --sx-popupUrl: @blue;
+      --sx-buttonHighlight: @accent;
+      --sx-loadingBars: @mantle;
+      --sx-darkIcons: @crust;
+      --sx-arrowButtonBackground: @text;
+      --sx-arrowButtonForeground: @text;
+    }
+
+    .css-nguon6 button {
+      color: @accent;
+      border-color: @accent;
+    }
+
+    .css-fg9wif,
+    .header,
+    .wp-qi-sb__result,
+    .linkHover,
+    .footer__container {
+      background: @mantle !important;
+    }
+
+    body {
+      color: @text;
+    }
+
+    body,
+    .layout-web,
+    .layout-web__body,
+    .ex-qi-kp:not(.ex-qi-kp--light, .ex-qi-kp--night, .ex-qi-kp--air)
+      .sx-kp-infobox-wrap
+      .sx-infobox
+      tr:not(.sx-heading-row)
+      > *,
+    .w-gl {
+      background: @base !important;
+    }
+
+    .wp-qi-sb__result {
+      border-color: @mantle !important;
+    }
+
+    .wp-qi-sb__top-square-img {
+      border-bottom-color: @mantle !important;
+    }
+
+    /* fonts */
+    .w-gl__result-title,
+    .inline-nav-menu__link,
+    .wp-qi-sb__title {
+      color: @text !important;
+    }
+
+    .w-gl__result,
+    .search-filter-time__dropdown,
+    .search-filter-region__dropdown,
+    .search-filter-family__field-label,
+    .wp-qi-sb__extract {
+      color: @subtext1 !important;
+    }
+
+    .w-gl__result-url {
+      color: @accent !important;
+    }
+
+    .wp-qi-sb__expand-text,
+    .inline-nav-menu__link__active,
+    .inline-nav-menu__link:hover {
+      color: @green !important;
+    }
+
+    .inline-nav-menu__link__active,
+    .inline-nav-menu__link__post-link:hover {
+      border-bottom-color: @green !important;
+    }
+
+    .pagination .num--active {
+      background: @flamingo !important;
+      border-color: @flamingo !important;
+    }
+
+    .pagination__num:hover,
+    .pagination__next-prev-button:hover {
+      background: @blue !important;
+      border-color: @blue !important;
+    }
+
+    header {
+      background-color: @mantle !important;
+    }
+
+    .w-gl__result-title:visited {
+      color: @lavender !important;
+    }
+  }
+}

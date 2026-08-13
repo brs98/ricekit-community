@@ -1,0 +1,337 @@
+/* ==UserStyle==
+@name Vikunja Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/vikunja.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Vikunja
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("try.vikunja.io") {
+  :root.dark {
+    #catppuccin(@darkFlavor);
+  }
+  :root.light {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    #hslbreakdown(@color, @item) {
+      --@{item}-h: hue(@color) !important;
+      --@{item}-s: saturation(@color) !important;
+      --@{item}-l: lightness(@color) !important;
+      --@{item}-light-l: lightness(@color) !important;
+      --@{item}-dark-l: lightness(@color) !important;
+      --@{item}-invert-l: lightness(@color) !important;
+    }
+
+    #hslbreakdown( #cba6f7, primary);
+    --grey-100-hsl: ~"from var(--rk-mantle) h s l";
+    --site-background: @mantle;
+    --content-heading-color: @text;
+    --card-header-color: @text;
+    --card-color: @text;
+    --body-color: @text;
+    --label-color: @text;
+    --strong-color: @text;
+    --primary: @accent;
+    --primary-invert: @base;
+    --switch-view-color: @base;
+    --input-background-color: @base;
+    --input-icon-color: @text;
+    --table-row-hover-background-color: @mantle;
+    --table-head-cell-color: @text;
+    --input-border-color: @overlay0;
+    --link-hover: @accent;
+    --white: @base;
+    --grey: @overlay0;
+    --card-content-background-color: @base;
+    --success: @green;
+    --danger: @red;
+    --warning: @yellow;
+    --text: @text;
+    --text-strong: @text;
+    --button-text-hover-background-color: @base;
+    --table-striped-row-even-background-color: @mantle;
+    --code-background: @mantle;
+    --code: @text;
+
+    body,
+    div#app,
+    header,
+    aside.menu-container,
+    footer.card-footer {
+      background: @mantle !important;
+    }
+
+    svg.llama-cool > circle,
+    svg.logo > path[fill="#196aff"] {
+      fill: @accent;
+    }
+
+    svg.logo,
+    h1,
+    .action-heading,
+    .subtitle a,
+    .project-menu-title {
+      color: @text !important;
+    }
+
+    p.nothing,
+    .has-text-grey-light {
+      color: @subtext0 !important;
+    }
+
+    h1.title.task-id,
+    div.detail-title,
+    div.detail-title span {
+      color: @overlay0;
+    }
+
+    button {
+      box-shadow: none !important;
+    }
+
+    button.is-danger {
+      color: @red !important;
+      background: none;
+
+      &:hover {
+        background: @red !important;
+        color: @surface0 !important;
+      }
+
+      &:active {
+        background: ~"hsl(from var(--rk-red) h s calc(l - 10))" !important;
+        color: @surface0 !important;
+      }
+    }
+
+    .has-text-danger {
+      --has-text-hover-color: @red;
+    }
+
+    button.is-success {
+      color: @green;
+
+      &:hover {
+        background: @green !important;
+        color: @surface0 !important;
+      }
+
+      &:active {
+        background: ~"hsl(from var(--rk-green) h s calc(l - 10))" !important;
+      }
+    }
+
+    .base-button.is-primary {
+      color: @base;
+
+      &:hover {
+        background: @accent;
+      }
+
+      &:active {
+        background: ~"hsl(from var(--rk-accent) h s calc(l - 10))";
+      }
+
+      span.icon {
+        color: @base !important;
+      }
+    }
+
+    button.base-button:not(.is-primary) {
+      color: @text;
+    }
+
+    div.action-buttons > button:hover,
+    button.search-result-button:hover,
+    .button.is-text:active,
+    .single-task:hover {
+      background: @mantle;
+    }
+
+    p.is-editor-empty::before {
+      color: @overlay0;
+    }
+
+    header > button.base-button.menu-button::before,
+    header > button.base-button.menu-button::after {
+      background: @text;
+    }
+
+    .menu .menu-list {
+      li > a,
+      li > a > span {
+        color: @text;
+      }
+      li > a.router-link-active {
+        color: @accent;
+      }
+      li:hover {
+        background: @mantle;
+      }
+    }
+
+    a.base-button.menu-bottom-link {
+      color: @overlay0;
+
+      &:hover {
+        color: @overlay2;
+      }
+    }
+
+    div.is-done {
+      background: @green;
+      color: @surface0;
+    }
+
+    div.tiptap__editor {
+      a {
+        color: @accent;
+      }
+      pre,
+      code {
+        background: @surface0;
+        color: @text;
+      }
+    }
+
+    blockquote,
+    hr {
+      background: @surface0;
+    }
+
+    emoji-picker {
+      --background: @surface0;
+      --border-color: @overlay0;
+      --button-hover-background: @overlay0;
+      --input-border-color: @overlay0;
+      scrollbar-color: @overlay0 @surface0 !important;
+    }
+
+    .reaction-button.current-user-has-reacted {
+      border-color: @accent;
+      background: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+    }
+
+    p.created {
+      color: @overlay0;
+    }
+
+    .progress-bar {
+      --progress-bar-background-color: @crust;
+      --progress-value-background-color: @accent;
+    }
+
+    .loader-container.is-loading::after {
+      --loader-border-color: @accent;
+    }
+
+    /* Gantt */
+    div.gantt-container {
+      --grey-300: @surface0;
+    }
+
+    div.g-gantt-chart {
+      .g-upper-timeunit,
+      .g-timeunit {
+        color: @text !important;
+      }
+
+      .g-timeunit .today {
+        color: @surface0;
+      }
+
+      .g-gantt-row {
+        background: @base;
+      }
+
+      div.g-gantt-bar {
+        div.g-gantt-bar-label > div {
+          color: @surface0;
+        }
+
+        .g-gantt-bar-handle-left,
+        .g-gantt-bar-handle-right {
+          background: ~"hsl(from var(--rk-accent) h s calc(l - 10))";
+        }
+      }
+    }
+
+    /* Kaban */
+    div.bucket-header,
+    div.task-item,
+    div.bucket-footer,
+    div.bucket > button.base-button {
+      background: @base;
+    }
+
+    div.task-item > .task {
+      background: @mantle;
+
+      span.priority-label {
+        background: @surface0;
+      }
+    }
+
+    /* Command Palette */
+    span.result-title,
+    div.active-cmd.tag {
+      background: @base;
+    }
+
+    /* Keyboard Shortcuts modal */
+    kbd {
+      color: @text;
+      border-color: @overlay0;
+      background: @base;
+    }
+
+    div.message-wrapper > div.message.info {
+      background: @base;
+    }
+
+    /* Popups */
+    div.v-popper__inner {
+      background: @mantle;
+      color: @text;
+    }
+
+    div.v-popper__arrow-outer {
+      border-color: @mantle;
+    }
+
+    .modal-mask {
+      span,
+      p,
+      strong {
+        color: @text !important;
+      }
+    }
+
+    /* Vue Notifications */
+    .vue-notification {
+      color: @surface0 !important;
+    }
+    .vue-notification button {
+      background: none;
+      color: @overlay0 !important;
+    }
+
+    .vue-notification.success {
+      background: @green;
+      border-left-color: ~"hsl(from var(--rk-green) h s calc(l - 5))";
+    }
+  }
+}

@@ -1,0 +1,130 @@
+/* ==UserStyle==
+@name Snapchat Web Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/snapchat-web.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Snapchat Web
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document url-prefix("https://www.snapchat.com/web") {
+  :root[theme="dark"] {
+    #catppuccin(@darkFlavor);
+  }
+  :root[theme="light"] {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    /* Snapchat applies the variables (overrides?) to specific elements so we need to apply to every element (with high specificity) to override those. */
+    &,
+    body > main#root * {
+      --sigMain: @base;
+      --sigSurface: @mantle;
+      --sigSurfaceRGB: ~"from var(--rk-mantle) r g b";
+      --sigAboveSurface: @crust;
+      --sigSurfaceDown: @base;
+      --sigSubscreen: @crust;
+      --sigTextField: @crust;
+      --sigDivider: @surface0;
+      --sigDividerLight: @surface0;
+      --sigColorBackgroundBorder: @surface0;
+      --sigBackgroundPrimary: @base;
+      --sigBackgroundSecondary: @mantle;
+      --sigBackgroundSecondaryHover: ~"hsl(from var(--rk-mantle) h s calc(l - 5))";
+      --sigBackgroundTertiary: @crust;
+      --sigBackgroundMessageHover: @surface1;
+      --sigBackgroundMessageSaved: @surface0;
+      --sigBackgroundMessageSavedHover: @surface2;
+      --sigOverlay: ~"rgb(from var(--rk-black) r g b / 0.4)";
+      --sigOverlayHover: ~"rgb(from var(--rk-black) r g b / 0.35)";
+      --sigBrandSecondary: @accent;
+      --sigObject: rgba(255, 255, 255, 0.05);
+
+      --sigTextPrimary: @text;
+      --sigButtonOnPrimary: @crust;
+      --sigTextSecondary: @subtext0;
+      --sigButtonOnSecondary: @subtext0;
+      --sigTextTertiary: @subtext1;
+      --sigButtonOnTertiary: @subtext1;
+      --sigTextNegative: @red;
+      --sigButtonOnSuccess: @base;
+      --sigButtonOnError: @base;
+      --sigButtonOnNegative: @base;
+      --sigButtonOnChatSurfaceCalling: @base;
+      --sigTextPlayer: @crust;
+      --sigButtonGreyHover: ~"hsl(from var(--rk-surface0) h s calc(l - 5))";
+      --sigButtonGreyActive: ~"hsl(from var(--rk-surface0) h s calc(l - 8))";
+
+      --sigButtonPrimary: @accent;
+      --sigButtonPrimaryHover: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      --sigButtonPrimaryActive: ~"hsl(from var(--rk-accent) h s calc(l - 8))";
+      --sigButtonSecondary: @surface0;
+      --sigButtonSecondaryHover: @surface1;
+      --sigButtonSecondaryActive: @surface2;
+      --sigButtonNegative: @red;
+      --sigButtonError: @red;
+      --sigButtonErrorHover: ~"hsl(from var(--rk-red) h s calc(l - 5))";
+      --sigButtonSuccess: @green;
+      --sigButtonSuccessHover: ~"hsl(from var(--rk-green) h s calc(l - 5))";
+      --sigIconCalling: @green;
+      --sigIconCallingHover: ~"hsl(from var(--rk-green) h s calc(l - 5))";
+      --sigChatSurfaceCalling: @green;
+      --sigChatSurfaceCallingDisabled: ~"hsl(from var(--rk-green) h s calc(l - 20))";
+      --sigChatSurfaceCallingHover: ~"hsl(from var(--rk-green) h s calc(l - 5))";
+
+      --sigChat: @blue;
+      --sigChatIcon: @blue;
+      --sigSnapWithoutSound: @red;
+      --sigSnapWithSound: @mauve;
+    }
+
+    // new chat button
+    button[title="New Chat"],
+    // checkbox to choose camera
+    [id*="downshift-"] a,
+    // checkbox in new chat popup
+    [aria-label="Unselect chosen user"] {
+      path[fill="#fff"] {
+        fill: @crust;
+      }
+      // replaces blue fill
+      path[fill="#51B7FF"] {
+        fill: @accent;
+      }
+    }
+
+    // new group button
+    form > div > div > div[role="searchbox"] button {
+      color: @crust;
+      path {
+        fill: @crust;
+      }
+    }
+
+    // story reply text
+    li button[type="button"].replyText {
+      background-color: rgba(30, 30, 30, 0.8);
+    }
+
+    // buttons when in call
+    [data-projection-id] button {
+      --sigColorAlwaysWhite: @surface0;
+    }
+
+    // replay button on stories
+    img[role="presentation"][src^="blob:"] + div > svg > path[fill="#fff"] {
+      fill: @text;
+    }
+  }
+}
