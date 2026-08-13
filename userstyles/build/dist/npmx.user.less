@@ -1,0 +1,70 @@
+/* ==UserStyle==
+@name npmx Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.04.13.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/npmx.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for npmx
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("npmx.dev") {
+  :root[data-theme="dark"][data-bg-theme] {
+    #catppuccin(@darkFlavor);
+  }
+  :root[data-theme="light"][data-bg-theme] {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --bg: @base;
+    --bg-subtle: @mantle;
+    --bg-muted: @crust;
+    --bg-elevated: @surface0;
+
+    --fg: @text;
+    --fg-subtle: @overlay1;
+    --fg-muted: @subtext0;
+    --fg-elevated: @subtext0;
+
+    --accent: @accent;
+    --accent-muted: @accent;
+
+    --border: @surface1;
+    --border-subtle: @surface0;
+    --border-hover: @overlay0;
+
+    --swatch-sky: @sky;
+    --swatch-coral: @peach;
+    --swatch-amber: @yellow;
+    --swatch-emerald: @green;
+    --swatch-violet: @mauve;
+    --swatch-magenta: @pink;
+    --swatch-neutral: @text;
+
+    --badge-orange: @peach;
+    --badge-yellow: @yellow;
+    --badge-green: @green;
+    --badge-cyan: @teal;
+    --badge-blue: @blue;
+    --badge-indigo: @lavender;
+    --badge-purple: @mauve;
+    --badge-pink: @pink;
+
+    --colors-red-500: @red;
+    --colors-emerald-500: @green;
+    --colors-yellow-600: @yellow;
+    --colors-amber-500: @peach;
+    --colors-emerald-400: @green;
+    --colors-orange-500: @peach;
+  }
+}

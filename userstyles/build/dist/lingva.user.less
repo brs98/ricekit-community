@@ -1,0 +1,98 @@
+/* ==UserStyle==
+@name Lingva Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lingva.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Lingva
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("lingva.ml"),
+  domain("translate.plausibility.cloud"),
+  domain("lingva.lunar.icu"),
+  domain("translate.projectsegfau.lt"),
+  domain("lingva.garudalinux.org") {
+  .chakra-ui-light {
+    #catppuccin(@lightFlavor);
+  }
+  .chakra-ui-dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    body {
+      background: @base;
+      color: @text;
+    }
+
+    header {
+      background-color: @accent;
+
+      .chakra-button {
+        color: ~"hsl(from var(--rk-accent) h s calc(l - 50))";
+        background: ~"hsl(from var(--rk-accent) h s calc(l + 5))";
+        &:hover {
+          background: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+        }
+      }
+    }
+
+    footer {
+      background-color: @accent;
+      color: ~"hsl(from var(--rk-accent) h s calc(l - 50))";
+    }
+
+    #__next > div {
+      background: @base;
+    }
+
+    main {
+      background: @base;
+      color: @text;
+
+      select {
+        border-color: @accent;
+        color: @text;
+      }
+      .chakra-select__icon {
+        color: @text;
+      }
+      .chakra-button {
+        color: @accent;
+        border-color: @accent;
+
+        &:hover:not(:disabled) {
+          background-color: ~"rgb(from var(--rk-accent) r g b / 0.12)";
+        }
+
+        // Auto translate button (clicked) (Dark and Light classes)
+        &.css-1huvcr7,
+        &.css-q22xb2 {
+          background: @accent;
+          color: @crust;
+        }
+      }
+      .chakra-stack {
+        border-color: @accent;
+      }
+
+      textarea {
+        color: @text;
+      }
+
+      .chakra-text {
+        color: @subtext1;
+      }
+    }
+  }
+}

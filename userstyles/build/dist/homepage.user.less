@@ -1,0 +1,143 @@
+/* ==UserStyle==
+@name homepage Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/homepage.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for homepage
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("homepage.example.com"),
+  regexp("https?://homepage\\..*") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    //Page Level Features
+
+    :is(.dark .dark\:bg-theme-800) {
+      --tw-bg-opacity: 1;
+      background-color: @base; //background Color
+    }
+
+    .dark {
+      --bg-color: @base;
+      --scrollbar-thumb: @accent; //ScrollBar
+      --scrollbar-track: @mantle; //Scrollbar base
+    }
+
+    //Information Widget Features
+
+    :is(.dark .dark\:bg-theme-200\/20) {
+      background-color: @overlay0; //Information Widgets Progress Bar Background
+    }
+    :is(.dark .dark\:bg-theme-200\/50) {
+      background-color: @text; //Information Widgets Progress Bar Value
+    }
+    .border-theme-300 {
+      --tw-border-opacity: 1;
+      border-color: @surface0
+        !important; //Search bar Border (important is needed so top separator doesn't override)
+    }
+    :is(.dark .dark\:bg-white\/10) {
+      background-color: @base; //Search bar background
+    }
+    :is(.dark .dark\:focus\:ring-white\/50:focus) {
+      --tw-ring-color: @text; //Search bar Focus Border
+    }
+
+    :is(.dark .dark\:text-white) {
+      --tw-text-opacity: 1;
+      color: @accent; //Search bar Text
+    }
+
+    // Services Level Features
+
+    :is(.dark .dark\:bg-white\/5) {
+      background-color: @mantle; //Box Background
+    }
+    :is(.dark .dark\:shadow-theme-900\/20) {
+      --tw-shadow-color: @mantle; //Box Shadows
+      --tw-shadow: var(--tw-shadow-colored);
+    }
+
+    :is(.dark .dark\:hover\:bg-white\/10:hover) {
+      background-color: @surface1; //Box Hover Color
+    }
+
+    :is(.dark .dark\:bg-theme-900\/50) {
+      background-color: @crust; //Ping & Docker Stats Box Background
+    }
+    :is(.dark .dark\:bg-theme-900\/20) {
+      background-color: @surface0; //Stats Background Color
+    }
+
+    :is(.dark .dark\:bg-theme-900\/40) {
+      background-color: @accent; //Progress Bar
+    }
+    :is(.dark .dark\:text-theme-300) {
+      color: @text; //Section Names + Container Description
+    }
+
+    // api error
+    .text-theme-900 {
+      --tw-border-opacity: 1;
+      color: @base; // api error text color
+    }
+
+    .bg-rose-900\/80 {
+      --tw-border-opacity: 1;
+      background-color: @red; // api error box color
+    }
+    //
+
+    :is(.dark .dark\:text-theme-400) {
+      --tw-border-opacity: 1;
+      color: @text; // update and version text
+    }
+
+    .text-white {
+      color: @subtext1; // search bar icon
+    }
+
+    :is(.dark .dark\:border-theme-200\/50) {
+      --tw-border-opacity: 1;
+      border-color: @surface2; // top separator
+    }
+
+    :is(.dark .dark\:hover\:text-theme-300:hover) {
+      --tw-text-opacity: 1;
+      color: ~"hsl(from var(--rk-accent) h s calc(l - 10))"; //Section Names + Container Description Hover Color
+    }
+    :is(.dark .dark\:text-theme-200) {
+      --tw-text-opacity: 1;
+      color: @text; // Container Names + Stats
+    }
+
+    .text-emerald-500\/80 {
+      color: ~"hsl(from var(--rk-green) h s calc(l + 10))"; //Ping & Docker Status Text (Running + Healthy)
+    }
+    .text-orange-400\/50 {
+      color: ~"hsl(from var(--rk-yellow) h s calc(l + 10))"; //Docker Status Text (Unhealthy)
+    }
+    .text-rose-500\/80 {
+      color: ~"hsl(from var(--rk-red) h s calc(l - 10))"; //Ping Status Text (Bad)
+    }
+  }
+}

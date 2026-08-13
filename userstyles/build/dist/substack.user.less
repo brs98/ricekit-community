@@ -1,0 +1,258 @@
+/* ==UserStyle==
+@name Substack Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/substack.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Substack
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("substack.com") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    color: @text;
+    background-color: @base !important;
+
+    &,
+    .dark-mode,
+    .dark-theme,
+    [class*="_pubTheme_"] {
+      --color-bg-primary: @base;
+      --color-bg-primary-rgb: ~"var(--rk-base-rgb)";
+      --color-bg-primary-raw: ~"var(--rk-base-rgb)";
+      --color-bg-primary-hover: @surface0;
+      --color-bg-secondary: @surface0;
+      --color-bg-tertiary: @surface1;
+      --color-bg-elevated-primary: @mantle;
+      --color-bg-elevated-secondary: @crust;
+      --color-fg-primary: @text;
+      --color-fg-secondary: @subtext1;
+      --color-fg-tertiary: @subtext0;
+      --color-utility-detail: @surface1;
+      --color-utility-white: @text;
+      --color-detail-themed: @surface1;
+      --color-accent-themed: @accent;
+
+      --color-accent-fg-red: @red;
+      --color-accent-bg-red: ~"rgb(from var(--rk-red) r g b / 0.2)";
+      --color-semantic-error-bg-primary: @red;
+      --color-semantic-error-utility-contrast: @crust;
+
+      --color-accent-fg-orange: @accent;
+      --color-accent-bg-orange: ~"rgb(from var(--rk-accent) r g b / 0.2)";
+
+      --color-accent-fg-green: @green;
+      --color-accent-bg-green: ~"rgb(from var(--rk-green) r g b / 0.2)";
+
+      --color-accent-fg-cyan: @blue;
+      --color-accent-bg-cyan: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+
+      /* Buttons */
+      --color-button-primary-bg: @accent;
+      --color-button-primary-bg-hover: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      --color-button-primary-fg: @crust;
+
+      --color-button-secondary-bg: @surface0;
+      --color-button-secondary-bg-hover: @surface1;
+      --color-button-secondary-fg: @text;
+
+      --color-button-tertiary-bg-hover: @surface1;
+      --color-button-tertiary-fg: @text;
+
+      --color-button-mono-bg: @text;
+      --color-button-mono-bg-hover: @subtext1;
+      --color-button-mono-fg: @crust;
+
+      --color-button-disabled-fg: @subtext0;
+
+      /* Tooltips & Toasts */
+      --color-bg-tooltip: @mantle;
+      --material-thick: @mantle;
+
+      --print_pop: @accent;
+      --print_secondary: @subtext1;
+      --background_pop: @accent;
+      --print_on_pop: @crust;
+      --color_theme_bg_pop: @accent;
+      --color_theme_bg_pop_darken: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+      --color_theme_print_on_pop: @crust;
+      --border_subtle: @surface1;
+      --background_contrast_1: @mantle;
+      --background_contrast_2: @surface2;
+      --color_theme_bg_contrast_1: @surface1;
+      --color_theme_bg_contrast_2: @overlay0;
+      --color_theme_bg_contrast_4: @subtext0;
+
+      --color-chat-other-fg-secondary: @subtext1;
+
+      --color-semantic-select-fg-primary: @accent;
+      --color-semantic-select-utility-detail: ~"rgb(from var(--rk-accent) r g b / 0.2)";
+      --color-semantic-highlight-fg-primary: @accent;
+
+      /* Weird variables issue fixes */
+      --color-light-bg-primary: @mantle; /* Was text, changing to mantle for (select text) -> Share -> Download button color. Might break things */
+      --color-light-bg-secondary: @surface0; /* substack.com homepage sections */
+      --color-dark-bg-primary: @mantle;
+      --color-dark-bg-secondary: @base;
+      --color-dark-bg-tertiary: @surface0;
+
+      /* Publications with different variables */
+      --color-primary-themed: @text;
+      --color-secondary-themed: @subtext1;
+
+      --color-bg-secondary-themed: @surface0;
+
+      --web_bg_color: @mantle;
+      --print_on_web_bg_color: @text;
+      --print_secondary_on_web_bg_color: @subtext1;
+
+      /* Share button */
+      --material-dark-regular: @mantle;
+      /* Copy (heading link) to clipboard notification */
+      --material-dark-thick: @crust;
+      /* Button hover, faded to 0.1 */
+      --color-primitive-white-rgb: ~"var(--rk-text-rgb)";
+
+      /* Various full screen modals for singing up, subscribing etc */
+      --cover_print_primary: @text;
+      --cover_print_secondary: @subtext1;
+      --cover_print_tertiary: @subtext0;
+      --cover_bg_color: @base;
+      --cover_input_background: @mantle;
+    }
+
+    /* Substack logos */
+    [fill="#ff6719" i] {
+      fill: @accent !important;
+    }
+    /* Inverted logo colors */
+    [fill="#FFFFFF" i] {
+      fill: @crust !important;
+    }
+
+    /* Footer */
+    .footer-wrap {
+      &,
+      .footer {
+        background-color: @mantle;
+      }
+
+      .home-footer {
+        &,
+        a,
+        .footer-info .footer-info-col h3 {
+          color: @text;
+        }
+      }
+    }
+    .subscribe-footer .button.primary {
+      border-color: @crust;
+    }
+
+    /* Signup, onboarding, and profile */
+
+    .homepage-nav .homepage-nav-bar .homepage-nav-wrap.grey {
+      background-color: @base;
+    }
+    .signup-page {
+      background-color: @base;
+
+      .signup-box-wrap .error {
+        color: @red;
+      }
+    }
+
+    .onboarding-profile-page {
+      .accept-tos * {
+        color: @subtext1;
+      }
+
+      .skip-button {
+        color: @text;
+      }
+    }
+
+    .profile-page .set-up-profile-button {
+      color: @crust;
+    }
+    .edit-profile-page .publication-section .all-toggle {
+      color: @subtext1;
+    }
+
+    /* Misc inputs */
+    button[role="switch"],
+    input[type="radio"] + span {
+      --color-utility-white: @surface0;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      background-color: @mantle;
+      color: @text;
+    }
+
+    .themed-select > div {
+      background-color: @mantle;
+      border-color: @surface0;
+
+      * {
+        color: @text;
+      }
+    }
+
+    [aria-label="File Picker"] {
+      background-color: @base;
+    }
+
+    /* Dashboard */
+
+    /* Icons */
+    [stroke="#888888"],
+    [stroke="#555555"] {
+      stroke: @subtext1 !important;
+    }
+
+    /* Import posts */
+    .signup-page > .container .signup-box {
+      background-color: @base;
+    }
+
+    /* Stats */
+    .subscriber-stats-page {
+      .heading .options .header-option .header-button {
+        background-color: @surface0;
+      }
+
+      table {
+        td,
+        th {
+          background-color: @base;
+        }
+      }
+    }
+
+    /* Editor */
+    .tw-bg-pub-accent {
+      background-color: @accent !important;
+    }
+  }
+}

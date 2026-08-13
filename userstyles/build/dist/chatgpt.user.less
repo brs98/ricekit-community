@@ -1,0 +1,239 @@
+/* ==UserStyle==
+@name ChatGPT Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.07.26.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/chatgpt.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for ChatGPT
+@author Catppuccin
+@license MIT
+
+@preprocessor  less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("chatgpt.com") {
+  // TODO: Codemirror syntax highlighting.
+
+  .light {
+    #catppuccin(@lightFlavor);
+  }
+
+  .dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    * {
+      --text-primary: @text;
+      --text-secondary: @subtext1;
+      --text-tertiary: @subtext0;
+      --text-quaternary: @overlay2;
+      --bg-primary: @base;
+      --bg-secondary: @surface0;
+      --bg-tertiary: @surface1;
+
+      --bg-secondary-surface: @mantle; // sidebar
+
+      --bg-elevated-primary: @base; // settings main panel
+      --bg-elevated-secondary: @mantle;
+
+      --bg-tooltip: @crust;
+
+      --main-surface-primary: @base;
+      --main-surface-secondary: @surface0;
+      --main-surface-tertiary: @surface1;
+      --interactive-bg-secondary-hover: @surface1;
+      --interactive-bg-secondary-press: @surface0;
+
+      --interactive-label-accent-default: @accent; // some dropdowns in settings
+
+      --border-light: @surface0;
+      --border-default: @surface1;
+      --border-medium: @surface2;
+      --interactive-border-focus: @overlay0;
+
+      --theme-user-msg-bg: @surface0;
+      --theme-user-msg-text: @text;
+      --theme-submit-btn-bg: @accent;
+      --theme-submit-btn-text: @base;
+
+      --theme-secondary-btn-bg: @surface1;
+      --theme-secondary-btn-text: @text;
+
+      --sidebar-surface: @mantle; // modal backgrounds
+      --sidebar-surface-primary: @mantle; // syntax highlighted code block backgrounds
+
+      --surface-hover: @surface0; // some button hovers
+
+      --icon-tertiary: @overlay2;
+
+      --text-status-error: @red;
+
+      // chat input prompt border
+      --shadow-color-1: ~"rgb(from var(--rk-mantle) r g b / 0.5)";
+      --shadow-color-2: ~"rgb(from var(--rk-foreground) r g b / 0.8)";
+
+      .__menu-item[data-sidebar-item] {
+        --menu-item-highlighted: @surface0;
+      }
+
+      .__menu-item[data-color="danger"] {
+        --menu-item-highlighted: ~"rgb(from var(--rk-red) r g b / 0.2)";
+        --menu-item-active: ~"rgb(from var(--rk-red) r g b / 0.3)";
+        --menu-item-open: ~"rgb(from var(--rk-red) r g b / 0.3)";
+      }
+
+      /* Markdown */
+
+      /* Inline code */
+      code:not(pre > code) {
+        background-color: @surface0;
+      }
+
+      code[class*="language-"],
+      pre[class*="language-"],
+      code.hljs {
+        color: @text !important;
+      }
+
+      /* Components */
+
+      .btn-primary {
+        background-color: @text;
+        color: @base;
+      }
+
+      .btn-purple {
+        color: @base;
+        background-color: @accent;
+
+        &:hover {
+          background-color: ~"hsl(from var(--rk-accent) h s calc(l + 5))";
+        }
+
+        &:focus, &:active {
+          background-color: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+        }
+      }
+
+      .btn-danger-outline {
+        color: @red;
+        border-color: @red;
+      }
+
+      .btn-ghost {
+        &:not(:disabled) {
+          &:hover {
+            background-color: @surface0;
+          }
+        }
+      }
+
+      /* Dark Overrides */
+      .bg-token-bg-primary {
+        background-color: var(--bg-primary);
+      }
+      .bg-token-main-surface-primary {
+        background-color: var(--main-surface-primary);
+      }
+      .bg-token-sidebar-surface {
+        background-color: var(--sidebar-surface);
+      }
+
+      /* Tailwind Utilities */
+      .__tailwind-utility(@color, @shade, @value) {
+        .text-@{color}-@{shade},
+        .dark\:text-@{color}-@{shade} {
+          color: @value;
+        }
+        .bg-@{color}-@{shade},
+        .dark\:bg-@{color}-@{shade} {
+          background-color: @value;
+        }
+        .border-@{color}-@{shade} {
+          border-color: @value;
+        }
+        .radix-state-checked\:bg-@{color}-@{shade}[data-state="checked"] {
+          background-color: @value;
+        }
+      }
+
+      .__tailwind-utility(green, 600, @green); // confirmation toasts
+      .__tailwind-utility(red, 500, @red); // failure toasts
+      .__tailwind-utility(blue, 400, @accent); // toggled checkmarks
+      .__tailwind-utility(gray, 600, @overlay0); // untoggled checkmarks
+      .__tailwind-utility(gray, 500, @overlay2); // faint text in/and dividers
+
+      .text-white {
+        color: @base;
+      }
+
+      .bg-black {
+        background-color: @mantle;
+      }
+    }
+  }
+}
+
+@-moz-document domain("auth.openai.com") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    color: @text;
+
+    background-color: @base;
+    --main-page-background: @base;
+
+    // Logo
+    a[href="https://chatgpt.com"] > svg {
+      filter: @text-filter;
+    }
+
+    --text-primary: @text;
+    --text-secondary: @subtext1;
+    --text-tertiary: @subtext0;
+    --text-placeholder: @subtext0; // form field labels above the input (e.g. "Email" and "Password")
+
+    --accent-blue: @accent;
+    --link: @accent;
+
+    --border-medium: @surface2;
+
+    --button-primary-background: @text;
+    --button-primary-hover: @subtext1;
+    --button-text-on-primary: @base;
+
+    --button-outline-hover: @surface0;
+
+    --gray-100: @surface2; // divider lines
+
+    input {
+      color: @text;
+    }
+
+    [class*="_toggleVisibilityButton"]:where(:hover, :focus-visible)::before {
+      background-color: @surface0;
+    }
+
+    [data-overlay-container] [class*="_tooltip"] {
+      --tooltip-background-color: @mantle !important;
+      --tooltip-color: @text !important;
+    }
+  }
+}

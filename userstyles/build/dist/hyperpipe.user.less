@@ -1,0 +1,57 @@
+/* ==UserStyle==
+@name Hyperpipe Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.03.21.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/hyperpipe.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Hyperpipe
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("hyperpipe.surge.sh") {
+  body {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  body[data-theme^="light"] {
+    #catppuccin(@lightFlavor);
+  }
+
+  body[data-theme^="dark"],
+  body[data-theme^="black"],
+  body[data-theme^="dracula"],
+  body[data-theme^="nord"] {
+    #catppuccin(@darkFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --color-foreground: @accent !important;
+    --color-background: @base !important;
+    --color-background-soft: @surface0 !important;
+    --color-background-mute: @surface1 !important;
+    --color-border: @surface0 !important;
+    --color-border-hover: @overlay0 !important;
+    --color-shadow: @crust !important;
+    --color-blur: ~"rgb(from var(--rk-mantle) r g b / 0.45)" !important;
+    --color-gradient: ~"linear-gradient(45deg,
+      @accent,
+      rgb(from var(--rk-accent) r g b / 0.45))";
+    --color-scrollbar: @accent !important;
+    --color-heading: @text !important;
+    --color-text: @text !important;
+  }
+}

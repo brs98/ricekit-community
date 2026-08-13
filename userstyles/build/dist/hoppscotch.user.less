@@ -1,0 +1,106 @@
+/* ==UserStyle==
+@name Hoppscotch Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.12.27.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/hoppscotch.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Hoppscotch
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("hoppscotch.io") {
+  :root.dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  :root.light {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    @accent-light-alpha: 1.1;
+    @accent-dark-alpha: 80%;
+    @accent-gradient-from-color: 1.05;
+    @accent-gradient-via-color: 1.2;
+    @accent-gradient-to-color: 0.85;
+
+    --primary-color: @base;
+    --primary-light-color: @mantle;
+    --primary-dark-color: @crust;
+    --primary-contrast-color: @mantle;
+    --secondary-color: @subtext0;
+    --secondary-light-color: @subtext0;
+    --secondary-dark-color: @subtext1;
+    --divider-color: @surface0;
+    --divider-light-color: @surface0;
+    --divider-dark-color: @surface0;
+    --error-color: @red;
+    --tooltip-color: @text;
+    --popover-color: @crust;
+    --editor-theme: "vscode-esque";
+    --editor-type-color: ~"rgb(from var(--rk-accent) r g b / 0.9)";
+    --editor-name-color: @blue;
+    --editor-operator-color: @mauve;
+    --editor-invalid-color: @maroon;
+    --editor-separator-color: @overlay0;
+    --editor-meta-color: @overlay0;
+    --editor-variable-color: @green;
+    --editor-link-color: @sapphire;
+    --editor-constant-color: ~"rgb(from var(--rk-lavender) r g b / 0.012)";
+    --editor-keyword-color: @red;
+    --accent-color: @accent;
+    --accent-light-color: ~"rgb(from var(--rk-accent) r g b / calc(@{accent-light-alpha} / 100%))";
+    --accent-dark-color: ~"rgb(from var(--rk-accent) r g b / calc(@{accent-dark-alpha} / 100%))";
+    --accent-contrast-color: @crust;
+    --gradient-from-color: ~"rgb(from var(--rk-accent) r g b / calc(@{accent-gradient-from-color} / 100%))";
+    --gradient-via-color: ~"rgb(from var(--rk-accent) r g b / calc(@{accent-gradient-via-color} / 100%))";
+    --gradient-to-color: ~"rgb(from var(--rk-accent) r g b / calc(@{accent-gradient-to-color} / 100%))";
+
+    --editor-process-color: @text;
+    --banner-info-color: ~"rgb(from var(--rk-blue) r g b / 0.2)";
+
+    --method-get-color: @green;
+    --method-post-color: @yellow;
+    --method-put-color: @sapphire;
+    --method-patch-color: @mauve;
+    --method-delete-color: @red;
+    --method-head-color: @teal;
+    --method-options-color: @lavender;
+    --method-default-color: @overlay1;
+    --status-info-color: @blue;
+    --status-success-color: @green;
+    --status-redirect-color: @peach;
+    --status-critical-error-color: @red;
+    --status-server-error-color: @red;
+    --status-missing-data-color: @overlay0;
+
+    .cm-editor {
+      background: @mantle;
+
+      .cm-placeholder {
+        color: @text;
+      }
+    }
+
+    .cm-focused .cm-activeLine {
+      background-color: @base;
+    }
+
+    .cm-focused .cm-activeLineGutter {
+      background-color: @surface0;
+    }
+
+    .cm-selectionBackground {
+      background: ~"rgb(from var(--rk-accent) r g b / 0.3)" !important;
+    }
+  }
+}

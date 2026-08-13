@@ -1,0 +1,196 @@
+/* ==UserStyle==
+@name Amplenote Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/amplenote.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Amplenote
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("amplenote.com") {
+  body:not(.theme-light) {
+    #catppuccin(@darkFlavor);
+  }
+
+  body.theme-light {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    &.themeable {
+      --color-background-primary: @base;
+      --color-background-primary-rgb: ~"var(--rk-base-rgb)";
+      --color-background-secondary: @mantle;
+      --color-background-tertiary: @mantle;
+
+      --color-background-popup: @base;
+      --color-background-dialog: @mantle;
+      --color-background-header: @mantle;
+      --color-background-nav: @mantle;
+      --color-background-nav-active: @surface0;
+      --color-background-search-bar: @crust;
+      --color-background-nav-menu: @mantle;
+      --color-background-nav-menu-divider: @crust;
+      --color-background-nav-avatar: @crust;
+      --color-background-popup-small: @surface0;
+      --color-background-reversed: @surface0;
+      --color-background-reversed-secondary: @surface2;
+
+      --color-background-element-high-contrast: ~"rgb(from var(--rk-overlay2) r g b / 0.4)";
+      --color-background-element-medium-contrast: ~"rgb(from var(--rk-accent) r g b / 0.4)";
+      --color-background-element-medium-contrast-rgb: fade(@accent. 40%);
+      --color-background-element-low-contrast: @crust;
+
+      --color-background-note-menu-button: @surface0;
+      --color-background-banner: @surface0;
+      --color-background-banner-alt: @base;
+      --color-background-nav-divider: @surface0;
+
+      --color-background-action-low-contrast: ~"rgb(from var(--rk-accent) r g b / 0.5)";
+      --color-background-action-medium-contrast: ~"rgb(from var(--rk-accent) r g b / 0.6)";
+      --color-background-action-high-contrast: @accent;
+      --color-background-action-high-contrast-rgb: ~"var(--rk-accent-rgb)";
+      --color-background-action-high-contrast-alt: ~"rgb(from var(--rk-accent) r g b / 0.75)";
+
+      --color-background-error-high-contrast: @red;
+      --color-background-error-medium-contrast: ~"rgb(from var(--rk-red) r g b / 0.5)";
+
+      --color-border-primary: @surface0;
+      --color-border-secondary: @surface1;
+      --color-border-tertiary: @surface1;
+
+      --color-text-reversed: @text;
+
+      --color-text-high-contrast: @text;
+      --color-text-nav-high-contrast: @text;
+      --color-text-medium-contrast: @subtext1;
+      --color-text-nav-medium-contrast: @subtext1;
+      --color-text-low-contrast: @subtext0;
+      --color-text-nav-low-contrast: @subtext0;
+      --color-text-lower-contrast: @overlay2;
+      --color-text-nav-lower-contrast: @surface2;
+
+      --color-text-error-low-contrast: @peach;
+      --color-text-error-low-contrast-rgb: ~"var(--rk-peach-rgb)";
+      --color-text-error-medium-contrast: @red;
+      --color-text-error-high-contrast: @red;
+
+      --color-text-status: @green;
+      --color-text-link: @accent;
+      --color-text-button: @crust;
+
+      --color-background-task-value: @surface1;
+      --color-background-sidebar-task: @surface0;
+
+      --color-overlay-low-contrast: @accent;
+
+      --mdc-theme-surface: @base;
+    }
+
+    header.note-header-container .logo-wrapper .ample-svg-logo .logo-icon {
+      fill: @text;
+    }
+
+    .notes-list .notes-list-item:hover {
+      background-color: @crust;
+    }
+
+    .ample-editor .editor-tabs .tab:not(.current) {
+      border-bottom-color: @surface0 !important;
+    }
+
+    .referencing-notes,
+    .tab.current,
+    .editor-title-input-wrapper textarea,
+    .completed-tasks,
+    .no-tasks-message {
+      background-color: @base !important;
+    }
+
+    .new-note-button {
+      color: @crust !important;
+    }
+
+    .ample-editor .check-list-item.value-1 .row-wrapper {
+      border-left-color: @sapphire;
+    }
+
+    .menu-button.synced {
+      color: @green !important;
+    }
+
+    .menu-button .refreshing {
+      color: @blue !important;
+    }
+
+    .primary-side-nav .section-link.default .shortcut-icon {
+      color: @yellow;
+    }
+
+    .ample-editor:not(.mobile-embed)
+      .check-list-item:hover:not(.expanded)
+      .row-wrapper {
+      background-color: @surface0;
+    }
+
+    .mdc-chip-set.mdc-chip-set--choice
+      .mdc-chip.mdc-chip--selected
+      .mdc-chip__icon--leading,
+    .mdc-chip.mdc-chip--selected .mdc-chip__icon--leading {
+      color: @crust;
+    }
+
+    .account-appearance-app .mdc-chip i.material-icons.mdc-chip__icon--leading {
+      color: @text;
+    }
+
+    .DayPicker-Weekday {
+      color: @subtext0;
+    }
+
+    .calendar-pane .fc {
+      .fc-timegrid-now-indicator-arrow {
+        .line {
+          border-bottom-color: @accent;
+        }
+        .material-icons {
+          color: @accent;
+        }
+      }
+
+      .fc-timegrid-now-indicator-line {
+        border-color: ~"hsl(from var(--rk-accent) h s calc(l - 10))";
+      }
+
+      .fc-timegrid .fc-daygrid-day-events,
+      .fc-timegrid .all-day-slot {
+        background-color: @base;
+      }
+    }
+
+    #completed-tasks-stroke-gradient,
+    #completed-tasks-fill-gradient {
+      [offset="0%"] {
+        stop-color: @maroon;
+      }
+
+      [offset="50%"] {
+        stop-color: @peach;
+      }
+
+      [offset="100%"] {
+        stop-color: @yellow;
+      }
+    }
+  }
+}

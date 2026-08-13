@@ -1,0 +1,148 @@
+/* ==UserStyle==
+@name Learn X in Y Minutes Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/learn-x-in-y-minutes.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Learn X in Y Minutes
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("learnxinyminutes.com") {
+  @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
+
+  html.light {
+    #catppuccin(@lightFlavor);
+  }
+
+  html.dark {
+    #catppuccin(@darkFlavor);
+  }
+
+  html:not(.dark, .light) {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    .highlight {
+      background-color: @mantle;
+
+      pre {
+        background-color: @mantle !important;
+      }
+    }
+
+    &:not(.dark, .light) {
+      p {
+        color: @subtext0 !important;
+      }
+
+      span {
+        color: @text;
+      }
+    }
+
+    .share {
+      background-color: @mantle;
+      border-color: @crust;
+
+      &:hover {
+        background-color: @surface0;
+      }
+    }
+
+    .theme-choice button {
+      color: @text;
+      background-color: @mantle;
+      border-color: @crust;
+
+      &:hover {
+        background-color: @surface0;
+      }
+    }
+
+    #lang-select {
+      color: @text;
+      background-color: @mantle;
+      border-color: @crust;
+    }
+
+    td.lang span a {
+      color: @text;
+      background-color: @mantle;
+      border-color: @crust;
+
+      &:hover {
+        background-color: @surface0;
+      }
+    }
+
+    &,
+    body {
+      background-color: @base;
+      color: @text;
+      border-color: @base;
+      box-shadow: none;
+    }
+
+    td,
+    th {
+      color: @text;
+      border-bottom-color: @surface0;
+    }
+
+    footer {
+      p {
+        color: @subtext1;
+      }
+    }
+
+    a {
+      color: @accent !important;
+
+      code {
+        color: @accent !important;
+      }
+
+      &:visited {
+        color: ~"hsl(from var(--rk-accent) h s calc(l - 5))" !important;
+      }
+
+      &.active {
+        color: @base !important;
+        background-color: @accent !important;
+        border-color: ~"hsl(from var(--rk-accent) h s calc(l - 15))" !important;
+
+        &:visited {
+          background-color: ~"hsl(from var(--rk-accent) h s calc(l - 5))" !important;
+          color: @base !important;
+          border-color: ~"hsl(from var(--rk-accent) h s calc(l - 10))" !important;
+        }
+      }
+    }
+
+    hr {
+      border-color: @surface1;
+    }
+
+    code {
+      background-color: @mantle;
+      color: @text;
+    }
+  }
+}

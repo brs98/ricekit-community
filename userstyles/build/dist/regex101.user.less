@@ -1,0 +1,161 @@
+/* ==UserStyle==
+@name regex101 Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.01.10.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/regex101.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for regex101
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("regex101.com") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+
+  :root {
+    &[data-theme="dark"] {
+      #catppuccin(@darkFlavor);
+    }
+    &[data-theme="light"] {
+      #catppuccin(@lightFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --primary-color: @crust;
+    --primary-contrast-color: @accent;
+
+    --app-color: @text;
+    --app-color-metadata: @subtext0;
+    --app-contrast-color: @subtext1;
+
+    --link-color: @accent;
+
+    --highlight-bg: @green;
+    --spinner-bg: @overlay0;
+    --bg-0: @mantle;
+    --bg-1: @base;
+    --content-bg: @surface0;
+
+    --content-border-color: @surface1;
+    --sub-content-bg: @surface1;
+
+    --info-color: @subtext0;
+    --success-color: @green;
+    --warning-color: @yellow;
+    --danger-color: @red;
+
+    --misc-button-icon-color: @subtext1;
+    --misc-button-bg: @surface0;
+    --misc-button-hover-bg: @surface1;
+    --misc-button-active-bg: @surface2;
+    --misc-button-active-color: @base;
+    --misc-button-highlight-bg: ~"rgb(from var(--rk-green) r g b / 0.4)";
+
+    --editor-active-bg: @overlay2;
+    --library-active-bg: @yellow;
+    --account-active-bg: @green;
+    --quiz-active-bg: @teal;
+    --settings-active-bg: @pink;
+
+    #hsl-variables(--button-bg, #313244);
+    #hsl-variables(--button-ok-bg, #181825);
+    #hsl-variables(--button-danger-bg, #f38ba8);
+
+    --button-hover-l: 31.176471%;
+    --backdrop-bg: ~"rgb(from var(--rk-overlay0) r g b / 0.3)";
+
+    --input-bg: @base;
+    --input-disabled-bg: @mantle;
+    --input-border-color: @surface0;
+    --input-focused-border-color: @surface0;
+
+    --label-color: @subtext1;
+    --tooltip-color: @crust;
+    --tooltip-bg: @subtext0;
+    --version-btn-bg: ~"rgb(from var(--rk-green) r g b / 0.3)";
+    --match-indicator-no-match: ~"rgb(from var(--rk-blue) r g b / 0.3)";
+    --match-indicator-match-bg: ~"rgb(from var(--rk-green) r g b / 0.3)";
+    --match-indicator-error-bg: ~"rgb(from var(--rk-red) r g b / 0.3)";
+
+    --debugger-backtrack-bg: ~"rgb(from var(--rk-red) r g b / 0.3)";
+    --debugger-regex-bg: ~"rgb(from var(--rk-green) r g b / 0.3)";
+    --debugger-slider-bg: @surface2;
+
+    --header-discord-color: @lavender;
+    --header-twitter-color: @text;
+    --header-donate-color: @yellow;
+    --header-contact-color: @green;
+    --header-feedback-color: @maroon;
+    --header-wiki-color: @teal;
+    --header-whatsnew-color: @yellow;
+    --header-sponsor-color: @pink;
+    --header-paypal-color: @blue;
+    --header-info-color: @sky;
+    --header-social-color: @green;
+    --header-stripe-color: @blue;
+
+    --starred-library-entry-bg: ~"rgb(from var(--rk-yellow) r g b / 0.1)";
+    --cm-whitespace-color: @overlay1;
+    --cm-selected-bg: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+    --cm-inactive-selected-bg: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+
+    @match-group-colors: @blue, @green, @yellow, @mauve, @pink, @red, @green;
+    each(
+      @match-group-colors,
+      {
+        @i: @index - 1;
+        --match-group-@{i}: @value;
+        --match-group-@{i}-alt: ~"hsl(from @{value} h s calc(l - 10))";
+      }
+    );
+
+    --match-highlight-color: ~"rgb(from var(--rk-yellow) r g b / 0.9)";
+
+    --explanation-keyword-color: @green;
+    --explanation-token-bg: ~"rgb(from var(--rk-yellow) r g b / 0.8)";
+    --explanation-token-color: @base;
+    --explanation-plain-text-bg: ~"rgb(from var(--rk-bright-black) r g b / 0.8)";
+    --explanation-flag-color: @mauve;
+
+    --token-quote-color: @mauve;
+    --token-quote-bg: none;
+    --token-escaped-string-color: var(--app-color);
+    --token-escaped-string-bg: ~"rgb(from var(--rk-overlay1) r g b / 0.3)";
+    #accent-token(meta, @blue);
+    #accent-token(char-class, @rosewater);
+    #accent-token(char-class-meta, @flamingo);
+    #accent-token(subpattern-reference, @mauve);
+    #accent-token(group-0, @green);
+    #accent-token(group-1, @yellow);
+    #accent-token(group-2, @peach);
+    #accent-token(group-3, @maroon);
+    #accent-token(comment, transparent);
+    #accent-token(error, @red);
+
+    #accent-token(@id, @color) {
+      --token-@{id}-bg: @color;
+      --token-@{id}-color: @base;
+    }
+
+    #hsl-variables(@variable, @color) {
+      @{variable}-h: hue(@color);
+      @{variable}-s: saturation(@color);
+      @{variable}-l: lightness(@color);
+    }
+
+    // Canvas is pulling Catppuccin colours from CSS variables, just needs fading for contrast
+    canvas {
+      filter: opacity(0.3);
+    }
+  }
+}

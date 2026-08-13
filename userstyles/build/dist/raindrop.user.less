@@ -1,0 +1,115 @@
+/* ==UserStyle==
+@name Raindrop Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/raindrop.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Raindrop
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("app.raindrop.io") {
+  [data-theme="night"] {
+    #catppuccin(@darkFlavor) !important;
+  }
+  [data-theme="day"],
+  [data-theme="sunset"] {
+    #catppuccin(@lightFlavor);
+  }
+
+  // theme selector previews
+  [class^="theme-"] {
+    &[data-index="0"],
+    &[data-index="2"] > [class^="main-"],
+    &[data-index="3"] {
+      #catppuccin(@lightFlavor) !important;
+    }
+    &[data-index="1"],
+    &[data-index="2"] > [class^="sidebar-"] {
+      #catppuccin(@darkFlavor) !important;
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    &,
+    [data-theme] {
+      --background-color: @base;
+      --disable-background-color: @crust;
+      --disable-text-color: @overlay1;
+      --accent-color: @accent;
+      --alternative-background-color: @mantle;
+      --sidebar-background-color: @mantle;
+      --hover-background-color: ~"rgb(from var(--rk-overlay0) r g b / 0.2)";
+      --active-background-color: @surface1;
+      --primary-text-color: @text;
+      --secondary-text-color: @subtext0;
+      --shadow-color: ~"rgb(from var(--rk-foreground) r g b / 0.1)";
+      --shadow-light-color: ~"rgb(from var(--rk-foreground) r g b / 0.1)";
+      --danger-color: @red;
+      --important-color: @red;
+      --success-color: @green;
+      --highlights-color: @mauve;
+      --reminder-color: @peach;
+      --note-color: @yellow;
+      --article-color: @peach;
+      --audio-color: @mauve;
+      --document-color: @subtext0;
+      --book-color: @rosewater;
+      --image-color: @green;
+      --video-color: @blue;
+      --broken-color: @maroon;
+      --duplicate-color: @sapphire;
+      --tag-color: @subtext0;
+      --filter-color: @subtext0;
+
+      [data-variant="active"] {
+        background: ~"rgb(from var(--rk-accent) r g b / 0.1)" !important;
+      }
+      // bookmark edit page header
+      [class^="header-"][data-fancy="true"] {
+        background: ~"linear-gradient(to bottom,
+          var(--background-color) 30%,
+          rgb(from var(--rk-background) r g b / 0.6) 100%)";
+      }
+      // bookmark edit page cover selector
+      [class^="cover-"] > [class^="more-"] {
+        background: ~"rgb(from var(--rk-accent) r g b / 0.85)";
+      }
+      // add bookmark button text color
+      [title="Add Bookmark"] {
+        color: @base;
+      }
+      // disabled add bookmark button
+      [class^="button-"][data-variant="primary"][disabled] {
+        filter: none;
+        opacity: 100%;
+        background: @overlay0;
+        color: @crust;
+      }
+      // dropping bookmark to collection color overlay
+      [class*="isDropping-"] {
+        background-color: ~"rgb(from var(--rk-accent) r g b / 0.1)";
+      }
+      // sidebar background color
+      .svSidebar {
+        background: var(--sidebar-background-color);
+      }
+      color: @text;
+    }
+    // google login button
+    [href^="https://api.raindrop.io/v1/auth/google"] > span {
+      color: @text;
+    }
+
+    // todo: recolor "Colors circle" icons using custom images (like the chess.com theme)
+  }
+}

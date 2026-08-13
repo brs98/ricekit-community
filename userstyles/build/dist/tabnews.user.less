@@ -1,0 +1,231 @@
+/* ==UserStyle==
+@name TabNews Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/tabnews.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for TabNews
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("tabnews.com.br") {
+  :root:has(div[data-color-mode="dark"]) {
+    #catppuccin(@darkFlavor);
+  }
+  :root:has(div[data-color-mode="light"]) {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --bgColor-default: @base;
+    --bgColor-emphasis: @crust;
+    --fgColor-default: @text;
+    --bgColor-neutral-emphasis: @subtext0;
+    --bgColor-accent-emphasis: @accent;
+    --fgColor-accent: @accent;
+    --fgColor-onEmphasis: @text;
+    --color-accent-fg: @accent;
+    --fgColor-muted: @overlay0;
+    --borderColor-default: @surface0;
+    --button-default-bgColor-rest: @base;
+    --button-default-bgColor-hover: @crust;
+    --button-default-fgColor-rest: @text;
+    --button-default-fgColor-hover: @text;
+    --button-primary-bgColor-rest: @accent;
+    --button-primary-bgColor-disabled: ~"rgb(from var(--rk-accent) r g b / 0.85)";
+    --button-primary-fgColor-disabled: @text;
+    --button-primary-fgColor-rest: @surface0;
+    --button-primary-bgColor-hover: ~"hsl(from var(--rk-accent) h s calc(l - 5))";
+    --button-primary-fgColor-hover: @surface0;
+    --button-default-bgColor-active: @base;
+    --controlKnob-bgColor-rest: @crust;
+    --bgColor-accent-muted: @mantle;
+    --fgColor-danger: @red;
+    --button-danger-bgColor-hover: @red;
+    --control-danger-fgColor-hover: @red;
+    --control-danger-bgColor-hover: @mantle;
+    --bgColor-success-emphasis: @green;
+    --fgColor-success: @green;
+
+    input[type="checkbox"] {
+      --fgColor-onEmphasis: @surface0;
+    }
+
+    /* Create post box */
+    --codeMirror-fgColor: @text;
+    --bgColor-muted: @base;
+    --bgColor-inset: @base;
+    --color-prettylights-syntax-markup-heading: @text;
+    --color-prettylights-syntax-markup-inserted-text: @subtext0;
+    --color-prettylights-syntax-string: @blue;
+
+    /* Header */
+    --header-bgColor: @mantle;
+    --header-fgColor-default: @text;
+    --color-header-text: @text;
+    --header-fgColor-logo: @text;
+    --color-header-logo: @text;
+    --color-checks-input-placeholder-text: @text;
+    --headerSearch-bgColor: @mantle;
+    --headerSearch-borderColor: @overlay0;
+    --color-prettylights-syntax-variable: @mauve;
+    --color-prettylights-syntax-markup-list: @text;
+
+    #nprogress .bar {
+      background: @accent;
+    }
+
+    /* Style the button to change theme when light theme is on */
+    button[style="--button-color: #e7dfc3;"] svg {
+      color: @sky;
+    }
+
+    button[style="--button-color: #ecdc0f99;"] svg {
+      color: @yellow;
+    }
+
+    svg[fill="#0969da"] {
+      fill: @blue;
+    }
+    svg[fill="#2da44e"] {
+      fill: @green;
+    }
+
+    /* Style the "Status" page */
+    text {
+      fill: @text;
+    }
+
+    path.recharts-rectangle {
+      fill: @accent;
+    }
+
+    path.recharts-rectangle.recharts-tooltip-cursor {
+      fill: @overlay0;
+    }
+
+    div.recharts-default-tooltip {
+      border-color: @overlay0 !important;
+    }
+
+    li.recharts-tooltip-item {
+      color: @accent !important;
+    }
+
+    div[overflow="hidden"] {
+      border-color: @overlay0;
+      * {
+        border-color: @overlay0;
+      }
+    }
+
+    /* Style the "Search with Google" overlay box */
+    div[class*="Overlay__StyledOverlay"] {
+      background: @base;
+
+      h2 {
+        color: @text;
+      }
+
+      .gsc-control-cse {
+        background: @base;
+        border-color: transparent;
+      }
+
+      .gsc-input-box {
+        background: @base;
+        border-color: @overlay0;
+      }
+
+      .gsc-input {
+        background: transparent;
+        color: @text;
+      }
+
+      .gsc-search-button > button {
+        border-color: @overlay0;
+        background: @base !important;
+        svg {
+          fill: @text;
+        }
+      }
+    }
+
+    .gsc-completion-container {
+      background: @base !important;
+      border-color: @overlay0;
+
+      .gsc-completion-selected {
+        background: @crust;
+      }
+      span {
+        color: @text !important;
+      }
+    }
+
+    .gsc-refinementhActive,
+    .gsc-refinementhInactive {
+      color: @text;
+      background: @base;
+      border-color: @accent;
+    }
+
+    .gsc-option-menu-container {
+      color: @text;
+      .gsc-selected-option-container {
+        background: @base;
+        border-color: @text;
+        color: @text;
+      }
+      .gsc-option-menu {
+        background: @base;
+        .gsc-option-menu-item-highlighted {
+          background: @crust;
+        }
+      }
+    }
+
+    .gsc-result-info,
+    .gsc-orderby-label,
+    .gs-label,
+    .gs-title,
+    .gs-snippet,
+    .gsc-option-menu-item,
+    .gscb_a {
+      color: @text !important;
+      b {
+        color: @text !important;
+      }
+    }
+
+    .gsc-webResult {
+      border-color: transparent;
+      background: @base;
+      .gsc-url-top > * {
+        color: @accent;
+      }
+    }
+
+    .gsc-cursor-page {
+      background: @base;
+      color: @text;
+      border-color: @text;
+    }
+
+    .gcsc-find-more-on-google {
+      color: @text;
+      svg {
+        fill: @text;
+      }
+    }
+  }
+}

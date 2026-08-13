@@ -1,0 +1,102 @@
+/* ==UserStyle==
+@name cobalt Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/cobalt.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for cobalt
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("cobalt.tools") {
+  [data-theme="dark"] {
+    #catppuccin(@darkFlavor);
+  }
+  [data-theme="light"] {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --primary: @base;
+    --secondary: @text;
+    --gray: @subtext0;
+    --blue: @blue;
+    --green: @green;
+    --red: @maroon;
+    --medium-red: @red;
+    --dark-red: @red;
+    --white: @crust;
+    --button: @surface0;
+    --button-hover: ~"hsl(from var(--rk-surface0) h s calc(l - 5))";
+    --button-active-hover: ~"hsl(from var(--rk-white) h s calc(l - 5))";
+    --button-elevated: @surface1;
+    --button-elevated-hover: ~"hsl(from var(--rk-black) h s calc(l - 5))";
+    --button-text: @text;
+    --sidebar-bg: @mantle;
+    --sidebar-hover: @surface0;
+    --sidebar-highlight: @text;
+    --input-border: @surface2;
+    --popup-bg: @mantle;
+    --toggle-bg-enabled: @accent;
+
+    #donate-page {
+      --donate-gradient-start: @surface1 !important;
+      --donate-gradient-end: @surface0 !important;
+    }
+
+    #banner-left {
+      color: @text;
+    }
+
+    #banner-subtitle {
+      color: @subtext0;
+      opacity: 1;
+    }
+
+    .donate-card button {
+      color: @text !important;
+    }
+
+    .donate-card {
+      color: @text;
+    }
+
+    .donate-card-title {
+      color: @text;
+    }
+
+    .donate-card-subtitle {
+      color: @subtext0;
+      opacity: 1;
+    }
+
+    #input-container.focused {
+      box-shadow: 0 0 0 2px @text inset !important;
+    }
+
+    #input-dollar-sign {
+      color: @text;
+    }
+
+    #donation-custom-input {
+      color: @text !important;
+    }
+
+    #cobalt-logo path {
+      fill: @text;
+    }
+
+    .sidebar-tab.active {
+      background-color: @accent !important;
+    }
+  }
+}

@@ -7,6 +7,7 @@ on:
   pull_request:
     paths:
       - "userstyles/src/**"
+      - "userstyles/lib/**"
       - "userstyles/upstream/**"
       - "userstyles/build/**"
       - "userstyles/deno.json"
@@ -31,10 +32,10 @@ jobs:
         id: stamp
         run: |
           set -euo pipefail
-          # Every committed .user.css shares the same stamp, so any one file
+          # Every committed transformed userstyle shares the same stamp, so any one file
           # is a valid source. Format: @version X.Y.Z.YYYYMMDDHHMM — we grab
           # the trailing 12-digit segment.
-          sample=userstyles/build/dist/github.user.css
+          sample=userstyles/build/dist/advent-of-code.user.less
           stamp=$(grep -m1 -oE '@version [^[:space:]]+' "$sample" \
             | grep -oE '[0-9]{12}$' || true)
           if [ -z "$stamp" ]; then

@@ -1,0 +1,109 @@
+/* ==UserStyle==
+@name neovim.io Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.19.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/neovim.io.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for neovim.io
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("neovim.io") {
+  @import url("https://unpkg.com/@catppuccin/highlightjs@1.0.0/css/catppuccin-variables.important.css");
+
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+    #lib.css-variables();
+
+    --fg-color: @text;
+    --inverse-fg-color: @surface0;
+    --bg-color: @base;
+    --accent-bg-color: @mantle;
+    --link-color: @blue;
+    --accent-color: @accent;
+    --border-color: @accent;
+    --code-color: @accent;
+
+    a:not([class]) {
+      text-decoration-color: var(--link-color);
+
+      &:hover,
+      &:focus {
+        color: var(--link-color);
+      }
+    }
+
+    a[aria-label="logo"] svg[aria-label="Neovim"] {
+      path[fill="url(#a)"] {
+        fill: @blue;
+      }
+
+      path[fill="url(#b)"],
+      path[fill="url(#c)"] {
+        fill: @green;
+      }
+
+      g[fill="#444"] path {
+        fill: @blue;
+      }
+    }
+
+    --bs-btn-active-color: @base;
+
+    .btn {
+      color: @base;
+      background: ~"linear-gradient(@accent 0% 95%,
+        hsl(from var(--rk-accent) h s calc(l - 10)) 95% 100%)";
+
+      &:hover,
+      &:focus {
+        box-shadow: 0 0 10px @accent;
+        outline-color: @text;
+      }
+    }
+
+    // docs
+    --tag-color: @accent;
+
+    code,
+    code.hljs,
+    pre,
+    samp {
+      background-color: @mantle !important;
+      color: @text;
+    }
+
+    .generator-stats {
+      color: @subtext0;
+    }
+
+    --docsearch-container-background: ~"rgb(from var(--rk-background) r g b / 0.3)";
+    --docsearch-modal-background: @mantle;
+    --docsearch-highlight-color: @accent;
+    --docsearch-logo-color: @accent;
+
+    .DocSearch-Logo {
+      .cls-1,
+      .cls-2 {
+        fill: var(--docsearch-logo-color);
+      }
+    }
+  }
+}

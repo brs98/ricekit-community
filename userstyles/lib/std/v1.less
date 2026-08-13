@@ -1,0 +1,186 @@
+// Ricekit adapter for Catppuccin userstyles standard-library v1.
+// Palette values resolve at browser runtime through the variables injected by
+// the Ricekit browser integration.
+
+@lightFlavor: latte;
+@darkFlavor: mocha;
+@accentColor: mauve;
+
+@ricekit-palette: {
+  @rosewater: ~"var(--rk-rosewater)";
+  @flamingo: ~"var(--rk-flamingo)";
+  @pink: ~"var(--rk-magenta)";
+  @mauve: ~"var(--rk-accent)";
+  @red: ~"var(--rk-red)";
+  @maroon: ~"var(--rk-maroon)";
+  @peach: ~"var(--rk-peach)";
+  @yellow: ~"var(--rk-yellow)";
+  @green: ~"var(--rk-green)";
+  @teal: ~"var(--rk-cyan)";
+  @sky: ~"var(--rk-sky)";
+  @sapphire: ~"var(--rk-sapphire)";
+  @blue: ~"var(--rk-blue)";
+  @lavender: ~"var(--rk-lavender)";
+  @text: ~"var(--rk-foreground)";
+  @subtext1: ~"var(--rk-bright-white)";
+  @subtext0: ~"var(--rk-white)";
+  @overlay2: ~"var(--rk-overlay2)";
+  @overlay1: ~"var(--rk-overlay1)";
+  @overlay0: ~"var(--rk-overlay0)";
+  @surface2: ~"var(--rk-bright-black)";
+  @surface1: ~"var(--rk-black)";
+  @surface0: ~"var(--rk-surface0)";
+  @base: ~"var(--rk-background)";
+  @mantle: ~"var(--rk-mantle)";
+  @crust: ~"var(--rk-crust)";
+};
+
+@catppuccin: {
+  @latte: @ricekit-palette;
+  @frappe: @ricekit-palette;
+  @macchiato: @ricekit-palette;
+  @mocha: @ricekit-palette;
+};
+
+@ricekit-filters: {
+  @rosewater: ~"var(--rk-rosewater-filter)";
+  @flamingo: ~"var(--rk-flamingo-filter)";
+  @pink: ~"var(--rk-pink-filter)";
+  @mauve: ~"var(--rk-mauve-filter)";
+  @red: ~"var(--rk-red-filter)";
+  @maroon: ~"var(--rk-maroon-filter)";
+  @peach: ~"var(--rk-peach-filter)";
+  @yellow: ~"var(--rk-yellow-filter)";
+  @green: ~"var(--rk-green-filter)";
+  @teal: ~"var(--rk-teal-filter)";
+  @sky: ~"var(--rk-sky-filter)";
+  @sapphire: ~"var(--rk-sapphire-filter)";
+  @blue: ~"var(--rk-blue-filter)";
+  @lavender: ~"var(--rk-lavender-filter)";
+  @text: ~"var(--rk-text-filter)";
+  @subtext1: ~"var(--rk-subtext1-filter)";
+  @subtext0: ~"var(--rk-subtext0-filter)";
+  @overlay2: ~"var(--rk-overlay2-filter)";
+  @overlay1: ~"var(--rk-overlay1-filter)";
+  @overlay0: ~"var(--rk-overlay0-filter)";
+  @surface2: ~"var(--rk-surface2-filter)";
+  @surface1: ~"var(--rk-surface1-filter)";
+  @surface0: ~"var(--rk-surface0-filter)";
+  @base: ~"var(--rk-base-filter)";
+  @mantle: ~"var(--rk-mantle-filter)";
+  @crust: ~"var(--rk-crust-filter)";
+};
+
+@catppuccin-filters: {
+  @latte: @ricekit-filters;
+  @frappe: @ricekit-filters;
+  @macchiato: @ricekit-filters;
+  @mocha: @ricekit-filters;
+};
+
+#lib {
+  .palette() {
+    @rosewater: ~"var(--rk-rosewater)";
+    @flamingo: ~"var(--rk-flamingo)";
+    @pink: ~"var(--rk-magenta)";
+    @mauve: ~"var(--rk-accent)";
+    @red: ~"var(--rk-red)";
+    @maroon: ~"var(--rk-maroon)";
+    @peach: ~"var(--rk-peach)";
+    @yellow: ~"var(--rk-yellow)";
+    @green: ~"var(--rk-green)";
+    @teal: ~"var(--rk-cyan)";
+    @sky: ~"var(--rk-sky)";
+    @sapphire: ~"var(--rk-sapphire)";
+    @blue: ~"var(--rk-blue)";
+    @lavender: ~"var(--rk-lavender)";
+    @text: ~"var(--rk-foreground)";
+    @subtext1: ~"var(--rk-bright-white)";
+    @subtext0: ~"var(--rk-white)";
+    @overlay2: ~"var(--rk-overlay2)";
+    @overlay1: ~"var(--rk-overlay1)";
+    @overlay0: ~"var(--rk-overlay0)";
+    @surface2: ~"var(--rk-bright-black)";
+    @surface1: ~"var(--rk-black)";
+    @surface0: ~"var(--rk-surface0)";
+    @base: ~"var(--rk-background)";
+    @mantle: ~"var(--rk-mantle)";
+    @crust: ~"var(--rk-crust)";
+    @accent: ~"var(--rk-accent)";
+
+    // The runtime template supplies SVG SourceAlpha filters whose flood color
+    // is rendered from the active Ricekit palette.
+    @rosewater-filter: ~"var(--rk-rosewater-filter)";
+    @flamingo-filter: ~"var(--rk-flamingo-filter)";
+    @pink-filter: ~"var(--rk-pink-filter)";
+    @mauve-filter: ~"var(--rk-mauve-filter)";
+    @red-filter: ~"var(--rk-red-filter)";
+    @maroon-filter: ~"var(--rk-maroon-filter)";
+    @peach-filter: ~"var(--rk-peach-filter)";
+    @yellow-filter: ~"var(--rk-yellow-filter)";
+    @green-filter: ~"var(--rk-green-filter)";
+    @teal-filter: ~"var(--rk-teal-filter)";
+    @sky-filter: ~"var(--rk-sky-filter)";
+    @sapphire-filter: ~"var(--rk-sapphire-filter)";
+    @blue-filter: ~"var(--rk-blue-filter)";
+    @lavender-filter: ~"var(--rk-lavender-filter)";
+    @text-filter: ~"var(--rk-text-filter)";
+    @subtext1-filter: ~"var(--rk-subtext1-filter)";
+    @subtext0-filter: ~"var(--rk-subtext0-filter)";
+    @overlay2-filter: ~"var(--rk-overlay2-filter)";
+    @overlay1-filter: ~"var(--rk-overlay1-filter)";
+    @overlay0-filter: ~"var(--rk-overlay0-filter)";
+    @surface2-filter: ~"var(--rk-surface2-filter)";
+    @surface1-filter: ~"var(--rk-surface1-filter)";
+    @surface0-filter: ~"var(--rk-surface0-filter)";
+    @base-filter: ~"var(--rk-base-filter)";
+    @mantle-filter: ~"var(--rk-mantle-filter)";
+    @crust-filter: ~"var(--rk-crust-filter)";
+    @accent-filter: ~"var(--rk-accent-filter)";
+  }
+
+  .defaults() {
+    color-scheme: if(@flavor = latte, light, dark);
+
+    ::selection {
+      background-color: ~"rgb(from var(--rk-accent) r g b / 0.3)";
+    }
+
+    input,
+    textarea {
+      &::placeholder {
+        color: ~"var(--rk-white)" !important;
+      }
+    }
+  }
+
+  .css-variables() {
+    --ctp-rosewater: @rosewater;
+    --ctp-flamingo: @flamingo;
+    --ctp-pink: @pink;
+    --ctp-mauve: @mauve;
+    --ctp-red: @red;
+    --ctp-maroon: @maroon;
+    --ctp-peach: @peach;
+    --ctp-yellow: @yellow;
+    --ctp-green: @green;
+    --ctp-teal: @teal;
+    --ctp-sky: @sky;
+    --ctp-sapphire: @sapphire;
+    --ctp-blue: @blue;
+    --ctp-lavender: @lavender;
+    --ctp-text: @text;
+    --ctp-subtext1: @subtext1;
+    --ctp-subtext0: @subtext0;
+    --ctp-overlay2: @overlay2;
+    --ctp-overlay1: @overlay1;
+    --ctp-overlay0: @overlay0;
+    --ctp-surface2: @surface2;
+    --ctp-surface1: @surface1;
+    --ctp-surface0: @surface0;
+    --ctp-base: @base;
+    --ctp-mantle: @mantle;
+    --ctp-crust: @crust;
+    --ctp-accent: @accent;
+  }
+}

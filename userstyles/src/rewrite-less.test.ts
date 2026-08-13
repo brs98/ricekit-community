@@ -1,5 +1,19 @@
 import { assertEquals } from "jsr:@std/assert@^1.0.9";
-import { rewriteValue } from "./rewrite-less.ts";
+import { rewriteDynamicValue, rewriteValue } from "./rewrite-less.ts";
+
+Deno.test("dynamic rewriting leaves non-palette LESS color operations intact", () => {
+  assertEquals(
+    rewriteDynamicValue("darken(@color, @amount)"),
+    '~"hsl(from @{color} h s calc(l - @{amount}))"',
+  );
+});
+
+Deno.test("dynamic color operations rewrite inside CSS gradients", () => {
+  assertEquals(
+    rewriteDynamicValue("linear-gradient(@accent, darken(@accent, 5%))"),
+    '~"linear-gradient(@accent, hsl(from var(--rk-accent) h s calc(l - 5)))"',
+  );
+});
 
 Deno.test("bare palette var becomes CSS var reference", () => {
   // @text maps to --rk-foreground via PALETTE_MAP's semantic-direct row.
@@ -83,6 +97,13 @@ Deno.test("2-arg mix() defaults weight to 50%", () => {
   );
 });
 
+Deno.test("average() becomes an equal CSS color mix", () => {
+  assertEquals(
+    rewriteValue("average(@overlay2, @accent)"),
+    `~"color-mix(in srgb, var(--rk-overlay2) 50%, var(--rk-accent))"`,
+  );
+});
+
 Deno.test("nested color ops compose via a single flat relative-color expr", () => {
   // Nested ops produce one flat `~"..."` wrap so LESS doesn't see nested
   // double-quoted strings (which it can't parse).
@@ -137,12 +158,10 @@ Deno.test("palette vars inside non-color functions are left alone", () => {
   );
 });
 
-Deno.test("color op inside an unknown function is NOT rewritten", () => {
-  // #hslify(lighten(@accent, 5%)) — the LESS-level hslify mixin must see a
-  // real hex color, so the inner lighten() must be left for LESS to evaluate.
+Deno.test("color op inside a custom helper call is rewritten", () => {
   assertEquals(
     rewriteValue("#hslify(lighten(@accent, 5%))"),
-    "#hslify(lighten(@accent, 5%))",
+    '#hslify(~"hsl(from var(--rk-accent) h s calc(l + 5))")',
   );
 });
 

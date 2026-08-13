@@ -1,0 +1,107 @@
+/* ==UserStyle==
+@name freedesktop.org Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/freedesktop.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for freedesktop.org
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("www.freedesktop.org"),
+  domain("specifications.freedesktop.org") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    body {
+      background-color: @base;
+      color: @text;
+    }
+
+    #content h1,
+    #content h2,
+    #content h3,
+    #content h4,
+    #content h5,
+    #content h6 {
+      color: @accent;
+    }
+
+    .pageheader {
+      background-color: @mantle;
+      border-color: @crust;
+      color: @subtext1;
+    }
+
+    .pageheader .actions ul li a,
+    input[type="submit"] {
+      background-color: transparent;
+      color: @accent;
+      border-color: @accent;
+    }
+
+    input#searchbox {
+      color: @subtext1;
+      background-color: @overlay0;
+      border-color: @overlay1;
+      box-shadow: none;
+      &:focus {
+        border-color: @accent;
+        outline-color: none;
+        outline-style: none;
+      }
+    }
+
+    .headerpath .title {
+      color: @subtext1;
+    }
+
+    a:link {
+      color: @blue;
+    }
+
+    a:visited {
+      color: @lavender;
+    }
+    code {
+      background-color: @crust;
+      color: @text;
+    }
+
+    pre {
+      background-color: @mantle;
+      border-color: @surface0;
+
+      code {
+        background-color: @mantle;
+        color: @text;
+      }
+    }
+
+    hr {
+      border-style: solid;
+      border-color: @surface1;
+    }
+
+    .topnav, tr:nth-child(2n+1) {
+      border-color: @surface0;
+      background-color: @mantle;
+    }
+  }
+}

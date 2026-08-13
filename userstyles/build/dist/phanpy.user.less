@@ -1,0 +1,85 @@
+/* ==UserStyle==
+@name Phanpy Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2025.09.06.202608132022
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/phanpy.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for Phanpy
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("phanpy.social") {
+  :root:not(:has(.is-light)) {
+    #catppuccin(@darkFlavor);
+  }
+  :root.is-light {
+    #catppuccin(@lightFlavor);
+  }
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --text-color: @text;
+    --text-insignificant-color: @subtext0;
+    --link-color: @accent;
+    --link-text-color: @accent;
+    --link-faded-color: @accent;
+    --link-light-color: @accent;
+    --button-bg-blur-color: @accent;
+    --button-bg-color: @accent;
+    --button-text-color: @base;
+    --bg-faded-color: @base;
+    --bg-faded-blur-color: @mantle;
+    --bg-blur-color: @mantle;
+    --close-button-bg-color: @mantle;
+    --close-button-color: @subtext0;
+    --bg-color: @base;
+    --link-bg-hover-color: @mantle;
+    --divider-color: @surface0;
+    --outline-color: @surface0;
+    --outline-hover-color: @surface2;
+    --reblog-faded-color: ~"rgb(from var(--rk-accent) r g b / 0.2)";
+    --reblog-color: @mauve;
+    --reply-to-faded-color: ~"rgb(from var(--rk-yellow) r g b / 0.2)";
+    --reply-to-text-color: @yellow;
+    --reply-to-color: @yellow;
+    --favourite-color: @red;
+    --green-color: @green;
+    --red-color: @red;
+    --comment-line-color: @surface1;
+    --media-bg-color: @base;
+    --media-fg-color: @text;
+    --media-outline-color: @text;
+
+    .szh-menu__item--disabled {
+      color: @subtext0;
+    }
+
+    .button.plain2 {
+      background-color: @mantle;
+    }
+
+    .replies-parent-link {
+      background-color: @surface0 !important;
+    }
+
+    .account-container {
+      --original-color: @blue;
+
+      .profile-field,
+      .stats,
+      .posting-stats-button {
+        background-color: @mantle;
+        -webkit-filter: none;
+        filter: none;
+      }
+    }
+  }
+}

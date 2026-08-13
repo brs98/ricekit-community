@@ -18,7 +18,6 @@ const SOURCE = `/* ==UserStyle==
 @supportURL https://github.com/catppuccin/userstyles/issues?q=is%3Aopen+is%3Aissue+label%3Agithub
 @description Soothing pastel theme for GitHub
 @author Catppuccin
-@var select lightFlavor "Light Flavor" ["latte:Latte*", "frappe:Frappé"]
 ==/UserStyle== */
 body { color: var(--rk-foreground); }
 `;
@@ -58,5 +57,12 @@ deno.test("chooseVersion uses the new version when upstream metadata version cha
   assertEquals(
     chooseVersion(changed, PREVIOUS, "2026.02.18.209901010000"),
     "2026.02.18.209901010000",
+  );
+});
+
+deno.test("chooseVersion uses the new version when a shared dependency changed", () => {
+  assertEquals(
+    chooseVersion(SOURCE, PREVIOUS, "2026.02.17.209901010000", true),
+    "2026.02.17.209901010000",
   );
 });
