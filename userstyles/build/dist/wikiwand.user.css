@@ -2,7 +2,7 @@
 @name Wikiwand Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/wikiwand.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Wikiwand
@@ -16,7 +16,34 @@
   @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
   @media (prefers-color-scheme: light) {
     .theme-system {
+      color-scheme: light;
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-bg: var(--rk-background) !important;
       --color-text: var(--rk-foreground) !important;
@@ -46,6 +73,13 @@
       --box-shadow-strong: 0px 1px 5px 2px var(--rk-crust) !important;
       --backdrop-bg: var(--rk-background) !important;
       --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
+    }
+    .theme-system ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    .theme-system input::placeholder,
+    .theme-system textarea::placeholder {
+      color: #a6adc8 !important;
     }
     .theme-system ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -65,6 +99,32 @@
   @media (prefers-color-scheme: dark) {
     .theme-system {
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-bg: var(--rk-background) !important;
       --color-text: var(--rk-foreground) !important;
@@ -96,6 +156,13 @@
       --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
     }
     .theme-system ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    .theme-system input::placeholder,
+    .theme-system textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    .theme-system ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     .theme-system input::placeholder,
@@ -113,7 +180,34 @@
   .theme-light,
   .theme-desert,
   .theme-calmness {
+    color-scheme: light;
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-bg: var(--rk-background) !important;
     --color-text: var(--rk-foreground) !important;
@@ -147,6 +241,19 @@
   .theme-light ::selection,
   .theme-desert ::selection,
   .theme-calmness ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .theme-light input::placeholder,
+  .theme-desert input::placeholder,
+  .theme-calmness input::placeholder,
+  .theme-light textarea::placeholder,
+  .theme-desert textarea::placeholder,
+  .theme-calmness textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .theme-light ::selection,
+  .theme-desert ::selection,
+  .theme-calmness ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .theme-light input::placeholder,
@@ -173,6 +280,32 @@
   .theme-deepOcean,
   .theme-nature {
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-bg: var(--rk-background) !important;
     --color-text: var(--rk-foreground) !important;
@@ -202,6 +335,22 @@
     --box-shadow-strong: 0px 1px 5px 2px var(--rk-crust) !important;
     --backdrop-bg: var(--rk-background) !important;
     --backdrop-bg-ash: rgb(from var(--rk-black) r g b / 0.5) !important;
+  }
+  .theme-dark ::selection,
+  .theme-black ::selection,
+  .theme-deepOcean ::selection,
+  .theme-nature ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .theme-dark input::placeholder,
+  .theme-black input::placeholder,
+  .theme-deepOcean input::placeholder,
+  .theme-nature input::placeholder,
+  .theme-dark textarea::placeholder,
+  .theme-black textarea::placeholder,
+  .theme-deepOcean textarea::placeholder,
+  .theme-nature textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .theme-dark ::selection,
   .theme-black ::selection,

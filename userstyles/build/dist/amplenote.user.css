@@ -2,7 +2,7 @@
 @name Amplenote Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/amplenote.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Amplenote
@@ -15,6 +15,13 @@
 @-moz-document domain("amplenote.com") {
   body:not(.theme-light) {
     color-scheme: dark;
+  }
+  body:not(.theme-light) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body:not(.theme-light) input::placeholder,
+  body:not(.theme-light) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body:not(.theme-light) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -149,7 +156,15 @@
     stop-color: var(--rk-yellow);
   }
   body.theme-light {
+    color-scheme: light;
     color-scheme: dark;
+  }
+  body.theme-light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body.theme-light input::placeholder,
+  body.theme-light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body.theme-light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

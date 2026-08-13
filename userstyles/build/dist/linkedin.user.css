@@ -2,7 +2,7 @@
 @name LinkedIn Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/linkedin.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for LinkedIn
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("www.linkedin.com") {
   :root:not(.theme--dark, .theme--mercado-dark) {
+    color-scheme: light;
     color-scheme: dark;
     --black: var(--rk-crust);
     --black-a90: var(--rk-crust);
@@ -430,6 +431,13 @@
     --warm-gray-60-a35: rgb(from var(--rk-background) r g b / 0.35);
   }
   :root:not(.theme--dark, .theme--mercado-dark) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:not(.theme--dark, .theme--mercado-dark) input::placeholder,
+  :root:not(.theme--dark, .theme--mercado-dark) textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root:not(.theme--dark, .theme--mercado-dark) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root:not(.theme--dark, .theme--mercado-dark) input::placeholder,
@@ -823,6 +831,16 @@
     /* text on dark */
     --color-text-on-dark: var(--rk-foreground);
     --color-element: var(--rk-crust);
+  }
+  :root.theme--dark ::selection,
+  :root.theme--mercado-dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.theme--dark input::placeholder,
+  :root.theme--mercado-dark input::placeholder,
+  :root.theme--dark textarea::placeholder,
+  :root.theme--mercado-dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.theme--dark ::selection,
   :root.theme--mercado-dark ::selection {

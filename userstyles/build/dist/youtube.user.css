@@ -2,7 +2,7 @@
 @name YouTube Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.04.14.202605211213
+@version 2026.04.14.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/youtube.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for YouTube
@@ -51,6 +51,13 @@
     /* Profile Card */
     /* Live chat replay */
     /* Category tag pills */
+  }
+  :root[dark] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[dark] input::placeholder,
+  :root[dark] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[dark] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1049,6 +1056,7 @@
     color: var(--rk-background);
   }
   :root:not([dark]) {
+    color-scheme: light;
     color-scheme: dark;
     color: var(--rk-foreground);
     background: var(--rk-background);
@@ -1082,6 +1090,13 @@
     /* Profile Card */
     /* Live chat replay */
     /* Category tag pills */
+  }
+  :root:not([dark]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:not([dark]) input::placeholder,
+  :root:not([dark]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:not([dark]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

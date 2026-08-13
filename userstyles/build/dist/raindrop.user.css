@@ -2,7 +2,7 @@
 @name Raindrop Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/raindrop.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Raindrop
@@ -15,6 +15,13 @@
 @-moz-document domain("app.raindrop.io") {
   [data-theme="night"] {
     color-scheme: dark !important;
+  }
+  [data-theme="night"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3) !important;
+  }
+  [data-theme="night"] input::placeholder,
+  [data-theme="night"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-theme="night"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3) !important;
@@ -91,7 +98,18 @@
   }
   [data-theme="day"],
   [data-theme="sunset"] {
+    color-scheme: light;
     color-scheme: dark;
+  }
+  [data-theme="day"] ::selection,
+  [data-theme="sunset"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-theme="day"] input::placeholder,
+  [data-theme="sunset"] input::placeholder,
+  [data-theme="day"] textarea::placeholder,
+  [data-theme="sunset"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-theme="day"] ::selection,
   [data-theme="sunset"] ::selection {
@@ -189,7 +207,21 @@
   [class^="theme-"][data-index="0"],
   [class^="theme-"][data-index="2"] > [class^="main-"],
   [class^="theme-"][data-index="3"] {
+    color-scheme: light !important;
     color-scheme: dark !important;
+  }
+  [class^="theme-"][data-index="0"] ::selection,
+  [class^="theme-"][data-index="2"] > [class^="main-"] ::selection,
+  [class^="theme-"][data-index="3"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3) !important;
+  }
+  [class^="theme-"][data-index="0"] input::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="main-"] input::placeholder,
+  [class^="theme-"][data-index="3"] input::placeholder,
+  [class^="theme-"][data-index="0"] textarea::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="main-"] textarea::placeholder,
+  [class^="theme-"][data-index="3"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [class^="theme-"][data-index="0"] ::selection,
   [class^="theme-"][data-index="2"] > [class^="main-"] ::selection,
@@ -307,6 +339,16 @@
   [class^="theme-"][data-index="1"],
   [class^="theme-"][data-index="2"] > [class^="sidebar-"] {
     color-scheme: dark !important;
+  }
+  [class^="theme-"][data-index="1"] ::selection,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3) !important;
+  }
+  [class^="theme-"][data-index="1"] input::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] input::placeholder,
+  [class^="theme-"][data-index="1"] textarea::placeholder,
+  [class^="theme-"][data-index="2"] > [class^="sidebar-"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [class^="theme-"][data-index="1"] ::selection,
   [class^="theme-"][data-index="2"] > [class^="sidebar-"] ::selection {

@@ -2,7 +2,7 @@
 @name tldraw Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.10.202605211213
+@version 2025.09.10.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/tldraw.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for tldraw
@@ -57,6 +57,13 @@
     --clerk-color-input: var(--rk-background);
     --clerk-color-input-foreground: var(--rk-foreground);
     --clerk-color-border: var(--rk-foreground);
+  }
+  .tl-theme__dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .tl-theme__dark input::placeholder,
+  .tl-theme__dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .tl-theme__dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -373,6 +380,7 @@
     content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20200%20200%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200%22%20height%3D%22200%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M178.95%200H21.05C9.425%200%200%209.833%200%2021.975v156.05C0%20190.158%209.425%20200%2021.05%20200h157.9c11.625%200%2021.05-9.833%2021.05-21.975V21.975C200%209.842%20190.575%200%20178.95%200M87.2%2044.9q4.958-5.058%2012.283-5.058%207.117%200%2012.067%205.058%204.958%205.05%204.958%2012.3c0%207.25-1.65%208.933-4.958%2012.3a16.25%2016.25%200%200%201-12.067%205.058q-7.325%200-12.283-5.058-4.95-5.05-4.95-12.3c0-7.25%201.65-8.933%204.95-12.3m26.083%2095.75a40.83%2040.83%200%200%201-16.817%2017.8q-6.033%203.517-9.917-.217-3.65-3.517%202.167-8.35%203.225-2.417%205.383-6.15%202.15-3.742%202.8-7.692.217-1.75-1.508-1.75-4.308-.225-8.833-4.842t-4.525-11.417q0-7.25%204.95-12.308a16.83%2016.83%200%200%201%2012.5-5.275q6.9%200%2012.067%205.275%205.167%205.042%206.033%2011.417%201.725%2011.867-4.308%2023.517z%22/%3E%3C/svg%3E");
   }
   .tl-theme__light {
+    color-scheme: light;
     color-scheme: dark;
     --tl-color-background: var(--rk-mantle);
     --tl-color-low: var(--rk-background);
@@ -416,6 +424,13 @@
     --clerk-color-input: var(--rk-background);
     --clerk-color-input-foreground: var(--rk-foreground);
     --clerk-color-border: var(--rk-foreground);
+  }
+  .tl-theme__light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .tl-theme__light input::placeholder,
+  .tl-theme__light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .tl-theme__light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -777,6 +792,13 @@
     --clerk-color-border: var(--rk-foreground);
   }
   :root:has(.tl-container.tl-theme__dark) .cl-modalContent ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has(.tl-container.tl-theme__dark) .cl-modalContent input::placeholder,
+  :root:has(.tl-container.tl-theme__dark) .cl-modalContent textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root:has(.tl-container.tl-theme__dark) .cl-modalContent ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root:has(.tl-container.tl-theme__dark) .cl-modalContent input::placeholder,
@@ -1091,6 +1113,7 @@
     content: url("data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%20200%20200%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22200%22%20height%3D%22200%22%3E%3Cpath%20fill%3D%22%23cdd6f4%22%20d%3D%22M178.95%200H21.05C9.425%200%200%209.833%200%2021.975v156.05C0%20190.158%209.425%20200%2021.05%20200h157.9c11.625%200%2021.05-9.833%2021.05-21.975V21.975C200%209.842%20190.575%200%20178.95%200M87.2%2044.9q4.958-5.058%2012.283-5.058%207.117%200%2012.067%205.058%204.958%205.05%204.958%2012.3c0%207.25-1.65%208.933-4.958%2012.3a16.25%2016.25%200%200%201-12.067%205.058q-7.325%200-12.283-5.058-4.95-5.05-4.95-12.3c0-7.25%201.65-8.933%204.95-12.3m26.083%2095.75a40.83%2040.83%200%200%201-16.817%2017.8q-6.033%203.517-9.917-.217-3.65-3.517%202.167-8.35%203.225-2.417%205.383-6.15%202.15-3.742%202.8-7.692.217-1.75-1.508-1.75-4.308-.225-8.833-4.842t-4.525-11.417q0-7.25%204.95-12.308a16.83%2016.83%200%200%201%2012.5-5.275q6.9%200%2012.067%205.275%205.167%205.042%206.033%2011.417%201.725%2011.867-4.308%2023.517z%22/%3E%3C/svg%3E");
   }
   :root:has(.tl-container.tl-theme__light) .cl-modalContent {
+    color-scheme: light;
     color-scheme: dark;
     --tl-color-background: var(--rk-mantle);
     --tl-color-low: var(--rk-background);
@@ -1134,6 +1157,13 @@
     --clerk-color-input: var(--rk-background);
     --clerk-color-input-foreground: var(--rk-foreground);
     --clerk-color-border: var(--rk-foreground);
+  }
+  :root:has(.tl-container.tl-theme__light) .cl-modalContent ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has(.tl-container.tl-theme__light) .cl-modalContent input::placeholder,
+  :root:has(.tl-container.tl-theme__light) .cl-modalContent textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:has(.tl-container.tl-theme__light) .cl-modalContent ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

@@ -2,7 +2,7 @@
 @name cobalt Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/cobalt.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for cobalt
@@ -36,6 +36,13 @@
     --input-border: var(--rk-bright-black);
     --popup-bg: var(--rk-mantle);
     --toggle-bg-enabled: var(--rk-accent);
+  }
+  [data-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-theme="dark"] input::placeholder,
+  [data-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -84,6 +91,7 @@
     background-color: var(--rk-accent) !important;
   }
   [data-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --primary: var(--rk-background);
     --secondary: var(--rk-foreground);
@@ -106,6 +114,13 @@
     --input-border: var(--rk-bright-black);
     --popup-bg: var(--rk-mantle);
     --toggle-bg-enabled: var(--rk-accent);
+  }
+  [data-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-theme="light"] input::placeholder,
+  [data-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

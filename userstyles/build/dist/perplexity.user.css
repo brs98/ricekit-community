@@ -2,7 +2,7 @@
 @name Perplexity Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/perplexity.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Perplexity
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("perplexity.ai") {
   :root:not([data-color-scheme="dark"]) {
+    color-scheme: light;
     color-scheme: dark;
     /* Additional fixes: */
     /* gradient on super long prompt */
@@ -22,6 +23,13 @@
     /* switch in main input */
     /* credits on image view */
     /* research goals in pro search */
+  }
+  :root:not([data-color-scheme="dark"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:not([data-color-scheme="dark"]) input::placeholder,
+  :root:not([data-color-scheme="dark"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:not([data-color-scheme="dark"]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -357,6 +365,16 @@
     /* switch in main input */
     /* credits on image view */
     /* research goals in pro search */
+  }
+  :root ::selection,
+  :root:not([data-color-scheme="light"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root input::placeholder,
+  :root:not([data-color-scheme="light"]) input::placeholder,
+  :root textarea::placeholder,
+  :root:not([data-color-scheme="light"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root ::selection,
   :root:not([data-color-scheme="light"]) ::selection {

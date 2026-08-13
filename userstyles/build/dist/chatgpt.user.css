@@ -2,7 +2,7 @@
 @name ChatGPT Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.07.26.202608061122
+@version 2026.07.26.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/chatgpt.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for ChatGPT
@@ -14,7 +14,15 @@
 /* deno-fmt-ignore */
 @-moz-document domain("chatgpt.com") {
   .light {
+    color-scheme: light;
     color-scheme: dark;
+  }
+  .light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .light input::placeholder,
+  .light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -191,6 +199,13 @@
     color-scheme: dark;
   }
   .dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .dark input::placeholder,
@@ -365,6 +380,7 @@
 @-moz-document domain("auth.openai.com") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       color: var(--rk-foreground);
       background-color: var(--rk-background);
@@ -381,6 +397,13 @@
       --button-text-on-primary: var(--rk-background);
       --button-outline-hover: var(--rk-surface0);
       --gray-100: var(--rk-bright-black);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -421,6 +444,13 @@
       --button-text-on-primary: var(--rk-background);
       --button-outline-hover: var(--rk-surface0);
       --gray-100: var(--rk-bright-black);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

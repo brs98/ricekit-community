@@ -2,7 +2,7 @@
 @name Instagram Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/instagram.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Instagram
@@ -43,6 +43,13 @@
     /* Bloks */
     /* Map pop-ups */
     /* Scrollbar */
+  }
+  ._aa4d ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  ._aa4d input::placeholder,
+  ._aa4d textarea::placeholder {
+    color: #a6adc8 !important;
   }
   ._aa4d ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -685,6 +692,7 @@
     border-radius: 10px;
   }
   ._aa4c {
+    color-scheme: light;
     color-scheme: dark;
     /* Sidebar */
     /* Story background */
@@ -714,6 +722,13 @@
     /* Bloks */
     /* Map pop-ups */
     /* Scrollbar */
+  }
+  ._aa4c ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  ._aa4c input::placeholder,
+  ._aa4c textarea::placeholder {
+    color: #a6adc8 !important;
   }
   ._aa4c ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

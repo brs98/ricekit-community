@@ -2,7 +2,7 @@
 @name Pinterest Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.10.09.202605211213
+@version 2025.10.09.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/pinterest.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Pinterest
@@ -15,6 +15,7 @@
 @-moz-document regexp("^https?:\\/\\/(www|[a-z]{2}).pinterest.(com(.(au|mx))?|co(.(uk|kr))?|at|ca|ch|cl|de|dk|es|fr|ie|it|jp|nz|ph|pt|ru|se)\\/.*") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       --sema-color-background-default: var(--rk-background);
       --sema-color-background-secondary: var(--rk-surface0);
@@ -83,6 +84,13 @@
       /* Toasts */
       --comp-toast-color-background-default: var(--rk-overlay2);
       /* SaveButton */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -269,6 +277,13 @@
       /* Toasts */
       --comp-toast-color-background-default: var(--rk-overlay2);
       /* SaveButton */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

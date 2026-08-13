@@ -2,7 +2,7 @@
 @name keybr.com Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/keybr.com.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for keybr.com
@@ -84,6 +84,13 @@
     --effort-color: var(--rk-accent);
   }
   html[data-color="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  html[data-color="dark"] input::placeholder,
+  html[data-color="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  html[data-color="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   html[data-color="dark"] input::placeholder,
@@ -91,6 +98,7 @@
     color: var(--rk-white) !important;
   }
   html[data-color="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --primary-d2: var(--rk-overlay0);
     --primary-d1: var(--rk-overlay0);
@@ -161,6 +169,13 @@
     --effort-color: var(--rk-accent);
   }
   html[data-color="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  html[data-color="light"] input::placeholder,
+  html[data-color="light"] textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  html[data-color="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   html[data-color="light"] input::placeholder,
@@ -169,6 +184,7 @@
   }
   @media (prefers-color-scheme: light) {
     html[data-color="system"] {
+      color-scheme: light;
       color-scheme: dark;
       --primary-d2: var(--rk-overlay0);
       --primary-d1: var(--rk-overlay0);
@@ -237,6 +253,13 @@
       --Name-color: var(--rk-white);
       --Value-color: var(--rk-accent);
       --effort-color: var(--rk-accent);
+    }
+    html[data-color="system"] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    html[data-color="system"] input::placeholder,
+    html[data-color="system"] textarea::placeholder {
+      color: #a6adc8 !important;
     }
     html[data-color="system"] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -316,6 +339,13 @@
       --Name-color: var(--rk-white);
       --Value-color: var(--rk-accent);
       --effort-color: var(--rk-accent);
+    }
+    html[data-color="system"] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    html[data-color="system"] input::placeholder,
+    html[data-color="system"] textarea::placeholder {
+      color: #a6adc8 !important;
     }
     html[data-color="system"] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

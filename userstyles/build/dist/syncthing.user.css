@@ -2,7 +2,7 @@
 @name Syncthing Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/syncthing.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Syncthing
@@ -20,6 +20,7 @@
 @-moz-document regexp("https?://(127\.0\.0\.1\:8384|0\.0\.0\.0\:8384|localhost\:8384)/.*") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       /* navbar */
       /* main panel */
@@ -28,6 +29,13 @@
       /* buttons for pagination */
       /* progress bars */
       /* text */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -242,6 +250,13 @@
       /* text */
     }
     :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root input::placeholder,
@@ -443,6 +458,7 @@
     }
   }
   .light-theme {
+    color-scheme: light;
     color-scheme: dark;
     /* navbar */
     /* main panel */
@@ -451,6 +467,13 @@
     /* buttons for pagination */
     /* progress bars */
     /* text */
+  }
+  .light-theme ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .light-theme input::placeholder,
+  .light-theme textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .light-theme ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -661,6 +684,13 @@
     /* buttons for pagination */
     /* progress bars */
     /* text */
+  }
+  .dark-theme ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dark-theme input::placeholder,
+  .dark-theme textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .dark-theme ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

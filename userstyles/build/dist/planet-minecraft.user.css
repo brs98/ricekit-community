@@ -2,7 +2,7 @@
 @name Planet Minecraft Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/planet-minecraft.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Planet Minecraft
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("planetminecraft.com") {
   [data-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --body-bg: var(--rk-crust);
     --header-bg: var(--rk-background);
@@ -63,6 +64,13 @@
     --nav-selected: var(--rk-accent);
     /* because the icons on the display mode buttons are white, we cant have white base here, so we improvise for latte */
     /* fix nav menu dropdown icons */
+  }
+  [data-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-theme="light"] input::placeholder,
+  [data-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -255,6 +263,13 @@
     --feed-alt-bg: var(--rk-black);
     --nav-selected: var(--rk-accent);
     /* because the icons on the display mode buttons are white, we cant have white base here, so we improvise for latte */
+  }
+  [data-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-theme="dark"] input::placeholder,
+  [data-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

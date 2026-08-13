@@ -2,7 +2,7 @@
 @name Pronouns.page Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.01.09.202605211213
+@version 2026.01.09.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/pronouns.page.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Pronouns.page
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("pronouns.page"), domain("pronomen.net"), domain("pronombr.es"), domain("pronomejo.net"), domain("fornovn.fo"), domain("pronoms.fr"), domain("pronom.it"), domain("zaimki.pl") {
   body:not([data-theme="dark"]) {
+    color-scheme: light;
     color-scheme: dark;
     background: var(--rk-background);
     color: var(--rk-foreground) !important;
@@ -46,6 +47,13 @@
     /* Dictionary */
     /* Other */
     /* Share QR code */
+  }
+  body:not([data-theme="dark"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body:not([data-theme="dark"]) input::placeholder,
+  body:not([data-theme="dark"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body:not([data-theme="dark"]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -392,6 +400,16 @@
     /* Dictionary */
     /* Other */
     /* Share QR code */
+  }
+  body[data-theme="dark"] ::selection,
+  body[data-theme="dark"]:not(.reduced-colours) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body[data-theme="dark"] input::placeholder,
+  body[data-theme="dark"]:not(.reduced-colours) input::placeholder,
+  body[data-theme="dark"] textarea::placeholder,
+  body[data-theme="dark"]:not(.reduced-colours) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body[data-theme="dark"] ::selection,
   body[data-theme="dark"]:not(.reduced-colours) ::selection {

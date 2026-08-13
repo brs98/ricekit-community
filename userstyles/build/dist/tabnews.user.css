@@ -2,7 +2,7 @@
 @name TabNews Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/tabnews.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for TabNews
@@ -65,6 +65,13 @@
     /* Style the button to change theme when light theme is on */
     /* Style the "Status" page */
     /* Style the "Search with Google" overlay box */
+  }
+  :root:has(div[data-color-mode="dark"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has(div[data-color-mode="dark"]) input::placeholder,
+  :root:has(div[data-color-mode="dark"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:has(div[data-color-mode="dark"]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -204,6 +211,7 @@
     fill: var(--rk-foreground);
   }
   :root:has(div[data-color-mode="light"]) {
+    color-scheme: light;
     color-scheme: dark;
     --bgColor-default: var(--rk-background);
     --bgColor-emphasis: var(--rk-crust);
@@ -255,6 +263,13 @@
     /* Style the button to change theme when light theme is on */
     /* Style the "Status" page */
     /* Style the "Search with Google" overlay box */
+  }
+  :root:has(div[data-color-mode="light"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has(div[data-color-mode="light"]) input::placeholder,
+  :root:has(div[data-color-mode="light"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:has(div[data-color-mode="light"]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

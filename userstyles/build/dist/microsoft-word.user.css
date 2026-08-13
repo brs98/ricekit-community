@@ -2,7 +2,7 @@
 @name Microsoft Word Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/microsoft-word.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Microsoft Word
@@ -15,6 +15,14 @@
 /* deno-fmt-ignore */
 /* deno-fmt-ignore */
 @-moz-document domain("live.com") {
+  color-scheme: light;
+  ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #a6adc8 !important;
+  }
   color-scheme: dark;
   ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -289,6 +297,13 @@
   }
   .UxDarkMode {
     color-scheme: dark;
+  }
+  .UxDarkMode ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .UxDarkMode input::placeholder,
+  .UxDarkMode textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .UxDarkMode ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

@@ -2,7 +2,7 @@
 @name Bluesky Social Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.10.29.202605211213
+@version 2025.10.29.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/bsky.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Bluesky Social
@@ -15,6 +15,7 @@
 @-moz-document domain("bsky.app") {
   @media (prefers-color-scheme: light) {
     html.colorMode--system {
+      color-scheme: light;
       color-scheme: dark;
       background-color: var(--rk-background);
       --text: var(--rk-foreground);
@@ -100,6 +101,13 @@
       /* active, hover */
       /* inactive, circle in pill */
       /* inactive, hover */
+    }
+    html.colorMode--system ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    html.colorMode--system input::placeholder,
+    html.colorMode--system textarea::placeholder {
+      color: #a6adc8 !important;
     }
     html.colorMode--system ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -638,6 +646,13 @@
       /* inactive, hover */
     }
     html.colorMode--system ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    html.colorMode--system input::placeholder,
+    html.colorMode--system textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    html.colorMode--system ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     html.colorMode--system input::placeholder,
@@ -1082,6 +1097,7 @@
     }
   }
   html.theme--light {
+    color-scheme: light;
     color-scheme: dark;
     background-color: var(--rk-background);
     --text: var(--rk-foreground);
@@ -1167,6 +1183,13 @@
     /* active, hover */
     /* inactive, circle in pill */
     /* inactive, hover */
+  }
+  html.theme--light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  html.theme--light input::placeholder,
+  html.theme--light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   html.theme--light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1702,6 +1725,16 @@
     /* active, hover */
     /* inactive, circle in pill */
     /* inactive, hover */
+  }
+  html.theme--dim ::selection,
+  html.theme--dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  html.theme--dim input::placeholder,
+  html.theme--dark input::placeholder,
+  html.theme--dim textarea::placeholder,
+  html.theme--dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   html.theme--dim ::selection,
   html.theme--dark ::selection {

@@ -2,7 +2,7 @@
 @name Graphite Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.11.07.202605211213
+@version 2025.11.07.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/graphite.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Graphite
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("app.graphite.com") {
   :root[data-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --color-bg-light: var(--rk-background);
     --color-bg-med: var(--rk-mantle);
@@ -54,6 +55,13 @@
     --color-action-low-contrast: #cba6f7;
     --color-action-high-contrast: #cba6f7;
     --color-action-highest-contrast: hsl(from @color h s calc(l + 10));
+  }
+  :root[data-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="light"] input::placeholder,
+  :root[data-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -103,6 +111,13 @@
     --color-action-low-contrast: #cba6f7;
     --color-action-high-contrast: #cba6f7;
     --color-action-highest-contrast: hsl(from @color h s calc(l + 10));
+  }
+  :root[data-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="dark"] input::placeholder,
+  :root[data-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

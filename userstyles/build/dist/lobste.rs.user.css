@@ -2,7 +2,7 @@
 @name Lobsters Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lobste.rs.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Lobsters
@@ -15,6 +15,7 @@
 @-moz-document domain("lobste.rs") {
   @media (prefers-color-scheme: light) {
     html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) {
+      color-scheme: light;
       color-scheme: dark;
       --color-bg: var(--rk-background);
       --color-fg: var(--rk-foreground);
@@ -55,6 +56,13 @@
       --color-table-row-border: var(--rk-background);
       --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
       --color-fg-negative: var(--rk-red);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) input::placeholder,
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) textarea::placeholder {
+      color: #a6adc8 !important;
     }
     html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -118,6 +126,13 @@
       --color-fg-negative: var(--rk-red);
     }
     html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) input::placeholder,
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) input::placeholder,
@@ -136,6 +151,7 @@
     }
   }
   html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) {
+    color-scheme: light;
     color-scheme: dark;
     --color-bg: var(--rk-background);
     --color-fg: var(--rk-foreground);
@@ -176,6 +192,13 @@
     --color-table-row-border: var(--rk-background);
     --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
     --color-fg-negative: var(--rk-red);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) input::placeholder,
+  html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   html:has(head > link[rel="stylesheet"][href^="/assets/light-"]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -235,6 +258,13 @@
     --color-table-row-border: var(--rk-background);
     --color-flash-bg-success: rgb(from var(--rk-green) r g b / 0.3);
     --color-fg-negative: var(--rk-red);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) input::placeholder,
+  html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   html:has(head > link[rel="stylesheet"][href^="/assets/dark-"]) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

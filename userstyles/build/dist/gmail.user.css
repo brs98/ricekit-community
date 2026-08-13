@@ -2,7 +2,7 @@
 @name Gmail Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/gmail.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Gmail
@@ -15,6 +15,7 @@
 @-moz-document domain("mail.google.com") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       /* Gmail logo */
       /* Tooltips */
@@ -75,6 +76,13 @@
       /* Main panel */
       /* Labels page */
       /* Confirm popup modal */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1172,6 +1180,13 @@
       /* Main panel */
       /* Labels page */
       /* Confirm popup modal */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

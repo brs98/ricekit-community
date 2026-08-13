@@ -2,7 +2,7 @@
 @name GitHub Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.02.17.202605211213
+@version 2026.02.17.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/github.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for GitHub
@@ -15,6 +15,7 @@
 @-moz-document regexp("https:\/\/github\.com(?!(\/home$|\/features($|\/.*)|\/organizations\/plan)).*$"), domain("gist.github.com"), domain("docs.github.com"), domain("viewscreen.githubusercontent.com") {
   @media (prefers-color-scheme: light) {
     [data-color-mode][data-color-mode="auto"][data-light-theme="light"] {
+      color-scheme: light;
       color-scheme: dark;
       accent-color: var(--rk-accent);
       color: var(--rk-foreground);
@@ -406,6 +407,13 @@
       /* Header when logged out */
       /* Pull request check in progress indicator */
       /* Issue timeline icon */
+    }
+    [data-color-mode][data-color-mode="auto"][data-light-theme="light"] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    [data-color-mode][data-color-mode="auto"][data-light-theme="light"] input::placeholder,
+    [data-color-mode][data-color-mode="auto"][data-light-theme="light"] textarea::placeholder {
+      color: #a6adc8 !important;
     }
     [data-color-mode][data-color-mode="auto"][data-light-theme="light"] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -892,6 +900,13 @@
       /* Issue timeline icon */
     }
     [data-color-mode][data-color-mode="auto"][data-light-theme="dark"] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    [data-color-mode][data-color-mode="auto"][data-light-theme="dark"] input::placeholder,
+    [data-color-mode][data-color-mode="auto"][data-light-theme="dark"] textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    [data-color-mode][data-color-mode="auto"][data-light-theme="dark"] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     [data-color-mode][data-color-mode="auto"][data-light-theme="dark"] input::placeholder,
@@ -985,6 +1000,7 @@
   }
   @media (prefers-color-scheme: dark) {
     [data-color-mode][data-color-mode="auto"][data-dark-theme="light"] {
+      color-scheme: light;
       color-scheme: dark;
       accent-color: var(--rk-accent);
       color: var(--rk-foreground);
@@ -1376,6 +1392,13 @@
       /* Header when logged out */
       /* Pull request check in progress indicator */
       /* Issue timeline icon */
+    }
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="light"] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="light"] input::placeholder,
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="light"] textarea::placeholder {
+      color: #a6adc8 !important;
     }
     [data-color-mode][data-color-mode="auto"][data-dark-theme="light"] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1862,6 +1885,13 @@
       /* Issue timeline icon */
     }
     [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] input::placeholder,
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] input::placeholder,
@@ -2344,6 +2374,13 @@
       /* Header when logged out */
       /* Pull request check in progress indicator */
       /* Issue timeline icon */
+    }
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] header[data-color-mode] ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] header[data-color-mode] input::placeholder,
+    [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] header[data-color-mode] textarea::placeholder {
+      color: #a6adc8 !important;
     }
     [data-color-mode][data-color-mode="auto"][data-dark-theme="dark"] header[data-color-mode] ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -2833,6 +2870,16 @@
   }
   [data-color-mode="light"][data-light-theme="dark"] ::selection,
   [data-color-mode="dark"][data-dark-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-color-mode="light"][data-light-theme="dark"] input::placeholder,
+  [data-color-mode="dark"][data-dark-theme="dark"] input::placeholder,
+  [data-color-mode="light"][data-light-theme="dark"] textarea::placeholder,
+  [data-color-mode="dark"][data-dark-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  [data-color-mode="light"][data-light-theme="dark"] ::selection,
+  [data-color-mode="dark"][data-dark-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   [data-color-mode="light"][data-light-theme="dark"] input::placeholder,
@@ -2962,6 +3009,7 @@
   }
   [data-color-mode="light"][data-light-theme="light"],
   [data-color-mode="dark"][data-dark-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     accent-color: var(--rk-accent);
     color: var(--rk-foreground);
@@ -3353,6 +3401,16 @@
     /* Header when logged out */
     /* Pull request check in progress indicator */
     /* Issue timeline icon */
+  }
+  [data-color-mode="light"][data-light-theme="light"] ::selection,
+  [data-color-mode="dark"][data-dark-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  [data-color-mode="light"][data-light-theme="light"] input::placeholder,
+  [data-color-mode="dark"][data-dark-theme="light"] input::placeholder,
+  [data-color-mode="light"][data-light-theme="light"] textarea::placeholder,
+  [data-color-mode="dark"][data-dark-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   [data-color-mode="light"][data-light-theme="light"] ::selection,
   [data-color-mode="dark"][data-dark-theme="light"] ::selection {
@@ -3984,6 +4042,13 @@
     --jp-icon-contrast-color1: var(--color-scale-green-6);
     --jp-icon-contrast-color2: var(--color-scale-pink-6);
     --jp-icon-contrast-color3: var(--color-scale-blue-6);
+  }
+  :root ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root input::placeholder,
+  :root textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

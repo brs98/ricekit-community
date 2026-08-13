@@ -2,7 +2,7 @@
 @name Migadu Webmail Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/migadu-webmail.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Migadu Webmail
@@ -17,6 +17,7 @@
 @-moz-document domain("webmail.migadu.com") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       --main-color: var(--rk-foreground);
       --main-bg-color: var(--rk-background);
@@ -76,6 +77,13 @@
       /* Minimize and close icons */
       /* Email address field */
       /* Untheme message content */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -436,6 +444,13 @@
       /* Minimize and close icons */
       /* Email address field */
       /* Untheme message content */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

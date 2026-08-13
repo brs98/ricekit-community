@@ -2,7 +2,7 @@
 @name NameMC Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/namemc.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for NameMC
@@ -103,6 +103,13 @@
     --bs-link-hover-color: var(--rk-foreground);
     --bs-link-hover-color-rgb: 205, 214, 244;
     --bs-border-color: var(--rk-black);
+  }
+  :root[data-bs-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-bs-theme="dark"] input::placeholder,
+  :root[data-bs-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-bs-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -540,6 +547,7 @@
     color: var(--rk-foreground) !important;
   }
   :root[data-bs-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --bs-body-color: var(--rk-foreground);
     --bs-body-color-rgb: 205, 214, 244;
@@ -640,6 +648,13 @@
     --bs-link-hover-color: var(--rk-accent);
     --bs-link-hover-color-rgb: 203, 166, 247;
     --bs-border-color: var(--rk-crust);
+  }
+  :root[data-bs-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-bs-theme="light"] input::placeholder,
+  :root[data-bs-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-bs-theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

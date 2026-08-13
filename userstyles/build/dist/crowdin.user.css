@@ -2,7 +2,7 @@
 @name Crowdin Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/crowdin.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Crowdin
@@ -15,7 +15,15 @@
 @-moz-document regexp("https://crowdin.com(?!/translate).*") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -57,6 +65,13 @@
       color-scheme: dark;
     }
     :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root input::placeholder,
@@ -94,6 +109,14 @@
 }
 @-moz-document regexp("https://crowdin.com/translate/.*") {
   @media (prefers-color-scheme: light) {
+    color-scheme: light;
+    ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #a6adc8 !important;
+    }
     color-scheme: dark;
     ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -140,6 +163,13 @@
     }
   }
   @media (prefers-color-scheme: dark) {
+    ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    input::placeholder,
+    textarea::placeholder {
+      color: #a6adc8 !important;
+    }
     color-scheme: dark;
     ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

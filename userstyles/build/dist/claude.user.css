@@ -2,7 +2,7 @@
 @name Claude Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.04.11.1.202605211213
+@version 2026.04.11.1.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/claude.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Claude
@@ -86,6 +86,13 @@
     /* "Preview with an example..." pills */
     /* "Previewing with ..." dropdown button */
     /* White background (e.g., toggle switch thumb) */
+  }
+  :root[data-color-version="v2"][data-mode="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-color-version="v2"][data-mode="dark"] input::placeholder,
+  :root[data-color-version="v2"][data-mode="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-color-version="v2"][data-mode="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -191,6 +198,7 @@
     background-color: var(--rk-foreground);
   }
   :root[data-color-version="v2"][data-mode="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --accent-brand: 267.4074074074074 83.50515463917529% 80.98039215686275%;
     --accent-000: 267.4074074074074 83.50515463917529% 80.98039215686275%;
@@ -263,6 +271,13 @@
     /* "Preview with an example..." pills */
     /* "Previewing with ..." dropdown button */
     /* White background (e.g., toggle switch thumb) */
+  }
+  :root[data-color-version="v2"][data-mode="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-color-version="v2"][data-mode="light"] input::placeholder,
+  :root[data-color-version="v2"][data-mode="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-color-version="v2"][data-mode="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

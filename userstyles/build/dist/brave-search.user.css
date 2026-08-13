@@ -2,7 +2,7 @@
 @name Brave Search Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.01.15.202605211213
+@version 2026.01.15.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/brave-search.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Brave Search
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("search.brave.com") {
   :root.light {
+    color-scheme: light;
     color-scheme: dark;
     color: var(--rk-foreground);
     --color-text-primary: var(--rk-foreground);
@@ -56,6 +57,13 @@
     --color-primary-50: var(--rk-accent);
     /* Search Home */
     --gradient-icons-active: linear-gradient(321.5013deg, #fab387 3%, #f5c2e7 40%, #cba6f7 99%);
+  }
+  :root.light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.light input::placeholder,
+  :root.light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -172,6 +180,13 @@
     --gradient-icons-active: linear-gradient(321.5013deg, #fab387 3%, #f5c2e7 40%, #cba6f7 99%);
   }
   :root.dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.dark input::placeholder,
+  :root.dark textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root.dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root.dark input::placeholder,
@@ -243,6 +258,7 @@
   }
   @media (prefers-color-scheme: light) {
     :root:not(.light, .dark) {
+      color-scheme: light;
       color-scheme: dark;
       color: var(--rk-foreground);
       --color-text-primary: var(--rk-foreground);
@@ -285,6 +301,13 @@
       --color-primary-50: var(--rk-accent);
       /* Search Home */
       --gradient-icons-active: linear-gradient(321.5013deg, #fab387 3%, #f5c2e7 40%, #cba6f7 99%);
+    }
+    :root:not(.light, .dark) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not(.light, .dark) input::placeholder,
+    :root:not(.light, .dark) textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root:not(.light, .dark) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -401,6 +424,13 @@
       --color-primary-50: var(--rk-accent);
       /* Search Home */
       --gradient-icons-active: linear-gradient(321.5013deg, #fab387 3%, #f5c2e7 40%, #cba6f7 99%);
+    }
+    :root:not(.light, .dark) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not(.light, .dark) input::placeholder,
+    :root:not(.light, .dark) textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root:not(.light, .dark) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

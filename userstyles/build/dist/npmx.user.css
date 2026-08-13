@@ -2,7 +2,7 @@
 @name npmx Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.04.13.202605211213
+@version 2026.04.13.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/npmx.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for npmx
@@ -51,6 +51,13 @@
     --colors-orange-500: var(--rk-peach);
   }
   :root[data-theme="dark"][data-bg-theme] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="dark"][data-bg-theme] input::placeholder,
+  :root[data-theme="dark"][data-bg-theme] textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root[data-theme="dark"][data-bg-theme] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root[data-theme="dark"][data-bg-theme] input::placeholder,
@@ -58,6 +65,7 @@
     color: var(--rk-white) !important;
   }
   :root[data-theme="light"][data-bg-theme] {
+    color-scheme: light;
     color-scheme: dark;
     --bg: var(--rk-background);
     --bg-subtle: var(--rk-mantle);
@@ -93,6 +101,13 @@
     --colors-amber-500: var(--rk-peach);
     --colors-emerald-400: var(--rk-green);
     --colors-orange-500: var(--rk-peach);
+  }
+  :root[data-theme="light"][data-bg-theme] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="light"][data-bg-theme] input::placeholder,
+  :root[data-theme="light"][data-bg-theme] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-theme="light"][data-bg-theme] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

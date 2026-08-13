@@ -2,7 +2,7 @@
 @name Vikunja Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/vikunja.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Vikunja
@@ -56,6 +56,13 @@
     /* Keyboard Shortcuts modal */
     /* Popups */
     /* Vue Notifications */
+  }
+  :root.dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.dark input::placeholder,
+  :root.dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -268,6 +275,7 @@
     border-left-color: hsl(from var(--rk-green) h s calc(l - 5));
   }
   :root.light {
+    color-scheme: light;
     color-scheme: dark;
     --primary-h: 267.40740741 !important;
     --primary-s: 83.50515464% !important;
@@ -310,6 +318,13 @@
     /* Keyboard Shortcuts modal */
     /* Popups */
     /* Vue Notifications */
+  }
+  :root.light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.light input::placeholder,
+  :root.light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

@@ -2,7 +2,7 @@
 @name Invidious Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/invidious.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Invidious
@@ -21,12 +21,20 @@
 @-moz-document domain("anontube.lvkaszus.pl"), domain("inv.citw.lgbt"), domain("inv.in.projectsegfau.lt"), domain("inv.tux.pizza"), domain("inv.us.projectsegfau.lt"), domain("inv.zzls.xyz"), domain("invidious.asir.dev"), domain("invidious.drgns.space"), domain("invidious.einfachzocken.eu"), domain("invidious.fdn.fr"), domain("invidious.io.lol"), domain("invidious.lunar.icu"), domain("invidious.nerdvpn.de"), domain("invidious.no-logs.com"), domain("invidious.perennialte.ch"), domain("invidious.privacydev.net"), domain("invidious.private.coffee"), domain("invidious.projectsegfau.lt"), domain("invidious.protokolla.fi"), domain("invidious.slipfox.xyz"), domain("iv.datura.network"), domain("iv.ggtyler.dev"), domain("iv.melmac.space"), domain("iv.nboeck.de"), domain("iv.winston.sh"), domain("onion.tube"), domain("vid.priv.au"), domain("vid.puffyan.us"), domain("yewtu.be"), domain("yt.artemislena.eu"), domain("yt.cdaut.de"), domain("yt.drgnz.club"), domain("yt.oelrichsgarcia.de") {
   @media (prefers-color-scheme: light) {
     .no-theme {
+      color-scheme: light;
       color-scheme: dark;
       background-color: var(--rk-background) !important;
       color: var(--rk-foreground) !important;
       /* video player background */
       /* watch progress on videos */
       /* Channel owner comments */
+    }
+    .no-theme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    .no-theme input::placeholder,
+    .no-theme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     .no-theme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -218,6 +226,13 @@
       /* Channel owner comments */
     }
     .no-theme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    .no-theme input::placeholder,
+    .no-theme textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    .no-theme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     .no-theme input::placeholder,
@@ -398,12 +413,20 @@
     }
   }
   .light-theme {
+    color-scheme: light;
     color-scheme: dark;
     background-color: var(--rk-background) !important;
     color: var(--rk-foreground) !important;
     /* video player background */
     /* watch progress on videos */
     /* Channel owner comments */
+  }
+  .light-theme ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .light-theme input::placeholder,
+  .light-theme textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .light-theme ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -591,6 +614,13 @@
     /* video player background */
     /* watch progress on videos */
     /* Channel owner comments */
+  }
+  .dark-theme ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dark-theme input::placeholder,
+  .dark-theme textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .dark-theme ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

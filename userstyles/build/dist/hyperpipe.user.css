@@ -2,7 +2,7 @@
 @name Hyperpipe Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.03.21.202605211213
+@version 2026.03.21.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/hyperpipe.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Hyperpipe
@@ -15,6 +15,7 @@
 @-moz-document domain("hyperpipe.surge.sh") {
   @media (prefers-color-scheme: light) {
     body {
+      color-scheme: light;
       color-scheme: dark;
       --color-foreground: var(--rk-accent) !important;
       --color-background: var(--rk-background) !important;
@@ -28,6 +29,13 @@
       --color-scrollbar: var(--rk-accent) !important;
       --color-heading: var(--rk-foreground) !important;
       --color-text: var(--rk-foreground) !important;
+    }
+    body ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    body input::placeholder,
+    body textarea::placeholder {
+      color: #a6adc8 !important;
     }
     body ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -54,6 +62,13 @@
       --color-text: var(--rk-foreground) !important;
     }
     body ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    body input::placeholder,
+    body textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    body ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     body input::placeholder,
@@ -62,6 +77,7 @@
     }
   }
   body[data-theme^="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --color-foreground: var(--rk-accent) !important;
     --color-background: var(--rk-background) !important;
@@ -75,6 +91,13 @@
     --color-scrollbar: var(--rk-accent) !important;
     --color-heading: var(--rk-foreground) !important;
     --color-text: var(--rk-foreground) !important;
+  }
+  body[data-theme^="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body[data-theme^="light"] input::placeholder,
+  body[data-theme^="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body[data-theme^="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -100,6 +123,22 @@
     --color-scrollbar: var(--rk-accent) !important;
     --color-heading: var(--rk-foreground) !important;
     --color-text: var(--rk-foreground) !important;
+  }
+  body[data-theme^="dark"] ::selection,
+  body[data-theme^="black"] ::selection,
+  body[data-theme^="dracula"] ::selection,
+  body[data-theme^="nord"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body[data-theme^="dark"] input::placeholder,
+  body[data-theme^="black"] input::placeholder,
+  body[data-theme^="dracula"] input::placeholder,
+  body[data-theme^="nord"] input::placeholder,
+  body[data-theme^="dark"] textarea::placeholder,
+  body[data-theme^="black"] textarea::placeholder,
+  body[data-theme^="dracula"] textarea::placeholder,
+  body[data-theme^="nord"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body[data-theme^="dark"] ::selection,
   body[data-theme^="black"] ::selection,

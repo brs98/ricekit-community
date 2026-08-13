@@ -2,7 +2,7 @@
 @name Zen Browser Docs Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/zen-browser-docs.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Zen Browser Docs
@@ -15,6 +15,7 @@
 @-moz-document domain("zen-browser.app") {
   :root[data-theme="light"],
   .light {
+    color-scheme: light;
     color-scheme: dark;
     --zen-paper: var(--rk-mantle);
     --zen-dark: var(--rk-bright-white);
@@ -38,6 +39,16 @@
     --color-blue-500: var(--rk-blue);
     --color-red-500: var(--rk-red);
     --color-orange-500: var(--rk-peach);
+  }
+  :root[data-theme="light"] ::selection,
+  .light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="light"] input::placeholder,
+  .light input::placeholder,
+  :root[data-theme="light"] textarea::placeholder,
+  .light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-theme="light"] ::selection,
   .light ::selection {
@@ -114,6 +125,16 @@
     --color-blue-500: var(--rk-blue);
     --color-red-500: var(--rk-red);
     --color-orange-500: var(--rk-peach);
+  }
+  :root[data-theme="dark"] ::selection,
+  .dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="dark"] input::placeholder,
+  .dark input::placeholder,
+  :root[data-theme="dark"] textarea::placeholder,
+  .dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-theme="dark"] ::selection,
   .dark ::selection {

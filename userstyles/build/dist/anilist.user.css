@@ -2,7 +2,7 @@
 @name AniList/AniChart Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/anilist.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for AniList/AniChart
@@ -15,6 +15,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("anilist.co"), domain("anichart.net") {
   body:not(.site-theme-dark) {
+    color-scheme: light;
     color-scheme: dark;
     --color-blue-dim: 230.53897162, 215.09381443, 248.90618557;
     --color-background: 17, 17, 27;
@@ -107,6 +108,13 @@
     /* --------REMOVE DROPDOWN SHADOWS----- */
     /* ---------ANILIST LIKER PLUGIN------ */
     /* ---------AUTOMAIL TWEAKS--------- */
+  }
+  body:not(.site-theme-dark) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body:not(.site-theme-dark) input::placeholder,
+  body:not(.site-theme-dark) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body:not(.site-theme-dark) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -545,6 +553,13 @@
     /* ---------AUTOMAIL TWEAKS--------- */
   }
   .site-theme-dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .site-theme-dark input::placeholder,
+  .site-theme-dark textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .site-theme-dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .site-theme-dark input::placeholder,
@@ -945,8 +960,16 @@
 }
 @-moz-document domain("anichart.net") {
   body:not(.site-theme-dark) {
+    color-scheme: light;
     color-scheme: dark;
     --color-overlay: 205, 214, 244;
+  }
+  body:not(.site-theme-dark) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  body:not(.site-theme-dark) input::placeholder,
+  body:not(.site-theme-dark) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   body:not(.site-theme-dark) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -973,6 +996,13 @@
   }
   .site-theme-dark {
     color-scheme: dark;
+  }
+  .site-theme-dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .site-theme-dark input::placeholder,
+  .site-theme-dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .site-theme-dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

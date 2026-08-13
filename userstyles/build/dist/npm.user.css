@@ -2,7 +2,7 @@
 @name npm Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/npm.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for npm
@@ -15,6 +15,7 @@
 @-moz-document domain("www.npmjs.com") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       accent-color: var(--rk-accent);
       --color-fg-default: var(--rk-foreground);
@@ -116,6 +117,13 @@
       /* stylelint-disable declaration-block-single-line-max-declarations */
       /* deno-fmt-ignore */
       /* stylelint-enable declaration-block-single-line-max-declarations */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1131,6 +1139,13 @@
       /* stylelint-disable declaration-block-single-line-max-declarations */
       /* deno-fmt-ignore */
       /* stylelint-enable declaration-block-single-line-max-declarations */
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

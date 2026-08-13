@@ -2,7 +2,7 @@
 @name docs.rs Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.01.16.202605211213
+@version 2026.01.16.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/docs.rs.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for docs.rs
@@ -15,6 +15,7 @@
 @-moz-document domain("docs.rs"), domain("doc.rust-lang.org") {
   @media (prefers-color-scheme: light) {
     :root:not([data-docs-rs-theme]) {
+      color-scheme: light;
       color-scheme: dark;
       --color-background-code: var(--rk-mantle);
       --color-background: var(--rk-background);
@@ -153,6 +154,13 @@
       --scrape-example-help-hover-color: var(--rk-foreground);
       --scrape-example-code-wrapper-background-start: var(--rk-background);
       --scrape-example-code-wrapper-background-end: var(--rk-background);
+    }
+    :root:not([data-docs-rs-theme]) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not([data-docs-rs-theme]) input::placeholder,
+    :root:not([data-docs-rs-theme]) textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root:not([data-docs-rs-theme]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -363,6 +371,13 @@
       --scrape-example-code-wrapper-background-end: var(--rk-background);
     }
     :root:not([data-docs-rs-theme]) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not([data-docs-rs-theme]) input::placeholder,
+    :root:not([data-docs-rs-theme]) textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root:not([data-docs-rs-theme]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root:not([data-docs-rs-theme]) input::placeholder,
@@ -570,6 +585,13 @@
     --scrape-example-code-wrapper-background-end: var(--rk-background);
   }
   :root[data-docs-rs-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-docs-rs-theme="dark"] input::placeholder,
+  :root[data-docs-rs-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root[data-docs-rs-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root[data-docs-rs-theme="dark"] input::placeholder,
@@ -636,6 +658,7 @@
     border-color: var(--rk-surface0);
   }
   :root[data-docs-rs-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --color-background-code: var(--rk-mantle);
     --color-background: var(--rk-background);
@@ -774,6 +797,13 @@
     --scrape-example-help-hover-color: var(--rk-foreground);
     --scrape-example-code-wrapper-background-start: var(--rk-background);
     --scrape-example-code-wrapper-background-end: var(--rk-background);
+  }
+  :root[data-docs-rs-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-docs-rs-theme="light"] input::placeholder,
+  :root[data-docs-rs-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-docs-rs-theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

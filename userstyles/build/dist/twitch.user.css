@@ -2,7 +2,7 @@
 @name Twitch Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/twitch.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Twitch
@@ -90,6 +90,13 @@
     /* Guest Star What's new icon */
     /* Polls */
     /* Channel points rewards - Learn more */
+  }
+  .tw-root--theme-dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .tw-root--theme-dark input::placeholder,
+  .tw-root--theme-dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .tw-root--theme-dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -959,6 +966,7 @@
     color: var(--rk-foreground);
   }
   .tw-root--theme-light {
+    color-scheme: light;
     color-scheme: dark;
     --color-text-link: var(--rk-accent);
     --color-text-link-active: hsl(from var(--rk-accent) h s calc(l - 5));
@@ -1034,6 +1042,13 @@
     /* Guest Star What's new icon */
     /* Polls */
     /* Channel points rewards - Learn more */
+  }
+  .tw-root--theme-light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .tw-root--theme-light input::placeholder,
+  .tw-root--theme-light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .tw-root--theme-light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -2289,6 +2304,32 @@
 @-moz-document domain("dev.twitch.tv"), url-prefix("https://discuss.dev.twitch.com/embed/topics") {
   @media (prefers-color-scheme: light) {
     :root {
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       /* Recent announcements */
       /* Header */
@@ -2581,6 +2622,32 @@
   }
   @media (prefers-color-scheme: dark) {
     :root {
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       /* Recent announcements */
       /* Header */

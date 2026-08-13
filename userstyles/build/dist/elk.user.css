@@ -2,7 +2,7 @@
 @name Elk Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/elk.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Elk
@@ -39,6 +39,13 @@
     --c-danger: var(--rk-red) !important;
     --c-danger-active: hsl(from var(--rk-red) h s calc(l + 10)) !important;
     --c-bg-dm: var(--rk-surface0) !important;
+  }
+  :root.dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.dark input::placeholder,
+  :root.dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -86,6 +93,7 @@
     filter: none;
   }
   :root.light {
+    color-scheme: light;
     color-scheme: dark;
     --c-primary: var(--rk-accent) !important;
     --c-primary-active: hsl(from var(--rk-accent) h s calc(l + 10)) !important;
@@ -111,6 +119,13 @@
     --c-danger: var(--rk-red) !important;
     --c-danger-active: hsl(from var(--rk-red) h s calc(l + 10)) !important;
     --c-bg-dm: var(--rk-surface0) !important;
+  }
+  :root.light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.light input::placeholder,
+  :root.light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

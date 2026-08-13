@@ -2,7 +2,7 @@
 @name Lingva Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lingva.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Lingva
@@ -14,7 +14,15 @@
 /* deno-fmt-ignore */
 @-moz-document domain("lingva.ml"), domain("translate.plausibility.cloud"), domain("lingva.lunar.icu"), domain("translate.projectsegfau.lt"), domain("lingva.garudalinux.org") {
   .chakra-ui-light {
+    color-scheme: light;
     color-scheme: dark;
+  }
+  .chakra-ui-light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .chakra-ui-light input::placeholder,
+  .chakra-ui-light textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .chakra-ui-light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -78,6 +86,13 @@
   }
   .chakra-ui-dark {
     color-scheme: dark;
+  }
+  .chakra-ui-dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .chakra-ui-dark input::placeholder,
+  .chakra-ui-dark textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .chakra-ui-dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

@@ -2,7 +2,7 @@
 @name ChatReplay Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/chatreplay.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for ChatReplay
@@ -31,6 +31,13 @@
     --link-color: var(--rk-accent);
     --border-color: var(--rk-surface0);
     --settings-shadow: 0 4px 8px rgb(from var(--rk-crust) r g b / 0.4), 0 0 4px rgb(from var(--rk-crust) r g b / 0.4);
+  }
+  :root[dark] #chat-container ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[dark] #chat-container input::placeholder,
+  :root[dark] #chat-container textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[dark] #chat-container ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -78,6 +85,7 @@
     }
   }
   :root #chat-container {
+    color-scheme: light;
     color-scheme: dark;
     color: var(--rk-foreground);
     --text-color: var(--rk-foreground);
@@ -92,6 +100,13 @@
     --link-color: var(--rk-accent);
     --border-color: var(--rk-surface0);
     --settings-shadow: 0 4px 8px rgb(from var(--rk-crust) r g b / 0.4), 0 0 4px rgb(from var(--rk-crust) r g b / 0.4);
+  }
+  :root #chat-container ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root #chat-container input::placeholder,
+  :root #chat-container textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root #chat-container ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -140,9 +155,17 @@
   }
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       background-color: var(--rk-background);
       color: var(--rk-foreground);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -221,6 +244,13 @@
       color-scheme: dark;
       background-color: var(--rk-background);
       color: var(--rk-foreground);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

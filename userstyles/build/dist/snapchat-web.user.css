@@ -2,7 +2,7 @@
 @name Snapchat Web Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/snapchat-web.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Snapchat Web
@@ -16,6 +16,13 @@
   :root[theme="dark"] {
     color-scheme: dark;
     /* Snapchat applies the variables (overrides?) to specific elements so we need to apply to every element (with high specificity) to override those. */
+  }
+  :root[theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[theme="dark"] input::placeholder,
+  :root[theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -108,8 +115,16 @@
     fill: var(--rk-foreground);
   }
   :root[theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     /* Snapchat applies the variables (overrides?) to specific elements so we need to apply to every element (with high specificity) to override those. */
+  }
+  :root[theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[theme="light"] input::placeholder,
+  :root[theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

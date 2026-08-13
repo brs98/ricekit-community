@@ -2,7 +2,7 @@
 @name Canvas LMS Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.04.09.202605211213
+@version 2026.04.09.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/canvas-lms.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Canvas LMS
@@ -15,6 +15,7 @@
 @-moz-document domain("instructure.com"), domain("instructuremedia.com") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       /* GLOBALS/VARIABLES */
       --ic-brand-primary: var(--rk-accent);
@@ -145,6 +146,13 @@
       --bccards-ungradient: var(--rk-surface0);
       --bccards: var(--rk-surface0);
       --bcshadow: 0 0 10px 0 transparent;
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -3093,6 +3101,13 @@
       --bccards-ungradient: var(--rk-surface0);
       --bccards: var(--rk-surface0);
       --bcshadow: 0 0 10px 0 transparent;
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

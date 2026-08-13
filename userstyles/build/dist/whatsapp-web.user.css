@@ -2,7 +2,7 @@
 @name WhatsApp Web Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.07.03.202608061122
+@version 2026.07.03.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/whatsapp-web.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for WhatsApp Web
@@ -24,6 +24,7 @@
   .color-refresh,
   .app-wrapper-web.app-wrapper-web,
   .app-wrapper-web.app-wrapper-web:root {
+    color-scheme: light;
     color-scheme: dark;
     --WDS-accent: #cba6f7;
     --WDS-accent-RGB: 203, 166, 247;
@@ -248,6 +249,25 @@
     /* Date picker */
     --date-picker-text-color: #cdd6f4;
     --date-picker-text-color-rgb: 205, 214, 244;
+  }
+  :root:has( > :not(.dark)) ::selection,
+  :root .color-refresh ::selection,
+  .color-refresh ::selection,
+  .app-wrapper-web.app-wrapper-web ::selection,
+  .app-wrapper-web.app-wrapper-web:root ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has( > :not(.dark)) input::placeholder,
+  :root .color-refresh input::placeholder,
+  .color-refresh input::placeholder,
+  .app-wrapper-web.app-wrapper-web input::placeholder,
+  .app-wrapper-web.app-wrapper-web:root input::placeholder,
+  :root:has( > :not(.dark)) textarea::placeholder,
+  :root .color-refresh textarea::placeholder,
+  .color-refresh textarea::placeholder,
+  .app-wrapper-web.app-wrapper-web textarea::placeholder,
+  .app-wrapper-web.app-wrapper-web:root textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:has( > :not(.dark)) ::selection,
   :root .color-refresh ::selection,
@@ -571,6 +591,25 @@
     /* Date picker */
     --date-picker-text-color: #cdd6f4;
     --date-picker-text-color-rgb: 205, 214, 244;
+  }
+  :root:has(> .dark) ::selection,
+  .dark.color-refresh ::selection,
+  .color-refresh.dark ::selection,
+  .dark .app-wrapper-web.app-wrapper-web ::selection,
+  .dark .app-wrapper-web.app-wrapper-web:root ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has(> .dark) input::placeholder,
+  .dark.color-refresh input::placeholder,
+  .color-refresh.dark input::placeholder,
+  .dark .app-wrapper-web.app-wrapper-web input::placeholder,
+  .dark .app-wrapper-web.app-wrapper-web:root input::placeholder,
+  :root:has(> .dark) textarea::placeholder,
+  .dark.color-refresh textarea::placeholder,
+  .color-refresh.dark textarea::placeholder,
+  .dark .app-wrapper-web.app-wrapper-web textarea::placeholder,
+  .dark .app-wrapper-web.app-wrapper-web:root textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:has(> .dark) ::selection,
   .dark.color-refresh ::selection,

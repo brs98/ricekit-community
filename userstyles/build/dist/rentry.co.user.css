@@ -2,7 +2,7 @@
 @name Rentry.co Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/rentry.co.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Rentry.co
@@ -16,10 +16,43 @@
   @import url("https://python.catppuccin.com/pygments/catppuccin-variables.important.css");
   .dark-mode {
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     /* Editor and preview */
     /* Tab navigation */
     /* tables */
+  }
+  .dark-mode ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dark-mode input::placeholder,
+  .dark-mode textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .dark-mode ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -312,11 +345,45 @@
     content: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%239399b2%22%20class%3D%22bi%20bi-moon-fill%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20d%3D%22M6%20.278a.77.77%200%200%201%20.08.858%207.2%207.2%200%200%200-.878%203.46c0%204.021%203.278%207.277%207.318%207.277q.792-.001%201.533-.16a.79.79%200%200%201%20.81.316.73.73%200%200%201-.031.893A8.35%208.35%200%200%201%208.344%2016C3.734%2016%200%2012.286%200%207.71%200%204.266%202.114%201.312%205.124.06A.75.75%200%200%201%206%20.278%22/%3E%3C/svg%3E");
   }
   :root:not(.dark-mode) {
+    color-scheme: light;
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     /* Editor and preview */
     /* Tab navigation */
     /* tables */
+  }
+  :root:not(.dark-mode) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:not(.dark-mode) input::placeholder,
+  :root:not(.dark-mode) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:not(.dark-mode) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

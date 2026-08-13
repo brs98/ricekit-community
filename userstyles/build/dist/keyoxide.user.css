@@ -2,7 +2,7 @@
 @name Keyoxide Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/keyoxide.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Keyoxide
@@ -15,6 +15,7 @@
 @-moz-document url-prefix("https://keyoxide.org") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       --primary-color: var(--rk-accent);
       --primary-color-subtle: hsl(from var(--rk-accent) h s calc(l + 5));
@@ -40,6 +41,13 @@
       --input-background-color: var(--rk-mantle);
       --input-background-color-hover: var(--rk-mantle);
       --footer-text-color: var(--text-color-subtle);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -100,6 +108,13 @@
       --footer-text-color: var(--text-color-subtle);
     }
     :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root input::placeholder,
@@ -133,6 +148,7 @@
 @-moz-document domain("docs.keyoxide.org"), domain("blog.keyoxide.org") {
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
       background-color: var(--rk-background);
       --clr-primary-100: var(--rk-crust);
@@ -161,6 +177,13 @@
       --clr-border: var(--rk-surface0);
       --clr-link: var(--rk-blue);
       --clr-secondary-20: var(--rk-bright-white);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -263,6 +286,13 @@
       --clr-border: var(--rk-surface0);
       --clr-link: var(--rk-blue);
       --clr-secondary-20: var(--rk-bright-white);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

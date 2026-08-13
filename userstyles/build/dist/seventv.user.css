@@ -2,7 +2,7 @@
 @name 7TV Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/seventv.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for 7TV
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("7tv.app") {
   .light-theme {
+    color-scheme: light;
     color-scheme: dark;
     background-color: var(--rk-background);
     --secondary: var(--rk-surface0);
@@ -48,6 +49,13 @@
     /* Subscribe gradients */
     /* Home page glow */
     /* Sub badge progress bar */
+  }
+  .light-theme ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .light-theme input::placeholder,
+  .light-theme textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .light-theme ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -463,6 +471,13 @@
     /* Sub badge progress bar */
   }
   .dark-theme ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dark-theme input::placeholder,
+  .dark-theme textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .dark-theme ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .dark-theme input::placeholder,
@@ -841,6 +856,7 @@
   }
   @media (prefers-color-scheme: light) {
     .system-theme {
+      color-scheme: light;
       color-scheme: dark;
       background-color: var(--rk-background);
       --secondary: var(--rk-surface0);
@@ -875,6 +891,13 @@
       /* Subscribe gradients */
       /* Home page glow */
       /* Sub badge progress bar */
+    }
+    .system-theme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    .system-theme input::placeholder,
+    .system-theme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     .system-theme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1290,6 +1313,13 @@
       /* Subscribe gradients */
       /* Home page glow */
       /* Sub badge progress bar */
+    }
+    .system-theme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    .system-theme input::placeholder,
+    .system-theme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     .system-theme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

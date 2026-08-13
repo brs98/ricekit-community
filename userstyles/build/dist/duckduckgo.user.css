@@ -2,7 +2,7 @@
 @name DuckDuckGo Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.03.18.202605211213
+@version 2026.03.18.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/duckduckgo.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for DuckDuckGo
@@ -14,6 +14,7 @@
 /* deno-fmt-ignore */
 @-moz-document domain("duckduckgo.com"), domain("duck.ai") {
   :root:not(.dark-bg, .no-theme) {
+    color-scheme: light;
     color-scheme: dark;
     --sds-color-text-02: var(--rk-foreground) !important;
     --sds-color-text-disabled: var(--rk-overlay0) !important;
@@ -146,6 +147,13 @@
     /* color box */
     /* ai chat >:( */
     /* lyrics box */
+  }
+  :root:not(.dark-bg, .no-theme) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:not(.dark-bg, .no-theme) input::placeholder,
+  :root:not(.dark-bg, .no-theme) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:not(.dark-bg, .no-theme) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1097,6 +1105,13 @@
     /* lyrics box */
   }
   :root.dark-bg ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.dark-bg input::placeholder,
+  :root.dark-bg textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root.dark-bg ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root.dark-bg input::placeholder,
@@ -1913,6 +1928,7 @@
   }
   @media (prefers-color-scheme: light) {
     :root.no-theme {
+      color-scheme: light;
       color-scheme: dark;
       --sds-color-text-02: var(--rk-foreground) !important;
       --sds-color-text-disabled: var(--rk-overlay0) !important;
@@ -2045,6 +2061,13 @@
       /* color box */
       /* ai chat >:( */
       /* lyrics box */
+    }
+    :root.no-theme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root.no-theme input::placeholder,
+    :root.no-theme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root.no-theme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -2996,6 +3019,13 @@
       /* color box */
       /* ai chat >:( */
       /* lyrics box */
+    }
+    :root.no-theme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root.no-theme input::placeholder,
+    :root.no-theme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root.no-theme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

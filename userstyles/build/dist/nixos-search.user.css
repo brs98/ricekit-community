@@ -2,7 +2,7 @@
 @name NixOS Search Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.05.14.202605211213
+@version 2026.05.14.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/nixos-search.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for NixOS Search
@@ -15,6 +15,7 @@
 @-moz-document domain("search.nixos.org") {
   @media (prefers-color-scheme: light) {
     :root:not([data-theme]) {
+      color-scheme: light;
       color-scheme: dark;
       --background-color: var(--rk-background);
       --badge-background: var(--rk-bright-black);
@@ -44,6 +45,13 @@
       --text-color-light: var(--rk-foreground);
       --text-color-warning: var(--rk-yellow);
       /* Experimental Flakes label */
+    }
+    :root:not([data-theme]) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not([data-theme]) input::placeholder,
+    :root:not([data-theme]) textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root:not([data-theme]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -93,6 +101,13 @@
       /* Experimental Flakes label */
     }
     :root:not([data-theme]) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not([data-theme]) input::placeholder,
+    :root:not([data-theme]) textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root:not([data-theme]) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root:not([data-theme]) input::placeholder,
@@ -139,6 +154,13 @@
     /* Experimental Flakes label */
   }
   :root[data-theme="dark"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="dark"] input::placeholder,
+  :root[data-theme="dark"] textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root[data-theme="dark"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root[data-theme="dark"] input::placeholder,
@@ -153,6 +175,7 @@
     text-shadow: none;
   }
   :root[data-theme="light"] {
+    color-scheme: light;
     color-scheme: dark;
     --background-color: var(--rk-background);
     --badge-background: var(--rk-bright-black);
@@ -182,6 +205,13 @@
     --text-color-light: var(--rk-foreground);
     --text-color-warning: var(--rk-yellow);
     /* Experimental Flakes label */
+  }
+  :root[data-theme="light"] ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root[data-theme="light"] input::placeholder,
+  :root[data-theme="light"] textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root[data-theme="light"] ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

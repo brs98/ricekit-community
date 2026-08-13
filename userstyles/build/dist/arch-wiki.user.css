@@ -2,7 +2,7 @@
 @name Arch Wiki Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/arch-wiki.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Arch Wiki
@@ -18,7 +18,24 @@
     .vector-feature-night-mode-enabled,
     .skin-invert,
     .notheme {
+      color-scheme: light;
       color-scheme: dark;
+    }
+    :root.skin-theme-clientpref-os ::selection,
+    .vector-feature-night-mode-enabled ::selection,
+    .skin-invert ::selection,
+    .notheme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root.skin-theme-clientpref-os input::placeholder,
+    .vector-feature-night-mode-enabled input::placeholder,
+    .skin-invert input::placeholder,
+    .notheme input::placeholder,
+    :root.skin-theme-clientpref-os textarea::placeholder,
+    .vector-feature-night-mode-enabled textarea::placeholder,
+    .skin-invert textarea::placeholder,
+    .notheme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root.skin-theme-clientpref-os ::selection,
     .vector-feature-night-mode-enabled ::selection,
@@ -818,6 +835,22 @@
     .vector-feature-night-mode-enabled ::selection,
     .skin-invert ::selection,
     .notheme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root.skin-theme-clientpref-os input::placeholder,
+    .vector-feature-night-mode-enabled input::placeholder,
+    .skin-invert input::placeholder,
+    .notheme input::placeholder,
+    :root.skin-theme-clientpref-os textarea::placeholder,
+    .vector-feature-night-mode-enabled textarea::placeholder,
+    .skin-invert textarea::placeholder,
+    .notheme textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root.skin-theme-clientpref-os ::selection,
+    .vector-feature-night-mode-enabled ::selection,
+    .skin-invert ::selection,
+    .notheme ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root.skin-theme-clientpref-os input::placeholder,
@@ -1605,6 +1638,13 @@
     color-scheme: dark;
   }
   :root.skin-theme-clientpref-night ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.skin-theme-clientpref-night input::placeholder,
+  :root.skin-theme-clientpref-night textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  :root.skin-theme-clientpref-night ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   :root.skin-theme-clientpref-night input::placeholder,
@@ -1968,7 +2008,15 @@
     background-color: var(--rk-surface0) !important;
   }
   :root.skin-theme-clientpref-day {
+    color-scheme: light;
     color-scheme: dark;
+  }
+  :root.skin-theme-clientpref-day ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.skin-theme-clientpref-day input::placeholder,
+  :root.skin-theme-clientpref-day textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.skin-theme-clientpref-day ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

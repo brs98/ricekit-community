@@ -2,7 +2,7 @@
 @name MDN Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/mdn.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for MDN
@@ -15,7 +15,34 @@
 @-moz-document domain("developer.mozilla.org") {
   @import url("https://prismjs.catppuccin.com/variables.important.css");
   .light {
+    color-scheme: light;
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-text-primary: var(--rk-foreground);
     --color-text-secondary: var(--rk-white);
@@ -81,6 +108,13 @@
     --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
   }
   .light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .light input::placeholder,
+  .light textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .light input::placeholder,
@@ -110,6 +144,32 @@
   }
   .dark {
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-text-primary: var(--rk-foreground);
     --color-text-secondary: var(--rk-white);
@@ -175,6 +235,13 @@
     --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
   }
   .dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dark input::placeholder,
+  .dark textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .dark input::placeholder,
@@ -205,7 +272,34 @@
   /* stylelint-disable selector-not-notation */
   @media (prefers-color-scheme: light) {
     :root:not(.light):not(.dark) {
+      color-scheme: light;
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-text-primary: var(--rk-foreground);
       --color-text-secondary: var(--rk-white);
@@ -271,6 +365,13 @@
       --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
     }
     :root:not(.light):not(.dark) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not(.light):not(.dark) input::placeholder,
+    :root:not(.light):not(.dark) textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root:not(.light):not(.dark) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root:not(.light):not(.dark) input::placeholder,
@@ -302,6 +403,32 @@
   @media (prefers-color-scheme: dark) {
     :root:not(.light):not(.dark) {
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-text-primary: var(--rk-foreground);
       --color-text-secondary: var(--rk-white);
@@ -365,6 +492,13 @@
       --color-purple-50: hsl(267.40740741, 83.50515464%, 50%);
       --color-purple-20: hsl(267.40740741, 83.50515464%, 20%);
       --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
+    }
+    :root:not(.light):not(.dark) ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root:not(.light):not(.dark) input::placeholder,
+    :root:not(.light):not(.dark) textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root:not(.light):not(.dark) ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -399,7 +533,34 @@
 }
 @-moz-document domain("interactive-examples.mdn.mozilla.net") {
   .theme-light {
+    color-scheme: light;
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-text-primary: var(--rk-foreground);
     --color-text-secondary: var(--rk-white);
@@ -465,6 +626,13 @@
     --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
   }
   .theme-light ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .theme-light input::placeholder,
+  .theme-light textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .theme-light ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .theme-light input::placeholder,
@@ -494,6 +662,32 @@
   }
   .theme-dark {
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-text-primary: var(--rk-foreground);
     --color-text-secondary: var(--rk-white);
@@ -559,6 +753,13 @@
     --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
   }
   .theme-dark ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .theme-dark input::placeholder,
+  .theme-dark textarea::placeholder {
+    color: #a6adc8 !important;
+  }
+  .theme-dark ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
   }
   .theme-dark input::placeholder,
@@ -588,7 +789,34 @@
   }
   @media (prefers-color-scheme: light) {
     :root {
+      color-scheme: light;
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-text-primary: var(--rk-foreground);
       --color-text-secondary: var(--rk-white);
@@ -654,6 +882,13 @@
       --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
     }
     :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     :root input::placeholder,
@@ -685,6 +920,32 @@
   @media (prefers-color-scheme: dark) {
     :root {
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-text-primary: var(--rk-foreground);
       --color-text-secondary: var(--rk-white);
@@ -748,6 +1009,13 @@
       --color-purple-50: hsl(267.40740741, 83.50515464%, 50%);
       --color-purple-20: hsl(267.40740741, 83.50515464%, 20%);
       --color-purple-10: hsl(267.40740741, 83.50515464%, 10%);
+    }
+    :root ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root input::placeholder,
+    :root textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);

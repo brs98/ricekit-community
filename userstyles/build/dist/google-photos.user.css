@@ -2,7 +2,7 @@
 @name Google Photos Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/google-photos.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Google Photos
@@ -15,6 +15,7 @@
 @-moz-document domain("photos.google.com") {
   @media (prefers-color-scheme: light) {
     body {
+      color-scheme: light;
       color-scheme: dark;
       --gm3-sys-color-background: #1e1e2e;
       --gm3-sys-color-background-rgb: 30, 30, 46;
@@ -150,6 +151,13 @@
       --gm3-sys-color-twitter: #cdd6f4;
       --gm3-sys-color-twitter-rgb: 205, 214, 244;
       /* google 1 more storage border */
+    }
+    body ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    body input::placeholder,
+    body textarea::placeholder {
+      color: #a6adc8 !important;
     }
     body ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -349,6 +357,13 @@
       /* google 1 more storage border */
     }
     body ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    body input::placeholder,
+    body textarea::placeholder {
+      color: #a6adc8 !important;
+    }
+    body ::selection {
       background-color: rgb(from var(--rk-accent) r g b / 0.3);
     }
     body input::placeholder,
@@ -403,6 +418,7 @@
     }
   }
   .zKHdkd {
+    color-scheme: light;
     color-scheme: dark;
     --gm3-sys-color-background: #1e1e2e;
     --gm3-sys-color-background-rgb: 30, 30, 46;
@@ -538,6 +554,13 @@
     --gm3-sys-color-twitter: #cdd6f4;
     --gm3-sys-color-twitter-rgb: 205, 214, 244;
     /* google 1 more storage border */
+  }
+  .zKHdkd ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .zKHdkd input::placeholder,
+  .zKHdkd textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .zKHdkd ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -733,6 +756,13 @@
     --gm3-sys-color-twitter: #cdd6f4;
     --gm3-sys-color-twitter-rgb: 205, 214, 244;
     /* google 1 more storage border */
+  }
+  .dm7YTc ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  .dm7YTc input::placeholder,
+  .dm7YTc textarea::placeholder {
+    color: #a6adc8 !important;
   }
   .dm7YTc ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);

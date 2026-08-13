@@ -2,7 +2,7 @@
 @name Wikipedia Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202605211213
+@version 2025.09.06.202608131003
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/wikipedia.user.css
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Wikipedia
@@ -20,7 +20,34 @@
     .vector-feature-night-mode-enabled,
     .skin-invert,
     .notheme {
+      color-scheme: light;
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-base: var(--rk-foreground);
       --color-base--hover: var(--rk-foreground);
@@ -115,6 +142,22 @@
       /* Page preview */
       /* Icons */
       /* Logos */
+    }
+    :root.skin-theme-clientpref-os ::selection,
+    .vector-feature-night-mode-enabled ::selection,
+    .skin-invert ::selection,
+    .notheme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root.skin-theme-clientpref-os input::placeholder,
+    .vector-feature-night-mode-enabled input::placeholder,
+    .skin-invert input::placeholder,
+    .notheme input::placeholder,
+    :root.skin-theme-clientpref-os textarea::placeholder,
+    .vector-feature-night-mode-enabled textarea::placeholder,
+    .skin-invert textarea::placeholder,
+    .notheme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root.skin-theme-clientpref-os ::selection,
     .vector-feature-night-mode-enabled ::selection,
@@ -699,6 +742,32 @@
     .skin-invert,
     .notheme {
       color-scheme: dark;
+      --ctp-rosewater: #f5e0dc;
+      --ctp-flamingo: #f2cdcd;
+      --ctp-pink: #f5c2e7;
+      --ctp-mauve: #cba6f7;
+      --ctp-red: #f38ba8;
+      --ctp-maroon: #eba0ac;
+      --ctp-peach: #fab387;
+      --ctp-yellow: #f9e2af;
+      --ctp-green: #a6e3a1;
+      --ctp-teal: #94e2d5;
+      --ctp-sky: #89dceb;
+      --ctp-sapphire: #74c7ec;
+      --ctp-blue: #89b4fa;
+      --ctp-lavender: #b4befe;
+      --ctp-text: #cdd6f4;
+      --ctp-subtext1: #bac2de;
+      --ctp-subtext0: #a6adc8;
+      --ctp-overlay2: #9399b2;
+      --ctp-overlay1: #7f849c;
+      --ctp-overlay0: #6c7086;
+      --ctp-surface2: #585b70;
+      --ctp-surface1: #45475a;
+      --ctp-surface0: #313244;
+      --ctp-base: #1e1e2e;
+      --ctp-mantle: #181825;
+      --ctp-crust: #11111b;
       /* no-op — runtime :root override handles this */
       --color-base: var(--rk-foreground);
       --color-base--hover: var(--rk-foreground);
@@ -793,6 +862,22 @@
       /* Page preview */
       /* Icons */
       /* Logos */
+    }
+    :root.skin-theme-clientpref-os ::selection,
+    .vector-feature-night-mode-enabled ::selection,
+    .skin-invert ::selection,
+    .notheme ::selection {
+      background-color: rgba(203, 166, 247, 0.3);
+    }
+    :root.skin-theme-clientpref-os input::placeholder,
+    .vector-feature-night-mode-enabled input::placeholder,
+    .skin-invert input::placeholder,
+    .notheme input::placeholder,
+    :root.skin-theme-clientpref-os textarea::placeholder,
+    .vector-feature-night-mode-enabled textarea::placeholder,
+    .skin-invert textarea::placeholder,
+    .notheme textarea::placeholder {
+      color: #a6adc8 !important;
     }
     :root.skin-theme-clientpref-os ::selection,
     .vector-feature-night-mode-enabled ::selection,
@@ -1373,6 +1458,32 @@
   }
   :root.skin-theme-clientpref-night {
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-base: var(--rk-foreground);
     --color-base--hover: var(--rk-foreground);
@@ -1467,6 +1578,13 @@
     /* Page preview */
     /* Icons */
     /* Logos */
+  }
+  :root.skin-theme-clientpref-night ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.skin-theme-clientpref-night input::placeholder,
+  :root.skin-theme-clientpref-night textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.skin-theme-clientpref-night ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -1748,7 +1866,34 @@
     background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2220%22%20height%3D%2220%22%20viewBox%3D%220%200%2020%2020%22%3E%3Cpath%20d%3D%22M12%2012a2%202%200%200%201-2-2V5.25l-9%209V19h4.75l7-7zm7-8h-.5V2.5a2.5%202.5%200%200%200-5%200V4H13a1%201%200%200%200-1%201v4a1%201%200%200%200%201%201h6a1%201%200%200%200%201-1V5a1%201%200%200%200-1-1m-3%204a1%201%200%201%201%201-1%201%201%200%200%201-1%201m1.5-4h-3V2.75C14.5%202%2014.5%201%2016%201s1.5%201%201.5%201.75z%22%20fill%3D%22%23cdd6f4%22/%3E%3C/svg%3E");
   }
   :root.skin-theme-clientpref-day {
+    color-scheme: light;
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-base: var(--rk-foreground);
     --color-base--hover: var(--rk-foreground);
@@ -1843,6 +1988,13 @@
     /* Page preview */
     /* Icons */
     /* Logos */
+  }
+  :root.skin-theme-clientpref-day ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root.skin-theme-clientpref-day input::placeholder,
+  :root.skin-theme-clientpref-day textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root.skin-theme-clientpref-day ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
@@ -2193,7 +2345,34 @@
   }
   /* Root */
   :root:has(.central-featured) {
+    color-scheme: light;
     color-scheme: dark;
+    --ctp-rosewater: #f5e0dc;
+    --ctp-flamingo: #f2cdcd;
+    --ctp-pink: #f5c2e7;
+    --ctp-mauve: #cba6f7;
+    --ctp-red: #f38ba8;
+    --ctp-maroon: #eba0ac;
+    --ctp-peach: #fab387;
+    --ctp-yellow: #f9e2af;
+    --ctp-green: #a6e3a1;
+    --ctp-teal: #94e2d5;
+    --ctp-sky: #89dceb;
+    --ctp-sapphire: #74c7ec;
+    --ctp-blue: #89b4fa;
+    --ctp-lavender: #b4befe;
+    --ctp-text: #cdd6f4;
+    --ctp-subtext1: #bac2de;
+    --ctp-subtext0: #a6adc8;
+    --ctp-overlay2: #9399b2;
+    --ctp-overlay1: #7f849c;
+    --ctp-overlay0: #6c7086;
+    --ctp-surface2: #585b70;
+    --ctp-surface1: #45475a;
+    --ctp-surface0: #313244;
+    --ctp-base: #1e1e2e;
+    --ctp-mantle: #181825;
+    --ctp-crust: #11111b;
     /* no-op — runtime :root override handles this */
     --color-base: var(--rk-foreground);
     --color-base--hover: var(--rk-foreground);
@@ -2288,6 +2467,13 @@
     /* Page preview */
     /* Icons */
     /* Logos */
+  }
+  :root:has(.central-featured) ::selection {
+    background-color: rgba(203, 166, 247, 0.3);
+  }
+  :root:has(.central-featured) input::placeholder,
+  :root:has(.central-featured) textarea::placeholder {
+    color: #a6adc8 !important;
   }
   :root:has(.central-featured) ::selection {
     background-color: rgb(from var(--rk-accent) r g b / 0.3);
