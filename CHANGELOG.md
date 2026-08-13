@@ -1,3 +1,10 @@
+## 2026-08-13 20 59
+### Added
+- Preserve upstream LESS with runtime themes (#36)
+
+### Changed
+- Bump upstream catppuccin (#31)
+
 ## 2026-07-18 09 12
 ### Added
 - Add Osaka Jade desktop Rice
