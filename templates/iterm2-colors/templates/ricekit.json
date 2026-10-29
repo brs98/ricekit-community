@@ -1,0 +1,35 @@
+{
+  "Profiles": [
+    {
+      "Name": "RiceKit",
+      "Guid": "CE1196EF-8954-4A7B-BE4A-4C9ED097682B",
+      "Use Separate Colors for Light and Dark Mode": false,
+      "Use Selected Text Color": true,
+      "Smart Cursor Color": false,
+      "Ansi 0 Color": { "Red Component": {{r_float(black)}}, "Green Component": {{g_float(black)}}, "Blue Component": {{b_float(black)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 1 Color": { "Red Component": {{r_float(red)}}, "Green Component": {{g_float(red)}}, "Blue Component": {{b_float(red)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 2 Color": { "Red Component": {{r_float(green)}}, "Green Component": {{g_float(green)}}, "Blue Component": {{b_float(green)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 3 Color": { "Red Component": {{r_float(yellow)}}, "Green Component": {{g_float(yellow)}}, "Blue Component": {{b_float(yellow)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 4 Color": { "Red Component": {{r_float(blue)}}, "Green Component": {{g_float(blue)}}, "Blue Component": {{b_float(blue)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 5 Color": { "Red Component": {{r_float(magenta)}}, "Green Component": {{g_float(magenta)}}, "Blue Component": {{b_float(magenta)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 6 Color": { "Red Component": {{r_float(cyan)}}, "Green Component": {{g_float(cyan)}}, "Blue Component": {{b_float(cyan)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 7 Color": { "Red Component": {{r_float(white)}}, "Green Component": {{g_float(white)}}, "Blue Component": {{b_float(white)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 8 Color": { "Red Component": {{r_float(bright_black)}}, "Green Component": {{g_float(bright_black)}}, "Blue Component": {{b_float(bright_black)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 9 Color": { "Red Component": {{r_float(bright_red)}}, "Green Component": {{g_float(bright_red)}}, "Blue Component": {{b_float(bright_red)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 10 Color": { "Red Component": {{r_float(bright_green)}}, "Green Component": {{g_float(bright_green)}}, "Blue Component": {{b_float(bright_green)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 11 Color": { "Red Component": {{r_float(bright_yellow)}}, "Green Component": {{g_float(bright_yellow)}}, "Blue Component": {{b_float(bright_yellow)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 12 Color": { "Red Component": {{r_float(bright_blue)}}, "Green Component": {{g_float(bright_blue)}}, "Blue Component": {{b_float(bright_blue)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 13 Color": { "Red Component": {{r_float(bright_magenta)}}, "Green Component": {{g_float(bright_magenta)}}, "Blue Component": {{b_float(bright_magenta)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 14 Color": { "Red Component": {{r_float(bright_cyan)}}, "Green Component": {{g_float(bright_cyan)}}, "Blue Component": {{b_float(bright_cyan)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Ansi 15 Color": { "Red Component": {{r_float(bright_white)}}, "Green Component": {{g_float(bright_white)}}, "Blue Component": {{b_float(bright_white)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Foreground Color": { "Red Component": {{r_float(foreground)}}, "Green Component": {{g_float(foreground)}}, "Blue Component": {{b_float(foreground)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Background Color": { "Red Component": {{r_float(background)}}, "Green Component": {{g_float(background)}}, "Blue Component": {{b_float(background)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Bold Color": { "Red Component": {{r_float(foreground)}}, "Green Component": {{g_float(foreground)}}, "Blue Component": {{b_float(foreground)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Cursor Color": { "Red Component": {{r_float(accent)}}, "Green Component": {{g_float(accent)}}, "Blue Component": {{b_float(accent)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Cursor Text Color": { "Red Component": {{r_float(background)}}, "Green Component": {{g_float(background)}}, "Blue Component": {{b_float(background)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Selection Color": { "Red Component": {{r_float(surface)}}, "Green Component": {{g_float(surface)}}, "Blue Component": {{b_float(surface)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Selected Text Color": { "Red Component": {{r_float(foreground)}}, "Green Component": {{g_float(foreground)}}, "Blue Component": {{b_float(foreground)}}, "Alpha Component": 1, "Color Space": "sRGB" },
+      "Link Color": { "Red Component": {{r_float(accent)}}, "Green Component": {{g_float(accent)}}, "Blue Component": {{b_float(accent)}}, "Alpha Component": 1, "Color Space": "sRGB" }
+    }
+  ]
+}

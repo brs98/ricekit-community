@@ -1,0 +1,40 @@
+[metadata]
+name = "iterm2-colors"
+author = "ricekit"
+version = "1.0.0"
+description = "iTerm2 theme colors as a live-reloading RiceKit Dynamic Profile"
+setup_instructions = """RiceKit writes a Dynamic Profile named "RiceKit" to:
+
+~/Library/Application Support/iTerm2/DynamicProfiles/ricekit.json
+
+In iTerm2, open Settings > Profiles, select "RiceKit", and choose
+Other Actions > Set as Default. iTerm2 reloads the file on every apply, so
+open sessions using the RiceKit profile recolor without a restart. Fonts and
+other settings not set by RiceKit are inherited from your default profile."""
+app = "iterm2"
+category = "terminal"
+type = "colors"
+
+# Direct, not symlink: iTerm2 reloads Dynamic Profiles when the folder's
+# contents change, and swapping a symlink's target never touches the folder.
+[target.macos]
+path = "~/Library/Application Support/iTerm2/DynamicProfiles/ricekit.json"
+strategy = "direct"
+
+[requires]
+colors = ["ansi", "semantic"]
+
+[setup]
+id = "iterm2-colors-setup"
+version = 1
+platforms = ["macos"]
+manual_fallback = "In iTerm2, open Settings > Profiles, select the \"RiceKit\" profile, and choose Other Actions > Set as Default."
+
+[[setup.actions]]
+type = "manual"
+id = "set-default-profile"
+instructions = "In iTerm2, open Settings > Profiles, select the \"RiceKit\" profile, and choose Other Actions > Set as Default. New windows then use RiceKit colors."
+
+[[setup.visibility_hints]]
+kind = "open_new_window"
+message = "Open a new iTerm2 window with the RiceKit profile to see the colors."
