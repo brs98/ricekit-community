@@ -35,4 +35,5 @@ Open `chrome://policy` and look for `BrowserThemeColor`. The Level column should
 #### Notes
 
 - This makes Chrome show "Managed by your organization" in the menu (any policy does). That's expected.
+- On MDM-managed Macs (Jamf, Kandji, Intune, and similar), the MDM agent owns `/Library/Managed Preferences` and rewrites it on each profile sync, so the one-time setup above does not stick and reloads leave Chrome unchanged. Ask your MDM admin to deliver `BrowserThemeColor` in a configuration profile instead.
 - Per-page theming (Catppuccin userstyles) is owned by the userstyles config + Stylus. This template only colors Chrome's own UI.
