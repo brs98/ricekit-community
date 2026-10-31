@@ -2,7 +2,7 @@
 @name YouTube Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2026.04.14.202608132022
+@version 2026.10.22.202610311503
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/youtube.user.less
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for YouTube
@@ -1049,13 +1049,10 @@
       color: @subtext0 !important;
     }
     // Badges (e.g. "CC", "New")
+    .ytBadgeShapeThumbnailSpecial,
     .ytBadgeShapeDefault {
-      color: @subtext0;
-      background: @surface1;
-
-      &.ytBadgeShapeModern {
-        background: none;
-      }
+      color: @base;
+      background: @accent;
     }
     // "Fundraiser"
     .ytBadgeShapeCommerce {
