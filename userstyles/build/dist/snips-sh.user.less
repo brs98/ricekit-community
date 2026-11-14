@@ -1,0 +1,52 @@
+/* ==UserStyle==
+@name snips.sh Ricekit
+@namespace github.com/brs98/ricekit-community/userstyles
+@homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
+@version 2026.11.01.202611141534
+@updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/snips-sh.user.less
+@supportURL https://github.com/brs98/ricekit-community/issues
+@description Ricekit version of Catppuccin for snips.sh
+@author Catppuccin
+@license MIT
+
+@preprocessor less
+==/UserStyle== */
+
+@import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
+
+@-moz-document domain("snips.sh") {
+  :root {
+    @media (prefers-color-scheme: light) {
+      #catppuccin(@lightFlavor);
+    }
+    @media (prefers-color-scheme: dark) {
+      #catppuccin(@darkFlavor);
+    }
+  }
+  @import (css)
+    url("https://chroma.catppuccin.com/@{lightFlavor}-chroma-style.css")
+    (prefers-color-scheme: light);
+  @import (css)
+    url("https://chroma.catppuccin.com/@{darkFlavor}-chroma-style.css")
+    (prefers-color-scheme: dark);
+
+  #catppuccin(@flavor) {
+    #lib.palette();
+    #lib.defaults();
+
+    --color-primary: @accent !important;
+    --color-surface-0: @base;
+    --color-surface-1: @mantle;
+    --color-surface-2: @surface0;
+    --color-border: @surface0;
+    --color-gray: @subtext0;
+    --color-blue: @blue;
+    --color-red: @red;
+    --color-amber: @yellow;
+    --color-green: @green;
+    --color-teal: @teal;
+    --color-purple: @mauve;
+    --color-pink: @pink;
+    --color-white: @text;
+  }
+}
