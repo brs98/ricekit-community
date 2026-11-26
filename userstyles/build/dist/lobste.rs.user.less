@@ -2,7 +2,7 @@
 @name Lobsters Ricekit
 @namespace github.com/brs98/ricekit-community/userstyles
 @homepageURL https://github.com/brs98/ricekit-community/tree/main/userstyles
-@version 2025.09.06.202608132022
+@version 2026.11.21.202611261850
 @updateURL https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/build/dist/lobste.rs.user.less
 @supportURL https://github.com/brs98/ricekit-community/issues
 @description Ricekit version of Catppuccin for Lobsters
@@ -15,7 +15,10 @@
 @import "https://raw.githubusercontent.com/brs98/ricekit-community/main/userstyles/lib/std/v1.less";
 
 @-moz-document domain("lobste.rs") {
-  html:has(head > link[rel="stylesheet"][href^="/assets/system-"]) {
+  html:has(
+    head > link[rel="stylesheet"][href="/system-system.css"], head
+      > link[rel="stylesheet"][href^="/assets/system-"]
+  ) {
     @media (prefers-color-scheme: light) {
       #catppuccin(@lightFlavor);
     }
